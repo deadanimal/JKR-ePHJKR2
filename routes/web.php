@@ -15,11 +15,12 @@ use App\Http\Controllers\KriteriaGpssJalanController;
     Route::get('', [UserController::class, 'home']); 
 
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
+    Route::get('projek/borang', [ProjekController::class, 'borang_projek']); 
     Route::post('projek', [ProjekController::class, 'cipta_projek']); 
     Route::get('projek/{id}', [ProjekController::class, 'satu_projek']); 
     Route::put('projek/{id}', [ProjekController::class, 'kemaskini_projek']); 
 
-    Route::post('projek/{id}/eph-bangunan/rekabentuk', [ProjekController::class, 'simpan_ephb_rekabentuk']); 
+    Route::post('projek/{id}/eph-bangunan/rekabentuk', [KriteriaEphBangunanController::class, 'simpan']); 
     Route::post('projek/{id}/eph-bangunan/verifikasi', [ProjekController::class, 'simpan_ephb_verifikasi']); 
     Route::post('projek/{id}/eph-bangunan/validasi', [ProjekController::class, 'simpan_ephb_validasi']); 
 

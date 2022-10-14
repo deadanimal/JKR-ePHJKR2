@@ -25,16 +25,45 @@ class ProjekController extends Controller
     public function cipta_projek(Request $request) {
         
         $projek = New Projek;
+
+        $projek->nama = $request->nama;
+        $projek->alamat = $request->alamat;
+        $projek->poskod = $request->poskod;
+        $projek->bandar = $request->bandar;
+        $projek->negeri = $request->negeri;
+        $projek->keluasanTapak = $request->keluasanTapak;
+        $projek->jumlahBlokBangunan = $request->jumlahBlokBangunan;
+        $projek->tarikhJangkaMulaPembinaan = $request->tarikhJangkaMulaPembinaan;
+        $projek->tarikhJangkaSiapPembinaan = $request->tarikhJangkaSiapPembinaan;
+        $projek->kaedahPelaksanaan = $request->kaedahPelaksanaan;
+        $projek->jenisPerolehan = $request->jenisPerolehan;
+        $projek->kosProjek = $request->kosProjek;
+        $projek->jenisProjek = $request->jenisProjek;
+        $projek->kategori = $request->kategori;
+
+        if($projek->kategori == 'phJKR Bangunan') {
+            $kriteria = New KriteriaEphBangunan;
+            $kriteria->projek_id = $projek->id;
+            $kriteria->save();
+        }     
+
         $projek->save();
 
         return back();
     }
 
     public function satu_projek(Request $request) {
-        $id = (int)$request->route('id');
-        $projek = Projek::find($id);
         
-        return view('projek.satu', compact('projek'));            
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);        
+
+        if($projek->kategori == 'phJKR Bangunan') {
+            $kriteria = KriteriaEphBangunan::where('projek_id', $projek->id)->first();
+            return view('projek.satu_eph_bangunan', compact('projek', 'kriteria'));            
+        } else {
+            dd('OK');
+        }
+        
     }
 
 
