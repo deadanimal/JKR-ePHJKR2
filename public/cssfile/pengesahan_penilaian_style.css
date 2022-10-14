@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.pengesahan-penilaian {
+    /* Paparan Senarai Projek */
+
+/* 
+    position: absolute;
+    width: 195px;
+    height: 20px;
+    left: 338px;
+    top: 186px; */
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+    display: flex;
+    align-items: center;
+
+    /* DARK GREEN */
+
+    color: #0F5E31;
+}
+
+.header-title {
+    /* PENILAIAN REKA BENTUK BANGUNAN */
+
+
+    /* position: absolute;
+    width: 505px;
+    height: 30px;
+    left: 338px;
+    top: 210px; */
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+
+    /* Red orange */
+
+    color: #EB5500;
+}
+
+hr.line-6 {
+    /* Line 6 */
+    
+    
+    
+    /* position: absolute;
+    width: 1257px;
+    height: 0px;
+    left: 338px;
+    top: 262px;  */
+    /* Red orange */
+    
+    border: 1px solid #EB5500;
+}
+
+.nama-projek {
+    /* Nama Projek: */
+
+
+    /* position: absolute;
+    width: 191px;
+    height: 20px;
+    left: 501px;
+    top: 358px; */
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #282828;
+}
+
+.kotak-nama {
+    /* kotak nama */
+
+
+    /* position: absolute;
+    left: 42.19%;
+    right: 25.98%;
+    top: 30.62%;
+    bottom: 64.91%; */
+
+    /* WHITE */
+
+    background: #FFFFFF;
+    /* ORANGE */
+
+    border: 1px solid #F4A258;
+    /* Filled in shadow */
+
+    box-shadow: inset -4px -4px 9px rgba(255, 255, 255, 0.6), inset 4px 4px 14px #C5D7EE;
+    border-radius: 4px;
+}
+
+.btn-carian {
+    /* Rectangle 828206 */
+
+
+    /* position: absolute;
+    width: 133px;
+    height: 40px;
+    left: 1299px;
+    top: 347px; */
+
+    background: #F4A258;
+    box-shadow: 0px 4px 4px rgba(244, 162, 88, 0.3);
+    border-radius: 7px;
+}
+
+.carian {
+    /* Carian */
+
+
+    /* position: absolute;
+    width: 41px;
+    height: 18px;
+    left: 1345px;
+    top: 358px; */
+
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 12px;
+    line-height: 18px;
+    /* identical to box height, or 150% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.kotak {
+    /* KOTAK */
+
+
+    /* position: absolute;
+    width: 1203px;
+    height: 141px;
+    left: 423px;
+    top: 499px; */
+
+    /* WHITE */
+
+    background: #FFFFFF;
+    box-shadow: 0px 2.86088px 7.15219px 7.15219px rgba(0, 0, 0, 0.05);
+    border-radius: 7.15219px;
+
+}
+
+.kotak-oren {
+     /* Rectangle 828284 */
+
+
+     /* position: absolute;
+     width: 1203px;
+     height: 60px;
+     left: 423px;
+     top: 499px; */
+ 
+     /* Red orange */
+ 
+     background: #EB5500;
+     border-radius: 7.86741px;
+
+}
+
+
+
+
+
+
+
+    .btn-daftar {
+        /* Daftar */
+
+
+        /* position: absolute;
+        width: 40px;
+        height: 18px;
+        left: 1515px;
+        top: 590px; */
+
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 12px;
+        line-height: 18px;
+        /* identical to box height, or 150% */
+
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+        /* Rectangle 828206 */
+    
+        position: absolute;
+        width: 133px;
+        height: 40px;
+        left: 1468px;
+        top: 579px; 
+
+        background: #F4A258;
+        box-shadow: 0px 4px 4px rgba(244, 162, 88, 0.3);
+        border-radius: 7px;
+
+    }
+
+
+
+
+
+
+
+
+
+
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 900px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+      
+      .content-table thead tr {
+        background-color: #EB5500;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+
+        /* Rectangle 828284 */
+
+
+        /* position: absolute;
+        width: 1203px;
+        height: 60px;
+        left: 423px;
+        top: 499px; */
+
+        /* Red orange */
+
+        /* background: #EB5500;
+        border-radius: 7.86741px; */
+      }
+      
+      .content-table th,
+      .content-table td {
+        padding: 20px 10px;
+      }
+      
+      .content-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+      
+      .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+      
+      /* .content-table tbody tr:last-of-type {
+        border-bottom: 2px solid #F4A258;
+      } */
+      
+      .content-table tbody tr.active-row {
+        font-weight: bold;
+        color: #F4A258;
+      }
+
+      .btn-tolak {
+        /* Rectangle 828206 */
+
+
+        box-sizing: border-box;
+
+        /* position: absolute;
+        width: 143px;
+        height: 40px;
+        left: 855px;
+        top: 1268px; */
+
+        /* WHITE */
+
+        background: #FFFFFF;
+        /* ORANGE */
+
+        border: 1px solid #F4A258;
+        border-radius: 7px;
+
+      }
+
+.btn-sah{
+  /* Rectangle 828206 */
+
+        /* 
+        position: absolute;
+        width: 133px;
+        height: 40px;
+        left: 1010px;
+        top: 1268px; */
+
+        background: #F4A258;
+        box-shadow: 0px 4px 4px rgba(244, 162, 88, 0.3);
+        border-radius: 7px;
+}
+
+.scroll{
+        /* margin: 4px, 4px;
+        padding: 10px; */
+        /* background-color: #08c708; */
+        /* width: 100px; */
+        /* overflow: auto;
+        white-space: nowrap; */
+        /* background: #EB5500;
+        border-radius: 20px; */
+
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: 500px;
+        white-space:nowrap;
+}
+
+/* Testing Muat Naik Fail */
+.form {
+  position: relative;
+}
+
+.form__input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.form__label {
+  cursor: pointer;
+}
+
+
+
+
+

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjekController;
 use App\Http\Controllers\KriteriaEphBangunanController;
 use App\Http\Controllers\KriteriaEphJalanController;
@@ -9,9 +10,9 @@ use App\Http\Controllers\KriteriaGpssBangunanController;
 use App\Http\Controllers\KriteriaGpssJalanController;
 
 
-Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth'])->group(function () {
 
-    Route::get('', [UserController::class, 'dashboard']); 
+    Route::get('', [UserController::class, 'home']); 
 
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
     Route::post('projek', [ProjekController::class, 'cipta_projek']); 
@@ -30,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek/{id}/kgb', [KriteriaEphBangunanController::class, 'simpan_kgb']); 
     Route::post('projek/{id}/kgj', [KriteriaEphJalanController::class, 'simpan_kgj']); 
 
-});
+// });
 
 
 require __DIR__.'/auth.php';

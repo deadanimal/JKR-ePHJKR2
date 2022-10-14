@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.paparan-senarai-projek {
+/* Paparan Senarai Projek */
+
+
+/* position: absolute;
+width: 195px;
+height: 20px;
+left: 338px;
+top: 186px; */
+
+font-family: 'Montserrat';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 20px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+
+/* DARK GREEN */
+
+color: #0F5E31;
+}
+
+.header-title {
+    /* PENILAIAN REKA BENTUK BANGUNAN */
+
+
+    /* position: absolute;
+    width: 505px;
+    height: 30px;
+    left: 338px;
+    top: 210px; */
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+
+    /* Red orange */
+
+    color: #EB5500;
+}
+
+hr.line-6 {
+    /* Line 6 */
+    
+    
+    
+    /* position: absolute;
+    width: 1257px;
+    height: 0px;
+    left: 338px;
+    top: 262px;  */
+    /* Red orange */
+    
+    border: 1px solid #EB5500;
+}
+
+.kotak-nama {
+    /* kotak nama */
+
+
+    /* position: absolute;
+    left: 38.25%;
+    right: 29.92%;
+    top: 29.45%;
+    bottom: 66.07%; */
+
+    /* WHITE */
+
+    background: #FFFFFF;
+    /* ORANGE */
+
+    border: 1px solid #F4A258;
+    box-shadow: inset -4px -4px 9px rgba(255, 255, 255, 0.6), inset 4px 4px 14px #C5D7EE;
+    border-radius: 4px;
+}
+
+.maklumat-pemudah-cara {
+    /* Maklumat Pemudah Cara */
+
+
+    /* position: absolute;
+    width: 264px;
+    height: 18px;
+    left: 432px;
+    top: 287px; */
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 18px;
+    /* identical to box height, or 90% */
+
+    display: flex;
+    align-items: center;
+
+    /* Red orange */
+
+    color: #EB5500;
+}
+
+.btn-daftar {
+    /* Rectangle 828206 */
+
+
+    position: absolute;
+    width: 175px;
+    height: 40px;
+    left: 848px;
+    top: 764px;
+
+
+
+    background: #F4A258;
+    box-shadow: 0px 4px 4px rgba(244, 162, 88, 0.3);
+    border-radius: 7px;
+}
