@@ -45,7 +45,19 @@ class ProjekController extends Controller
             $kriteria = New KriteriaEphBangunan;
             $kriteria->projek_id = $projek->id;
             $kriteria->save();
-        }     
+        } else if($projek->kategori == 'phJKR Jalan') {
+            $kriteria = New KriteriaEphJalan;
+            $kriteria->projek_id = $projek->id;
+            $kriteria->save();
+        } else if($projek->kategori == 'GPSS Bangunan') {
+            $kriteria = New KriteriaGpssBangunan;
+            $kriteria->projek_id = $projek->id;
+            $kriteria->save();
+        } else if($projek->kategori == 'GPSS Jalan') {
+            $kriteria = New KriteriaGpssJalan;
+            $kriteria->projek_id = $projek->id;
+            $kriteria->save();          
+        }          
 
         $projek->save();
 
