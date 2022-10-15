@@ -1198,13 +1198,13 @@
                                     <td>Sistem Pengurusan Alam Sekitar (SPAS)</td>
                                     <td colspan="6"></td>
                                     <td>3</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="3" autocapitalize="off" id="markahTL2_MR" name="markahTL2_MR" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="3" autocapitalize="off" id="markahTL2_MR" name="markahTL2_MR" value="{{$kriteria->markahTL2_MR}}"required/></td>
                                     <td>3</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="3" autocapitalize="off" id="markahTL2_MR_PUN" name="markahTL2_MR_PUN" required/></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="3" autocapitalize="off" id="markahTL2_MR_PUN" name="markahTL2_MR_PUN" value="{{$kriteria->markahTL2_MR_PUN}}" required/></td>
                                     <td><span>&#183; Sijil ISO 14001</span><br>
                                         <span>&#183; Senarai kuantiti (BQ) kerja-kerja perlindungan alam sekitar</span>
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL2_ULASAN_PRB" name="markahTL2_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL2_ULASAN_PRB" name="markahTL2_ULASAN_PRB" value="{{$kriteria->markahTL2_ULASAN_PRB}}"></textarea></td>
                                     <td colspan="4">
                                         <input  id="formFileSm" type="file">                                
                                         {{-- <form class="form">
@@ -1223,15 +1223,15 @@
                                     <td>i. Pemotongan dan Penambakan tanah</td>
                                     <td rowspan="2" colspan="6"></td>                            
                                     <td>3</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="3" autocapitalize="off" id="markahTL3_MR" name="markahTL3_MR" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="3" autocapitalize="off" id="markahTL3_MR" name="markahTL3_MR" value="{{$kriteria->markahTL3_MR}}" required/></td>
                                     <td>3</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="3" autocapitalize="off" id="markahTL3_MR_PUN" name="markahTL3_MR_PUN" required/></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="3" autocapitalize="off" id="markahTL3_MR_PUN" name="markahTL3_MR_PUN" value="{{$kriteria->markahTL3_MR_PUN}}" required/></td>
                                     <td>
                                         <span>&#183; Laporan rekabentuk tanah</span><br>
                                         <span>&#183; Lukisan pelan tanah</span><br>
                                         <span>&#183; Laporan geoteknikal (jika perlu)</span>
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL3_ULASAN_PRB" name="markahTL3_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL3_ULASAN_PRB" name="markahTL3_ULASAN_PRB" value="{{$kriteria->markahTL3_ULASAN_PRB}}"></textarea></td>
                                     <td colspan="4">
                                         <input  id="formFileSm" type="file">                                
                                         {{-- <form class="form">
@@ -1247,9 +1247,9 @@
                                 <tr class="pg-1" align="center">
                                     <td>ii. Mengekalkan Topografi Tanah</td>
                                     <td>2</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="2" autocapitalize="off" id="markahTL32_MR" name="markahTL32_MR" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="2" autocapitalize="off" id="markahTL32_MR" name="markahTL32_MR" value="{{$kriteria->markahTL32_MR}}" required/></td>
                                     <td>2</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="3" autocapitalize="off" id="markahTL32_MR_PUN" name="markahTL32_MR_PUN" required/></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="3" autocapitalize="off" id="markahTL32_MR_PUN" name="markahTL32_MR_PUN" value="{{$kriteria->markahTL32_MR_PUN}}" required/></td>
                                     <td>
                                         <span>&#183; Pelan Topografi</span><br>
                                         <span>&#183; Laporan geoteknikal</span><br>
@@ -1258,7 +1258,7 @@
                                         <span>&#183; Pelan kawalan hakisan kelodak (ESCP)</span>
                 
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL32_ULASAN_PRB" name="markahTL32_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL32_ULASAN_PRB" name="markahTL32_ULASAN_PRB" value="{{$kriteria->markahTL32_ULASAN_PRB}}"></textarea></td>
                                     <td colspan="4">
                                         <input  id="formFileSm" type="file">                                
                                         {{-- <form class="form">
@@ -1277,13 +1277,13 @@
                                     <td>Pelan Kawalan Hakisan & Kelodak (ESCP)</td>
                                     <td colspan="6"></td>
                                     <td>1</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="1" autocapitalize="off" id="markahTL4_MR" name="markahTL4_MR" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="1" autocapitalize="off" id="markahTL4_MR" name="markahTL4_MR" value="{{$kriteria->markahTL4_MR}}" required/></td>
                                     <td>1</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="1" autocapitalize="off" id="markahTL4_MR_PUN" name="markahTL4_MR_PUN" required/></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="1" autocapitalize="off" id="markahTL4_MR_PUN" name="markahTL4_MR_PUN" value="{{$kriteria->markahTL4_MR_PUN}}" required/></td>
                                     <td>
                                         <span>&#183; Pelan Kawalan Hakisan & Kelodak (ESCP)</span><br>
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL4_ULASAN_PRB" name="markahTL4_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL4_ULASAN_PRB" name="markahTL4_ULASAN_PRB" value="{{$kriteria->markahTL4_ULASAN_PRB}}"></textarea></td>
                                     <td colspan="4">
                                         <input  id="formFileSm" type="file">                                
                 
@@ -1303,17 +1303,17 @@
                                     <td>Pemuliharaan dan Pemeliharaan Cerun</td>
                                     <td colspan="6"></td>                            
                                     <td>1</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="1" autocapitalize="off" id="markahTL5_MR" name="markahTL5_MR" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="1" autocapitalize="off" id="markahTL5_MR" name="markahTL5_MR" value="{{$kriteria->markahTL1_MR}}" required/></td>
                                     <td>1</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="1" autocapitalize="off" id="markahTL5_MR_PUN" name="markahTL5_MR_PUN" required/></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="1" autocapitalize="off" id="markahTL5_MR_PUN" name="markahTL5_MR_PUN" value="{{$kriteria->markahTL5_MR_PUN}}" required/></td>
                                     <td>
                                         <span>&#183; Laporan penyenggaraan cerun</span><br>
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL5_ULASAN_PRB" name="markahTL5_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL5_ULASAN_PRB" name="markahTL5_ULASAN_PRB" value="{{$kriteria->markahTL5_ULASAN_PRB}}" ></textarea></td>
                                     <td colspan="4">
                                         <input  id="formFileSm" type="file">                                
                 
-                                        
+
                                         {{-- <form class="form">
                                             <label for="form__input" class="form__label">
                                                 <input class="form__input" type="file" name="dokumenSokongan" id="form__input" value="{{$dokumen_sokongan ?? ''}}">
@@ -1330,14 +1330,14 @@
                                     <td>Pengurusan Air Larian Hujan</td>
                                     <td colspan="6"></td>                          
                                     <td>3</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="3" autocapitalize="off" id="markahTL6_MR" name="markahTL6_MR" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="3" autocapitalize="off" id="markahTL6_MR" name="markahTL6_MR" value="{{$kriteria->markahTL6_MR}}" required/></td>
                                     <td>1</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="1" autocapitalize="off" id="markahTL6_MR_PUN" name="markahTL6_MR_PUN" required/></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="1" autocapitalize="off" id="markahTL6_MR_PUN" name="markahTL6_MR_PUN" value="{{$kriteria->markahTL6_MR_PUN}}" required/></td>
                                     <td>
                                         <span>&#183; Laporan rekabentuk sistem perparitan</span><br>
                                         <span>&#183; Pelan sistem perparitan berdasarkan MSMA</span><br>
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL6_ULASAN_PRB" name="markahTL6_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL6_ULASAN_PRB" name="markahTL6_ULASAN_PRB" value="{{$kriteria->markahTL6_ULASAN_PRB}}"></textarea></td>
                                     <td colspan="4">
                                         <input  id="formFileSm" type="file">                                
                 
@@ -1357,14 +1357,14 @@
                                     <td>Rekabentuk, Aksebiliti dan Kemudahan OKU</td>
                                     <td colspan="6"></td>                           
                                     <td>2</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="2" autocapitalize="off" id="markahTL7_MR" name="markahTL7_MR" /></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="2" autocapitalize="off" id="markahTL7_MR" name="markahTL7_MR" value="{{$kriteria->markahTL7_MR}}"/></td>
                                     <td>2</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="2" id="markahTL7_MR_PUN" name="markahTL7_MR_PUN"></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="2" id="markahTL7_MR_PUN" name="markahTL7_MR_PUN" value="{{$kriteria->markahTL7_MR_PUN}}"></td>
                                     <td>
                                         <span>&#183; Pelan susunatur (luar bangunan) yang menunjukkan aksesibiliti dan kemudahan OKU dalam pelan tapak</span><br>
                                         <span>&#183; Lukisan terperinci kemudahan OKU dalam bangunan</span><br>
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL7_ULASAN_PRB" name="markahTL7_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL7_ULASAN_PRB" name="markahTL7_ULASAN_PRB" value="{{$kriteria->markahTL7_ULASAN_PRB}}"></textarea></td>
                                     <td colspan="4">
                                         <input  id="formFileSm" type="file">                                
                 
@@ -1400,15 +1400,15 @@
                                     <td>Memelihara dan menyenggara pokok yang matang</td>
                                     <td colspan="6"></td>
                                     <td>3</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="3" autocapitalize="off" id="markahTL81_MR" name="markahTL81_MR" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="3" autocapitalize="off" id="markahTL81_MR" name="markahTL81_MR" value="{{$kriteria->markahTL81_MR}}"required/></td>
                                     <td>3</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="3" autocapitalize="off" id="markahTL81_MR_PUN" name="markahTL81_MR_PUN" required/></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="3" autocapitalize="off" id="markahTL81_MR_PUN" name="markahTL81_MR_PUN" value="{{$kriteria->markahTL81_MR_PUN}}" required/></td>
                                     <td>
                                         <span>&#183; Inventori pokok</span><br>
                                         <span>&#183; Pelan ukur bagi lokasi pokok matang sedia ada</span><br>
                                         <span>&#183; Pelan penanaman pokok</span><br>
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL8_ULASAN_PRB" name="markahTL8_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL8_ULASAN_PRB" name="markahTL8_ULASAN_PRB" value="{{$kriteria->markahTL8_ULASAN_PRB}}"></textarea></td>
                                     <td colspan="4">
                                         <input  id="formFileSm" type="file">                                
                 
@@ -1428,15 +1428,15 @@
                                     <td>Menyediakan kawasan hijau</td>
                                     <td colspan="6"></td>                           
                                     <td>1</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="1" autocapitalize="off" id="markahTL82_MR" name="markahTL82_MR" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="1" autocapitalize="off" id="markahTL82_MR" name="markahTL82_MR" value="{{$kriteria->markahTL82_MR}}" required/></td>
                                     <td>2</td>
-                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="2" autocapitalize="off" id="markahTL82_MR_PUN" name="markahTL82_MR_PUN" required/></td>
+                                    <td><input onblur="findTotalMR_TL_PUN()" class="MR_TL_PUN" type="number" min="0" max="2" autocapitalize="off" id="markahTL82_MR_PUN" name="markahTL82_MR_PUN" value="{{$kriteria->markahTL82_MR_PUN}}" required/></td>
                                     <td>
                                         <span>Laporan cadangan menunjukkan:</span><br>
                                         <span>&#183; 30% kawasan hijau (disahkan oleh arkitek atau jururancang bertauliah)</span><br>
                                         <span>&#183; Pokok, pokok renek, tumbuhan penutup bumi, rumput</span><br>
                                     </td>
-                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL82_ULASAN_PRB" name="markahTL82_ULASAN_PRB"></textarea></td>
+                                    <td colspan="5"><textarea maxlength="255" rows="5" cols="5" class="form-control" placeholder="Ulasan/Maklumbalas" id="markahTL82_ULASAN_PRB" name="markahTL82_ULASAN_PRB" value="{{$kriteria->markahTL82_ULASAN_PRB}}"></textarea></td>
                                     <td colspan="4"><input id="formFileSm" type="file"></td>
                 
                                     {{-- <td colspan="4">
