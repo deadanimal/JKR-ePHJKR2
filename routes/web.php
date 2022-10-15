@@ -32,6 +32,26 @@ use App\Http\Controllers\KriteriaGpssJalanController;
     Route::post('projek/{id}/kgb', [KriteriaEphBangunanController::class, 'simpan_kgb']); 
     Route::post('projek/{id}/kgj', [KriteriaEphJalanController::class, 'simpan_kgj']); 
 
+    Route::get('manual', [manualController::class, 'senarai_manual']); 
+    Route::post('manual', [manualController::class, 'cipta_manual']); 
+    Route::get('manual/{id}', [manualController::class, 'satu_manual']); 
+    Route::put('manual/{id}', [manualController::class, 'kemaskini_manual']);  
+    
+    Route::get('hebahan', [hebahanController::class, 'senarai_hebahan']); 
+    Route::post('hebahan', [hebahanController::class, 'cipta_hebahan']); 
+    Route::get('hebahan/{id}', [hebahanController::class, 'satu_hebahan']); 
+    Route::put('hebahan/{id}', [hebahanController::class, 'kemaskini_hebahan']);  
+    
+    Route::get('faq', [faqController::class, 'senarai_faq']); 
+    Route::post('faq', [faqController::class, 'cipta_faq']); 
+    Route::get('faq/{id}', [faqController::class, 'satu_faq']); 
+    Route::put('faq/{id}', [faqController::class, 'kemaskini_faq']);    
+    
+    Route::get('maklumbalas', [maklumbalasController::class, 'senarai_maklumbalas']); 
+    Route::post('maklumbalas', [maklumbalasController::class, 'cipta_maklumbalas']); 
+    Route::get('maklumbalas/{id}', [maklumbalasController::class, 'satu_maklumbalas']); 
+    Route::post('maklumbalas/{id}/hantar', [maklumbalasController::class, 'hantar_maklumbalas']);     
+
 // });
 
 

@@ -9,6 +9,7 @@ use App\Models\Projek;
 class KriteriaEphBangunanController extends Controller
 {
     public function simpan(Request $request) {
+        
         $id = (int)$request->route('id');
         $projek = Projek::find($id);     
 
