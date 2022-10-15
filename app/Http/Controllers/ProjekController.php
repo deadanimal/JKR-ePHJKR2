@@ -60,8 +60,15 @@ class ProjekController extends Controller
         if($projek->kategori == 'phJKR Bangunan') {
             $kriteria = KriteriaEphBangunan::where('projek_id', $projek->id)->first();
             return view('projek.satu_eph_bangunan', compact('projek', 'kriteria'));            
-        } else {
-            dd('OK');
+        } else if($projek->kategori == 'phJKR Jalan') {
+            $kriteria = KriteriaEphJalan::where('projek_id', $projek->id)->first();
+            return view('projek.satu_eph_jalan', compact('projek', 'kriteria'));            
+        } else if($projek->kategori == 'GPSS Bangunan') {
+            $kriteria = KriteriaGpssBangunan::where('projek_id', $projek->id)->first();
+            return view('projek.satu_gpss_bangunan', compact('projek', 'kriteria'));            
+        } else if($projek->kategori == 'GPSS Jalan') {
+            $kriteria = KriteriaGpssJalan::where('projek_id', $projek->id)->first();
+            return view('projek.satu_gpss_jalan', compact('projek', 'kriteria'));            
         }
         
     }

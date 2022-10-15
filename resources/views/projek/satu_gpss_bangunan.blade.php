@@ -227,7 +227,7 @@
                                         <th>26</th>
                                         {{-- <th>{{$kriteria_phjkr_bangunan->markahTOTAL_TL_MS}}</th> --}}
                                         {{-- <th>{{$kriteria_phjkr_bangunan->markahTOTAL_TL_MR}}</th> --}}
-                                        <th>ls </th>
+                                        <th>0</th>
                                         <th>0</th>
                                         <th>0</th>
                                         <th>0</th>
@@ -1182,7 +1182,7 @@
                                     <td>Perancangan Tapak</td>
                                     <td colspan="6"></td>
                                     <td>1</td>
-                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="1" autocapitalize="off" id="markahTL1_MR" name="markahTL1_MR" value="{{$kriteria->markahTL1_MR}}" required/></td>
+                                    <td><input onblur="findTotalMR_TL()" class="MR_TL" type="number" min="0" max="1" autocapitalize="off" id="markahTL1_MR" name="markahTL1_MR" required/></td>
                                     <td></td>
                                     <td></td>
                                     <td>Rancangan Tempatan yang menunjukkan kawasan pembangunan yang terlibat</td>
