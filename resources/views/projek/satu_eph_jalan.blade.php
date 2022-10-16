@@ -95,7 +95,7 @@
                             </div>
             
                             <div class="col">
-                                    <form action="">
+                                    
                                       <table>
                                         <div class="row3 mx-4 table-responsive scrollbar">
                                             <div class="col">
@@ -136,13 +136,13 @@
             
                                                     {{-- design --}}
                                                     <td>18</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="SM_TOTAL_TARGET_DESIGN"></td>
+                                                    <td><input value="SM_TOTAL_ASSESSMENT_DESIGN"></td>
             
                                                     {{-- verifikasi --}}
                                                     <td>18</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="SM_TOTAL_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="SM_TOTAL_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                             
                                                   <tr>
@@ -151,12 +151,12 @@
                                                     {{-- <td></td> --}}
             
                                                     <td>12</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="PT_TOTAL_TARGET_DESIGN"></td>
+                                                    <td><input value="PT_TOTAL_ASSESSMENT_DESIGN"></td>
             
                                                     <td>12</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="PT_TOTAL_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="PT_TOTAL_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                                 
                                                   <tr>
@@ -165,12 +165,12 @@
                                                     {{-- <td></td> --}}
             
                                                     <td>4</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="EW_TOTAL_TARGET_DESIGN"></td>
+                                                    <td><input value="EW_TOTAL_ASSESSMENT_DESIGN"></td>
             
                                                     <td>5</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="EW_TOTAL_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="EW_TOTAL_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                             
                                                   <tr>
@@ -178,12 +178,12 @@
                                                     <td colspan="2">ACCESS & EQUITY</td>
                                                     {{-- <td></td> --}}
                                                     <td>3</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="AE_TOTAL_TARGET_DESIGN"></td>
+                                                    <td><input value="AE_TOTAL_ASSESSMENT_DESIGN"></td>
             
                                                     <td>5</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="AE_TOTAL_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="AE_TOTAL_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                             
                                                   <tr>
@@ -191,12 +191,12 @@
                                                     <td colspan="2">CONSTRUCTION ACTIVITIES</td>
                                                     {{-- <td></td> --}}
                                                     <td>19</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="CA_TOTAL_TARGET_DESIGN"></td>
+                                                    <td><input value="CA_TOTAL_ASSESSMENT_DESIGN"></td>
             
                                                     <td>22</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="CA_TOTAL_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="CA_TOTAL_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                             
                                                   <tr>
@@ -204,12 +204,12 @@
                                                     <td colspan="2">MATERIAL AND RESOURCES</td>
                                                     {{-- <td></td> --}}
                                                     <td>12</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="MR_TOTAL_TARGET_DESIGN"></td>
+                                                    <td><input value="MR_TOTAL_ASSESSMENT_DESIGN"></td>
             
                                                     <td>12</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="MR_TOTAL_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="MR_TOTAL_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                             
                                                   <tr>
@@ -217,12 +217,12 @@
                                                     <td colspan="2">ELECTIVE CRITERIA</td>
                                                     {{-- <td></td> --}}
                                                     <td>27</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="EC_TOTAL_TARGET_DESIGN"></td>
+                                                    <td><input value="EC_TOTAL_ASSESSMENT_DESIGN"></td>
             
                                                     <td>27</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="EC_TOTAL_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="EC_TOTAL_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                             
                                                   <tr>
@@ -230,36 +230,36 @@
                                                     <td colspan="2">INOVATION</td>
                                                     {{-- <td></td> --}}
                                                     <td>5</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="IN_TOTAL_TARGET_DESIGN"></td>
+                                                    <td><input value="IN_TOTAL_ASSESSMENT_DESIGN"></td>
             
                                                     <td>5</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="IN_TOTAL_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="IN_TOTAL_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                             
                                                   <tr>
                                                     <td colspan="3">TOTAL CORE POINTS	</td>
                                                     {{-- <td></td> --}}
                                                     <td>68</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="TOTALCP_TARGET_DESIGN"></td>
+                                                    <td><input value="TOTALCP_ASSESSMENT_DESIGN"></td>
             
                                                     <td>74</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="TOTALCP_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="TOTALCP_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                             
                                                   <tr>
                                                     <td colspan="3">TOTAL ELECTIVE & INNOVATION POINTS	</td>
                                                     {{-- <td></td> --}}
                                                     <td>12</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="TOTALEIP_TARGET_DESIGN"></td>
+                                                    <td><input value="TOTALEIP_ASSESSMENT_DESIGN"></td>
             
                                                     <td>15</td>
-                                                    <td>0</td>
-                                                    <td>0</td>
+                                                    <td><input value="TOTALEIP_TARGET_VERIFIKASI"></td>
+                                                    <td><input value="TOTALEIP_ASSESSMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   
                               
@@ -268,12 +268,12 @@
                                               </table>
                               
                                               
-                                    </form>
+                                    
                                     </div> 
                             
                                     <div>
-                                        <form action="" method="POST">
-                                          @csrf
+                                        
+                                        
                                           <table>
                                             <div class="row3 mx-4 table-responsive scrollbar">
                                                 <div class="col">
@@ -294,8 +294,8 @@
                                     
                                                       <tr>
                                                         <td colspan="1">TOTAL SCORE (%)</td>
-                                                        <td colspan="2">0</td>
-                                                        <td colspan="2">0</td>
+                                                        <td colspan="2"><input value="SM_TOTAL_TARGET_DESIGN"></td>
+                                                        <td colspan="2"><input value="SM_TOTAL_TARGET_DESIGN"></td>
                             
                                                       </tr>
                                 
@@ -319,7 +319,7 @@
                                                     <button class="btn btn-primary" type="submit" title="Simpan">Batal</button>
                                                     <a href="/verifikasi_permarkahan_jalan/isi_skor_kad_verifikasi2" type="button" class="btn btn-primary">Simpan</a>          
                                                   </div> --}}
-                                        </form>
+                                        
                                     
                             </div>
                         </div>
@@ -339,7 +339,8 @@
         <div class="tab-pane" id="tab-3" role="tabpanel">
 
 
-            <div class="row mb-3">
+            <div class="row3 mx-4 table-responsive scrollbar">
+                <div class="row mb-3">
                 <div class="col">
                     <div class="card">
                         <div class="card-body">
@@ -363,6 +364,7 @@
                                                     <th >Responsibility</th>
                                                     <th colspan="3">Design</th>
                                                     
+                                                    
                                      
                                                   </tr>
                                                   <tr>
@@ -374,6 +376,7 @@
                                                     <th >TARGET POINT</th>
                                                     {{-- <th >ASSESSMENT POINT</th> --}}
                                                     <th>COMMENT BY ASSESSOR</th>
+                                                    {{-- <th> SUPPORTED DOCUMENTS</th> --}}
                                                   </tr>
                                 
                                                 </thead>
@@ -402,6 +405,7 @@
                                                     <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_1_TP_DESIGN" name="SM1_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td> --}}
                                                     <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_1_COMMENT_DESIGN" name="SM1_1_COMMENT_DESIGN"></td>
+                                                    {{-- <td><input  id="formFileSm" type="file"></td> --}}
                                                   </tr>
                                 
                                                   <tr>
@@ -1437,33 +1441,33 @@
                                                     <td >Green Products Scoring System (GPSS) of 70% - 100%</td>
                                                     <td rowspan="4">CASKT</td>
                                                     <td>4</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" id="MR2_1_TP_DESIGN" name="MR2_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td> --}}
-                                                    <td><input onblur="commentMR()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentMR()" type="text" min="0" max="2" class="road" id="MR2_1_COMMENT_DESIGN" name="MR2_1_COMMENT_DESIGN"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Green Products Scoring System (GPSS) of 50% - 69%</td>
                                                     {{-- <td></td> --}}
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" id="MR2_2_TP_DESIGN" name="MR2_2_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td> --}}
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_2_COMMENT_DESIGN" name="MR2_2_COMMENT_DESIGN"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Green Products Scoring System (GPSS) of 40% - 49%</td>
                                                     {{-- <td></td> --}}
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" id="MR2_3_TP_DESIGN" name="MR2_3_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td> --}}
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_3_COMMENT_DESIGN" name="MR2_3_COMMENT_DESIGN"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Use Green Product Scoring System (GPSS)</td>
                                                     {{-- <td></td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" id="MR2_4_TP_DESIGN" name="MR2_4_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td> --}}
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_4_COMMENT_DESIGN" name="MR2_4_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1486,17 +1490,17 @@
                                                     <td >Provide updated master inventory of road asset / warranty of material/product after completion of road works</td>
                                                     <td rowspan="2">CSFJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3"></td>
+                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3" id="MR3_1_TP_DESIGN" name="MR3_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3"></td> --}}
-                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road" id="MR3_1_COMMENT_DESIGN" name="MR3_1_COMMENT_DESIGN"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Provide established master inventory of  road asset / warranty of material/product of existing road </td>
                                                     {{-- <td></td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3"></td>
+                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3" id="MR3_2_TP_DESIGN" name="MR3_2_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3"></td> --}}
-                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road" id="MR3_2_COMMENT_DESIGN" name="MR3_2_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1519,9 +1523,9 @@
                                                     <td >All systems should be designed to use energy efficient road lightings, while complying to standard and specification for road lightings (eg. MS 825 part 1:2007)</td>
                                                     <td rowspan="1">CKE</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR4()" type="number" min="0" max="2" class="targetPointMR4"></td>
+                                                    <td><input onblur="findTargetPointMR4()" type="number" min="0" max="2" class="targetPointMR4" id="MR4_1_TP_DESIGN" name="MR4_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointMR4()" type="number" min="0" max="2" class="assessmentPointMR4"></td> --}}
-                                                    <td><input onblur="commentMR4()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentMR4()" type="text" min="0" max="2" class="road" id="MR4_1_COMMENT_DESIGN" name="MR4_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1569,27 +1573,27 @@
                                                     <td >Crossing for disabled users with noise making devices installed</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" id="ECSM5_EC_1_TP_DESIGN" name="ECSM5_EC_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC"></td> --}}
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_1_COMMENT_DESIGN" name="ECSM5_EC_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Walkway access for disabled users by providing sidewalks sloped for easy access</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" id="ECSM5_EC_2_TP_DESIGN" name="ECSM5_EC_2_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointEC"></td> --}}
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_2_COMMENT_DESIGN" name="ECSM5_EC_2_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Tac tile on the pedestrian pathway and access for disabled users</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" id="ECSM5_EC_3_TP_DESIGN" name="ECSM5_EC_3_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC"></td> --}}
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_3_COMMENT_DESIGN" name="ECSM5_EC_3_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1612,27 +1616,27 @@
                                                     <td >The pavement mix design  by using quiet pavement</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" id="ECSM6_EC_1_TP_DESIGN" name="ECSM6_EC_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td> --}}
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_1_COMMENT_DESIGN" name="ECSM6_EC_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Noise barrier shall be provided in sensitive areas such as housing situated beside busy roads or highways, schools and hospitals</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" id="ECSM6_EC_2_TP_DESIGN" name="ECSM6_EC_2_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td> --}}
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_2_COMMENT_DESIGN" name="ECSM6_EC_2_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Buffer Zone </td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" id="ECSM6_EC_3_TP_DESIGN" name="ECSM6_EC_3_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td> --}}
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_3_COMMENT_DESIGN" name="ECSM6_EC_3_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1657,9 +1661,9 @@
                                                       Provide sound barrier at sensitive area for wildlife"</td>
                                                     <td></td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointEW3EC()" type="number" min="0" max="2" class="targetPointEW3EC"></td>
+                                                    <td><input onblur="findTargetPointEW3EC()" type="number" min="0" max="2" class="targetPointEW3EC" id="ECEW3_EC_1_TP_DESIGN" name="ECEW6_EC_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointEW3EC()" type="number" min="0" max="2" class="assessmentPointEW3EC"></td> --}}
-                                                    <td><input onblur="commentEW3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentEW3EC()" type="text" min="0" max="2" class="road" id="ECEW3_EC_1_COMMENT_DESIGN" name="ECEW6_EC_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1684,9 +1688,9 @@
                                                       Provide sound barrier at sensitive area for wildlife"</td>
                                                     <td></td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointAE2EC()" type="number" min="0" max="2" class="targetPointAE2EC"></td>
+                                                    <td><input onblur="findTargetPointAE2EC()" type="number" min="0" max="2" class="targetPointAE2EC" id="ECAE2_EC_1_TP_DESIGN" name="ECAE2_EC_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointAE2EC()" type="number" min="0" max="2" class="assessmentPointAE2EC"></td> --}}
-                                                    <td><input onblur="commentAE2EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE2EC()" type="text" min="0" max="2" class="road" id="ECAE2_EC_1_TP_DESIGN" name="ECAE2_EC_1_TP_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1709,34 +1713,34 @@
                                                     <td >Zebra Crossing or Signalised Pedestrian Crossing  and Refuge Island</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" id="ECAE3_EC_1_TP_DESIGN" name="ECAE3_EC_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td> --}}
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_1_COMMENT_DESIGN" name="ECAE3_EC_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Overhead Pedestrian Bridge</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" id="ECAE3_EC_2_TP_DESIGN" name="ECAE3_EC_2_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td> --}}
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_2_COMMENT_DESIGN" name="ECAE3_EC_2_COMMENT_DESIGN"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Sidewalk / Walkway and Raised Crosswalk</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" id="ECAE3_EC_3_TP_DESIGN" name="ECAE3_EC_3_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td> --}}
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_3_COMMENT_DESIGN" name="ECAE3_EC_3_COMMENT_DESIGN"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Covered walkway</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" id="ECAE3_EC_4_TP_DESIGN" name="ECAE3_EC_4_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td> --}}
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_4_COMMENT_DESIGN" name="ECAE3_EC_4_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1759,34 +1763,34 @@
                                                     <td >Paved shoulder, non-exclusive motorcycle lane and end treatment at junction</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" id="ECAE4_EC_1_TP_DESIGN" name="ECAE4_EC_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td> --}}
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_1_COMMENT_DESIGN" name="ECAE4_EC_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Exclusive motorcycle lane</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" id="ECAE4_EC_2_TP_DESIGN" name="ECAE4_EC_2_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td> --}}
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_2_COMMENT_DESIGN" name="ECAE4_EC_2_COMMENT_DESIGN"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Overhead motorcycle bridge</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" id="ECAE4_EC_3_TP_DESIGN" name="ECAE4_EC_3_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td> --}}
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_3_COMMENT_DESIGN" name="ECAE4_EC_3_COMMENT_DESIGN"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Motorcycle shelter</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" id="ECAE4_EC_4_TP_DESIGN" name="ECAE4_EC_4_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td> --}}
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_4_COMMENT_DESIGN" name="ECAE4_EC_4_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1809,9 +1813,9 @@
                                                     <td >Provide or maintain existing rest area facilities along the road </td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE5EC()" type="number" min="0" max="2" class="targetPointAE5EC"></td>
+                                                    <td><input onblur="findTargetPointAE5EC()" type="number" min="0" max="2" class="targetPointAE5EC" id="ECAE5_EC_1_TP_DESIGN" name="ECAE5_EC_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointAE5EC()" type="number" min="0" max="2" class="assessmentPointEC"></td> --}}
-                                                    <td><input onblur="commentAE5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE5EC()" type="text" min="0" max="2" class="road" id="ECAE5_EC_1_COMMENT_DESIGN" name="ECAE5_EC_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1834,18 +1838,18 @@
                                                     <td >Implement physical or constructed changes to the roadway structure, dimensions, or form that provide bicycle-only facilities with dedicated access (such as bicycle lane). Lanes shared with motorized vehicles do not meet this requirement </td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC"></td>
+                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC" id="ECAE6_EC_1_TP_DESIGN" name="ECAE6_EC_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointEC"></td> --}}
-                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road" id="ECAE6_EC_1_COMMENT_DESIGN" name="ECAE6_EC_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Implement physical or constructed changes to the roadway structure, dimensions, or form that provide bicycle-only facilities with dedicated access (such as bicycle lane). Lanes shared with motorized vehicles do not meet this requirement</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC"></td>
+                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC" id="ECAE6_EC_2_TP_DESIGN" name="ECAE6_EC_2_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointAE6EC"></td> --}}
-                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road" id="ECAE6_EC_2_COMMENT_DESIGN" name="ECAE6_EC_2_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1887,9 +1891,9 @@
                                                     <td>Come up with an idea for a design or construction best practice for road that is not currently included in Manual pH JKR and is more sustainable than standard or conventional practices</td>
                                                     <td rowspan="1">ANY</td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointIN()" type="number" min="0" max="2" class="targetPointIN"></td>
+                                                    <td><input onblur="findTargetPointIN()" type="number" min="0" max="2" class="targetPointIN" id="IN1_1_TP_DESIGN" name="IN1_1_TP_DESIGN"></td>
                                                     {{-- <td><input onblur="findAssessmentPointIN()" type="number" min="0" max="2" class="assessmentPointIN"></td> --}}
-                                                    <td><input onblur="commentIN()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="commentIN()" type="text" min="0" max="2" class="road" id="IN1_1_COMMENT_DESIGN" name="IN1_1_COMMENT_DESIGN"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -1919,6 +1923,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
                                                 
 
@@ -1989,53 +1994,53 @@
                                                     <td >Traffic study</td>
                                                     <td rowspan="7">CJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_1_ASSESSMENT_VERIFIKASI" name="SM1_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_1_COMMENT_VERIFIKASI" name="SM1_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Site investigation data</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_2_ASSESSMENT_VERIFIKASI" name="SM1_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_2_COMMENT_VERIFIKASI" name="SM1_2_COMMENT_VERIFIKASI"></td>
                                                    
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Flood records</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_3_ASSESSMENT_VERIFIKASI" name="SM1_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_3_COMMENT_VERIFIKASI" name="SM1_3_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Response to public complaints or requests from public, local authority & etc.</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_4_TP_DESIGN }}" ></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_4_ASSESSMENT_VERIFIKASI" name="SM1_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_4_COMMENT_VERIFIKASI" name="SM1_4_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Value Management (VM)</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_5_TP_DESIGN }}" ></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_5_ASSESSMENT_VERIFIKASI" name="SM1_5_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_5_COMMENT_VERIFIKASI" name="SM1_5_COMMENT_VERIFIKASI"></td>
                                                
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Survey Drawing</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_6_TP_DESIGN }}" ></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_6_ASSESSMENT_VERIFIKASI" name="SM1_6_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_6_COMMENT_VERIFIKASI" name="SM1_6_COMMENT_VERIFIKASI"></td>
                                                     
                                                 
                                                   </tr>
@@ -2043,9 +2048,9 @@
                                                   <tr>
                                                     <td >As Built Drawings</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_7_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_7_ASSESSMENT_VERIFIKASI" name="SM1_7_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_7_COMMENT_VERIFIKASI" name="SM1_7_COMMENT_VERIFIKASI"></td>
                                               
                                                   </tr>
                               
@@ -2053,9 +2058,9 @@
                                                     <td >Accident Reports</td>
                                                     <td>CSFJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_8_TP_DESIGN }}" ></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_8_ASSESSMENT_VERIFIKASI" name="SM1_8_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_8_COMMENT_VERIFIKASI" name="SM1_8_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                               
@@ -2063,27 +2068,27 @@
                                                     <td >Structure replacement (Bridge assessment report/ Inventory card)</td>
                                                     <td rowspan="3">CJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_9_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_9_ASSESSMENT_VERIFIKASI" name="SM1_9_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_9_COMMENT_VERIFIKASI" name="SM1_9_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Forensic Report</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_10_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_10_ASSESSMENT_VERIFIKASI" name="SM1_10_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_10_COMMENT_VERIFIKASI" name="SM1_10_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Pavement Evaluation</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" value="{{ $kriteria->SM1_11_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_11_ASSESSMENT_VERIFIKASI" name="SM1_11_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_11_COMMENT_VERIFIKASI" name="SM1_11_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <td style="display: none">markahSM1<input type="text" name="markahSM1" id="markahSM1" /></td>            
@@ -2106,54 +2111,54 @@
                                                     <td >Slope not more than 6 berms</td>
                                                     <td rowspan="7">CJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" value="{{ $kriteria->SM2_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_1_ASSESSMENT_VERIFIKASI" name="SM2_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_1_COMMENT_VERIFIKASI" name="SM2_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Cut slope not steeper than 1:1.5 or Rock slope not steeper than 4:1 </td>
                                                     {{-- <td rowspan="7">CKG</td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" value="{{ $kriteria->SM2_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_2_ASSESSMENT_VERIFIKASI" name="SM2_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_2_COMMENT_VERIFIKASI" name="SM2_2_COMMENT_VERIFIKASI"></td>
                                                    
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Fill slope not steeper than 1:2</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" value="{{ $kriteria->SM2_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_3_ASSESSMENT_VERIFIKASI" name="SM2_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_3_COMMENT_VERIFIKASI" name="SM2_3_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Height of slope not more than 6m</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" value="{{ $kriteria->SM2_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_4_ASSESSMENT_VERIFIKASI" name="SM2_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_4_COMMENT_VERIFIKASI" name="SM2_4_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Maximum grade less than 7%</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" value="{{ $kriteria->SM2_5_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_5_ASSESSMENT_VERIFIKASI" name="SM2_5_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_5_COMMENT_VERIFIKASI" name="SM2_5_COMMENT_VERIFIKASI"></td>
                                                
                                                   </tr>
                               
                                                   <tr>
                                                     <td >No reclamation involved existing water bodies</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" value="{{ $kriteria->SM2_6_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_6_ASSESSMENT_VERIFIKASI" name="SM2_6_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_6_COMMENT_VERIFIKASI" name="SM2_6_COMMENT_VERIFIKASI"></td>
                                                     
                                                 
                                                   </tr>
@@ -2161,9 +2166,9 @@
                                                   <tr>
                                                     <td >Provide added uphill lane (climbing lane) where the length of critical grade exceeds 5%</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" value="{{ $kriteria->SM2_7_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_7_ASSESSMENT_VERIFIKASI" name="SM2_7_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_7_COMMENT_VERIFIKASI" name="SM2_7_COMMENT_VERIFIKASI"></td>
                                               
                                                   </tr>
                               
@@ -2171,9 +2176,9 @@
                                                     <td >Not in Sensitive Area OR Sensitive area with mitigation plan</td>
                                                     <td>CASKT</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" value="{{ $kriteria->SM2_8_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_8_ASSESSMENT_VERIFIKASI" name="SM2_8_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_8_COMMENT_VERIFIKASI" name="SM2_8_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                               
@@ -2196,9 +2201,9 @@
                                                     <td >Use non-invasive plant species(example: grass/creeper) </td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" value="{{ $kriteria->SM3_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_1_ASSESSMENT_VERIFIKASI" name="SM3_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_1_COMMENT_VERIFIKASI" name="SM3_1_COMMENT_VERIFIKASI"></td>
                                                    
                                                   </tr>
                               
@@ -2206,9 +2211,9 @@
                                                     <td >Use bio-engineering techniques (example: vetiver grass, creeper and regeneration of natural plants and material )</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" value="{{ $kriteria->SM3_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_2_ASSESSMENT_VERIFIKASI" name="SM3_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_2_COMMENT_VERIFIKASI" name="SM3_2_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                                 
@@ -2216,9 +2221,9 @@
                                                     <td >Use native plant species</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" value="{{ $kriteria->SM3_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_3_ASSESSMENT_VERIFIKASI" name="SM3_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_3_COMMENT_VERIFIKASI" name="SM3_3_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                               
@@ -2226,9 +2231,9 @@
                                                     <td >Use of grass/creeper for slope protection /unpaved shoulder</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" value="{{ $kriteria->SM3_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_4_ASSESSMENT_VERIFIKASI" name="SM3_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_4_COMMENT_VERIFIKASI" name="SM3_4_COMMENT_VERIFIKASI"></td>
                                                
                                                   </tr>
                               
@@ -2236,9 +2241,9 @@
                                                     <td >Hydroseeding with Bio-degradable Erosion Control Blanket (BECB) on slope (example:  paddy  straw, coconut husk, rice husk etc.)</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" value="{{ $kriteria->SM3_5_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_5_ASSESSMENT_VERIFIKASI" name="SM3_5_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_5_COMMENT_VERIFIKASI" name="SM3_5_COMMENT_VERIFIKASI"></td>
                                                     
                                                   </tr>
                               
@@ -2246,9 +2251,9 @@
                                                     <td >Preservation of existing tree/vegetation</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" value="{{ $kriteria->SM3_6_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_6_ASSESSMENT_VERIFIKASI" name="SM3_6_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_6_COMMENT_VERIFIKASI" name="SM3_6_COMMENT_VERIFIKASI"></td>
                                               
                                                   </tr>
                               
@@ -2272,26 +2277,26 @@
                                                   <td >Supply and install noise barrier including maintenance during the construction and defects liability period (for urban area / residential area)</td>
                                                   <td rowspan="4">CJ</td>
                                                   <td>1</td>
-                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" ></td>
-                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" value="{{ $kriteria->SM4_1_TP_DESIGN }}"></td>
+                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM4_1_ASSESSMENT_VERIFIKASI" name="SM4_1_ASSESSMENT_VERIFIKASI"></td>
+                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" id="SM4_1_COMMENT_VERIFIKASI" name="SM4_1_COMMENT_VERIFIKASI"></td>
                                                 </tr>
                               
                                                 <tr>
                                                   <td >To ensure that all site equipment are in using low decibel to control noise pollution </td>
                                                   <td>1</td>
-                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" ></td>
-                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" value="{{ $kriteria->SM4_2_TP_DESIGN }}"></td>
+                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM4_2_ASSESSMENT_VERIFIKASI" name="SM4_2_ASSESSMENT_VERIFIKASI"></td>
+                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" id="SM4_2_COMMENT_VERIFIKASI" name="SM4_2_COMMENT_VERIFIKASI"></td>
                                                  
                                                 </tr>
                               
                                                 <tr>
                                                   <td >To ensure using all machineryon site are low decibel to minimize the amount of noise generated </td>
                                                   <td>1</td>
-                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" ></td>
-                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" value="{{ $kriteria->SM4_3_TP_DESIGN }}"></td>
+                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM4_3_ASSESSMENT_VERIFIKASI" name="SM4_3_ASSESSMENT_VERIFIKASI"></td>
+                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" id="SM4_3_COMMENT_VERIFIKASI" name="SM4_3_COMMENT_VERIFIKASI"></td>
                                                   
                                                 </tr>
                               
@@ -2331,41 +2336,41 @@
                                                     <td>Surface Condition Survey</td>
                                                     <td rowspan="5">CSFJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" value="{{ $kriteria->PT1_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_1_ASSESSMENT_VERIFIKASI" name="PT1_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_1_COMMENT_VERIFIKASI" name="PT1_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Coring & Dynamic Cone Penetrometer test</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" value="{{ $kriteria->PT1_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_2_ASSESSMENT_VERIFIKASI" name="PT1_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_2_COMMENT_VERIFIKASI" name="PT1_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Deflection test</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" value="{{ $kriteria->PT1_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_3_ASSESSMENT_VERIFIKASI" name="PT1_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_3_COMMENT_VERIFIKASI" name="PT1_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Trial pit & Laboratory test</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" value="{{ $kriteria->PT1_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_4_ASSESSMENT_VERIFIKASI" name="PT1_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_4_COMMENT_VERIFIKASI" name="PT1_4_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Surface Regularity Test (International Roughness Index, IRI)</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" value="{{ $kriteria->PT1_5_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_5_ASSESSMENT_VERIFIKASI" name="PT1_5_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_5_COMMENT_VERIFIKASI" name="PT1_5_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2400,25 +2405,25 @@
                                                     <td >Use of permeable (porous) pavement mix design with higher range of air void (18 -25%)</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" ></td>
-                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2"></td>
-                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" value="{{ $kriteria->PT2_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2" id="PT2_1_ASSESSMENT_VERIFIKASI" name="PT2_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" id="PT2_1_COMMENT_VERIFIKASI" name="PT2_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Pavement crossfall 2.5% and min unpaved shoulder to drain gradient 0.7%-4%</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" ></td>
-                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2"></td>
-                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" value="{{ $kriteria->PT2_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2" id="PT2_2_ASSESSMENT_VERIFIKASI" name="PT2_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" id="PT2_2_COMMENT_VERIFIKASI" name="PT2_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Drainability of porous asphalt wearing course having a minimum thickness of 50mm shall not be less than 10 litre/minute through a discharge area of 54cm2</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" ></td>
-                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2"></td>
-                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" value="{{ $kriteria->PT2_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2" id="PT2_3_ASSESSMENT_VERIFIKASI" name="PT2_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" id="PT2_3_COMMENT_VERIFIKASI" name="PT2_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2446,9 +2451,9 @@
                                                       iv. The designated system must be demonstrated in operation, be capable of updates and have written plans for its maintenance in perpetuity"</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointPT3()" type="number" min="0" max="2" class="targetPointPT3" name="" id=""></td>
-                                                    <td><input onblur="findAssessmentPointPT3()" type="number" min="0" max="2" class="assessmentPointPT3" name="" id=""></td>
-                                                    <td><input onblur="commentPT3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT3()" type="number" min="0" max="2" class="targetPointPT3" value="{{ $kriteria->PT3_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT3()" type="number" min="0" max="2" class="assessmentPointPT3" id="PT3_1_ASSESSMENT_VERIFIKASI" name="PT3_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT3()" type="text" min="0" max="2" class="road" id="PT3_1_COMMENT_VERIFIKASI" name="PT3_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2472,25 +2477,25 @@
                                                     <td >Meet the requirements of Arahan Teknik Jalan 5/85 (Pindaan 2013): Manual for the structural design of flexible pavement</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4"></td>
-                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4"></td>
-                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4" value="{{ $kriteria->PT4_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4" id="PT4_1_ASSESSMENT_VERIFIKASI" name="PT4_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" id="PT4_1_COMMENT_VERIFIKASI" name="PT4_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Pavement design is in accordance with a design procedure that is formally recognized, adopted and documented by the agency</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4"></td>
-                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4"></td>
-                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4" value="{{ $kriteria->PT4_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4" id="PT4_2_ASSESSMENT_VERIFIKASI" name="PT4_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" id="PT4_2_COMMENT_VERIFIKASI" name="PT4_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Drainability surface runoff by providing scupper drain with hinge grating or equivalent to  ensure no debris blockage and maintainability</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4"></td>
-                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4"></td>
-                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4" value="{{ $kriteria->PT4_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4" id="PT4_3_ASSESSMENT_VERIFIKASI" name="PT4_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" id="PT4_3_COMMENT_VERIFIKASI" name="PT4_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
@@ -2501,9 +2506,9 @@
                                                       To strengthen road based using soil stabilizer method"</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4"></td>
-                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4"></td>
-                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4" value="{{ $kriteria->PT4_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4" id="PT4_4_ASSESSMENT_VERIFIKASI" name="PT4_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" id="PT4_4_COMMENT_VERIFIKASI" name="PT4_4_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2544,9 +2549,9 @@
                                                       ISO 14001:2004 certification for main contractor (Verification stage)"</td>
                                                     <td rowspan="1">CSFJ</td>
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointEW1()" type="number" min="0" max="2" class="targetPointEW1" ></td>
-                                                    <td><input onblur="findAssessmentPointEW1()" type="number" min="0" max="2" class="assessmentPointEW1"></td>
-                                                    <td><input onblur="commentEW1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointEW1()" type="number" min="0" max="2" class="targetPointEW1" value="{{ $kriteria->EW1_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointEW1()" type="number" min="0" max="2" class="assessmentPointEW1" id="EW1_1_ASSESSMENT_VERIFIKASI" name="EW1_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentEW1()" type="text" min="0" max="2" class="road" id="EW1_1_COMMENT_VERIFIKASI" name="EW1_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2585,17 +2590,17 @@
                                                     <td >Develop a stormwater management documents and drawing plans for the site using stormwater best management practices (BMP) for flow control in conformance to the Manual  Saliran Mesra Alam for Malaysia (MSMA) / MSMA 2nd Edition and EMS ISO 14001:2015. Demonstrate that the planned BMPs to conform to all applicable 5% above minimum flow control standards set by MSMA/MSMA 2nd Edition and EMS ISO 14001: 2015.</td>
                                                     <td rowspan="2">CKAS</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointEW2()" type="number" min="0" max="2" class="targetPointEW2" ></td>
-                                                    <td><input onblur="findAssessmentPointEW2()" type="number" min="0" max="2" class="assessmentPointEW2"></td>
-                                                    <td><input onblur="commentEW2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointEW2()" type="number" min="0" max="2" class="targetPointEW2" value="{{ $kriteria->EW2_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointEW2()" type="number" min="0" max="2" class="assessmentPointEW2" id="EW2_1_ASSESSMENT_VERIFIKASI" name="EW2_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentEW2()" type="text" min="0" max="2" class="road" id="EW2_1_COMMENT_VERIFIKASI" name="EW2_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Develop a stormwater management plan for the site using stormwater best management practices (BMP) for water quality control in conformance to the Stormwater Management Manual for Malaysia (MSMA) and EMS ISO 14001:2004. Demonstrate that the planned BMPs to conform to all applicable 5% above minimum water quality standards set by MSMA and EMS ISO 14001: 2004</td>
                                                     {{-- <td></td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointEW2()" type="number" min="0" max="2" class="targetPointEW2" ></td>
-                                                    <td><input onblur="findAssessmentPointEW2()" type="number" min="0" max="2" class="assessmentPointEW2"></td>
-                                                    <td><input onblur="commentEW2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointEW2()" type="number" min="0" max="2" class="targetPointEW2" value="{{ $kriteria->EW2_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointEW2()" type="number" min="0" max="2" class="assessmentPointEW2" id="EW2_2_ASSESSMENT_VERIFIKASI" name="EW2_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentEW2()" type="text" min="0" max="2" class="road" id="EW2_2_COMMENT_VERIFIKASI" name="EW2_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2635,36 +2640,36 @@
                                                     <td >Road Safety Audit (During Design Stage)</td>
                                                     <td></td>
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" ></td>
-                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" ></td>
-                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" value="{{ $kriteria->AE1_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" id="AE1_1_ASSESSMENT_VERIFIKASI" name="AE1_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" id="AE1_1_COMMENT_VERIFIKASI" name="AE1_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Road Safety Audit (During Construction Stage)</td>
                                                     <td></td>
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" ></td>
-                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" ></td>
-                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" value="{{ $kriteria->AE1_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" id="AE1_2_ASSESSMENT_VERIFIKASI" name="AE1_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" id="AE1_2_COMMENT_VERIFIKASI" name="AE1_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Additional Audit For Traffic Management Safety Report During Construction</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" ></td>
-                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" ></td>
-                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" value="{{ $kriteria->AE1_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" id="AE1_3_ASSESSMENT_VERIFIKASI" name="AE1_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" id="AE1_3_COMMENT_VERIFIKASI" name="AE1_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Road Safety Audit (During Operational Stage)</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" ></td>
-                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" ></td>
-                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" value="{{ $kriteria->AE1_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" id="AE1_4_ASSESSMENT_VERIFIKASI" name="AE1_4_ASSESSMENT_VERIFIKASI" ></td>
+                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" id="AE1_4_COMMENT_VERIFIKASI" name="AE1_4_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2702,9 +2707,9 @@
                                                     <td >MS ISO 9001:2008 or (latest version) certification for main contractor</td>
                                                     <td></td>
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointCA1()" type="number" min="0" max="2" class="targetPointCA1"></td>
-                                                    <td><input onblur="findAssessmentPointCA1()" type="number" min="0" max="2" class="assessmentPointCA1" ></td>
-                                                    <td><input onblur="commentCA1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA1()" type="number" min="0" max="2" class="targetPointCA1" value="{{ $kriteria->CA1_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA1()" type="number" min="0" max="2" class="assessmentPointCA1" id="CA1_1_ASSESSMENT_VERIFIKASI" name="CA1_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA1()" type="text" min="0" max="2" class="road" id="CA1_1_COMMENT_VERIFIKASI" name="CA1_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2727,17 +2732,17 @@
                                                     <td >OHSAS 18001:2007 0r (latest version) certification for main contractor</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA2()" type="number" min="0" max="2" class="targetPointCA2"></td>
-                                                    <td><input onblur="findAssessmentPointCA2()" type="number" min="0" max="2" class="assessmentPointCA2" ></td>
-                                                    <td><input onblur="commentCA2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA2()" type="number" min="0" max="2" class="targetPointCA2" value="{{ $kriteria->CA2_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA2()" type="number" min="0" max="2" class="assessmentPointCA2" id="CA2_1_ASSESSMENT_VERIFIKASI" name="CA2_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA2()" type="text" min="0" max="2" class="road" id="CA2_1_COMMENT_VERIFIKASI" name="CA2_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >To provide site safety and health officer with certification by DOSH</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA2()" type="number" min="0" max="2" class="targetPointCA2"></td>
-                                                    <td><input onblur="findAssessmentPointCA2()" type="number" min="0" max="2" class="assessmentPointCA2" ></td>
-                                                    <td><input onblur="commentCA2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA2()" type="number" min="0" max="2" class="targetPointCA2" value="{{ $kriteria->CA2_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA2()" type="number" min="0" max="2" class="assessmentPointCA2" id="CA2_2_ASSESSMENT_VERIFIKASI" name="CA2_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA2()" type="text" min="0" max="2" class="road" id="CA2_2_COMMENT_VERIFIKASI" name="CA2_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2760,36 +2765,36 @@
                                                     <td >Create, establish, implement and maintain a formal construction waste management plan during road construction</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3"></td>
-                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" ></td>
-                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3" value="{{ $kriteria->CA3_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" id="CA3_1_ASSESSMENT_VERIFIKASI" name="CA3_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" id="CA3_1_COMMENT_VERIFIKASI" name="CA3_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Provision of Waste Management Plan in the contract (BQ)</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3"></td>
-                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" ></td>
-                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3" value="{{ $kriteria->CA3_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" id="CA3_2_ASSESSMENT_VERIFIKASI" name="CA3_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" id="CA3_2_COMMENT_VERIFIKASI" name="CA3_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Provide a designated location to segregate construction waste on-site</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3"></td>
-                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" ></td>
-                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3" value="{{ $kriteria->CA3_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" id="CA3_3_ASSESSMENT_VERIFIKASI" name="CA3_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" id="CA3_3_COMMENT_VERIFIKASI" name="CA3_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Appoint the licensed contractor(s) to collect the construction waste </td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3"></td>
-                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" ></td>
-                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3" value="{{ $kriteria->CA3_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" id="CA3_4_ASSESSMENT_VERIFIKASI" name="CA3_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" id="CA3_4_COMMENT_VERIFIKASI" name="CA3_4_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2812,27 +2817,27 @@
                                                     <td >Create, establish and implement a formal traffic management plan during Design and road construction stage</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4"></td>
-                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" ></td>
-                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4" value="{{ $kriteria->CA4_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" id="CA4_1_ASSESSMENT_VERIFIKASI" name="CA4_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" id="CA4_1_COMMENT_VERIFIKASI" name="CA4_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Provision of Traffic Management Officer in the contract document (BQ)</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4"></td>
-                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" ></td>
-                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4" value="{{ $kriteria->CA4_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" id="CA4_2_ASSESSMENT_VERIFIKASI" name="CA4_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" id="CA4_2_COMMENT_VERIFIKASI" name="CA4_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Provision of third party auditor for Traffic Management Plan (TMP)</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4"></td>
-                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" ></td>
-                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4" value="{{ $kriteria->CA4_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" id="CA4_3_ASSESSMENT_VERIFIKASI" name="CA4_3_ASSESSMENT_VERIFIKASI" ></td>
+                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" id="CA4_3_COMMENT_VERIFIKASI" name="CA4_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2855,9 +2860,9 @@
                                                     <td >Create, establish, implement routine maintenanace for road project </td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA5()" type="number" min="0" max="2" class="targetPointCA5"></td>
-                                                    <td><input onblur="findAssessmentPointCA5()" type="number" min="0" max="2" class="assessmentPointCA5" ></td>
-                                                    <td><input onblur="commentCA5()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA5()" type="number" min="0" max="2" class="targetPointCA5" value="{{ $kriteria->CA5_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA5()" type="number" min="0" max="2" class="assessmentPointCA5" id="CA5_1_ASSESSMENT_VERIFIKASI" name="CA5_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA5()" type="text" min="0" max="2" class="road" id="CA5_1_COMMENT_VERIFIKASI" name="CA5_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2882,9 +2887,9 @@
                                                       Establish and implement housekeeping during construction "</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA6()" type="number" min="0" max="2" class="targetPointCA6"></td>
-                                                    <td><input onblur="findAssessmentPointCA6()" type="number" min="0" max="2" class="assessmentPointCA6" ></td>
-                                                    <td><input onblur="commentCA6()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA6()" type="number" min="0" max="2" class="targetPointCA6" value="{{ $kriteria->CA6_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA6()" type="number" min="0" max="2" class="assessmentPointCA6" id="CA6_1_ASSESSMENT_VERIFIKASI" name="CA6_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA6()" type="text" min="0" max="2" class="road" id="CA6_1_COMMENT_VERIFIKASI" name="CA6_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2907,25 +2912,25 @@
                                                     <td >Perform scheduled maintenance of construction machineries</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7"></td>
-                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" ></td>
-                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7" value="{{ $kriteria->CA7_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" id="CA7_1_ASSESSMENT_VERIFIKASI" name="CA7_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" id="CA7_1_COMMENT_VERIFIKASI" name="CA7_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Use high performance machineries with low fuel consumption and low air emission</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7"></td>
-                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" ></td>
-                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7" value="{{ $kriteria->CA7_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" id="CA7_2_ASSESSMENT_VERIFIKASI" name="CA7_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" id="CA7_2_COMMENT_VERIFIKASI" name="CA7_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Provision of ESCP and Environmental Monitoring Report (EMR) – (eg. Water/ Air/ Noise Quality ) in the contract</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7"></td>
-                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" ></td>
-                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7" value="{{ $kriteria->CA7_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" id="CA7_3_ASSESSMENT_VERIFIKASI" name="CA7_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" id="CA7_3_COMMENT_VERIFIKASI" name="CA7_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -2967,42 +2972,42 @@
                                                     <td>Reuse at a minimum 30% of existing pavement materials by estimated volume</td>
                                                     <td rowspan="4">CJ</td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" value="{{ $kriteria->MR1_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_1_ASSESSMENT_VERIFIKASI" name="MR1_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_1_COMMENT_VERIFIKASI" name="MR1_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td>Reuse of existing material other than pavement materials </td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" value="{{ $kriteria->MR1_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_2_ASSESSMENT_VERIFIKASI" name="MR1_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_2_COMMENT_VERIFIKASI" name="MR1_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td>Earthwork balance </td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" value="{{ $kriteria->MR1_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_3_ASSESSMENT_VERIFIKASI" name="MR1_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_3_COMMENT_VERIFIKASI" name="MR1_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td>Fiber Roll Netting using biodegradable material at site for erosion control (eg. Wooden dust, coconut fiber)</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" value="{{ $kriteria->MR1_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_4_ASSESSMENT_VERIFIKASI" name="MR1_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_4_COMMENT_VERIFIKASI" name="MR1_4_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td>To use reusable formwork for structure (eg: steel/ fiber formwork)</td>
                                                     <td ></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" value="{{ $kriteria->MR1_5_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_5_ASSESSMENT_VERIFIKASI" name="MR1_5_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_5_COMMENT_VERIFIKASI" name="MR1_5_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3025,33 +3030,33 @@
                                                     <td >Green Products Scoring System (GPSS) of 70% - 100%</td>
                                                     <td rowspan="4">CASKT</td>
                                                     <td>4</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
-                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td>
-                                                    <td><input onblur="commentMR()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" value="{{ $kriteria->MR2_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2" id="MR2_1_ASSESSMENT_VERIFIKASI" name="MR2_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR()" type="text" min="0" max="2" class="road" id="MR2_1_COMMENT_VERIFIKASI" name="MR2_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Green Products Scoring System (GPSS) of 50% - 69%</td>
                                                     {{-- <td></td> --}}
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
-                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td>
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" value="{{ $kriteria->MR2_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2" id="MR2_2_ASSESSMENT_VERIFIKASI" name="MR2_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_2_COMMENT_VERIFIKASI" name="MR2_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Green Products Scoring System (GPSS) of 40% - 49%</td>
                                                     {{-- <td></td> --}}
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
-                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td>
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" value="{{ $kriteria->MR2_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2" id="MR2_3_ASSESSMENT_VERIFIKASI" name="MR2_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_3_COMMENT_VERIFIKASI" name="MR2_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Use Green Product Scoring System (GPSS)</td>
                                                     {{-- <td></td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
-                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td>
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" value="{{ $kriteria->MR2_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2" id="MR2_4_ASSESSMENT_VERIFIKASI" name="MR2_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_4_COMMENT_VERIFIKASI" name="MR2_4_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3074,17 +3079,17 @@
                                                     <td >Provide updated master inventory of road asset / warranty of material/product after completion of road works</td>
                                                     <td rowspan="2">CSFJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3"></td>
-                                                    <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3"></td>
-                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3" value="{{ $kriteria->MR3_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3" id="MR3_1_ASSESSMENT_VERIFIKASI" name="MR3_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road" id="MR3_1_COMMENT_VERIFIKASI" name="MR3_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Provide established master inventory of  road asset / warranty of material/product of existing road </td>
                                                     {{-- <td></td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3"></td>
-                                                    <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3"></td>
-                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3" value="{{ $kriteria->MR3_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3" id="MR3_2_ASSESSMENT_VERIFIKASI" name="MR3_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road" id="MR3_2_COMMENT_VERIFIKASI" name="MR3_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3107,9 +3112,9 @@
                                                     <td >All systems should be designed to use energy efficient road lightings, while complying to standard and specification for road lightings (eg. MS 825 part 1:2007)</td>
                                                     <td rowspan="1">CKE</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR4()" type="number" min="0" max="2" class="targetPointMR4"></td>
-                                                    <td><input onblur="findAssessmentPointMR4()" type="number" min="0" max="2" class="assessmentPointMR4"></td>
-                                                    <td><input onblur="commentMR4()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR4()" type="number" min="0" max="2" class="targetPointMR4" value="{{ $kriteria->MR4_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointMR4()" type="number" min="0" max="2" class="assessmentPointMR4" id="MR4_1_ASSESSMENT_VERIFIKASI" name="MR4_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentMR4()" type="text" min="0" max="2" class="road" id="MR4_1_COMMENT_VERIFIKASI" name="MR4_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3157,27 +3162,27 @@
                                                     <td >Crossing for disabled users with noise making devices installed</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC"></td>
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" value="{{ $kriteria->ECSM5_EC_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC" id="ECSM5_EC_1_ASSESSMENT_VERIFIKASI" name="ECSM5_EC_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_1_COMMENT_VERIFIKASI" name="ECSM5_EC_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Walkway access for disabled users by providing sidewalks sloped for easy access</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" value="{{ $kriteria->ECSM5_EC_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECSM5_EC_2_ASSESSMENT_VERIFIKASI" name="ECSM5_EC_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_2_COMMENT_VERIFIKASI" name="ECSM5_EC_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Tac tile on the pedestrian pathway and access for disabled users</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC"></td>
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" value="{{ $kriteria->ECSM5_EC_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC" id="ECSM5_EC_3_ASSESSMENT_VERIFIKASI" name="ECSM5_EC_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_3_COMMENT_VERIFIKASI" name="ECSM5_EC_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3200,27 +3205,27 @@
                                                     <td >The pavement mix design  by using quiet pavement</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td>
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" value="{{ $kriteria->ECSM6_EC_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC" id="ECSM6_EC_1_ASSESSMENT_VERIFIKASI" name="ECSM6_EC_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_1_COMMENT_VERIFIKASI" name="ECSM6_EC_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Noise barrier shall be provided in sensitive areas such as housing situated beside busy roads or highways, schools and hospitals</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td>
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" value="{{ $kriteria->ECSM6_EC_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC" id="ECSM6_EC_2_ASSESSMENT_VERIFIKASI" name="ECSM6_EC_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_2_COMMENT_VERIFIKASI" name="ECSM6_EC_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Buffer Zone </td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td>
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" value="{{ $kriteria->ECSM6_EC_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC" id="ECSM6_EC_3_ASSESSMENT_VERIFIKASI" name="ECSM6_EC_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_3_COMMENT_VERIFIKASI" name="ECSM6_EC_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3245,9 +3250,9 @@
                                                       Provide sound barrier at sensitive area for wildlife"</td>
                                                     <td></td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointEW3EC()" type="number" min="0" max="2" class="targetPointEW3EC"></td>
-                                                    <td><input onblur="findAssessmentPointEW3EC()" type="number" min="0" max="2" class="assessmentPointEW3EC"></td>
-                                                    <td><input onblur="commentEW3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointEW3EC()" type="number" min="0" max="2" class="targetPointEW3EC" value="{{ $kriteria->ECEW3_EC_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointEW3EC()" type="number" min="0" max="2" class="assessmentPointEW3EC" id="ECEW3_EC_1_ASSESSMENT_VERIFIKASI" name="ECEW3_EC_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentEW3EC()" type="text" min="0" max="2" class="road" id="ECEW3_EC_1_COMMENT_VERIFIKASI" name="ECEW3_EC_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3272,9 +3277,9 @@
                                                       Provide sound barrier at sensitive area for wildlife"</td>
                                                     <td></td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointAE2EC()" type="number" min="0" max="2" class="targetPointAE2EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE2EC()" type="number" min="0" max="2" class="assessmentPointAE2EC"></td>
-                                                    <td><input onblur="commentAE2EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE2EC()" type="number" min="0" max="2" class="targetPointAE2EC" value="{{ $kriteria->ECAE2_EC_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE2EC()" type="number" min="0" max="2" class="assessmentPointAE2EC" id="ECAE2_EC_1_ASSESSMENT_VERIFIKASI" name="ECAE2_EC_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE2EC()" type="text" min="0" max="2" class="road" id="ECAE2_EC_1_COMMENT_VERIFIKASI" name="ECAE2_EC_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3297,34 +3302,34 @@
                                                     <td >Zebra Crossing or Signalised Pedestrian Crossing  and Refuge Island</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td>
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" value="{{ $kriteria->ECAE3_EC_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC" id="ECAE3_EC_1_ASSESSMENT_VERIFIKASI" name="ECAE3_EC_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_1_COMMENT_VERIFIKASI" name="ECAE3_EC_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Overhead Pedestrian Bridge</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td>
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" value="{{ $kriteria->ECAE3_EC_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC" id="ECAE3_EC_2_ASSESSMENT_VERIFIKASI" name="ECAE3_EC_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_2_COMMENT_VERIFIKASI" name="ECAE3_EC_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Sidewalk / Walkway and Raised Crosswalk</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td>
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" value="{{ $kriteria->ECAE3_EC_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC" id="ECAE3_EC_3_ASSESSMENT_VERIFIKASI" name="ECAE3_EC_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_3_COMMENT_VERIFIKASI" name="ECAE3_EC_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Covered walkway</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td>
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" value="{{ $kriteria->ECAE3_EC_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC" id="ECAE3_EC_4_ASSESSMENT_VERIFIKASI" name="ECAE3_EC_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_4_COMMENT_VERIFIKASI" name="ECAE3_EC_4_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3347,34 +3352,34 @@
                                                     <td >Paved shoulder, non-exclusive motorcycle lane and end treatment at junction</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
-                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" value="{{ $kriteria->ECAE4_EC_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE4_EC_1_ASSESSMENT_VERIFIKASI" name="ECAE4_EC_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_1_COMMENT_VERIFIKASI" name="ECAE4_EC_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Exclusive motorcycle lane</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
-                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" value="{{ $kriteria->ECAE4_EC_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE4_EC_2_ASSESSMENT_VERIFIKASI" name="ECAE4_EC_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_2_COMMENT_VERIFIKASI" name="ECAE4_EC_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Overhead motorcycle bridge</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
-                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" value="{{ $kriteria->ECAE4_EC_3_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE4_EC_3_ASSESSMENT_VERIFIKASI" name="ECAE4_EC_3_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_3_COMMENT_VERIFIKASI" name="ECAE4_EC_3_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Motorcycle shelter</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
-                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" value="{{ $kriteria->ECAE4_EC_4_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE4_EC_4_ASSESSMENT_VERIFIKASI" name="ECAE4_EC_4_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_4_COMMENT_VERIFIKASI" name="ECAE4_EC_4_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3397,9 +3402,9 @@
                                                     <td >Provide or maintain existing rest area facilities along the road </td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE5EC()" type="number" min="0" max="2" class="targetPointAE5EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE5EC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE5EC()" type="number" min="0" max="2" class="targetPointAE5EC" value="{{ $kriteria->ECAE5_EC_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE5EC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE5_EC_1_ASSESSMENT_VERIFIKASI" name="ECAE5_EC_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE5EC()" type="text" min="0" max="2" class="road" id="ECAE5_EC_1_COMMENT_VERIFIKASI" name="ECAE5_EC_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3422,18 +3427,18 @@
                                                     <td >Implement physical or constructed changes to the roadway structure, dimensions, or form that provide bicycle-only facilities with dedicated access (such as bicycle lane). Lanes shared with motorized vehicles do not meet this requirement </td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC" value="{{ $kriteria->ECAE6_EC_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE6_EC_1_ASSESSMENT_VERIFIKASI" name="ECAE6_EC_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road" id="ECAE6_EC_1_COMMENT_VERIFIKASI" name="ECAE6_EC_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Implement physical or constructed changes to the roadway structure, dimensions, or form that provide bicycle-only facilities with dedicated access (such as bicycle lane). Lanes shared with motorized vehicles do not meet this requirement</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointAE6EC"></td>
-                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC" value="{{ $kriteria->ECAE6_EC_2_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointAE6EC" id="ECAE6_EC_2_ASSESSMENT_VERIFIKASI" name="ECAE6_EC_2_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road" id="ECAE6_EC_2_COMMENT_VERIFIKASI" name="ECAE6_EC_2_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -3475,9 +3480,9 @@
                                                     <td>Come up with an idea for a design or construction best practice for road that is not currently included in Manual pH JKR and is more sustainable than standard or conventional practices</td>
                                                     <td rowspan="1">ANY</td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointIN()" type="number" min="0" max="2" class="targetPointIN"></td>
-                                                    <td><input onblur="findAssessmentPointIN()" type="number" min="0" max="2" class="assessmentPointIN"></td>
-                                                    <td><input onblur="commentIN()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointIN()" type="number" min="0" max="2" class="targetPointIN" value="{{ $kriteria->IN1_1_TP_DESIGN }}"></td>
+                                                    <td><input onblur="findAssessmentPointIN()" type="number" min="0" max="2" class="assessmentPointIN" id="IN1_1_ASSESSMENT_VERIFIKASI" name="IN1_1_ASSESSMENT_VERIFIKASI"></td>
+                                                    <td><input onblur="commentIN()" type="text" min="0" max="2" class="road" id="IN1_1_COMMENT_VERIFIKASI" name="IN1_1_COMMENT_VERIFIKASI"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -4899,53 +4904,53 @@
                                                     <td >Traffic study</td>
                                                     <td rowspan="7">CJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_1_TP_DESIGN_RAYUAN" name="SM1_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_1_COMMENT_VERIFIKASI_RAYUAN" name="SM1_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Site investigation data</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_2_TP_DESIGN_RAYUAN" name="SM1_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_2_COMMENT_VERIFIKASI_RAYUAN" name="SM1_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                    
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Flood records</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_3_TP_DESIGN_RAYUAN" name="SM1_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_3_COMMENT_VERIFIKASI_RAYUAN" name="SM1_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Response to public complaints or requests from public, local authority & etc.</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_4_TP_DESIGN_RAYUAN" name="SM1_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_4_COMMENT_VERIFIKASI_RAYUAN" name="SM1_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Value Management (VM)</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_5_TP_DESIGN_RAYUAN" name="SM1_5_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_5_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_5_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_5_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_5_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_5_COMMENT_VERIFIKASI_RAYUAN" name="SM1_5_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_5_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Survey Drawing</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_6_TP_DESIGN_RAYUAN" name="SM1_6_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_6_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_6_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_6_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_6_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_6_COMMENT_VERIFIKASI_RAYUAN" name="SM1_6_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_6_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                 
                                                   </tr>
@@ -4953,9 +4958,9 @@
                                                   <tr>
                                                     <td >As Built Drawings</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_7_TP_DESIGN_RAYUAN" name="SM1_7_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_7_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_7_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_7_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_7_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_7_COMMENT_VERIFIKASI_RAYUAN" name="SM1_7_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_7_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                               
                                                   </tr>
                               
@@ -4963,9 +4968,9 @@
                                                     <td >Accident Reports</td>
                                                     <td>CSFJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_8_TP_DESIGN_RAYUAN" name="SM1_8_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_8_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_8_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_8_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_8_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_8_COMMENT_VERIFIKASI_RAYUAN" name="SM1_8_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_8_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                               
@@ -4973,27 +4978,27 @@
                                                     <td >Structure replacement (Bridge assessment report/ Inventory card)</td>
                                                     <td rowspan="3">CJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_9_TP_DESIGN_RAYUAN" name="SM1_9_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_9_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_9_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_9_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_9_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_9_COMMENT_VERIFIKASI_RAYUAN" name="SM1_9_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_9_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Forensic Report</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_10_TP_DESIGN_RAYUAN" name="SM1_10_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_10_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_10_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_10_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_10_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_10_COMMENT_VERIFIKASI_RAYUAN" name="SM1_10_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_10_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Pavement evaluation (testing & report)</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM1()" type="number" min="0" max="2" class="targetPointSM1" id="SM1_11_TP_DESIGN_RAYUAN" name="SM1_11_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM1_11_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM1_11_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM1_11_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_11_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM1()" type="text" min="0" max="2" class="road" id="SM1_11_COMMENT_VERIFIKASI_RAYUAN" name="SM1_11_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM1_11_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <td style="display: none">markahSM1<input type="text" name="markahSM1" id="markahSM1" /></td>            
@@ -5016,54 +5021,54 @@
                                                     <td >Slope not more than 6 berms</td>
                                                     <td rowspan="7">CJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" id="SM2_1_TP_DESIGN_RAYUAN" name="SM2_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM2_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM2_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_1_COMMENT_VERIFIKASI_RAYUAN" name="SM2_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Cut slope not steeper than 1:1.5 or Rock slope not steeper than 4:1 </td>
                                                     {{-- <td rowspan="7">CKG</td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" id="SM2_2_TP_DESIGN_RAYUAN" name="SM2_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM2_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM2_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_2_COMMENT_VERIFIKASI_RAYUAN" name="SM2_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                    
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Fill slope not steeper than 1:2</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" id="SM2_3_TP_DESIGN_RAYUAN" name="SM2_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM2_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM2_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_3_COMMENT_VERIFIKASI_RAYUAN" name="SM2_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Height of slope not more than 6m</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" id="SM2_4_TP_DESIGN_RAYUAN" name="SM2_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM2_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM2_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_4_COMMENT_VERIFIKASI_RAYUAN" name="SM2_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Maximum grade less than 7%</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" id="SM2_5_TP_DESIGN_RAYUAN" name="SM2_5_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM2_5_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_5_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM2_5_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_5_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_5_COMMENT_VERIFIKASI_RAYUAN" name="SM2_5_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_5_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                
                                                   </tr>
                               
                                                   <tr>
                                                     <td >No reclamation involved existing water bodies</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" id="SM2_6_TP_DESIGN_RAYUAN" name="SM2_6_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM2_6_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_6_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM2_6_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_6_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_6_COMMENT_VERIFIKASI_RAYUAN" name="SM2_6_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_6_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                 
                                                   </tr>
@@ -5071,9 +5076,9 @@
                                                   <tr>
                                                     <td >Provide added uphill lane (climbing lane) where the length of critical grade exceeds 5%</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" id="SM2_7_TP_DESIGN_RAYUAN" name="SM2_7_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM2_7_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_7_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM2_7_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_7_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_7_COMMENT_VERIFIKASI_RAYUAN" name="SM2_7_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_7_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                               
                                                   </tr>
                               
@@ -5081,9 +5086,9 @@
                                                     <td >Not in Sensitive Area OR Sensitive area with mitigation plan</td>
                                                     <td>CASKT</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM2()" type="number" min="0" max="2" class="targetPointSM2" id="SM2_8_TP_DESIGN_RAYUAN" name="SM2_8_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM2_8_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM2_8_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM2_8_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_8_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM2()" type="text" min="0" max="2" class="road" id="SM2_8_COMMENT_VERIFIKASI_RAYUAN" name="SM2_8_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM2_8_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                               
@@ -5106,9 +5111,9 @@
                                                     <td >Use non-invasive plant species(example: grass/creeper) </td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" id="SM3_1_TP_DESIGN_RAYUAN" name="SM3_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM3_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM3_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_1_COMMENT_VERIFIKASI_RAYUAN" name="SM3_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                    
                                                   </tr>
                               
@@ -5116,9 +5121,9 @@
                                                     <td >Use bio-engineering techniques (example: vetiver grass, creeper and regeneration of natural plants and material )</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" id="SM3_2_TP_DESIGN_RAYUAN" name="SM3_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM3_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM3_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_2_COMMENT_VERIFIKASI_RAYUAN" name="SM3_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                                 
@@ -5126,9 +5131,9 @@
                                                     <td >Use native plant species</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" id="SM3_3_TP_DESIGN_RAYUAN" name="SM3_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM3_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM3_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_3_COMMENT_VERIFIKASI_RAYUAN" name="SM3_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                               
@@ -5136,9 +5141,9 @@
                                                     <td >Use of grass/creeper for slope protection /unpaved shoulder</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" id="SM3_4_TP_DESIGN_RAYUAN" name="SM3_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM3_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM3_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_4_COMMENT_VERIFIKASI_RAYUAN" name="SM3_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                
                                                   </tr>
                               
@@ -5146,9 +5151,9 @@
                                                     <td >Hydroseeding with Bio-degradable Erosion Control Blanket(BECB) on slope</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" id="SM3_5_TP_DESIGN_RAYUAN" name="SM3_5_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM3_5_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_5_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM3_5_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_5_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_5_COMMENT_VERIFIKASI_RAYUAN" name="SM3_5_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_5_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                     
                                                   </tr>
                               
@@ -5156,9 +5161,9 @@
                                                     <td >Preservation of existing tree/vegetation</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" ></td>
-                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointSM3()" type="number" min="0" max="2" class="targetPointSM3" id="SM3_6_TP_DESIGN_RAYUAN" name="SM3_6_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM3_6_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM3_6_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM3_6_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_6_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM3()" type="text" min="0" max="2" class="road" id="SM3_6_COMMENT_VERIFIKASI_RAYUAN" name="SM3_6_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM3_6_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                               
                                                   </tr>
                               
@@ -5182,26 +5187,26 @@
                                                   <td >Supply and install noise barrier including maintenance during the construction and defects liability period (for urban area / residential area)</td>
                                                   <td rowspan="4">CJ</td>
                                                   <td>1</td>
-                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" ></td>
-                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" id="SM4_1_TP_DESIGN_RAYUAN" name="SM4_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM4_1_TP_DESIGN_RAYUAN}}"></td>
+                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM4_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM4_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM4_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" id="SM4_1_COMMENT_VERIFIKASI_RAYUAN" name="SM4_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM4_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                 </tr>
                               
                                                 <tr>
                                                   <td >To ensure that all site equipment are in using low decibel to control noise pollution </td>
                                                   <td>1</td>
-                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" ></td>
-                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" id="SM4_2_TP_DESIGN_RAYUAN" name="SM4_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM4_2_TP_DESIGN_RAYUAN}}"></td>
+                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM4_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM4_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM4_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" id="SM4_2_COMMENT_VERIFIKASI_RAYUAN" name="SM4_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM4_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                  
                                                 </tr>
                               
                                                 <tr>
                                                   <td >To ensure using all machineryon site are low decibel to minimize the amount of noise generated </td>
                                                   <td>1</td>
-                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" ></td>
-                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM"></td>
-                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                  <td><input onblur="findTargetPointSM4()" type="number" min="0" max="2" class="targetPointSM4" id="SM4_3_TP_DESIGN_RAYUAN" name="SM4_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->SM4_3_TP_DESIGN_RAYUAN}}"></td>
+                                                  <td><input onblur="findAssessmentPointSM()" type="number" min="0" max="2" class="assessmentPointSM" id="SM4_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="SM4_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM4_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                  <td><input onblur="commentSM4()" type="text" min="0" max="2" class="road" id="SM4_3_COMMENT_VERIFIKASI_RAYUAN" name="SM4_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->SM4_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   
                                                 </tr>
                               
@@ -5241,41 +5246,41 @@
                                                     <td>Surface Condition Survey</td>
                                                     <td rowspan="5">CSFJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" id="PT1_1_TP_DESIGN_RAYUAN" name="PT1_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT1_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT1_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_1_COMMENT_VERIFIKASI_RAYUAN" name="PT1_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Coring & Dynamic Cone Penetrometer test</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" id="PT1_2_TP_DESIGN_RAYUAN" name="PT1_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT1_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT1_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_2_COMMENT_VERIFIKASI_RAYUAN" name="PT1_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Deflection test</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" id="PT1_3_TP_DESIGN_RAYUAN" name="PT1_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT1_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT1_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_3_COMMENT_VERIFIKASI_RAYUAN" name="PT1_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                 
                                                   <tr>
                                                     <td >Trial pit & Laboratory test</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" id="PT1_4_TP_DESIGN_RAYUAN" name="PT1_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT1_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT1_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_4_COMMENT_VERIFIKASI_RAYUAN" name="PT1_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Surface Regularity Test (International Roughness Index, IRI)</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" ></td>
-                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1"></td>
-                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT1()" type="number" min="0" max="2" class="targetPointPT1" id="PT1_5_TP_DESIGN_RAYUAN" name="PT1_5_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT1_5_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT1()" type="number" min="0" max="2" class="assessmentPointPT1" id="PT1_5_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT1_5_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_5_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT1()" type="text" min="0" max="2" class="road" id="PT1_5_COMMENT_VERIFIKASI_RAYUAN" name="PT1_5_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT1_5_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5310,25 +5315,25 @@
                                                     <td >use of permeable (porous) pavement mix design</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" ></td>
-                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2"></td>
-                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" id="PT2_1_TP_DESIGN_RAYUAN" name="PT2_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT2_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2" id="PT2_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT2_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT2_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" id="PT2_1_COMMENT_VERIFIKASI_RAYUAN" name="PT2_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT2_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Pavement crossfall 2.5% and min unpaved shoulder to drain</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" ></td>
-                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2"></td>
-                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" id="PT2_2_TP_DESIGN_RAYUAN" name="PT2_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT2_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2" id="PT2_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT2_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT2_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" id="PT2_2_COMMENT_VERIFIKASI_RAYUAN" name="PT2_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT2_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Drainability of porous asphalt wearing course having a minimum thickness of 50mm</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" ></td>
-                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2"></td>
-                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT2()" type="number" min="0" max="2" class="targetPointPT2" id="PT2_3_TP_DESIGN_RAYUAN" name="PT2_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT2_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT2()" type="number" min="0" max="2" class="assessmentPointPT2" id="PT2_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT2_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT2_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT2()" type="text" min="0" max="2" class="road" id="PT2_3_COMMENT_VERIFIKASI_RAYUAN" name="PT2_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT2_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5356,9 +5361,9 @@
                                                       iv. The designated system must be demonstrated in operation, be capable of updates and have written plans for its maintenance in perpetuity"</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointPT3()" type="number" min="0" max="2" class="targetPointPT3" name="" id=""></td>
-                                                    <td><input onblur="findAssessmentPointPT3()" type="number" min="0" max="2" class="assessmentPointPT3" name="" id=""></td>
-                                                    <td><input onblur="commentPT3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT3()" type="number" min="0" max="2" class="targetPointPT3" id="PT3_1_TP_DESIGN_RAYUAN" name="PT3_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT3_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT3()" type="number" min="0" max="2" class="assessmentPointPT3" id="PT3_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT3_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT3_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT3()" type="text" min="0" max="2" class="road" id="PT3_1_COMMENT_VERIFIKASI_RAYUAN" name="PT3_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT3_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5382,25 +5387,25 @@
                                                     <td >Meet the requirements of Arahan Teknik Jalan 5/85 (Pindaan 2013): Manual for the structural design of flexible pavement</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4"></td>
-                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4"></td>
-                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4" id="PT4_1_TP_DESIGN_RAYUAN" name="PT4_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT4_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4" id="PT4_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT4_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT4_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" id="PT4_1_COMMENT_VERIFIKASI_RAYUAN" name="PT4_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT4_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Pavement design is in accordance with a design procedure that is formally recognized, adopted and documented by the agency</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4"></td>
-                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4"></td>
-                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4" id="PT4_2_TP_DESIGN_RAYUAN" name="PT4_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT4_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4" id="PT4_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT4_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT4_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" id="PT4_2_COMMENT_VERIFIKASI_RAYUAN" name="PT4_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT4_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Drainability surface runoff by providing scupper drain with hinge grating or equivalent to  ensure no debris blockage and maintainability</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4"></td>
-                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4"></td>
-                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4" id="PT4_3_TP_DESIGN_RAYUAN" name="PT4_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT4_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4" id="PT4_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT4_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT4_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" id="PT4_3_COMMENT_VERIFIKASI_RAYUAN" name="PT4_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT4_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
@@ -5411,9 +5416,9 @@
                                                       To strengthen road based using soil stabilizer method"</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4"></td>
-                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4"></td>
-                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointPT4()" type="number" min="0" max="2" class="targetPointPT4" id="PT4_4_TP_DESIGN_RAYUAN" name="PT4_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->PT4_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointPT4()" type="number" min="0" max="2" class="assessmentPointPT4" id="PT4_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="PT4_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT4_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentPT4()" type="text" min="0" max="2" class="road" id="PT4_4_COMMENT_VERIFIKASI_RAYUAN" name="PT4_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->PT4_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5454,9 +5459,9 @@
                                                       ISO 14001:2004 certification for main contractor (Verification stage)"</td>
                                                     <td rowspan="1">CSFJ</td>
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointEW1()" type="number" min="0" max="2" class="targetPointEW1" ></td>
-                                                    <td><input onblur="findAssessmentPointEW1()" type="number" min="0" max="2" class="assessmentPointEW1"></td>
-                                                    <td><input onblur="commentEW1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointEW1()" type="number" min="0" max="2" class="targetPointEW1" id="EW1_1_TP_DESIGN_RAYUAN" name="EW1_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->EW1_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointEW1()" type="number" min="0" max="2" class="assessmentPointEW1" id="EW1_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="EW1_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->EW1_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentEW1()" type="text" min="0" max="2" class="road" id="EW1_1_COMMENT_VERIFIKASI_RAYUAN" name="EW1_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->EW1_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5495,17 +5500,17 @@
                                                     <td >Develop a stormwater management documents and drawing plans for the site using stormwater best management practices (BMP) for flow control in conformance to the Manual  Saliran Mesra Alam for Malaysia (MSMA) / MSMA 2nd Edition and EMS ISO 14001:2015. Demonstrate that the planned BMPs to conform to all applicable 5% above minimum flow control standards set by MSMA/MSMA 2nd Edition and EMS ISO 14001: 2015.</td>
                                                     <td rowspan="2">CKAS</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointEW2()" type="number" min="0" max="2" class="targetPointEW2" ></td>
-                                                    <td><input onblur="findAssessmentPointEW2()" type="number" min="0" max="2" class="assessmentPointEW2"></td>
-                                                    <td><input onblur="commentEW2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointEW2()" type="number" min="0" max="2" class="targetPointEW2" id="EW2_1_TP_DESIGN_RAYUAN" name="EW2_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->EW2_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointEW2()" type="number" min="0" max="2" class="assessmentPointEW2" id="EW2_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="EW2_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->EW2_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentEW2()" type="text" min="0" max="2" class="road" id="EW2_1_COMMENT_VERIFIKASI_RAYUAN" name="EW2_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->EW2_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Develop a stormwater management plan for the site using stormwater best management practices (BMP) for water quality control in conformance to the Stormwater Management Manual for Malaysia (MSMA) and EMS ISO 14001:2004. Demonstrate that the planned BMPs to conform to all applicable 5% above minimum water quality standards set by MSMA and EMS ISO 14001: 2004</td>
                                                     {{-- <td></td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointEW2()" type="number" min="0" max="2" class="targetPointEW2" ></td>
-                                                    <td><input onblur="findAssessmentPointEW2()" type="number" min="0" max="2" class="assessmentPointEW2"></td>
-                                                    <td><input onblur="commentEW2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointEW2()" type="number" min="0" max="2" class="targetPointEW2" id="EW2_2_TP_DESIGN_RAYUAN" name="EW2_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->EW2_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointEW2()" type="number" min="0" max="2" class="assessmentPointEW2" id="EW2_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="EW2_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->EW2_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentEW2()" type="text" min="0" max="2" class="road" id="EW2_2_COMMENT_VERIFIKASI_RAYUAN" name="EW2_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->EW2_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5545,36 +5550,36 @@
                                                     <td >Road Safety Audit (During Design Stage)</td>
                                                     <td></td>
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" ></td>
-                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" ></td>
-                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" id="AE1_1_TP_DESIGN_RAYUAN" name="AE1_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->AE1_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" id="AE1_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="AE1_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->AE1_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" id="AE1_1_COMMENT_VERIFIKASI_RAYUAN" name="AE1_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->AE1_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Road Safety Audit (During Construction Stage)</td>
                                                     <td></td>
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" ></td>
-                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" ></td>
-                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" id="AE1_2_TP_DESIGN_RAYUAN" name="AE1_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->AE1_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" id="AE1_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="AE1_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->AE1_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" id="AE1_2_COMMENT_VERIFIKASI_RAYUAN" name="AE1_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->AE1_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Additional Audit For Traffic Management Safety Report During Construction</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" ></td>
-                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" ></td>
-                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" id="AE1_3_TP_DESIGN_RAYUAN" name="AE1_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->AE1_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" id="AE1_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="AE1_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->AE1_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" id="AE1_3_COMMENT_VERIFIKASI_RAYUAN" name="AE1_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->AE1_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Road Safety Audit (During Operational Stage)</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" ></td>
-                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" ></td>
-                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointAE1()" type="number" min="0" max="2" class="targetPointAE1" id="AE1_4_TP_DESIGN_RAYUAN" name="AE1_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->AE1_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE1()" type="number" min="0" max="2" class="assessmentPointAE1" id="AE1_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="AE1_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->AE1_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE1()" type="text" min="0" max="2" class="road" id="AE1_4_COMMENT_VERIFIKASI_RAYUAN" name="AE1_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->AE1_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5612,9 +5617,9 @@
                                                     <td >MS ISO 9001:2008 or (latest version) certification for main contractor</td>
                                                     <td></td>
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointCA1()" type="number" min="0" max="2" class="targetPointCA1"></td>
-                                                    <td><input onblur="findAssessmentPointCA1()" type="number" min="0" max="2" class="assessmentPointCA1" ></td>
-                                                    <td><input onblur="commentCA1()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA1()" type="number" min="0" max="2" class="targetPointCA1" id="CA1_1_TP_DESIGN_RAYUAN" name="CA1_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA1_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA1()" type="number" min="0" max="2" class="assessmentPointCA1" id="CA1_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA1_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA1_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA1()" type="text" min="0" max="2" class="road" id="CA1_1_COMMENT_VERIFIKASI_RAYUAN" name="CA1_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA1_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5637,17 +5642,17 @@
                                                     <td >OHSAS 18001:2007 0r (latest version) certification for main contractor</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA2()" type="number" min="0" max="2" class="targetPointCA2"></td>
-                                                    <td><input onblur="findAssessmentPointCA2()" type="number" min="0" max="2" class="assessmentPointCA2" ></td>
-                                                    <td><input onblur="commentCA2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA2()" type="number" min="0" max="2" class="targetPointCA2" id="CA2_1_TP_DESIGN_RAYUAN" name="CA2_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA2_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA2()" type="number" min="0" max="2" class="assessmentPointCA2" id="CA2_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA2_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA2_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA2()" type="text" min="0" max="2" class="road" id="CA2_1_COMMENT_VERIFIKASI_RAYUAN" name="CA2_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA2_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >To provide site safety and health officer with certification by DOSH</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA2()" type="number" min="0" max="2" class="targetPointCA2"></td>
-                                                    <td><input onblur="findAssessmentPointCA2()" type="number" min="0" max="2" class="assessmentPointCA2" ></td>
-                                                    <td><input onblur="commentCA2()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA2()" type="number" min="0" max="2" class="targetPointCA2" id="CA2_2_TP_DESIGN_RAYUAN" name="CA2_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA2_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA2()" type="number" min="0" max="2" class="assessmentPointCA2" id="CA2_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA2_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA2_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA2()" type="text" min="0" max="2" class="road" id="CA2_2_COMMENT_VERIFIKASI_RAYUAN" name="CA2_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA2_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5670,36 +5675,36 @@
                                                     <td >Create, establish, implement and maintain a formal construction waste management plan during road construction</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3"></td>
-                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" ></td>
-                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3" id="CA3_1_TP_DESIGN_RAYUAN" name="CA3_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA3_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" id="CA3_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA3_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA3_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" id="CA3_1_COMMENT_VERIFIKASI_RAYUAN" name="CA3_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA3_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Provision of Waste Management Plan in the contract (BQ)</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3"></td>
-                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" ></td>
-                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3" id="CA3_2_TP_DESIGN_RAYUAN" name="CA3_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA3_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" id="CA3_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA3_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA3_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" id="CA3_2_COMMENT_VERIFIKASI_RAYUAN" name="CA3_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA3_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Provide a designated location to segregate construction waste on-site</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3"></td>
-                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" ></td>
-                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3" id="CA3_3_TP_DESIGN_RAYUAN" name="CA3_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA3_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" id="CA3_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA3_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA3_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" id="CA3_3_COMMENT_VERIFIKASI_RAYUAN" name="CA3_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA3_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Appoint the licensed contractor(s) to collect the construction waste </td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3"></td>
-                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" ></td>
-                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA3()" type="number" min="0" max="2" class="targetPointCA3" id="CA3_4_TP_DESIGN_RAYUAN" name="CA3_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA3_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA3()" type="number" min="0" max="2" class="assessmentPointCA3" id="CA3_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA3_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA3_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA3()" type="text" min="0" max="2" class="road" id="CA3_4_COMMENT_VERIFIKASI_RAYUAN" name="CA3_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA3_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5722,27 +5727,27 @@
                                                     <td >Create, establish and implement a formal traffic management plan during Design and road construction stage</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4"></td>
-                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" ></td>
-                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4" id="CA4_1_TP_DESIGN_RAYUAN" name="CA4_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA4_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" id="CA4_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA4_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA4_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" id="CA4_1_COMMENT_VERIFIKASI_RAYUAN" name="CA4_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA4_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Provision of Traffic Management Officer in the contract document (BQ)</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4"></td>
-                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" ></td>
-                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4" id="CA4_2_TP_DESIGN_RAYUAN" name="CA4_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA4_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" id="CA4_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA4_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA4_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" id="CA4_2_COMMENT_VERIFIKASI_RAYUAN" name="CA4_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA4_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Provision of third party auditor for Traffic Management Plan (TMP)</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4"></td>
-                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" ></td>
-                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA4()" type="number" min="0" max="2" class="targetPointCA4" id="CA4_3_TP_DESIGN_RAYUAN" name="CA4_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA4_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA4()" type="number" min="0" max="2" class="assessmentPointCA4" id="CA4_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA4_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA4_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA4()" type="text" min="0" max="2" class="road" id="CA4_3_COMMENT_VERIFIKASI_RAYUAN" name="CA4_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA4_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5765,9 +5770,9 @@
                                                     <td >Create, establish, implement routine maintenanace for road project </td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA5()" type="number" min="0" max="2" class="targetPointCA5"></td>
-                                                    <td><input onblur="findAssessmentPointCA5()" type="number" min="0" max="2" class="assessmentPointCA5" ></td>
-                                                    <td><input onblur="commentCA5()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA5()" type="number" min="0" max="2" class="targetPointCA5" id="CA5_1_TP_DESIGN_RAYUAN" name="CA5_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA5_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA5()" type="number" min="0" max="2" class="assessmentPointCA5" id="CA5_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA5_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA5_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA5()" type="text" min="0" max="2" class="road" id="CA5_1_COMMENT_VERIFIKASI_RAYUAN" name="CA5_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA5_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5792,9 +5797,9 @@
                                                       Establish and implement housekeeping during construction "</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA6()" type="number" min="0" max="2" class="targetPointCA6"></td>
-                                                    <td><input onblur="findAssessmentPointCA6()" type="number" min="0" max="2" class="assessmentPointCA6" ></td>
-                                                    <td><input onblur="commentCA6()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA6()" type="number" min="0" max="2" class="targetPointCA6" id="CA6_1_TP_DESIGN_RAYUAN" name="CA6_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA6_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA6()" type="number" min="0" max="2" class="assessmentPointCA6" id="CA6_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA6_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA6_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA6()" type="text" min="0" max="2" class="road" id="CA6_1_COMMENT_VERIFIKASI_RAYUAN" name="CA6_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA6_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5817,25 +5822,25 @@
                                                     <td >Perform scheduled maintenance of construction machineries</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7"></td>
-                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" ></td>
-                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7" id="CA7_1_TP_DESIGN_RAYUAN" name="CA7_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA7_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" id="CA7_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA7_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA7_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" id="CA7_1_COMMENT_VERIFIKASI_RAYUAN" name="CA7_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA7_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Use high performance machineries with low fuel consumption and low air emission</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7"></td>
-                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" ></td>
-                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7" id="CA7_2_TP_DESIGN_RAYUAN" name="CA7_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA7_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" id="CA7_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA7_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA7_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" id="CA7_2_COMMENT_VERIFIKASI_RAYUAN" name="CA7_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA7_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Provision of ESCP and Environmental Monitoring Report (EMR) – (eg. Water/ Air/ Noise Quality ) in the contract</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7"></td>
-                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" ></td>
-                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointCA7()" type="number" min="0" max="2" class="targetPointCA7" id="CA7_3_TP_DESIGN_RAYUAN" name="CA7_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->CA7_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointCA7()" type="number" min="0" max="2" class="assessmentPointCA7" id="CA7_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="CA7_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA7_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentCA7()" type="text" min="0" max="2" class="road" id="CA7_3_COMMENT_VERIFIKASI_RAYUAN" name="CA7_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->CA7_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5877,42 +5882,42 @@
                                                     <td>Reuse at a minimum 30% of existing pavement materials by estimated volume</td>
                                                     <td rowspan="4">CJ</td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" id="MR1_1_TP_DESIGN_RAYUAN" name="MR1_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR1_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR1_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_1_COMMENT_VERIFIKASI_RAYUAN" name="MR1_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td>Reuse of existing material other than pavement materials </td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" id="MR1_2_TP_DESIGN_RAYUAN" name="MR1_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR1_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR1_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_2_COMMENT_VERIFIKASI_RAYUAN" name="MR1_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td>Earthwork balance </td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" id="MR1_3_TP_DESIGN_RAYUAN" name="MR1_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR1_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR1_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_3_COMMENT_VERIFIKASI_RAYUAN" name="MR1_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td>Fiber Roll Netting using biodegradable material at site for erosion control (eg. Wooden dust, coconut fiber)</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" id="MR1_4_TP_DESIGN_RAYUAN" name="MR1_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR1_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR1_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_4_COMMENT_VERIFIKASI_RAYUAN" name="MR1_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td>To use reusable formwork for structure (eg: steel/ fiber formwork)</td>
                                                     <td ></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1"></td>
-                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1"></td>
-                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR1()" type="number" min="0" max="2" class="targetPointMR1" id="MR1_5_TP_DESIGN_RAYUAN" name="MR1_5_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR1_5_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR1()" type="number" min="0" max="2" class="assessmentPointMR1" id="MR1_5_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR1_5_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_5_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR1()" type="text" min="0" max="2" class="road" id="MR1_5_COMMENT_VERIFIKASI_RAYUAN" name="MR1_5_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR1_5_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5935,33 +5940,33 @@
                                                     <td >Green Products Scoring System (GPSS) of 70% - 100%</td>
                                                     <td rowspan="4">CASKT</td>
                                                     <td>4</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
-                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td>
-                                                    <td><input onblur="commentMR()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" id="MR2_1_TP_DESIGN_RAYUAN" name="MR2_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR2_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2" id="MR2_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR2_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR2_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR()" type="text" min="0" max="2" class="road" id="MR2_1_COMMENT_VERIFIKASI_RAYUAN" name="MR2_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR2_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Green Products Scoring System (GPSS) of 50% - 69%</td>
                                                     {{-- <td></td> --}}
                                                     <td>3</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
-                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td>
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" id="MR2_2_TP_DESIGN_RAYUAN" name="MR2_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR2_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2" id="MR2_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR2_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR2_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_2_COMMENT_VERIFIKASI_RAYUAN" name="MR2_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR2_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Green Products Scoring System (GPSS) of 40% - 49%</td>
                                                     {{-- <td></td> --}}
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
-                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td>
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" id="MR2_3_TP_DESIGN_RAYUAN" name="MR2_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR2_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2" id="MR2_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR2_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR2_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_3_COMMENT_VERIFIKASI_RAYUAN" name="MR2_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR2_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Use Green Product Scoring System (GPSS)</td>
                                                     {{-- <td></td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2"></td>
-                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2"></td>
-                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR2()" type="number" min="0" max="2" class="targetPointMR2" id="MR2_4_TP_DESIGN_RAYUAN" name="MR2_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR2_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR2()" type="number" min="0" max="2" class="assessmentPointMR2" id="MR2_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR2_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR2_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR2()" type="text" min="0" max="2" class="road" id="MR2_4_COMMENT_VERIFIKASI_RAYUAN" name="MR2_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR2_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -5984,17 +5989,17 @@
                                                     <td >Provide updated master inventory of road asset / warranty of material/product after completion of road works</td>
                                                     <td rowspan="2">CSFJ</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3"></td>
-                                                    <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3"></td>
-                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3" id="MR3_1_TP_DESIGN_RAYUAN" name="MR3_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR3_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3" id="MR3_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR3_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR3_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road" id="MR3_1_COMMENT_VERIFIKASI_RAYUAN" name="MR3_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR3_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Provide established master inventory of  road asset / warranty of material/product of existing road </td>
                                                     {{-- <td></td> --}}
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3"></td>
-                                                    <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3"></td>
-                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR3()" type="number" min="0" max="2" class="targetPointMR3" id="MR3_2_TP_DESIGN_RAYUAN" name="MR3_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR3_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR3()" type="number" min="0" max="2" class="assessmentPointMR3" id="MR3_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR3_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR3_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR3()" type="text" min="0" max="2" class="road" id="MR3_2_COMMENT_VERIFIKASI_RAYUAN" name="MR3_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR3_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6017,9 +6022,9 @@
                                                     <td >All systems should be designed to use energy efficient road lightings, while complying to standard and specification for road lightings (eg. MS 825 part 1:2007)</td>
                                                     <td rowspan="1">CKE</td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointMR4()" type="number" min="0" max="2" class="targetPointMR4"></td>
-                                                    <td><input onblur="findAssessmentPointMR4()" type="number" min="0" max="2" class="assessmentPointMR4"></td>
-                                                    <td><input onblur="commentMR4()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointMR4()" type="number" min="0" max="2" class="targetPointMR4" id="MR4_1_TP_DESIGN_RAYUAN" name="MR4_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->MR4_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointMR4()" type="number" min="0" max="2" class="assessmentPointMR4" id="MR4_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="MR4_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR4_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentMR4()" type="text" min="0" max="2" class="road" id="MR4_1_COMMENT_VERIFIKASI_RAYUAN" name="MR4_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->MR4_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6067,27 +6072,27 @@
                                                     <td >Crossing for disabled users with noise making devices installed</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC"></td>
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" id="ECSM5_EC_1_TP_DESIGN_RAYUAN" name="ECSM5_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECSM5_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC" id="ECSM5_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECSM5_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM5_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_1_COMMENT_VERIFIKASI_RAYUAN" name="ECSM5_EC_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM5_EC_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Walkway access for disabled users by providing sidewalks sloped for easy access</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" id="ECSM5_EC_2_TP_DESIGN_RAYUAN" name="ECSM5_EC_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECSM5_EC_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECSM5_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECSM5_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM5_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_2_COMMENT_VERIFIKASI_RAYUAN" name="ECSM5_EC_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM5_EC_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Tac tile on the pedestrian pathway and access for disabled users</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC"></td>
-                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM5EC()" type="number" min="0" max="2" class="targetPointSM5EC" id="ECSM5_EC_3_TP_DESIGN_RAYUAN" name="ECSM5_EC_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECSM5_EC_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM5EC()" type="number" min="0" max="2" class="assessmentPointSM5EC" id="ECSM5_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECSM5_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM5_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM5EC()" type="text" min="0" max="2" class="road" id="ECSM5_EC_3_COMMENT_VERIFIKASI_RAYUAN" name="ECSM5_EC_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM5_EC_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6110,27 +6115,27 @@
                                                     <td >The pavement mix design  by using quiet pavement</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td>
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" id="ECSM6_EC_1_TP_DESIGN_RAYUAN" name="ECSM6_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECSM6_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC" id="ECSM6_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECSM6_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM6_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_1_COMMENT_VERIFIKASI_RAYUAN" name="ECSM6_EC_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM6_EC_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Noise barrier shall be provided in sensitive areas such as housing situated beside busy roads or highways, schools and hospitals</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td>
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" id="ECSM6_EC_2_TP_DESIGN_RAYUAN" name="ECSM6_EC_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECSM6_EC_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC" id="ECSM6_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECSM6_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM6_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_2_COMMENT_VERIFIKASI_RAYUAN" name="ECSM6_EC_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM6_EC_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Buffer Zone </td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC"></td>
-                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC"></td>
-                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointSM6EC()" type="number" min="0" max="2" class="targetPointSM6EC" id="ECSM6_EC_3_TP_DESIGN_RAYUAN" name="ECSM6_EC_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECSM6_EC_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointSM6EC()" type="number" min="0" max="2" class="assessmentPointSM6EC" id="ECSM6_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECSM6_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM6_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentSM6EC()" type="text" min="0" max="2" class="road" id="ECSM6_EC_3_COMMENT_VERIFIKASI_RAYUAN" name="ECSM6_EC_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECSM6_EC_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6155,9 +6160,9 @@
                                                       Provide sound barrier at sensitive area for wildlife"</td>
                                                     <td></td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointEW3EC()" type="number" min="0" max="2" class="targetPointEW3EC"></td>
-                                                    <td><input onblur="findAssessmentPointEW3EC()" type="number" min="0" max="2" class="assessmentPointEW3EC"></td>
-                                                    <td><input onblur="commentEW3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointEW3EC()" type="number" min="0" max="2" class="targetPointEW3EC" id="ECEW3_EC_1_TP_DESIGN_RAYUAN" name="ECEW3_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECEW3_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointEW3EC()" type="number" min="0" max="2" class="assessmentPointEW3EC" id="ECEW3_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECEW3_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECEW3_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentEW3EC()" type="text" min="0" max="2" class="road" id="ECEW3_EC_1_COMMENT_VERIFIKASI_RAYUAN" name="ECEW3_EC_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECEW3_EC_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6182,9 +6187,9 @@
                                                       Provide sound barrier at sensitive area for wildlife"</td>
                                                     <td></td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointAE2EC()" type="number" min="0" max="2" class="targetPointAE2EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE2EC()" type="number" min="0" max="2" class="assessmentPointAE2EC"></td>
-                                                    <td><input onblur="commentAE2EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE2EC()" type="number" min="0" max="2" class="targetPointAE2EC" id="ECAE2_EC_1_TP_DESIGN_RAYUAN" name="ECAE2_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE2_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE2EC()" type="number" min="0" max="2" class="assessmentPointAE2EC" id="ECAE2_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE2_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE2_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE2EC()" type="text" min="0" max="2" class="road" id="ECAE2_EC_1_COMMENT_VERIFIKASI_RAYUAN" name="ECAE2_EC_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE2_EC_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6207,34 +6212,34 @@
                                                     <td >Zebra Crossing or Signalised Pedestrian Crossing  and Refuge Island</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td>
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" id="ECAE3_EC_1_TP_DESIGN_RAYUAN" name="ECAE3_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE3_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC" id="ECAE3_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE3_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE3_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_1_COMMENT_VERIFIKASI_RAYUAN" name="ECAE3_EC_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE3_EC_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Overhead Pedestrian Bridge</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td>
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" id="ECAE3_EC_2_TP_DESIGN_RAYUAN" name="ECAE3_EC_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE3_EC_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC" id="ECAE3_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE3_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE3_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_2_COMMENT_VERIFIKASI_RAYUAN" name="ECAE3_EC_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE3_EC_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Sidewalk / Walkway and Raised Crosswalk</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td>
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" id="ECAE3_EC_3_TP_DESIGN_RAYUAN" name="ECAE3_EC_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE3_EC_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC" id="ECAE3_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE3_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE3_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_3_COMMENT_VERIFIKASI_RAYUAN" name="ECAE3_EC_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE3_EC_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Covered walkway</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC"></td>
-                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE3EC()" type="number" min="0" max="2" class="targetPointAE3EC" id="ECAE3_EC_4_TP_DESIGN_RAYUAN" name="ECAE3_EC_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE3_EC_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE3EC()" type="number" min="0" max="2" class="assessmentPointAE3EC" id="ECAE3_EC_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE3_EC_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE3_EC_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE3EC()" type="text" min="0" max="2" class="road" id="ECAE3_EC_4_COMMENT_VERIFIKASI_RAYUAN" name="ECAE3_EC_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE3_EC_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6257,34 +6262,34 @@
                                                     <td >Paved shoulder, non-exclusive motorcycle lane and end treatment at junction</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
-                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" id="ECAE4_EC_1_TP_DESIGN_RAYUAN" name="ECAE4_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE4_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE4_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE4_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE4_EC_1_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_1_COMMENT_VERIFIKASI_RAYUAN" name="ECAE4_EC_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE4_EC_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Exclusive motorcycle lane</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
-                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" id="ECAE4_EC_2_TP_DESIGN_RAYUAN" name="ECAE4_EC_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE4_EC_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE4_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE4_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE4_EC_2_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_2_COMMENT_VERIFIKASI_RAYUAN" name="ECAE4_EC_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE4_EC_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Overhead motorcycle bridge</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
-                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" id="ECAE4_EC_3_TP_DESIGN_RAYUAN" name="ECAE4_EC_3_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE4_EC_3_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE4_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE4_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE4_EC_3_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_3_COMMENT_VERIFIKASI_RAYUAN" name="ECAE4_EC_3_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE4_EC_3_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                                                   <tr>
                                                     <td >Motorcycle shelter</td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC"></td>
-                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE4EC()" type="number" min="0" max="2" class="targetPointAE4EC" id="ECAE4_EC_4_TP_DESIGN_RAYUAN" name="ECAE4_EC_4_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE4_EC_4_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointEC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE4_EC_4_ASSESSMENT_VERIFIKASI_RAYUAN" name="ECAE4_EC_4_ASSESSMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE4_EC_4_ASSESSMENT_VERIFIKASI_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE4EC()" type="text" min="0" max="2" class="road" id="ECAE4_EC_4_COMMENT_VERIFIKASI_RAYUAN" name="ECAE4_EC_4_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE4_EC_4_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6307,9 +6312,9 @@
                                                     <td >Provide or maintain existing rest area facilities along the road </td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE5EC()" type="number" min="0" max="2" class="targetPointAE5EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE5EC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE5EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE5EC()" type="number" min="0" max="2" class="targetPointAE5EC" id="ECAE5_EC_1_TP_DESIGN_RAYUAN" name="ECAE5_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE5_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE5EC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE5_EC_1_TP_DESIGN_RAYUAN" name="ECAE5_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE5_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE5EC()" type="text" min="0" max="2" class="road" id="ECAE5_EC_1_COMMENT_VERIFIKASI_RAYUAN" name="ECAE5_EC_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE5_EC_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6332,18 +6337,18 @@
                                                     <td >Implement physical or constructed changes to the roadway structure, dimensions, or form that provide bicycle-only facilities with dedicated access (such as bicycle lane). Lanes shared with motorized vehicles do not meet this requirement </td>
                                                     <td></td>
                                                     <td>1</td>
-                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointEC"></td>
-                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC" id="ECAE6_EC_1_TP_DESIGN_RAYUAN" name="ECAE6_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE6_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointEC" id="ECAE6_EC_1_TP_DESIGN_RAYUAN" name="ECAE6_EC_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE6_EC_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road" id="ECAE6_EC_1_COMMENT_VERIFIKASI_RAYUAN" name="ECAE6_EC_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE6_EC_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr>
                                                     <td >Implement physical or constructed changes to the roadway structure, dimensions, or form that provide bicycle-only facilities with dedicated access (such as bicycle lane). Lanes shared with motorized vehicles do not meet this requirement</td>
                                                     <td></td>
                                                     <td>2</td>
-                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC"></td>
-                                                    <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointAE6EC"></td>
-                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road"></td>
+                                                    <td><input onblur="findTargetPointAE6EC()" type="number" min="0" max="2" class="targetPointAE6EC" id="ECAE6_EC_2_TP_DESIGN_RAYUAN" name="ECAE6_EC_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE6_EC_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointAE6EC()" type="number" min="0" max="2" class="assessmentPointAE6EC" id="ECAE6_EC_2_TP_DESIGN_RAYUAN" name="ECAE6_EC_2_TP_DESIGN_RAYUAN" value="{{ $kriteria->ECAE6_EC_2_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="commentAE6EC()" type="text" min="0" max="2" class="road" id="ECAE6_EC_2_COMMENT_VERIFIKASI_RAYUAN" name="ECAE6_EC_2_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->ECAE6_EC_2_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
@@ -6385,9 +6390,9 @@
                                                     <td>Come up with an idea for a design or construction best practice for road that is not currently included in Manual pH JKR and is more sustainable than standard or conventional practices</td>
                                                     <td rowspan="1">ANY</td>
                                                     <td>5</td>
-                                                    <td><input onblur="findTargetPointIN()" type="number" min="0" max="2" class="targetPointIN"></td>
-                                                    <td><input onblur="findAssessmentPointIN()" type="number" min="0" max="2" class="assessmentPointIN"></td>
-                                                    <td><input onblur="commentIN()" type="text" min="0" max="2" class="road" name="" id=""></td>
+                                                    <td><input onblur="findTargetPointIN()" type="number" min="0" max="2" class="targetPointIN" id="IN1_1_TP_DESIGN_RAYUAN" name="IN1_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->IN1_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="findAssessmentPointIN()" type="number" min="0" max="2" class="assessmentPointIN" id="IN1_1_TP_DESIGN_RAYUAN" name="IN1_1_TP_DESIGN_RAYUAN" value="{{ $kriteria->IN1_1_TP_DESIGN_RAYUAN}}"></td>
+                                                    <td><input onblur="commentIN()" type="text" min="0" max="2" class="road" id="IN1_1_COMMENT_VERIFIKASI_RAYUAN" name="IN1_1_COMMENT_VERIFIKASI_RAYUAN" value="{{ $kriteria->IN1_1_COMMENT_VERIFIKASI_RAYUAN}}"></td>
                                                   </tr>
                               
                                                   <tr >
