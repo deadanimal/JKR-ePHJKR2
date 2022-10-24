@@ -104,17 +104,10 @@
                             </div>
                         </a>
                     </li>     
+                        
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="/faq">
-                            <div class="d-flex align-items-center nav-link-side">
-                                <span class="px-0">F.A.Q</span>
-                            </div>
-                        </a>
-                    </li>       
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="/maklum-balas">
+                        <a class="nav-link" href="/maklumbalas">
                             <div class="d-flex align-items-center nav-link-side">
                                 <span class="px-0">Maklum Balas</span>
                             </div>

@@ -17,6 +17,22 @@ class UserController extends Controller
         return view('home');
     }
 
+    public function about(Request $request) {    
+        return view('about');
+    }  
+
+    public function contact(Request $request) {    
+        return view('contact');
+    }      
+
+    public function privasi(Request $request) {    
+        return view('privasi');
+    } 
+    
+    public function keselamatan(Request $request) {    
+        return view('keselamatan');
+    }      
+
 
 
 
