@@ -19,7 +19,7 @@ class FaqController extends Controller
         $faq = New Faq;
         $faq->soalan = $request->soalan;
         $faq->jawapan = $request->jawapan;
-        //$faq->user_id = $user->id;
+        $faq->user_id = $user->id;
         $faq->save();
 
         return back();
