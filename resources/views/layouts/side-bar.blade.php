@@ -7,16 +7,20 @@
             /* width: 100vw;
         height: 100vh; */
     }
+
     .modal-content {
         z-index: 20000 !important
     }
+
     .navbar-vertical .navbar-nav .nav-item .nav-link.dropdown-indicator:after {
         border-color: white;
     }
+
     .navbar-vertical .navbar-nav .nav-item .nav-link:hover.dropdown-indicator:after,
     .navbar-vertical .navbar-nav .nav-item .nav-link:focus.dropdown-indicator:after {
         border-color: white;
     }
+
     .info-sidebar {
         font-family: 'Poppins';
         font-style: normal;
@@ -25,11 +29,12 @@
         line-height: 13px;
         color: white;
     }
+
     /* .profil-icon {
         width: 33.07px;
         height: 33.07px;
     } */
-    .profil-bg{
+    .profil-bg {
         height: 59.17px;
         width: 59.17px;
     }
@@ -54,70 +59,66 @@
     <div class="collapse navbar-collapse" id="navbarVerticalCollapse">
         <div class="navbar-vertical-content scrollbar" id="checklim">
             <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
-                <div class="row align-items-center mb-3">
-                    <div class="col-auto pe-0">
-                        <img src="/assets/img/icons/user-icon.png" class="bg-primary p-3" alt="" style="border-radius: 10px;">
-                    </div>
-                    <div class="col-8">
-                        {{-- <p class="info-sidebar mb-0">Nama: {{ $user->name }}</p> --}}
-                        <p class="info-sidebar mb-0">No. Kakitangan: </p>
-                        <p class="info-sidebar mb-0">Peranan: </p>
-                    </div>
-                </div>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <div class="d-flex align-items-center nav-link-side">
-                                <span class="px-0">Dashboard</span>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/projek">
-                            <div class="d-flex align-items-center nav-link-side">
-                                <span class="px-0">Projek</span>
-                            </div>
-                        </a>
-                    </li>                        
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <div class="d-flex align-items-center nav-link-side">
-                                <span class="px-0">Profil</span>
-                            </div>
-                        </a>
-                    </li>    
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="/manual">
-                            <div class="d-flex align-items-center nav-link-side">
-                                <span class="px-0">Manual</span>
-                            </div>
-                        </a>
-                    </li>          
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="/hebahan">
-                            <div class="d-flex align-items-center nav-link-side">
-                                <span class="px-0">Hebahan</span>
-                            </div>
-                        </a>
-                    </li>     
-                        
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="/maklumbalas">
-                            <div class="d-flex align-items-center nav-link-side">
-                                <span class="px-0">Maklum Balas</span>
-                            </div>
-                        </a>
-                    </li>                         
-
-            </ul>
-
-            </li>
-            </ul>
+                
+                    <div class="row align-items-center mb-3">
+                        <div class="col-auto pe-0">
+                            <a href="/profil">
+                            <img src="/assets/img/icons/user-icon.png" class="bg-primary p-3" alt=""
+                                style="border-radius: 10px;">
+                            </a>
+                        </div>
+                        <div class="col-8">
+                            <p class="info-sidebar mb-0">Nama: {{ auth()->user()->name }}</p>
+                            <p class="info-sidebar mb-0">No. Kakitangan: {{ auth()->user()->no_kakitangan }}</p>
+                            <p class="info-sidebar mb-0">Peranan: </p>
+                        </div>                
         </div>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/dashboard">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Dashboard</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/projek">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Projek</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/manual">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Manual</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/hebahan">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Hebahan</span>
+                </div>
+            </a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="/maklumbalas">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Maklum Balas</span>
+                </div>
+            </a>
+        </li>
+
+        </ul>
+
+        </li>
+        </ul>
+    </div>
     </div>
 </nav>

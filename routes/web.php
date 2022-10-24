@@ -20,11 +20,12 @@ Route::get('contact', [UserController::class, 'contact']);
 Route::get('keselamatan', [UserController::class, 'keselamatan']); 
 Route::get('privasi', [UserController::class, 'privasi']); 
 Route::get('faq', [FaqController::class, 'senarai']); 
-Route::get('faq/{id}', [FaqController::class, 'satu']); 
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::get('dashboard', [UserController::class, 'dashboard']); 
+    Route::get('laporan', [UserController::class, 'laporan']); 
+    Route::get('profil', [UserController::class, 'profil']);
 
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
     Route::get('projek/borang', [ProjekController::class, 'borang_projek']); 
@@ -54,15 +55,15 @@ Route::get('faq/{id}', [FaqController::class, 'satu']);
     Route::get('hebahan/{id}', [HebahanController::class, 'satu']); 
     Route::put('hebahan/{id}', [HebahanController::class, 'kemaskini']);  
     
-    Route::post('faq', [FaqController::class, 'cipta_faq']); 
-    Route::put('faq/{id}', [FaqController::class, 'kemaskini_faq']);    
+    Route::post('faq', [FaqController::class, 'cipta']); 
+    Route::put('faq/{id}', [FaqController::class, 'kemaskini']);    
     
     Route::get('maklumbalas', [MaklumbalasController::class, 'senarai']); 
     Route::post('maklumbalas', [MaklumbalasController::class, 'cipta']); 
     Route::get('maklumbalas/{id}', [MaklumbalasController::class, 'satu']); 
     Route::post('maklumbalas/{id}/hantar', [MaklumbalasController::class, 'hantar']);     
 
-// });
+});
 
 
 require __DIR__.'/auth.php';

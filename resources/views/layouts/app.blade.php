@@ -671,7 +671,7 @@
                 </div>
                 <div class="col-2 text-end text-white">
                     <a href="/privasi" class="text-white" style="font-size: 10px;">Dasar Privasi</a> | <a
-                        href="/dasar" class="text-white" style="font-size: 10px;">Dasar Keselamatan</a>
+                        href="/keselamatan" class="text-white" style="font-size: 10px;">Dasar Keselamatan</a>
                 </div>
             </div>
         </footer>

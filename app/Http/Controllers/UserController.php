@@ -17,6 +17,18 @@ class UserController extends Controller
         return view('home');
     }
 
+    public function dashboard(Request $request) {    
+        return view('dashboard');
+    }    
+
+    public function laporan(Request $request) {    
+        return view('laporan');
+    }  
+    
+    public function profil(Request $request) {    
+        return view('profil');
+    }      
+
     public function about(Request $request) {    
         return view('about');
     }  
