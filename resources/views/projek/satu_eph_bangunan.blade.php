@@ -158,6 +158,7 @@
 
         <div class="tab-pane active" id="tab-1" role="tabpanel">
 
+            <!--------Rumusan Skor Kad-------->
 
             <div class="card mt-3">
                 <div class="card-body">
@@ -1214,69 +1215,71 @@
         </div>
         <div class="tab-pane" id="tab-5" role="tabpanel">
 
-            <div class="card mt-3">
-                <div class="card-body">
-                    <form action="/projek/satu_eph_bangunan/validasi" method="POST">
-                        @csrf
+                <!--------Borang Validasi Permarkahan Bangunan-------->
 
-                        <h4 class="mb-3">VALIDASI PERMARKAHAN BANGUNAN</h4>
-                        <div class="row mx-3 mb-2">
-                            <div class="col-5 mb-2">
-                                <label class="col-form-label">Kriteria:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <select class="form-select form-control" aria-label="Default select example" name="jenisProjek">
-                                    <option selected="">Sila Pilih Kod Kriteria</option>
-                                    <option value="TL1">TL1</option>
-                                    <option value="TL2">TL2</option>
-                                </select>
-                            </div>
-                            <div class="col-5 mb-2">
-                                <label class="col-form-label">Info kriteria:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                letak info kriteria
-                            </div>
-                            <div class="col-5 mb-2">
-                                <label class="col-form-label">Markah:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <input class="form-control" type="number">
-                            </div>
-                            {{-- Untuk KT9 --}}
-                                {{-- <div class="col-5 mb-2">
-                                    <label class="col-form-label">Markah BEI:</label>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <form action="/projek/satu_eph_bangunan/validasi" method="POST">
+                            @csrf
+
+                            <h4 class="mb-3">VALIDASI PERMARKAHAN BANGUNAN</h4>
+                            <div class="row mx-3 mb-2">
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Kriteria:</label>
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <select class="form-select form-control" aria-label="Default select example" name="jenisProjek">
+                                        <option selected="">Sila Pilih Kod Kriteria</option>
+                                        <option value="TL1">TL1</option>
+                                        <option value="TL2">TL2</option>
+                                    </select>
+                                </div>
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Info kriteria:</label>
+                                </div>
+                                <div class="col-7 mb-2">
+                                    letak info kriteria
+                                </div>
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Markah:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <input class="form-control" type="number">
+                                </div>
+                                {{-- Untuk KT9 --}}
+                                    {{-- <div class="col-5 mb-2">
+                                        <label class="col-form-label">Markah BEI:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <input class="form-control" type="number">
+                                    </div> --}}
+                                {{-- <div class="col-5 mb-2">
+                                    <label class="col-form-label">Dokumen Pembuktian:</label>
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <input class="form-control" type="file" id="formFileMultiple" multiple>
                                 </div> --}}
-                            {{-- <div class="col-5 mb-2">
-                                <label class="col-form-label">Dokumen Pembuktian:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <input class="form-control" type="file" id="formFileMultiple" multiple>
-                            </div> --}}
-                            <div class="col-5 mb-2">
-                                <label class="col-form-label">Ulasan/Maklumbalas:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan/Maklumbalas"></textarea>
-                            </div>
-                            <div class="col-5 mb-2">
-                                <label class="col-form-label">Dokumen Sokongan:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <input class="form-control" type="file" id="formFileMultiple" multiple>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Ulasan/Maklumbalas:</label>
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan/Maklumbalas"></textarea>
+                                </div>
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Dokumen Sokongan:</label>
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <button class="btn btn-primary" type="submit">Simpan</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-            </div>               
+                        </form>
+                    </div>
+                </div>               
         </div>        
 
         <div class="tab-pane" id="tab-6" role="tabpanel">
@@ -1449,6 +1452,12 @@
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan/Maklumbalas"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
+                                    <label class="col-form-label">Comment on Appeal:</label>
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comment on Appeal"></textarea>
+                                </div>
+                                <div class="col-5 mb-2">
                                     <label class="col-form-label">Dokumen Sokongan:</label>
                                 </div>
                                 <div class="col-7 mb-2">
@@ -1494,7 +1503,7 @@
                 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl)
                     })
-                </script>  
+            </script>  
     
     
             <!--MARKAH REKABENTUK (MR) CALCULATION-->
