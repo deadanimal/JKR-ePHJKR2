@@ -161,7 +161,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="col mb-">
-                                <h4 class="h4 mb-3">RUMUSAN SKOR KAD</h4>
+                                <h4 class="h4 mb-3">RUMUSAN</h4>
                             </div>
             
                             <div class="table-responsive scrollbar col">

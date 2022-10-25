@@ -346,6 +346,49 @@
                                   </div>
                               </form>
                         </div>
+                        <div>
+                            <table>
+                                <div class="row3 mx-4 table-responsive scrollbar">
+                                    <div class="col">
+                                      <table class="table table-bordered line-table text-center" style="width: 100%">
+                                        <thead class="text-white bg-orange-jkr">
+                                         
+                                          <tr>
+                                             <th></th>
+                                            <th colspan="3" rowspan="3">SUMMARY</th>
+                                            
+                                            
+                                            
+                                          </tr>
+                        
+                                        </thead>
+                                        <tbody class="text-black">
+                      
+                        
+                                          <tr>
+                                            <th colspan="1">GPSS Star (Bangunan) </th>
+                                            <th colspan="2" >0<span class="star">&starf;</span></th>
+                                            
+                
+                                          </tr>
+                    
+                                          <tr>
+                                            <th colspan="1" >GPSS Star (Jalan)</th>
+                                            <th colspan="2" >0<span class="star">&starf;</span></th>
+                                            
+                                            
+                                          </tr>
+                                          
+                                          <tr>
+                                              <th colspan="1"> MyCREST</th>
+                                              <th colspan="1" >0<br>Points</th>
+                                              
+                                          </tr> 
+                      
+                                        </tbody>
+                                        
+                                      </table>
+                        </div>
                     </div>
                 </div>
             </div>
