@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.anon')
 
 @section('content')
     <div class="card-body position-relative">
@@ -23,6 +23,7 @@
     <div class="row">
         <div class="col-6">
 
+            @role('pentadbir|sekretariat')
             <div class="card mb-3">
                 <div class="card-header">
                     <div class="row flex-between-end">
@@ -50,6 +51,7 @@
                     </div>
                 </div>
             </div>
+            @endrole
 
         </div>
 

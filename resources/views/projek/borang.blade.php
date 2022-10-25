@@ -106,9 +106,23 @@
                     </div>
                     <div class="col-7 mb-2">
                         <select class="form-select" name="kategori">
-                            <option value="phJKR Bangunan">phJKR Bangunan</option>
-                            <option value="phJKR Jalan">phJKR Jalan</option>
-                            <option value="GPSS Bangunan">GPSS Bangunan</option>
+                            <option value="phJKR Bangunan Baru A">phJKR Bangunan Baru A</option>
+                            <option value="phJKR Bangunan Baru B">phJKR Bangunan Baru B</option>
+                            <option value="phJKR Bangunan Baru C">phJKR Bangunan Baru C</option>
+                            <option value="phJKR Bangunan Baru D">phJKR Bangunan Baru D</option>                            
+                            <option value="phJKR Bangunan PUN A">phJKR Bangunan PUN A</option>
+                            <option value="phJKR Bangunan PUN B">phJKR Bangunan PUN B</option>
+                            <option value="phJKR Bangunan PUN C">phJKR Bangunan PUN C</option>
+                            <option value="phJKR Bangunan PUN D">phJKR Bangunan PUN D</option>
+                            <option value="phJKR Bangunan Sediaada A">phJKR Bangunan Sediaada A</option>
+                            <option value="phJKR Bangunan Sediaada B">phJKR Bangunan Sediaada B</option>
+                            <option value="phJKR Bangunan Sediaada C">phJKR Bangunan Sediaada C</option>
+                            <option value="phJKR Bangunan Sediaada D">phJKR Bangunan Sediaada D</option>                            
+                            <option value="phJKR Jalan Baru">phJKR Jalan Baru</option>
+                            <option value="phJKR Jalan Lama">phJKR Jalan Lama</option>
+                            <option value="GPSS Bangunan 1">GPSS Bangunan 1</option>
+                            <option value="GPSS Bangunan 2">GPSS Bangunan 2</option>
+                            <option value="GPSS Bangunan 3">GPSS Bangunan 3</option>
                             <option value="GPSS Jalan">GPSS Jalan</option>
                         </select>
                     </div>

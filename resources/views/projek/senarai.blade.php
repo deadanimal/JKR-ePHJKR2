@@ -10,7 +10,7 @@
     </div>
 </div>
 
-    <table class="table table-bordered line-table" style="width:100%">
+    <table class="table table-bordered projek-datatable line-table" style="width:100%">
         <thead>
             <tr>
                 <th class="text-center">ID Projek</th>
@@ -25,7 +25,7 @@
 
         <tbody id="projekTable">
 
-            @foreach($projeks as $projek)
+            {{-- @foreach($projeks as $projek)
                 <tr class="text-black">
                     <td style="text-align: center; vertical-align: middle;">{{ $projek->id }}</td>
                     <td style="text-align: center; vertical-align: middle;">{{ $projek->nama }}</td>
@@ -37,7 +37,7 @@
                         data-toggle="tooltip" data-placement="bottom" title="Pilih Projek">Pilih</a>
                     </td>
                 </tr>
-            @endforeach
+            @endforeach --}}
             
         </tbody>
      </table> 
@@ -45,4 +45,46 @@
 
 
 
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+    $(function() {
+
+        var table = $('.projek-datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            ajax: "/projek",
+            columns: [{
+                    data: 'DT_RowIndex',
+                    name: 'DT_RowIndex'
+                },
+                {
+                    data: 'nama',
+                    name: 'nama'
+                },
+                {
+                    data: 'alamat',
+                    name: 'alamat'
+                },
+                {
+                    data: 'status',
+                    name: 'status'
+                },
+                {
+                    data: 'kategori',
+                    name: 'kategori'
+                },
+                {
+                    data: 'tindakan',
+                    name: 'tindakan'
+                },                                                                
+
+            ]
+        });
+
+
+    });
+</script>
 @endsection

@@ -32,6 +32,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek', [ProjekController::class, 'cipta_projek']); 
     Route::get('projek/{id}', [ProjekController::class, 'satu_projek']); 
     Route::put('projek/{id}', [ProjekController::class, 'kemaskini_projek']); 
+    Route::post('projek/{id}/lantik', [ProjekController::class, 'lantik']); 
+    Route::post('projek/{id}/markah', [ProjekController::class, 'markah']); 
 
     Route::post('projek/{id}/eph-bangunan/rekabentuk', [KriteriaEphBangunanController::class, 'simpan']); 
     Route::post('projek/{id}/eph-bangunan/verifikasi', [ProjekController::class, 'simpan_ephb_verifikasi']); 
