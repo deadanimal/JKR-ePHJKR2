@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="container-fluid">
 <div class="row mb-3">
     <div class="col-12">
@@ -159,7 +160,6 @@
         <div class="tab-pane active" id="tab-1" role="tabpanel">
 
             <!--------Rumusan Skor Kad-------->
-
             <div class="card mt-3">
                 <div class="card-body">
                     <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
@@ -978,8 +978,6 @@
             
                     
             </div>            
-
-
         </div>
 
         <div class="tab-pane" id="tab-2" role="tabpanel">
@@ -1216,7 +1214,6 @@
         <div class="tab-pane" id="tab-5" role="tabpanel">
 
                 <!--------Borang Validasi Permarkahan Bangunan-------->
-
                 <div class="card mt-3">
                     <div class="card-body">
                         <form action="/projek/satu_eph_bangunan/validasi" method="POST">
@@ -1476,19 +1473,6 @@
                 </div>         
         </div>   
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
