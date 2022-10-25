@@ -558,7 +558,7 @@
                                             <label class="col-form-label">Comment by Assessor:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <textarea class="form-control" rows="4" name="" type="text"> </textarea>
+                                            <textarea class="form-control" rows="4" name="" type="text"  placeholder="Ulasan/Maklumbalas"> </textarea>
                                         </div>
 
                                         <div class="col-3 mb-2">
@@ -638,24 +638,31 @@
 
                                         <div class="col-3 mb-2">
                                           <label class="col-form-label">Assessment Point :</label>
-                                      </div>
-                                      <div class="col-7 mb-2">
+                                        </div>
+                                        <div class="col-7 mb-2">
                                           <input class="form-control" name="" type="text"/>
-                                      </div>
+                                        </div>
                     
                                         <div class="col-3 mb-2">
                                             <label class="col-form-label">Comment by Assessor:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <textarea class="form-control" rows="4" name="" type="text"> </textarea>
+                                            <textarea class="form-control" rows="4" name="" type="text" placeholder="Ulasan/Maklumbalas"> </textarea>
+                                        </div>
+
+                                        <div class="col-3 mb-2">
+                                          <label class="col-form-label">Comment on Appeal:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                          <textarea class="form-control" rows="4" name="" type="text" placeholder="Comment on Appeal"> </textarea>
                                         </div>
 
                                         <div class="col-3 mb-2">
                                           <label class="col-form-label">Upload File:</label>
-                                      </div>
-                                      <div class="col-7 mb-2">
+                                        </div>
+                                        <div class="col-7 mb-2">
                                           <input class="form-control" name="" type="file"/>
-                                      </div>
+                                        </div>
                     
                                         
                         

@@ -462,7 +462,7 @@
                                                 <label class="col-form-label">Remark :</label>
                                             </div>
                                             <div class="col-7 mb-2">
-                                                <textarea class="form-control" rows="4" name="" type="text"> </textarea>
+                                                <textarea class="form-control" rows="4" name="" type="text" placeholder="Ulasan/Maklumbalas"> </textarea>
                                             </div>
     
                                             <div class="col-3 mb-2">
@@ -541,7 +541,7 @@
                                                 <label class="col-form-label">Remark :</label>
                                             </div>
                                             <div class="col-7 mb-2">
-                                                <textarea class="form-control" rows="4" name="" type="text"> </textarea>
+                                                <textarea class="form-control" rows="4" name="" type="text" placeholder="Ulasan/Maklumbalas"> </textarea>
                                             </div>
     
                                             <div class="col-3 mb-2">
@@ -642,7 +642,14 @@
                                                 <label class="col-form-label">Remark :</label>
                                             </div>
                                             <div class="col-7 mb-2">
-                                                <textarea class="form-control" rows="4" name="" type="text"> </textarea>
+                                                <textarea class="form-control" rows="4" name="" type="text" placeholder="Ulasan/Maklumbalas"> </textarea>
+                                            </div>
+
+                                            <div class="col-3 mb-2">
+                                                <label class="col-form-label">Comment on Appeal:</label>
+                                            </div>
+                                            <div class="col-7 mb-2">
+                                                <textarea class="form-control" rows="4" name="" type="text" placeholder="Comment on Appeal"> </textarea>
                                             </div>
     
                                             <div class="col-3 mb-2">
