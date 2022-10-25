@@ -667,9 +667,8 @@
 
                     
                                         
-                        
-                                         
                                         
+
                                         
                                           <div class="row mt-4">
                                               <div class="col text-center">
