@@ -4,15 +4,28 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjekController;
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\HebahanController;
+use App\Http\Controllers\MaklumbalasController;
+use App\Http\Controllers\ManualController;
+
 use App\Http\Controllers\KriteriaEphBangunanController;
 use App\Http\Controllers\KriteriaEphJalanController;
 use App\Http\Controllers\KriteriaGpssBangunanController;
 use App\Http\Controllers\KriteriaGpssJalanController;
 
+Route::get('', [UserController::class, 'home']);
+Route::get('about', [UserController::class, 'about']); 
+Route::get('contact', [UserController::class, 'contact']); 
+Route::get('keselamatan', [UserController::class, 'keselamatan']); 
+Route::get('privasi', [UserController::class, 'privasi']); 
+Route::get('faq', [FaqController::class, 'senarai']); 
 
-// Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
-    Route::get('', [UserController::class, 'home']); 
+    Route::get('dashboard', [UserController::class, 'dashboard']); 
+    Route::get('laporan', [UserController::class, 'laporan']); 
+    Route::get('profil', [UserController::class, 'profil']);
 
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
     Route::get('projek/borang', [ProjekController::class, 'borang_projek']); 
@@ -32,27 +45,25 @@ use App\Http\Controllers\KriteriaGpssJalanController;
     Route::post('projek/{id}/kgb', [KriteriaEphBangunanController::class, 'simpan_kgb']); 
     Route::post('projek/{id}/kgj', [KriteriaEphJalanController::class, 'simpan_kgj']); 
 
-    Route::get('manual', [manualController::class, 'senarai_manual']); 
-    Route::post('manual', [manualController::class, 'cipta_manual']); 
-    Route::get('manual/{id}', [manualController::class, 'satu_manual']); 
-    Route::put('manual/{id}', [manualController::class, 'kemaskini_manual']);  
+    Route::get('manual', [ManualController::class, 'senarai']); 
+    Route::post('manual', [ManualController::class, 'cipta']); 
+    Route::get('manual/{id}', [ManualController::class, 'satu']); 
+    Route::put('manual/{id}', [ManualController::class, 'kemaskini']);  
     
-    Route::get('hebahan', [hebahanController::class, 'senarai_hebahan']); 
-    Route::post('hebahan', [hebahanController::class, 'cipta_hebahan']); 
-    Route::get('hebahan/{id}', [hebahanController::class, 'satu_hebahan']); 
-    Route::put('hebahan/{id}', [hebahanController::class, 'kemaskini_hebahan']);  
+    Route::get('hebahan', [HebahanController::class, 'senarai']); 
+    Route::post('hebahan', [HebahanController::class, 'cipta']); 
+    Route::get('hebahan/{id}', [HebahanController::class, 'satu']); 
+    Route::put('hebahan/{id}', [HebahanController::class, 'kemaskini']);  
     
-    Route::get('faq', [faqController::class, 'senarai_faq']); 
-    Route::post('faq', [faqController::class, 'cipta_faq']); 
-    Route::get('faq/{id}', [faqController::class, 'satu_faq']); 
-    Route::put('faq/{id}', [faqController::class, 'kemaskini_faq']);    
+    Route::post('faq', [FaqController::class, 'cipta']); 
+    Route::put('faq/{id}', [FaqController::class, 'kemaskini']);    
     
-    Route::get('maklumbalas', [maklumbalasController::class, 'senarai_maklumbalas']); 
-    Route::post('maklumbalas', [maklumbalasController::class, 'cipta_maklumbalas']); 
-    Route::get('maklumbalas/{id}', [maklumbalasController::class, 'satu_maklumbalas']); 
-    Route::post('maklumbalas/{id}/hantar', [maklumbalasController::class, 'hantar_maklumbalas']);     
+    Route::get('maklumbalas', [MaklumbalasController::class, 'senarai']); 
+    Route::post('maklumbalas', [MaklumbalasController::class, 'cipta']); 
+    Route::get('maklumbalas/{id}', [MaklumbalasController::class, 'satu']); 
+    Route::post('maklumbalas/{id}/hantar', [MaklumbalasController::class, 'hantar']);     
 
-// });
+});
 
 
 require __DIR__.'/auth.php';

@@ -617,16 +617,16 @@
             </div>
 
             <div class="col-1 text-end">
-                <a href="#" class="jkr-header">UTAMA</a>
+                <a href="/" class="jkr-header">UTAMA</a>
             </div>
             <div class="col-2 text-end">
-                <a href="#" class="jkr-header">MENGENAI KAMI</a>
+                <a href="/about" class="jkr-header">MENGENAI KAMI</a>
             </div>
             <div class="col-2 text-end">
-                <a href="#" class="jkr-header">HUBUNGI KAMI</a>
+                <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
             </div>
             <div class="col-2 text-end">
-                <a href="#" class="jkr-header">SOALAN LAZIM</a>
+                <a href="/faq" class="jkr-header">SOALAN LAZIM</a>
             </div>
             <div class="col-2 text-end">
                 <form action="{{ route('logout') }}" method="POST">
@@ -670,8 +670,8 @@
                     </div>
                 </div>
                 <div class="col-2 text-end text-white">
-                    <a href="#" class="text-white" style="font-size: 10px;">Dasar Privasi</a> | <a
-                        href="#" class="text-white" style="font-size: 10px;">Dasar Keselamatan</a>
+                    <a href="/privasi" class="text-white" style="font-size: 10px;">Dasar Privasi</a> | <a
+                        href="/keselamatan" class="text-white" style="font-size: 10px;">Dasar Keselamatan</a>
                 </div>
             </div>
         </footer>

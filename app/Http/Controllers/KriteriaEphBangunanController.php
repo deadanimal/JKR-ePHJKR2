@@ -419,6 +419,10 @@ class KriteriaEphBangunanController extends Controller
         $kriteria->markahTOTAL_IN_MSV = $request->markahTOTAL_IN_MSV;
         $kriteria->markahTOTAL_IN_ML = $request->markahTOTAL_IN_ML;
 
+        $kriteria->markahTL81_ULASAN_PRB = $request->markahTL81_ULASAN_PRB;
+        $kriteria->penarafan = $request->penarafan;
+
+
         $kriteria->save();
         return back();
     }
