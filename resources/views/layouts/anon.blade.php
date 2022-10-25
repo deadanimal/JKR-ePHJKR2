@@ -620,7 +620,7 @@
                 <a href="/" class="jkr-header">UTAMA</a>
             </div>
             <div class="col-2 text-end">
-                <a href="/about" class="jkr-header">MENGENAI KAMI</a>
+                <a href="/hebahan" class="jkr-header">MENGENAI KAMI</a>
             </div>
             <div class="col-2 text-end">
                 <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>

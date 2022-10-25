@@ -623,7 +623,7 @@
                 <a href="/" class="jkr-header">UTAMA</a>
             </div>
             <div class="col-2 text-end">
-                <a href="/about" class="jkr-header">MENGENAI KAMI</a>
+                <a href="/hebahan" class="jkr-header">MENGENAI KAMI</a>
             </div>
             <div class="col-2 text-end">
                 <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
@@ -718,24 +718,24 @@
 
     <script>
         $(document).ready(function() {
-            setInterval(() => {
-                const today = new Date();
-                let day = today.getDate();
-                const bulan = ['Januari', 'Februari', 'Mac', 'April', 'May', 'Jun', 'Julai', 'Ogos',
-                    'September', 'Oktober', 'November', 'Disember'
-                ];
-                let month = bulan[today.getMonth()];
-                let year = today.getFullYear();
-                let h = today.getHours();
-                let m = today.getMinutes();
-                let s = today.getSeconds();
-                if (m < 10) m = "0" + m;
-                if (s < 10) s = "0" + s;
-                if (day < 10) day = "0" + day;
-                document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
-                document.getElementById("date").innerHTML =
-                    day + " " + month + " " + year;
-            }, 1000);
+            // setInterval(() => {
+            //     const today = new Date();
+            //     let day = today.getDate();
+            //     const bulan = ['Januari', 'Februari', 'Mac', 'April', 'May', 'Jun', 'Julai', 'Ogos',
+            //         'September', 'Oktober', 'November', 'Disember'
+            //     ];
+            //     let month = bulan[today.getMonth()];
+            //     let year = today.getFullYear();
+            //     let h = today.getHours();
+            //     let m = today.getMinutes();
+            //     let s = today.getSeconds();
+            //     if (m < 10) m = "0" + m;
+            //     if (s < 10) s = "0" + s;
+            //     if (day < 10) day = "0" + day;
+            //     document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+            //     document.getElementById("date").innerHTML =
+            //         day + " " + month + " " + year;
+            // }, 1000);
 
 
 

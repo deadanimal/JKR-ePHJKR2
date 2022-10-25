@@ -83,6 +83,14 @@
         </li>
 
         <li class="nav-item">
+            <a class="nav-link" href="/laporan">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Laporan</span>
+                </div>
+            </a>
+        </li>        
+
+        <li class="nav-item">
             <a class="nav-link" href="/projek">
                 <div class="d-flex align-items-center nav-link-side">
                     <span class="px-0">Projek</span>

@@ -23,22 +23,7 @@
             </tr>
         </thead>
 
-        <tbody id="projekTable">
-
-            {{-- @foreach($projeks as $projek)
-                <tr class="text-black">
-                    <td style="text-align: center; vertical-align: middle;">{{ $projek->id }}</td>
-                    <td style="text-align: center; vertical-align: middle;">{{ $projek->nama }}</td>
-                    <td style="text-align: center; vertical-align: middle;">{{ $projek->alamat }}</td>
-                    <td style="text-align: center; vertical-align: middle;">{{ $projek->status }}</td>
-                    <td style="text-align: center; vertical-align: middle;">{{ $projek->kategori }}</td>
-                    <td style="text-align: center; vertical-align: middle;">
-                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}" role="button"
-                        data-toggle="tooltip" data-placement="bottom" title="Pilih Projek">Pilih</a>
-                    </td>
-                </tr>
-            @endforeach --}}
-            
+        <tbody>            
         </tbody>
      </table> 
 
