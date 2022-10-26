@@ -37,7 +37,9 @@ class ProjekController extends Controller
                 $projek_users = $projek->users;
                 $html_button = '';
                 foreach($projek_users as $projek_user){
-                    $html_button = $projek_user->role->display_name;
+                    if($projek_user->role) {
+                        $html_button = $projek_user->role->display_name;
+                    }                    
                 }
                 return $html_button;
             })             

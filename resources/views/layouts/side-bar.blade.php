@@ -81,14 +81,17 @@
             </a>
         </li>
 
+        @role('pentadbir|pengurusan-atasan|sekretariat')
         <li class="nav-item">
             <a class="nav-link" href="/laporan">
                 <div class="d-flex align-items-center nav-link-side">
                     <span class="px-0">Laporan</span>
                 </div>
             </a>
-        </li>        
+        </li>  
+        @endrole      
 
+        @role('pentadbir|pengguna|sekretariat')  
         <li class="nav-item">
             <a class="nav-link" href="/projek">
                 <div class="d-flex align-items-center nav-link-side">
@@ -96,6 +99,7 @@
                 </div>
             </a>
         </li>
+        @endrole
 
         <li class="nav-item">
             <a class="nav-link" href="/manual">
@@ -122,13 +126,15 @@
             </a>
         </li>
 
+        @role('pentadbir|sekretariat')  
         <li class="nav-item">
             <a class="nav-link" href="/selenggara">
                 <div class="d-flex align-items-center nav-link-side">
                     <span class="px-0">Selenggara</span>
                 </div>
             </a>
-        </li>        
+        </li>    
+        @endrole    
 
         </ul>
 
