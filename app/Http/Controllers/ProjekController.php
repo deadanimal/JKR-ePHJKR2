@@ -34,6 +34,8 @@ class ProjekController extends Controller
 
         // }
 
+        $projeks = Projek::all();
+
         if($request->ajax()) {
             return DataTables::collection($projeks)
             ->addIndexColumn()   
