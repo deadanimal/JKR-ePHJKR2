@@ -27,12 +27,12 @@ class ProjekController extends Controller
 
     public function senarai_projek(Request $request) {
         
-        $user = $request->user();
-        if($user->hasRole('pentadbir|sekretariat')) {
-            $projeks = Projek::all();
-        } else {
+        // $user = $request->user();
+        // if($user->hasRole('pentadbir|sekretariat')) {
+        //     $projeks = Projek::all();
+        // } else {
 
-        }
+        // }
 
         if($request->ajax()) {
             return DataTables::collection($projeks)
