@@ -13,9 +13,9 @@
     <table class="table table-bordered projek-datatable line-table" style="width:100%">
         <thead>
             <tr>
-                <th class="text-center">ID Projek</th>
-                <th class="text-center">Nama Projek</th>
-                <th class="text-center">Alamat Projek</th>
+                <th class="text-center">Nama</th>
+                <th class="text-center">Alamat</th>
+                <th class="text-center">Peranan</th>
                 <th class="text-center">Status</th>
                 <th class="text-center">Jenis Kategori</th>
                 <th class="text-center">Tindakan</th> 
@@ -41,10 +41,7 @@
             serverSide: true,
             responsive: true,
             ajax: "/projek",
-            columns: [{
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex'
-                },
+            columns: [
                 {
                     data: 'nama',
                     name: 'nama'
@@ -53,6 +50,10 @@
                     data: 'alamat',
                     name: 'alamat'
                 },
+                {
+                    data: 'peranan',
+                    name: 'peranan'
+                },                
                 {
                     data: 'status',
                     name: 'status'

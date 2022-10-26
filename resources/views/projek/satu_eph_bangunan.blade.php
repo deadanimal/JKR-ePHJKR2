@@ -103,45 +103,48 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 mt-6">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="/projek/{{ $projek->id }}/lantik" method="POST">
-                            @csrf
 
-                            <div class="row mx-3 mb-2">
-                                <h2 class="mb-3">Pelantikan</h2>
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Nama:</label>
+            @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan')
+                <div class="col-12 mt-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <form action="/projek/{{ $projek->id }}/lantik" method="POST">
+                                @csrf
+
+                                <div class="row mx-3 mb-2">
+                                    <h2 class="mb-3">Pelantikan</h2>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Nama:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <select class="form-select" name="user_id">
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Peranan:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <select class="form-select" name="role_id">
+                                            <option value=6 selected>Pemudah Cara</option>
+                                            <option value=8>Penilai</option>
+                                            <option value=10>Pasukan Validasi</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-7 mb-2">
-                                    <select class="form-select" name="user_id">
-                                        @foreach ($users as $user)
-                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <button class="btn btn-primary" type="submit">Lantik</button>
+                                    </div>
                                 </div>
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Peranan:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <select class="form-select" name="role_id">
-                                        <option value=6 selected>Pemudah Cara</option>
-                                        <option value=8>Penilai</option>
-                                        <option value=10>Pasukan Validasi</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    <button class="btn btn-primary" type="submit">Lantik</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
-                </div>
 
-            </div>
+                </div>
+            @endif
 
             <div class="col-12 mt-6">
                 <table class="table table-bordered line-table" style="width:100%">
@@ -177,7 +180,7 @@
                             <th class="text-center">No.</th>
                             <th class="text-center">Fasa</th>
                             <th class="text-center">Kriteria</th>
-                            <th class="text-center">Markah</th>                            
+                            <th class="text-center">Markah</th>
                         </tr>
                     </thead>
 
@@ -2558,39 +2561,39 @@
             });
         </script>
 
-<script type="text/javascript">
-    $(function() {
+        <script type="text/javascript">
+            $(function() {
 
-        var idProjek = {!! json_decode($projek->id) !!}
-        console.log(idProjek);
-        var url = "/projek/" + idProjek;
-        var table = $('.skor-datatable').DataTable({
-            processing: true,
-            serverSide: true,
-            responsive: true,
-            ajax: url,
-            columns: [{
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex'
-                },
-                {
-                    data: 'fasa',
-                    name: 'fasa'
-                },
-                {
-                    data: 'kriteria_',
-                    name: 'kriteria_'
-                },
-                {
-                    data: 'markah',
-                    name: 'markah'
-                },                                                             
+                var idProjek = {!! json_decode($projek->id) !!}
+                console.log(idProjek);
+                var url = "/projek/" + idProjek;
+                var table = $('.skor-datatable').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    responsive: true,
+                    ajax: url,
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex'
+                        },
+                        {
+                            data: 'fasa',
+                            name: 'fasa'
+                        },
+                        {
+                            data: 'kriteria_',
+                            name: 'kriteria_'
+                        },
+                        {
+                            data: 'markah',
+                            name: 'markah'
+                        },
 
-            ]
-        });
+                    ]
+                });
 
 
-    });
-</script>
+            });
+        </script>
 
     @endsection

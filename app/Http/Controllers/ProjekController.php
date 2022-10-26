@@ -26,10 +26,21 @@ class ProjekController extends Controller
 {
 
     public function senarai_projek(Request $request) {
+        
         $projeks = Projek::all();
+        $user = $request->user();
+
         if($request->ajax()) {
             return DataTables::collection($projeks)
-            ->addIndexColumn()    
+            ->addIndexColumn()   
+            ->addColumn('peranan', function (Projek $projek) {
+                $projek_users = $projek->users;
+                $html_button = '';
+                foreach($projek_users as $projek_user){
+                    $html_button = $projek_user->role->display_name;
+                }
+                return $html_button;
+            })             
             ->addColumn('tindakan', function (Projek $projek) {
                 $url = '/projek/'.$projek->id;
                 $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';
@@ -41,7 +52,7 @@ class ProjekController extends Controller
                     'timestamp' => ($projek->created_at && $projek->created_at != '0000-00-00 00:00:00') ? with(new Carbon($projek->created_at))->timestamp : ''
                 ];
             })
-            ->rawColumns(['tindakan'])
+            ->rawColumns(['tindakan', 'peranan'])
             ->make(true);
         }        
         return view('projek.senarai', compact('projeks'));
@@ -80,9 +91,15 @@ class ProjekController extends Controller
         
         
         $id = (int)$request->route('id');
-        $projek = Projek::find($id);        
+        $projek = Projek::find($id);  
+        $user = $request->user();      
         $users = User::all();
         $lantikans = ProjekRoleUser::where('projek_id', $id)->get();
+
+        $user_role = ProjekRoleUser::where([
+            ['projek_id', '=', $id],
+            ['user_id', '=',$user->id],
+        ])->first();        
 
         if($request->ajax()) {
             $markahs = Markah::where('projek_id', $id)->get();
@@ -99,58 +116,58 @@ class ProjekController extends Controller
 
         if ($projek->kategori ==  'phJKR Bangunan Baru A') {
             $kriterias = Kriteria::where('borang', 'BARU A')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans'));             
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans'));             
         } else if ($projek->kategori ==  'phJKR Bangunan Baru B') {
             $kriterias = Kriteria::where('borang', 'BARU B')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans'));             
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans'));             
         } else if ($projek->kategori ==  'phJKR Bangunan Baru C') {
             $kriterias = Kriteria::where('borang', 'BARU C')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan Baru D') {
             $kriterias = Kriteria::where('borang', 'BARU D')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan PUN A') {
             $kriterias = Kriteria::where('borang', 'PUN A')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan PUN B') {
             $kriterias = Kriteria::where('borang', 'PUN B')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan PUN C') {
             $kriterias = Kriteria::where('borang', 'PUN C')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan PUN D') {
             $kriterias = Kriteria::where('borang', 'PUN D')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan Sediaada A') {
             $kriterias = Kriteria::where('borang', 'Sediaada A')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan Sediaada B') {
             $kriterias = Kriteria::where('borang', 'Sediaada B')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan Sediaada C') {
             $kriterias = Kriteria::where('borang', 'Sediaada C')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Bangunan Sediaada D') {
             $kriterias = Kriteria::where('borang', 'Sediaada D')->get();            
-            return view('projek.satu_eph_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Jalan Baru') {
             $kriterias = Kriteria::where('borang', 'NEW ROADS')->get();            
-            return view('projek.satu_eph_jalan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'phJKR Jalan Lama') {
             $kriterias = Kriteria::where('borang', 'UPGRADING ROADS')->get();            
-            return view('projek.satu_eph_jalan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_eph_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'GPSS Bangunan 1') {
             $kriterias = Kriteria::where('borang', 'NEW ROADS')->get();            
-            return view('projek.satu_gpss_bangunan', compact('projek', 'kriterias', 'users', 'lantikans')); 
+            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } else if ($projek->kategori ==  'GPSS Bangunan 2') {
             $kriterias = Kriteria::where('borang', 'UPGRADING ROADS')->get();                
-            return view('projek.satu_gpss_bangunan', compact('projek', 'kriterias', 'users', 'lantikans'));         
+            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans'));         
         } else if ($projek->kategori ==  'GPSS Bangunan 3') {
             $kriterias = Kriteria::where('borang', 'UPGRADING ROADS')->get();             
-            return view('projek.satu_gpss_bangunan', compact('projek', 'kriterias', 'users', 'lantikans'));   
+            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans'));   
         }  else if ($projek->kategori ==  'GPSS Jalan') {
             $kriterias = Kriteria::where('borang', 'UPGRADING ROADS')->get();            
-            return view('projek.satu_gpss_jalan', compact('projek', 'kriterias', 'users', 'lantikans'));       
+            return view('projek.satu_gpss_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans'));       
         }
       
     
