@@ -101,63 +101,64 @@
 
                             <div class="col-3 mb-2">
                                 <button class="btn btn-primary my-3" type="submit">Sah Projek</button>
-                            </div>                                  
-                            
+                            </div>
+
                             <div class="col-3 mb-2">
                                 <button class="btn btn-primary my-3" type="submit">Buat Rayuan</button>
-                            </div>    
-                            
+                            </div>
+
                             <div class="col-3 mb-2">
                                 <button class="btn btn-primary my-3" type="submit">Jana Sijil</button>
-                            </div>                               
-        
+                            </div>
+
 
                         </div>
                     </div>
                 </div>
             </div>
 
+            @if ($user_role->role)
+                @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan')
+                    <div class="col-12 mt-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/projek/{{ $projek->id }}/lantik" method="POST">
+                                    @csrf
 
-            @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan')
-                <div class="col-12 mt-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <form action="/projek/{{ $projek->id }}/lantik" method="POST">
-                                @csrf
-
-                                <div class="row mx-3 mb-2">
-                                    <h2 class="mb-3">Pelantikan</h2>
-                                    <div class="col-5 mb-2">
-                                        <label class="col-form-label">Nama:</label>
+                                    <div class="row mx-3 mb-2">
+                                        <h2 class="mb-3">Pelantikan</h2>
+                                        <div class="col-5 mb-2">
+                                            <label class="col-form-label">Nama:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <select class="form-select" name="user_id">
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-5 mb-2">
+                                            <label class="col-form-label">Peranan:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <select class="form-select" name="role_id">
+                                                <option value=6 selected>Pemudah Cara</option>
+                                                <option value=8>Penilai</option>
+                                                <option value=10>Pasukan Validasi</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="col-7 mb-2">
-                                        <select class="form-select" name="user_id">
-                                            @foreach ($users as $user)
-                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                            @endforeach
-                                        </select>
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary" type="submit">Lantik</button>
+                                        </div>
                                     </div>
-                                    <div class="col-5 mb-2">
-                                        <label class="col-form-label">Peranan:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <select class="form-select" name="role_id">
-                                            <option value=6 selected>Pemudah Cara</option>
-                                            <option value=8>Penilai</option>
-                                            <option value=10>Pasukan Validasi</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col text-center">
-                                        <button class="btn btn-primary" type="submit">Lantik</button>
-                                    </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
+                    </div>
+                @endif
             @endif
 
             <div class="col-12 mt-6">
