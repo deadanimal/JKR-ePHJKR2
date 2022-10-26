@@ -195,6 +195,12 @@ class ProjekController extends Controller
         $user = $request->user();
         $id = (int)$request->route('id');
 
+        $kriteria = Kriteria::find($request->kriteria);
+        if ($request->markah >$kriteria->maksimum) {
+            Alert::error('Salah Markah', 'Sila letakkan markah kurang dari maksimum');
+            return back();
+        }
+
         $markah = New Markah;
         $markah->projek_id = $id;
         $markah->user_id = $user->id;
@@ -204,7 +210,12 @@ class ProjekController extends Controller
         $markah->fasa = $request->fasa;
         if ($request->hasFile('dokumen1')) {
             $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
-        }     
+        } else {
+            if ($request->markah > 0) {
+                Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+                return back();
+            }            
+        }    
         if ($request->hasFile('dokumen2')) {
             $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
         }     

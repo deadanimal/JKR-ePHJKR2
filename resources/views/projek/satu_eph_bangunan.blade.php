@@ -99,6 +99,19 @@
                                 <h5 class="h6" style="font-weight: 700;">{{ $projek->kategori }}</h5>
                             </div>
 
+                            <div class="col-3 mb-2">
+                                <button class="btn btn-primary my-3" type="submit">Sah Projek</button>
+                            </div>                                  
+                            
+                            <div class="col-3 mb-2">
+                                <button class="btn btn-primary my-3" type="submit">Buat Rayuan</button>
+                            </div>    
+                            
+                            <div class="col-3 mb-2">
+                                <button class="btn btn-primary my-3" type="submit">Jana Sijil</button>
+                            </div>                               
+        
+
                         </div>
                     </div>
                 </div>
@@ -1042,8 +1055,6 @@
 
                 <div class="tab-pane" id="tab-2" role="tabpanel">
 
-                    {{-- {{ $kriteria }} --}}
-
                 </div>
 
                 <div class="tab-pane" id="tab-3" role="tabpanel">
@@ -1094,10 +1105,10 @@
                                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                                 </div> --}}
                                     <div class="col-5 mb-2">
-                                        <label class="col-form-label">Ulasan/Maklumbalas:</label>
+                                        <label class="col-form-label">Ulasan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <textarea class="form-control" rows="3" placeholder="Ulasan/Maklumbalas" name="ulasan"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Ulasan" name="ulasan"></textarea>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Dokumen Sokongan:</label>
@@ -1169,10 +1180,10 @@
                                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                                 </div> --}}
                                     <div class="col-5 mb-2">
-                                        <label class="col-form-label">Ulasan/Maklumbalas:</label>
+                                        <label class="col-form-label">Ulasan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <textarea class="form-control" rows="3" placeholder="Ulasan/Maklumbalas" name="ulasan"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Ulasan" name="ulasan"></textarea>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Dokumen Sokongan:</label>
@@ -1229,24 +1240,11 @@
                                     <div class="col-7 mb-2">
                                         <input class="form-control" type="number" name="markah">
                                     </div>
-                                    {{-- Untuk KT9 --}}
-                                    {{-- <div class="col-5 mb-2">
-                                    <label class="col-form-label">Markah BEI:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <input class="form-control" type="number">
-                                </div> --}}
-                                    {{-- <div class="col-5 mb-2">
-                                    <label class="col-form-label">Dokumen Pembuktian:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <input class="form-control" type="file" id="formFileMultiple" multiple>
-                                </div> --}}
                                     <div class="col-5 mb-2">
-                                        <label class="col-form-label">Ulasan/Maklumbalas:</label>
+                                        <label class="col-form-label">Ulasan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <textarea class="form-control" rows="3" placeholder="Ulasan/Maklumbalas" name="ulasan"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Ulasan" name="ulasan"></textarea>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Dokumen Sokongan:</label>
