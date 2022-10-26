@@ -27,19 +27,21 @@ class ProjekController extends Controller
 
     public function senarai_projek(Request $request) {
         
-        $projeks = Projek::all();
         $user = $request->user();
+        if($user->hasRole('pentadbir|sekretariat')) {
+            $projeks = Projek::all();
+        } else {
+
+        }
 
         if($request->ajax()) {
             return DataTables::collection($projeks)
             ->addIndexColumn()   
             ->addColumn('peranan', function (Projek $projek) {
                 $projek_users = $projek->users;
-                $html_button = '';
+                $html_button = '-';
                 foreach($projek_users as $projek_user){
-                    if($projek_user->role) {
-                        $html_button = $projek_user->role->display_name;
-                    }                    
+                    $html_button = $projek_user->role->display_name;
                 }
                 return $html_button;
             })             
