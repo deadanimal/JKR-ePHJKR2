@@ -104,7 +104,8 @@
                 </div>
             </div>
 
-            @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan')
+
+            {{-- @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan') --}}
                 <div class="col-12 mt-6">
                     <div class="card">
                         <div class="card-body">
@@ -144,7 +145,7 @@
                     </div>
 
                 </div>
-            @endif
+            {{-- @endif --}}
 
             <div class="col-12 mt-6">
                 <table class="table table-bordered line-table" style="width:100%">
