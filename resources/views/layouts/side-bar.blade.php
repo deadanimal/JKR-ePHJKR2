@@ -70,7 +70,6 @@
                         <div class="col-8">
                             <p class="info-sidebar mb-0">Nama: {{ auth()->user()->name }}</p>
                             <p class="info-sidebar mb-0">No. Kakitangan: {{ auth()->user()->no_kakitangan }}</p>
-                            <p class="info-sidebar mb-0">Peranan: </p>
                         </div>                
         </div>
 

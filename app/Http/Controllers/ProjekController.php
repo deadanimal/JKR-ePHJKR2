@@ -198,11 +198,21 @@ class ProjekController extends Controller
         $markah->markah = $request->markah;
         $markah->ulasan = $request->ulasan;
         $markah->fasa = $request->fasa;
-        $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
-        $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
-        $markah->dokumen3 = $request->file('dokumen3')->store('jkr-ephjkr/uploads');
-        $markah->dokumen4 = $request->file('dokumen4')->store('jkr-ephjkr/uploads');
-        $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
+        if ($request->hasFile('dokumen1')) {
+            $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen2')) {
+            $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen3')) {
+            $markah->dokumen3 = $request->file('dokumen3')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen4')) {
+            $markah->dokumen4 = $request->file('dokumen4')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen5')) {
+            $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
+        }                         
 
         $markah->save();
 
