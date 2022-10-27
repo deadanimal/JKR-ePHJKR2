@@ -603,36 +603,47 @@
     <?php
         use Illuminate\Support\Facades\Auth;
     ?>
-
+    {{-- <div  style="background:url(/assets/img/Rectangle.png)no-repeat center; height:400px; position: fixed;"><div> --}}
+    <img src="/assets/img/Rectangle.png" alt="" class="" style="position: absolute; z-index: -99999;" height="500px" width="100%" >
 
     <main class="main" id="top">
-        <nav class="navbar navbar-expand p-3"
-            style="box-shadow: 0px 2px 2px 1px lightgrey; background-color: white; z-index: 2;">
+            <nav class="navbar navbar-expand p-3"
+                style="box-shadow: 0px 2px 2px 1px rgba(0,0,0,0); background-color: rgba(0,0,0,0); z-index: 2;">
+                <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
+                    <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
+                        style="width: 82.45px; height: 64.3px;">
+                    <img src="/assets/img/JKR_LOGO.png" alt="JKR" style="width: 81.46px; height: 54.93px;">
+                    <img src="/assets/img/EPHJKR_LOGO.png" alt="EPHJKR" style="width: 95.73px; height: 87.31px;">
+                </div>
+                
 
-            <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-                <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
-                    style="width: 82.45px; height: 64.3px;">
-                <img src="/assets/img/JKR_LOGO.png" alt="JKR" style="width: 81.46px; height: 54.93px;">
-                <img src="/assets/img/EPHJKR_LOGO.png" alt="EPHJKR" style="width: 95.73px; height: 87.31px;">
-            </div>
+                <div class="col-1 text-end">
+                    <a href="/" class="jkr-header">UTAMA</a>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/about" class="jkr-header">MENGENAI KAMI</a>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/faq" class="jkr-header">SOALAN LAZIM</a>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/login" class="btn jkr-header" style="border-color: #F4A258;">LOG MASUK</a>
+                </div>
+            </nav>
 
-            <div class="col-1 text-end">
-                <a href="/" class="jkr-header">UTAMA</a>
+            <div class="col-12" style="z-index: 2;">
+                <h3 class="mt-4 text-center text-white" >e-Penarafan Hijau Jabatan Kerja Raya</h3>
+                <br>
+                 <h4 class= "text-center text-white">(e-pHJKR)</h4>
             </div>
-            <div class="col-2 text-end">
-                <a href="/about" class="jkr-header">MENGENAI KAMI</a>
-            </div>
-            <div class="col-2 text-end">
-                <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
-            </div>
-            <div class="col-2 text-end">
-                <a href="/faq" class="jkr-header">SOALAN LAZIM</a>
-            </div>
-            <div class="col-2 text-end">
-                <a href="/login" class="btn jkr-header" style="border-color: #F4A258;">LOG MASUK</a>
-            </div>
-        </nav>
-        <div class="container-fluid ps-0" data-layout="container">
+            
+
+        
+        
+        <div class="container-fluid ps-0" data-layout="container" style="margin-top: 10%">
 
             <div class="row">
 
