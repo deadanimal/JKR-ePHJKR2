@@ -53,19 +53,19 @@
           <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab3" role="tab">
                           Logo JKR
                       </a>
-          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab3" role="tab">
+          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab4" role="tab">
                           Carta Organisasi
                       </a>
-          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab3" role="tab">
-                          Piagam Pelangga
+          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab5" role="tab">
+                          Piagam Pelanggan
                       </a>
-          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab3" role="tab">
+          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab6" role="tab">
                           Ketua Pegawai Maklumat (CIO)
                       </a>
-          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab3" role="tab">
+          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab7" role="tab">
                           Senarai Cawangan
                       </a>
-          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab3" role="tab">
+          <a class="nav-link" id="v-pills-project3-tab" data-toggle="pill" href="#tab8" role="tab">
                           Senarai JKR Negeri & Wilayah
                       </a>            
         </div>
@@ -352,8 +352,263 @@
             </div>
           </div>
           <div class="tab-pane fade" id="tab3" role="tabpanel">
-            <h1>test</h1>
-            <img src="/assets/img/JKR_LOGO.png" alt="Error" width="128" height="128">
+            <h1>Logo JKR</h1>
+            <img src="/assets/img/JKR_LOGO.png" alt="Error" width="547" height="368.65">
+          </div>
+          <div class="tab-pane fade" id="tab4" role="tabpanel">
+            <h1>Logo JKR</h1>
+            <img src="/assets/img/JKR_LOGO.png" alt="Error" width="547" height="368.65">
+          </div>
+          <div class="tab-pane fade" id="tab5" role="tabpanel">
+            <div class="col mt-2 text-center">
+              <h3 class="mt-5">Piagam Pelanggan</h3>
+              <p>There is no one who loves pain itself, who seeks after it and wants to have it, simply because </p>
+            </div>
+          
+            <div class="col" style="background-color: rgb(20, 64, 8)">
+                <div class="col">
+                    <img src="/assets/img/Piagam.png" alt="error" width="600" height="900">
+                </div>
+                <div class="col mt-4 text-center">
+                    <p class="text-white mb-3">muat turun sahaja laaa gambar piagam ini</p>
+                    <button class="btn btn-primary mb-3">Muat Turun</button>
+                </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="tab6" role="tabpanel">
+            <div class="col row">
+              <div class="col-6 mt-5">
+                  <img src="/assets/img/picture1.png" alt="Error" width="300" height="300">
+              </div>
+              <div class="col-6 mt-5">
+                  <div class="col">
+                      <h6 class="text-bold">
+                          Ketua Pegawai Maklumat (CIO)
+                      </h6>
+                      <p>YBs. Sir. Amran bin Mohd Majid <br>Timbalan Ketua Pengarah Kerja Raya Malaysia  (Sektor Pakar)</p>
+                      
+                  </div>
+                  <div class="col">
+                      <h6 class="text-bold">
+                          Alamat Pejabat
+                      </h6>
+                      <p>Pejabat Timbalan Ketua Pengarah Kerja Raya (Sektor Pakar) <br>Tingkat 33, Menara Kerja Raya (Blok G) <br>Ibu Pejabat JKR, Jalan Sultan Salahuddin, <br>50480 Kuala Lumpur</p>
+                      <p><i class="fas fa-blender-phone"></i>03-26188433 <br><i class="fas fa-blender-phone"></i>03-26188433</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="tab7" role="tabpanel">
+            <h2 class="text-bold mt-4">Senarai Cawangan</h2>
+
+            <div class="col mt-3">
+                <h4>Portfolio Pengurusan</h4>
+                <div class="col">
+                    <button class="btn btn-primary">Cawangan Dasar & Pengurusan Korporat</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Perancangan Aset Bersepadu</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Pusat Kecemerlangan Kejuruteraan & Teknologi</button>
+                </div>
+            </div>
+
+            <div class="col mt-3">
+                <h4>Sektor Infra</h4>
+                <div class="col">
+                    <button class="btn btn-primary">Cawangan Jalan</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kejuruteraan Infrastruktur Pengangkutan</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kejuruteraan Cerun</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Selenggara Fasiliti Jalan</button>
+                </div>
+            </div>
+
+            <div class="col mt-3">
+                <h4>Sektor Bangunan</h4>
+                <div class="col">
+                    <button class="btn btn-primary">Cawangan Kerja Bangunan Am 1</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kerja Bangunan Am 2</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kerja Pendidikan</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kerja Keselamatan</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kerja Kesihatan</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kerja Senggara Fasiliti Bangunan</button>
+                </div>
+            </div>
+
+            <div class="col mt-3">
+                <h4>Sektor Pakar</h4>
+                <div class="col">
+                    <button class="btn btn-primary">Cawangan Arkitek</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kejuruteraan Awam & Struktur</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kontrak & Ukur Bahan</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kejuruteraan Mekanikal</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kejuruteraan Elektrik</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Kejuruteraan Geoteknik</button>
+                </div>
+                <div class="col mt-2">
+                    <button class="btn btn-primary">Cawangan Alam Sekitar & Kecekapan Tenaga</button>
+                </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="tab8" role="tabpanel">
+            <div class="col">
+              <div class="col mt-6 mb-4">
+                  <h3 class="text-bold">Senarai JKR Negeri & Wilayah</h3>
+              </div>
+              <div class="col">
+                  <div class="col">
+                      <div class="row">
+                          <div class="col-4">
+                              <div class="card">
+                                  <div class="card-body">
+                                      JKR Pahang
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card">
+                                  <div class="card-body">
+                                      JKR Johor
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card">
+                                  <div class="card-body">
+                                      JKR Perak
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Kelantan
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Selangor
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR WP Labuan
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="row">
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Negeri Sembilan
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR WP KL
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR WP Putrajaya
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Terengganu
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR P.Pinang
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Melaka
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                      <div class="row">
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Kedah
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Perlis
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Sabah
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-4">
+                              <div class="card mt-2">
+                                  <div class="card-body">
+                                      JKR Sarawak
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
           </div>
         </div>
       </div>
