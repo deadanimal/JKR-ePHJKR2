@@ -308,6 +308,113 @@
             -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
             box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
         }
+        .btn-perutusan-jkr {
+            color: #F4A258;
+            background-color: #8C271E;
+            border-color: #8C271E;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-perutusan-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #fff;
+            background-color: #8C271E;
+            border-color: #8C271E;
+        }
+        .btn-sejarah-jkr {
+            color: #5B8E7D;
+            background-color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-sejarah-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #5B8E7D;
+            background-color: #fff;
+            border-color: #fff;
+        }
+        .btn-visi-jkr {
+            color: #F5E284;
+            background-color: #8C271E;
+            border-color: #8C271E;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-visi-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #fff;
+            background-color: #8C271E;
+            border-color: #8C271E;
+        }
+        .btn-logo-jkr {
+            color: #8DB368;
+            background-color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-logo-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #5B8E7D;
+            background-color: #fff;
+            border-color: #fff;
+        }
+        .btn-kuning-jkr {
+            color: #F5E284;
+            background-color: #8C271E;
+            border-color: #8C271E;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-kuning-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #8C271E;
+            background-color: #F5E284;
+            border-color: #8C271E;
+        }
+        .btn-hijau-jkr {
+            color: #04A777;
+            background-color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-hijau-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #fff;
+            background-color: #04A777;
+            border-color: #fff;
+        }
+        .btn-cawangan-jkr {
+            color: #04DC9C;
+            background-color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-cawangan-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #fff;
+            background-color: #04DC9C;
+            border-color: #fff;
+        }
+        
+
         .btn-primary-sah {
 
             color: #fff;
@@ -603,18 +710,40 @@
     <?php
         use Illuminate\Support\Facades\Auth;
     ?>
-
+    {{-- <div  style="background:url(/assets/img/Rectangle.png)no-repeat center; height:400px; position: fixed;"><div> --}}
+    <img src="/assets/img/Rectangle.png" alt="" class="" style="position: absolute; z-index: -99999;" height="500px" width="100%" >
 
     <main class="main" id="top">
-        <nav class="navbar navbar-expand p-3"
-            style="box-shadow: 0px 2px 2px 1px lightgrey; background-color: white; z-index: 2;">
+            <nav class="navbar navbar-expand p-3"
+                style="box-shadow: 0px 2px 2px 1px rgba(0,0,0,0); background-color: rgba(0,0,0,0); z-index: 2;">
+                <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
+                    <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
+                        style="width: 82.45px; height: 64.3px;">
+                    <img src="/assets/img/JKR_LOGO.png" alt="JKR" style="width: 81.46px; height: 54.93px;">
+                    <img src="/assets/img/EPHJKR_LOGO.png" alt="EPHJKR" style="width: 95.73px; height: 87.31px;">
+                </div>
+                
+                <div class="col-1 text-end">
+                    <a href="/" class="jkr-header">UTAMA</a>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/about" class="jkr-header">MENGENAI KAMI</a>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/faq" class="jkr-header">SOALAN LAZIM</a>
+                </div>
+                <div class="col-2 text-end">
+                    <a href="/login" class="btn jkr-header" style="border-color: #F4A258;">LOG MASUK</a>
+                </div>
+            </nav>
 
-            <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-                <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
-                    style="width: 82.45px; height: 64.3px;">
-                <img src="/assets/img/JKR_LOGO.png" alt="JKR" style="width: 81.46px; height: 54.93px;">
-                <img src="/assets/img/EPHJKR_LOGO.png" alt="EPHJKR" style="width: 95.73px; height: 87.31px;">
-            </div>
+            <div class="col-12" style="z-index: 2;">
+                <h3 class="mt-4 text-center text-white" >e-Penarafan Hijau Jabatan Kerja Raya</h3>
+                <br>
+                 <h4 class= "text-center text-white">(e-pHJKR)</h4>
 
             <div class="col-1 text-end">
                 <a href="/" class="jkr-header">UTAMA</a>
@@ -630,9 +759,13 @@
             </div>
             <div class="col-2 text-end">
                 <a href="/login" class="btn jkr-header" style="border-color: #F4A258;">LOG MASUK</a>
+
             </div>
-        </nav>
-        <div class="container-fluid ps-0" data-layout="container">
+            
+
+        
+        
+        <div class="container-fluid ps-0" data-layout="container" style="margin-top: 10%">
 
             <div class="row">
 
