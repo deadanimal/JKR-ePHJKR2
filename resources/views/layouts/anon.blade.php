@@ -308,6 +308,113 @@
             -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
             box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
         }
+        .btn-perutusan-jkr {
+            color: #F4A258;
+            background-color: #8C271E;
+            border-color: #8C271E;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-perutusan-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #fff;
+            background-color: #8C271E;
+            border-color: #8C271E;
+        }
+        .btn-sejarah-jkr {
+            color: #5B8E7D;
+            background-color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-sejarah-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #5B8E7D;
+            background-color: #fff;
+            border-color: #fff;
+        }
+        .btn-visi-jkr {
+            color: #F5E284;
+            background-color: #8C271E;
+            border-color: #8C271E;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-visi-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #fff;
+            background-color: #8C271E;
+            border-color: #8C271E;
+        }
+        .btn-logo-jkr {
+            color: #8DB368;
+            background-color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-logo-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #5B8E7D;
+            background-color: #fff;
+            border-color: #fff;
+        }
+        .btn-kuning-jkr {
+            color: #F5E284;
+            background-color: #8C271E;
+            border-color: #8C271E;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-kuning-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #8C271E;
+            background-color: #F5E284;
+            border-color: #8C271E;
+        }
+        .btn-hijau-jkr {
+            color: #04A777;
+            background-color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-hijau-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #fff;
+            background-color: #04A777;
+            border-color: #fff;
+        }
+        .btn-cawangan-jkr {
+            color: #04DC9C;
+            background-color: #fff;
+            border-color: #fff;
+            -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+            box-shadow: inset 0 1px 0 rgb(255 255 255 / 15%), 0 1px 1px rgb(0 0 0 / 8%);
+        }
+        .btn-cawangan-jkr:hover,
+        .navbar-vertical .btn-purchase:hover,
+        .tox .tox-menu__footer .tox-button:hover:last-child,
+        .tox .tox-dialog__footer .tox-button:hover:last-child {
+            color: #fff;
+            background-color: #04DC9C;
+            border-color: #fff;
+        }
+        
+
         .btn-primary-sah {
 
             color: #fff;
