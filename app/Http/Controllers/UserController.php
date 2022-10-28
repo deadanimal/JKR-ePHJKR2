@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Projek;
+use App\Models\User;
 use App\Models\KriteriaEphBangunan;
 use App\Models\KriteriaEphJalan;
 use App\Models\KriteriaGpssBangunan;
@@ -44,6 +45,14 @@ class UserController extends Controller
     public function keselamatan(Request $request) {    
         return view('keselamatan');
     }      
+
+    public function login_page(Request $request) {
+
+    }
+
+    public function login_sso(Request $request) {
+
+    }
 
 
 

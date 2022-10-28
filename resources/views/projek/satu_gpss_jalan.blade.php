@@ -404,8 +404,6 @@
 
         <div class="tab-pane" id="tab-2" role="tabpanel">
 
-            {{ $kriteria }}
-
         </div>
 
         <div class="tab-pane" id="tab-3" role="tabpanel">

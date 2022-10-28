@@ -723,7 +723,6 @@
                     <img src="/assets/img/EPHJKR_LOGO.png" alt="EPHJKR" style="width: 95.73px; height: 87.31px;">
                 </div>
                 
-
                 <div class="col-1 text-end">
                     <a href="/" class="jkr-header">UTAMA</a>
                 </div>
@@ -745,6 +744,22 @@
                 <h3 class="mt-4 text-center text-white" >e-Penarafan Hijau Jabatan Kerja Raya</h3>
                 <br>
                  <h4 class= "text-center text-white">(e-pHJKR)</h4>
+
+            <div class="col-1 text-end">
+                <a href="/" class="jkr-header">UTAMA</a>
+            </div>
+            <div class="col-2 text-end">
+                <a href="/hebahan" class="jkr-header">MENGENAI KAMI</a>
+            </div>
+            <div class="col-2 text-end">
+                <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
+            </div>
+            <div class="col-2 text-end">
+                <a href="/faq" class="jkr-header">SOALAN LAZIM</a>
+            </div>
+            <div class="col-2 text-end">
+                <a href="/login" class="btn jkr-header" style="border-color: #F4A258;">LOG MASUK</a>
+
             </div>
             
 

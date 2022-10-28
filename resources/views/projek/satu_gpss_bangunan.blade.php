@@ -110,52 +110,78 @@
                 </div>
             </div> --}}
         </div>
-        <div class="col">
+        <div class="col-12 mt-6">
             <div class="card">
                 <div class="card-body">
-                    <div class="row mx-3 mb-2">
-                        <h2 class="mb-3">Lantik Pemudah Cara/Penilai</h2>
-                        <div class="col-5 mb-2">
-                            <label class="col-form-label">Nama:</label>
-                        </div>
-                        <div class="col-7 mb-2">
-                            <select class="form-select form-control" aria-label="Default select example" name="jenisProjek">
-                                <option selected="">Sila Pilih</option>
-                                <option value="Kerajaan">Kerajaan</option>
-                                <option value="Swasta">Swasta</option>
-                            </select>
-                        </div>
-                        <div class="col-5 mb-2">
-                            <label class="col-form-label">Peranan:</label>
-                        </div>
-                        <div class="col-7 mb-2">
-                            <select class="form-select form-control" aria-label="Default select example" name="jenisProjek">
-                                <option selected="">Sila Pilih</option>
-                                <option value="Kerajaan">Kerajaan</option>
-                                <option value="Swasta">Swasta</option>
-                            </select>
-                        </div>
-                        <div class="col mb-2">
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
-                                </div>
+                    <form action="/projek/{{ $projek->id }}/lantik" method="POST">
+                        @csrf
+
+                        <div class="row mx-3 mb-2">
+                            <h2 class="mb-3">Pelantikan</h2>
+                            <div class="col-5 mb-2">
+                                <label class="col-form-label">Nama:</label>
+                            </div>
+                            <div class="col-7 mb-2">
+                                <select class="form-select" name="user_id">
+                                    @foreach ($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-5 mb-2">
+                                <label class="col-form-label">Peranan:</label>
+                            </div>
+                            <div class="col-7 mb-2">
+                                <select class="form-select" name="role_id">
+                                    <option value=6 selected>Pemudah Cara</option>
+                                    <option value=8>Penilai</option>
+                                    <option value=10>Pasukan Validasi</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
+                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <button class="btn btn-primary" type="submit">Lantik</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+
+        </div>
+
+        <div class="col-12 mt-6">
+            <table class="table table-bordered line-table" style="width:100%">
+                <thead>
+                    <tr>
+                        <th class="text-center">No</th>
+                        <th class="text-center">Nama</th>
+                        <th class="text-center">Peranan</th>
+                    </tr>
+                </thead>
+                @foreach ($lantikans as $lantikan)
+                    <tr class="text-black">
+                        <td style="text-align: center; vertical-align: middle;">{{ $loop->iteration }}</td>
+                        <td style="text-align: center; vertical-align: middle;">{{ $lantikan->user->name }}</td>
+                        <td style="text-align: center; vertical-align: middle;">{{ $lantikan->role->display_name }}
+                        </td>
+                    </tr>
+                @endforeach
+
+                <tbody>
+                </tbody>
+            </table>
         </div>
     </div>
 
 <div class="tab mt-6">
     <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Sijil</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a></li>        
         <li class="nav-item"><a class="nav-link" href="#tab-3" data-bs-toggle="tab" role="tab">Rekabentuk</a></li>
         <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Verifikasi</a></li>
         <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Validasi</a></li>
         <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rayuan</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Sijil</a></li>
     </ul>
     <div class="tab-content">
 
@@ -399,7 +425,7 @@
 
         <div class="tab-pane" id="tab-2" role="tabpanel">
 
-            {{ $kriteria }}
+
 
         </div>
 

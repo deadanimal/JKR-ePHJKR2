@@ -99,64 +99,130 @@
                                 <h5 class="h6" style="font-weight: 700;">{{ $projek->kategori }}</h5>
                             </div>
 
+                            <div class="col-3 mb-2">
+                                <button class="btn btn-primary my-3" type="submit">Sah Projek</button>
+                            </div>
+
+                            <div class="col-3 mb-2">
+                                <button class="btn btn-primary my-3" type="submit">Buat Rayuan</button>
+                            </div>
+
+                            <div class="col-3 mb-2">
+                                <button class="btn btn-primary my-3" type="submit">Jana Sijil</button>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 mt-6">
-                <div class="card">
-                    <div class="card-body">
-                        <form action="/projek/satu_eph_bangunan/pemudah_cara" method="POST">
-                            @csrf
 
-                            <div class="row mx-3 mb-2">
-                                <h2 class="mb-3">Pelantikan Pemudah Cara/Penilai Jalan/Pasukan Validasi</h2>
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Nama:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <select class="form-select" aria-label="Default select example" name="jenisProjek">
-                                        <option selected="">Sila Pilih</option>
-                                        <option value="Kerajaan">Ahmad Aizat Ramli</option>
-                                        <option value="Swasta">'Atiah</option>
-                                    </select>
-                                </div>
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Peranan:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <select class="form-select" aria-label="Default select example" name="jenisProjek">
-                                        <option selected="">Sila Pilih</option>
-                                        <option value="Kerajaan">Kerajaan</option>
-                                        <option value="Swasta">Swasta</option>
-                                    </select>
-                                </div>
+            
+                {{-- @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan') --}}
+                    <div class="col-12 mt-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <form action="/projek/{{ $projek->id }}/lantik" method="POST">
+                                    @csrf
+
+                                    <div class="row mx-3 mb-2">
+                                        <h2 class="mb-3">Pelantikan</h2>
+                                        <div class="col-5 mb-2">
+                                            <label class="col-form-label">Nama:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <select class="form-select" name="user_id">
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="col-5 mb-2">
+                                            <label class="col-form-label">Peranan:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <select class="form-select" name="role_id">
+                                                <option value=6 selected>Pemudah Cara</option>
+                                                <option value=8>Penilai</option>
+                                                <option value=10>Pasukan Validasi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary" type="submit">Lantik</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
+
                     </div>
-                </div>
+     
 
+            <div class="col-12 mt-6">
+                <table class="table table-bordered line-table" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Nama</th>
+                            <th class="text-center">Peranan</th>
+                        </tr>
+                    </thead>
+                    @foreach ($lantikans as $lantikan)
+                        <tr class="text-black">
+                            <td style="text-align: center; vertical-align: middle;">{{ $loop->iteration }}</td>
+                            <td style="text-align: center; vertical-align: middle;">{{ $lantikan->user->name }}</td>
+                            <td style="text-align: center; vertical-align: middle;">{{ $lantikan->role->display_name }}
+                            </td>
+                        </tr>
+                    @endforeach
+
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <table class="table table-bordered skor-datatable line-table" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No.</th>
+                            <th class="text-center">Fasa</th>
+                            <th class="text-center">Kriteria</th>
+                            <th class="text-center">Markah</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
 
         <div class="tab mt-6">
             <ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab"
-                        role="tab">Rumusan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Sijil</a>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#tab-3" data-bs-toggle="tab"
-                        role="tab">Rekabentuk</a></li>
-                <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab"
-                        role="tab">Verifikasi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab"
-                        role="tab">Validasi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rayuan</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-3" data-bs-toggle="tab" role="tab">Rekabentuk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Verifikasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Validasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rayuan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Sijil</a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -989,8 +1055,6 @@
 
                 <div class="tab-pane" id="tab-2" role="tabpanel">
 
-                    {{-- {{ $kriteria }} --}}
-
                 </div>
 
                 <div class="tab-pane" id="tab-3" role="tabpanel">
@@ -998,121 +1062,34 @@
                     <!--------Borang Penilaian Rekabentuk Bangunan-------->
                     <div class="card mt-3">
                         <div class="card-body">
-                            <form action="/projek/satu_eph_bangunan/rekabentuk" method="POST">
+                            <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
-
+                                <input type="hidden" name="fasa" value="rekabentuk">
                                 <h4 class="mb-3">PENILAIAN REKABENTUK BANGUNAN</h4>
                                 <div class="row mx-3 mb-2">
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Kriteria:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <select class="form-select form-control" aria-label="Default select example"
-                                            name="jenisProjek">
-                                            <option selected="">Sila Pilih Kod Kriteria</option>
-                                            <option value="TL1">TL1</option>
-                                            <option value="TL2">TL2</option>
-                                            <option value="TL3">TL3</option>
-                                            <option value="TL4">TL4</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL6">TL6</option>
-                                            <option value="TL7">TL7</option>
-                                            <option value="TL8.1">TL8.1</option>
-                                            <option value="TL8.2">TL8.2</option>
-                                            <option value="TL8.3">TL8.3</option>
-                                            <option value="TL8.4">TL8.4</option>
-                                            <option value="TL8.5">TL8.5</option>
-                                            <option value="TL9">TL9</option>
-                                            <option value="TL9.1">TL9.1</option>
-                                            <option value="TL9.2">TL9.2</option>
-                                            <option value="TL10">TL10</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="KT1">KT1</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-                                            <option value="TL5">TL5</option>
-
-
+                                        <select class="form-select form-control" id="kriteriaRekabentukDipilih"
+                                            name="kriteria" onchange="kriteriaRekabentuk()">
+                                            @foreach ($kriterias as $akriteria)
+                                                <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
+                                                    {{ $akriteria->nama }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Info kriteria:</label>
                                     </div>
-                                    <div class="col-7 mb-2">
-                                        letak info kriteria
+                                    <div class="col-7 mb-2" id="infoKriteriaRekabentukDipilih">
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Markah:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" type="number">
+                                        <input class="form-control" type="number" name="markah">
                                     </div>
                                     {{-- Untuk KT9 --}}
                                     {{-- <div class="col-5 mb-2">
@@ -1128,16 +1105,20 @@
                                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                                 </div> --}}
                                     <div class="col-5 mb-2">
-                                        <label class="col-form-label">Ulasan/Maklumbalas:</label>
+                                        <label class="col-form-label">Ulasan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan/Maklumbalas"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Ulasan" name="ulasan"></textarea>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Dokumen Sokongan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                        <input class="form-control" type="file" name="dokumen1">
+                                        <input class="form-control" type="file" name="dokumen2">
+                                        <input class="form-control" type="file" name="dokumen3">
+                                        <input class="form-control" type="file" name="dokumen4">
+                                        <input class="form-control" type="file" name="dokumen5">
                                     </div>
 
                                     <div class="row mt-3">
@@ -1156,33 +1137,34 @@
                     <!--------Borang Verifikasi Permarkahan Bangunan-------->
                     <div class="card mt-3">
                         <div class="card-body">
-                            <form action="/projek/satu_eph_bangunan/verifikasi" method="POST">
+                            <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
-
-                                <h4 class="mb-3">VERIFIKASI PERMARKAHAN BANGUNAN</h4>
+                                <input type="hidden" name="fasa" value="verifikasi">
+                                <h4 class="mb-3">VERIFIKASI BANGUNAN</h4>
                                 <div class="row mx-3 mb-2">
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Kriteria:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <select class="form-select form-control" aria-label="Default select example"
-                                            name="jenisProjek">
-                                            <option selected="">Sila Pilih Kod Kriteria</option>
-                                            <option value="TL1">TL1</option>
-                                            <option value="TL2">TL2</option>
+                                        <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
+                                            name="kriteria" onchange="kriteriaVerifikasi()">
+                                            @foreach ($kriterias as $akriteria)
+                                                <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
+                                                    {{ $akriteria->nama }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Info kriteria:</label>
                                     </div>
-                                    <div class="col-7 mb-2">
-                                        letak info kriteria
+                                    <div class="col-7 mb-2" id="infoKriteriaVerifikasiDipilih">
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Markah:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" type="number">
+                                        <input class="form-control" type="number" name="markah">
                                     </div>
                                     {{-- Untuk KT9 --}}
                                     {{-- <div class="col-5 mb-2">
@@ -1198,16 +1180,20 @@
                                     <input class="form-control" type="file" id="formFileMultiple" multiple>
                                 </div> --}}
                                     <div class="col-5 mb-2">
-                                        <label class="col-form-label">Ulasan/Maklumbalas:</label>
+                                        <label class="col-form-label">Ulasan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan/Maklumbalas"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Ulasan" name="ulasan"></textarea>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Dokumen Sokongan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                        <input class="form-control" type="file" name="dokumen1">
+                                        <input class="form-control" type="file" name="dokumen2">
+                                        <input class="form-control" type="file" name="dokumen3">
+                                        <input class="form-control" type="file" name="dokumen4">
+                                        <input class="form-control" type="file" name="dokumen5">
                                     </div>
 
                                     <div class="row mt-3">
@@ -1225,59 +1211,52 @@
                     <!--------Borang Validasi Permarkahan Bangunan-------->
                     <div class="card mt-3">
                         <div class="card-body">
-                            <form action="/projek/satu_eph_bangunan/validasi" method="POST">
+                            <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
-
-                                <h4 class="mb-3">VALIDASI PERMARKAHAN BANGUNAN</h4>
+                                <input type="hidden" name="fasa" value="validasi">
+                                <h4 class="mb-3">VALIDASI BANGUNAN</h4>
                                 <div class="row mx-3 mb-2">
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Kriteria:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <select class="form-select form-control" aria-label="Default select example"
-                                            name="jenisProjek">
-                                            <option selected="">Sila Pilih Kod Kriteria</option>
-                                            <option value="TL1">TL1</option>
-                                            <option value="TL2">TL2</option>
+                                        <select class="form-select form-control" id="kriteriaValidasiDipilih"
+                                            name="kriteria" onchange="kriteriaValidasi()">
+                                            @foreach ($kriterias as $akriteria)
+                                                <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
+                                                    {{ $akriteria->nama }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Info kriteria:</label>
                                     </div>
-                                    <div class="col-7 mb-2">
-                                        letak info kriteria
+                                    <div class="col-7 mb-2" id="infoKriteriaValidasiDipilih">
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Markah:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" type="number">
+                                        <input class="form-control" type="number" name="markah">
                                     </div>
-                                    {{-- Untuk KT9 --}}
-                                    {{-- <div class="col-5 mb-2">
-                                        <label class="col-form-label">Markah BEI:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input class="form-control" type="number">
-                                    </div> --}}
-                                    {{-- <div class="col-5 mb-2">
-                                    <label class="col-form-label">Dokumen Pembuktian:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <input class="form-control" type="file" id="formFileMultiple" multiple>
-                                </div> --}}
                                     <div class="col-5 mb-2">
-                                        <label class="col-form-label">Ulasan/Maklumbalas:</label>
+                                        <label class="col-form-label">Ulasan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan/Maklumbalas"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Ulasan" name="ulasan"></textarea>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Dokumen Sokongan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" type="file" id="formFileMultiple" multiple>
+                                        <input class="form-control" type="file" name="dokumen1">
+                                        <input class="form-control" type="file" name="dokumen2">
+                                        <input class="form-control" type="file" name="dokumen3">
+                                        <input class="form-control" type="file" name="dokumen4">
+                                        <input class="form-control" type="file" name="dokumen5">
                                     </div>
+
                                     <div class="row mt-3">
                                         <div class="col text-center">
                                             <button class="btn btn-primary" type="submit">Simpan</button>
@@ -1499,6 +1478,34 @@
             var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl)
             })
+        </script>
+
+        <script>
+            kriteriaRekabentuk();
+            kriteriaVerifikasi();
+            kriteriaValidasi();
+
+            function kriteriaRekabentuk() {
+                var lols = {!! $kriterias !!}
+                var kriteriaRekabentuk = document.getElementById("kriteriaRekabentukDipilih").value;
+                let selectedKriteria = lols.find(el => el.id == kriteriaRekabentuk);
+                document.getElementById("infoKriteriaRekabentukDipilih").innerHTML = selectedKriteria.bukti;
+            }
+
+
+            function kriteriaVerifikasi() {
+                var lols = {!! $kriterias !!}
+                var kriteriaVerifikasi = document.getElementById("kriteriaVerifikasiDipilih").value;
+                let selectedKriteria = lols.find(el => el.id == kriteriaVerifikasi);
+                document.getElementById("infoKriteriaVerifikasiDipilih").innerHTML = selectedKriteria.bukti;
+            }
+
+            function kriteriaValidasi() {
+                var lols = {!! $kriterias !!}
+                var kriteriaValidasi = document.getElementById("kriteriaValidasiDipilih").value;
+                let selectedKriteria = lols.find(el => el.id == kriteriaValidasi);
+                document.getElementById("infoKriteriaValidasiDipilih").innerHTML = selectedKriteria.bukti;
+            }
         </script>
 
 
@@ -2552,4 +2559,40 @@
                 findTotalML();
             });
         </script>
+
+        <script type="text/javascript">
+            $(function() {
+
+                var idProjek = {!! json_decode($projek->id) !!}
+                console.log(idProjek);
+                var url = "/projek/" + idProjek;
+                var table = $('.skor-datatable').DataTable({
+                    processing: true,
+                    serverSide: true,
+                    responsive: true,
+                    ajax: url,
+                    columns: [{
+                            data: 'DT_RowIndex',
+                            name: 'DT_RowIndex'
+                        },
+                        {
+                            data: 'fasa',
+                            name: 'fasa'
+                        },
+                        {
+                            data: 'kriteria_',
+                            name: 'kriteria_'
+                        },
+                        {
+                            data: 'markah',
+                            name: 'markah'
+                        },
+
+                    ]
+                });
+
+
+            });
+        </script>
+
     @endsection

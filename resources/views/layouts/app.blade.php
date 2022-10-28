@@ -17,8 +17,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script type="text/javascript" src="/assets/js/datatables.min.js"></script>
-    <script type="text/javascript" src="/assets/js/datatables.js"></script>
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="/assets/js/flatpickr.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
     <script src="/vendors/choices/choices.min.js"></script>
@@ -42,8 +47,6 @@
     <link href="/assets/css/theme.min.css" rel="stylesheet" id="style-default">
     <link href="/assets/css/user-rtl.min.css" rel="stylesheet" id="user-style-rtl">
     <link href="/assets/css/user.min.css" rel="stylesheet" id="user-style-default">
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/datatables.min.css" />
 
 
     <script>
@@ -620,7 +623,7 @@
                 <a href="/" class="jkr-header">UTAMA</a>
             </div>
             <div class="col-2 text-end">
-                <a href="/about" class="jkr-header">MENGENAI KAMI</a>
+                <a href="/hebahan" class="jkr-header">MENGENAI KAMI</a>
             </div>
             <div class="col-2 text-end">
                 <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
@@ -713,28 +716,26 @@
     <script src="/vendors/list.js/list.min.js"></script>
     <script src="/assets/js/theme.js"></script>
 
-    <script src="/js/sweetalert2.all.min.js"></script>
-
     <script>
         $(document).ready(function() {
-            setInterval(() => {
-                const today = new Date();
-                let day = today.getDate();
-                const bulan = ['Januari', 'Februari', 'Mac', 'April', 'May', 'Jun', 'Julai', 'Ogos',
-                    'September', 'Oktober', 'November', 'Disember'
-                ];
-                let month = bulan[today.getMonth()];
-                let year = today.getFullYear();
-                let h = today.getHours();
-                let m = today.getMinutes();
-                let s = today.getSeconds();
-                if (m < 10) m = "0" + m;
-                if (s < 10) s = "0" + s;
-                if (day < 10) day = "0" + day;
-                document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
-                document.getElementById("date").innerHTML =
-                    day + " " + month + " " + year;
-            }, 1000);
+            // setInterval(() => {
+            //     const today = new Date();
+            //     let day = today.getDate();
+            //     const bulan = ['Januari', 'Februari', 'Mac', 'April', 'May', 'Jun', 'Julai', 'Ogos',
+            //         'September', 'Oktober', 'November', 'Disember'
+            //     ];
+            //     let month = bulan[today.getMonth()];
+            //     let year = today.getFullYear();
+            //     let h = today.getHours();
+            //     let m = today.getMinutes();
+            //     let s = today.getSeconds();
+            //     if (m < 10) m = "0" + m;
+            //     if (s < 10) s = "0" + s;
+            //     if (day < 10) day = "0" + day;
+            //     document.getElementById("time").innerHTML = h + ":" + m + ":" + s;
+            //     document.getElementById("date").innerHTML =
+            //         day + " " + month + " " + year;
+            // }, 1000);
 
 
 
@@ -752,6 +753,8 @@
 
         });
     </script>
+
+    @yield('scripts')
 </body>
 
 
