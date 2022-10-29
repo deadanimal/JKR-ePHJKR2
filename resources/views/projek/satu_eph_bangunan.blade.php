@@ -1504,13 +1504,13 @@
                             <table id="rekabentuk" class="table table-bordered line-table display">
                                 <thead class="text-white">
                                     <tr class="pg-1" align="center" style="background-color:#EB5500">
-                                        <th>Kod</th>
-                                        <th>Kriteria</th>
-                                        <th colspan="6">Kategori Bangunan</th>
-                                        {{-- <th colspan="8">Pembangunan Baru</th> --}}
-                                        <th>Dokumen Pembuktian</th>
-                                        <th>Ulasan/Maklumbalas</th>
-                                        <th colspan="4">Dokumen Sokongan</th>
+                                            <th>Kod</th>
+                                            <th>Kriteria</th>
+                                            <th colspan="6">Kategori Bangunan</th>
+                                            {{-- <th colspan="8">Pembangunan Baru</th> --}}
+                                            <th>Dokumen Pembuktian</th>
+                                            <th>Ulasan/Maklumbalas</th>
+                                            <th colspan="4">Dokumen Sokongan</th>
                                     </tr>
                                 </thead>
                             </table>
