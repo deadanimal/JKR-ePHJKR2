@@ -108,14 +108,65 @@ class ProjekController extends Controller
         ])->first();        
 
         if($request->ajax()) {
-            $markahs = Markah::where('projek_id', $id)->get();
-            return DataTables::collection($markahs)
+            $kriterias = Kriteria::where('borang', 'BARU A')->get(); 
+            return DataTables::collection($kriterias)
             ->addIndexColumn()    
-            ->addColumn('kriteria_', function (Markah $markah) {
-                $html_button = $markah->kriteria->kod.' - '.$markah->kriteria->nama;
+            ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                $markah = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                ])->first();       
+                if($markah) {
+                    $html_button = $markah->markah;
+                }         
                 return $html_button;
             })
-            ->rawColumns(['kriteria_'])
+            ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                $markah = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                ])->first();       
+                if($markah) {
+                    $html_button = $markah->ulasan;
+                }         
+                return $html_button;
+            })   
+            ->addColumn('dokumen_', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                $markah = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                ])->first();       
+                // if($markah) {
+                //     if($markah->dokumen1) {
+                //         $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
+                //         $html_button = '<a href="'.$url.'">Dokumen 1</a>';
+                //     }
+                //     if($markah->dokumen2) {
+                //         $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen2;
+                //         $html_button += '<a href="'.$url.'">Dokumen 2</a>';
+                //     } 
+                //     if($markah->dokumen3) {
+                //         $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen3;
+                //         $html_button += '<a href="'.$url.'">Dokumen 3</a>';
+                //     }   
+                //     if($markah->dokumen4) {
+                //         $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen4;
+                //         $html_button += '<a href="'.$url.'">Dokumen 4</a>';
+                //     } 
+                //     if($markah->dokumen5) {
+                //         $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
+                //         $html_button += '<a href="'.$url.'">Dokumen 5</a>';
+                //     }                                                                                        
+                // }         
+                return $html_button;
+            })                       
+            ->rawColumns(['markah_', 'ulasan_', 'dokumen_'])
             ->make(true);
         }            
 

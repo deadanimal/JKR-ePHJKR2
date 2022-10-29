@@ -745,7 +745,7 @@
                 <br>
                  <h4 class= "text-center text-white">(e-pHJKR)</h4>
 
-            <div class="col-1 text-end">
+            {{-- <div class="col-1 text-end">
                 <a href="/" class="jkr-header">UTAMA</a>
             </div>
             <div class="col-2 text-end">
@@ -760,7 +760,7 @@
             <div class="col-2 text-end">
                 <a href="/login" class="btn jkr-header" style="border-color: #F4A258;">LOG MASUK</a>
 
-            </div>
+            </div> --}}
             
 
         
