@@ -371,7 +371,7 @@
                     <img src="/assets/img/Piagam.png" alt="error" width="600" height="900">
                 </div>
                 <div class="col mt-4 text-center">
-                    <p class="text-white mb-3">muat turun sahaja laaa gambar piagam ini</p>
+                    <p class="text-white mb-3">Sila muat turun di sini</p>
                     <button class="btn btn-primary mb-3">Muat Turun</button>
                 </div>
             </div>
