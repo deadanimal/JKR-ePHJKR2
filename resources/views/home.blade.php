@@ -82,7 +82,7 @@
                 Pihak British bergantung pada pihak askar untuk mengisi jawatan jurutera dan doktor. 
                 </p>
                 <div class="text-center">
-                    <button class="btn btn-sejarah-jkr">Teruskan</button>
+                    <a href="/about#tab1"><button class="btn btn-sejarah-jkr">Teruskan</button></a>
                 </div>
             </div>
             <div class="col-6">
@@ -109,7 +109,7 @@
                     <p style="text-align: center; color: #8C271E;">Kami akan menjadi pemberi perkhidmatan bertaraf dunia dan pusat kecemerlangan di dalam bidang pengurusan aset, pengurusan projek dan perkhidmatan kejuruteraan demi pembangunan infrastruktur negara 
                         melalui modal insan yang kreatif dan inovatif serta teknologi terkini.</p>
                     <div class="text-center">
-                        <button class="btn btn-visi-jkr">Teruskan</button>
+                      <a href="/about#tab2"><button class="btn btn-visi-jkr">Teruskan</button></a>
                     </div>              
             </div>
           </div>

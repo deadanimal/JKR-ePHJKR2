@@ -14,21 +14,21 @@
 
                     <div class="row mt-4 mb-3">
                         <div class="col">
-                            <form action="/manual" method="post" enctype="multipart/form-data">
+                            <form action="/manual" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mx-4">
                                     <div class="col-3 mb-2">
                                         <label class="col-form-label">Nama Manual & Standard:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="namaManual" type="text"/>
+                                        <input class="form-control" name="nama" type="text"/>
                                     </div>
                 
                                     <div class="col-3 mb-2">
                                         <label class="col-form-label">Muat Naik Dokumen Sokongan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="failManual" type="file"/>
+                                        <input class="form-control" name="dokumen" type="file"/>
                                     </div>
                     
                                     <div class="col-3 mb-2">
@@ -70,8 +70,8 @@
                                     <thead class="bg-primary">
                                         <tr>
                                             <th class="sort">Bil.</th>
-                                            <th class="sort">Nama Manual & Standard</th>
-                                            <th class="sort">Muat</th>
+                                            <th class="sort">Nama Manual</th>
+                                            <th class="sort">Muatnaik</th>
                                             <th class="sort">Tindakan</th>
                                         </tr>
                                     </thead>
@@ -80,18 +80,18 @@
                                         @foreach ($manuals as $manual)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $manual->namaManual }}</td>
-                                                <td>{{ $manual->failManual }}</td>
+                                                <td>{{ $manual->nama }}</td>
+                                                <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $manual->dokumen }}">Pautan Dokumen</a></td>
                                                 
                                                 
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-auto">
-                                                            <a href="/manual/{{ $manual->id }}/edit"
+                                                            <a href="/manual/{{ $manual->id }}"
                                                                 class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                         </div>
                                                         <div class="col-auto">
-                                                            <form action="/manual/{{ $manual->id }}" method="post">
+                                                            <form action="/manual/{{ $manual->id }}" method="POST">
                                                                 @method('DELETE')
                                                                 @csrf
                                                                 <button type="submit" class="btn btn-sm btn-outline-primary"><i class="fas fa-trash-alt"></i></button>

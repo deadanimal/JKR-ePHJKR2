@@ -14,43 +14,32 @@
 
                     <div class="row mt-4 mb-3">
                         <div class="col">
-                            <form action="/maklum_balas" method="post" enctype="multipart/form-data">
+                            <form action="/maklumbalas" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mx-4">
-                                    <div class="col-3 mb-2">
-                                        <label class="col-form-label">Maklum Balas:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input class="form-control" name="nama" type="text"/>
-                                    </div>
 
+                
                                     <div class="col-3 mb-2">
-                                        <label class="col-form-label">E-mail:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input class="form-control" name="email" type="text"/>
-                                    </div>
-
-                                    <div class="col-3 mb-2">
-                                        <label class="col-form-label">Keterangan:</label>
+                                        <label class="col-form-label">Subjek:</label>
                                     </div>
                                     <div class="col-7 mb-2">
                                         <input class="form-control" name="subjek" type="text"/>
                                     </div>
-                
+
                                     <div class="col-3 mb-2">
                                         <label class="col-form-label">Kategori:</label>
                                     </div>
                                     <div class="col-7 mb-2">
                                         <input class="form-control" name="kategori" type="text"/>
                                     </div>
-                
+
                                     <div class="col-3 mb-2">
-                                        <label class="col-form-label">Status:</label>
+                                        <label class="col-form-label">Keterangan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="statusMaklumbalas" type="text"/>
-                                    </div>
+                                        <textarea class="form-control" name="keterangan"></textarea>
+                                    </div>                                    
+                
                 
                                     
                                     
@@ -107,16 +96,17 @@
                                         @foreach ($maklums as $maklum)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $maklum->namaFAQ }}</td>
-                                                <td>{{ $maklum->soalanFAQ }}</td>
-                                                <td>{{ $maklum->JawapanFAQ }}</td>
+                                                <td>{{ $maklum->subjek }}</td>
+                                                <td>{{ $maklum->kategori }}</td>
+                                                <td>{{ $maklum->status }}</td>
                                                 
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-auto">
-                                                            <a href="/maklumbalas/{{ $maklum->id }}/edit"
+                                                            <a href="/maklumbalas/{{ $maklum->id }}"
                                                                 class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                         </div>
+                                                        @role('sekretariat')
                                                         <div class="col-auto">
                                                             <form action="/maklumbalas/{{ $maklum->id }}" method="post">
                                                                 @method('DELETE')
@@ -124,6 +114,7 @@
                                                                 <button type="submit" class="btn btn-sm btn-outline-primary"><i class="fas fa-trash-alt"></i></button>
                                                             </form>
                                                         </div>
+                                                        @endrole
                                                     </div>
                                                 </td>
                                             </tr>

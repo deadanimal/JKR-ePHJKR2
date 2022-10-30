@@ -51,11 +51,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('manual', [ManualController::class, 'cipta']); 
     Route::get('manual/{id}', [ManualController::class, 'satu']); 
     Route::put('manual/{id}', [ManualController::class, 'kemaskini']);  
+    Route::delete('manual/{id}', [ManualController::class, 'buang']); 
     
     Route::get('hebahan', [HebahanController::class, 'senarai']); 
     Route::post('hebahan', [HebahanController::class, 'cipta']); 
     Route::get('hebahan/{id}', [HebahanController::class, 'satu']); 
     Route::put('hebahan/{id}', [HebahanController::class, 'kemaskini']);  
+    Route::delete('hebahan/{id}', [HebahanController::class, 'buang']);  
     
     Route::post('faq', [FaqController::class, 'cipta']); 
     Route::put('faq/{id}', [FaqController::class, 'kemaskini']);    
@@ -63,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('maklumbalas', [MaklumbalasController::class, 'senarai']); 
     Route::post('maklumbalas', [MaklumbalasController::class, 'cipta']); 
     Route::get('maklumbalas/{id}', [MaklumbalasController::class, 'satu']); 
-    Route::post('maklumbalas/{id}/hantar', [MaklumbalasController::class, 'hantar']);     
+    Route::put('maklumbalas/{id}', [MaklumbalasController::class, 'kemaskini']); 
 
 });
 

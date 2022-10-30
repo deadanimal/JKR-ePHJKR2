@@ -73,7 +73,7 @@
       </div>
       <div class="col-9">
         <div class="tab-content" id="v-pills-tabContent">
-          <div class="tab-pane fade show active" id="tab1" role="tabpanel">
+          <div class="tab-pane fade" id="tab1" role="tabpanel">
             <h1 class="mt-3 mb-3">Sejarah JKR</h1>
             <h3>Peristiwa semasa</h3>
             <h3 class="mb-3">Public Works Department diwujudkan</h3>
