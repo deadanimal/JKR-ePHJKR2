@@ -170,6 +170,8 @@
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab"
                             role="tab">Rumusan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab"
+                            role="tab">Skor Kad</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tab-3" data-bs-toggle="tab"
                             role="tab">Rekabentuk</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab"
@@ -182,8 +184,6 @@
                 <div class="tab-content">
 
                     <div class="tab-pane active" id="tab-1" role="tabpanel">
-
-
                         <div class="row mt-3">
                             <div class="col">
                                 <div class="card">
@@ -191,254 +191,221 @@
                                         <div class="col mb-">
                                             <h4 class="h4 mb-3">RUMUSAN</h4>
                                         </div>
+                                            <div class="row3 mx-4 table-responsive scrollbar">
+                                                <table class="table table-bordered line-table text-center" style="width: 100%">
+                                                    <thead class="text-white bg-orange-jkr">
+                                                        <tr align="center" style="background-color:#EB5500">
 
-                                        <div class="table-responsive scrollbar col">
 
-                                            <table>
+                                                            <th colspan="3"></th>
+
+                                                            <th colspan="3">DESIGN</th>
+
+                                                            <th colspan="3">VERIFICATION</th>
+
+
+                                                        </tr>
+                                                        <tr>
+
+                                                            <th colspan="3">TOTAL POINTS (CORE)</th>
+
+                                                            <th>MAX </th>
+                                                            <th>TARGET </th>
+                                                            <th>ASSESSMENT </th>
+
+                                                            <th>MAX </th>
+                                                            <th>TARGET </th>
+                                                            <th>ASSESSMENT </th>
+                                                        </tr>
+
+                                                    </thead>
+                                                        <tbody class="text-black">
+                                                            <tr class="text-black">
+                                                                <th colspan="1">SM</th>
+                                                                <th colspan="2">SUSTAINABLE SITE PLANNING AND
+                                                                    MANAGEMENT</th>
+                                                                {{-- <td></td> --}}
+
+                                                                {{-- design --}}
+                                                                <th>18</th>
+                                                                <th value="SM_TOTAL_TARGET_DESIGN"></th>
+                                                                <th value="SM_TOTAL_ASSESSMENT_DESIGN"></th>
+
+                                                                {{-- verifikasi --}}
+                                                                <th>18</th>
+                                                                <th value="SM_TOTAL_TARGET_VERIFIKASI"></th>
+                                                                <th value="SM_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="1">PT</th>
+                                                                <th colspan="2">PAVEMENT TECHNOLOGIES</th>
+                                                                {{-- <th></th> --}}
+
+                                                                <th>12</th>
+                                                                <th value="PT_TOTAL_TARGET_DESIGN"></th>
+                                                                <th value="PT_TOTAL_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>12</th>
+                                                                <th value="PT_TOTAL_TARGET_VERIFIKASI"></th>
+                                                                <th value="PT_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="1">EW</th>
+                                                                <th colspan="2">ENVIRONMENT & WATER</th>
+                                                                {{-- <th></th> --}}
+
+                                                                <th>4</th>
+                                                                <th value="EW_TOTAL_TARGET_DESIGN"></th>
+                                                                <th value="EW_TOTAL_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>5</th>
+                                                                <th value="EW_TOTAL_TARGET_VERIFIKASI"></th>
+                                                                <th value="EW_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="1">AE</th>
+                                                                <th colspan="2">ACCESS & EQUITY</th>
+                                                                {{-- <th></th> --}}
+                                                                <th>3</th>
+                                                                <th value="AE_TOTAL_TARGET_DESIGN"></th>
+                                                                <th value="AE_TOTAL_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>5</th>
+                                                                <th value="AE_TOTAL_TARGET_VERIFIKASI"></th>
+                                                                <th value="AE_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="1">CA</th>
+                                                                <th colspan="2">CONSTRUCTION ACTIVITIES</th>
+                                                                {{-- <th></th> --}}
+                                                                <th>19</th>
+                                                                <th value="CA_TOTAL_TARGET_DESIGN"></th>
+                                                                <th value="CA_TOTAL_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>22</th>
+                                                                <th value="CA_TOTAL_TARGET_VERIFIKASI"></th>
+                                                                <th value="CA_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="1">MR</th>
+                                                                <th colspan="2">MATERIAL AND RESOURCES</th>
+                                                                {{-- <th></th> --}}
+                                                                <th>12</th>
+                                                                <th value="MR_TOTAL_TARGET_DESIGN"></th>
+                                                                <th value="MR_TOTAL_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>12</th>
+                                                                <th value="MR_TOTAL_TARGET_VERIFIKASI"></th>
+                                                                <th value="MR_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="1">EC</th>
+                                                                <th colspan="2">ELECTIVE CRITERIA</th>
+                                                                {{-- <th></th> --}}
+                                                                <th>27</th>
+                                                                <th value="EC_TOTAL_TARGET_DESIGN"></th>
+                                                                <th value="EC_TOTAL_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>27</th>
+                                                                <th value="EC_TOTAL_TARGET_VERIFIKASI"></th>
+                                                                <th value="EC_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="1">IN</th>
+                                                                <th colspan="2">INOVATION</th>
+                                                                {{-- <th></th> --}}
+                                                                <th>5</th>
+                                                                <th value="IN_TOTAL_TARGET_DESIGN"></th>
+                                                                <th value="IN_TOTAL_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>5</th>
+                                                                <th value="IN_TOTAL_TARGET_VERIFIKASI"></th>
+                                                                <th value="IN_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="3">TOTAL CORE POINTS </th>
+                                                                {{-- <th></th> --}}
+                                                                <th>68</th>
+                                                                <th value="TOTALCP_TARGET_DESIGN"></th>
+                                                                <th value="TOTALCP_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>74</th>
+                                                                <th value="TOTALCP_TARGET_VERIFIKASI"></th>
+                                                                <th value="TOTALCP_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <th colspan="3">TOTAL ELECTIVE & INNOVATION POINTS
+                                                                </th>
+                                                                {{-- <th></th> --}}
+                                                                <th>12</th>
+                                                                <th value="TOTALEIP_TARGET_DESIGN"></th>
+                                                                <th value="TOTALEIP_ASSESSMENT_DESIGN"></th>
+
+                                                                <th>15</th>
+                                                                <th value="TOTALEIP_TARGET_VERIFIKASI"></th>
+                                                                <th value="TOTALEIP_ASSESSMENT_VERIFIKASI"></th>
+                                                            </tr>
+                                                        </tbody>
+                                                </table>
+
+
                                                 <div class="row3 mx-4 table-responsive scrollbar">
                                                     <div class="col">
                                                         <table class="table table-bordered line-table text-center"
                                                             style="width: 100%">
                                                             <thead class="text-white bg-orange-jkr">
-                                                                <tr align="center" style="background-color:#EB5500">
-
-
-                                                                    <th colspan="3"></th>
-
-                                                                    <th colspan="3">DESIGN</th>
-
-                                                                    <th colspan="3">VERIFICATION</th>
-
-
-                                                                </tr>
                                                                 <tr>
-
-                                                                    <th colspan="3">TOTAL POINTS (CORE)</th>
-
-                                                                    <th>MAX </th>
-                                                                    <th>TARGET </th>
-                                                                    <th>ASSESSMENT </th>
-
-                                                                    <th>MAX </th>
-                                                                    <th>TARGET </th>
-                                                                    <th>ASSESSMENT </th>
+                                                                    <th></th>
+                                                                    <th colspan="3" rowspan="3">TARGET
+                                                                        SUMMARY</th>
+                                                                    <th colspan="3" rowspan="3">SCORING
+                                                                        VERIFICATION SUMMARY</th>
                                                                 </tr>
-
                                                             </thead>
                                                             <tbody class="text-black">
-
-
-                                                                <tr class="text-black">
-                                                                    <th colspan="1">SM</th>
-                                                                    <th colspan="2">SUSTAINABLE SITE PLANNING AND
-                                                                        MANAGEMENT</th>
-                                                                    {{-- <td></td> --}}
-
-                                                                    {{-- design --}}
-                                                                    <th>18</th>
-                                                                    <th value="SM_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th value="SM_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                    {{-- verifikasi --}}
-                                                                    <th>18</th>
-                                                                    <th value="SM_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                    <th value="SM_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                                <tr>
+                                                                    <th colspan="1">TOTAL SCORE (%)</th>
+                                                                    <th colspan="2"
+                                                                        value="SM_TOTAL_TARGET_DESIGN"></th>
+                                                                    <th colspan="2"
+                                                                        value="SM_TOTAL_TARGET_DESIGN"></th>
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <th colspan="1">PT</th>
-                                                                    <th colspan="2">PAVEMENT TECHNOLOGIES</th>
-                                                                    {{-- <th></th> --}}
+                                                                    <th colspan="1" rowspan="3">pH JKR
+                                                                        RATING</th>
+                                                                    <th colspan="2">0<span
+                                                                            class="star">&starf;</span></th>
+                                                                    <th colspan="2">0<span
+                                                                            class="star">&starf;</span></th>
 
-                                                                    <th>12</th>
-                                                                    <th value="PT_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th value="PT_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>12</th>
-                                                                    <th value="PT_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                    <th value="PT_TOTAL_ASSESSMENT_VERIFIKASI"></th>
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <th colspan="1">EW</th>
-                                                                    <th colspan="2">ENVIRONMENT & WATER</th>
-                                                                    {{-- <th></th> --}}
-
-                                                                    <th>4</th>
-                                                                    <th value="EW_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th value="EW_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>5</th>
-                                                                    <th value="EW_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                    <th value="EW_TOTAL_ASSESSMENT_VERIFIKASI"></th>
+                                                                    <th colspan="2">NO RECOGNITION</th>
+                                                                    <th colspan="2">NO RECOGNITION</th>
                                                                 </tr>
-
-                                                                <tr>
-                                                                    <th colspan="1">AE</th>
-                                                                    <th colspan="2">ACCESS & EQUITY</th>
-                                                                    {{-- <th></th> --}}
-                                                                    <th>3</th>
-                                                                    <th value="AE_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th value="AE_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>5</th>
-                                                                    <th value="AE_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                    <th value="AE_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th colspan="1">CA</th>
-                                                                    <th colspan="2">CONSTRUCTION ACTIVITIES</th>
-                                                                    {{-- <th></th> --}}
-                                                                    <th>19</th>
-                                                                    <th value="CA_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th value="CA_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>22</th>
-                                                                    <th value="CA_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                    <th value="CA_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th colspan="1">MR</th>
-                                                                    <th colspan="2">MATERIAL AND RESOURCES</th>
-                                                                    {{-- <th></th> --}}
-                                                                    <th>12</th>
-                                                                    <th value="MR_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th value="MR_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>12</th>
-                                                                    <th value="MR_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                    <th value="MR_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th colspan="1">EC</th>
-                                                                    <th colspan="2">ELECTIVE CRITERIA</th>
-                                                                    {{-- <th></th> --}}
-                                                                    <th>27</th>
-                                                                    <th value="EC_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th value="EC_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>27</th>
-                                                                    <th value="EC_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                    <th value="EC_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th colspan="1">IN</th>
-                                                                    <th colspan="2">INOVATION</th>
-                                                                    {{-- <th></th> --}}
-                                                                    <th>5</th>
-                                                                    <th value="IN_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th value="IN_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>5</th>
-                                                                    <th value="IN_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                    <th value="IN_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th colspan="3">TOTAL CORE POINTS </th>
-                                                                    {{-- <th></th> --}}
-                                                                    <th>68</th>
-                                                                    <th value="TOTALCP_TARGET_DESIGN"></th>
-                                                                    <th value="TOTALCP_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>74</th>
-                                                                    <th value="TOTALCP_TARGET_VERIFIKASI"></th>
-                                                                    <th value="TOTALCP_ASSESSMENT_VERIFIKASI"></th>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th colspan="3">TOTAL ELECTIVE & INNOVATION POINTS
-                                                                    </th>
-                                                                    {{-- <th></th> --}}
-                                                                    <th>12</th>
-                                                                    <th value="TOTALEIP_TARGET_DESIGN"></th>
-                                                                    <th value="TOTALEIP_ASSESSMENT_DESIGN"></th>
-
-                                                                    <th>15</th>
-                                                                    <th value="TOTALEIP_TARGET_VERIFIKASI"></th>
-                                                                    <th value="TOTALEIP_ASSESSMENT_VERIFIKASI"></th>
-                                                                </tr>
-
 
                                                             </tbody>
 
                                                         </table>
-
-
-
-                                                    </div>
-
-                                                    <div>
-
-
-                                                        <table>
-                                                            <div class="row3 mx-4 table-responsive scrollbar">
-                                                                <div class="col">
-                                                                    <table
-                                                                        class="table table-bordered line-table text-center"
-                                                                        style="width: 100%">
-                                                                        <thead class="text-white bg-orange-jkr">
-
-                                                                            <tr>
-                                                                                <th></th>
-                                                                                <th colspan="3" rowspan="3">TARGET
-                                                                                    SUMMARY</th>
-                                                                                <th colspan="3" rowspan="3">SCORING
-                                                                                    VERIFICATION SUMMARY</th>
-
-
-                                                                            </tr>
-
-                                                                        </thead>
-                                                                        <tbody class="text-black">
-
-
-                                                                            <tr>
-                                                                                <th colspan="1">TOTAL SCORE (%)</th>
-                                                                                <th colspan="2"
-                                                                                    value="SM_TOTAL_TARGET_DESIGN"></th>
-                                                                                <th colspan="2"
-                                                                                    value="SM_TOTAL_TARGET_DESIGN"></th>
-
-                                                                            </tr>
-
-                                                                            <tr>
-                                                                                <th colspan="1" rowspan="3">pH JKR
-                                                                                    RATING</th>
-                                                                                <th colspan="2">0<span
-                                                                                        class="star">&starf;</span></th>
-                                                                                <th colspan="2">0<span
-                                                                                        class="star">&starf;</span></th>
-
-                                                                            </tr>
-
-                                                                            <tr>
-                                                                                <th colspan="2">NO RECOGNITION</th>
-                                                                                <th colspan="2">NO RECOGNITION</th>
-                                                                            </tr>
-
-                                                                        </tbody>
-
-                                                                    </table>
-
-                                                                    {{-- <div align="center" class="mt-3">
-                                                    <button class="btn btn-primary" type="submit" title="Simpan">Batal</button>
-                                                    <a href="/verifikasi_permarkahan_jalan/isi_skor_kad_verifikasi2" type="button" class="btn btn-primary">Simpan</a>          
-                                                  </div> --}}
-
-
-                                                                </div>
-                                                            </div>
                                                     </div>
                                                 </div>
-                                        </div>
-
-
+                                            </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                                     <div class="tab-pane" id="tab-2" role="tabpanel">
 
@@ -623,8 +590,47 @@
                                     </div>
 
                                     <div class="tab-pane" id="tab-5" role="tabpanel">
-
-
+                                        <div class="row mb-3">
+                                            <div class="col">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="col mb-">
+                                                            <h2 class="h2 mb-3">BORANG Skor Kad JALAN</h2>
+                                                        </div>
+                                        
+                                                        <div class="row3 mx-4 table-responsive scrollbar">
+                                                            <div class="col">
+                                                                <table class="table table-bordered line-table text-center" style="width: 100%">
+                                                                    <thead class="text-white bg-orange-jkr">
+                                                                        <tr>
+                                                            
+                                                                        
+                                                                        <th >Kod</th>
+                                                                        <th >Kriteria</th>
+                                                                        <th >Responsibility</th>
+                                                                        <th colspan="4">Design</th>
+                                                                        
+                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                        
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th></th>
+                                                                        <th >MAX POINT</th>
+                                                                        <th >TARGET POINT</th>
+                                                                        <th >ASSESSMENT POINT</th>
+                                                                        <th>COMMENT BY ASSESSOR</th>
+                                                                        </tr>
+                                                    
+                                                                    </thead>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="tab-pane" id="tab-6" role="tabpanel">
