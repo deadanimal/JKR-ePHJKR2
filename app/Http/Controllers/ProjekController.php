@@ -108,7 +108,7 @@ class ProjekController extends Controller
         ])->first();        
 
         if($request->ajax()) {
-            $kriterias = Kriteria::where('borang', 'BARU A')->get(); 
+            $kriterias = Kriteria::where('borang', 'BARU A')->get();
             return DataTables::collection($kriterias)
             ->addIndexColumn()    
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {

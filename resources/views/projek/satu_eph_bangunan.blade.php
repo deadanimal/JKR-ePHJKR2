@@ -211,7 +211,6 @@
                 </li>
             </ul>
             <div class="tab-content">
-
                 <div class="tab-pane active" id="tab-1" role="tabpanel">
 
                     <!--------Rumusan Skor Kad-------->
@@ -1087,8 +1086,7 @@
                 </div>
 
                 <div class="tab-pane" id="tab-3" role="tabpanel">
-
-                    <!--------Borang Penilaian Rekabentuk Bangunan-------->
+                    <!--orang Penilaian Rekabentuk Bangunan-->
                     <div class="card mt-3">
                         <div class="card-body">
                             <form action="/projek/{{ $projek->id }}/markah" method="POST"
@@ -1121,7 +1119,7 @@
                                         <input class="form-control" type="number" name="markah">
                                     </div>
                                     {{-- Untuk KT9 --}}
-                                    <div class="col-5 mb-2">
+                                    {{-- <div class="col-5 mb-2">
                                         @if ($projek->kategori == 'phJKR Bangunan Baru C' or 'phJKR Bangunan Baru D' or 'phJKR Bangunan PUN C' or 
                                         'phJKR Bangunan PUN D' or 'phJKR Bangunan Sediaada C' or 'phJKR Bangunan Sediaada D')
                                             <label class="col-form-label">Markah BEI:</label>
@@ -1132,7 +1130,7 @@
                                         'phJKR Bangunan PUN D' or 'phJKR Bangunan Sediaada C' or 'phJKR Bangunan Sediaada D')   
                                         <input class="form-control" type="number">
                                         @endif
-                                    </div>
+                                    </div> --}}
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Ulasan:</label>
                                     </div>
@@ -1162,8 +1160,7 @@
                 </div>
 
                 <div class="tab-pane" id="tab-4" role="tabpanel">
-
-                    <!--------Borang Verifikasi Permarkahan Bangunan-------->
+                    <!--Borang Verifikasi Permarkahan Bangunan-->
                     <div class="card mt-3">
                         <div class="card-body">
                             <form action="/projek/{{ $projek->id }}/markah" method="POST"
@@ -1196,7 +1193,7 @@
                                         <input class="form-control" type="number" name="markah">
                                     </div>
                                     {{-- Untuk KT9 --}}
-                                    <div class="col-5 mb-2">
+                                    {{-- <div class="col-5 mb-2">
                                         @if ($projek->kategori == 'phJKR Bangunan Baru C' or 'phJKR Bangunan Baru D' or 'phJKR Bangunan PUN C' or 
                                         'phJKR Bangunan PUN D' or 'phJKR Bangunan Sediaada C' or 'phJKR Bangunan Sediaada D')
                                             <label class="col-form-label">Markah BEI:</label>
@@ -1207,7 +1204,7 @@
                                         'phJKR Bangunan PUN D' or 'phJKR Bangunan Sediaada C' or 'phJKR Bangunan Sediaada D')   
                                         <input class="form-control" type="number">
                                         @endif
-                                    </div>
+                                    </div> --}}
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Ulasan:</label>
                                     </div>
@@ -1236,9 +1233,8 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="tab-5" role="tabpanel">
-
-                    <!--------Borang Validasi Permarkahan Bangunan-------->
-                    {{-- <div class="card mt-3">
+                    <!--Borang Validasi Permarkahan Bangunan-->
+                    <div class="card mt-3">
                         <div class="card-body">
                             <form action="/projek/{{ $projek->id }}/markah" method="POST"
                                 enctype="multipart/form-data">
@@ -1294,76 +1290,11 @@
                                 </div>
                             </form>
                         </div>
-                    </div> --}}
-
-                    <div class="card mt-3">
-                        <div class="card-body">
-                            <div class="table-responsive scrollbar">
-                                <table id="rekabentuk" class="table table-bordered skor-datatable line-table display">
-                                    <thead class="text-white">
-                                        <tr class="pg-1" align="center" style="background-color:#EB5500">
-                                            @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                            <th colspan="9">Pembangunan Baru A</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                            <th colspan="9">Pembangunan Baru B</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                            <th colspan="9">Pembangunan Baru C</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                            <th colspan="9">Pembangunan Baru D</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                            <th colspan="9">Pembangunan PUN A</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                            <th colspan="9">Pembangunan PUN B</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                            <th colspan="9">Pembangunan PUN C</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                            <th colspan="9">Pembangunan PUN D</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                            <th colspan="9">Pembangunan Sediaada A</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                            <th colspan="9">Pembangunan Sediaada B</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                            <th colspan="9">Pembangunan Sediaada C</th>
-                                            @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                            <th colspan="9">Pembangunan Sediaada D</th>
-                                            @endif
-                                        </tr>
-                                        <tr class="pg-1" align="center" style="background-color:#EB5500">
-                                            <th>Bil.</th>
-                                            <th>Kod</th>
-                                            <th>Kriteria</th>
-                                            <th>Kategori Bangunan</th>
-                                            <th>Markah Maksimum</th>
-                                            <th>Markah</th>
-                                            <th>Dokumen Pembuktian</th>
-                                            <th>Ulasan/Maklumbalas</th>
-                                            <th>Dokumen Sokongan</th>
-                                        </tr>
-
-                                        @foreach ($kriterias as $k)
-                                        {{-- @foreach ($markah as $m) --}}
-                                        <tr class="text-black" align="center">
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{$k->kod}}</td>
-                                            <td>{{$k->nama}}</td>
-                                            <td>{{$k->borang}}</td>
-                                            <td>{{$k->maksimum}}</td>
-                                            <td>test</td>
-                                            <td>{{$k->bukti}}</td>
-                                            <td>Ulasan/Maklumbalas</td>
-                                            <td>Dokumen Sokongan</td>
-                                        </tr>
-                                        {{-- @endforeach --}}
-                                        @endforeach
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <div class="tab-pane" id="tab-6" role="tabpanel">
-                    <!----Borang Validasi (Rayuan)----->
+                    <!--Borang Validasi (Rayuan)-->
                     <div class="card mt-3">
                         <div class="card-body">
                             <form action="/projek/satu_eph_bangunan/rayuan" method="POST">
@@ -1453,6 +1384,7 @@
                 </div>
 
                 <div class="tab-pane" id="tab-7" role="tabpanel">
+                    <!--Skor Kad-->
                     <div class="card mt-3">
                         <div class="card-body">
                             <div class="table-responsive scrollbar">
@@ -1534,13 +1466,12 @@
             }
 
             function kriteriaValidasi() {
-                var lols = {!! $kriterias !!}
-                var kriteriaValidasi = document.getElementById("kriteriaValidasiDipilih").value;
-                let selectedKriteria = lols.find(el => el.id == kriteriaValidasi);
-                document.getElementById("infoKriteriaValidasiDipilih").innerHTML = selectedKriteria.bukti;
+                // var lols = {!! $kriterias !!}
+                // var kriteriaValidasi = document.getElementById("kriteriaValidasiDipilih").value;
+                // let selectedKriteria = lols.find(el => el.id == kriteriaValidasi);
+                // document.getElementById("infoKriteriaValidasiDipilih").innerHTML = selectedKriteria.bukti;
             }
         </script>
-
 
         <script type="text/javascript">
             $(function() {
