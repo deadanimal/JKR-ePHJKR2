@@ -22,24 +22,34 @@
                     </div>
 
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">Poskod:</label>
+                        <label class="col-form-label">Negeri:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="poskod" type="number" required/>
+                        <select name="negeri" id="countySel" size="1" class="form-select form-control" aria-label="Default select example" >
+                            <option selected>Pilih negeri</option>
+                            
+                        </select>
                     </div>
 
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Bandar:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="bandar" type="text" required/>
+                        <select name="bandar" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
+                            <option selected>Pilih bandar</option>
+                            
+                        </select>
                     </div>
 
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">Negeri:</label>
+                        <label class="col-form-label">Poskod:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="negeri" type="text" required/>
+                        {{-- <input class="form-control" name="poskod" type="number" required/> --}}
+                        <select name="poskod" id="districtSel" size="1" class="form-select form-control" aria-label="Default select example" >
+                            <option selected>Pilih Poskod</option>
+                            
+                        </select>
                     </div>
 
                     <div class="col-3 mb-2">
@@ -148,4 +158,76 @@
             </form>
         </div>
     </div>
+
+
+    <script>
+        var stateObject = {
+        "selangor": { "shah alam": ["111111"],
+        "Puncak alam": ["222222"],
+        "denai": ["333333"],
+        "subang": ["444444"],
+        },
+        "kelantan": {
+        "kota baharu": ["16000"],
+        "perupok": ["16001"],
+        "pasir mas": ["16002"],
+        "wakaf baharu": ["16003"],
+        "bachok": ["16004"],
+        }, 
+        "johor": {
+        "johor baharu": ["16000"],
+        "batu pahat": ["16001"],
+        "kluang": ["16002"],
+        "skudai": ["16003"],
+        "muar": ["16004"],
+        }, 
+        "terengganu": {
+        "kuala terengganu": ["16000"],
+        "dungun": ["16001"],
+        "berang": ["16002"],
+        "kemaman": ["16003"],
+        "ketereh": ["16004"],
+        }, 
+        "melaka": {
+        "jasin": ["16000"],
+        "alor gajah": ["16001"],
+        "bukit katil": ["16002"],
+        "klebang": ["16003"],
+        "ayer keroh": ["16004"],
+        }, 
+        "pahang": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        }, 
+        }
+        window.onload = function () {
+        var countySel = document.getElementById("countySel"),
+        stateSel = document.getElementById("stateSel"),
+        districtSel = document.getElementById("districtSel");
+        for (var zon in stateObject) {
+        countySel.options[countySel.options.length] = new Option(zon, zon);
+        }
+        countySel.onchange = function () {
+        stateSel.length = 1; // remove all options bar first
+        districtSel.length = 1; // remove all options bar first
+        if (this.selectedIndex < 1) return; // done 
+        for (var negeri in stateObject[this.value]) {
+        stateSel.options[stateSel.options.length] = new Option(negeri, negeri);
+        }
+        }
+        countySel.onchange(); // reset in case page is reloaded
+        stateSel.onchange = function () {
+        districtSel.length = 1; // remove all options bar first
+        if (this.selectedIndex < 1) return; // done 
+        var daerah = stateObject[countySel.value][this.value];
+        for (var i = 0; i < daerah.length; i++) {
+        districtSel.options[districtSel.options.length] = new Option(daerah[i], daerah[i]);
+        }
+        }
+        }
+    </script>
+
 @endsection

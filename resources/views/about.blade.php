@@ -371,7 +371,7 @@
                     <img src="/assets/img/Piagam.png" alt="error" width="600" height="900">
                 </div>
                 <div class="col mt-4 text-center">
-                    <p class="text-white mb-3">muat turun sahaja laaa gambar piagam ini</p>
+                    <p class="text-white mb-3">Sila muat turun di sini</p>
                     <button class="btn btn-primary mb-3">Muat Turun</button>
                 </div>
             </div>
@@ -489,42 +489,42 @@
                           <div class="col-4">
                               <div class="card">
                                   <div class="card-body">
-                                      JKR Pahang
+                                    <a href="/abouNegeri/jkr_pahang" class="btn btn-primary">JKR Pahang</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card">
                                   <div class="card-body">
-                                      JKR Johor
+                                    <a href="/abouNegeri/jkr_johor" class="btn btn-primary">JKR Johor</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card">
                                   <div class="card-body">
-                                      JKR Perak
+                                    <a href="/abouNegeri/jkr_perak" class="btn btn-primary">JKR Perak</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Kelantan
+                                    <a href="/abouNegeri/jkr_kelantan" class="btn btn-primary">JKR Kelantan</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Selangor
+                                    <a href="/abouNegeri/jkr_selangor" class="btn btn-primary">JKR Selangor</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR WP Labuan
+                                    <a href="/abouNegeri/jkr_wp_labuan" class="btn btn-primary">JKR WP Labuan</a>
                                   </div>
                               </div>
                           </div>
@@ -535,42 +535,42 @@
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Negeri Sembilan
+                                    <a href="/abouNegeri/jkr_negeri_sembilan" class="btn btn-primary">JKR Negeri Sembilan</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR WP KL
+                                    <a href="/abouNegeri/jkr_wp_kl" class="btn btn-primary">JKR WP KL</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR WP Putrajaya
+                                    <a href="/abouNegeri/jkr_wp_putrajaya" class="btn btn-primary">JKR WP Putrajaya</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Terengganu
+                                    <a href="/abouNegeri/jkr_terengganu" class="btn btn-primary">JKR Terengganu</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR P.Pinang
+                                    <a href="/abouNegeri/jkr_pinang" class="btn btn-primary">JKR P. Pinang</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Melaka
+                                    <a href="/abouNegeri/jkr_melaka" class="btn btn-primary">JKR Melaka</a>
                                   </div>
                               </div>
                           </div>
@@ -581,28 +581,28 @@
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Kedah
+                                    <a href="/abouNegeri/jkr_kedah" class="btn btn-primary">JKR Kedah</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Perlis
+                                    <a href="/abouNegeri/jkr_perlis" class="btn btn-primary">JKR Perlis</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Sabah
+                                    <a href="/abouNegeri/jkr_sabah" class="btn btn-primary">JKR Sabah</a>
                                   </div>
                               </div>
                           </div>
                           <div class="col-4">
                               <div class="card mt-2">
                                   <div class="card-body">
-                                      JKR Sarawak
+                                    <a href="/abouNegeri/jkr_sarawak" class="btn btn-primary">JKR Sarawak</a>
                                   </div>
                               </div>
                           </div>

@@ -176,10 +176,10 @@
 
 <div class="tab mt-6">
     <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a></li>        
+        <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a></li>  
+        <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Skor Kad</a></li>      
         <li class="nav-item"><a class="nav-link" href="#tab-3" data-bs-toggle="tab" role="tab">Rekabentuk</a></li>
         <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Verifikasi</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Validasi</a></li>
         <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rayuan</a></li>
         <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Sijil</a></li>
     </ul>
@@ -591,7 +591,51 @@
        
 
         <div class="tab-pane" id="tab-5" role="tabpanel">
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col mb-">
+                                <h2 class="h2 mb-3">BORANG GPSS BANGUNAN</h2>
+                            </div>
             
+                            <div class="col">
+                                <div class="card-body">
+                                    <div class="row3 mx-1 table-responsive scrollbar text-center">
+                                      {{-- <form action= "/penilaian_reka_bentuk_gpss/simpan_skor_penilaian_arkitek/{id}" method="post" enctype="multipart/form-data"> --}}
+                                        {{-- @method('POST') --}}
+                                        {{-- @csrf --}}
+                                        <div class="col">
+                                          <table class="table table-bordered line-table text-center" style="width: 100%">
+                                            <thead class="text-white bg-orange-jkr">
+                                              <tr>          
+                                                <th colspan="8">Green Product Scoring Sheet</th>
+                                              </tr>
+                                              <tr>
+                                                <th colspan="8">List of products for architectural works - Roof</th>
+                                              </tr>
+                                              <tr>
+                                                <th>No.</th>
+                                                <th >Component</th>
+                                                <th>Product</th>
+                                                <th>Point Allocated</th>
+                                                <th>Point Requested (design)</th>
+                                                {{-- <th>Point Requested (construction)</th> --}}
+                                                {{-- <th>Point Awarded</th> --}}
+                                                <th >Remark</th>
+                                                <th >Supporting Documents</th>
+                                              </tr>
+                                            </thead>
+                                          </table>
+                                        </div>
+                                      {{-- </form> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
         </div>        
 
         <div class="tab-pane" id="tab-6" role="tabpanel">
