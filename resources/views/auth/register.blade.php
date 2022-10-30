@@ -35,7 +35,7 @@
                             <label>E-mel Pengguna:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="text" name="email" class="form-control">
+                            <input type="email" name="email" class="form-control">
                         </div>
                         <div class="col-3">
                             <label>No. Tel Bimbit Pengguna:</label>
