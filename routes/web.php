@@ -67,6 +67,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('maklumbalas/{id}', [MaklumbalasController::class, 'satu']); 
     Route::put('maklumbalas/{id}', [MaklumbalasController::class, 'kemaskini']); 
 
+    Route::get('selenggara', [UserController::class, 'selenggara']); 
+
 });
 
 

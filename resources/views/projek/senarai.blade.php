@@ -5,9 +5,11 @@
 <h1>Senarai Projek</h1>
 
 <div class="row mb-3">
+    @role('ketua-pasukan')
     <div class="col text-end">
         <a href="/projek/borang" class="btn btn-primary">Tambah</a>
     </div>
+    @endrole
 </div>
 
     <table class="table table-bordered projek-datatable line-table" style="width:100%">

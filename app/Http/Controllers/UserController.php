@@ -54,6 +54,10 @@ class UserController extends Controller
 
     }
 
+    public function selenggara(Request $request) {
+        return view('selenggara.senarai');
+    }
+
 
 
 

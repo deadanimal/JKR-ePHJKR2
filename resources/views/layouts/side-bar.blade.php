@@ -133,25 +133,8 @@
                     <span class="px-0">Selenggara</span>
                 </div>
             </a>
-        </li>    
-        <li class="nav-item">
-            <a class="nav-link" href="/pengguna">
-                <div class="d-flex align-items-center nav-link-side">
-                    <span class="px-0">Pengguna</span>
-                </div>
-            </a>
-        </li>            
-        @endrole    
-
-        @role('pentadbir')  
-        <li class="nav-item">
-            <a class="nav-link" href="/audit-log">
-                <div class="d-flex align-items-center nav-link-side">
-                    <span class="px-0">Audit Log</span>
-                </div>
-            </a>
-        </li>                
-        @endrole         
+        </li>              
+        @endrole           
 
         </ul>
 

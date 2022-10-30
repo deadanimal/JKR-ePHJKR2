@@ -153,7 +153,7 @@
             {{-- @endif --}}
 
 
-            @if ($lantikans)
+            @if (!$lantikans->isEmpty())
                 <div class="col-12 mt-6">
                     <table class="table table-bordered line-table" style="width:100%">
                         <thead>
