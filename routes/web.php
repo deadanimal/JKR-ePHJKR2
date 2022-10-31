@@ -21,6 +21,7 @@ Route::get('keselamatan', [UserController::class, 'keselamatan']);
 Route::get('privasi', [UserController::class, 'privasi']); 
 Route::get('faq', [FaqController::class, 'senarai']);
 Route::get('loginjkr', [UserController::class, 'loginjkr']);
+Route::get('daftarjkr', [UserController::class, 'daftarjkr']);
 
 Route::middleware(['auth'])->group(function () {
 
