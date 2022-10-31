@@ -11,6 +11,11 @@
     </div>
     @endrole
 </div>
+<div class="row mb-3">
+    <div class="col text-end">
+        <a href="/myskala" class="btn btn-primary">Myskala</a>
+    </div>
+</div>
 
     <table class="table table-bordered projek-datatable line-table" style="width:100%">
         <thead>

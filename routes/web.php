@@ -29,6 +29,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
     Route::get('projek/borang', [ProjekController::class, 'borang_projek']); 
+    Route::get('myskala', [ProjekController::class, 'papar_semua_projek']);
+    Route::get('myskala2', [ProjekController::class, 'papar_semua_projek2']);
+    // Route::get('myskala2', [ProjekController::class, 'myskala2']);
     Route::post('projek', [ProjekController::class, 'cipta_projek']); 
     Route::get('projek/{id}', [ProjekController::class, 'satu_projek']); 
     Route::put('projek/{id}', [ProjekController::class, 'kemaskini_projek']); 
