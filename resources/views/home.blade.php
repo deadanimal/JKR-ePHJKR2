@@ -1,4 +1,6 @@
 @extends('layouts.anon')
 @section('content')
-SINI LETAK HEBAHAN
+SINI LETAK HEBAHAN test
+
+
 @endsection
