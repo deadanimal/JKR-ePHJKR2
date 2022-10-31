@@ -106,7 +106,6 @@
             </div>
         </div>
 
-
         {{-- @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan') --}}
         @role('ketua-pasukan')
             <div class="col-12 mt-6">
@@ -150,7 +149,6 @@
         @endrole
         {{-- @endif --}}
 
-
         @if (!$lantikans->isEmpty())
             <div class="col-12 mt-6">
                 <div class="card">
@@ -177,8 +175,6 @@
                 </div>
             </div>
         @endif
-
-
     </div>
 
     <div class="tab mt-6">
@@ -187,748 +183,744 @@
                 <a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">Skor Kad</a>
+                <a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Skor Kad</a>
             </li>
-            @role('pemudah-cara')
+            @role('pemudah-cara|ketua-pmeudah-cara')
             <li class="nav-item">
                 <a class="nav-link" href="#tab-3" data-bs-toggle="tab" role="tab">Rekabentuk</a>
             </li>
             @endrole
-            @role('pemudah-cara')
+            @role('pemudah-cara|ketua-pemudah-cara')
             <li class="nav-item">
                 <a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Verifikasi</a>
             </li>
             @endrole
-            @role('pasukan-validasi')
+            @role('pasukan-validasi|ketua-pasukan-validasi')
             <li class="nav-item">
                 <a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Validasi</a>
             </li>
             @endrole
-            @role('ketua-pasukan')
+            @role('ketua-pasukan|penolong-ketua-pasukan')
             <li class="nav-item">
                 <a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rayuan</a>
             </li>
             @endrole
-
-            @role('ketua-pasukan|sekretariat')
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                 <li class="nav-item">
-                    <a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Sijil</a>
+                    <a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">Sijil</a>
                 </li>
             @endrole
         </ul>
         <div class="tab-content">
+            <!--RUMUSAN SKOR KAD-->
             <div class="tab-pane active" id="tab-1" role="tabpanel">
-
-                <!--RUMUSAN SKOR KAD-->
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
-                        <div class="table-responsive scrollbar">
-                            <table class="table table-bordered line-table shadow-table-jkr line-corner-table-jkr">
-                                <thead class="text-white line-table">
-                                    <tr align="center" style="background-color:#EB5500">
-                                        <th colspan="3">Kategori</th>
-                                        @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                            <th colspan="5"> PEMBANGUNAN BARU A</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                            <th colspan="5">PEMBANGUNAN BARU B</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                            <th colspan="5">PEMBANGUNAN BARU C</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                            <th colspan="5">PEMBANGUNAN BARU D</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                            <th colspan="5"> PEMBANGUNAN PUN A</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                            <th colspan="5">PEMBANGUNAN PUN B</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                            <th colspan="5">PEMBANGUNAN PUN C</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                            <th colspan="5">PEMBANGUNAN PUN D</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                            <th colspan="5"> PEMBANGUNAN SEDIA ADA A</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                            <th colspan="5">PEMBANGUNAN SEDIA ADA B</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                            <th colspan="5">PEMBANGUNAN SEDIA ADA C</th>
-                                        @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                            <th colspan="5">PEMBANGUNAN SEDIA ADA D</th>
-                                        @endif
-                                    </tr>
-
-                                    <tr align="center" style="background-color:#EB5500">
-                                        <th colspan="3">Peratusan Mengikut Kriteria</th>
-                                        <th>MM</th>
-                                        <th>MR</th>
-                                        <th>MMV</th>
-                                        <th>MV</th>
-                                        <th>ML</th>
-                                    </tr>
-                                </thead>
-
-                                <!--TL-->
-                                <tr align="center" class="text-black">
-                                    <th>TL</th>
-                                    <th colspan="2">Perancangan dan Pengurusan Tapak Lestari</th>
+                        <table class="table table-bordered line-table shadow-table-jkr line-corner-table-jkr">
+                            <thead class="text-white line-table">
+                                <tr align="center" style="background-color:#EB5500">
+                                    <th colspan="3">Kategori</th>
                                     @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        {{-- @foreach --}}
-                                        <th>26</th>
-                                        <th>TL MR</th>
-                                        <th>24</th>
-                                        <th>TL MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5"> PEMBANGUNAN BARU A</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th>29</th>
-                                        <th>TL_MR</th>
-                                        <th>27</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5">PEMBANGUNAN BARU B</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th>29</th>
-                                        <th>TL_MR</th>
-                                        <th>27</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5">PEMBANGUNAN BARU C</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th>29</th>
-                                        <th>TL_MR</th>
-                                        <th>27</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-
-                                        {{-- PUN --}}
+                                        <th colspan="5">PEMBANGUNAN BARU D</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th>24</th>
-                                        <th>TL_MR</th>
-                                        <th>23</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5"> PEMBANGUNAN PUN A</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th>27</th>
-                                        <th>TL_MR</th>
-                                        <th>26</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5">PEMBANGUNAN PUN B</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th>27</th>
-                                        <th>TL_MR</th>
-                                        <th>26</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5">PEMBANGUNAN PUN C</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th>27</th>
-                                        <th>TL_MR</th>
-                                        <th>26</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-
-                                        {{-- Sedia Ada --}}
+                                        <th colspan="5">PEMBANGUNAN PUN D</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th>26</th>
-                                        <th>TL_MR</th>
-                                        <th>MMV</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5"> PEMBANGUNAN SEDIA ADA A</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th>26</th>
-                                        <th>TL_MR</th>
-                                        <th>17</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5">PEMBANGUNAN SEDIA ADA B</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th>26</th>
-                                        <th>TL_MR</th>
-                                        <th>17</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5">PEMBANGUNAN SEDIA ADA C</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th>26</th>
-                                        <th>TL_MR</th>
-                                        <th>17</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                        <th colspan="5">PEMBANGUNAN SEDIA ADA D</th>
                                     @endif
                                 </tr>
 
-                                <!--KT-->
-                                <tr align="center" class="text-black">
-                                    <th>KT</th>
-                                    <th colspan="2">Pengurusan Kecekapan Tenaga</th>
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th>24</th>
-                                        <th>KT_MR</th>
-                                        <th>26</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th>36</th>
-                                        <th>KT_MR</th>
-                                        <th>38</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th>52</th>
-                                        <th>KT_MR</th>
-                                        <th>54</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th>55</th>
-                                        <th>KT_MR</th>
-                                        <th>57</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-
-                                        {{-- PUN --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th>19</th>
-                                        <th>KT_MR</th>
-                                        <th>21</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th>30</th>
-                                        <th>KT_MR</th>
-                                        <th>32</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th>51</th>
-                                        <th>KT_MR</th>
-                                        <th>53</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th>54</th>
-                                        <th>KT_MR</th>
-                                        <th>56</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-
-                                        {{-- Sedia Ada --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th>0</th>
-                                        <th>KT_MR</th>
-                                        <th>18</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th>0</th>
-                                        <th>KT_MR</th>
-                                        <th>29</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th>0</th>
-                                        <th>KT_MR</th>
-                                        <th>45</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th>0</th>
-                                        <th>KT_MR</th>
-                                        <th>48</th>
-                                        <th>KT_MMV</th>
-                                        <th>KT_ML</th>
-                                    @endif
+                                <tr align="center" style="background-color:#EB5500">
+                                    <th colspan="3">Peratusan Mengikut Kriteria</th>
+                                    <th>MM</th>
+                                    <th>MR</th>
+                                    <th>MMV</th>
+                                    <th>MV</th>
+                                    <th>ML</th>
                                 </tr>
+                            </thead>
 
-                                <!--SB-->
-                                <tr align="center" class="text-black">
-                                    <th>SB</th>
-                                    <th colspan="2">Pengurusan Sumber dan Bahan</th>
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th>20</th>
-                                        <th>SB_MR</th>
-                                        <th>20</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th>20</th>
-                                        <th>SB_MR</th>
-                                        <th>20</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th>20</th>
-                                        <th>SB_MR</th>
-                                        <th>20</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th>20</th>
-                                        <th>SB_MR</th>
-                                        <th>20</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
+                            <!--TL-->
+                            <tr align="center" class="text-black">
+                                <th>TL</th>
+                                <th colspan="2">Perancangan dan Pengurusan Tapak Lestari</th>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                    {{-- @foreach --}}
+                                    <th>26</th>
+                                    <th>TL MR</th>
+                                    <th>24</th>
+                                    <th>TL MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                    <th>29</th>
+                                    <th>TL_MR</th>
+                                    <th>27</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                    <th>29</th>
+                                    <th>TL_MR</th>
+                                    <th>27</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                    <th>29</th>
+                                    <th>TL_MR</th>
+                                    <th>27</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
 
-                                        {{-- PUN --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th>15</th>
-                                        <th>SB_MR</th>
-                                        <th>15</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th>15</th>
-                                        <th>SB_MR</th>
-                                        <th>15</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th>15</th>
-                                        <th>SB_MR</th>
-                                        <th>15</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th>15</th>
-                                        <th>SB_MR</th>
-                                        <th>15</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
+                                    {{-- PUN --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                    <th>24</th>
+                                    <th>TL_MR</th>
+                                    <th>23</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                    <th>27</th>
+                                    <th>TL_MR</th>
+                                    <th>26</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                    <th>27</th>
+                                    <th>TL_MR</th>
+                                    <th>26</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                    <th>27</th>
+                                    <th>TL_MR</th>
+                                    <th>26</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
 
-                                        {{-- Sedia Ada --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th>0</th>
-                                        <th>SB_MR</th>
-                                        <th>4</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th>0</th>
-                                        <th>SB_MR</th>
-                                        <th>4</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th>0</th>
-                                        <th>SB_MR</th>
-                                        <th>4</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th>0</th>
-                                        <th>SB_MR</th>
-                                        <th>4</th>
-                                        <th>SB_MMV</th>
-                                        <th>SB_ML</th>
-                                    @endif
-                                </tr>
+                                    {{-- Sedia Ada --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                    <th>26</th>
+                                    <th>TL_MR</th>
+                                    <th>MMV</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                    <th>26</th>
+                                    <th>TL_MR</th>
+                                    <th>17</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                    <th>26</th>
+                                    <th>TL_MR</th>
+                                    <th>17</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                    <th>26</th>
+                                    <th>TL_MR</th>
+                                    <th>17</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @endif
+                            </tr>
 
-                                <!--PA-->
-                                <tr align="center" class="text-black">
-                                    <th>PA</th>
-                                    <th colspan="2">Pengurusan Kecekapan Penggunaan Air</th>
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th>14</th>
-                                        <th>TL_MR</th>
-                                        <th>14</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th>22</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th>22</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th>22</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                            <!--KT-->
+                            <tr align="center" class="text-black">
+                                <th>KT</th>
+                                <th colspan="2">Pengurusan Kecekapan Tenaga</th>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                    <th>24</th>
+                                    <th>KT_MR</th>
+                                    <th>26</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                    <th>36</th>
+                                    <th>KT_MR</th>
+                                    <th>38</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                    <th>52</th>
+                                    <th>KT_MR</th>
+                                    <th>54</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                    <th>55</th>
+                                    <th>KT_MR</th>
+                                    <th>57</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
 
-                                        {{-- PUN --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th>14</th>
-                                        <th>TL_MR</th>
-                                        <th>14</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th>22</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th>22</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th>22</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                    {{-- PUN --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                    <th>19</th>
+                                    <th>KT_MR</th>
+                                    <th>21</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                    <th>30</th>
+                                    <th>KT_MR</th>
+                                    <th>32</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                    <th>51</th>
+                                    <th>KT_MR</th>
+                                    <th>53</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                    <th>54</th>
+                                    <th>KT_MR</th>
+                                    <th>56</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
 
-                                        {{-- Sedia Ada --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>14</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th>14</th>
-                                        <th>TL_MR</th>
-                                        <th>22</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @endif
-                                </tr>
+                                    {{-- Sedia Ada --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                    <th>0</th>
+                                    <th>KT_MR</th>
+                                    <th>18</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                    <th>0</th>
+                                    <th>KT_MR</th>
+                                    <th>29</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                    <th>0</th>
+                                    <th>KT_MR</th>
+                                    <th>45</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                    <th>0</th>
+                                    <th>KT_MR</th>
+                                    <th>48</th>
+                                    <th>KT_MMV</th>
+                                    <th>KT_ML</th>
+                                @endif
+                            </tr>
 
-                                <!--PD-->
-                                <tr align="center" class="text-black">
-                                    <th>PD</th>
-                                    <th colspan="2">Pengurusan Kualiti Persekitaran Dalaman</th>
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th>11</th>
-                                        <th>TL_MR</th>
-                                        <th>13</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th>13</th>
-                                        <th>TL_MR</th>
-                                        <th>15</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th>25</th>
-                                        <th>TL_MR</th>
-                                        <th>27</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th>29</th>
-                                        <th>TL_MR</th>
-                                        <th>31</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                            <!--SB-->
+                            <tr align="center" class="text-black">
+                                <th>SB</th>
+                                <th colspan="2">Pengurusan Sumber dan Bahan</th>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                    <th>20</th>
+                                    <th>SB_MR</th>
+                                    <th>20</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                    <th>20</th>
+                                    <th>SB_MR</th>
+                                    <th>20</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                    <th>20</th>
+                                    <th>SB_MR</th>
+                                    <th>20</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                    <th>20</th>
+                                    <th>SB_MR</th>
+                                    <th>20</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
 
-                                        {{-- PUN --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th>1</th>
-                                        <th>TL_MR</th>
-                                        <th>3</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th>13</th>
-                                        <th>TL_MR</th>
-                                        <th>15</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th>25</th>
-                                        <th>TL_MR</th>
-                                        <th>27</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th>27</th>
-                                        <th>TL_MR</th>
-                                        <th>29</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                    {{-- PUN --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                    <th>15</th>
+                                    <th>SB_MR</th>
+                                    <th>15</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                    <th>15</th>
+                                    <th>SB_MR</th>
+                                    <th>15</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                    <th>15</th>
+                                    <th>SB_MR</th>
+                                    <th>15</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                    <th>15</th>
+                                    <th>SB_MR</th>
+                                    <th>15</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
 
-                                        {{-- Sedia Ada --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>3</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>11</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>27</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>29</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @endif
-                                </tr>
+                                    {{-- Sedia Ada --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                    <th>0</th>
+                                    <th>SB_MR</th>
+                                    <th>4</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                    <th>0</th>
+                                    <th>SB_MR</th>
+                                    <th>4</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                    <th>0</th>
+                                    <th>SB_MR</th>
+                                    <th>4</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                    <th>0</th>
+                                    <th>SB_MR</th>
+                                    <th>4</th>
+                                    <th>SB_MMV</th>
+                                    <th>SB_ML</th>
+                                @endif
+                            </tr>
 
-                                <!--FL-->
-                                <tr align="center" class="text-black">
-                                    <th>FL</th>
-                                    <th colspan="2">Pengurusan Fasiliti Lestari</th>
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>0</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th>5</th>
-                                        <th>TL_MR</th>
-                                        <th>10</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th>5</th>
-                                        <th>TL_MR</th>
-                                        <th>10</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th>5</th>
-                                        <th>TL_MR</th>
-                                        <th>10</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                            <!--PA-->
+                            <tr align="center" class="text-black">
+                                <th>PA</th>
+                                <th colspan="2">Pengurusan Kecekapan Penggunaan Air</th>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                    <th>14</th>
+                                    <th>TL_MR</th>
+                                    <th>14</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                    <th>22</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                    <th>22</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                    <th>22</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
 
-                                        {{-- PUN --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>0</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th>5</th>
-                                        <th>TL_MR</th>
-                                        <th>10</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th>5</th>
-                                        <th>TL_MR</th>
-                                        <th>10</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th>5</th>
-                                        <th>TL_MR</th>
-                                        <th>10</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                    {{-- PUN --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                    <th>14</th>
+                                    <th>TL_MR</th>
+                                    <th>14</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                    <th>22</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                    <th>22</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                    <th>22</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
 
-                                        {{-- Sedia Ada --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>9</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>19</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>19</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>19</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @endif
-                                </tr>
+                                    {{-- Sedia Ada --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>14</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                    <th>14</th>
+                                    <th>TL_MR</th>
+                                    <th>22</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @endif
+                            </tr>
 
-                                <!--IN-->
-                                <tr align="center" class="text-black">
-                                    <th>IN</th>
-                                    <th colspan="2">Inovasi dalam Reka Bentuk</th>
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th>6</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th>6</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th>6</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th>6</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                            <!--PD-->
+                            <tr align="center" class="text-black">
+                                <th>PD</th>
+                                <th colspan="2">Pengurusan Kualiti Persekitaran Dalaman</th>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                    <th>11</th>
+                                    <th>TL_MR</th>
+                                    <th>13</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                    <th>13</th>
+                                    <th>TL_MR</th>
+                                    <th>15</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                    <th>25</th>
+                                    <th>TL_MR</th>
+                                    <th>27</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                    <th>29</th>
+                                    <th>TL_MR</th>
+                                    <th>31</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
 
-                                        {{-- PUN --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>0</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th>6</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th>6</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th>6</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                    {{-- PUN --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                    <th>1</th>
+                                    <th>TL_MR</th>
+                                    <th>3</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                    <th>13</th>
+                                    <th>TL_MR</th>
+                                    <th>15</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                    <th>25</th>
+                                    <th>TL_MR</th>
+                                    <th>27</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                    <th>27</th>
+                                    <th>TL_MR</th>
+                                    <th>29</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
 
-                                        {{-- Sedia Ada --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>6</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @endif
-                                </tr>
+                                    {{-- Sedia Ada --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>3</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>11</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>27</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>29</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @endif
+                            </tr>
 
-                                <tr align="center" class="text-black">
-                                    <th colspan="3">JUMLAH</th>
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th>101</th>
-                                        <th>TL_MR</th>
-                                        <th>103</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th>131</th>
-                                        <th>TL_MR</th>
-                                        <th>138</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th>159</th>
-                                        <th>TL_MR</th>
-                                        <th>166</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th>166</th>
-                                        <th>TL_MR</th>
-                                        <th>173</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                            <!--FL-->
+                            <tr align="center" class="text-black">
+                                <th>FL</th>
+                                <th colspan="2">Pengurusan Fasiliti Lestari</th>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>0</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                    <th>5</th>
+                                    <th>TL_MR</th>
+                                    <th>10</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                    <th>5</th>
+                                    <th>TL_MR</th>
+                                    <th>10</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                    <th>5</th>
+                                    <th>TL_MR</th>
+                                    <th>10</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
 
-                                        {{-- PUN --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th>73</th>
-                                        <th>TL_MR</th>
-                                        <th>76</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th>118</th>
-                                        <th>TL_MR</th>
-                                        <th>126</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th>151</th>
-                                        <th>TL_MR</th>
-                                        <th>159</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th>156</th>
-                                        <th>TL_MR</th>
-                                        <th>164</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
+                                    {{-- PUN --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>0</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                    <th>5</th>
+                                    <th>TL_MR</th>
+                                    <th>10</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                    <th>5</th>
+                                    <th>TL_MR</th>
+                                    <th>10</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                    <th>5</th>
+                                    <th>TL_MR</th>
+                                    <th>10</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
 
-                                        {{-- Sedia Ada --}}
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>62</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>108</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>140</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th>0</th>
-                                        <th>TL_MR</th>
-                                        <th>145</th>
-                                        <th>TL_MMV</th>
-                                        <th>TL_ML</th>
-                                    @endif
-                                </tr>
-                            </table><!--Table-->
-                        </div>
+                                    {{-- Sedia Ada --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>9</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>19</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>19</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>19</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @endif
+                            </tr>
+
+                            <!--IN-->
+                            <tr align="center" class="text-black">
+                                <th>IN</th>
+                                <th colspan="2">Inovasi dalam Reka Bentuk</th>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                    <th>6</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                    <th>6</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                    <th>6</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                    <th>6</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+
+                                    {{-- PUN --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>0</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                    <th>6</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                    <th>6</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                    <th>6</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+
+                                    {{-- Sedia Ada --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>6</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @endif
+                            </tr>
+
+                            <tr align="center" class="text-black">
+                                <th colspan="3">JUMLAH</th>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                    <th>101</th>
+                                    <th>TL_MR</th>
+                                    <th>103</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                    <th>131</th>
+                                    <th>TL_MR</th>
+                                    <th>138</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                    <th>159</th>
+                                    <th>TL_MR</th>
+                                    <th>166</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                    <th>166</th>
+                                    <th>TL_MR</th>
+                                    <th>173</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+
+                                    {{-- PUN --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                    <th>73</th>
+                                    <th>TL_MR</th>
+                                    <th>76</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                    <th>118</th>
+                                    <th>TL_MR</th>
+                                    <th>126</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                    <th>151</th>
+                                    <th>TL_MR</th>
+                                    <th>159</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                    <th>156</th>
+                                    <th>TL_MR</th>
+                                    <th>164</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+
+                                    {{-- Sedia Ada --}}
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>62</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>108</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>140</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                    <th>0</th>
+                                    <th>TL_MR</th>
+                                    <th>145</th>
+                                    <th>TL_MMV</th>
+                                    <th>TL_ML</th>
+                                @endif
+                            </tr>
+                        </table><!--Table-->
                     </div>
 
                     <div class="mb-3 row mx-3">
@@ -952,7 +944,6 @@
                                     <th colspan="2">Peratusan</th>
                                     {{-- <th colspan="2">{{$kriteria->peratusan}} %</th> --}}
                                     <th colspan="2"> %</th>
-
                                 </tr>
 
                                 <tr align="center" class="text-black">
@@ -993,26 +984,80 @@
 
                                 <tr align="center" class="text-black">
                                     <th><span class="star">&starf;</span></th>
-                                    <th>
-                                        < 29</th>
+                                    <th>< 29</th>
                                     <th>Sijil Penyertaan</th>
                                 </tr>
                             </thead>
                         </table>
-                        <!--Table Keputusan Penarafan Hijau Peringkat Reka Bentuk(PRB)-->
+                        @role('ketua-pasukan')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary">Muat Turun Rumusan Skor Kad</button>
+                                </div>
+                            </div>
+                        @endrole
                     </div>
                 </div>
             </div>
 
-            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                <div class="tab-pane" id="tab-2" role="tabpanel">
-                    SIJIL EPH BANGUNAN
+            <!--SKOR KAD EPH BANGUNAN-->
+            <div class="tab-pane" id="tab-2" role="tabpanel">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4 class="h4 mb-3">SKOR KAD EPH BANGUNAN</h4>
+                        <table id="SkorKad" class="table table-bordered skor-datatable line-table display">
+                            <thead class="text-white">
+                                <tr class="pg-1" align="center" style="background-color:#EB5500">
+                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                        <th colspan="9">Pembangunan Baru A</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                        <th colspan="9">Pembangunan Baru B</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                        <th colspan="9">Pembangunan Baru C</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                        <th colspan="9">Pembangunan Baru D</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                        <th colspan="9">Pembangunan PUN A</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                        <th colspan="9">Pembangunan PUN B</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                        <th colspan="9">Pembangunan PUN C</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                        <th colspan="9">Pembangunan PUN D</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
+                                        <th colspan="9">Pembangunan Sedia Ada A</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
+                                        <th colspan="9">Pembangunan Sedia Ada B</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
+                                        <th colspan="9">Pembangunan Sedia Ada C</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
+                                        <th colspan="9">Pembangunan Sedia Ada D</th>
+                                    @endif
+                                </tr>
+                                <tr class="pg-1" align="center" style="background-color:#EB5500">
+                                    <th>Kod</th>
+                                    <th>Kriteria</th>
+                                    <th>Markah Maksimum</th>
+                                    <th>Markah</th>
+                                    <th>Ulasan/Maklumbalas</th>
+                                    <th>Dokumen Sokongan</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        @role('ketua-pasukan')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary">Muat Turun Skor Kad</button>
+                                </div>
+                            </div>
+                        @endrole
+                    </div>
                 </div>
-            @endrole
+            </div>
 
-            {{--  @role('pemudah-cara') --}}
+            <!--REKABENTUK BANGUNAN-->
+            @role('pemudah-cara|ketua-pemudah-cara')
             <div class="tab-pane" id="tab-3" role="tabpanel">
-                <!--Borang Penilaian Rekabentuk Bangunan-->
                 <div class="card mt-3">
                     <div class="card-body">
                         <form action="/projek/{{ $projek->id }}/markah" method="POST"
@@ -1082,9 +1127,11 @@
                     </div>
                 </div>
             </div>
+            @endrole
 
+             <!--VERIFIKASI BANGUNAN-->
+            @role('pemudah-cara|ketua-pemudah-cara')
             <div class="tab-pane" id="tab-4" role="tabpanel">
-                <!--Borang Verifikasi Permarkahan Bangunan-->
                 <div class="card mt-3">
                     <div class="card-body">
                         <form action="/projek/{{ $projek->id }}/markah" method="POST"
@@ -1154,7 +1201,10 @@
                     </div>
                 </div>
             </div>
+            @endrole
 
+             <!--VALIDASI BANGUNAN-->
+            @role('pasukan-validasi|ketua-pasukan-validasi')
             <div class="tab-pane" id="tab-5" role="tabpanel">
                 <!--Borang Validasi Permarkahan Bangunan-->
                 <div class="card mt-3">
@@ -1215,9 +1265,10 @@
                     </div>
                 </div>
             </div>
+            @endrole
 
-            {{-- @role('ketua-pasukan') --}}
             <!--RAYUAN EPH BANGUNAN-->
+            @role('ketua-pasukan|penolong-ketua-pasukan')
             <div class="tab-pane" id="tab-6" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
@@ -1305,62 +1356,18 @@
                     </div>
                 </div>
             </div>
-            {{-- @endrole --}}
+            @endrole
 
-            <!--SKOR KAD EPH BANGUNAN-->
+            <!--SIJIL EPH BANGUNAN-->
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
             <div class="tab-pane" id="tab-7" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h4 class="h4 mb-3">SKOR KAD EPH BANGUNAN</h4>
-                        <table id="SkorKad" class="table table-bordered skor-datatable line-table display">
-                            <thead class="text-white">
-                                <tr class="pg-1" align="center" style="background-color:#EB5500">
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th colspan="9">Pembangunan Baru A</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th colspan="9">Pembangunan Baru B</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th colspan="9">Pembangunan Baru C</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th colspan="9">Pembangunan Baru D</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th colspan="9">Pembangunan PUN A</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th colspan="9">Pembangunan PUN B</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th colspan="9">Pembangunan PUN C</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th colspan="9">Pembangunan PUN D</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada A')
-                                        <th colspan="9">Pembangunan Sedia Ada A</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada B')
-                                        <th colspan="9">Pembangunan Sedia Ada B</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada C')
-                                        <th colspan="9">Pembangunan Sedia Ada C</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sediaada D')
-                                        <th colspan="9">Pembangunan Sedia Ada D</th>
-                                    @endif
-                                </tr>
-                                <tr class="pg-1" align="center" style="background-color:#EB5500">
-                                    <th>Kod</th>
-                                    <th>Kriteria</th>
-                                    <th>Markah Maksimum</th>
-                                    <th>Markah</th>
-                                    <th>Ulasan/Maklumbalas</th>
-                                    <th>Dokumen Sokongan</th>
-                                </tr>
-                            </thead>
-                        </table>
-                        @role('ketua-pasukan')
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    <button class="btn btn-primary">Muat Turun Skor Kad</button>
-                                </div>
-                            </div>
-                        @endrole
+                        <h4>SIJIL EPH BANGUNAN</h4>
                     </div>
                 </div>
             </div>
+            @endrole
         </div>
     </div>
 </div><!--Container-->
