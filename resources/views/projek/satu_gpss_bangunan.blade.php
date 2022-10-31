@@ -144,6 +144,7 @@
         </div>
         @endrole
 
+        @if (!$lantikans->isEmpty())
         <div class="col-12 mt-6">
             <div class="card">
                 <div class="card-body">
@@ -169,12 +170,13 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 
     <div class="tab mt-6">
         <ul class="nav nav-tabs" role="tablist">
             <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a></li>  
-            <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Skor Kad</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Skor Kad</a></li>
             @role('pemudah-cara|ketua-pemudah-cara')      
             <li class="nav-item"><a class="nav-link" href="#tab-3" data-bs-toggle="tab" role="tab">Rekabentuk</a></li>
             @endrole
@@ -182,9 +184,9 @@
             <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Verifikasi</a></li>
             @endrole
             @role('ketua-pasukan')
-            <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rayuan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Rayuan</a></li>
             @endrole
-            <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Sijil</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Sijil</a></li>
         </ul>
         <div class="tab-content"> 
             <!--RUMUSAN SKOR KAD-->
@@ -322,9 +324,45 @@
                 </div>
             </div>
 
-            <!--SIJIL-->
-            <div class="tab-pane" id="tab-2" role="tabpanel">
-                SIJIL GPSS
+             <!--SKOR KAD GPSS BANGUNAN-->
+             <div class="tab-pane" id="tab-2" role="tabpanel">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4 class="mb-3">SKOR KAD GPSS BANGUNAN</h4>
+                        <table class="table table-bordered line-table text-center skor-datatable" style="width: 100%">
+                            <thead class="text-white bg-orange-jkr">
+                                <tr>          
+                                    <th colspan="7">Green Product Scoring Sheet</th>
+                                </tr>
+                                <tr>  
+                                    @if ($projek->kategori == 'GPSS Bangunan 1')        
+                                        <th colspan="7">CATEGORY 1</th>
+                                    @elseif ($projek->kategori == 'GPSS Bangunan 2')
+                                        <th colspan="7">CATEGORY 2</th>
+                                    @elseif ($projek->kategori == 'GPSS Bangunan 3')
+                                        <th colspan="7">CATEGORY 3</th>
+                                    @endif
+                                </tr>
+                                <tr>
+                                    <th>Element</th>
+                                    <th>Component</th>
+                                    <th>Product</th>
+                                    <th>Point Allocated</th>
+                                    <th>Point Requested (Design)</th>
+                                    <th>Remarks</th>
+                                    <th>Supporting Documents</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        @role('ketua-pasukan')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary">Muat Turun Skor Kad</button>
+                                </div>
+                            </div>
+                        @endrole
+                    </div>
+                </div>
             </div>
 
             <!--REKABENTUK GPSS BANGUNAN-->
@@ -454,52 +492,11 @@
                     </div>
                 </div>
             </div> 
-            @endrole
+            @endrole        
 
-            <!--SKOR KAD GPSS BANGUNAN-->
-            <div class="tab-pane" id="tab-5" role="tabpanel">
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <h4 class="mb-3">SKOR KAD GPSS BANGUNAN</h4>
-                        <table class="table table-bordered line-table text-center skor-datatable" style="width: 100%">
-                            <thead class="text-white bg-orange-jkr">
-                                <tr>          
-                                    <th colspan="7">Green Product Scoring Sheet</th>
-                                </tr>
-                                <tr>  
-                                    @if ($projek->kategori == 'GPSS Bangunan 1')        
-                                        <th colspan="7">CATEGORY 1</th>
-                                    @elseif ($projek->kategori == 'GPSS Bangunan 2')
-                                        <th colspan="7">CATEGORY 2</th>
-                                    @elseif ($projek->kategori == 'GPSS Bangunan 3')
-                                        <th colspan="7">CATEGORY 3</th>
-                                    @endif
-                                </tr>
-                                <tr>
-                                    <th>Element</th>
-                                    <th>Component</th>
-                                    <th>Product</th>
-                                    <th>Point Allocated</th>
-                                    <th>Point Requested (Design)</th>
-                                    <th>Remarks</th>
-                                    <th>Supporting Documents</th>
-                                </tr>
-                            </thead>
-                        </table>
-                        @role('ketua-pasukan')
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    <button class="btn btn-primary">Muat Turun Skor Kad</button>
-                                </div>
-                            </div>
-                        @endrole
-                    </div>
-                </div>
-            </div>        
-
-            @role('ketua-pasukan')
             <!--RAYUAN GPSS BANGUNAN-->
-            <div class="tab-pane" id="tab-6" role="tabpanel">
+            @role('ketua-pasukan')
+            <div class="tab-pane" id="tab-5" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body"> 
                         <form action="/projek/{{ $projek->id }}/markah" method="POST" enctype="multipart/form-data">
@@ -573,7 +570,18 @@
                     </div>
                 </div>
             </div>  
-            @endrole      
+            @endrole    
+            
+            <!--SIJIL GPSS BANGUNAN-->
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+            <div class="tab-pane" id="tab-6" role="tabpanel">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h4>SIJIL GPSS BANGUNAN</h4>
+                    </div>
+                </div>
+            </div>
+            @endrole
         </div><!--tab content-->
     </div><!--tab-->
 </div> <!--Container-->
