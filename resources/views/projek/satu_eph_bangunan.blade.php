@@ -150,30 +150,30 @@
         {{-- @endif --}}
 
         @if (!$lantikans->isEmpty())
-            <div class="col-12 mt-6">
-                <div class="card">
-                    <div class="card-body">
-                        <table class="table table-bordered line-table" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">No</th>
-                                    <th class="text-center">Nama</th>
-                                    <th class="text-center">Peranan</th>
-                                </tr>
-                            </thead>
-                            @foreach ($lantikans as $lantikan)
-                                <tr class="text-black">
-                                    <td style="text-align: center; vertical-align: middle;">{{ $loop->iteration }}</td>
-                                    <td style="text-align: center; vertical-align: middle;">{{ $lantikan->user->name }}</td>
-                                    <td style="text-align: center; vertical-align: middle;">
-                                        {{ $lantikan->role->display_name }}
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </table>
-                    </div>
+        <div class="col-12 mt-6">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-bordered line-table" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th class="text-center">No</th>
+                                <th class="text-center">Nama</th>
+                                <th class="text-center">Peranan</th>
+                            </tr>
+                        </thead>
+                        @foreach ($lantikans as $lantikan)
+                            <tr class="text-black">
+                                <td style="text-align: center; vertical-align: middle;">{{ $loop->iteration }}</td>
+                                <td style="text-align: center; vertical-align: middle;">{{ $lantikan->user->name }}</td>
+                                <td style="text-align: center; vertical-align: middle;">
+                                    {{ $lantikan->role->display_name }}
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
+        </div>
         @endif
     </div>
 
