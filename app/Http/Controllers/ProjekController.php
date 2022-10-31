@@ -16,6 +16,7 @@ use App\Models\Projek;
 use App\Models\Kriteria;
 use App\Models\Markah;
 use App\Models\ProjekRoleUser;
+use Illuminate\Support\Facades\Http;
 
 use App\Models\KriteriaEphBangunan;
 use App\Models\KriteriaEphJalan;
@@ -66,6 +67,61 @@ class ProjekController extends Controller
 
     public function borang_projek(Request $request) {
         return view('projek.borang');
+    }
+
+    public function papar_semua_projek() 
+    {
+
+        $url = 'http://admin3-skala.jkr.gov.my/~vnisa/2022-devpskala/web/www/api/ephjkr-api.php';
+        $response = Http::get($url, [
+            'id_pengguna' => '850703045020', //$id_sso_skala //
+        ]);
+
+        //dd($response);
+        $response = json_decode($response, true) ['data'];
+        // echo($response2);
+
+        //dd($response);
+        return view('myskala', [
+            'projeks' => $response,
+        ]);
+
+
+    }
+
+    public function myskala2() 
+    {
+        return view('myskala2');
+    }
+
+    public function papar_semua_projek2() 
+    {
+
+        $url = 'http://admin3-skala.jkr.gov.my/~vnisa/2022-devpskala/web/www/api/ephjkr-api.php';
+        $response = Http::get($url, [
+            'id_pengguna' => '850703045020', //$id_sso_skala //
+        ]);
+
+        $url2 = 'http://admin3-skala.jkr.gov.my/~vnisa/2022-devpskala/web/www/api/ephjkr-api2.php';
+        $response2 = Http::get($url2, [
+            'id_pengguna' => '850703045020', 
+            'ruj_projek' => '19438'
+        ]);
+
+        //dd($response);
+        $response = json_decode($response, true) ['data'];
+        $response2 = json_decode($response2, true);
+        //dd($response2);
+
+
+
+        //dd($response);
+        return view('myskala2', [
+            'projeks' => $response,
+            'projek' => $response2
+        ]);
+
+
     }
 
     public function cipta_projek(Request $request) {
