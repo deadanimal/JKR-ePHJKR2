@@ -29,7 +29,7 @@
 
     <div class="row mt-4 mb-3">
         <div class="col">
-            <form action="/myskala2" method="post" enctype="multipart/form-data">
+            <form action="/myskala2/simpan" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row mx-4">
                     <div class="card">
@@ -40,56 +40,56 @@
                                 <label class="col-form-label">Rujukan Skala :</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="rujukan_skala" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['rujukan_skala'] }}" disabled/>
+                                <input class="form-control" name="rujukan_skala" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['rujukan_skala'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Nama Projek:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="tajuk_projek" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['tajuk_projek'] }}" disabled/>
+                                <input class="form-control" name="tajuk_projek" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['tajuk_projek'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Lokasi Tapak:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="lokasi_tapak" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['lokasi_tapak'] }}" disabled/>
+                                <input class="form-control" name="lokasi_tapak" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['lokasi_tapak'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Kaedah Pelaksanaan:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="kaedah_pelaksanaan" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['kaedah_pelaksanaan'] }}" disabled/>
+                                <input class="form-control" name="kaedah_pelaksanaan" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['kaedah_pelaksanaan'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Jenis Perolehan:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="jenis_perolehan" type="text"  value="{{ $projek['records']['butiran_projek_persekutuan']['jenis_perolehan'] }}" disabled/>
+                                <input class="form-control" name="jenis_perolehan" type="text"  value="{{ $projek['records']['butiran_projek_persekutuan']['jenis_perolehan'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Penarafan Hijau:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="penarafan_hijau" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['penarafan_hijau'] }}" disabled/>
+                                <input class="form-control" name="penarafan_hijau" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['penarafan_hijau'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Status:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="Status" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['Status'] }}" disabled/>
+                                <input class="form-control" name="Status" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['Status'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Kategori IBS:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="kategori_ibs" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['kategori_ibs'] }}" disabled/>
+                                <input class="form-control" name="kategori_ibs" type="text" value="{{ $projek['records']['butiran_projek_persekutuan']['kategori_ibs'] }}" readonly/>
                             </div>
                         </div>
                     </div>
@@ -101,35 +101,35 @@
                                 <label class="col-form-label">Pelanggan:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="pelanggan" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['pelanggan'] }}" disabled/>
+                                <input class="form-control" name="pelanggan" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['pelanggan'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Pengurus Program:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="pengurus_program" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['pengurus_program'] }}" disabled/>
+                                <input class="form-control" name="pengurus_program" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['pengurus_program'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Pejabat Hopt:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="pejabat_hopt" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['pejabat_hopt'] }}" disabled/>
+                                <input class="form-control" name="pejabat_hopt" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['pejabat_hopt'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Nama Hopt:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="nama_hopt" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['nama_hopt'] }}" disabled/>
+                                <input class="form-control" name="nama_hopt" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['nama_hopt'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Pejabat Selia Tapak:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="pejabat_seliatapak" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['pejabat_seliatapak'] }}" disabled/>
+                                <input class="form-control" name="pejabat_seliatapak" type="text" value="{{ $projek['records']['pelanggan_pejabat_bertanggungjawab']['pejabat_seliatapak'] }}" readonly/>
                             </div>
                         </div>
                     </div>
@@ -141,14 +141,14 @@
                                 <label class="col-form-label">Jenis Rekabentuk pap:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="rekabentuk_pap" type="text" value="{{ $projek['records']['jenis_rekabentuk']['rekabentuk_pap'] }}" disabled/>
+                                <input class="form-control" name="rekabentuk_pap" type="text" value="{{ $projek['records']['jenis_rekabentuk']['rekabentuk_pap'] }}" readonly/>
                             </div>
         
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Jenis Rekabentuk bim:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="rekabentuk_bim" type="text" value="{{ $projek['records']['jenis_rekabentuk']['rekabentuk_bim'] }}" disabled/>
+                                <input class="form-control" name="rekabentuk_bim" type="text" value="{{ $projek['records']['jenis_rekabentuk']['rekabentuk_bim'] }}" readonly/>
                             </div>
                         </div>
                     </div>
@@ -160,35 +160,35 @@
                                 <label class="col-form-label">Kos Projek:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <input class="form-control" name="kos_projek_semasa" type="text" value="{{ $projek['records']['kos_projek']['kos_projek_semasa'] }}" disabled/>
+                                <input class="form-control" name="kos_projek_semasa" type="text" value="{{ $projek['records']['kos_projek']['kos_projek_semasa'] }}" readonly/>
                             </div>
                         </div>
                     </div>
 
                     <div class="card mt-3">
                         <div class="card-body row mx-4">
-                            <h1>Kos Projek</h1>
+                            <h1>Aktiviti</h1>
                             <div class="card-body row mx-4">
                                 <h3 class="mt-2">Tarikh Iklan</h3>
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Tarikh Pindaan Semasa:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="pindaan_semasa" type="text" value="{{ $projek['records']['aktiviti']['tarikh_iklan']['pindaan_semasa'] }}" disabled/>
+                                    <input class="form-control" name="pindaan_semasa" type="text" value="{{ $projek['records']['aktiviti']['tarikh_iklan']['pindaan_semasa'] }}" readonly/>
                                 </div>
             
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Tarikh Sah Sebenar:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="sah_sebenar" type="text" value="{{ $projek['records']['aktiviti']['tarikh_iklan']['sah_sebenar'] }}"  disabled/>
+                                    <input class="form-control" name="sah_sebenar" type="text" value="{{ $projek['records']['aktiviti']['tarikh_iklan']['sah_sebenar'] }}"  readonly/>
                                 </div>
             
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Pejabat Bertanggungjawab:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="pejabat_bertanggungjawab" type="text" value="{{ $projek['records']['aktiviti']['tarikh_iklan']['pejabat_bertanggungjawab'] }}" disabled/>
+                                    <input class="form-control" name="pejabat_bertanggungjawab" type="text" value="{{ $projek['records']['aktiviti']['tarikh_iklan']['pejabat_bertanggungjawab'] }}" readonly/>
                                 </div>
                             </div>
                             <div class="card-body row mx-4">
@@ -197,21 +197,21 @@
                                     <label class="col-form-label">Surat Setuju Terima:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="pindaan_semasa" type="text" value="{{ $projek['records']['aktiviti']['surat_setuju_terima']['pindaan_semasa'] }}" disabled/>
+                                    <input class="form-control" name="pindaan_semasa" type="text" value="{{ $projek['records']['aktiviti']['surat_setuju_terima']['pindaan_semasa'] }}" readonly/>
                                 </div>
             
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Sah Sebenar:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="sah_sebenar" type="text" value="{{ $projek['records']['aktiviti']['surat_setuju_terima']['sah_sebenar'] }}" disabled/>
+                                    <input class="form-control" name="sah_sebenar" type="text" value="{{ $projek['records']['aktiviti']['surat_setuju_terima']['sah_sebenar'] }}" readonly/>
                                 </div>
             
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Pejabat Bertanggungjawab:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="pejabat_bertanggungjawab" type="text" value="{{ $projek['records']['aktiviti']['surat_setuju_terima']['pejabat_bertanggungjawab'] }}" disabled/>
+                                    <input class="form-control" name="pejabat_bertanggungjawab" type="text" value="{{ $projek['records']['aktiviti']['surat_setuju_terima']['pejabat_bertanggungjawab'] }}" readonly/>
                                 </div>
                             </div> 
                             <div class="card-body row mx-4">
@@ -220,21 +220,21 @@
                                     <label class="col-form-label">Pindaan Semasa:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="pindaan_semasa" type="text" value="{{ $projek['records']['aktiviti']['perakuan_siap_kerja']['pindaan_semasa'] }}" disabled/>
+                                    <input class="form-control" name="pindaan_semasa" type="text" value="{{ $projek['records']['aktiviti']['perakuan_siap_kerja']['pindaan_semasa'] }}" readonly/>
                                 </div>
             
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Sah Sebenar:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="sah_sebenar" type="text" value="{{ $projek['records']['aktiviti']['perakuan_siap_kerja']['sah_sebenar'] }}" disabled/>
+                                    <input class="form-control" name="sah_sebenar" type="text" value="{{ $projek['records']['aktiviti']['perakuan_siap_kerja']['sah_sebenar'] }}" readonly/>
                                 </div>
             
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Pejabat Bertanggungjawab:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="pejabat_bertanggungjawab" type="text" value="{{ $projek['records']['aktiviti']['perakuan_siap_kerja']['pejabat_bertanggungjawab'] }}" disabled/>
+                                    <input class="form-control" name="pejabat_bertanggungjawab" type="text" value="{{ $projek['records']['aktiviti']['perakuan_siap_kerja']['pejabat_bertanggungjawab'] }}" readonly/>
                                 </div>
                             </div> 
                             <div class="card-body row mx-4">
@@ -243,21 +243,21 @@
                                     <label class="col-form-label">Pindaan Semasa:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="pindaan_semasa" type="text" value="{{ $projek['records']['aktiviti']['penyerahan_projek_kepada_pelanggan']['pindaan_semasa'] }}" disabled/>
+                                    <input class="form-control" name="pindaan_semasa" type="text" value="{{ $projek['records']['aktiviti']['penyerahan_projek_kepada_pelanggan']['pindaan_semasa'] }}" readonly/>
                                 </div>
             
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Sah Sebenar:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="sah_sebenar" type="text" value="{{ $projek['records']['aktiviti']['penyerahan_projek_kepada_pelanggan']['sah_sebenar'] }}" disabled/>
+                                    <input class="form-control" name="sah_sebenar" type="text" value="{{ $projek['records']['aktiviti']['penyerahan_projek_kepada_pelanggan']['sah_sebenar'] }}" readonly/>
                                 </div>
             
                                 <div class="col-3 mb-2">
                                     <label class="col-form-label">Pejabat Bertanggungjawab:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="pejabat_bertanggungjawab" type="text" value="{{ $projek['records']['aktiviti']['penyerahan_projek_kepada_pelanggan']['pejabat_bertanggungjawab'] }}" disabled/>
+                                    <input class="form-control" name="pejabat_bertanggungjawab" type="text" value="{{ $projek['records']['aktiviti']['penyerahan_projek_kepada_pelanggan']['pejabat_bertanggungjawab'] }}" readonly/>
                                 </div>
                             </div> 
                         </div>

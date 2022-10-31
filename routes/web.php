@@ -19,7 +19,8 @@ Route::get('about', [UserController::class, 'about']);
 Route::get('contact', [UserController::class, 'contact']); 
 Route::get('keselamatan', [UserController::class, 'keselamatan']); 
 Route::get('privasi', [UserController::class, 'privasi']); 
-Route::get('faq', [FaqController::class, 'senarai']); 
+Route::get('faq', [FaqController::class, 'senarai']);
+Route::get('loginjkr', [UserController::class, 'loginjkr']);
 
 Route::middleware(['auth'])->group(function () {
 
@@ -30,7 +31,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
     Route::get('projek/borang', [ProjekController::class, 'borang_projek']); 
     Route::get('myskala', [ProjekController::class, 'papar_semua_projek']);
-    Route::get('myskala2', [ProjekController::class, 'papar_semua_projek2']);
+    Route::get('myskala2/{id}', [ProjekController::class, 'papar_semua_projek2']);
+    Route::post('myskala2/simpan', [ProjekController::class, 'simpan_skala']);
     // Route::get('myskala2', [ProjekController::class, 'myskala2']);
     Route::post('projek', [ProjekController::class, 'cipta_projek']); 
     Route::get('projek/{id}', [ProjekController::class, 'satu_projek']); 
