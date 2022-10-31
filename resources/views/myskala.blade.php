@@ -40,13 +40,14 @@
                         </thead>
                         <tbody class="bg-white">
                             @foreach ($projeks as $r)
+                            {{-- {{dd($r)}} --}}
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $r['ruj_projek'] }}</td>
                                     <td>{{ $r['tajuk'] }}</td>
                                     <td>
                                         <div class="col-auto">
-                                            <a href="/myskala2"
+                                            <a href="/myskala2/{{$r['ruj_projek']}}"
                                             class="btn btn-sm btn-primary">Daftar Ke Sistem</a>
                                         </div>
                                     </td>

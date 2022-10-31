@@ -12,9 +12,11 @@
     @endrole
 </div>
 <div class="row mb-3">
+    @role('ketua-pasukan')
     <div class="col text-end">
-        <a href="/myskala" class="btn btn-primary">Myskala</a>
+        <a href="/myskala" class="btn btn-primary">Skala</a>
     </div>
+    @endrole
 </div>
 
     <table class="table table-bordered projek-datatable line-table" style="width:100%">

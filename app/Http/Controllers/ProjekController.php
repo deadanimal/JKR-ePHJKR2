@@ -89,12 +89,7 @@ class ProjekController extends Controller
 
     }
 
-    public function myskala2() 
-    {
-        return view('myskala2');
-    }
-
-    public function papar_semua_projek2() 
+    public function papar_semua_projek2($id) 
     {
 
         $url = 'http://admin3-skala.jkr.gov.my/~vnisa/2022-devpskala/web/www/api/ephjkr-api.php';
@@ -105,15 +100,13 @@ class ProjekController extends Controller
         $url2 = 'http://admin3-skala.jkr.gov.my/~vnisa/2022-devpskala/web/www/api/ephjkr-api2.php';
         $response2 = Http::get($url2, [
             'id_pengguna' => '850703045020', 
-            'ruj_projek' => '19438'
+            'ruj_projek' => $id
         ]);
 
         //dd($response);
         $response = json_decode($response, true) ['data'];
         $response2 = json_decode($response2, true);
         //dd($response2);
-
-
 
         //dd($response);
         return view('myskala2', [
@@ -122,6 +115,22 @@ class ProjekController extends Controller
         ]);
 
 
+    }
+
+    public function simpan_skala(Request $request) {
+        // dd($request);
+        
+        $projek = New Projek;
+
+        $projek->nama = $request->tajuk_projek;
+        $projek->alamat = $request->lokasi_tapak;
+        $projek->kaedahPelaksanaan = $request->kaedahPelaksanaan;
+        $projek->jenisPerolehan = $request->jenisPerolehan;
+        $projek->kosProjek = $request->kosProjek;
+
+        $projek->save();
+
+        return back();
     }
 
     public function cipta_projek(Request $request) {

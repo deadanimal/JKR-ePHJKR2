@@ -58,6 +58,16 @@ class UserController extends Controller
         return view('selenggara.senarai');
     }
 
+    public function loginjkr()
+    {
+        return view('loginjkr');
+    }
+
+    public function daftarjkr()
+    {
+        return view('daftarjkr');
+    }
+
 
 
 
