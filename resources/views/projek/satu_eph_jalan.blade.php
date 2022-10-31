@@ -108,7 +108,6 @@
                     <div class="card-body">
                         <form action="/projek/{{ $projek->id }}/lantik" method="POST">
                             @csrf
-
                             <div class="row mx-3 mb-2">
                                 <h2 class="mb-3">Pelantikan</h2>
                                 <div class="col-5 mb-2">
@@ -127,8 +126,8 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select" name="role_id">
                                         <option value=6 selected>Pemudah Cara</option>
-                                        <option value=8>Penilai</option>
-                                        <option value=10>Pasukan Validasi</option>
+                                        <option value=8>Ketua Penilai</option>
+                                        <option value=7>Penilai</option>
                                     </select>
                                 </div>
                             </div>
@@ -144,26 +143,30 @@
             </div>
 
             <div class="col-12 mt-6">
-                <table class="table table-bordered line-table" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th class="text-center">No</th>
-                            <th class="text-center">Nama</th>
-                            <th class="text-center">Peranan</th>
-                        </tr>
-                    </thead>
-                    @foreach ($lantikans as $lantikan)
-                        <tr class="text-black">
-                            <td style="text-align: center; vertical-align: middle;">{{ $loop->iteration }}</td>
-                            <td style="text-align: center; vertical-align: middle;">{{ $lantikan->user->name }}</td>
-                            <td style="text-align: center; vertical-align: middle;">{{ $lantikan->role->display_name }}
-                            </td>
-                        </tr>
-                    @endforeach
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered line-table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">No</th>
+                                    <th class="text-center">Nama</th>
+                                    <th class="text-center">Peranan</th>
+                                </tr>
+                            </thead>
+                            @foreach ($lantikans as $lantikan)
+                                <tr class="text-black">
+                                    <td style="text-align: center; vertical-align: middle;">{{ $loop->iteration }}</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{ $lantikan->user->name }}</td>
+                                    <td style="text-align: center; vertical-align: middle;">{{ $lantikan->role->display_name }}
+                                    </td>
+                                </tr>
+                            @endforeach
 
-                    <tbody>
-                    </tbody>
-                </table>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
             <div class="tab mt-6">
