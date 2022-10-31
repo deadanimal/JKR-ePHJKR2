@@ -191,531 +191,452 @@
                             <div class="col">
                                 <div class="card">
                                     <div class="card-body">
-                                        <div class="col mb-">
-                                            <h4 class="h4 mb-3">RUMUSAN</h4>
+                                        <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
+                                        <table class="table table-bordered line-table text-center" style="width: 100%">
+                                            <thead class="text-white bg-orange-jkr">
+                                                <tr align="center" style="background-color:#EB5500">
+                                                    <th colspan="3" rowspan="2">TOTAL POINTS (CORE)</th>
+                                                    <th colspan="3">DESIGN</th>
+                                                    <th colspan="3">VERIFICATION</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>MAX </th>
+                                                    <th>TARGET </th>
+                                                    <th>ASSESSMENT </th>
+                                                    <th>MAX </th>
+                                                    <th>TARGET </th>
+                                                    <th>ASSESSMENT </th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody class="text-black">
+                                                <tr class="text-black">
+                                                    <th colspan="1">SM</th>
+                                                    <th colspan="2">SUSTAINABLE SITE PLANNING AND MANAGEMENT</th>
+                                                    <th>18</th>
+                                                    <th value="SM_TOTAL_TARGET_DESIGN">SM_TD</th>
+                                                    <th value="SM_TOTAL_ASSESSMENT_DESIGN">SM_AD</th>
+                                                    <th>18</th>
+                                                    <th value="SM_TOTAL_TARGET_VERIFIKASI">SM_TV</th>
+                                                    <th value="SM_TOTAL_ASSESSMENT_VERIFIKASI">SM_AV</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="1">PT</th>
+                                                    <th colspan="2">PAVEMENT TECHNOLOGIES</th>
+                                                    <th>12</th>
+                                                    <th value="PT_TOTAL_TARGET_DESIGN">PT_TD</th>
+                                                    <th value="PT_TOTAL_ASSESSMENT_DESIGN">PT_AD</th>
+                                                    <th>12</th>
+                                                    <th value="PT_TOTAL_TARGET_VERIFIKASI">PT_TV</th>
+                                                    <th value="PT_TOTAL_ASSESSMENT_VERIFIKASI">PT_AV</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="1">EW</th>
+                                                    <th colspan="2">ENVIRONMENT & WATER</th>
+                                                    <th>4</th>
+                                                    <th value="EW_TOTAL_TARGET_DESIGN">EW_TD</th>
+                                                    <th value="EW_TOTAL_ASSESSMENT_DESIGN">EW_AD</th>
+                                                    <th>5</th>
+                                                    <th value="EW_TOTAL_TARGET_VERIFIKASI">EW_TV</th>
+                                                    <th value="EW_TOTAL_ASSESSMENT_VERIFIKASI">EW_AV</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="1">AE</th>
+                                                    <th colspan="2">ACCESS & EQUITY</th>
+                                                    <th>3</th>
+                                                    <th value="AE_TOTAL_TARGET_DESIGN">AE_TD</th>
+                                                    <th value="AE_TOTAL_ASSESSMENT_DESIGN">AE_AD</th>
+                                                    <th>5</th>
+                                                    <th value="AE_TOTAL_TARGET_VERIFIKASI">AE_TV</th>
+                                                    <th value="AE_TOTAL_ASSESSMENT_VERIFIKASI">AE_AV</th>
+                                                </tr>
+
+                                                <tr>
+                                                    <th colspan="1">CA</th>
+                                                    <th colspan="2">CONSTRUCTION ACTIVITIES</th>
+                                                    <th>19</th>
+                                                    <th value="CA_TOTAL_TARGET_DESIGN">CA_TD</th>
+                                                    <th value="CA_TOTAL_ASSESSMENT_DESIGN">CA_AD</th>
+                                                    <th>22</th>
+                                                    <th value="CA_TOTAL_TARGET_VERIFIKASI">CA_TV</th>
+                                                    <th value="CA_TOTAL_ASSESSMENT_VERIFIKASI">CA_AV</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="1">MR</th>
+                                                    <th colspan="2">MATERIAL AND RESOURCES</th>
+                                                    <th>12</th>
+                                                    <th value="MR_TOTAL_TARGET_DESIGN">MR_TD</th>
+                                                    <th value="MR_TOTAL_ASSESSMENT_DESIGN">MR_AD</th>
+                                                    <th>12</th>
+                                                    <th value="MR_TOTAL_TARGET_VERIFIKASI">MR_TV</th>
+                                                    <th value="MR_TOTAL_ASSESSMENT_VERIFIKASI">MR_AV</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="1">EC</th>
+                                                    <th colspan="2">ELECTIVE CRITERIA</th>
+                                                    <th>27</th>
+                                                    <th value="EC_TOTAL_TARGET_DESIGN">EC_TD</th>
+                                                    <th value="EC_TOTAL_ASSESSMENT_DESIGN">EC_AD</th>
+                                                    <th>27</th>
+                                                    <th value="EC_TOTAL_TARGET_VERIFIKASI">EC_TV</th>
+                                                    <th value="EC_TOTAL_ASSESSMENT_VERIFIKASI">EC_AV</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="1">IN</th>
+                                                    <th colspan="2">INOVATION</th>
+                                                    <th>5</th>
+                                                    <th value="IN_TOTAL_TARGET_DESIGN">IN_TD</th>
+                                                    <th value="IN_TOTAL_ASSESSMENT_DESIGN">IN_AD</th>
+                                                    <th>5</th>
+                                                    <th value="IN_TOTAL_TARGET_VERIFIKASI">IN_TV</th>
+                                                    <th value="IN_TOTAL_ASSESSMENT_VERIFIKASI">IN_AV</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="3">TOTAL CORE POINTS</th>
+                                                    <th>68</th>
+                                                    <th value="TOTALCP_TARGET_DESIGN">TCP_TD</th>
+                                                    <th value="TOTALCP_ASSESSMENT_DESIGN">TCP_AD</th>
+                                                    <th>74</th>
+                                                    <th value="TOTALCP_TARGET_VERIFIKASI">TCP_TV</th>
+                                                    <th value="TOTALCP_ASSESSMENT_VERIFIKASI">TCP_AV</th>
+                                                </tr>
+                                                <tr>
+                                                    <th colspan="3">TOTAL ELECTIVE & INNOVATION POINTS</th>
+                                                    <th>12</th>
+                                                    <th value="TOTALEIP_TARGET_DESIGN">TEIP_TD</th>
+                                                    <th value="TOTALEIP_ASSESSMENT_DESIGN">TEIP_AD</th>
+                                                    <th>15</th>
+                                                    <th value="TOTALEIP_TARGET_VERIFIKASI">TEIP_TV</th>
+                                                    <th value="TOTALEIP_ASSESSMENT_VERIFIKASI">TEIP_AV</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="col">
+                                            <table class="table table-bordered line-table text-center" style="width: 100%">
+                                                <thead class="text-white bg-orange-jkr">
+                                                    <tr>
+                                                        <th></th>
+                                                        <th colspan="3" rowspan="3">TARGET SUMMARY</th>
+                                                        <th colspan="3" rowspan="3">SCORING VERIFICATION SUMMARY</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="text-black">
+                                                    <tr>
+                                                        <th colspan="1">TOTAL SCORE (%)</th>
+                                                        <th colspan="2" value="SM_TOTAL_TARGET_DESIGN">SM_TOT_TD</th>
+                                                        <th colspan="2" value="SM_TOTAL_TARGET_DESIGN">SM_TOT_TD</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="1" rowspan="3">pH JKR RATING</th>
+                                                        <th colspan="2">0<span class="star">&starf;</span></th>
+                                                        <th colspan="2">0<span class="star">&starf;</span></th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th colspan="2">NO RECOGNITION</th>
+                                                        <th colspan="2">NO RECOGNITION</th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
-                                            <div class="row3 mx-4 table-responsive scrollbar">
-                                                <table class="table table-bordered line-table text-center" style="width: 100%">
-                                                    <thead class="text-white bg-orange-jkr">
-                                                        <tr align="center" style="background-color:#EB5500">
-
-
-                                                            <th colspan="3"></th>
-
-                                                            <th colspan="3">DESIGN</th>
-
-                                                            <th colspan="3">VERIFICATION</th>
-
-
-                                                        </tr>
-                                                        <tr>
-
-                                                            <th colspan="3">TOTAL POINTS (CORE)</th>
-
-                                                            <th>MAX </th>
-                                                            <th>TARGET </th>
-                                                            <th>ASSESSMENT </th>
-
-                                                            <th>MAX </th>
-                                                            <th>TARGET </th>
-                                                            <th>ASSESSMENT </th>
-                                                        </tr>
-
-                                                    </thead>
-                                                        <tbody class="text-black">
-                                                            <tr class="text-black">
-                                                                <th colspan="1">SM</th>
-                                                                <th colspan="2">SUSTAINABLE SITE PLANNING AND
-                                                                    MANAGEMENT</th>
-                                                                {{-- <td></td> --}}
-
-                                                                {{-- design --}}
-                                                                <th>18</th>
-                                                                <th value="SM_TOTAL_TARGET_DESIGN"></th>
-                                                                <th value="SM_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                {{-- verifikasi --}}
-                                                                <th>18</th>
-                                                                <th value="SM_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                <th value="SM_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="1">PT</th>
-                                                                <th colspan="2">PAVEMENT TECHNOLOGIES</th>
-                                                                {{-- <th></th> --}}
-
-                                                                <th>12</th>
-                                                                <th value="PT_TOTAL_TARGET_DESIGN"></th>
-                                                                <th value="PT_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>12</th>
-                                                                <th value="PT_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                <th value="PT_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="1">EW</th>
-                                                                <th colspan="2">ENVIRONMENT & WATER</th>
-                                                                {{-- <th></th> --}}
-
-                                                                <th>4</th>
-                                                                <th value="EW_TOTAL_TARGET_DESIGN"></th>
-                                                                <th value="EW_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>5</th>
-                                                                <th value="EW_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                <th value="EW_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="1">AE</th>
-                                                                <th colspan="2">ACCESS & EQUITY</th>
-                                                                {{-- <th></th> --}}
-                                                                <th>3</th>
-                                                                <th value="AE_TOTAL_TARGET_DESIGN"></th>
-                                                                <th value="AE_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>5</th>
-                                                                <th value="AE_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                <th value="AE_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="1">CA</th>
-                                                                <th colspan="2">CONSTRUCTION ACTIVITIES</th>
-                                                                {{-- <th></th> --}}
-                                                                <th>19</th>
-                                                                <th value="CA_TOTAL_TARGET_DESIGN"></th>
-                                                                <th value="CA_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>22</th>
-                                                                <th value="CA_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                <th value="CA_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="1">MR</th>
-                                                                <th colspan="2">MATERIAL AND RESOURCES</th>
-                                                                {{-- <th></th> --}}
-                                                                <th>12</th>
-                                                                <th value="MR_TOTAL_TARGET_DESIGN"></th>
-                                                                <th value="MR_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>12</th>
-                                                                <th value="MR_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                <th value="MR_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="1">EC</th>
-                                                                <th colspan="2">ELECTIVE CRITERIA</th>
-                                                                {{-- <th></th> --}}
-                                                                <th>27</th>
-                                                                <th value="EC_TOTAL_TARGET_DESIGN"></th>
-                                                                <th value="EC_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>27</th>
-                                                                <th value="EC_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                <th value="EC_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="1">IN</th>
-                                                                <th colspan="2">INOVATION</th>
-                                                                {{-- <th></th> --}}
-                                                                <th>5</th>
-                                                                <th value="IN_TOTAL_TARGET_DESIGN"></th>
-                                                                <th value="IN_TOTAL_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>5</th>
-                                                                <th value="IN_TOTAL_TARGET_VERIFIKASI"></th>
-                                                                <th value="IN_TOTAL_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="3">TOTAL CORE POINTS </th>
-                                                                {{-- <th></th> --}}
-                                                                <th>68</th>
-                                                                <th value="TOTALCP_TARGET_DESIGN"></th>
-                                                                <th value="TOTALCP_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>74</th>
-                                                                <th value="TOTALCP_TARGET_VERIFIKASI"></th>
-                                                                <th value="TOTALCP_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <th colspan="3">TOTAL ELECTIVE & INNOVATION POINTS
-                                                                </th>
-                                                                {{-- <th></th> --}}
-                                                                <th>12</th>
-                                                                <th value="TOTALEIP_TARGET_DESIGN"></th>
-                                                                <th value="TOTALEIP_ASSESSMENT_DESIGN"></th>
-
-                                                                <th>15</th>
-                                                                <th value="TOTALEIP_TARGET_VERIFIKASI"></th>
-                                                                <th value="TOTALEIP_ASSESSMENT_VERIFIKASI"></th>
-                                                            </tr>
-                                                        </tbody>
-                                                </table>
-
-
-                                                <div class="row3 mx-4 table-responsive scrollbar">
-                                                    <div class="col">
-                                                        <table class="table table-bordered line-table text-center"
-                                                            style="width: 100%">
-                                                            <thead class="text-white bg-orange-jkr">
-                                                                <tr>
-                                                                    <th></th>
-                                                                    <th colspan="3" rowspan="3">TARGET
-                                                                        SUMMARY</th>
-                                                                    <th colspan="3" rowspan="3">SCORING
-                                                                        VERIFICATION SUMMARY</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody class="text-black">
-                                                                <tr>
-                                                                    <th colspan="1">TOTAL SCORE (%)</th>
-                                                                    <th colspan="2"
-                                                                        value="SM_TOTAL_TARGET_DESIGN"></th>
-                                                                    <th colspan="2"
-                                                                        value="SM_TOTAL_TARGET_DESIGN"></th>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th colspan="1" rowspan="3">pH JKR
-                                                                        RATING</th>
-                                                                    <th colspan="2">0<span
-                                                                            class="star">&starf;</span></th>
-                                                                    <th colspan="2">0<span
-                                                                            class="star">&starf;</span></th>
-
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <th colspan="2">NO RECOGNITION</th>
-                                                                    <th colspan="2">NO RECOGNITION</th>
-                                                                </tr>
-
-                                                            </tbody>
-
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                                    <div class="tab-pane" id="tab-2" role="tabpanel">
+                    <div class="tab-pane" id="tab-2" role="tabpanel">
+                        SIJIL EPH JALAN
+                    </div>
 
-
-
-                                    </div>
-
-                                    <div class="tab-pane" id="tab-3" role="tabpanel">
-
-                                        <div class="row mb-3 mt-3">
+                    <div class="tab-pane" id="tab-3" role="tabpanel">
+                        <div class="row mb-3 mt-3">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="col mb-">
+                                            <h4 class="h4 mb-3">PENILAIAN REKABENTUK JALAN</h4>
+                                        </div>
+                                        <div class="row mt-4 mb-3">
                                             <div class="col">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <div class="col mb-">
-                                                            <h4 class="h4 mb-3">PENILAIAN REKABENTUK JALAN</h4>
+                                                <form action="/projek/{{ $projek->id }}/markah" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+
+                                                    <input type="hidden" name="fasa" value="rekabentuk">
+                                                    <div class="row mx-4">
+                                                        <div class="col-3 mb-2">
+                                                            <label class="col-form-label">Kriteria:</label>
+                                                        </div>
+                                                        <div class="col-7 mb-2">
+                                                            <select class="form-select form-control"
+                                                                name="kriteria">
+                                                                @foreach ($kriterias as $akriteria)
+                                                                    <option value="{{ $akriteria->id }}">
+                                                                        {{ $akriteria->kod }} -
+                                                                        {{ $akriteria->nama }}</option>
+                                                                @endforeach
+                                                            </select>
+
+
+                                                        </div>
+
+                                                        <div class="col-3 mb-2">
+                                                            <label class="col-form-label">Target Point
+                                                                :</label>
+                                                        </div>
+                                                        <div class="col-7 mb-2">
+                                                            <input class="form-control" name="markah"
+                                                                type="text" />
+                                                        </div>
+
+                                                        <div class="col-3 mb-2">
+                                                            <label class="col-form-label">Comment by
+                                                                Assessor:</label>
+                                                        </div>
+                                                        <div class="col-7 mb-2">
+                                                            <textarea class="form-control" rows="4" name="ulasan" type="text" placeholder="Ulasan/Maklumbalas"></textarea>
+                                                        </div>
+
+                                                        <div class="col-3 mb-2">
+                                                            <label class="col-form-label">Upload
+                                                                File:</label>
+                                                        </div>
+                                                        <div class="col-7 mb-2">
+                                                            <input class="form-control" type="file" name="dokumen1">
+                                                            <input class="form-control" type="file" name="dokumen2">
+                                                            <input class="form-control" type="file" name="dokumen3">
+                                                            <input class="form-control" type="file" name="dokumen4">
+                                                            <input class="form-control" type="file" name="dokumen5">
                                                         </div>
 
 
-                                                        <div class="row mt-4 mb-3">
-                                                            <div class="col">
-                                                                <form action="/projek/{{ $projek->id }}/markah"
-                                                                    method="POST" enctype="multipart/form-data">
-                                                                    @csrf
-
-                                                                    <input type="hidden" name="fasa" value="rekabentuk">
-                                                                    <div class="row mx-4">
-                                                                        <div class="col-3 mb-2">
-                                                                            <label class="col-form-label">Kriteria
-                                                                                :</label>
-                                                                        </div>
-                                                                        <div class="col-7 mb-2">
-
-
-                                                                            <select class="form-select form-control"
-                                                                                name="kriteria">
-                                                                                @foreach ($kriterias as $akriteria)
-                                                                                    <option value="{{ $akriteria->id }}">
-                                                                                        {{ $akriteria->kod }} -
-                                                                                        {{ $akriteria->nama }}</option>
-                                                                                @endforeach
-                                                                            </select>
-
-
-                                                                        </div>
-
-                                                                        <div class="col-3 mb-2">
-                                                                            <label class="col-form-label">Target Point
-                                                                                :</label>
-                                                                        </div>
-                                                                        <div class="col-7 mb-2">
-                                                                            <input class="form-control" name="markah"
-                                                                                type="text" />
-                                                                        </div>
-
-                                                                        <div class="col-3 mb-2">
-                                                                            <label class="col-form-label">Comment by
-                                                                                Assessor:</label>
-                                                                        </div>
-                                                                        <div class="col-7 mb-2">
-                                                                            <textarea class="form-control" rows="4" name="ulasan" type="text" placeholder="Ulasan/Maklumbalas"></textarea>
-                                                                        </div>
-
-                                                                        <div class="col-3 mb-2">
-                                                                            <label class="col-form-label">Upload
-                                                                                File:</label>
-                                                                        </div>
-                                                                        <div class="col-7 mb-2">
-                                                                            <input class="form-control" type="file" name="dokumen1">
-                                                                            <input class="form-control" type="file" name="dokumen2">
-                                                                            <input class="form-control" type="file" name="dokumen3">
-                                                                            <input class="form-control" type="file" name="dokumen4">
-                                                                            <input class="form-control" type="file" name="dokumen5">
-                                                                        </div>
 
 
 
-
-
-                                                                        <div class="row mt-3">
-                                                                            <div class="col text-center">
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary">Simpan</button>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </form>
+                                                        <div class="row mt-3">
+                                                            <div class="col text-center">
+                                                                <button type="submit"
+                                                                    class="btn btn-primary">Simpan</button>
                                                             </div>
-
                                                         </div>
+
                                                     </div>
-                                                </div>
+                                                </form>
                                             </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane" id="tab-4" role="tabpanel">
+
+                        <div class="row mb-3 mt-3">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="col mb-">
+                                            <h2 class="h2 mb-3">VERIFIKASI PERMARKAHAN JALAN</h2>
                                         </div>
 
-                                    </div>
-
-                                    <div class="tab-pane" id="tab-4" role="tabpanel">
-
-                                        <div class="row mb-3 mt-3">
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <div class="col mb-">
-                                                            <h2 class="h2 mb-3">VERIFIKASI PERMARKAHAN JALAN</h2>
-                                                        </div>
-
-                                                        <div class="table-responsive scrollbar col">
-                                                            <div class="row mt-4 mb-3">
-                                                                <div class="col">
-                                                                    <form action="/projek/{{ $projek->id }}/markah"
-                                                                        method="POST" enctype="multipart/form-data">
-                                                                        @csrf
-                                                                        <input type="hidden" name="fasa" value="rekabentuk">
-                                                                        <div class="row mx-4">
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Kriteria
-                                                                                    :</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <select class="form-select form-control"
-                                                                                    name="kriteria">
-                                                                                    @foreach ($kriterias as $akriteria)
-                                                                                        <option
-                                                                                            value="{{ $akriteria->id }}">
-                                                                                            {{ $akriteria->kod }} -
-                                                                                            {{ $akriteria->nama }}</option>
-                                                                                    @endforeach
-                                                                                </select>
-                                                                            </div>
+                                        <div class="table-responsive scrollbar col">
+                                            <div class="row mt-4 mb-3">
+                                                <div class="col">
+                                                    <form action="/projek/{{ $projek->id }}/markah"
+                                                        method="POST" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <input type="hidden" name="fasa" value="rekabentuk">
+                                                        <div class="row mx-4">
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Kriteria
+                                                                    :</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <select class="form-select form-control"
+                                                                    name="kriteria">
+                                                                    @foreach ($kriterias as $akriteria)
+                                                                        <option
+                                                                            value="{{ $akriteria->id }}">
+                                                                            {{ $akriteria->kod }} -
+                                                                            {{ $akriteria->nama }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
 
 
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Assessment
-                                                                                    Point :</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <input class="form-control" name="markah"
-                                                                                    type="text" />
-                                                                            </div>
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Assessment
+                                                                    Point :</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <input class="form-control" name="markah"
+                                                                    type="text" />
+                                                            </div>
 
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Comment by
-                                                                                    Assessor:</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <textarea class="form-control" rows="4" name="ulasan" type="text" placeholder="Ulasan/Maklumbalas"> </textarea>
-                                                                            </div>
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Comment by
+                                                                    Assessor:</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <textarea class="form-control" rows="4" name="ulasan" type="text" placeholder="Ulasan/Maklumbalas"> </textarea>
+                                                            </div>
 
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Upload
-                                                                                    File:</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <input class="form-control" type="file" name="dokumen1">
-                                                                                <input class="form-control" type="file" name="dokumen2">
-                                                                                <input class="form-control" type="file" name="dokumen3">
-                                                                                <input class="form-control" type="file" name="dokumen4">
-                                                                                <input class="form-control" type="file" name="dokumen5">
-                                                                            </div>
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Upload
+                                                                    File:</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <input class="form-control" type="file" name="dokumen1">
+                                                                <input class="form-control" type="file" name="dokumen2">
+                                                                <input class="form-control" type="file" name="dokumen3">
+                                                                <input class="form-control" type="file" name="dokumen4">
+                                                                <input class="form-control" type="file" name="dokumen5">
+                                                            </div>
 
 
 
 
 
-                                                                            <div class="row mt-4">
-                                                                                <div class="col text-center">
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary">Simpan</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
+                                                            <div class="row mt-4">
+                                                                <div class="col text-center">
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Simpan</button>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                    <div class="tab-pane" id="tab-5" role="tabpanel">
-                                        <div class="row mb-3">
+                    </div>
+
+                    <div class="tab-pane" id="tab-5" role="tabpanel">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="mb-3">SKOR KAD EPH JALAN</h4>
+                                        <div class="row3 mx-4 table-responsive scrollbar">
                                             <div class="col">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="col mb-">
-                                                            <h2 class="h2 mb-3">BORANG Skor Kad JALAN</h2>
-                                                        </div>
-                                        
-                                                        <div class="row3 mx-4 table-responsive scrollbar">
-                                                            <div class="col">
-                                                                <table class="table table-bordered line-table text-center" style="width: 100%">
-                                                                    <thead class="text-white bg-orange-jkr">
-                                                                        <tr>
-                                                            
-                                                                        
-                                                                        <th >Kod</th>
-                                                                        <th >Kriteria</th>
-                                                                        <th >Responsibility</th>
-                                                                        <th colspan="4">Design</th>
-                                                                        
-                                                            
-                                                                        </tr>
-                                                                        <tr>
-                                                                        
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th >MAX POINT</th>
-                                                                        <th >TARGET POINT</th>
-                                                                        <th >ASSESSMENT POINT</th>
-                                                                        <th>COMMENT BY ASSESSOR</th>
-                                                                        </tr>
-                                                    
-                                                                    </thead>
-                                                                </table>
+                                                <table class="table table-bordered line-table text-center" style="width: 100%">
+                                                    <thead class="text-white bg-orange-jkr">
+                                                        <tr>
+                                                            @if ($projek->kategori == 'phJKR Jalan Lama')
+                                                                <th colspan="7">NEW ROADS</th>
+                                                            @elseif ($projek->kategori == 'phJKR Jalan Baru')
+                                                                <th colspan="7">UPGRADING ROADS</th>
+                                                            @endif
+                                                        </tr>
+                                                        <tr>
+                                                            <th rowspan="2">Kod</th>
+                                                            <th rowspan="2">Kriteria</th>
+                                                            <th rowspan="2">Responsibility</th>
+                                                            <th colspan="4">Design</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th >MAX POINT</th>
+                                                            <th >TARGET POINT</th>
+                                                            <th >ASSESSMENT POINT</th>
+                                                            <th>COMMENT BY ASSESSOR</th>
+                                                        </tr>
+                                    
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-6" role="tabpanel">
+
+                        <div class="row mb-3 mt-3">
+                            <div class="col">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="col mb-">
+                                            <h2 class="h2 mb-3">RAYUAN </h2>
+                                        </div>
+
+                                        <div class="table-responsive scrollbar col">
+                                            <div class="row mt-4 mb-3">
+                                                <div class="col">
+                                                    <form action="/pengurusan_maklumat/faq" method="post"
+                                                        enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="row mx-4">
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Kriteria
+                                                                    :</label>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                            <div class="col-7 mb-2">
+                                                                <select class="form-select form-control"
+                                                                    aria-label="Default select example"
+                                                                    name="jenisProjek">
+                                                                    <option selected="">Sila Pilih
+                                                                    </option>
+                                                                    <option value="SM1">SM1</option>
+                                                                    <option value="SM2">SM2</option>
+                                                                    <option value="SM3">SM3</option>
+                                                                    <option value="SM4">SM4</option>
+                                                                </select>
+                                                            </div>
+                    
 
-                                    <div class="tab-pane" id="tab-6" role="tabpanel">
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Target Point
+                                                                    :</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <input class="form-control" name=""
+                                                                    type="text" />
+                                                            </div>
 
-                                        <div class="row mb-3 mt-3">
-                                            <div class="col">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <div class="col mb-">
-                                                            <h2 class="h2 mb-3">RAYUAN </h2>
-                                                        </div>
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Assessment
+                                                                    Point :</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <input class="form-control" name=""
+                                                                    type="text" />
+                                                            </div>
 
-                                                        <div class="table-responsive scrollbar col">
-                                                            <div class="row mt-4 mb-3">
-                                                                <div class="col">
-                                                                    <form action="/pengurusan_maklumat/faq" method="post"
-                                                                        enctype="multipart/form-data">
-                                                                        @csrf
-                                                                        <div class="row mx-4">
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Kriteria
-                                                                                    :</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <select class="form-select form-control"
-                                                                                    aria-label="Default select example"
-                                                                                    name="jenisProjek">
-                                                                                    <option selected="">Sila Pilih
-                                                                                    </option>
-                                                                                    <option value="SM1">SM1</option>
-                                                                                    <option value="SM2">SM2</option>
-                                                                                    <option value="SM3">SM3</option>
-                                                                                    <option value="SM4">SM4</option>
-                                                                                </select>
-                                                                            </div>
-                                  
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Comment by
+                                                                    Assessor:</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <textarea class="form-control" rows="4" name="" type="text" placeholder="Ulasan/Maklumbalas"> </textarea>
+                                                            </div>
 
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Target Point
-                                                                                    :</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <input class="form-control" name=""
-                                                                                    type="text" />
-                                                                            </div>
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Comment on
+                                                                    Appeal:</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <textarea class="form-control" rows="4" name="" type="text" placeholder="Comment on Appeal"> </textarea>
+                                                            </div>
 
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Assessment
-                                                                                    Point :</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <input class="form-control" name=""
-                                                                                    type="text" />
-                                                                            </div>
-
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Comment by
-                                                                                    Assessor:</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <textarea class="form-control" rows="4" name="" type="text" placeholder="Ulasan/Maklumbalas"> </textarea>
-                                                                            </div>
-
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Comment on
-                                                                                    Appeal:</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <textarea class="form-control" rows="4" name="" type="text" placeholder="Comment on Appeal"> </textarea>
-                                                                            </div>
-
-                                                                            <div class="col-3 mb-2">
-                                                                                <label class="col-form-label">Upload
-                                                                                    File:</label>
-                                                                            </div>
-                                                                            <div class="col-7 mb-2">
-                                                                                <input class="form-control" type="file" name="dokumen1">
-                                                                                <input class="form-control" type="file" name="dokumen2">
-                                                                                <input class="form-control" type="file" name="dokumen3">
-                                                                                <input class="form-control" type="file" name="dokumen4">
-                                                                                <input class="form-control" type="file" name="dokumen5">
-                                                                            </div>
+                                                            <div class="col-3 mb-2">
+                                                                <label class="col-form-label">Upload
+                                                                    File:</label>
+                                                            </div>
+                                                            <div class="col-7 mb-2">
+                                                                <input class="form-control" type="file" name="dokumen1">
+                                                                <input class="form-control" type="file" name="dokumen2">
+                                                                <input class="form-control" type="file" name="dokumen3">
+                                                                <input class="form-control" type="file" name="dokumen4">
+                                                                <input class="form-control" type="file" name="dokumen5">
+                                                            </div>
 
 
 
@@ -725,23 +646,23 @@
 
 
 
-                                                                            <div class="row mt-4">
-                                                                                <div class="col text-center">
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary">Simpan</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
+                                                            <div class="row mt-4">
+                                                                <div class="col text-center">
+                                                                    <button type="submit"
+                                                                        class="btn btn-primary">Simpan</button>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                                 </div>
                             </div>

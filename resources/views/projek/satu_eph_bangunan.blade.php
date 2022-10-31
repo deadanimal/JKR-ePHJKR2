@@ -1220,13 +1220,12 @@
             </div>
 
             {{-- @role('ketua-pasukan') --}}
+            <!--RAYUAN EPH BANGUNAN-->
             <div class="tab-pane" id="tab-6" role="tabpanel">
-                <!--Borang Validasi (Rayuan)-->
                 <div class="card mt-3">
                     <div class="card-body">
                         <form action="/projek/{{ $projek->id }}/markah" method="POST">
                             @csrf
-
                             <h4 class="mb-3">RAYUAN</h4>
                             <div class="row mx-3 mb-2">
                                 <div class="col-5 mb-2">
@@ -1284,10 +1283,10 @@
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
-                                    <label class="col-form-label">Comment on Appeal:</label>
+                                    <label class="col-form-label">Ulasan Rayuan:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Comment on Appeal"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ulasan_rayuan"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Dokumen Sokongan:</label>
@@ -1299,7 +1298,6 @@
                                     <input class="form-control" type="file" name="dokumen4">
                                     <input class="form-control" type="file" name="dokumen5">
                                 </div>
-
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         <button class="btn btn-primary" type="submit">Simpan</button>
@@ -1312,8 +1310,8 @@
             </div>
             {{-- @endrole --}}
 
+            <!--SKOR KAD EPH BANGUNAN-->
             <div class="tab-pane" id="tab-7" role="tabpanel">
-                <!--Skor Kad-->
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4 class="h4 mb-3">SKOR KAD EPH BANGUNAN</h4>
