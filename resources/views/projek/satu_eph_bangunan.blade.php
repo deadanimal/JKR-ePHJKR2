@@ -172,9 +172,6 @@
                                     </td>
                                 </tr>
                             @endforeach
-
-                            <tbody>
-                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -1286,7 +1283,7 @@
                                     <label class="col-form-label">Ulasan Rayuan:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="ulasan_rayuan"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan Rayuan"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Dokumen Sokongan:</label>
