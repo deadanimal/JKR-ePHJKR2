@@ -183,8 +183,10 @@
                         role="tab">Verifikasi</a></li>
                 <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab"
                         role="tab">Rayuan</a></li>
+                @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan')
                 <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab"
                         role="tab">Sijil</a></li>
+                @endrole
             </ul>
             <div class="tab-content">
                 <!--RUMUSAN SKOR KAD-->
