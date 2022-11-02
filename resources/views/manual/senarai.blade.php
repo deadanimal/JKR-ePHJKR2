@@ -23,13 +23,20 @@
                                     <div class="col-7 mb-2">
                                         <input class="form-control" name="nama" type="text"/>
                                     </div>
-                
+
                                     <div class="col-3 mb-2">
+                                        <label class="col-form-label">Catatan:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <textarea class="form-control" rows="4" name="dokumen" type="text" placeholder="Catatan"></textarea>
+                                    </div>
+                
+                                    {{-- <div class="col-3 mb-2">
                                         <label class="col-form-label">Muat Naik Dokumen Sokongan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
                                         <input class="form-control" name="dokumen" type="file"/>
-                                    </div>
+                                    </div> --}}
                     
                                     <div class="col-3 mb-2">
                                         
@@ -71,7 +78,7 @@
                                         <tr>
                                             <th class="sort">Bil.</th>
                                             <th class="sort">Nama Manual</th>
-                                            <th class="sort">Muatnaik</th>
+                                            <th class="sort">Catatan</th>
                                             <th class="sort">Tindakan</th>
                                         </tr>
                                     </thead>
@@ -81,7 +88,9 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $manual->nama }}</td>
-                                                <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $manual->dokumen }}">Pautan Dokumen</a></td>
+                                                <td>{{ $manual->dokumen }}</td>
+
+                                                {{-- <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $manual->dokumen }}">Pautan Dokumen</a></td> --}}
                                                 
                                                 
                                                 <td>

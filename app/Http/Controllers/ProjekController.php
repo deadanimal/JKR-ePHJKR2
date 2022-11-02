@@ -70,20 +70,59 @@ class ProjekController extends Controller
     }
 
     public function papar_semua_projek() 
-    {
+    { 
 
         $url = 'http://admin3-skala.jkr.gov.my/~vnisa/2022-devpskala/web/www/api/ephjkr-api.php';
         $response = Http::get($url, [
             'id_pengguna' => '850703045020', //$id_sso_skala //
         ]);
-
-        //dd($response);
+        
         $response = json_decode($response, true) ['data'];
+        
+        // foreach ($response as $k=>$v){
+        //     $url2 = 'http://admin3-skala.jkr.gov.my/~vnisa/2022-devpskala/web/www/api/ephjkr-api2.php';
+        //     $response2 = Http::get($url2, [
+        //         'id_pengguna' => '850703045020', 
+        //         'ruj_projek' => $v['ruj_projek']
+        //     ]);
+
+        //     // $response2 = json_decode($response2, true);
+
+        //     echo "<br>aaaaa<pre>".var_dump($v).'</pre>';
+        //     // $t = (int)preg_replace("/[^0-9.]/", "", $v['records']['kos_projek']['kos_projek_semasa']);
+
+        //     // if ($v['records']['pelanggan_pejabat_bertanggungjawab']['pejabat_hopt'] == 'BHG. BANGUNAN (SEL)' &&  $t >= 20000000){ 
+            
+        //     // }elseif ($v['records']['pelanggan_pejabat_bertanggungjawab']['pejabat_hopt'] == 'JALAN' &&  $t >= 50000000){ 
+
+        //     // }else{
+        //     //     unset($response[$k]);
+        //     // }
+        // }
+
+        // dd($response);
+        
+        
         // echo($response2);
+        // (int)preg_replace("/[^0-9.]/", "", $res['records']['kos_projek']['kos_projek_semasa']);
+
+        // foreach ($response as $k=>$v){
+            // echo "<br><pre>".var_dump($v).'</pre>';
+            // $t = (int)preg_replace("/[^0-9.]/", "", $v['records']['kos_projek']['kos_projek_semasa']);
+
+            // if ($v['records']['pelanggan_pejabat_bertanggungjawab']['pejabat_hopt'] == 'BHG. BANGUNAN (SEL)' &&  $t >= 20000000){ 
+            
+            // }elseif ($v['records']['pelanggan_pejabat_bertanggungjawab']['pejabat_hopt'] == 'JALAN' &&  $t >= 50000000){ 
+
+            // }else{
+            //     unset($response[$k]);
+            // }
+        // }
 
         //dd($response);
         return view('myskala', [
             'projeks' => $response,
+            // 'projek' => $response2
         ]);
 
 
@@ -119,18 +158,34 @@ class ProjekController extends Controller
 
     public function simpan_skala(Request $request) {
         // dd($request);
-        
-        $projek = New Projek;
 
-        $projek->nama = $request->tajuk_projek;
-        $projek->alamat = $request->lokasi_tapak;
-        $projek->kaedahPelaksanaan = $request->kaedahPelaksanaan;
-        $projek->jenisPerolehan = $request->jenisPerolehan;
-        $projek->kosProjek = $request->kosProjek;
+        //check kalo dah wujud
+        $proj = Projek::where('nama',$request->tajuk_projek)->get();
+        if(count($proj) > 0){
+            alert()->success('Maklumat telah wujud', 'Gagal');
+            return redirect('/projek');
+        }
 
-        $projek->save();
+        //check kalo lebih certain amount
+        $t = (int)preg_replace("/[^0-9.]/", "", $request->kosProjek);
 
-        return back();
+        if (($request->pejabat_hopt == 'BHG. BANGUNAN (SEL)' &&  $t >= 20000000) || ($request->pejabat_hopt == 'JALAN' &&  $t >= 50000000)){ 
+            $projek = New Projek;
+            $projek->nama = $request->tajuk_projek;
+            $projek->alamat = $request->lokasi_tapak;
+            $projek->kaedahPelaksanaan = $request->kaedahPelaksanaan;
+            $projek->jenisPerolehan = $request->jenisPerolehan;
+            $projek->kosProjek = $request->kosProjek;
+            $projek->save();
+        }else{
+            alert()->success('Maklumat tidak melebihi certain amount', 'Gagal');
+            return redirect('/projek');
+        }
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/projek');
+
+        // return back();
     }
 
     public function cipta_projek(Request $request) {
