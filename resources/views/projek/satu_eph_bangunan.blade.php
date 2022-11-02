@@ -101,13 +101,16 @@
                     </div>
                 </div>
                 @role('sekretariat')
-                    <button class="btn btn-primary my-3" type="submit">Sah Projek</button>
-                @endrole                    
+                    <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                @endrole 
+                @role('ketua-pasukan')
+                    <button class="btn btn-primary mx-3 my-3" type="submit">Muat Turun Maklumat Projek</button>
+                @endrole                     
             </div>
         </div>
 
         {{-- @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan') --}}
-        @role('ketua-pasukan')
+        @role('ketua-pasukan|sekretariat')
             <div class="col-12 mt-6">
                 <div class="card">
                     <div class="card-body">
@@ -128,14 +131,22 @@
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Peranan:</label>
                                 </div>
+                                @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="col-7 mb-2">
                                     <select class="form-select" name="role_id">
                                         <option value=12 selected>Ketua Pemudah Cara</option>
                                         <option value=6>Pemudah Cara</option>
+                                    </select>
+                                </div>
+                                @endrole
+                                @role('sekretariat')
+                                <div class="col-7 mb-2">
+                                    <select class="form-select" name="role_id">
                                         <option value=9>Ketua Pasukan Validasi</option>
                                         <option value=10>Pasukan Validasi</option>
                                     </select>
                                 </div>
+                                @endrole
                             </div>
                             <div class="row mt-3">
                                 <div class="col text-center">
@@ -185,7 +196,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Skor Kad</a>
             </li>
-            @role('pemudah-cara|ketua-pmeudah-cara')
+            @role('pemudah-cara|ketua-pemudah-cara')
             <li class="nav-item">
                 <a class="nav-link" href="#tab-3" data-bs-toggle="tab" role="tab">Rekabentuk</a>
             </li>
@@ -989,6 +1000,13 @@
                                 </tr>
                             </thead>
                         </table>
+                        @role('sekretariat')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary">Jana Keputusan</button>
+                                </div>
+                            </div>
+                        @endrole
                         @role('ketua-pasukan')
                             <div class="row mt-3">
                                 <div class="col text-center">
@@ -1041,9 +1059,19 @@
                                     <th>Markah</th>
                                     <th>Ulasan/Maklumbalas</th>
                                     <th>Dokumen Sokongan</th>
+                                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+                                    <th>Ulasan Rayuan</th>
+                                    @endrole
                                 </tr>
                             </thead>
                         </table>
+                        @role('sekretariat')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary">Sahkan Penilaian</button>
+                                </div>
+                            </div>
+                        @endrole
                         @role('ketua-pasukan')
                             <div class="row mt-3">
                                 <div class="col text-center">
@@ -1090,16 +1118,20 @@
                                     <input class="form-control" type="number" name="markah">
                                 </div>
                                 {{-- Untuk KT9 --}}
-                                {{-- @if ($projek->kategori == 'phJKR Bangunan Baru C' || 'phJKR Bangunan Baru D' || 'phJKR Bangunan PUN C' || 'phJKR Bangunan PUN D' || 'phJKR Bangunan Sediaada C' || 'phJKR Bangunan Sediaada D')
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sediaada C' || $projek->kategori == 'phJKR Bangunan Sediaada D')
                                 <div class="col-5 mb-2">
-                                        <label class="col-form-label">Markah BEI:</label>
+                                    <label class="col-form-label">Markah BEI:</label>
                                 </div>
                                 @endif
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sediaada C' || $projek->kategori == 'phJKR Bangunan Sediaada D')
                                 <div class="col-7 mb-2">
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru C' || 'phJKR Bangunan Baru D' || 'phJKR Bangunan PUN C' || 'phJKR Bangunan PUN D' || 'phJKR Bangunan Sediaada C' || 'phJKR Bangunan Sediaada D')   
-                                    <input class="form-control" type="number">
-                                    @endif
-                                </div> --}}
+                                    <input class="form-control" type="number" nama="markah">
+                                </div>
+                                @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Ulasan:</label>
                                 </div>
@@ -1116,7 +1148,6 @@
                                     <input class="form-control" type="file" name="dokumen4">
                                     <input class="form-control" type="file" name="dokumen5">
                                 </div>
-
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         <button class="btn btn-primary" type="submit">Simpan</button>
@@ -1312,12 +1343,12 @@
                                     <input class="form-control" type="number">
                                 </div>
                                 {{-- Untuk KT9 --}}
-                                {{-- <div class="col-5 mb-2">
+                                <div class="col-5 mb-2">
                                 <label class="col-form-label">Markah BEI:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <input class="form-control" type="number">
-                            </div> --}}
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <input class="form-control" type="number">
+                                </div>
                                 {{-- <div class="col-5 mb-2">
                                 <label class="col-form-label">Dokumen Pembuktian:</label>
                             </div>
@@ -1364,6 +1395,20 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4>SIJIL EPH BANGUNAN</h4>
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <button class="btn btn-primary" type="submit">Muat Turun Sijil</button>
+                            </div>
+                        </div>
+                        @endrole
+                        @role('sekretariat')
+                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <button class="btn btn-primary" type="submit">Jana Sijil</button>
+                            </div>
+                        </div>
+                        @endrole
                     </div>
                 </div>
             </div>
@@ -1452,6 +1497,10 @@
                 {
                     data: 'dokumen_',
                     name: 'dokumen_'
+                },
+                {
+                    data: 'ulasanrayuan_',
+                    name: 'ulasanrayuan_'
                 },
 
             ]

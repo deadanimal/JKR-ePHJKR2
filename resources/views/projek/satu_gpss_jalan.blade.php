@@ -101,6 +101,9 @@
                         </div>
                     </div>
                 </div>
+                @role('sekretariat')
+                    <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                @endrole 
             </div>
         </div>
     </div>     
@@ -337,6 +340,13 @@
                                 </tr>
                             </thead>
                         </table>
+                        @role('sekretariat')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary">Jana Keputusan</button>
+                                </div>
+                            </div>
+                        @endrole
                         @role('ketua-pasukan')
                             <div class="row mt-3">
                                 <div class="col text-center">
