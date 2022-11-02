@@ -34,7 +34,11 @@
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-body">
+
                                     <h5>{{$hebahans->tajuk}} </h5>
+
+                                    <h5>Hebahan 1 </h5>
+
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                 </div>
                             </div>
@@ -43,7 +47,7 @@
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5>What is Lorem Ipsum </h5>
+                                    <h5>Hebahan 2 </h5>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                 </div>
                             </div>
@@ -52,7 +56,7 @@
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5>What is Lorem Ipsum </h5>
+                                    <h5>Hebahan 3</h5>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                 </div>
                             </div>
@@ -95,7 +99,7 @@
 </div>
 
 
-{{-- utk java script --}}
+<!--JavaScript-->
 <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
@@ -184,7 +188,7 @@
 
     // Chart Title
     chart.children.unshift(am5.Label.new(root, {
-    text: "Chart 1",
+    text: "Carta 1",
     fontSize: 15,
     fontWeight: "500",
     textAlign: "center",
@@ -331,7 +335,7 @@
 
     // Chart Title
     chart.children.unshift(am5.Label.new(root, {
-    text: "Chart 2",
+    text: "Carta 2",
     fontSize: 15,
     fontWeight: "500",
     textAlign: "center",
@@ -478,7 +482,7 @@
 
     // Chart Title
     chart.children.unshift(am5.Label.new(root, {
-    text: "Chart 3",
+    text: "Carta 3",
     fontSize: 15,
     fontWeight: "500",
     textAlign: "center",
