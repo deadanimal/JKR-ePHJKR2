@@ -81,6 +81,22 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="/profit">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Profit</span>
+                </div>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="/senaraiPengguna">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Senarai Pengguna</span>
+                </div>
+            </a>
+        </li>
+
         @role('pentadbir|pengurusan-atasan|sekretariat')
         <li class="nav-item">
             <a class="nav-link" href="/laporan">

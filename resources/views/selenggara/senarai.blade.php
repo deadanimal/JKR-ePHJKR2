@@ -5,8 +5,7 @@
 
     <div class="tab mt-1">
         <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Pengguna</a>
-            </li>
+            <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Pengguna</a></li>
             <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Projek</a></li>
             <li class="nav-item"><a class="nav-link" href="#tab-3" data-bs-toggle="tab" role="tab">Kriteria</a></li>
             <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Audit Log</a></li>
@@ -16,7 +15,7 @@
 
                 <div class="row">
                     <div class="col">
-                        <h3 class="mb-0 text-primary"><strong>SELENGGARA PENGGUNA</strong></h3>
+                        <h3 class="mb-0 text-primary"><strong>SELENGGARA PERANAN</strong></h3>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -24,7 +23,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="col mb-">
-                                    <h2 class="h2 mb-3">BORANG SELENGGARA PENGGUNA</h2>
+                                    <h2 class="h2 mb-3">BORANG SELENGGARA PERANAN</h2>
                                 </div>
 
                                 <div class="col">
@@ -67,7 +66,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="col mb-">
-                                    <h2 class="h2 mb-3">SENARAI SELENGGARA PENGGUNA</h2>
+                                    <h2 class="h2 mb-3">SENARAI SELENGGARA PERANAN</h2>
                                 </div>
 
                                 <div class="row mt-2">
@@ -91,9 +90,9 @@
                                                             <td>
                                                                 <div class="row">
                                                                     <div class="col-auto">
-                                                                        {{-- <a href="/selenggaraPengguna/{{ $selenggaraPengguna->id }}/edit" --}}
+                                                                        {{-- <a href="/selenggaraPengguna/{{ $selenggaraPengguna->id }}/edit" 
                                                                         class="btn btn-sm btn-primary"><i
-                                                                            class="fas fa-edit"></i></a>
+                                                                            {{-- class="fas fa-edit"></i></a> --}}
                                                                     </div>
                                                                     <div class="col-auto">
                                                                         {{-- <form action="/selenggaraPengguna/{{ $selenggaraPengguna->id }}" method="post"> --}}

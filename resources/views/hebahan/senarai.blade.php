@@ -1,4 +1,4 @@
-@extends('layouts.anon')
+@extends('layouts.app')
 
 <style>
     #chartdiv {

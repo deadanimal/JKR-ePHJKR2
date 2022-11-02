@@ -1,4 +1,4 @@
-@extends('layouts.anon')
+@extends('layouts.app')
 
 <style>
     #chartdiv {
@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="col-7 mb-2">
                                             <div class="row mt-4">
-                                                @role('sekretariat')
+                                                @role('sekretariat| Pentadbir')
                                                 <div class="col-6">
                                                     <a href="/hebahan" class="btn btn-outline-primary">Batal</a>
                                                 </div>                                                

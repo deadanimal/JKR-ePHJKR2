@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hebahan;
 use Illuminate\Http\Request;
 
 use App\Models\Projek;
@@ -14,8 +15,10 @@ use App\Models\KriteriaGpssJalan;
 class UserController extends Controller
 {
 
-    public function home(Request $request) {    
-        return view('home');
+    public function home(Request $request) {  
+        $hebahans=Hebahan::get()->first();  
+
+        return view('home',compact('hebahans'));
     }
 
     public function dashboard(Request $request) {    

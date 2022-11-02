@@ -34,7 +34,7 @@
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5>What is Lorem Ipsum </h5>
+                                    <h5>{{$hebahans->tajuk}} </h5>
                                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                 </div>
                             </div>
@@ -90,7 +90,8 @@
 </div>
 
 <div class="col text-end mt-3">
-    <button type="submit" class="btn btn-primary">Maklum Balas</button>
+    <a href="/maklumbalas" class="btn btn-primary"> Maklum Balas</a>
+    {{-- <button type="submit" class="btn btn-primary">Maklum Balas</button> --}}
 </div>
 
 

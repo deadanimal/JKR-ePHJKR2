@@ -45,11 +45,11 @@
                         <label class="col-form-label">Poskod:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        {{-- <input class="form-control" name="poskod" type="number" required/> --}}
-                        <select name="poskod" id="districtSel" size="1" class="form-select form-control" aria-label="Default select example" >
+                        <input class="form-control" id="districtSel" name="poskod" type="number" required/>
+                        {{-- <select name="poskod" id="districtSel" size="1" class="form-select form-control" aria-label="Default select example" >
                             <option selected>Pilih Poskod</option>
                             
-                        </select>
+                        </select> --}}
                     </div>
 
                     <div class="col-3 mb-2">
@@ -137,10 +137,6 @@
                         </select>
                     </div>
 
-                   
-
-                    
-    
                     <div class="col-3 mb-2">
                         
                     </div>
@@ -162,47 +158,121 @@
 
     <script>
         var stateObject = {
-        "selangor": { "shah alam": ["111111"],
-        "Puncak alam": ["222222"],
-        "denai": ["333333"],
-        "subang": ["444444"],
+        "Selangor": { "shah alam": ["111111"],"Puncak alam": ["222222"],"denai": ["333333"],"subang": ["444444"],"sepang": ["11111"]
         },
-        "kelantan": {
+        "Kelantan": {
         "kota baharu": ["16000"],
         "perupok": ["16001"],
         "pasir mas": ["16002"],
         "wakaf baharu": ["16003"],
         "bachok": ["16004"],
         }, 
-        "johor": {
+        "Johor": {
         "johor baharu": ["16000"],
         "batu pahat": ["16001"],
         "kluang": ["16002"],
         "skudai": ["16003"],
         "muar": ["16004"],
         }, 
-        "terengganu": {
+        "Terengganu": {
         "kuala terengganu": ["16000"],
         "dungun": ["16001"],
         "berang": ["16002"],
         "kemaman": ["16003"],
         "ketereh": ["16004"],
         }, 
-        "melaka": {
+        "Melaka": {
         "jasin": ["16000"],
         "alor gajah": ["16001"],
         "bukit katil": ["16002"],
         "klebang": ["16003"],
         "ayer keroh": ["16004"],
         }, 
-        "pahang": {
+        "Pahang": {
         "kuantan": ["16000"],
         "pekan": ["16001"],
         "gambang": ["16002"],
         "jerantut": ["16003"],
         "temerloh": ["16004"],
-        }, 
+        },
+        "Perak": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "WP Labuan": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "Negeri Sembilan": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "WP KL": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "WP Putrajaya": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "Pulau Pinang": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "Kedah": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "Perlis": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "Sabah": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
+        "Sarawak": {
+        "kuantan": ["16000"],
+        "pekan": ["16001"],
+        "gambang": ["16002"],
+        "jerantut": ["16003"],
+        "temerloh": ["16004"],
+        },
         }
+
+        //untuk test 2 pilihan
+        // var stateObject = {
+        // "Selangor": ['shah alam','Puncak alam','denai','subang'],
+        // "Kelantan": ['kota baharu','perupok','pasir mas','wakaf baharu','bachok']
+        // }
+
         window.onload = function () {
         var countySel = document.getElementById("countySel"),
         stateSel = document.getElementById("stateSel"),
@@ -228,6 +298,24 @@
         }
         }
         }
+        //test utk 2 pilihan
+        // window.onload = function () {
+        // var negeriSel = document.getElementById("negeriSel"),
+        // bandarSel = document.getElementById("bandarSel");
+        // for (var negeri in stateObject) {
+        // negeriSel.options[negeriSel.options.length] = new Option(negeri, negeri);
+        // }
+        // negeriSel.onchange(); // reset in case page is reloaded
+        // negeriSel.onchange = function () {
+        // negeriSel.length = 1;
+        // bandarSel.length = 1; // remove all options bar first
+        // if (this.selectedIndex < 1) return; // done 
+        // var bandar = stateObject[negeriSel.value][this.value];
+        // for (var i = 0; i < bandar.length; i++) {
+        // bandarSel.options[bandarSel.options.length] = new Option(bandar[i], bandar[i]);
+        // }
+        // }
+        // }
     </script>
 
 @endsection
