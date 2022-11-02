@@ -99,12 +99,17 @@
                         <div class="col-8 mb-2">
                             <h5 class="h6" style="font-weight: 700;">{{$projek->kategori}}</h5>
                         </div>
-    
                     </div>
                 </div>
+                @role('sekretariat')
+                    <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                @endrole 
+                @role('ketua-pasukan')
+                    <button class="btn btn-primary mx-3 my-3" type="submit">Muat Turun Maklumat Projek</button>
+                @endrole
             </div>
         </div>
-        @role('ketua-pasukan')
+        @role('ketua-pasukan|sekretariat')
         <div class="col-12 mt-6">
             <div class="card">
                 <div class="card-body">
@@ -125,13 +130,22 @@
                             <div class="col-5 mb-2">
                                 <label class="col-form-label">Peranan:</label>
                             </div>
+                            @role('ketua-pasukan')
                             <div class="col-7 mb-2">
                                 <select class="form-select" name="role_id">
-                                    <option value=6 selected>Pemudah Cara</option>
-                                    <option value=8>Ketua Penilai</option>
+                                    <option value=12 selected>Ketua Pemudah Cara</option>
+                                    <option value=6>Pemudah Cara</option>
+                                </select>
+                            </div>
+                            @endrole
+                            @role('sekretariat')
+                            <div class="col-7 mb-2">
+                                <select class="form-select" name="role_id">
+                                    <option value=8 selected>Ketua Penilai</option>
                                     <option value=7>Penilai</option>
                                 </select>
                             </div>
+                            @endrole
                         </div>
                         <div class="row mt-3">
                             <div class="col text-center">
@@ -213,8 +227,8 @@
                                 </thead>
                                 <tbody class="text-black">
                                     <tr>
-                                    <th >1</th>
-                                    <th >Architectural (Aw)</th>
+                                    <th>1</th>
+                                    <th>Architectural (Aw)</th>
                                     <th>232</th>
                                     <th>AW_DS</th>
                                     <th>AW_CS</th>
@@ -224,8 +238,8 @@
                                     </tr>
 
                                     <tr>
-                                    <th >2</th>
-                                    <th >Mechanical (Mw)</th>
+                                    <th>2</th>
+                                    <th>Mechanical (Mw)</th>
                                     <th>34</th>
                                     <th>MW_DS</th>
                                     <th>MW_CS</th>
@@ -235,8 +249,8 @@
                                     </tr>
 
                                     <tr>
-                                    <th >3</th>
-                                    <th >Electrical (Ew)</th>
+                                    <th>3</th>
+                                    <th>Electrical (Ew)</th>
                                     <th>110</th>
                                     <th>EW_DS</th>
                                     <th>EW_CS</th>
@@ -246,8 +260,8 @@
                                     </tr>
 
                                     <tr>
-                                    <th >4</th>
-                                    <th >Civil & Structural (Cw)</th>
+                                    <th>4</th>
+                                    <th>Civil & Structural (Cw)</th>
                                     <th>124</th>
                                     <th>CW_DS</th>
                                     <th>CW_CS</th>
@@ -257,8 +271,8 @@
                                     </tr>
 
                                     <tr>
-                                    <th >5</th>
-                                    <th >Road & Geotechnial (Rw)</th>
+                                    <th>5</th>
+                                    <th>Road & Geotechnial (Rw)</th>
                                     <th>98</th>
                                     <th>RW_DS</th>
                                     <th>RW_CS</th>
@@ -268,8 +282,8 @@
                                     </tr>
 
                                     <tr>
-                                    <th >6</th>
-                                    <th >Structural(Bridge) (Sw)</th>
+                                    <th>6</th>
+                                    <th>Structural(Bridge) (Sw)</th>
                                     <th>12</th>
                                     <th>SW_DS</th>
                                     <th>SW_CS</th>
@@ -313,6 +327,13 @@
                                 </tr>
                             </tbody> 
                         </table>
+                        @role('sekretariat')
+                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <a href="#" class="btn btn-primary">Jana Keputusan</a>
+                            </div>
+                        </div>
+                        @endrole
                         @role('ketua-pasukan')
                             <div class="row mt-3">
                                 <div class="col text-center">
@@ -354,6 +375,13 @@
                                 </tr>
                             </thead>
                         </table>
+                        @role('sekretariat')
+                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <a href="#" class="btn btn-primary">Sahkan Penilaian</a>
+                            </div>
+                        </div>
+                        @endrole
                         @role('ketua-pasukan')
                             <div class="row mt-3">
                                 <div class="col text-center">
@@ -376,6 +404,18 @@
                             <h4 class="mb-3">PENILAIAN REKABENTUK GPSS BANGUNAN</h4>
                             <div class="row mx-3 mb-2">
                                 <div class="col-5 mb-2">
+                                    <label class="col-form-label">Element:</label>
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <select class="form-select form-control" id="kriteriaRekabentukDipilih"
+                                        name="kriteria" onchange="kriteriaRekabentuk()">
+                                        @foreach ($kriterias as $akriteria)
+                                            <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
+                                                {{ $akriteria->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-5 mb-2">
                                     <label class="col-form-label">Component:</label>
                                 </div>
                                 <div class="col-7 mb-2">
@@ -388,10 +428,22 @@
                                     </select>
                                 </div>
                                 <div class="col-5 mb-2">
-                                    <label class="col-form-label">Info Component:</label>
+                                    <label class="col-form-label">Product:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <div class="col-7 mb-2" id="infoKriteriaRekabentukDipilih"></div>
+                                    <select class="form-select form-control" id="kriteriaRekabentukDipilih"
+                                        name="kriteria" onchange="kriteriaRekabentuk()">
+                                        @foreach ($kriterias as $akriteria)
+                                            <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
+                                                {{ $akriteria->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-5 mb-2">
+                                    {{-- <label class="col-form-label">Point Allocated:</label> --}}
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <input class="form-control" name="" type="text"/>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Allocated:</label>
@@ -578,6 +630,20 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4>SIJIL GPSS BANGUNAN</h4>
+                        @role('sekretariat')
+                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <button class="btn btn-primary" type="submit">Jana Sijil</button>
+                            </div>
+                        </div>
+                        @endrole
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <button class="btn btn-primary" type="submit">Muat Turun Sijil</button>
+                            </div>
+                        </div>
+                        @endrole
                     </div>
                 </div>
             </div>

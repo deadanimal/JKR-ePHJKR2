@@ -98,11 +98,15 @@
                         <div class="col-8 mb-2">
                             <h5 class="h6" style="font-weight: 700;">{{ $projek->kategori }}</h5>
                         </div>
-
                     </div>
                 </div>
+                @role('sekretariat')
+                    <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                @endrole 
             </div>
         </div>
+
+        @role('ketua-pasukan|sekretariat')
         <div class="col-12 mt-6">
             <div class="card">
                 <div class="card-body">
@@ -123,13 +127,22 @@
                             <div class="col-5 mb-2">
                                 <label class="col-form-label">Peranan:</label>
                             </div>
+                            @role('ketua-pasukan')
                             <div class="col-7 mb-2">
                                 <select class="form-select" name="role_id">
-                                    <option value=6 selected>Pemudah Cara</option>
-                                    <option value=8>Ketua Penilai</option>
-                                    <option value=7>Penilai</option>
+                                    <option value=12 selected>Ketua Pemudah Cara</option>
+                                    <option value=6>Pemudah Cara</option>
                                 </select>
                             </div>
+                            @endrole
+                            @role('sekretariat')
+                            <div class="col-7 mb-2">
+                                <select class="form-select" name="role_id">
+                                   <option value=8 selected>Ketua Penilai Jalan</option>
+                                    <option value=6>Penilai</option>
+                                </select>
+                            </div>
+                            @endrole
                         </div>
                         <div class="row mt-3">
                             <div class="col text-center">
@@ -139,8 +152,8 @@
                     </form>
                 </div>
             </div>
-
         </div>
+        @endrole
 
         @if (!$lantikans->isEmpty())
         <div class="col-12 mt-6">
@@ -162,7 +175,6 @@
                                 </td>
                             </tr>
                         @endforeach
-
                         <tbody>
                         </tbody>
                     </table>
@@ -182,11 +194,15 @@
                 <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab"
                         role="tab">Verifikasi</a></li>
                 <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab"
-                        role="tab">Rayuan</a></li>
-                @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan')
+                        role="tab">Rayuan Rekabentuk</a></li>
                 <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab"
-                        role="tab">Sijil</a></li>
-                @endrole
+                        role="tab">Rayuan Verifikasi</a></li>
+                {{-- @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan') --}}
+                <li class="nav-item"><a class="nav-link" href="#tab-7" data-bs-toggle="tab"
+                        role="tab">Sijil Rekabentuk</a></li>
+                <li class="nav-item"><a class="nav-link" href="#tab-8" data-bs-toggle="tab"
+                        role="tab">Sijil Verifikasi</a></li>
+                {{-- @endrole --}}
             </ul>
             <div class="tab-content">
                 <!--RUMUSAN SKOR KAD-->
@@ -364,46 +380,51 @@
                 <!--SKOR KAD EPH JALAN-->
                 <div class="tab-pane" id="tab-2" role="tabpanel">
                     <div class="row mb-3">
-                        <div class="col">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="mb-3">SKOR KAD EPH JALAN</h4>
-                                        <div class="col">
-                                            <table class="table table-bordered line-table text-center" style="width: 100%">
-                                                <thead class="text-white bg-orange-jkr">
-                                                    <tr>
-                                                        @if ($projek->kategori == 'phJKR Jalan Lama')
-                                                            <th colspan="7">NEW ROADS</th>
-                                                        @elseif ($projek->kategori == 'phJKR Jalan Baru')
-                                                            <th colspan="7">UPGRADING ROADS</th>
-                                                        @endif
-                                                    </tr>
-                                                    <tr>
-                                                        <th rowspan="2">Code</th>
-                                                        <th rowspan="2">Criteria</th>
-                                                        <th rowspan="2">Responsibility</th>
-                                                        @if ($projek->fasa == 'rekabentuk')
-                                                        <th colspan="4">Design</th>
-                                                        @elseif ($projek->fasa == 'verifikasi')
-                                                        <th colspan="4">Verification</th>
-                                                        @endif
-                                                    </tr>
-                                                    <tr>
-                                                        <th>MAX POINT</th>
-                                                        <th>TARGET POINT</th>
-                                                        <th>ASSESSMENT POINT</th>
-                                                        <th>COMMENT BY ASSESSOR</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
-                                            @role('ketua-pasukan')
-                                            <div class="row mt-3">
-                                                <div class="col text-center">
-                                                    <button class="btn btn-primary">Muat Turun Skor Kad</button>
-                                                </div>
-                                            </div>
-                                            @endrole
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="mb-3">SKOR KAD EPH JALAN</h4>
+                                <div class="col">
+                                    <table class="table table-bordered line-table text-center" style="width: 100%">
+                                        <thead class="text-white bg-orange-jkr">
+                                            <tr>
+                                                @if ($projek->kategori == 'phJKR Jalan Lama')
+                                                    <th colspan="7">NEW ROADS</th>
+                                                @elseif ($projek->kategori == 'phJKR Jalan Baru')
+                                                    <th colspan="7">UPGRADING ROADS</th>
+                                                @endif
+                                            </tr>
+                                            <tr>
+                                                <th rowspan="2">Code</th>
+                                                <th rowspan="2">Criteria</th>
+                                                <th rowspan="2">Responsibility</th>
+                                                @if ($projek->fasa == 'rekabentuk')
+                                                <th colspan="4">Design</th>
+                                                @elseif ($projek->fasa == 'verifikasi')
+                                                <th colspan="4">Verification</th>
+                                                @endif
+                                            </tr>
+                                            <tr>
+                                                <th>MAX POINT</th>
+                                                <th>TARGET POINT</th>
+                                                <th>ASSESSMENT POINT</th>
+                                                <th>COMMENT BY ASSESSOR</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    @role('sekretariat')
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            <a href="#" class="btn btn-primary">Sahkan Penilaian</a>
                                         </div>
+                                    </div>
+                                    @endrole
+                                    @role('ketua-pasukan')
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary">Muat Turun Skor Kad</button>
+                                        </div>
+                                    </div>
+                                    @endrole
                                 </div>
                             </div>
                         </div>
@@ -433,11 +454,6 @@
                                         </select>
                                     </div>
                                     <div class="col-5 mb-2">
-                                        <label class="col-form-label">Criteria Info:</label>
-                                    </div>
-                                    <div class="col-7 mb-2" id="infoKriteriaRekabentukDipilih">
-                                    </div>
-                                    <div class="col-5 mb-2">
                                         <label class="col-form-label">Target Point:</label>
                                     </div>
                                     <div class="col-7 mb-2">
@@ -455,8 +471,7 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col text-center">
-                                            <button type="submit"
-                                                class="btn btn-primary">Simpan</button>
+                                            <button type="submit" class="btn btn-primary">Simpan</button>
                                         </div>
                                     </div>
                                 </div>
@@ -485,11 +500,6 @@
                                                     {{ $akriteria->nama }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <div class="col-5 mb-2">
-                                        <label class="col-form-label">Criteria Info:</label>
-                                    </div>
-                                    <div class="col-7 mb-2" id="infoKriteriaVerifikasiDipilih">
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Assessment Point:</label>
@@ -525,14 +535,14 @@
                     </div>
                 </div>
 
-                <!--RAYUAN EPH JALAN-->
+                <!--RAYUAN REKABENTUK EPH JALAN-->
                 <div class="tab-pane" id="tab-5" role="tabpanel">
                     <div class="card mt-3">
                         <div class="card-body">
                             <form action="/projek/{{ $projek->id }}/markah" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <h4 class="mb-3">RAYUAN</h4>
+                                <h4 class="mb-3">RAYUAN PENILAIAN REKABENTUK JALAN</h4>
                                 <div class="row mx-3 mb-2">
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Criteria:</label>
@@ -545,11 +555,6 @@
                                                     {{ $akriteria->nama }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <div class="col-5 mb-2">
-                                        <label class="col-form-label">Criteria Info:</label>
-                                    </div>
-                                    <div class="col-7 mb-2" id="infoKriteriaRayuankDipilih">
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Target Point:</label>
@@ -597,11 +602,87 @@
                     </div>
                 </div>
 
-                <!--SIJIL EPH JALAN-->
+                <!--RAYUAN VERIFIKASI EPH JALAN-->
                 <div class="tab-pane" id="tab-6" role="tabpanel">
                     <div class="card mt-3">
                         <div class="card-body">
-                            <h4>SIJIL EPH JALAN</h4>
+                            <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <h4 class="mb-3">RAYUAN VERIFIKASI PERMARKAHAN JALAN</h4>
+                                <div class="row mx-3 mb-2">
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Criteria:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <select class="form-select form-control" id="kriteriaRayuanDipilih"
+                                            name="kriteria" onchange="kriteriaRayuan()">
+                                            @foreach ($kriterias as $akriteria)
+                                                <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
+                                                    {{ $akriteria->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Target Point:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <input class="form-control" name="markah" type="number" />
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Assessment Point:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <input class="form-control" name="markah" type="number" />
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Comment by Assessor:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <textarea class="form-control" rows="3" name="" type="text" placeholder="Comment"></textarea>
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Comment on Appeal:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <textarea class="form-control" rows="3" name="" type="text" placeholder="Comment on Appeal"></textarea>
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Upload File:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <input class="form-control" type="file" name="dokumen1">
+                                        <input class="form-control" type="file" name="dokumen2">
+                                        <input class="form-control" type="file" name="dokumen3">
+                                        <input class="form-control" type="file" name="dokumen4">
+                                        <input class="form-control" type="file" name="dokumen5">
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col text-center">
+                                            <button type="submit"
+                                                class="btn btn-primary">Simpan</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--SIJIL REKABENTUK EPH JALAN-->
+                <div class="tab-pane" id="tab-7" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h4>SIJIL PENILAIAN REKABENTUK JALAN</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!--SIJIL VERIFIKASI EPH JALAN-->
+                <div class="tab-pane" id="tab-8" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <h4>SIJIL VERIFIKASI PERMARKAHAN JALAN</h4>
                         </div>
                     </div>
                 </div>
