@@ -373,14 +373,14 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRekabentukDipilih"
                                         name="kriteria" onchange="kriteriaRekabentuk()">
-                                        @foreach ($kriterias as $akriteria)
+                                        @foreach ($gpss_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                 {{ $akriteria->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-5 mb-2">
-                                    <label class="col-form-label">Info Component:</label>
+                                    <label class="col-form-label">Maximum Marks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <div class="col-7 mb-2" id="infoKriteriaRekabentukDipilih"></div>
@@ -395,13 +395,13 @@
                                     <label class="col-form-label">Point Requested (Design):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number"/>
+                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Remarks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="4" name="remarks" type="text" placeholder="Remarks"></textarea>
+                                    <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                 <label class="col-form-label">Upload File:</label>
@@ -438,14 +438,14 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
                                         name="kriteria" onchange="kriteriaVerifikasi()">
-                                        @foreach ($kriterias as $akriteria)
+                                        @foreach ($gpss_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                 {{ $akriteria->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-5 mb-2">
-                                    <label class="col-form-label">Info Component:</label>
+                                    <label class="col-form-label">Maximum Marks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <div class="col-7 mb-2" id="infoKriteriaVerifikasiDipilih"></div>
@@ -454,13 +454,13 @@
                                     <label class="col-form-label">Point Requested (Construction):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number"/>
+                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
                                 </div> 
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Remarks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="4" name="remarks" type="text" placeholder="Remarks"></textarea>
+                                    <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                 <label class="col-form-label">Upload File:</label>
@@ -497,14 +497,14 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRayuanDipilih"
                                         name="kriteria" onchange="kriteriaRayuan()">
-                                        @foreach ($kriterias as $akriteria)
-                                            <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
-                                                {{ $akriteria->nama }}</option>
+                                        @foreach ($gpss_kriterias as $akriteria)
+                                            <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} -
+                                                {{ $akriteria->komponen }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-5 mb-2">
-                                    <label class="col-form-label">Info Component:</label>
+                                    <label class="col-form-label">Maximum Marks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <div class="col-7 mb-2" id="infoKriteriaRayuanDipilih"></div>
@@ -519,25 +519,25 @@
                                     <label class="col-form-label">Point Requested (Design):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number"/>
+                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Requested (Construction):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number"/>
+                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Remarks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="4" name="remarks" type="text" placeholder="Remarks"></textarea>
+                                    <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Comment on Appeal:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="4" name="commentonappeal" type="text" placeholder="Comment on Appeal"></textarea>
+                                    <textarea class="form-control" rows="3" name="ulasan_rayuan" type="text" placeholder="Comment on Appeal"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Upload File:</label>
@@ -587,25 +587,25 @@
     kriteriaRayuan();
 
     function kriteriaRekabentuk() {
-        var lols = {!! $kriterias !!}
+        var lols = {!! $gpss_kriterias !!}
         var kriteriaRekabentuk = document.getElementById("kriteriaRekabentukDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRekabentuk);
-        document.getElementById("infoKriteriaRekabentukDipilih").innerHTML = selectedKriteria.bukti;
+        document.getElementById("infoKriteriaRekabentukDipilih").innerHTML = selectedKriteria.maksimum;
     }
 
 
     function kriteriaVerifikasi() {
-        var lols = {!! $kriterias !!}
+        var lols = {!! $gpss_kriterias !!}
         var kriteriaVerifikasi = document.getElementById("kriteriaVerifikasiDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaVerifikasi);
-        document.getElementById("infoKriteriaVerifikasiDipilih").innerHTML = selectedKriteria.bukti;
+        document.getElementById("infoKriteriaVerifikasiDipilih").innerHTML = selectedKriteria.maksimum;
     }
 
     function kriteriaRayuan() {
-        var lols = {!! $kriterias !!}
+        var lols = {!! $gpss_kriterias !!}
         var kriteriaRayuan = document.getElementById("kriteriaRayuanDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRayuan);
-        document.getElementById("infoKriteriaRayuanDipilih").innerHTML = selectedKriteria.bukti;
+        document.getElementById("infoKriteriaRayuanDipilih").innerHTML = selectedKriteria.maksimum;
     }
 </script>
 
@@ -637,14 +637,17 @@
                     name: 'maksimum'
                 },
                 {
-                    data: 'produk',
-                    name: 'produk'
+                    data: 'markah_gpss',
+                    name: 'markah_gpss'
                 },
                 {
-                    data: 'dokumen_',
-                    name: 'dokumen_'
+                    data: 'ulasan_gpss',
+                    name: 'ulasan_gpss'
                 },
-
+                {
+                    data: 'dokumen_gpss',
+                    name: 'dokumen_gpss'
+                },
             ]
         });
 

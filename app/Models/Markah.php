@@ -11,6 +11,12 @@ class Markah extends Model
 
     public function kriteria() {
         return $this->belongsTo(Kriteria::class);
-    }    
+    }
+
+    public function gpss_kriteria() {
+        return $this->belongsTo(GpssKriteria::class);
+    }
+    
+    
 
 }
