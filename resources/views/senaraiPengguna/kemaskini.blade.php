@@ -26,7 +26,7 @@
 
     <div class="row mt-4 mb-3">
         <div class="col">
-            <form action="/senarai_pengguna/{{$pengguna->id}}" method="post">
+            <form action="/senaraiPengguna/simpan_kemaskini_pengguna/{{$pengguna->id}}" method="post">
                 @method('PUT')
                 @csrf
                 <div class="row mx-4">

@@ -32,7 +32,8 @@ class ManualController extends Controller
         $id = (int)$request->route('id'); 
         $manual = Manual::find($id);
         $manual->nama = $request->nama;
-        $manual->dokumen = $request->file('dokumen')->store('jkr-ephjkr/uploads');
+        $manual->dokumen = $request->dokumen;
+        // $manual->dokumen = $request->file('dokumen')->store('jkr-ephjkr/uploads');
         $manual->save();
         return back();
     }   

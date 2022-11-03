@@ -28,6 +28,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('dashboard', [UserController::class, 'dashboard']); 
     Route::get('laporan', [UserController::class, 'laporan']); 
     Route::get('profil', [UserController::class, 'profil']);
+    Route::get('profil/profil_kemaskini/{id}', [UserController::class, 'kemaskini_profil']);
+    Route::put('profil/simpan_kemaskini/{id}', [UserController::class, 'simpan_kemaskini']);
+    Route::get('profil/tukar_peranan/{id}', [UserController::class, 'tukar_peranan']);
+    Route::put('profil/simpan_tukar_peranan/{id}', [UserController::class, 'simpan_tukar_peranan']);
+    Route::get('senaraiPengguna', [UserController::class, 'senaraiPengguna']);
+    Route::get('senaraiPengguna/cipta', [UserController::class, 'cipta']);
+    Route::post('senaraiPengguna/cipta_pengguna', [UserController::class, 'cipta_pengguna']);
+    Route::get('senaraiPengguna/kemaskini_pengguna/{id}', [UserController::class, 'kemaskini_pengguna']);
+    Route::put('senaraiPengguna/simpan_kemaskini_pengguna/{id}', [UserController::class, 'simpan_kemaskini_pengguna']);
+    Route::get('senaraiPengguna/senarai_tukar_peranan', [UserController::class, 'senarai_tukar_peranan']);
+    Route::get('senaraiPengguna/sembunyi', [UserController::class, 'senarai_sembunyi']);
 
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
     Route::get('projek/borang', [ProjekController::class, 'borang_projek']); 

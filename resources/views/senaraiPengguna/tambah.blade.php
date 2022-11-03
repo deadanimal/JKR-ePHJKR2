@@ -26,7 +26,7 @@
 
     <div class="row mt-4 mb-3">
         <div class="col">
-            <form action="/senarai_pengguna" method="post">
+            <form action="/senaraiPengguna/cipta_pengguna" method="post">
                 @csrf
                 <div class="row mx-4">
                     <div class="col-3 mb-2">
@@ -37,19 +37,28 @@
                     </div>
 
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">IC Pengguna:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <input class="form-control" name="icPengguna" />
-                    </div>
-    
-                    <div class="col-3 mb-2">
                         <label class="col-form-label">e-Mel Pengguna:</label>
                     </div>
                     <div class="col-7 mb-2">
                         <input class="form-control" name="email"/>
                     </div>
 
+                    <div class="col-3 mb-2">
+                        <label class="col-form-label">password:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <input class="form-control" name="password"/>
+                    </div>
+
+
+                    <div class="col-3 mb-2">
+                        <label class="col-form-label">IC Pengguna:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <input class="form-control" name="icPengguna" />
+                    </div>
+    
+                    
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Nama Syarikat:</label>
                     </div>
@@ -102,7 +111,7 @@
                                 <a href="/senarai_pengguna" class="btn btn-outline-primary">Batal</a>
                             </div>
                             <div class="col-6 text-end">
-                                <button type="submit" class="btn btn-primary">Simpan Kemaskini</button>
+                                <button type="submit" class="btn btn-primary">Simpan</button>
                             </div>
                         </div>
                     </div>
