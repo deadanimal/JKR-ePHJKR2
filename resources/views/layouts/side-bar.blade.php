@@ -82,9 +82,9 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="/profit">
+            <a class="nav-link" href="/profil">
                 <div class="d-flex align-items-center nav-link-side">
-                    <span class="px-0">Profit</span>
+                    <span class="px-0">Profil</span>
                 </div>
             </a>
         </li>

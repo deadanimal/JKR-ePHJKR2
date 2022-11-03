@@ -26,7 +26,7 @@
 
     <div class="row mt-4 mb-3">
         <div class="col">
-            <form action="/profil/{{$pengguna->id}}" method="post">
+            <form action="/profil/simpan_kemaskini/{{$pengguna->id}}" method="post">
                 @method('PUT')
                 @csrf
                 <div class="row mx-4">
@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="col-10 text-end">
-                        <a href="/profil_pengguna/{{$pengguna->id}}/penukaran_peranan" class="text-primary">Penukaran Peranan</a>
+                        <a href="/profil/tukar_peranan/{{$pengguna->id}}" class="text-primary">Penukaran Peranan</a>
                     </div>
     
                     <div class="col-3 mb-2">

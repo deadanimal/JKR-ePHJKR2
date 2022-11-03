@@ -30,42 +30,42 @@
                             <h5 class="h6">Nama:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna->name }}</h5>
+                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna['name'] }}</h5>
                         </div>
 
                         <div class="col-4 mb-2">
                             <h5 class="h6">e-Mel Pengguna:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna->email }}</h5>
+                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna['email'] }}</h5>
                         </div>
 
                         <div class="col-4 mb-2">
                             <h5 class="h6">No. Telefon Bimbit:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna->notelbimbitPengguna }}</h5>
+                            <h5 class="h6" style="font-weight: 700;"> {{--{{ $pengguna->notelbimbitPengguna }}--}}</h5>
                         </div>
 
                         <div class="col-4 mb-2">
                             <h5 class="h6">Nama Syarikat:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna->namaSyarikat }}</h5>
+                            <h5 class="h6" style="font-weight: 700;">{{--{{ $pengguna->namaSyarikat }}--}}</h5>
                         </div>
 
                         <div class="col-4 mb-2">
                             <h5 class="h6">Nama Cawangan:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna->namaCawangan }}</h5>
+                            <h5 class="h6" style="font-weight: 700;">{{--{{ $pengguna->namaCawangan }}--}}</h5>
                         </div>
 
                         <div class="col-4 mb-2">
                             <h5 class="h6">Alamat Syarikat:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna->alamatSyarikat }}</h5>
+                            <h5 class="h6" style="font-weight: 700;">{{--{{ $pengguna->alamatSyarikat }}--}}</h5>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
 
     <div class="row">
         <div class="col text-end">
-            <a href="/profil/{{$pengguna->id}}/kemaskini" class="btn btn-primary">Kemaskini</a>
+            <a href="profil/profil_kemaskini/{{$pengguna->id}}" class="btn btn-primary">Kemaskini</a>
         </div>
     </div>
 @endsection

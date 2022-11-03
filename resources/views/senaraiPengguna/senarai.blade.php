@@ -22,13 +22,20 @@
 
     <div class="row mt-3">
         <div class="col text-end">
-            <a href='profil/senaraiPengguna/senarai_tukar_peranan' class="btn btn-primary">senarai tukar peranan</a>
+            <a href='senaraiPengguna/senarai_tukar_peranan' class="btn btn-primary">senarai tukar peranan</a>
         </div>
     </div>
 
     <div class="row mt-3">
         <div class="col text-end">
-            <a href="/senarai_pengguna/create" class="btn btn-primary">Tambah</a>
+            <a href="senaraiPengguna/sembunyi"
+                class="mt-2 btn btn-sm btn-primary">Sembunyi</a>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col text-end">
+            <a href="/senaraiPengguna/cipta" class="btn btn-primary">Tambah</a>
         </div>
     </div>
 
@@ -59,31 +66,76 @@
                                     <td>{{ $p->negeri }}</td>
                                     <td></td>
                                     <td>
-                                        <div
-                                            class="col-auto mb-2 px-0"
-                                            style="border: 1px solid #F4A258; box-shadow: inset 2px 2px 5px 2px lightgrey; background-color: white; z-index: 2; border-radius:5px;">
+                                        <div class="col">
+                                            <div class="col-auto mb-2 px-0"
+                                                style="border: 1px solid #F4A258; box-shadow: inset 2px 2px 5px 2px lightgrey; background-color: white; z-index: 2; border-radius:5px;">
+                                                @if ($p->aktif == '0')
+                                                    <button class="btn btn-orange-jkr" type="button">Active</button>
+                                                @else
+                                                    <button class="btn btn-final" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#lulus">Active</button>
+                                                        <form method="POST" action="simpan_status">
+                                                            @csrf
+                                                            <input type="hidden" name="name" value="{{$p->id}}">
+                                                            <input type="hidden" name="aktif" value="1">
+                                                            <button class="btn btn-final" type="submit">Active</button>
+                                                        </form>
+                                                @endif
+                                                |
+                                                @if ($p->aktif == '1')
+                                                    <button class="btn btn-orange-jkr" type="button">Inactive</button>
+                                                @else
+                                                    <button class="btn btn-final" type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#tolak">Inactive</button>
+                                                @endif
+
+                                            </div>
+
+
+                                           {{-- class="col-auto mb-2 px-0"
+                                            style="border: 1px solid #F4A258; box-shadow: inset 2px 2px 5px 2px lightgrey; background-color: white; z-index: 2; border-radius:5px;"> --}}
                                             
+                                            {{-- <div class="col">
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-secondary active">
+                                                    <form method="POST" action="simpan_status">
+                                                        @csrf
+                                                        <input type=hidden name="staffId" value="{{$p->id}}">
+                                                        <input type=hidden name="status" value="0">
+                                                        <input type="radio" name="aktif"  class="ubahStatus" checked> Active
+                                                    </form>
+                                                </label>
+                                                <label class="btn btn-secondary">
+                                                    <form method="POST" action="simpan_status">
+                                                        @csrf
+                                                        <input type=hidden name="staffId" value="{{$p->id}}">
+                                                        <input type=hidden name="status" value="1">
+                                                        <input type="radio" name="aktif"  class="ubahStatus"> Inactive
+                                                    </form>
+                                                </label>
+                                            </div> --}}
+                                              {{-- </div>href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Inactive</a> --}}
                                                 {{-- <button class="btn btn-orange-jkr" type="button">LULUS</button> --}}
                                             
-                                                <button class="btn btn-final" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#lulus">Active</button>
+                                                {{-- <button class="btn btn-final" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#lulus">Active</button> --}}
                                             
                                                 
                                             
                                                 {{-- <button class="btn btn-orange-jkr" type="button">GAGAL</button> --}}
                                             
-                                                <button class="btn btn-final" type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#gagal">Inactive</button>
+                                                {{-- <button class="btn btn-final" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#gagal">Inactive</button> --}}
                                             
 
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="/pengurusan_maklumat/senarai_pengguna/{{ $p->id }}/edit"
+                                        <a href="/senaraiPengguna/kemaskini_pengguna/{{ $p->id }}"
                                             class="btn btn-sm btn-primary">Kemaskini</a>
 
-                                        <a href="senarai_pengguna/pengguna_disembunyi/{{ $p->id }}"
-                                            class="mt-2 btn btn-sm btn-primary">Sembunyi</a>
+                                        {{-- <a href="senaraiPengguna.sembunyi/{{ $p->id }}"
+                                            class="mt-2 btn btn-sm btn-primary">Sembunyi</a> --}}
                                     </td>
                                 </tr>
                             @endforeach
@@ -93,4 +145,32 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(
+            $(document).on('click','.ubahStatus',function(){
+                alert('asd');
+            });
+        );
+    </script>
+{{-- <script>
+   $.ajax({
+                method: "POST",
+                url: "{{ url('get_agensi_organisasi_by_sektor') }}",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    "sektor": $(this).val(),
+                },
+            }).done(function(response) {
+                var data = jQuery.parseJSON(response);
+                $('#agensi_organisasi').html('');
+                $('#agensi_organisasi').append('<option value="">Pilih...</option>');
+                $.each(data.aos, function(index, value) {
+                    $('#agensi_organisasi').append('<option value="' + value.id + '" data-name="' +
+                        value.name + '">' + value.name + '</option>');
+                });
+
+                $('#bahagian').html('');
+                $('#bahagian').append('<option value="">Pilih...</option>');
+            }); 
+</script> --}}
 @endsection

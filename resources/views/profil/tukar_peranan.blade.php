@@ -30,7 +30,7 @@
 
     <div class="row mt-4 mb-3">
         <div class="col">
-            <form action="#" method="post">
+            <form action="/profil/simpan_tukar_peranan" method="post">
                 @method('PUT')
                 @csrf
                 <div class="row mx-4">
@@ -91,11 +91,11 @@
                     <div class="col-7 mb-2">
                         <div class="row mt-4">
                             <div class="col-6">
-                                <a href="/pengurusan_maklumat/profil_pengguna/{{ $pengguna->id }}/edit"
+                                <a href="/profil/profil_kemaskini/{{ $pengguna->id }}"
                                     class="btn btn-outline-primary">Batal</a>
                             </div>
                             <div class="col-6 text-end">
-                                <button type="submit" class="btn btn-primary">Simpan Kemaskini</button>
+                                <button type="submit" class="btn btn-primary">Simpan Tukar Peranan</button>
                             </div>
                         </div>
                     </div>
