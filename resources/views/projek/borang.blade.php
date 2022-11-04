@@ -124,12 +124,12 @@
                             <option value="phJKR Bangunan PUN B">phJKR Bangunan PUN B</option>
                             <option value="phJKR Bangunan PUN C">phJKR Bangunan PUN C</option>
                             <option value="phJKR Bangunan PUN D">phJKR Bangunan PUN D</option>
-                            <option value="phJKR Bangunan Sediaada A">phJKR Bangunan Sediaada A</option>
-                            <option value="phJKR Bangunan Sediaada B">phJKR Bangunan Sediaada B</option>
-                            <option value="phJKR Bangunan Sediaada C">phJKR Bangunan Sediaada C</option>
-                            <option value="phJKR Bangunan Sediaada D">phJKR Bangunan Sediaada D</option>                            
+                            <option value="phJKR Bangunan Sedia Ada A">phJKR Bangunan Sedia Ada A</option>
+                            <option value="phJKR Bangunan Sedia Ada B">phJKR Bangunan Sedia Ada B</option>
+                            <option value="phJKR Bangunan Sedia Ada C">phJKR Bangunan Sedia Ada C</option>
+                            <option value="phJKR Bangunan Sedia Ada D">phJKR Bangunan Sedia Ada D</option>                            
                             <option value="phJKR Jalan Baru">phJKR Jalan Baru</option>
-                            <option value="phJKR Jalan Lama">phJKR Jalan Lama</option>
+                            <option value="phJKR Jalan Naiktaraf">phJKR Jalan Naiktaraf</option>
                             <option value="GPSS Bangunan 1">GPSS Bangunan 1</option>
                             <option value="GPSS Bangunan 2">GPSS Bangunan 2</option>
                             <option value="GPSS Bangunan 3">GPSS Bangunan 3</option>
