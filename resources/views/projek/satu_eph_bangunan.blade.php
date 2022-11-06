@@ -106,7 +106,7 @@
                         @csrf
                         @if( $projek->status == "Menunggu Pengesahan Sekretariat")
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Pengisian Skor Rekabentuk Bangunan">Proses Pengisian Skor Rekabentuk Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                        @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan")
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Rekabentuk Bangunan">Dalam Pengesahan Skor Rekabentuk Bangunan</button>
                         @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Rekabentuk Bangunan">Selesai Pengesahan  Rekabentuk Bangunan</button>
