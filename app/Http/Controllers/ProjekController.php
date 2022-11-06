@@ -3559,6 +3559,7 @@ class ProjekController extends Controller
         $projek_role->role_id = (int)$request->role_id;
         $projek_role->save();
 
+        alert()->success('Lantikan telah dilakukan', 'Berjaya');
         return back();
     }
 
@@ -3670,6 +3671,10 @@ class ProjekController extends Controller
         elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan"){
             $projek->status = "Selesai Pengesahan Rekabentuk Bangunan";
             alert()->success('Dalam Pengesahan Skor Rekabentuk Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Selesai Pengesahan Rekabentuk Bangunan"){
+            $projek->status = "Proses Pengisian Skor Verifikasi Permarkahan Bangunan";
+            alert()->success('Selesai Pengesahan Rekabentuk Bangunan', 'Berjaya');
         }
         $projek->save();
         return back();

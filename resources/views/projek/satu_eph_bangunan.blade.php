@@ -111,25 +111,24 @@
                         @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Rekabentuk Bangunan</button>
                         @elseif ($projek->status == "Selesai Pengesahan Rekabentuk Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan  Rekabentuk Bangunan</button>
-                        {{-- @elseif ($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan">Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan")  
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan Verifikasi Bangunan">Selesai Pengesahan  Verifikasi Bangunan</button>
-                        @elseif ($projek->status == "Selesai Pengesahan Verifikasi Bangunan")
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Pengisian Skor Validasi Permarkahan Bangunan">Proses Pengisian Skor Validasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Validasi Permarkahan Bangunan">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan")
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Validasi Bangunan">Selesai Pengesahan  Validasi Bangunan</button>
-                        @elseif ($projek->status == "Selesai Pengesahan  Validasi Bangunan")
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Rayuan Bangunan">Proses Rayuan Bangunan</button>
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk Bangunan</button>
+                        @elseif ($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Verifikasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Verifikasi Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Verifikasi Bangunan </button>
+                        @elseif ($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Validasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Validasi Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan  Validasi Bangunan</button>
                         @elseif ($projek->status == "Proses Rayuan Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Rayuan Bangunan">Dalam Pengesahan Rayuan Bangunan</button>
-                        @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan")   
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Rayuan Bangunan">Selesai Pengesahan  Rayuan Bangunan</button>
-                        @elseif ($projek->status == "Selesai Pengesahan  Rayuan Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Rayuan Bangunan">Selesai Rayuan Bangunan</button> --}}
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan ")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Rayuan Bangunan</button>
+
                         @endif
 
                     </form>
