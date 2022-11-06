@@ -3655,35 +3655,87 @@ class ProjekController extends Controller
 
     }
 
-    // public function sah_projek(Request $request) {
-    //     $id = (int)$request->route('id');
-    //     $projek = Projek::find($id);
-    //     $projek->status = "Proses Pengisian Skor Rekabentuk Bangunan";
-
-    //     $projek->save();
-    //     return back();
-    // }
-
-    public function sah_projek(Request $request){
+    public function sah_projek(Request $request) {
         $id = (int)$request->route('id');
         $projek = Projek::find($id);
 
-
-
-        
-        if($request->status_projek == "Proses Pengisian Skor Rekabentuk Bangunan"){
-            $projek->status == "Proses Pengisian Skor Rekabentuk Bangunan";
+        if ($projek->status == "Menunggu Pengesahan Sekretariat"){
+            $projek->status = "Proses Pengisian Skor Rekabentuk Bangunan";
+            alert()->success('Projek Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan"){
+            $projek->status = "Dalam Pengesahan Skor Rekabentuk Bangunan";
             alert()->success('Proses Pengisian Skor Rekabentuk Bangunan', 'Berjaya');
         }
-        elseif($request->status_projek == "Dalam Pengesahan Skor Rekabentuk Bangunan"){
-            $projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan";
-            alert()->success('Dalam Pengesahan Skor Rekabentuk Bangunan', 'Berjaya Disahkan');
+        elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan"){
+            $projek->status = "Selesai Pengesahan Rekabentuk Bangunan";
+            alert()->success('Dalam Pengesahan Skor Rekabentuk Bangunan', 'Berjaya');
         }
-
         $projek->save();
         return back();
-        
     }
+
+    // public function sah_projek(Request $request){
+    //     $id = (int)$request->route('id');
+    //     $projek = Projek::find($id);
+
+    //     if($request->status_projek == "Sah"){
+    //         $projek->status == "Menunggu Pengesahan Sekretariat";
+    //         alert()->success('Projek Disahkan', 'Berjaya');
+    //     }
+    //     // elseif($request->status_projek == "Dalam Pengesahan Skor Rekabentuk Bangunan"){
+    //     //     $projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan";
+    //     //     alert()->success('Dalam Pengesahan Skor Rekabentuk Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Selesai Pengesahan  Rekabentuk Bangunan"){
+    //     //     $projek->status == "Selesai Pengesahan  Rekabentuk Bangunan";
+    //     //     alert()->success('Selesai Pengesahan  Rekabentuk Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan"){
+    //     //     $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan";
+    //     //     alert()->success('Proses Pengisian Skor Verifikasi Permarkahan Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan"){
+    //     //     $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan";
+    //     //     alert()->success('Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Selesai Pengesahan  Verifikasi Bangunan"){
+    //     //     $projek->status == "Selesai Pengesahan  Verifikasi Bangunan";
+    //     //     alert()->success('Selesai Pengesahan  Verifikasi Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Proses Pengisian Skor Validasi Permarkahan Bangunan"){
+    //     //     $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan";
+    //     //     alert()->success('Proses Pengisian Skor Validasi Permarkahan Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan"){
+    //     //     $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan";
+    //     //     alert()->success('Dalam Pengesahan Skor Validasi Permarkahan Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Selesai Pengesahan  Validasi Bangunan"){
+    //     //     $projek->status == "Selesai Pengesahan  Validasi Bangunan";
+    //     //     alert()->success('Selesai Pengesahan  Validasi Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Proses Rayuan Bangunan"){
+    //     //     $projek->status == "Proses Rayuan Bangunan";
+    //     //     alert()->success('Proses Rayuan Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Dalam Pengesahan Rayuan Bangunan"){
+    //     //     $projek->status == "Dalam Pengesahan Rayuan Bangunan";
+    //     //     alert()->success('Dalam Pengesahan Rayuan Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Selesai Pengesahan  Rayuan Bangunan"){
+    //     //     $projek->status == "Selesai Pengesahan  Rayuan Bangunan";
+    //     //     alert()->success('Selesai Pengesahan  Rayuan Bangunan', 'Berjaya Disahkan');
+    //     // }
+    //     // elseif($request->status_projek == "Selesai Rayuan Bangunan"){
+    //     //     $projek->status == "Selesai Rayuan Bangunan";
+    //     //     alert()->success('Selesai Rayuan Bangunan', 'Berjaya Disahkan');
+    //     // }
+
+    //     $projek->save();
+    //     return back();
+        
+    // }
 
 
 
