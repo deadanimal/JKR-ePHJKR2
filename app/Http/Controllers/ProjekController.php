@@ -3667,6 +3667,7 @@ class ProjekController extends Controller
     public function sah_projek(Request $request){
         $id = (int)$request->route('id');
         $projek = Projek::find($id);
+        
 
         if($request->status_projek == "Proses Pengisian Skor Rekabentuk Bangunan"){
             $projek->status == "Proses Pengisian Skor Rekabentuk Bangunan";
