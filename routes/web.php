@@ -53,6 +53,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek/{id}/markah', [ProjekController::class, 'markah_eph']); 
     // Mai tambah
     Route::post('projek/{id}/markah-gpss', [ProjekController::class, 'markah_gpss']); 
+    Route::post('projek/{id}/sah', [ProjekController::class, 'sah_projek']); 
+
 
     Route::post('projek/{id}/eph-bangunan/rekabentuk', [KriteriaEphBangunanController::class, 'simpan']); 
     Route::post('projek/{id}/eph-bangunan/verifikasi', [ProjekController::class, 'simpan_ephb_verifikasi']); 
