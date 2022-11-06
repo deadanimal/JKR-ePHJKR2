@@ -689,16 +689,16 @@
                     name: 'maksimum'
                 },
                 {
-                    data: 'maksimum',
-                    name: 'maksimum'
+                    data: 'markah_gpss',
+                    name: 'markah_gpss'
                 },
                 {
-                    data: 'maksimum',
-                    name: 'maksimum'
+                    data: 'ulasan_gpss',
+                    name: 'ulasan_gpss'
                 },
                 {
-                    data: 'maksimum',
-                    name: 'maksimum'
+                    data: 'dokumen_gpss',
+                    name: 'dokumen_gpss'
                 },
             ]
         });

@@ -100,9 +100,49 @@
                         </div> 
                     </div>
                 </div>
-                @role('sekretariat')
-                    <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
-                @endrole 
+                {{-- @role('sekretariat') --}}
+                <div>
+                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @if( $projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Pengisian Skor Rekabentuk Bangunan">Proses Pengisian Skor Rekabentuk Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Rekabentuk Bangunan">Dalam Pengesahan Skor Rekabentuk Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Rekabentuk Bangunan">Selesai Pengesahan  Rekabentuk Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")    
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Pengisian Skor Verifikasi Permarkahan Bangunan">Proses Pengisian Skor Verifikasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")    
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan">Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")  
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Verifikasi Bangunan">Selesai Pengesahan  Verifikasi Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Pengisian Skor Validasi Permarkahan Bangunan">Proses Pengisian Skor Validasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Validasi Permarkahan Bangunan">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Validasi Bangunan">Selesai Pengesahan  Validasi Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Rayuan Bangunan">Proses Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")    
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Rayuan Bangunan">Dalam Pengesahan Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")   
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Rayuan Bangunan">Selesai Pengesahan  Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")    
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Rayuan Bangunan">Selesai Rayuan Bangunan</button>
+                        @endif
+
+                    </form>
+                </div>
+                {{-- @endrole  --}}
+
+                {{-- @role('sekretariat') --}}
+                    {{-- @if($projek->status == "Menunggu Pengesahan Sekretariat")
+                        <a href="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data" class="btn btn-primary mx-3 my-3">Proses Pengisian Skor Rekabentuk Bangunan</a>
+                    @elseif($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan")
+                        <a href="/projek/{{$projek->id}}/sah" method="POST" class="btn btn-primary mx-3 my-3">Dalam Pengesahan Skor Rekabentuk Bangunan</a>
+                    @endif --}}
+                {{-- @endrole  --}}
                 @role('ketua-pasukan')
                     <button class="btn btn-primary mx-3 my-3" type="submit">Muat Turun Maklumat Projek</button>
                 @endrole                     
@@ -208,11 +248,11 @@
                 <a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Verifikasi</a>
             </li>
             @endrole
-            {{-- @role('pasukan-validasi|ketua-pasukan-validasi') --}}
+            @role('pasukan-validasi|ketua-pasukan-validasi')
             <li class="nav-item">
                 <a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Validasi</a>
             </li>
-            {{-- @endrole --}}
+            @endrole
             @role('ketua-pasukan|penolong-ketua-pasukan')
             <li class="nav-item">
                 <a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rayuan</a>
@@ -276,7 +316,6 @@
                                 <th>TL</th>
                                 <th colspan="2">Perancangan dan Pengurusan Tapak Lestari</th>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                    {{-- @foreach --}}
                                     <th>26</th>
                                     <th>{{$tl_mr}}</th>
                                     <th>24</th>
@@ -329,26 +368,26 @@
 
                                     {{-- Sedia Ada --}}
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
-                                    <th>26</th>
-                                    <th>{{$tl_mr}}</th>
-                                    <th>MMV</th>
+                                    <th>0</th>
+                                    <th>0</th>
+                                    <th>14</th>
                                     <th>{{$tl_mv}}</th>
                                     <th>{{$tl_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
-                                    <th>26</th>
-                                    <th>{{$tl_mr}}</th>
+                                    <th>0</th>
+                                    <th>0</th>
                                     <th>17</th>
                                     <th>{{$tl_mv}}</th>
                                     <th>{{$tl_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
-                                    <th>26</th>
-                                    <th>{{$tl_mr}}</th>
+                                    <th>0</th>
+                                    <th>0</th>
                                     <th>17</th>
                                     <th>{{$tl_mv}}</th>
                                     <th>{{$tl_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
-                                    <th>26</th>
-                                    <th>{{$tl_mr}}</th>
+                                    <th>0</th>
+                                    <th>0</th>
                                     <th>17</th>
                                     <th>{{$tl_mv}}</th>
                                     <th>{{$tl_ml}}</th>
@@ -413,25 +452,25 @@
                                     {{-- Sedia Ada --}}
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
                                     <th>0</th>
-                                    <th>{{$kt_mr}}</th>
+                                    <th>0</th>
                                     <th>18</th>
                                     <th>{{$kt_mv}}</th>
                                     <th>{{$kt_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
                                     <th>0</th>
-                                    <th>{{$kt_mr}}</th>
+                                    <th>0</th>
                                     <th>29</th>
                                     <th>{{$kt_mv}}</th>
                                     <th>{{$kt_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
                                     <th>0</th>
-                                    <th>{{$kt_mr}}</th>
+                                    <th>0</th>
                                     <th>45</th>
                                     <th>{{$kt_mv}}</th>
                                     <th>{{$kt_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                     <th>0</th>
-                                    <th>{{$kt_mr}}</th>
+                                    <th>0</th>
                                     <th>48</th>
                                     <th>{{$kt_mv}}</th>
                                     <th>{{$kt_ml}}</th>
@@ -496,25 +535,25 @@
                                     {{-- Sedia Ada --}}
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
                                     <th>0</th>
-                                    <th>{{$sb_mr}}</th>
+                                    <th>0</th>
                                     <th>4</th>
                                     <th>{{$sb_mv}}</th>
                                     <th>{{$sb_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
                                     <th>0</th>
-                                    <th>{{$sb_mr}}</th>
+                                    <th>0</th>
                                     <th>4</th>
                                     <th>{{$sb_mv}}</th>
                                     <th>{{$sb_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
                                     <th>0</th>
-                                    <th>{{$sb_mr}}</th>
+                                    <th>0</th>
                                     <th>4</th>
                                     <th>{{$sb_mv}}</th>
                                     <th>{{$sb_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                     <th>0</th>
-                                    <th>{{$sb_mr}}</th>
+                                    <th>0</th>
                                     <th>4</th>
                                     <th>{{$sb_mv}}</th>
                                     <th>{{$sb_ml}}</th>
@@ -579,25 +618,25 @@
                                     {{-- Sedia Ada --}}
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
                                     <th>0</th>
-                                    <th>{{$pa_mr}}</th>
+                                    <th>0</th>
                                     <th>14</th>
                                     <th>{{$pa_mv}}</th>
                                     <th>{{$pa_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
                                     <th>0</th>
-                                    <th>{{$pa_mr}}</th>
+                                    <th>0</th>
                                     <th>22</th>
                                     <th>{{$pa_mv}}</th>
                                     <th>{{$pa_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
                                     <th>0</th>
-                                    <th>{{$pa_mr}}</th>
+                                    <th>0</th>
                                     <th>22</th>
                                     <th>{{$pa_mv}}</th>
                                     <th>{{$pa_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                     <th>14</th>
-                                    <th>{{$pa_mr}}</th>
+                                    <th>0</th>
                                     <th>22</th>
                                     <th>{{$pa_mv}}</th>
                                     <th>{{$pa_ml}}</th>
@@ -662,25 +701,25 @@
                                     {{-- Sedia Ada --}}
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
                                     <th>0</th>
-                                    <th>{{$pd_mr}}</th>
+                                    <th>0</th>
                                     <th>3</th>
                                     <th>{{$pd_mv}}</th>
                                     <th>{{$pd_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
                                     <th>0</th>
-                                    <th>{{$pd_mr}}</th>
+                                    <th>0</th>
                                     <th>11</th>
                                     <th>{{$pd_mv}}</th>
                                     <th>{{$pd_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
                                     <th>0</th>
-                                    <th>{{$pd_mr}}</th>
+                                    <th>0</th>
                                     <th>27</th>
                                     <th>{{$pd_mv}}</th>
                                     <th>{{$pd_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                     <th>0</th>
-                                    <th>{{$pd_mr}}</th>
+                                    <th>0</th>
                                     <th>29</th>
                                     <th>{{$pd_mv}}</th>
                                     <th>{{$pd_ml}}</th>
@@ -745,25 +784,25 @@
                                     {{-- Sedia Ada --}}
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
                                     <th>0</th>
-                                    <th>{{$fl_mr}}</th>
+                                    <th>0</th>
                                     <th>9</th>
                                     <th>{{$fl_mv}}</th>
                                     <th>{{$fl_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
                                     <th>0</th>
-                                    <th>{{$fl_mr}}</th>
+                                    <th>0</th>
                                     <th>19</th>
                                     <th>{{$fl_mv}}</th>
                                     <th>{{$fl_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
                                     <th>0</th>
-                                    <th>{{$fl_mr}}</th>
+                                    <th>0</th>
                                     <th>19</th>
                                     <th>{{$fl_mv}}</th>
                                     <th>{{$fl_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                     <th>0</th>
-                                    <th>{{$fl_mr}}</th>
+                                    <th>0</th>
                                     <th>19</th>
                                     <th>{{$fl_mv}}</th>
                                     <th>{{$fl_ml}}</th>
@@ -828,31 +867,32 @@
                                     {{-- Sedia Ada --}}
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
                                     <th>0</th>
-                                    <th>{{$in_mr}}</th>
+                                    <th>0</th>
                                     <th>6</th>
                                     <th>{{$in_mv}}</th>
                                     <th>{{$in_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
                                     <th>0</th>
-                                    <th>{{$in_mr}}</th>
+                                    <th>0</th>
                                     <th>6</th>
                                     <th>{{$in_mv}}</th>
                                     <th>{{$in_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
                                     <th>0</th>
-                                    <th>{{$in_mr}}</th>
+                                    <th>0</th>
                                     <th>6</th>
                                     <th>{{$in_mv}}</th>
                                     <th>{{$in_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                     <th>0</th>
-                                    <th>{{$in_mr}}</th>
+                                    <th>0</th>
                                     <th>6</th>
                                     <th>{{$in_mv}}</th>
                                     <th>{{$in_ml}}</th>
                                 @endif
                             </tr>
 
+                            <!--JUMLAH-->
                             <tr align="center" class="text-black">
                                 <th colspan="3">JUMLAH</th>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru A')
@@ -909,25 +949,25 @@
                                     {{-- Sedia Ada --}}
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
                                     <th>0</th>
-                                    <th>{{$total_mr}}</th>
+                                    <th>0</th>
                                     <th>62</th>
                                     <th>{{$total_mv}}</th>
                                     <th>{{$total_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
                                     <th>0</th>
-                                    <th>{{$total_mr}}</th>
+                                    <th>0</th>
                                     <th>108</th>
                                     <th>{{$total_mv}}</th>
                                     <th>{{$total_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
                                     <th>0</th>
-                                    <th>{{$total_mr}}</th>
+                                    <th>0</th>
                                     <th>140</th>
                                     <th>{{$total_mv}}</th>
                                     <th>{{$total_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                     <th>0</th>
-                                    <th>{{$total_mr}}</th>
+                                    <th>0</th>
                                     <th>145</th>
                                     <th>{{$total_mv}}</th>
                                     <th>{{$total_ml}}</th>
@@ -948,9 +988,21 @@
                                     <th colspan="8">MARKAH PENILAIAN</th>
                                 </tr>
 
+                                <tr align="center" style="background-color:#EB5500">
+                                    <th colspan="2">PERINGKAT</th>
+                                    <th colspan="2">REKABENTUK</th>
+                                    <th colspan="2">VERIFIKASI PERMARKAHAN BANGUNAN</th>
+                                    <th colspan="2">VALIDASI PERMARKAHAN BANGUNAN</th>
+                                </tr>
+
                                 <tr align="center" class="text-black">
                                     <th colspan="2">Jumlah Markah</th>
+                                    @if($projek->kategori == 'phJKR Bangunan Baru A' || 'phJKR Bangunan Baru B' || 'phJKR Bangunan Baru C' || 'phJKR Bangunan Baru D'
+                                    || 'phJKR Bangunan PUN A' || 'phJKR Bangunan PUN B' || 'phJKR Bangunan PUN C' || 'phJKR Bangunan PUN D')
                                     <th colspan="2">{{$total_mr}}</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A' || 'phJKR Bangunan Sedia Ada B' || 'phJKR Bangunan Sedia Ada C' || 'phJKR Bangunan Sedia Ada D')
+                                    <th colspan="2">0</th>
+                                    @endif
                                     <th colspan="2">{{$total_mv}}</th>
                                     <th colspan="2">{{$total_ml}}</th>
                                 </tr>
@@ -958,7 +1010,12 @@
                                 <tr align="center" class="text-black">
                                     <th colspan="2">Peratusan</th>
                                     {{-- <th colspan="2">{{$kriteria->peratusan}} %</th> --}}
+                                    @if($projek->kategori == 'phJKR Bangunan Baru A' || 'phJKR Bangunan Baru B' || 'phJKR Bangunan Baru C' || 'phJKR Bangunan Baru D'
+                                    || 'phJKR Bangunan PUN A' || 'phJKR Bangunan PUN B' || 'phJKR Bangunan PUN C' || 'phJKR Bangunan PUN D')
                                     <th colspan="2"> {{number_format($peratusan_mr,2,".",",")}}%</th>
+                                    @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A' || 'phJKR Bangunan Sedia Ada B' || 'phJKR Bangunan Sedia Ada C' || 'phJKR Bangunan Sedia Ada D')
+                                    <th colspan="2"> 0 %</th>
+                                    @endif
                                     <th colspan="2"> {{number_format($peratusan_mv,2,".",",")}}%</th>
                                     <th colspan="2"> {{number_format($peratusan_ml,2,".",",")}}%</th>
                                 </tr>
@@ -1108,7 +1165,7 @@
                                 <tr class="pg-1" align="center" style="background-color:#EB5500">
                                     <th>Kod</th>
                                     <th>Kriteria</th>
-                                    <th>Markah Maksimum</th>
+                                    <th>Fasa</th>
                                     <th>Markah</th>
                                     <th>Ulasan/Maklumbalas</th>
                                     <th>Dokumen Sokongan</th>
@@ -1289,7 +1346,7 @@
             @endrole
 
              <!--VALIDASI BANGUNAN-->
-            {{-- @role('pasukan-validasi|ketua-pasukan-validasi') --}}
+            @role('pasukan-validasi|ketua-pasukan-validasi')
             <div class="tab-pane" id="tab-5" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
@@ -1349,7 +1406,7 @@
                     </div>
                 </div>
             </div>
-            {{-- @endrole --}}
+            @endrole
 
             <!--RAYUAN EPH BANGUNAN-->
             @role('ketua-pasukan|penolong-ketua-pasukan')
@@ -1536,8 +1593,8 @@
                     name: 'nama'
                 },
                 {
-                    data: 'maksimum',
-                    name: 'maksimum'
+                    data: 'fasa',
+                    name: 'fasa'
                 },
                 {
                     data: 'markah_',
