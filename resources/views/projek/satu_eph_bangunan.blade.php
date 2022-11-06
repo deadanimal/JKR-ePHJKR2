@@ -100,41 +100,41 @@
                         </div> 
                     </div>
                 </div>
-                {{-- @role('sekretariat') --}}
-                <div>
+                @role('sekretariat')
+                <div class="col mx-3 my-3">
                     <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
                         @csrf
-                        @if( $projek->status == "Menunggu Pengesahan Sekretariat")
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Pengisian Skor Rekabentuk Bangunan">Proses Pengisian Skor Rekabentuk Bangunan</button>
+                        @if($projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Maklumat Projek</button>
                         @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan")
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Rekabentuk Bangunan">Dalam Pengesahan Skor Rekabentuk Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Rekabentuk Bangunan">Selesai Pengesahan  Rekabentuk Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")    
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Pengisian Skor Verifikasi Permarkahan Bangunan">Proses Pengisian Skor Verifikasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk Bangunan</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Rekabentuk Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Rekabentuk Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan  Rekabentuk Bangunan</button>
+                        {{-- @elseif ($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan">Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")  
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Verifikasi Bangunan">Selesai Pengesahan  Verifikasi Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan")  
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan Verifikasi Bangunan">Selesai Pengesahan  Verifikasi Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Verifikasi Bangunan")
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Pengisian Skor Validasi Permarkahan Bangunan">Proses Pengisian Skor Validasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                        @elseif ($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Skor Validasi Permarkahan Bangunan">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan")
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Validasi Bangunan">Selesai Pengesahan  Validasi Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")
+                        @elseif ($projek->status == "Selesai Pengesahan  Validasi Bangunan")
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Proses Rayuan Bangunan">Proses Rayuan Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")    
+                        @elseif ($projek->status == "Proses Rayuan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Dalam Pengesahan Rayuan Bangunan">Dalam Pengesahan Rayuan Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")   
+                        @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan")   
                             <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Pengesahan  Rayuan Bangunan">Selesai Pengesahan  Rayuan Bangunan</button>
-                        @elseif ($projek->status == "Menunggu Pengesahan Sekretariat")    
-                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Rayuan Bangunan">Selesai Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan  Rayuan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" name="status_projek" type="submit" value="Selesai Rayuan Bangunan">Selesai Rayuan Bangunan</button> --}}
                         @endif
 
                     </form>
                 </div>
-                {{-- @endrole  --}}
+                @endrole 
 
                 {{-- @role('sekretariat') --}}
                     {{-- @if($projek->status == "Menunggu Pengesahan Sekretariat")
