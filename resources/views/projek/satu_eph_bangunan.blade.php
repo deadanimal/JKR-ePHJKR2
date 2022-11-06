@@ -117,18 +117,21 @@
                         @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan</button>
                         @elseif ($projek->status == "Selesai Pengesahan Verifikasi Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Verifikasi Bangunan </button>
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Verifikasi Bangunan</button>
                         @elseif ($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Validasi Permarkahan Bangunan</button>
                         @elseif ($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
                         @elseif ($projek->status == "Selesai Pengesahan Validasi Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan  Validasi Bangunan</button>
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
                         @elseif ($projek->status == "Proses Rayuan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
                         @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan ")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Rayuan Bangunan</button>
-
+                        @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan ")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Rayuan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button>
                         @endif
 
                     </form>
@@ -1132,63 +1135,71 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4 class="h4 mb-3">SKOR KAD EPH BANGUNAN</h4>
-                        <table id="SkorKad" class="table table-bordered skor-datatable line-table display">
-                            <thead class="text-white">
-                                <tr class="pg-1" align="center" style="background-color:#EB5500">
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru A')
-                                        <th colspan="9">Pembangunan Baru A</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                        <th colspan="9">Pembangunan Baru B</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                        <th colspan="9">Pembangunan Baru C</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
-                                        <th colspan="9">Pembangunan Baru D</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
-                                        <th colspan="9">Pembangunan PUN A</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                        <th colspan="9">Pembangunan PUN B</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                        <th colspan="9">Pembangunan PUN C</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
-                                        <th colspan="9">Pembangunan PUN D</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
-                                        <th colspan="9">Pembangunan Sedia Ada A</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
-                                        <th colspan="9">Pembangunan Sedia Ada B</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
-                                        <th colspan="9">Pembangunan Sedia Ada C</th>
-                                    @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
-                                        <th colspan="9">Pembangunan Sedia Ada D</th>
-                                    @endif
-                                </tr>
-                                <tr class="pg-1" align="center" style="background-color:#EB5500">
-                                    <th>Kod</th>
-                                    <th>Kriteria</th>
-                                    <th>Fasa</th>
-                                    <th>Markah</th>
-                                    <th>Ulasan/Maklumbalas</th>
-                                    <th>Dokumen Sokongan</th>
-                                    <th>Ulasan Rayuan</th>
-                                    {{-- @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                                    <th>Ulasan Rayuan</th>
-                                    @endrole --}}
-                                </tr>
-                            </thead>
-                        </table>
-                        @role('sekretariat')
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    <button class="btn btn-primary">Sahkan Penilaian</button>
+                        <div class="table-responsive scrollbar">
+                            <table id="SkorKad" class="table table-bordered skor-datatable line-table display">
+                                <thead class="text-white">
+                                    <tr class="pg-1" align="center" style="background-color:#EB5500">
+                                        @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                            <th colspan="10">Pembangunan Baru A</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                            <th colspan="11">Pembangunan Baru B</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                            <th colspan="11">Pembangunan Baru C</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                            <th colspan="10">Pembangunan Baru D</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                            <th colspan="10">Pembangunan PUN A</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                            <th colspan="11">Pembangunan PUN B</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                            <th colspan="11">Pembangunan PUN C</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                            <th colspan="10">Pembangunan PUN D</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
+                                            <th colspan="10">Pembangunan Sedia Ada A</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
+                                            <th colspan="10">Pembangunan Sedia Ada B</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
+                                            <th colspan="11">Pembangunan Sedia Ada C</th>
+                                        @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                            <th colspan="11">Pembangunan Sedia Ada D</th>
+                                        @endif
+                                    </tr>
+                                    <tr class="pg-1" align="center" style="background-color:#EB5500">
+                                        <th>Kod</th>
+                                        <th>Kriteria</th>
+                                        <th>Fasa</th>
+                                        <th>Markah</th>
+                                        {{-- @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                        || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                        || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D') --}}
+                                        {{-- <th>Markah BEI</th> --}}
+                                        {{-- @endif --}}
+                                        <th>Ulasan/Maklumbalas</th>
+                                        <th>Dokumen Sokongan</th>
+                                        <th>Ulasan Rayuan</th>
+                                        <th>Dokumen Rayuan</th>
+                                        {{-- @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+                                        <th>Ulasan Rayuan</th>
+                                        @endrole --}}
+                                    </tr>
+                                </thead>
+                            </table>
+                            @role('sekretariat')
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <button class="btn btn-primary">Sahkan Penilaian</button>
+                                    </div>
                                 </div>
-                            </div>
-                        @endrole
-                        @role('ketua-pasukan')
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    <button class="btn btn-primary">Muat Turun Skor Kad</button>
+                            @endrole
+                            @role('ketua-pasukan')
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <button class="btn btn-primary">Muat Turun Skor Kad</button>
+                                    </div>
                                 </div>
-                            </div>
-                        @endrole
+                            @endrole
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1209,7 +1220,7 @@
                                 </div>
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRekabentukDipilih"
-                                        name="kriteria" onchange="kriteriaRekabentuk()">
+                                        name="kriteria" onchange="kriteriaRekabentuk()" required>
                                         @foreach ($kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                 {{ $akriteria->nama }}</option>
@@ -1239,7 +1250,7 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah">
+                                    <input class="form-control" type="number" nama="markah_bei">
                                 </div>
                                 @endif
                                 <div class="col-5 mb-2">
@@ -1305,16 +1316,20 @@
                                     <input class="form-control" type="number" name="markah">
                                 </div>
                                 {{-- Untuk KT9 --}}
-                                {{-- <div class="col-5 mb-2">
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru C' or 'phJKR Bangunan Baru D' or 'phJKR Bangunan PUN C' or 'phJKR Bangunan PUN D' or 'phJKR Bangunan Sedia Ada C' or 'phJKR Bangunan Sedia Ada D')
-                                        <label class="col-form-label">Markah BEI:</label>
-                                    @endif
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Markah BEI:</label>
                                 </div>
+                                @endif
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    @if ($projek->kategori == 'phJKR Bangunan Baru C' or 'phJKR Bangunan Baru D' or 'phJKR Bangunan PUN C' or 'phJKR Bangunan PUN D' or 'phJKR Bangunan Sedia Ada C' or 'phJKR Bangunan Sedia Ada D')   
-                                    <input class="form-control" type="number">
-                                    @endif
-                                </div> --}}
+                                    <input class="form-control" type="number" nama="markah_bei">
+                                </div>
+                                @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Ulasan:</label>
                                 </div>
@@ -1378,6 +1393,20 @@
                                 <div class="col-7 mb-2">
                                     <input class="form-control" type="number" name="markah">
                                 </div>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Markah BEI:</label>
+                                </div>
+                                @endif
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                <div class="col-7 mb-2">
+                                    <input class="form-control" type="number" nama="markah_bei">
+                                </div>
+                                @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Ulasan:</label>
                                 </div>
@@ -1439,45 +1468,75 @@
                                 <div class="col-7 mb-2">
                                     <input class="form-control" type="number">
                                 </div>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Markah BEI (Rekabentuk):</label>
+                                </div>
+                                @endif
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                <div class="col-7 mb-2">
+                                    <input class="form-control" type="number" nama="markah_bei">
+                                </div>
+                                @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Markah Verifikasi:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <input class="form-control" type="number">
                                 </div>
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Markah BEI (Verifikasi):</label>
+                                </div>
+                                @endif
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                <div class="col-7 mb-2">
+                                    <input class="form-control" type="number" nama="markah_bei">
+                                </div>
+                                @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Markah Validasi:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <input class="form-control" type="number">
                                 </div>
-                                {{-- Untuk KT9 --}}
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-5 mb-2">
-                                <label class="col-form-label">Markah BEI:</label>
+                                    <label class="col-form-label">Markah BEI (Validasi):</label>
                                 </div>
+                                @endif
+                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number">
+                                    <input class="form-control" type="number" nama="markah_bei">
                                 </div>
-                                {{-- <div class="col-5 mb-2">
-                                <label class="col-form-label">Dokumen Pembuktian:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <input class="form-control" type="file" id="formFileMultiple" multiple>
-                            </div> --}}
+                                @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Ulasan:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan"></textarea>
                                 </div>
+                                @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Ulasan Rayuan:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan Rayuan"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan Rayuan" name="ulasan_rayuan"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
-                                    <label class="col-form-label">Dokumen Sokongan:</label>
+                                    <label class="col-form-label">Dokumen Rayuan:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <input class="form-control" type="file" name="dokumen1">
@@ -1486,6 +1545,7 @@
                                     <input class="form-control" type="file" name="dokumen4">
                                     <input class="form-control" type="file" name="dokumen5">
                                 </div>
+                                @endrole
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         <button class="btn btn-primary" type="submit">Simpan</button>
@@ -1599,6 +1659,10 @@
                     data: 'markah_',
                     name: 'markah_'
                 },
+                // {
+                //     data: 'markah_bei',
+                //     name: 'markah_bei'
+                // },
                 {
                     data: 'ulasan_',
                     name: 'ulasan_'
@@ -1608,8 +1672,12 @@
                     name: 'dokumen_'
                 },
                 {
-                    data: 'dokumen_',
-                    name: 'dokumen_'
+                    data: 'ulasan_rayuan',
+                    name: 'ulasan_rayuan'
+                },
+                {
+                    data: 'dokumen_rayuan',
+                    name: 'dokumen_rayuan'
                 },
 
             ]
