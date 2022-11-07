@@ -38,6 +38,21 @@
                     </div>
 
                     <div class="col-3 mb-2">
+                        <label class="col-form-label">Peranan:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <select class="form-select form-control" name="name">
+                            <option value="pengurusan-atasan">Pengurusan Atasan</option>
+                            <option value="sekretariat">Sekretariat</option>
+                            <option value="ketua-pasukan">Ketua Pasukan</option>
+                            <option value="penolong-ketua-pasukan">Penolong Ketua Pasukan</option>
+                            <option value="pemudah-cara">Pemudah Cara</option>                            
+                            <option value="penilai">Penilai</option>
+                            <option value="pasukan-validasi">Pasukan Validasi</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3 mb-2">
                         <label class="col-form-label">IC Pengguna:</label>
                     </div>
                     <div class="col-7 mb-2">
@@ -92,6 +107,8 @@
                     <div class="col-7 mb-2">
                         <input class="form-control" name="nofaxPengguna" value="{{ $pengguna->nofaxPengguna }}" />
                     </div>
+
+                    
     
     
                     <div class="col-3 mb-2">
@@ -100,10 +117,10 @@
                     <div class="col-7 mb-2">
                         <div class="row mt-4">
                             <div class="col-6">
-                                <a href="/senarai_pengguna" class="btn btn-outline-primary">Batal</a>
+                                <a href="/senaraiPengguna" class="btn btn-outline-primary">Batal</a>
                             </div>
                             <div class="col-6 text-end">
-                                <button type="submit" class="btn btn-primary">Simpan Kemaskini</button>
+                                <button type="submit" class="btn btn-primary">Simpan & Kemaskini</button>
                             </div>
                         </div>
                     </div>
