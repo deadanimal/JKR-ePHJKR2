@@ -9,6 +9,7 @@ class GpssKriteria extends Model
 {
     use HasFactory;
 
+    
     // Mai tambah
     public function gpssmarkah() {
         return $this->hasMany(GpssMarkah::class);
