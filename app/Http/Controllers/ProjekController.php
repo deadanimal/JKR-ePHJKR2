@@ -4427,18 +4427,14 @@ class ProjekController extends Controller
             $cw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
             $cw_ds = 0;
 
-            // $aw_pa_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 1]])->get();
-            // $aw_pa = 0;
-            // $mw_pa_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 2]])->get();
-            // $mw_pa = 0;
-            // $ew_pa_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 3]])->get();
-            // $ew_pa = 0;
-            // $cw_pa_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
-            // $cw_pa = 0;
-            // $rw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 3]])->get();
-            // $rw_ds = 0;
-            // $sw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
-            // $sw_ds = 0;
+            $aw_pa_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 1]])->get();
+            $aw_pa = 0;
+            $mw_pa_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 2]])->get();
+            $mw_pa = 0;
+            $ew_pa_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 3]])->get();
+            $ew_pa = 0;
+            $cw_pa_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
+            $cw_pa = 0;
 
             // Verifikasi borang CATEGORY 1
             $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 1]])->get();
@@ -4454,12 +4450,29 @@ class ProjekController extends Controller
             // $sw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
             // $sw_ds = 0;
 
-            // foreach($aw_pa_kriterias as $aw_pa_kriteria){
-            //     $markah_aw_pa = GpssMarkah::where([['projek_id', '=', $projek->id], ['gpss_kriteria_id', '=', $aw_pa_kriteria->id], ['fasa', '=', 'rekabentuk']])->first();
-            //     if($aw_pa){
-            //         $aw_1
-            //     }
-
+            foreach($aw_pa_kriterias as $aw_pa_kriteria){
+                $markah_aw_pa = GpssMarkah::where([['projek_id', '=', $projek->id], ['gpss_kriteria_id', '=', $aw_pa_kriteria->id], ['fasa', '=', 'rekabentuk']])->first();
+                if($aw_pa){
+                    $aw_pa += $markah_aw_pa->point_allocated;
+                }
+            }
+            foreach($mw_pa_kriterias as $mw_pa_kriteria){
+                $markah_mw_pa = GpssMarkah::where([['projek_id', '=', $projek->id], ['gpss_kriteria_id', '=', $mw_pa_kriteria->id], ['fasa', '=', 'rekabentuk']])->first();
+                if($mw_pa){
+                    $mw_pa += $markah_mw_pa->point_allocated;
+                }
+            }
+            foreach($ew_pa_kriterias as $ew_pa_kriteria){
+                $markah_ew_pa = GpssMarkah::where([['projek_id', '=', $projek->id], ['gpss_kriteria_id', '=', $ew_pa_kriteria->id], ['fasa', '=', 'rekabentuk']])->first();
+                if($ew_pa){
+                    $ew_pa += $markah_ew_pa->point_allocated;
+                }
+            }
+            foreach($cw_pa_kriterias as $cw_pa_kriteria){
+                $markah_cw_pa = GpssMarkah::where([['projek_id', '=', $projek->id], ['gpss_kriteria_id', '=', $cw_pa_kriteria->id], ['fasa', '=', 'rekabentuk']])->first();
+                if($cw_pa){
+                    $cw_pa += $markah_cw_pa->point_allocated;
+                }
             }
 
             foreach($aw_kriterias as $aw_kriteria) {                
@@ -5147,6 +5160,67 @@ class ProjekController extends Controller
 
         $projek->save();
         return back();
+    }
+
+    public function sah_projek_gpss(Request $request){
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);
+
+        if ($projek->status == "Menunggu Pengesahan Sekretariat"){
+            $projek->status = "Proses Pengisian Skor Rekabentuk GPSS Bangunan";
+            alert()->success('Projek Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan"){
+            $projek->status = "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan";
+            alert()->success('Sahkan Pengisian Skor Rekabentuk GPSS Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan"){
+            $projek->status = "Selesai Pengesahan Rekabentuk Bangunan";
+            alert()->success('Pengesahan Skor Rekabentuk Bangunan telah Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Selesai Pengesahan Rekabentuk Bangunan"){
+            $projek->status = "Proses Pengisian Skor Verifikasi Permarkahan Bangunan";
+            alert()->success('Selesai Pengesahan Rekabentuk Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan"){
+            $projek->status = "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan";
+            alert()->success('Sahkan Proses Pengisian Skor Verifikasi Permarkahan Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan"){
+            $projek->status = "Selesai Pengesahan Verifikasi Bangunan";
+            alert()->success('Pengesahan Skor Verifikasi Permarkahan Bangunan Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Selesai Pengesahan Verifikasi Bangunan"){
+            $projek->status = "Proses Pengisian Skor Validasi Permarkahan Bangunan";
+            alert()->success('Selesai Pengesahan Verifikasi Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan"){
+            $projek->status = "Dalam Pengesahan Skor Validasi Permarkahan Bangunan";
+            alert()->success('Proses Pengisian Skor Validasi Permarkahan Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan"){
+            $projek->status = "Selesai Pengesahan Validasi Bangunan";
+            alert()->success('Dalam Pengesahan Skor Validasi Permarkahan Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Selesai Pengesahan Validasi Bangunan"){
+            $projek->status = "Selesai Pengesahan Validasi Bangunan";
+            alert()->success('Selesai Pengesahan Validasi Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Rayuan Bangunan"){
+            $projek->status = "Dalam Pengesahan Rayuan Bangunan";
+            alert()->success('Proses Rayuan Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Rayuan Bangunan"){
+            $projek->status = "Dalam Pengesahan Rayuan Bangunan";
+            alert()->success('Proses Rayuan Bangunan', 'Berjaya');
+        }
+
+        $projek->save();
+        return back();
+    }
+
+    public function sah_projek_gpss_jalan(Request $request){
+
     }
 
     // public function sah_penilaian(Request $request){
