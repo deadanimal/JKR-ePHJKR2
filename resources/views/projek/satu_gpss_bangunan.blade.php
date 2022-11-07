@@ -109,7 +109,7 @@
                 @endrole
             </div>
         </div>
-        @role('ketua-pasukan|sekretariat')
+        @role('ketua-pasukan|sekretariat|penolong-ketua-pasukan')
         <div class="col-12 mt-6">
             <div class="card">
                 <div class="card-body">
@@ -479,7 +479,7 @@
                                 </div>
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRekabentukDipilih"
-                                        name="kriteria" onchange="kriteriaRekabentuk()">
+                                        name="gpss_kriteria" onchange="kriteriaRekabentuk()">
                                         @foreach ($gpss_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
                                                 {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
@@ -546,7 +546,7 @@
                                 </div>
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
-                                        name="kriteria" onchange="kriteriaVerifikasi()">
+                                        name="gpss_kriteria" onchange="kriteriaVerifikasi()">
                                         @foreach ($gpss_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
                                                 {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
@@ -613,7 +613,7 @@
                                 </div>
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRayuanDipilih"
-                                        name="kriteria" onchange="kriteriaRayuan()">
+                                        name="gpss_kriteria" onchange="kriteriaRayuan()">
                                         @foreach ($gpss_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
                                                 {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>

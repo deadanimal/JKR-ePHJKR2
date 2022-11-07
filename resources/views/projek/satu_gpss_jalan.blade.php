@@ -107,7 +107,7 @@
             </div>
         </div>
     </div>     
-    @role('ketua-pasukan')
+    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
     <div class="col-12 mt-6">
         <div class="card">
             <div class="card-body">

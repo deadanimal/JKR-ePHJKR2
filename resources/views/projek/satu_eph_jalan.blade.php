@@ -106,7 +106,7 @@
             </div>
         </div>
 
-        @role('ketua-pasukan|sekretariat')
+        @role('ketua-pasukan|sekretariat|penolong-ketua-pasukan')
         <div class="col-12 mt-6">
             <div class="card">
                 <div class="card-body">
@@ -127,7 +127,7 @@
                             <div class="col-5 mb-2">
                                 <label class="col-form-label">Peranan:</label>
                             </div>
-                            @role('ketua-pasukan')
+                            @role('ketua-pasukan|penolong-ketua-pasukan')
                             <div class="col-7 mb-2">
                                 <select class="form-select" name="role_id">
                                     <option value=12 selected>Ketua Pemudah Cara</option>
@@ -384,7 +384,7 @@
                             <div class="card-body">
                                 <h4 class="mb-3">SKOR KAD EPH JALAN</h4>
                                 <div class="col">
-                                    <table class="table table-bordered line-table text-center" style="width: 100%">
+                                    <table class="table table-bordered line-table text-center skor-datatable" style="width: 100%">
                                         <thead class="text-white bg-orange-jkr">
                                             <tr>
                                                 @if ($projek->kategori == 'phJKR Jalan Lama')
@@ -505,13 +505,13 @@
                                         <label class="col-form-label">Assessment Point:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="markah" type="number"/>
+                                        <input class="form-control" name="assessment_point" type="number"/>
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Comment by Assessor:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <textarea class="form-control" rows="3" name="ulasan" type="text" placeholder="Comment"></textarea>
+                                        <textarea class="form-control" rows="3" name="comment" type="text" placeholder="Comment"></textarea>
                                     </div>
 
                                     <div class="col-5 mb-2">
@@ -756,8 +756,8 @@
                     name: 'nama'
                 },
                 {
-                    data: 'maksimum',
-                    name: 'maksimum'
+                    data: 'fasa',
+                    name: 'fasa'
                 },
                 {
                     data: 'markah_',
@@ -770,6 +770,10 @@
                 {
                     data: 'dokumen_',
                     name: 'dokumen_'
+                },
+                {
+                    data: 'ulasan_rayuan',
+                    name: 'ulasan_rayuan'
                 },
 
             ]
