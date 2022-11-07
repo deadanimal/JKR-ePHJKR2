@@ -16,6 +16,7 @@ use App\Models\Projek;
 use App\Models\Kriteria;
 use App\Models\GpssKriteria;
 use App\Models\Markah;
+use App\Models\GpssMarkah;
 use App\Models\ProjekRoleUser;
 use Illuminate\Support\Facades\Http;
 
@@ -227,7 +228,7 @@ class ProjekController extends Controller
 
         if($request->ajax() && $projek->kategori ==  'phJKR Bangunan Baru A') {
             $kriterias = Kriteria::where('borang', 'BARU A')->get();
-            // $kriterias = Kriteria::where('borang', 'BARU B')->get();
+
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
@@ -261,21 +262,6 @@ class ProjekController extends Controller
                 $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
                 return $html_button;
             })
-            // ->addColumn('markah_bei', function (Kriteria $kriteria) use ($projek) {
-            //     $kriteria_id = $kriteria->id;
-            //     $html_button = '?';
-            //     // $html_button2 = '?';
-            //     // $html_button3 = '?';
-            //     $markah = Markah::where([
-            //         ['projek_id', '=', $projek->id],
-            //         ['kriteria_id', '=', $kriteria_id],
-            //     ])->first();       
-            //     if($markah) {
-            //         $html_button = $markah->markah_bei;
-            //     }   
-                
-            //     return $html_button;
-            // })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button = '?';
@@ -290,16 +276,16 @@ class ProjekController extends Controller
             }) 
             ->addColumn('ulasan_rayuan', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button = '?';
+                $html_button1 = '?';
                 $markah = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->ulasan_rayuan;
+                    $html_button1 = $markah->ulasan_rayuan;
                 }         
-                return $html_button;
-            })   
+                return $html_button1;
+            })    
             ->addColumn('dokumen_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button = '?';
@@ -329,41 +315,41 @@ class ProjekController extends Controller
                         $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
                         $html_button += '<a href="'.$url.'">Dokumen 5</a>';
                     }                                                                                        
-                } 
+                }         
                 return $html_button;
-            })
+            }) 
             ->addColumn('dokumen_rayuan', function (Kriteria $kriteria) use ($projek) {
-                    $kriteria_id = $kriteria->id;
-                    $html_button = '?';
-                    $markah = Markah::where([
-                        ['projek_id', '=', $projek->id],
-                        ['kriteria_id', '=', $kriteria_id],
-                    ])->first(); 
-                
-                    // Rayuan
-                    if($markah) {
-                        if($markah->dokumen_rayuan1) {
-                            $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
-                            $html_button = '<a href="'.$url.'">Dokumen 1</a>';
-                        }
-                        if($markah->dokumen_rayuan2) {
-                            $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen2;
-                            $html_button += '<a href="'.$url.'">Dokumen 2</a>';
-                        } 
-                        if($markah->dokumen_rayuan3) {
-                            $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen3;
-                            $html_button += '<a href="'.$url.'">Dokumen 3</a>';
-                        }   
-                        if($markah->dokumen_rayuan4) {
-                            $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen4;
-                            $html_button += '<a href="'.$url.'">Dokumen 4</a>';
-                        } 
-                        if($markah->dokumen_rayuan5) {
-                            $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
-                            $html_button += '<a href="'.$url.'">Dokumen 5</a>';
-                        }                                                                                        
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                $markah = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                ])->first(); 
+            
+                // Rayuan
+                if($markah) {
+                    if($markah->dokumen_rayuan1) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
+                        $html_button = '<a href="'.$url.'">Dokumen 1</a>';
                     }
-                    return $html_button;
+                    if($markah->dokumen_rayuan2) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen2;
+                        $html_button += '<a href="'.$url.'">Dokumen 2</a>';
+                    } 
+                    if($markah->dokumen_rayuan3) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen3;
+                        $html_button += '<a href="'.$url.'">Dokumen 3</a>';
+                    }   
+                    if($markah->dokumen_rayuan4) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen4;
+                        $html_button += '<a href="'.$url.'">Dokumen 4</a>';
+                    } 
+                    if($markah->dokumen_rayuan5) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
+                        $html_button += '<a href="'.$url.'">Dokumen 5</a>';
+                    }                                                                                        
+                }
+                return $html_button;
             })                       
             ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
@@ -1772,34 +1758,43 @@ class ProjekController extends Controller
             ->addIndexColumn()    
             ->addColumn('markah_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
-                $html_button = '?';
-                $markah = Markah::where([
+                $html_button1 = '?';
+                $html_button2 = '?';
+                $markah1 = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
-                    ['gpss_kriterias_id', '=', $gpss_kriteria_id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
                 ])->first();       
-                if($markah) {
-                    $html_button = $markah->markah;
-                } else {
-                    $html_button = '';
-                }       
+                if($markah1) {
+                    $html_button1 = $markah1->point_allocated;
+                } 
+                $markah2 = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'verifikasi'],
+                ])->first();
+                if($markah2) {
+                    $html_button2 = $markah2->point_allocated;
+                }  
+                $html_button = $html_button1.' - '.$html_button2;     
                 return $html_button;
             })
-            ->addColumn('ulasan_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+            ->addColumn('remarks_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
                 $html_button = '?';
-                $markah = Markah::where([
+                $markah = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
-                    ['gpss_kriterias_id', '=', $gpss_kriteria_id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->ulasan;
+                    $html_button = $markah->remarks;
                 }         
                 return $html_button;
             })   
             ->addColumn('dokumen_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
                 $html_button = '?';
-                $markah = Markah::where([
+                $markah = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id],
                 ])->first();       
@@ -1827,9 +1822,228 @@ class ProjekController extends Controller
                 }         
                 return $html_button;
             })                        
-            ->rawColumns(['markah_gpss', 'ulasan_gpss', 'dokumen_gpss'])
+            ->rawColumns(['markah_gpss', 'remarks_gpss', 'dokumen_gpss'])
             ->make(true);
-        } 
+        }
+        elseif($request->ajax() && $projek->kategori ==  'GPSS Bangunan 2') {
+            $gpss_kriteria = GpssKriteria::where('borang', 'CATEGORY 2')->get();
+            return DataTables::collection($gpss_kriteria)
+            ->addIndexColumn()    
+            ->addColumn('markah_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button1 = '?';
+                $html_button2 = '?';
+                $markah1 = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                ])->first();       
+                if($markah1) {
+                    $html_button1 = $markah1->point_allocated;
+                } 
+                $markah2 = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'verifikasi'],
+                ])->first();
+                if($markah2) {
+                    $html_button2 = $markah2->point_allocated;
+                }  
+                $html_button = $html_button1.' - '.$html_button2;     
+                return $html_button;
+            })
+            ->addColumn('remarks_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button = '?';
+                $markah = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                ])->first();       
+                if($markah) {
+                    $html_button = $markah->remarks;
+                }         
+                return $html_button;
+            })   
+            ->addColumn('dokumen_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button = '?';
+                $markah = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                ])->first();       
+                if($markah) {
+                    if($markah->dokumen1) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
+                        $html_button = '<a href="'.$url.'">Dokumen 1</a>';
+                    }
+                    if($markah->dokumen2) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen2;
+                        $html_button += '<a href="'.$url.'">Dokumen 2</a>';
+                    } 
+                    if($markah->dokumen3) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen3;
+                        $html_button += '<a href="'.$url.'">Dokumen 3</a>';
+                    }   
+                    if($markah->dokumen4) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen4;
+                        $html_button += '<a href="'.$url.'">Dokumen 4</a>';
+                    } 
+                    if($markah->dokumen5) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
+                        $html_button += '<a href="'.$url.'">Dokumen 5</a>';
+                    }                                                                                        
+                }         
+                return $html_button;
+            })                        
+            ->rawColumns(['markah_gpss', 'remarks_gpss', 'dokumen_gpss'])
+            ->make(true);
+        }
+        elseif($request->ajax() && $projek->kategori ==  'GPSS Bangunan 3') {
+            $gpss_kriteria = GpssKriteria::where('borang', 'CATEGORY 3')->get();
+            return DataTables::collection($gpss_kriteria)
+            ->addIndexColumn()    
+            ->addColumn('markah_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button1 = '?';
+                $html_button2 = '?';
+                $markah1 = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                ])->first();       
+                if($markah1) {
+                    $html_button1 = $markah1->point_allocated;
+                } 
+                $markah2 = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'verifikasi'],
+                ])->first();
+                if($markah2) {
+                    $html_button2 = $markah2->point_allocated;
+                }  
+                $html_button = $html_button1.' - '.$html_button2;     
+                return $html_button;
+            })
+            ->addColumn('remarks_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button = '?';
+                $markah = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                ])->first();       
+                if($markah) {
+                    $html_button = $markah->remarks;
+                }         
+                return $html_button;
+            })   
+            ->addColumn('dokumen_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button = '?';
+                $markah = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                ])->first();       
+                if($markah) {
+                    if($markah->dokumen1) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
+                        $html_button = '<a href="'.$url.'">Dokumen 1</a>';
+                    }
+                    if($markah->dokumen2) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen2;
+                        $html_button += '<a href="'.$url.'">Dokumen 2</a>';
+                    } 
+                    if($markah->dokumen3) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen3;
+                        $html_button += '<a href="'.$url.'">Dokumen 3</a>';
+                    }   
+                    if($markah->dokumen4) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen4;
+                        $html_button += '<a href="'.$url.'">Dokumen 4</a>';
+                    } 
+                    if($markah->dokumen5) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
+                        $html_button += '<a href="'.$url.'">Dokumen 5</a>';
+                    }                                                                                        
+                }         
+                return $html_button;
+            })                        
+            ->rawColumns(['markah_gpss', 'remarks_gpss', 'dokumen_gpss'])
+            ->make(true);
+        }
+        elseif($request->ajax() && $projek->kategori ==  'GPSS Jalan') {
+            $gpss_kriteria = GpssKriteria::where('borang', 'ROAD')->get();
+            return DataTables::collection($gpss_kriteria)
+            ->addIndexColumn()    
+            ->addColumn('markah_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button1 = '?';
+                $html_button2 = '?';
+                $markah1 = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                ])->first();       
+                if($markah1) {
+                    $html_button1 = $markah1->point_allocated;
+                } 
+                $markah2 = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'verifikasi'],
+                ])->first();
+                if($markah2) {
+                    $html_button2 = $markah2->point_allocated;
+                }  
+                $html_button = $html_button1.' - '.$html_button2;     
+                return $html_button;
+            })
+            ->addColumn('remarks_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button = '?';
+                $markah = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                ])->first();       
+                if($markah) {
+                    $html_button = $markah->remarks;
+                }         
+                return $html_button;
+            })   
+            ->addColumn('dokumen_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button = '?';
+                $markah = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                ])->first();       
+                if($markah) {
+                    if($markah->dokumen1) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
+                        $html_button = '<a href="'.$url.'">Dokumen 1</a>';
+                    }
+                    if($markah->dokumen2) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen2;
+                        $html_button += '<a href="'.$url.'">Dokumen 2</a>';
+                    } 
+                    if($markah->dokumen3) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen3;
+                        $html_button += '<a href="'.$url.'">Dokumen 3</a>';
+                    }   
+                    if($markah->dokumen4) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen4;
+                        $html_button += '<a href="'.$url.'">Dokumen 4</a>';
+                    } 
+                    if($markah->dokumen5) {
+                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
+                        $html_button += '<a href="'.$url.'">Dokumen 5</a>';
+                    }                                                                                        
+                }         
+                return $html_button;
+            })                        
+            ->rawColumns(['markah_gpss', 'remarks_gpss', 'dokumen_gpss'])
+            ->make(true);
+        }    
 
 
         if ($projek->kategori ==  'phJKR Bangunan Baru A') {
@@ -4078,21 +4292,509 @@ class ProjekController extends Controller
             $kriterias = Kriteria::where('borang', 'UPGRADING ROADS')->get();            
             return view('projek.satu_eph_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } elseif ($projek->kategori ==  'GPSS Bangunan 1') {
-            // $gpss_kriterias = GpssKriteria::where('borang', 'CATEGORY 1')->get();            
-            $gpss_kriterias = GpssKriteria::where('borang', 'like', '%CATEGORY 1%')->get();                      
+            $gpss_kriterias = GpssKriteria::where('borang', 'CATEGORY 1')->get();            
+            // $gpss_kriterias = GpssKriteria::where('borang', 'like', '%CATEGORY 1%')->get();                      
             // dd($gpss_kriterias);
 
+            // Rekabentuk borang CATEGORY 1
+            $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 1]])->get();
+            $aw_ds = 0;
+            $mw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 2]])->get();
+            $mw_ds = 0;
+            $ew_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 3]])->get();
+            $ew_ds = 0;
+            $cw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
+            $cw_ds = 0;
+            $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 1]])->get();
+            $aw_pa = 0;
+            $mw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 2]])->get();
+            $mw_pa = 0;
+            $ew_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 3]])->get();
+            $ew_pa = 0;
+            $cw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
+            $cw_pa = 0;
+            // $rw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 3]])->get();
+            // $rw_ds = 0;
+            // $sw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
+            // $sw_ds = 0;
 
-            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'gpss_kriterias', 'users', 'lantikans')); 
+            // Verifikasi borang CATEGORY 1
+            $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 1]])->get();
+            $aw_cs = 0;
+            $mw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 2]])->get();
+            $mw_cs = 0;
+            $ew_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 3]])->get();
+            $ew_cs = 0;
+            $cw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
+            $cw_cs = 0;
+            // $rw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 3]])->get();
+            // $rw_ds = 0;
+            // $sw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
+            // $sw_ds = 0;
+
+            foreach($aw_kriterias as $aw_kriteria) {                
+                $markah_aw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_aw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_aw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','rekabentuk']])->first();
+
+                if($markah_aw_ds){
+                    $aw_ds +=  $markah_aw_ds->point_req_design;
+                } 
+                elseif ($markah_aw_cs){
+                    $aw_cs += $markah_aw_cs->point_req_construction;
+                }
+                elseif ($markah_aw_pa){
+                    $aw_pa += $markah_aw_pa->point_allocated;
+                }                                 
+            }
+            foreach($mw_kriterias as $mw_kriteria) {                
+                $markah_mw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_mw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
+
+                if($markah_mw_ds){
+                    $mw_ds +=  $markah_mw_ds->point_req_design;
+                } 
+                elseif ($markah_mw_cs){
+                    $mw_cs += $markah_mw_cs->point_req_construction;
+                }
+                elseif ($markah_mw_pa){
+                    $mw_pa += $markah_mw_pa->point_allocated;
+                }
+            }
+            foreach($ew_kriterias as $ew_kriteria) {                
+                $markah_ew_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ew_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+
+                if($markah_ew_ds){
+                    $ew_ds +=  $markah_ew_ds->point_req_design;
+                } 
+                elseif ($markah_ew_cs){
+                    $ew_cs += $markah_ew_cs->point_req_construction;
+                }
+                elseif ($markah_ew_pa){
+                    $ew_pa += $markah_ew_pa->point_allocated;
+                }
+            }
+            foreach($cw_kriterias as $cw_kriteria) {                
+                $markah_cw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_cw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_cw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
+
+                if($markah_cw_ds){
+                    $cw_ds +=  $markah_cw_ds->point_req_design;
+                } 
+                elseif ($markah_cw_cs){
+                    $cw_cs += $markah_cw_cs->point_req_construction;
+                }
+                elseif ($markah_cw_pa){
+                    $cw_pa += $markah_cw_pa->point_req_construction;
+                }
+            }
+            
+            $total_ds = $aw_ds + $mw_ds + $ew_ds + $cw_ds; 
+            // + $rw_ds + $sw_ds;
+            $total_cs = $aw_cs + $mw_cs + $ew_cs + $cw_cs; 
+            // + $rw_cs + $sw_cs;
+            $total_pa = $aw_pa + $mw_pa + $ew_pa + $cw_pa;
+
+            //Peratus Design Stage
+
+            // $peratusan_ds = $total_ds /610 * 100;
+            // if($peratusan_ds >= 80){
+            //     $bintang_ds = 5;
+            // }
+            // elseif($peratusan_ds >= 70 && $peratusan_ds < 80){
+            //     $bintang_ds = 4;
+            // }
+            // elseif($peratusan_ds >= 60 && $peratusan_ds < 70){
+            //     $bintang_ds = 3;
+            // }
+            // elseif($peratusan_ds >= 50 && $peratusan_ds < 60){
+            //     $bintang_ds = 2;
+            // }
+            // elseif($peratusan_ds >= 40 && $peratusan_ds < 50){
+            //     $bintang_ds = 1;
+            // }
+
+            //Peratus Construction Stage
+            // $peratusan_cs = $total_cs /610 * 100;
+            // if($peratusan_cs >= 80){
+            //     $bintang_cs = 5;
+            // }
+            // elseif($peratusan_cs >= 70 && $peratusan_cs < 80){
+            //     $bintang_cs = 4;
+            // }
+            // elseif($peratusan_cs >= 60 && $peratusan_cs < 70){
+            //     $bintang_cs = 3;
+            // }
+            // elseif($peratusan_cs >= 50 && $peratusan_cs < 60){
+            //     $bintang_cs = 2;
+            // }
+            // elseif($peratusan_cs >= 40 && $peratusan_cs < 50){
+            //     $bintang_cs = 1;
+            // }
+
+
+            // // Weightage Category 1
+            // $peratusan_ds = $total_ds * 0.45;
+            // $peratusan_cs = $total_cs * 0.15;
+
+        
+
+
+            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'gpss_kriterias', 'users', 'lantikans',
+            'aw_ds', 'mw_ds', 'ew_ds', 'cw_ds', 'aw_cs', 'mw_cs', 'ew_cs', 'cw_cs', 'aw_pa', 'ew_pa', 'cw_pa', 'ew_pa', 'mw_pa',
+            // 'peratusan_ds', 'peratusan_cs', 
+            'total_ds', 'total_cs', 'total_pa',
+            // 'bintang_ds', 'bintang_cs',
+        )); 
         } elseif ($projek->kategori ==  'GPSS Bangunan 2') {
-            $gpss_kriterias = GpssKriteria::where('borang', 'like', '%CATEGORY 2%')->get();                
-            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'gpss_kriterias', 'users', 'lantikans'));         
+            $gpss_kriterias = GpssKriteria::where('borang', 'like', '%CATEGORY 2%')->get();
+            
+            // Rekabentuk borang CATEGORY 2
+            $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 2'],['element_seq','=', 1]])->get();
+            $aw_ds = 0;
+            $mw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 2'],['element_seq','=', 2]])->get();
+            $mw_ds = 0;
+            $ew_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 2'],['element_seq','=', 3]])->get();
+            $ew_ds = 0;
+            $cw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 2'],['element_seq','=', 4]])->get();
+            $cw_ds = 0;
+
+            // Verifikasi borang CATEGORY 2
+            $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 2'],['element_seq','=', 1]])->get();
+            $aw_cs = 0;
+            $mw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 2'],['element_seq','=', 2]])->get();
+            $mw_cs = 0;
+            $ew_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 2'],['element_seq','=', 3]])->get();
+            $ew_cs = 0;
+            $cw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 2'],['element_seq','=', 4]])->get();
+            $cw_cs = 0;
+
+            foreach($aw_kriterias as $aw_kriteria) {                
+                $markah_aw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_aw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_aw_ds){
+                    $aw_ds +=  $markah_aw_ds->point_req_design;
+                } 
+                elseif ($markah_aw_cs){
+                    $aw_cs += $markah_aw_cs->point_req_construction;
+                }                                 
+            }
+            foreach($mw_kriterias as $mw_kriteria) {                
+                $markah_mw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_mw_ds){
+                    $mw_ds +=  $markah_mw_ds->point_req_design;
+                } 
+                elseif ($markah_mw_cs){
+                    $mw_cs += $markah_mw_cs->point_req_construction;
+                }
+            }
+            foreach($ew_kriterias as $ew_kriteria) {                
+                $markah_ew_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_ew_ds){
+                    $ew_ds +=  $markah_ew_ds->point_req_design;
+                } 
+                elseif ($markah_ew_cs){
+                    $ew_cs += $markah_ew_cs->point_req_construction;
+                }
+            }
+            foreach($cw_kriterias as $cw_kriteria) {                
+                $markah_cw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_cw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_cw_ds){
+                    $cw_ds +=  $markah_cw_ds->point_req_design;
+                } 
+                elseif ($markah_cw_cs){
+                    $cw_cs += $markah_cw_cs->point_req_construction;
+                }
+            }
+
+            $total_ds = $aw_ds + $mw_ds + $ew_ds + $cw_ds;
+            $total_cs = $aw_cs + $mw_cs + $ew_cs + $cw_cs;
+
+            //Peratus Design Stage
+
+            // $peratusan_ds = $total_ds /610 * 100;
+            // if($peratusan_ds >= 80){
+            //     $bintang_ds = 5;
+            // }
+            // elseif($peratusan_ds >= 70 && $peratusan_ds < 80){
+            //     $bintang_ds = 4;
+            // }
+            // elseif($peratusan_ds >= 60 && $peratusan_ds < 70){
+            //     $bintang_ds = 3;
+            // }
+            // elseif($peratusan_ds >= 50 && $peratusan_ds < 60){
+            //     $bintang_ds = 2;
+            // }
+            // elseif($peratusan_ds >= 40 && $peratusan_ds < 50){
+            //     $bintang_ds = 1;
+            // }
+
+            //Peratus Construction Stage
+            // $peratusan_cs = $total_cs /610 * 100;
+            // if($peratusan_cs >= 80){
+            //     $bintang_cs = 5;
+            // }
+            // elseif($peratusan_cs >= 70 && $peratusan_cs < 80){
+            //     $bintang_cs = 4;
+            // }
+            // elseif($peratusan_cs >= 60 && $peratusan_cs < 70){
+            //     $bintang_cs = 3;
+            // }
+            // elseif($peratusan_cs >= 50 && $peratusan_cs < 60){
+            //     $bintang_cs = 2;
+            // }
+            // elseif($peratusan_cs >= 40 && $peratusan_cs < 50){
+            //     $bintang_cs = 1;
+            // }
+
+
+            // // Weightage Category 1
+            // $peratusan_ds = $total_ds * 0.45;
+            // $peratusan_cs = $total_cs * 0.15;
+
+            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'gpss_kriterias', 'users', 'lantikans',
+            'aw_ds', 'mw_ds', 'ew_ds', 'cw_ds', 'aw_cs', 'mw_cs', 'ew_cs', 'cw_cs',
+            // 'peratusan_ds', 'peratusan_cs', 
+            'total_ds', 'total_cs', 
+            // 'bintang_ds', 'bintang_cs',
+        ));         
         } elseif ($projek->kategori ==  'GPSS Bangunan 3') {
-            $gpss_kriterias = GpssKriteria::where('borang', 'like', '%CATEGORY 3%')->get();             
-            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'gpss_kriterias', 'users', 'lantikans'));   
+            $gpss_kriterias = GpssKriteria::where('borang', 'like', '%CATEGORY 3%')->get();  
+            
+            // Rekabentuk borang CATEGORY 3
+            $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 1]])->get();
+            $aw_ds = 0;
+            $mw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 2]])->get();
+            $mw_ds = 0;
+            $ew_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 3]])->get();
+            $ew_ds = 0;
+            $cw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 4]])->get();
+            $cw_ds = 0;
+            // $rw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 1]])->get();
+            // $rw_ds = 0;
+            // $sw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 2]])->get();
+            // $sw_ds = 0;
+
+            // Verifikasi borang CATEGORY 3
+            $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 1]])->get();
+            $aw_cs = 0;
+            $mw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 2]])->get();
+            $mw_cs = 0;
+            $ew_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 3]])->get();
+            $ew_cs = 0;
+            $cw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 4]])->get();
+            $cw_cs = 0;
+            // $rw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 1]])->get();
+            // $rw_cs = 0;
+            // $sw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 2]])->get();
+            // $sw_cs = 0;
+
+            foreach($aw_kriterias as $aw_kriteria) {                
+                $markah_aw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_aw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_aw_ds){
+                    $aw_ds +=  $markah_aw_ds->point_req_design;
+                } 
+                elseif ($markah_aw_cs){
+                    $aw_cs += $markah_aw_cs->point_req_construction;
+                }                                 
+            }
+            foreach($mw_kriterias as $mw_kriteria) {                
+                $markah_mw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_mw_ds){
+                    $mw_ds +=  $markah_mw_ds->point_req_design;
+                } 
+                elseif ($markah_mw_cs){
+                    $mw_cs += $markah_mw_cs->point_req_construction;
+                }
+            }
+            foreach($ew_kriterias as $ew_kriteria) {                
+                $markah_ew_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_ew_ds){
+                    $ew_ds +=  $markah_ew_ds->point_req_design;
+                } 
+                elseif ($markah_ew_cs){
+                    $ew_cs += $markah_ew_cs->point_req_construction;
+                }
+            }
+            foreach($cw_kriterias as $cw_kriteria) {                
+                $markah_cw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_cw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_cw_ds){
+                    $cw_ds +=  $markah_cw_ds->point_req_design;
+                } 
+                elseif ($markah_cw_cs){
+                    $cw_cs += $markah_cw_cs->point_req_construction;
+                }
+            }
+            // foreach($rw_kriterias as $rw_kriteria) {                
+            //     $markah_rw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','rekabentuk']])->first();
+            //     $markah_rw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     if($markah_rw_ds){
+            //         $rw_ds +=  $markah_rw_ds->point_req_design;
+            //     } 
+            //     elseif ($markah_rw_cs){
+            //         $rw_cs += $markah_rw_cs->point_req_construction;
+            //     }
+            // }
+            // foreach($sw_kriterias as $sw_kriteria) {                
+            //     $markah_sw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','rekabentuk']])->first();
+            //     $markah_sw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     if($markah_sw_ds){
+            //         $sw_ds +=  $markah_sw_ds->point_req_design;
+            //     } 
+            //     elseif ($markah_sw_cs){
+            //         $sw_cs += $markah_sw_cs->point_req_construction;
+            //     }
+            // }
+
+            $total_ds = $aw_ds + $mw_ds + $ew_ds + $cw_ds;
+            //  + $rw_ds + $sw_ds;
+            $total_cs = $aw_cs + $mw_cs + $ew_cs + $cw_cs;
+            //  + $rw_cs + $sw_cs;
+
+            //Peratus Design Stage
+
+            // $peratusan_ds = $total_ds /610 * 100;
+            // if($peratusan_ds >= 80){
+            //     $bintang_ds = 5;
+            // }
+            // elseif($peratusan_ds >= 70 && $peratusan_ds < 80){
+            //     $bintang_ds = 4;
+            // }
+            // elseif($peratusan_ds >= 60 && $peratusan_ds < 70){
+            //     $bintang_ds = 3;
+            // }
+            // elseif($peratusan_ds >= 50 && $peratusan_ds < 60){
+            //     $bintang_ds = 2;
+            // }
+            // elseif($peratusan_ds >= 40 && $peratusan_ds < 50){
+            //     $bintang_ds = 1;
+            // }
+
+            //Peratus Construction Stage
+            // $peratusan_cs = $total_cs /610 * 100;
+            // if($peratusan_cs >= 80){
+            //     $bintang_cs = 5;
+            // }
+            // elseif($peratusan_cs >= 70 && $peratusan_cs < 80){
+            //     $bintang_cs = 4;
+            // }
+            // elseif($peratusan_cs >= 60 && $peratusan_cs < 70){
+            //     $bintang_cs = 3;
+            // }
+            // elseif($peratusan_cs >= 50 && $peratusan_cs < 60){
+            //     $bintang_cs = 2;
+            // }
+            // elseif($peratusan_cs >= 40 && $peratusan_cs < 50){
+            //     $bintang_cs = 1;
+            // }
+
+
+            // // Weightage Category 1
+            // $peratusan_ds = $total_ds * 0.45;
+            // $peratusan_cs = $total_cs * 0.15;
+
+            return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'gpss_kriterias', 'users', 'lantikans',
+            'aw_ds', 'mw_ds', 'ew_ds', 'cw_ds', 'aw_cs', 'mw_cs', 'ew_cs', 'cw_cs', 
+            // 'rw_ds', 'rw_cs', 'sw_ds', 'sw_cs',
+            // 'peratusan_ds', 'peratusan_cs', 
+            'total_ds', 'total_cs', 
+            // 'bintang_ds', 'bintang_cs',
+        ));   
         }  elseif ($projek->kategori ==  'GPSS Jalan') {
-            $gpss_kriterias = GpssKriteria::where('borang', 'like', 'ROAD')->get();            
-            return view('projek.satu_gpss_jalan', compact('projek', 'user', 'user_role' ,'gpss_kriterias', 'users', 'lantikans'));       
+            $gpss_kriterias = GpssKriteria::where('borang', 'like', 'ROAD')->get();   
+            
+            // Rekabentuk borang CATEGORY 3
+            $rw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 1]])->get();
+            $rw_ds = 0;
+            $sw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 2]])->get();
+            $sw_ds = 0;
+
+            // Verifikasi borang CATEGORY 3
+            $rw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 1]])->get();
+            $rw_cs = 0;
+            $sw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 3'],['element_seq','=', 2]])->get();
+            $sw_cs = 0;
+
+            foreach($rw_kriterias as $rw_kriteria) {                
+                $markah_rw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_rw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_rw_ds){
+                    $rw_ds +=  $markah_rw_ds->point_req_design;
+                } 
+                elseif ($markah_rw_cs){
+                    $rw_cs += $markah_rw_cs->point_req_construction;
+                }                                 
+            }
+            foreach($sw_kriterias as $sw_kriteria) {                
+                $markah_sw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_sw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_sw_ds){
+                    $sw_ds +=  $markah_sw_ds->point_req_design;
+                } 
+                elseif ($markah_sw_cs){
+                    $sw_cs += $markah_sw_cs->point_req_construction;
+                }
+            }
+
+            $total_ds = $rw_ds + $sw_ds;
+            $total_cs = $rw_cs + $sw_cs;
+
+            //Peratus Design Stage
+
+            // $peratusan_ds = $total_ds /610 * 100;
+            // if($peratusan_ds >= 80){
+            //     $bintang_ds = 5;
+            // }
+            // elseif($peratusan_ds >= 70 && $peratusan_ds < 80){
+            //     $bintang_ds = 4;
+            // }
+            // elseif($peratusan_ds >= 60 && $peratusan_ds < 70){
+            //     $bintang_ds = 3;
+            // }
+            // elseif($peratusan_ds >= 50 && $peratusan_ds < 60){
+            //     $bintang_ds = 2;
+            // }
+            // elseif($peratusan_ds >= 40 && $peratusan_ds < 50){
+            //     $bintang_ds = 1;
+            // }
+
+            //Peratus Construction Stage
+            // $peratusan_cs = $total_cs /610 * 100;
+            // if($peratusan_cs >= 80){
+            //     $bintang_cs = 5;
+            // }
+            // elseif($peratusan_cs >= 70 && $peratusan_cs < 80){
+            //     $bintang_cs = 4;
+            // }
+            // elseif($peratusan_cs >= 60 && $peratusan_cs < 70){
+            //     $bintang_cs = 3;
+            // }
+            // elseif($peratusan_cs >= 50 && $peratusan_cs < 60){
+            //     $bintang_cs = 2;
+            // }
+            // elseif($peratusan_cs >= 40 && $peratusan_cs < 50){
+            //     $bintang_cs = 1;
+            // }
+
+
+            // // Weightage Category 1
+            // $peratusan_ds = $total_ds * 0.45;
+            // $peratusan_cs = $total_cs * 0.15;
+
+            return view('projek.satu_gpss_jalan', compact('projek', 'user', 'user_role' ,'gpss_kriterias', 'users', 'lantikans',
+            'total_ds', 'total_cs', 'rw_ds', 'rw_ds', 'sw_cs', 'rw_cs',
+        ));       
         }
 
 
@@ -4186,23 +4888,26 @@ class ProjekController extends Controller
     }    
 
     // Mai tambah
-    public function markah_gpss(Request $request){
+    public function markah_gpss(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
-        // dd($request->gpss_kriterias);
-        $gpss_kriterias = GpssKriteria::find($request->gpss_kriterias);
-        if ($request->markah >$gpss_kriterias->maksimum) {
-            Alert::error('Salah Markah', 'Sila letakkan markah kurang dari maksimum');
-            return back();
-        } 
 
-        $markah = New Markah;
+        // $gpss_kriteria = GpssKriteria::find($request->gpss_kriteria);
+        // if ($request->markah >$gpss_kriteria->maksimum) {
+        //     Alert::error('Salah Markah', 'Sila letakkan markah kurang dari maksimum');
+        //     return back();
+        // }
+
+        $markah = New GpssMarkah;
         $markah->projek_id = $id;
         $markah->user_id = $user->id;
-        $markah->gpss_kriteria_id = $request->gpss_kriterias;
-        $markah->markah_gpss = $request->markah_gpss;
-        $markah->ulasan = $request->ulasan;
+        $markah->gpss_kriteria_id = $request->gpss_kriteria;
         $markah->fasa = $request->fasa;
+        $markah->point_allocated = $request->point_allocated;
+        $markah->point_req_design = $request->point_req_design;
+        $markah->point_req_construction = $request->point_req_construction;
+        $markah->remarks = $request->remarks;
+        $markah->comment_on_appeal = $request->comment_on_appeal;
 
         if ($request->hasFile('dokumen1')) {
             $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
@@ -4225,13 +4930,36 @@ class ProjekController extends Controller
             $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
         }  
 
+        if ($request->hasFile('dokumen_rayuan1')) {
+            $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
+        } else {
+            if ($request->markah > 0) {
+                Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+                return back();
+            }            
+        }    
+        if ($request->hasFile('dokumen_rayuan2')) {
+            $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan3')) {
+            $markah->dokumen3 = $request->file('dokumen3')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan4')) {
+            $markah->dokumen4 = $request->file('dokumen4')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan5')) {
+            $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
+        }  
+
         $markah->save();
+
+        alert()->success('Markah Disimpan', 'Berjaya');
 
         return back();
 
 
     }
-
+    
     public function sah_projek(Request $request) {
         $id = (int)$request->route('id');
         $projek = Projek::find($id);

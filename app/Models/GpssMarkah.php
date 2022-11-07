@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GpssKriteria extends Model
+class GpssMarkah extends Model
 {
     use HasFactory;
 
-    // Mai tambah
-    public function gpssmarkah() {
-        return $this->hasMany(GpssMarkah::class);
-    }  
+    public function gpsskriteria() {
+        return $this->belongsTo(GpssKriteria::class);
+    }
 }

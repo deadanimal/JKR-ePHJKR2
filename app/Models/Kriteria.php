@@ -11,5 +11,6 @@ class Kriteria extends Model
 
     public function markah() {
         return $this->hasMany(Markah::class);
-    }        
+    } 
+    
 }
