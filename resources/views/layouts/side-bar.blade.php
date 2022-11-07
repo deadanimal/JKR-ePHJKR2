@@ -97,7 +97,7 @@
             </a>
         </li>
 
-        @role('pentadbir|pengurusan-atasan|sekretariat')
+        @role('pentadbir|pengurusan-atasan|sekretariat|ketua-pasukan|penolong-ketua-pasukan')
         <li class="nav-item">
             <a class="nav-link" href="/laporan">
                 <div class="d-flex align-items-center nav-link-side">
@@ -120,7 +120,7 @@
         <li class="nav-item">
             <a class="nav-link" href="/manual">
                 <div class="d-flex align-items-center nav-link-side">
-                    <span class="px-0">Manual</span>
+                    <span class="px-0">Manual & Standard</span>
                 </div>
             </a>
         </li>
