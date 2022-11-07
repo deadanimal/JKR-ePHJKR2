@@ -13,9 +13,9 @@ class Markah extends Model
         return $this->belongsTo(Kriteria::class);
     }
 
-    public function gpss_kriteria() {
-        return $this->belongsTo(GpssKriteria::class);
-    }
+    // public function gpss_kriteria() {
+    //     return $this->belongsTo(GpssKriteria::class);
+    // }
     
     
 

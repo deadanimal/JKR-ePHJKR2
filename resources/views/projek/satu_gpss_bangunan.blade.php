@@ -200,7 +200,9 @@
             @role('ketua-pasukan')
             <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Rayuan</a></li>
             @endrole
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
             <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Sijil</a></li>
+            @endrole
         </ul>
         <div class="tab-content"> 
             <!--RUMUSAN SKOR KAD-->
@@ -221,17 +223,17 @@
                                         <th rowspan="2">Percentage of Green Product Scoring Score</th>
                                     </tr>
                                     <tr>
-                                        <th >Design stage</th>
-                                        <th >Construction stage</th>
+                                        <th >Design Stage</th>
+                                        <th >Construction Stage</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-black">
                                     <tr>
                                     <th>1</th>
                                     <th>Architectural (Aw)</th>
-                                    <th>232</th>
-                                    <th>AW_DS</th>
-                                    <th>AW_CS</th>
+                                    <th>{{$total_pa}}</th>
+                                    <th>{{$aw_ds}}</th>
+                                    <th>{{$aw_cs}}</th>
                                     <th>AW_TPA</th>
                                     <th>AW_W</th>
                                     <th>AW_GPSS</th>
@@ -241,8 +243,8 @@
                                     <th>2</th>
                                     <th>Mechanical (Mw)</th>
                                     <th>34</th>
-                                    <th>MW_DS</th>
-                                    <th>MW_CS</th>
+                                    <th>{{$mw_ds}}</th>
+                                    <th>{{$mw_cs}}</th>
                                     <th>MW_TPA</th>
                                     <th>MW_W</th>
                                     <th>MW_GPSS</th>
@@ -252,8 +254,8 @@
                                     <th>3</th>
                                     <th>Electrical (Ew)</th>
                                     <th>110</th>
-                                    <th>EW_DS</th>
-                                    <th>EW_CS</th>
+                                    <th>{{$ew_ds}}</th>
+                                    <th>{{$ew_cs}}</th>
                                     <th>EW_TPA</th>
                                     <th>EW_W</th>
                                     <th>EW_GPSS</th>
@@ -263,8 +265,8 @@
                                     <th>4</th>
                                     <th>Civil & Structural (Cw)</th>
                                     <th>124</th>
-                                    <th>CW_DS</th>
-                                    <th>CW_CS</th>
+                                    <th>{{$cw_ds}}</th>
+                                    <th>{{$cw_cs}}</th>
                                     <th>CW_TPA</th>
                                     <th>CW_W</th>
                                     <th>CW_GPSS</th>                                            
@@ -274,29 +276,29 @@
                                     <th>5</th>
                                     <th>Road & Geotechnial (Rw)</th>
                                     <th>98</th>
-                                    <th>RW_DS</th>
-                                    <th>RW_CS</th>
-                                    <th>RW_TPA</th>
-                                    <th>RW_W</th>
-                                    <th>RW_GPSS</th>
+                                    <th>0</th>
+                                    <th>0</th>
+                                    <th>0</th>
+                                    <th>0</th>
+                                    <th>0</th>
                                     </tr>
 
                                     <tr>
                                     <th>6</th>
                                     <th>Structural(Bridge) (Sw)</th>
                                     <th>12</th>
-                                    <th>SW_DS</th>
-                                    <th>SW_CS</th>
-                                    <th>SW_TPA</th>
-                                    <th>SW_W</th>
-                                    <th>SW_GPSS</th>
+                                    <th>0</th>
+                                    <th>0</th>
+                                    <th>0</th>
+                                    <th>0</th>
+                                    <th>0</th>
                                     </tr>
 
                                     <tr>
                                     <th colspan="2">Total points</th>
                                     <th>610</th>
-                                    <th>DS_TP</th>
-                                    <th>CS_TP</th>
+                                    <th>{{$total_ds}}</th>
+                                    <th>{{$total_cs}}</th>
                                     <th>TPA_TP</th>
                                     <th>W_TP</th>
                                     <th>GPSS_TP</th>
@@ -307,23 +309,92 @@
                         <table class="table table-bordered line-table text-center" style="width: 100%">
                             <thead class="text-white bg-orange-jkr">
                                 <tr>
-                                    <th colspan="2">SUMMARY</th>
+                                    <th colspan="3">SUMMARY</th>
                                 </tr>
                             </thead>
                             <tbody class="text-black">
                                 <tr>
                                     <th>GPSS Star (Bangunan) </th>
-                                    <th>0<span class="star">&#160;&starf;</span></th>
+                                    <th>
+                                        <input type="hidden" name="fasa" value="rekabentuk">
+                                        <span class="star">&#160;&starf;
+                                            {{-- @if ($bintang_ds == 1)
+                                                1 &starf;
+                                            @elseif ($bintang_ds == 2)
+                                                2 &starf; &starf;
+                                            @elseif ($bintang_ds == 3)
+                                                3 &starf; &starf; &starf;
+                                            @elseif ($bintang_ds == 4)
+                                                4 &starf; &starf; &starf; &starf;  
+                                            @elseif ($bintang_ds == 5)
+                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                            @endif --}}
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <input type="hidden" name="fasa" value="verifikasi">
+                                        <span class="star">&#160;&starf;
+                                            {{-- @if ($bintang_ds == 1)
+                                                1 &starf;
+                                            @elseif ($bintang_ds == 2)
+                                                2 &starf; &starf;
+                                            @elseif ($bintang_ds == 3)
+                                                3 &starf; &starf; &starf;
+                                            @elseif ($bintang_ds == 4)
+                                                4 &starf; &starf; &starf; &starf;  
+                                            @elseif ($bintang_ds == 5)
+                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                            @endif --}}
+                                        </span>
+                                    </th>
                                 </tr>
         
                                 <tr>
                                     <th>GPSS Star (Jalan)</th>
-                                    <th>0<span class="star">&#160;&starf;</span></th>
+                                    <th>
+                                        <input type="hidden" name="fasa" value="rekabentuk">
+                                        <span class="star">&#160;&starf;
+                                            {{-- @if ($bintang_ds == 1)
+                                                1 &starf;
+                                            @elseif ($bintang_ds == 2)
+                                                2 &starf; &starf;
+                                            @elseif ($bintang_ds == 3)
+                                                3 &starf; &starf; &starf;
+                                            @elseif ($bintang_ds == 4)
+                                                4 &starf; &starf; &starf; &starf;  
+                                            @elseif ($bintang_ds == 5)
+                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                            @endif --}}
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <input type="hidden" name="fasa" value="verifikasi">
+                                        <span class="star">&#160;&starf;
+                                            {{-- @if ($bintang_ds == 1)
+                                                1 &starf;
+                                            @elseif ($bintang_ds == 2)
+                                                2 &starf; &starf;
+                                            @elseif ($bintang_ds == 3)
+                                                3 &starf; &starf; &starf;
+                                            @elseif ($bintang_ds == 4)
+                                                4 &starf; &starf; &starf; &starf;  
+                                            @elseif ($bintang_ds == 5)
+                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                            @endif --}}
+                                        </span>
+                                    </th>
                                 </tr>
                             
                                 <tr>
                                 <th>MyCREST</th>
-                                <th>0<span>&#160;Points</span></th>
+                                <th>
+                                    <input type="hidden" name="fasa" value="rekabentuk">
+                                    <span>0&#160;Points</span>
+                                </th>
+                                <th>
+                                    <input type="hidden" name="fasa" value="verifikasi">
+                                    <span>0&#160;Points</span>
+                                </th>
                                 </tr>
                             </tbody> 
                         </table>
@@ -398,7 +469,7 @@
             <div class="tab-pane" id="tab-3" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <form action="/projek/{{ $projek->id }}/markah" method="POST" enctype="multipart/form-data">
+                        <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="fasa" value="rekabentuk">
                             <h4 class="mb-3">PENILAIAN REKABENTUK GPSS BANGUNAN</h4>
@@ -419,19 +490,25 @@
                                     <label class="col-form-label">Point Allocated:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number"/>
+                                    <select class="form-select form-control" name="point_allocated" aria-label="Default select example">
+                                        <option selected>Sila Pilih</option>
+                                        <option value="0">0</option>
+                                        <option value="2">2</option>
+                                      </select>
+                                    {{-- <input class="form-control" name="markah" type="number"/> --}}
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Requested (Design):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
+                                    <input name="point_req_design" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                    {{-- <input class="form-control" name="markah" type="number" min="0" max="2" maxlength="1"/> --}}
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Remarks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="4" name="remarks" type="text" placeholder="Remarks"></textarea>
+                                    <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                 <label class="col-form-label">Upload File:</label>
@@ -456,12 +533,12 @@
             @endrole
 
             <!--VERIFIKASI GPSS BANGUNAN-->
-            @role('pemudah-cara|ketua-pemudah-cara')
+            @role('pemudah-cara|ketua-pemudah-cara|penilai|ketua-penilai')
             <div class="tab-pane" id="tab-4" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4 class="mb-3">VERIFIKASI PERMARKAHAN GPSS BANGUNAN</h4>
-                        <form action="/projek/{{ $projek->id }}/markah" method="POST" enctype="multipart/form-data">
+                        <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row mx-3 mb-2">
                                 <div class="col-5 mb-2">
@@ -476,17 +553,29 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                @role('penilai|ketua-penilai')
+                                <div class="col-5 mb-2">
+                                    <label class="col-form-label">Point Awarded:</label>
+                                </div>
+                                <div class="col-7 mb-2">
+                                    <input name="point_awarded" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                    {{-- <input class="form-control" name="markah" type="number" min="0" max="2"/> --}}
+                                </div>
+                                @endrole
+                                @role('pemudah-cara|ketua-pemudah-cara')
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Requested (Construction):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
-                                </div> 
+                                    <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                    {{-- <input class="form-control" name="markah" type="number" min="0" max="2"/> --}}
+                                </div>
+                                @endrole 
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Remarks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="4" name="ulasan" type="text" placeholder="Remarks"></textarea>
+                                    <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                 <label class="col-form-label">Upload File:</label>
@@ -515,7 +604,7 @@
             <div class="tab-pane" id="tab-5" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body"> 
-                        <form action="/projek/{{ $projek->id }}/markah" method="POST" enctype="multipart/form-data">
+                        <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
                             @csrf
                             <h4 class="mb-3">RAYUAN</h4>
                             <div class="row mx-3 mb-2">
@@ -535,41 +624,49 @@
                                     <label class="col-form-label">Point Allocated:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number"/>
+                                    <select class="form-select form-control" name="point_allocated" aria-label="Default select example">
+                                        <option selected>Sila Pilih</option>
+                                        <option value="0">0</option>
+                                        <option value="2">2</option>
+                                      </select>
+                                    {{-- <input class="form-control" name="markah" type="number"/> --}}
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Requested (Design):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number"/>
+                                    <input name="point_req_design" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                    {{-- <input class="form-control" name="markah" type="number"/> --}}
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Requested (Construction):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
+                                    <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                    {{-- <input class="form-control" name="markah" type="number" min="0" max="2"/> --}}
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Remarks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="4" name="ulasan" type="text" placeholder="Remarks"></textarea>
+                                    <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Comment on Appeal:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="4" name="ulasan_rayuan" type="text" placeholder="Comment on Appeal"></textarea>
+                                    <textarea class="form-control" rows="3" name="comment_on_appeal" type="text" placeholder="Comment on Appeal"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Upload File:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="file" name="dokumen1">
-                                    <input class="form-control" type="file" name="dokumen2">
-                                    <input class="form-control" type="file" name="dokumen3">
-                                    <input class="form-control" type="file" name="dokumen4">
-                                    <input class="form-control" type="file" name="dokumen5">                                </div>
+                                    <input class="form-control" type="file" name="dokumen_rayuan1">
+                                    <input class="form-control" type="file" name="dokumen_rayuan2">
+                                    <input class="form-control" type="file" name="dokumen_rayuan3">
+                                    <input class="form-control" type="file" name="dokumen_rayuan4">
+                                    <input class="form-control" type="file" name="dokumen_rayuan5">                                
+                                </div>
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         <button type="submit" class="btn btn-primary">Simpan</button>
@@ -693,8 +790,8 @@
                     name: 'markah_gpss'
                 },
                 {
-                    data: 'ulasan_gpss',
-                    name: 'ulasan_gpss'
+                    data: 'remarks_gpss',
+                    name: 'remarks_gpss'
                 },
                 {
                     data: 'dokumen_gpss',
