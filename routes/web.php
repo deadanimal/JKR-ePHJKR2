@@ -89,6 +89,18 @@ Route::middleware(['auth'])->group(function () {
     Route::put('maklumbalas/{id}', [MaklumbalasController::class, 'kemaskini']); 
 
     Route::get('selenggara', [UserController::class, 'selenggara']); 
+    Route::post('selenggara/cipta', [UserController::class, 'cipta_peranan']); 
+    // Route::get('selenggara/senarai', [UserController::class, 'senarai_selenggara_peranan']);
+    Route::get('selenggara/kemaskini_peranan/{id}', [UserController::class, 'kemaskini_peranan']);
+    Route::put('selenggara/simpankemaskini_peranan/{id}', [UserController::class, 'simpankemaskini_peranan']);
+    Route::delete('buang/{id}', [UserController::class, 'buang']); 
+
+    Route::post('selenggara/cipta_statusprojek', [UserController::class, 'cipta_statusprojek']); 
+    // Route::get('selenggara/senarai_status', [UserController::class, 'senarai_selenggara_status']);
+    Route::get('selenggara/kemaskini_status/{id}', [UserController::class, 'kemaskini_status']);
+    Route::put('selenggara/simpankemaskini_status/{id}', [UserController::class, 'simpankemaskini_status']);
+    Route::delete('buang_status/{id}', [UserController::class, 'buang_status']);
+
 
 });
 

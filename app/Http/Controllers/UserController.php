@@ -58,7 +58,11 @@ class UserController extends Controller
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
         $peranan = Role::all();
-        $projek = ProjekRoleUser::with(['projek','peranan','pengguna'])->where('user_id', $id)->get();
+        // $projek = ProjekRoleUser::with(['projek'])->where('user_id', $id)->get();
+        $projek = ProjekRoleUser::where('user_id', $id)->get();
+        // $projek = ProjekRoleUser::all();
+
+        // dd($projek);
         return view('profil.tukar_peranan', compact('pengguna','projek','peranan'));
     }
 
@@ -165,7 +169,78 @@ class UserController extends Controller
     }
 
     public function selenggara(Request $request) {
-        return view('selenggara.senarai');
+        $peranan = Role::all();
+        $projek = Projek::all();
+        return view('selenggara.senarai', compact('peranan','projek'));
+    }
+    //selenggara peranan
+
+    public function cipta_peranan(Request $request) {
+        $peranan = New Role;
+        $peranan->name = $request->name;
+        $peranan->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function kemaskini_peranan(Request $request) {   
+        $id = (int)$request->route('id'); 
+        $peranan = Role::find($id);
+        return view('selenggara.kemaskini_peranan', compact('peranan'));
+    }
+
+    public function simpankemaskini_peranan(Request $request) {
+        $id = (int)$request->route('id');
+        $peranan = Role::find($id);
+        $peranan->name = $request->name;
+        $peranan->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function buang(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $peranan = Role::find($id); 
+        $peranan->delete();
+
+        alert()->error('Maklumat telah dibuang', 'Berjaya');
+        return redirect('/selenggara');
+    }
+    //selenggara status projek
+    public function cipta_statusprojek(Request $request) {
+        $projek = New Projek();
+        $projek->status = $request->status;
+        $projek->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function kemaskini_status(Request $request) {   
+        $id = (int)$request->route('id'); 
+        $projek = Projek::find($id);
+        return view('selenggara.kemaskini_status_projek', compact('projek'));
+    }
+
+    public function simpankemaskini_status(Request $request) {
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);
+        $projek->status = $request->status;
+        $projek->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function buang_status(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $projek = Projek::find($id); 
+        $projek->delete();
+
+        alert()->error('Maklumat telah dibuang', 'Berjaya');
+        return redirect('/selenggara');
     }
 
     public function loginjkr()

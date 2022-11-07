@@ -31,20 +31,20 @@
 
                                     <div class="row mt-4 mb-3">
                                         <div class="col">
-                                            <form action="/selenggaraPengguna" method="post" enctype="multipart/form-data">
+                                            <form action="/selenggara/cipta" method="post" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="row mx-4">
                                                     <div class="col-3 mb-2">
                                                         <label class="col-form-label">Nama Peranan Baru:</label>
                                                     </div>
                                                     <div class="col-7 mb-2">
-                                                        <input class="form-control" name="nama" type="text" />
+                                                        <input class="form-control" name="name" type="text" />
                                                     </div>
 
                                                     <div class="col-7 mb-2">
                                                         <div class="row mt-4">
                                                             <div class="col-6">
-                                                                <a href="/manual" class="btn btn-outline-primary">Batal</a>
+                                                                <a href="/selenggara" class="btn btn-outline-primary">Batal</a>
                                                             </div>
                                                             <div class="col-6 text-end">
                                                                 <button type="submit"
@@ -83,19 +83,19 @@
                                                     </thead>
                                                     <tbody class="bg-white">
 
-                                                        {{-- @foreach ($selenggara as $selenggaraPengguna) --}}
+                                                        @foreach ($peranan as $peranan)
                                                         <tr>
-                                                            {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                            {{-- <td>{{ $selenggaraPengguna->nama }}</td> --}}
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $peranan->name }}</td>
                                                             <td>
                                                                 <div class="row">
                                                                     <div class="col-auto">
-                                                                        {{-- <a href="/selenggaraPengguna/{{ $selenggaraPengguna->id }}/edit" 
+                                                                        <a href="/selenggara/kemaskini_peranan/{{ $peranan->id }}"
                                                                         class="btn btn-sm btn-primary"><i
-                                                                            {{-- class="fas fa-edit"></i></a> --}}
+                                                                            class="fas fa-edit"></i></a>
                                                                     </div>
                                                                     <div class="col-auto">
-                                                                        {{-- <form action="/selenggaraPengguna/{{ $selenggaraPengguna->id }}" method="post"> --}}
+                                                                        <form action="/buang/{{ $peranan->id }}" method="post">
                                                                         @method('DELETE')
                                                                         @csrf
                                                                         <button type="submit"
@@ -106,7 +106,7 @@
                                                                 </div>
                                                             </td>
                                                         </tr>
-                                                        {{-- @endforeach --}}
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -151,8 +151,7 @@
 
                                     <div class="row mt-4 mb-3">
                                         <div class="col">
-                                            <form action="/selenggaraProjek" method="post"
-                                                enctype="multipart/form-data">
+                                            <form action="/selenggara/cipta_statusprojek" method="post" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="row mx-4">
                                                     <div class="col-3 mb-2">
@@ -165,7 +164,7 @@
                                                     <div class="col-7 mb-2">
                                                         <div class="row mt-4">
                                                             <div class="col-6">
-                                                                <a href="/selenggaraProjek"
+                                                                <a href="/selenggara"
                                                                     class="btn btn-outline-primary">Batal</a>
                                                             </div>
                                                             <div class="col-6 text-end">
@@ -205,19 +204,19 @@
                                                     </thead>
                                                     <tbody class="bg-white">
 
-                                                        {{-- @foreach ($selenggara as $selenggaraProjek) --}}
+                                                        @foreach ($projek as $projek)
                                                         <tr>
-                                                            {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                            {{-- <td>{{ $selenggaraProjek->status }}</td> --}}
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $projek->status }}</td>
                                                             <td>
                                                                 <div class="row">
                                                                     <div class="col-auto">
-                                                                        {{-- <a href="/selenggaraProjek/{{ $selenggaraProjek->id }}/edit" --}}
+                                                                        <a href="/selenggara/kemaskini_status/{{ $projek->id }}"
                                                                         class="btn btn-sm btn-primary"><i
                                                                             class="fas fa-edit"></i></a>
                                                                     </div>
                                                                     <div class="col-auto">
-                                                                        {{-- <form action="/selenggaraProjek/{{ $selenggaraProjek->id }}" method="post"> --}}
+                                                                        <form action="/buang_status/{{ $projek->id }}" method="post">
                                                                         @method('DELETE')
                                                                         @csrf
                                                                         <button type="submit"
@@ -228,7 +227,7 @@
                                                                 </div>
                                                             </td>
                                                         </tr>
-                                                        {{-- @endforeach --}}
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>

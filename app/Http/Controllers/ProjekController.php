@@ -163,7 +163,7 @@ class ProjekController extends Controller
         //check kalo dah wujud
         $proj = Projek::where('nama',$request->tajuk_projek)->get();
         if(count($proj) > 0){
-            alert()->success('Maklumat telah wujud', 'Gagal');
+            alert()->Error('Maklumat telah wujud', 'Gagal');
             return redirect('/projek');
         }
 
