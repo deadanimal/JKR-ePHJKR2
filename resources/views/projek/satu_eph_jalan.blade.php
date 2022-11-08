@@ -460,6 +460,18 @@
                                         <input class="form-control" name="markah" type="number" />
                                     </div>
                                     <div class="col-5 mb-2">
+                                        <label class="col-form-label">Assessment Point:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <input class="form-control" name="markah" type="number" />
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Comment by Assessor:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <textarea class="form-control" rows="3" name="comment" type="text" placeholder="Comment"></textarea>
+                                    </div>
+                                    <div class="col-5 mb-2">
                                         <label class="col-form-label">Upload File:</label>
                                     </div>
                                     <div class="col-7 mb-2">

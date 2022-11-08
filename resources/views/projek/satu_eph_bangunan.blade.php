@@ -1,11 +1,12 @@
 @extends('layouts.app')
+<link rel="stylesheet" type="text/css" href="print.css">
 
 @section('content')
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col-12">
             <div class="card">
-                <div class="card-body" id="element-to-print">
+                <div class="card-body" id="printJS-form">
                     <div class="row mx-3 mb-2">
                         <h2 class="mb-3">Maklumat Projek</h2>
                         <div class="col-4 mb-2">
@@ -108,9 +109,9 @@
                         @if($projek->status == "Menunggu Pengesahan Sekretariat")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Maklumat Projek</button>
                         @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan")
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk Bangunan</button>
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Pengisian Skor Rekabentuk Bangunan Sudah Diproses</button>
                         @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Rekabentuk Bangunan</button>
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk Bangunan Sudah Selesai</button>
                         @elseif ($projek->status == "Selesai Pengesahan Rekabentuk Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk Bangunan</button>
                         @elseif ($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan")    
@@ -137,8 +138,8 @@
 
                     </form>
                     @endrole
-                    @role('ketua-pasukan')
-                        <button class="btn btn-primary mx-3 my-3" id="generate">Muat Turun Maklumat Projek</button>
+                    @role('ketua-pasukan|pentadbir|sekretariat')
+                        <button class="btn btn-primary mx-3 my-3" onclick="printJS('printJS-form', 'html')">Muat Turun Maklumat Projek</button>
                     @endrole  
                     <form action="/projek/{{$projek->id}}/sah-eph-rayuan" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -254,6 +255,13 @@
                 {{-- @endif --}}
             </li>
             @endrole
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+            <li class="nav-item">
+                {{-- @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan") --}}
+                <a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a>
+                {{-- @endif --}}
+            </li>
+            @endrole
             <li class="nav-item">
                 <a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Skor Kad</a>
             </li>
@@ -289,11 +297,11 @@
         </ul>
         <div class="tab-content">
             <!--RUMUSAN SKOR KAD-->
-            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara')
             {{-- @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan") --}}
             <div class="tab-pane active" id="tab-1" role="tabpanel">
                 <div class="card mt-3">
-                    <div class="card-body">
+                    <div class="card-body" id="printJS-form">
                         <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
                         <table class="table table-bordered line-table shadow-table-jkr line-corner-table-jkr">
                             <thead class="text-white line-table">
@@ -1001,7 +1009,7 @@
                         </table><!--Table-->
                     </div>
 
-                    <div class="mb-3 row mx-3">
+                    <div class="mb-3 row mx-3" id="element-to-print">
                         <table class="table table-bordered line-table shadow-table-jkr">
                             <thead class="text-white line-table">
                                 <tr align="center" style="background-color:#EB5500">
@@ -1145,7 +1153,7 @@
                         @role('ketua-pasukan')
                             <div class="row mt-3">
                                 <div class="col text-center">
-                                    <button class="btn btn-primary">Muat Turun Rumusan Skor Kad</button>
+                                    <button class="btn btn-primary" id="generate">Muat Turun Rumusan Skor Kad</button>
                                 </div>
                             </div>
                         @endrole
@@ -1155,10 +1163,12 @@
             {{-- @endif --}}
             @endrole
 
+    
+
             <!--SKOR KAD EPH BANGUNAN-->
             <div class="tab-pane" id="tab-2" role="tabpanel">
                 <div class="card mt-3">
-                    <div class="card-body">
+                    <div class="card-body" id="skorkadpenilaian">
                         <h4 class="h4 mb-3">SKOR KAD EPH BANGUNAN</h4>
                         <div class="table-responsive scrollbar">
                             <table id="SkorKad" class="table table-bordered skor-datatable line-table display">
@@ -1223,7 +1233,8 @@
                             @role('ketua-pasukan')
                                 <div class="row mt-3">
                                     <div class="col text-center">
-                                        <button class="btn btn-primary">Muat Turun Skor Kad</button>
+                                        {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
+                                        <button class="btn btn-primary" id="download">Muat Turun Skor Kad</button>
                                     </div>
                                 </div>
                             @endrole
@@ -1471,7 +1482,7 @@
             <div class="tab-pane" id="tab-6" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <form action="/projek/{{ $projek->id }}/markah" method="POST">
+                        <form action="/projek/{{ $projek->id }}/markah-eph-rayuan" method="POST">
                             @csrf
                             <h4 class="mb-3">RAYUAN</h4>
                             <div class="row mx-3 mb-2">
@@ -1496,7 +1507,7 @@
                                     <label class="col-form-label">Markah Rekabentuk:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" name="markah">
+                                    <input class="form-control" type="number" name="markah_rekabentuk">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -1509,14 +1520,14 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei" min="0" max="10">
+                                    <input class="form-control" type="number" nama="markah_bei_rekabentuk" min="0" max="10">
                                 </div>
                                 @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Markah Verifikasi:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" name="markah">
+                                    <input class="form-control" type="number" name="markah_verifikasi">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -1529,14 +1540,14 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei" min="0" max="10">
+                                    <input class="form-control" type="number" nama="markah_bei_verifikasi" min="0" max="10">
                                 </div>
                                 @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Markah Validasi:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" name="markah">
+                                    <input class="form-control" type="number" name="markah_validasi">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -1549,7 +1560,7 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei" min="0" max="10">
+                                    <input class="form-control" type="number" nama="markah_bei_validasi" min="0" max="10">
                                 </div>
                                 @endif
                                 {{-- <div class="col-5 mb-2">
@@ -1598,7 +1609,9 @@
                         @role('ketua-pasukan|penolong-ketua-pasukan')
                         <div class="row mt-3">
                             <div class="col text-center">
-                                <button class="btn btn-primary" type="submit">Muat Turun Sijil</button>
+                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun Sijil</a>
+
+                                {{-- <button class="btn btn-primary" type="submit">Muat Turun Sijil</button> --}}
                             </div>
                         </div>
                         @endrole
@@ -1621,12 +1634,12 @@
 <!--JavaScript-->
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> --}}
 <!--Button Simpan TOOLTIPS-->
-<script>
+{{-- <script>
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
-</script>
+</script> --}}
 
 <!--Download Web Page to PDF with margin-->
 {{-- <script>
@@ -1650,6 +1663,8 @@
     }
 </script> --}}
 
+{{-- <script src="html2pdf.bundle.min.js"></script> --}}
+
 {{-- <script>
     document.getElementById('generate').onclick = function () {
 	// Your html2pdf code here.
@@ -1658,7 +1673,30 @@
 };
 </script> --}}
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.css"></script>
 
+<script>
+    window.onload = function(){
+        document.getElementById("download")
+        .addEventListener("click",()=>{
+            const skorkadpenilaian = this.document.getElementById("skorkadpenilaian");
+            console.log(skorkadpenilaian); 
+            console.log(window);
+            
+            var opt = {
+                margin:       0.5,
+                filename:     'myfile.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(skorkadpenilaian).set(opt).save(); 
+        })
+        
+    }
+</script>
 
 <script>
     kriteriaRekabentuk();
