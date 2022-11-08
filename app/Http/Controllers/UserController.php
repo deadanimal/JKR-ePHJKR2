@@ -138,9 +138,6 @@ class UserController extends Controller
     public function tukar_status(Request $request) {   
         $id = (int)$request->route('id'); 
         $pengguna = User::all();
-
-
-
         return view('senaraiPengguna.sembunyi', compact('pengguna'));
     }
     
@@ -205,7 +202,7 @@ class UserController extends Controller
         $peranan = Role::find($id); 
         $peranan->delete();
 
-        alert()->error('Maklumat telah dibuang', 'Berjaya');
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
         return redirect('/selenggara');
     }
     //selenggara status projek
@@ -239,7 +236,7 @@ class UserController extends Controller
         $projek = Projek::find($id); 
         $projek->delete();
 
-        alert()->error('Maklumat telah dibuang', 'Berjaya');
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
         return redirect('/selenggara');
     }
 

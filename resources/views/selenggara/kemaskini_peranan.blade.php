@@ -32,7 +32,7 @@
                                             </div>
                                             <div class="col-6 text-end">
                                                 <button type="submit"
-                                                    class="btn btn-primary">Tambah</button>
+                                                    class="btn btn-primary">Kemaskini</button>
                                             </div>
                                         </div>
                                     </div>
