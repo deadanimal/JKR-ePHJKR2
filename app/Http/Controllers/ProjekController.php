@@ -57,13 +57,18 @@ class ProjekController extends Controller
                 $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';
                 return $html_button;
             })
+            ->addColumn('gugur', function (Projek $projek) {
+                $url = '/projek/gugur_projek/'.$projek->id;
+                $html_button = '<a href="'.$url.'"><button class="btn btn-primary">gugur</button></a>';
+                return $html_button;
+            })
             ->editColumn('created_at', function (Projek $projek) {
                 return [
                     'display' => ($projek->created_at && $projek->created_at != '0000-00-00 00:00:00') ? with(new Carbon($projek->created_at))->format('d F Y') : '',
                     'timestamp' => ($projek->created_at && $projek->created_at != '0000-00-00 00:00:00') ? with(new Carbon($projek->created_at))->timestamp : ''
                 ];
             })
-            ->rawColumns(['tindakan', 'peranan'])
+            ->rawColumns(['tindakan', 'gugur','peranan'])
             ->make(true);
         }        
         return view('projek.senarai', compact('projeks'));
@@ -166,30 +171,50 @@ class ProjekController extends Controller
         //check kalo dah wujud
         $proj = Projek::where('nama',$request->tajuk_projek)->get();
         if(count($proj) > 0){
-            alert()->success('Maklumat telah wujud', 'Gagal');
+            alert()->Error('Maklumat telah wujud', 'Gagal');
             return redirect('/projek');
         }
 
         //check kalo lebih certain amount
-        $t = (int)preg_replace("/[^0-9.]/", "", $request->kosProjek);
+        // $t = (int)preg_replace("/[^0-9.]/", "", $request->kosProjek);
 
-        if (($request->pejabat_hopt == 'BHG. BANGUNAN (SEL)' &&  $t >= 20000000) || ($request->pejabat_hopt == 'JALAN' &&  $t >= 50000000)){ 
+        // if (($request->jenis_projek == 'BANGUNAN' && 
+            // $t >= 20000000) 
+            // || ($request->jenis_projek == 'JALAN' &&  $t >= 50000000)
+            // ){ 
             $projek = New Projek;
             $projek->nama = $request->tajuk_projek;
             $projek->alamat = $request->lokasi_tapak;
             $projek->kaedahPelaksanaan = $request->kaedahPelaksanaan;
             $projek->jenisPerolehan = $request->jenisPerolehan;
             $projek->kosProjek = $request->kosProjek;
+            $projek->kategori = $request->kategori;
+            $projek->jenis_projek = $request->jenis_projek;
             $projek->save();
-        }else{
-            alert()->success('Maklumat tidak melebihi certain amount', 'Gagal');
-            return redirect('/projek');
-        }
+        // }else{
+            // alert()->success('Maklumat tidak melebihi syarat ditetapkan', 'Gagal');
+            // return redirect('/projek');
+        // }
 
         alert()->success('Maklumat telah disimpan', 'Berjaya');
         return redirect('/projek');
 
         // return back();
+    }
+
+    //gugurprojek
+    // public function gugur_projek(Request $request) {
+    //     $id = (int)$request->route('id'); 
+    //     $projek = Projek::find($id);
+    //     return view('projek.gugur_projek', compact('projek'));
+    // }
+
+    // public function senarai_gugur_projek(Request $request) { 
+    //     $projek = Projek::all();
+    //     return view('projek.senarai_gugur_projek', compact('projek'));
+    // }
+    public function senarai_gugur_projek(Request $request) {
+        return view('projek.senarai_gugur_projek');
     }
 
     public function cipta_projek(Request $request) {

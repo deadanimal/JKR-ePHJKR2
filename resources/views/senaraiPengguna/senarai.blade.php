@@ -132,7 +132,7 @@
                                     </td>
                                     <td>
                                         <a href="/senaraiPengguna/kemaskini_pengguna/{{ $p->id }}"
-                                            class="btn btn-sm btn-primary">Kemaskini</a>
+                                            class="btn btn-sm btn-primary">Papar</a>
 
                                         {{-- <a href="senaraiPengguna.sembunyi/{{ $p->id }}"
                                             class="mt-2 btn btn-sm btn-primary">Sembunyi</a> --}}

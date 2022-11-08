@@ -37,6 +37,21 @@
                     </div>
 
                     <div class="col-3 mb-2">
+                        <label class="col-form-label">Peranan:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <select class="form-select form-control" name="nama">
+                            <option value="pengurusan-atasan">Pengurusan Atasan</option>
+                            <option value="sekretariat">Sekretariat</option>
+                            <option value="ketua-pasukan">Ketua Pasukan</option>
+                            <option value="penolong-ketua-pasukan">Penolong Ketua Pasukan</option>
+                            <option value="pemudah-cara">Pemudah Cara</option>                            
+                            <option value="penilai">Penilai</option>
+                            <option value="pasukan-validasi">Pasukan Validasi</option>
+                        </select>
+                    </div>
+
+                    <div class="col-3 mb-2">
                         <label class="col-form-label">e-Mel Pengguna:</label>
                     </div>
                     <div class="col-7 mb-2">
@@ -111,7 +126,7 @@
                                 <a href="/senarai_pengguna" class="btn btn-outline-primary">Batal</a>
                             </div>
                             <div class="col-6 text-end">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                <button type="submit" class="btn btn-primary">Daftar</button>
                             </div>
                         </div>
                     </div>

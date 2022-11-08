@@ -58,7 +58,7 @@
                                         </x-primary-button>
                                     </div>
                                 </form> --}}
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="/login">
                                     @csrf
                                     <div>
                                         <x-input-label for="email" :value="__('Email')" />
@@ -86,7 +86,7 @@
                                     <div class="form-check mb-0">
                                         <div class="row">
                                             <div class="col text-end">
-                                                <a class="fs--1 text-primary" href="/password/reset">Terlupa Kata
+                                                <a class="fs--1 text-primary" href="/forgot-password">Terlupa Kata
                                                     Laluan?</a>
                                             </div>
                                         </div>

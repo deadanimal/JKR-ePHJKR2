@@ -15,26 +15,26 @@
 
                     <div class="row mt-4 mb-3">
                         <div class="col">
-                            <form action="/kemaskinistatusProjek" method="post"
-                                enctype="multipart/form-data">
+                            <form action="/selenggara/simpankemaskini_status/{{$projek->id}}" method="post" enctype="multipart/form-data">
+                                @method('PUT')
                                 @csrf
                                 <div class="row mx-4">
                                     <div class="col-3 mb-2">
                                         <label class="col-form-label">Nama Status Projek Baru:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="status" type="text" value="{{->status}}"/>
+                                        <input class="form-control" name="status" type="text" value="{{$projek->status}}"/>
                                     </div>
 
                                     <div class="col-7 mb-2">
                                         <div class="row mt-4">
                                             <div class="col-6">
-                                                <a href="/selenggaraProjek"
+                                                <a href="/selenggara"
                                                     class="btn btn-outline-primary">Batal</a>
                                             </div>
                                             <div class="col-6 text-end">
                                                 <button type="submit"
-                                                    class="btn btn-primary">Tambah</button>
+                                                    class="btn btn-primary">Kemaskini</button>
                                             </div>
                                         </div>
                                     </div>

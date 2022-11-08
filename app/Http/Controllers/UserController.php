@@ -14,12 +14,17 @@ use App\Models\KriteriaGpssBangunan;
 use App\Models\KriteriaGpssJalan;
 use App\Models\ProjekRoleUser;
 use App\Models\Role;
+use OwenIt\Auditing\Models\Audit;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
 
     public function home(Request $request) {  
-        $hebahans=Hebahan::get()->first();  
+        $hebahans=Hebahan::all();  
 
         return view('home',compact('hebahans'));
     }
@@ -58,19 +63,21 @@ class UserController extends Controller
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
         $peranan = Role::all();
-        $projek = ProjekRoleUser::with(['projek','peranan','pengguna'])->where('user_id', $id)->get();
+        // $projek = ProjekRoleUser::with(['projek'])->where('user_id', $id)->get();
+        $projek = ProjekRoleUser::where('user_id', $id)->get();
+        // $projek = ProjekRoleUser::all();
+
+        // dd($projek);
         return view('profil.tukar_peranan', compact('pengguna','projek','peranan'));
     }
 
     public function simpan_tukar_peranan(Request $request) {  
-
-        $perananProjek = ProjekRoleUser::where('user_id', $id)->where('projek_id', $request->projek_id)->first();
+        $id = (int)$request->route('id'); 
+        $perananProjek = ProjekRoleUser::where('user_id', $id)->first();
         if ($perananProjek == null) {
             $perananProjek = new ProjekRoleUser();
         }
-
-        $id = (int)$request->route('id'); 
-        $perananProjek = User::find($id);
+        
         $perananProjek->projek_id = $request->projek_id;
         $perananProjek->role_id = $request->role_id;
 
@@ -134,9 +141,6 @@ class UserController extends Controller
     public function tukar_status(Request $request) {   
         $id = (int)$request->route('id'); 
         $pengguna = User::all();
-
-
-
         return view('senaraiPengguna.sembunyi', compact('pengguna'));
     }
     
@@ -165,7 +169,80 @@ class UserController extends Controller
     }
 
     public function selenggara(Request $request) {
-        return view('selenggara.senarai');
+        $peranan = Role::all();
+        $projek = Projek::all();
+        $audits = Audit::all();
+
+        return view('selenggara.senarai', compact('peranan','projek', 'audits'));
+    }
+    //selenggara peranan
+
+    public function cipta_peranan(Request $request) {
+        $peranan = New Role;
+        $peranan->name = $request->name;
+        $peranan->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function kemaskini_peranan(Request $request) {   
+        $id = (int)$request->route('id'); 
+        $peranan = Role::find($id);
+        return view('selenggara.kemaskini_peranan', compact('peranan'));
+    }
+
+    public function simpankemaskini_peranan(Request $request) {
+        $id = (int)$request->route('id');
+        $peranan = Role::find($id);
+        $peranan->name = $request->name;
+        $peranan->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function buang(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $peranan = Role::find($id); 
+        $peranan->delete();
+
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return redirect('/selenggara');
+    }
+    //selenggara status projek
+    public function cipta_statusprojek(Request $request) {
+        $projek = New Projek();
+        $projek->status = $request->status;
+        $projek->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function kemaskini_status(Request $request) {   
+        $id = (int)$request->route('id'); 
+        $projek = Projek::find($id);
+        return view('selenggara.kemaskini_status_projek', compact('projek'));
+    }
+
+    public function simpankemaskini_status(Request $request) {
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);
+        $projek->status = $request->status;
+        $projek->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function buang_status(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $projek = Projek::find($id); 
+        $projek->delete();
+
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return redirect('/selenggara');
     }
 
     public function loginjkr()
@@ -178,8 +255,28 @@ class UserController extends Controller
         return view('daftarjkr');
     }
 
+    public function custom_login(Request $request) {
+
+        $user = User::where([
+            ['icPengguna', '=', $request->icPengguna],
+            ['password', '=', $request->password]
+        ])->first();
+
+        if (Auth::attempt($this->only('icPengguna', 'password'))) {
+            return redirect('/dashboard');
+        } else {
+            dd('not ok');
+        }
+    }
 
 
+// public function audit()
+// {
+//     $audits = Audit::all();
+
+//     return view('/selenggara');
+
+// }
 
 
 }

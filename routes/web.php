@@ -23,6 +23,8 @@ Route::get('faq', [FaqController::class, 'senarai']);
 Route::get('loginjkr', [UserController::class, 'loginjkr']);
 Route::get('daftarjkr', [UserController::class, 'daftarjkr']);
 
+Route::post('custom-login', [UserController::class, 'custom_login']);
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('dashboard', [UserController::class, 'dashboard']); 
@@ -51,7 +53,13 @@ Route::middleware(['auth'])->group(function () {
     Route::put('projek/{id}', [ProjekController::class, 'kemaskini_projek']); 
     Route::post('projek/{id}/lantik', [ProjekController::class, 'lantik']); 
     Route::post('projek/{id}/markah', [ProjekController::class, 'markah_eph']); 
+
     Route::post('projek/{id}/markah-eph-rayuan', [ProjekController::class, 'markah_eph_rayuan']); 
+
+
+    //gugurprojek
+    Route::post('projek/{id}/gugur_projek', [ProjekController::class, 'gugur_projek']);
+    Route::get('projek/gugur/senarai_gugur_projek', [ProjekController::class, 'senarai_gugur_projek']);
 
     // Mai tambah
     Route::post('projek/{id}/markah-gpss', [ProjekController::class, 'markah_gpss']); 
@@ -95,7 +103,9 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('hebahan/{id}', [HebahanController::class, 'buang']);  
     
     Route::post('faq', [FaqController::class, 'cipta']); 
-    Route::put('faq/{id}', [FaqController::class, 'kemaskini']);    
+    Route::put('faq/{id}', [FaqController::class, 'kemaskini']);
+    Route::get('faq/{id}', [FaqController::class, 'satu']);
+    Route::delete('faq/{id}', [FaqController::class, 'buang']);    
     
     Route::get('maklumbalas', [MaklumbalasController::class, 'senarai']); 
     Route::post('maklumbalas', [MaklumbalasController::class, 'cipta']); 
@@ -103,6 +113,18 @@ Route::middleware(['auth'])->group(function () {
     Route::put('maklumbalas/{id}', [MaklumbalasController::class, 'kemaskini']); 
 
     Route::get('selenggara', [UserController::class, 'selenggara']); 
+    Route::post('selenggara/cipta', [UserController::class, 'cipta_peranan']); 
+    // Route::get('selenggara/senarai', [UserController::class, 'senarai_selenggara_peranan']);
+    Route::get('selenggara/kemaskini_peranan/{id}', [UserController::class, 'kemaskini_peranan']);
+    Route::put('selenggara/simpankemaskini_peranan/{id}', [UserController::class, 'simpankemaskini_peranan']);
+    Route::delete('buang/{id}', [UserController::class, 'buang']); 
+
+    Route::post('selenggara/cipta_statusprojek', [UserController::class, 'cipta_statusprojek']); 
+    // Route::get('selenggara/senarai_status', [UserController::class, 'senarai_selenggara_status']);
+    Route::get('selenggara/kemaskini_status/{id}', [UserController::class, 'kemaskini_status']);
+    Route::put('selenggara/simpankemaskini_status/{id}', [UserController::class, 'simpankemaskini_status']);
+    Route::delete('buang_status/{id}', [UserController::class, 'buang_status']);
+
 
 });
 
