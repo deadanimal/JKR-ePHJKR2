@@ -232,34 +232,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -351,42 +387,110 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         } 
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan Baru B') {
             $kriterias = Kriteria::where('borang', 'BARU B')->get();
             return DataTables::collection($kriterias)
+            // ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
+            //     $kriteria_id = $kriteria->id;
+            //     $html_button1 = '?';
+            //     $html_button2 = '?';
+            //     $html_button3 = '?';
+            //     $markah1 = Markah::where([
+            //         ['projek_id', '=', $projek->id],
+            //         ['kriteria_id', '=', $kriteria_id],
+            //         ['fasa', '=', 'rekabentuk'],
+            //     ])->first();       
+            //     if($markah1) {
+            //         $html_button1 = $markah1->markah;
+            //     }    
+            //     $markah2 = Markah::where([
+            //         ['projek_id', '=', $projek->id],
+            //         ['kriteria_id', '=', $kriteria_id],
+            //         ['fasa', '=', 'verifikasi'],
+            //     ])->first();       
+            //     if($markah2) {
+            //         $html_button2 = $markah2->markah;
+            //     }  
+            //     $markah3 = Markah::where([
+            //         ['projek_id', '=', $projek->id],
+            //         ['kriteria_id', '=', $kriteria_id],
+            //         ['fasa', '=', 'validasi'],
+            //     ])->first();       
+            //     if($markah3) {
+            //         $html_button3 = $markah3->markah;
+            //     }                                       
+            //     $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+            //     return $html_button;
+            // })
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -478,7 +582,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan Baru C') {
@@ -486,34 +590,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -605,7 +745,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                      
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan','ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         } 
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan Baru D') {
@@ -613,34 +753,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -732,7 +908,7 @@ class ProjekController extends Controller
                     }
                     return $html_button;
             })                      
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan','ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan PUN A') {
@@ -740,34 +916,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -859,7 +1071,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                      
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan PUN B') {
@@ -867,34 +1079,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -986,7 +1234,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                        
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan PUN C') {
@@ -994,34 +1242,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -1113,7 +1397,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan PUN D') {
@@ -1121,34 +1405,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -1241,7 +1561,7 @@ class ProjekController extends Controller
                 return $html_button;
             })
                                    
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan Sedia Ada A') {
@@ -1249,34 +1569,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -1368,7 +1724,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan Sedia Ada B') {
@@ -1376,34 +1732,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -1495,7 +1887,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan Sedia Ada C') {
@@ -1503,34 +1895,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -1622,7 +2050,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Bangunan Sedia Ada D') {
@@ -1630,34 +2058,70 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
-                $html_button3 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
-                ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }  
-                $markah3 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                if($markah3) {
-                    $html_button3 = $markah3->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2.' - '.$html_button3;
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
+                return $html_button;
+            })
+            ->addColumn('markah_rayuan', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                // $html_button2 = '?';
+                // $html_button3 = '?';
+                $markah1 = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                    ['fasa', '=', 'validasi'],
+                ])->first();       
+                // if($markah1) {
+                //     $html_button1 = $markah1->markah;
+                // }    
+                // $markah2 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'verifikasi'],
+                // ])->first();       
+                // if($markah2) {
+                //     $html_button2 = $markah2->markah;
+                // }  
+                // $markah3 = Markah::where([
+                //     ['projek_id', '=', $projek->id],
+                //     ['kriteria_id', '=', $kriteria_id],
+                //     ['fasa', '=', 'validasi'],
+                // ])->first();       
+                // if($markah3) {
+                //     $html_button3 = $markah3->markah;
+                // }                                       
+                // $html_button = $html_button1;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -1749,7 +2213,7 @@ class ProjekController extends Controller
                 }
                 return $html_button;
             })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'markah_rayuan', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'GPSS Bangunan 1') {
@@ -4988,7 +5452,8 @@ class ProjekController extends Controller
                 Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
                 return back();
             }            
-        }    
+        } 
+           
         if ($request->hasFile('dokumen2')) {
             $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
         }     
@@ -5003,24 +5468,24 @@ class ProjekController extends Controller
         }  
 
         if ($request->hasFile('dokumen_rayuan1')) {
-            $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
-        } else {
-            if ($request->markah > 0) {
-                Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
-                return back();
-            }            
+            $markah->dokumen_rayuan1 = $request->file('dokumen_rayuan1')->store('jkr-ephjkr/uploads');
+        // } else {
+        //     if ($request->markah > 0) {
+        //         Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+        //         return back();
+        //     }            
         }    
         if ($request->hasFile('dokumen_rayuan2')) {
-            $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
+            $markah->dokumen_rayuan2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
         }     
         if ($request->hasFile('dokumen_rayuan3')) {
-            $markah->dokumen3 = $request->file('dokumen3')->store('jkr-ephjkr/uploads');
+            $markah->dokumen3 = $request->file('dokumen_rayuan3')->store('jkr-ephjkr/uploads');
         }     
         if ($request->hasFile('dokumen_rayuan4')) {
-            $markah->dokumen4 = $request->file('dokumen4')->store('jkr-ephjkr/uploads');
+            $markah->dokumen4 = $request->file('dokumen_rayuan4')->store('jkr-ephjkr/uploads');
         }     
         if ($request->hasFile('dokumen_rayuan5')) {
-            $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
+            $markah->dokumen5 = $request->file('dokumen_rayuan5')->store('jkr-ephjkr/uploads');
         }  
 
         $markah->save();
@@ -5146,20 +5611,29 @@ class ProjekController extends Controller
             alert()->success('Dalam Pengesahan Skor Validasi Permarkahan Bangunan', 'Berjaya');
         }
         elseif ($projek->status == "Selesai Pengesahan Validasi Bangunan"){
-            $projek->status = "Selesai Pengesahan Validasi Bangunan";
             alert()->success('Selesai Pengesahan Validasi Bangunan', 'Berjaya');
-        }
-        elseif ($projek->status == "Proses Rayuan Bangunan"){
-            $projek->status = "Dalam Pengesahan Rayuan Bangunan";
-            alert()->success('Proses Rayuan Bangunan', 'Berjaya');
-        }
-        elseif ($projek->status == "Proses Rayuan Bangunan"){
-            $projek->status = "Dalam Pengesahan Rayuan Bangunan";
-            alert()->success('Proses Rayuan Bangunan', 'Berjaya');
         }
 
         $projek->save();
         return back();
+    }
+
+    public function sah_projek_eph_rayuan(Request $request){
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);
+
+        if ($projek->status == "Selesai Pengesahan Validasi Bangunan"){
+            $projek->status = "Proses Rayuan Bangunan";
+            alert()->success('Rayuan Bangunan sedang Diproses', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Rayuan Bangunan"){
+            $projek->status = "Dalam Pengesahan Rayuan Bangunan";
+            alert()->success('Proses Rayuan Bangunan Disahkan', 'Berjaya');
+        }
+
+        $projek->save();
+        return back();
+        
     }
 
     public function sah_projek_gpss(Request $request){
@@ -5174,46 +5648,30 @@ class ProjekController extends Controller
             $projek->status = "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan";
             alert()->success('Sahkan Pengisian Skor Rekabentuk GPSS Bangunan', 'Berjaya');
         }
-        elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan"){
-            $projek->status = "Selesai Pengesahan Rekabentuk Bangunan";
-            alert()->success('Pengesahan Skor Rekabentuk Bangunan telah Disahkan', 'Berjaya');
+        elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan"){
+            $projek->status = "Selesai Pengesahan Rekabentuk GPSS Bangunan";
+            alert()->success('Pengesahan Skor Rekabentuk GPSS Bangunan telah Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Pengesahan Rekabentuk Bangunan"){
-            $projek->status = "Proses Pengisian Skor Verifikasi Permarkahan Bangunan";
-            alert()->success('Selesai Pengesahan Rekabentuk Bangunan', 'Berjaya');
+        elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan"){
+            $projek->status = "Proses Jana Keputusan Rekabentuk GPSS Bangunan";
+            alert()->success('Selesai Pengesahan Rekabentuk GPSS Bangunan', 'Berjaya');
         }
-        elseif ($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan"){
-            $projek->status = "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan";
-            alert()->success('Sahkan Proses Pengisian Skor Verifikasi Permarkahan Bangunan', 'Berjaya');
+        elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan"){
+            $projek->status = "Selesai Jana Keputusan Rekabentuk GPSS Bangunan";
+            alert()->success('Sahkan Proses Jana Keputusan Rekabentuk GPSS Bangunan', 'Berjaya');
         }
-        elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan"){
-            $projek->status = "Selesai Pengesahan Verifikasi Bangunan";
-            alert()->success('Pengesahan Skor Verifikasi Permarkahan Bangunan Disahkan', 'Berjaya');
+        elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan"){
+            $projek->status = "Proses Pengisian Skor Verifikasi GPSS Bangunan";
+            alert()->success('Selesai Jana Keputusan Rekabentuk GPSS Bangunan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Pengesahan Verifikasi Bangunan"){
-            $projek->status = "Proses Pengisian Skor Validasi Permarkahan Bangunan";
-            alert()->success('Selesai Pengesahan Verifikasi Bangunan', 'Berjaya');
+        elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan"){
+            $projek->status = "Selesai Pengesahan Verifikasi GPSS Bangunan";
+            alert()->success('Pengisian Skor Verifikasi GPSS Bangunan Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan"){
-            $projek->status = "Dalam Pengesahan Skor Validasi Permarkahan Bangunan";
-            alert()->success('Proses Pengisian Skor Validasi Permarkahan Bangunan', 'Berjaya');
+        elseif ($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan"){
+            alert()->success('Selesai Pengesahan Verifikasi GPSS Bangunan', 'Berjaya');
         }
-        elseif ($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan"){
-            $projek->status = "Selesai Pengesahan Validasi Bangunan";
-            alert()->success('Dalam Pengesahan Skor Validasi Permarkahan Bangunan', 'Berjaya');
-        }
-        elseif ($projek->status == "Selesai Pengesahan Validasi Bangunan"){
-            $projek->status = "Selesai Pengesahan Validasi Bangunan";
-            alert()->success('Selesai Pengesahan Validasi Bangunan', 'Berjaya');
-        }
-        elseif ($projek->status == "Proses Rayuan Bangunan"){
-            $projek->status = "Dalam Pengesahan Rayuan Bangunan";
-            alert()->success('Proses Rayuan Bangunan', 'Berjaya');
-        }
-        elseif ($projek->status == "Proses Rayuan Bangunan"){
-            $projek->status = "Dalam Pengesahan Rayuan Bangunan";
-            alert()->success('Proses Rayuan Bangunan', 'Berjaya');
-        }
+
 
         $projek->save();
         return back();
@@ -5226,6 +5684,12 @@ class ProjekController extends Controller
     // public function sah_penilaian(Request $request){
 
     // }
+
+    // public function cetak_maklumat(Request $request){
+
+    // }
+
+    
 
 
 

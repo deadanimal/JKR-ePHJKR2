@@ -5,7 +5,7 @@
     <div class="row mb-3">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" id="element-to-print">
                     <div class="row mx-3 mb-2">
                         <h2 class="mb-3">Maklumat Projek</h2>
                         <div class="col-4 mb-2">
@@ -100,8 +100,9 @@
                         </div> 
                     </div>
                 </div>
-                @role('sekretariat')
+                @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan')
                 <div class="col mx-3 my-3">
+                    @role('sekretariat')
                     <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
                         @csrf
                         @if($projek->status == "Menunggu Pengesahan Sekretariat")
@@ -135,6 +136,23 @@
                         @endif
 
                     </form>
+                    @endrole
+                    @role('ketua-pasukan')
+                        <button class="btn btn-primary mx-3 my-3" id="generate">Muat Turun Maklumat Projek</button>
+                    @endrole  
+                    <form action="/projek/{{$projek->id}}/sah-eph-rayuan" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                        @if($projek->status == "Selesai Pengesahan Validasi Bangunan")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Membuat Rayuan Bangunan</button>
+                        @endif
+                        @endrole
+                        @role('sekretariat')
+                        @if ($projek->status == "Proses Rayuan Bangunan")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Proses Pengisian Rayuan Bangunan</button>
+                        @endif
+                        @endrole
+                    </form>
                 </div>
                 @endrole 
 
@@ -144,15 +162,12 @@
                     @elseif($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan")
                         <a href="/projek/{{$projek->id}}/sah" method="POST" class="btn btn-primary mx-3 my-3">Dalam Pengesahan Skor Rekabentuk Bangunan</a>
                     @endif --}}
-                {{-- @endrole  --}}
-                @role('ketua-pasukan')
-                    <button class="btn btn-primary mx-3 my-3" type="submit">Muat Turun Maklumat Projek</button>
-                @endrole                     
+                {{-- @endrole  --}}                   
             </div>
         </div>
 
         {{-- @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan') --}}
-        @role('ketua-pasukan|sekretariat')
+        @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
             <div class="col-12 mt-6">
                 <div class="card">
                     <div class="card-body">
@@ -232,9 +247,13 @@
 
     <div class="tab mt-6">
         <ul class="nav nav-tabs" role="tablist">
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
             <li class="nav-item">
+                {{-- @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan") --}}
                 <a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a>
+                {{-- @endif --}}
             </li>
+            @endrole
             <li class="nav-item">
                 <a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Skor Kad</a>
             </li>
@@ -256,9 +275,11 @@
             </li>
             @endrole
             @role('ketua-pasukan|penolong-ketua-pasukan')
+            @if($projek->status == "Proses Rayuan Bangunan")
             <li class="nav-item">
                 <a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rayuan</a>
             </li>
+            @endif
             @endrole
             @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                 <li class="nav-item">
@@ -268,6 +289,8 @@
         </ul>
         <div class="tab-content">
             <!--RUMUSAN SKOR KAD-->
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+            {{-- @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan") --}}
             <div class="tab-pane active" id="tab-1" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
@@ -1044,7 +1067,7 @@
                                     <th colspan="2">
                                         <input type="hidden" name="fasa" value="verifikasi">
                                         <span class="star">
-                                            @if ($bintang_mv == 1)
+                                            @if ($bintang_mv >= 1)
                                                 1 &starf;
                                             @elseif ($bintang_mv == 2)
                                                 2 &starf; &starf;
@@ -1129,6 +1152,8 @@
                     </div>
                 </div>
             </div>
+            {{-- @endif --}}
+            @endrole
 
             <!--SKOR KAD EPH BANGUNAN-->
             <div class="tab-pane" id="tab-2" role="tabpanel">
@@ -1169,7 +1194,7 @@
                                         <th>Kod</th>
                                         <th>Kriteria</th>
                                         <th>Fasa</th>
-                                        <th>Markah</th>
+                                        <th>Markah Terdahulu</th>
                                         {{-- @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                         || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                         || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D') --}}
@@ -1177,6 +1202,7 @@
                                         {{-- @endif --}}
                                         <th>Ulasan/Maklumbalas</th>
                                         <th>Dokumen Sokongan</th>
+                                        <th>Markah Rayuan</th>
                                         <th>Ulasan Rayuan</th>
                                         <th>Dokumen Rayuan</th>
                                         {{-- @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
@@ -1187,7 +1213,9 @@
                             </table>
                             @role('sekretariat')
                                 <div class="row mt-3">
+                                    {{-- @if($projek->fasa == "rekabentuk") --}}
                                     <div class="col text-center">
+                                        <input type="hidden" name="fasa" value="rekabentuk">
                                         <button class="btn btn-primary">Sahkan Penilaian</button>
                                     </div>
                                 </div>
@@ -1270,6 +1298,7 @@
                                     <input class="form-control" type="file" name="dokumen5">
                                 </div>
                                 <div class="row mt-3">
+
                                     <div class="col text-center">
                                         <button class="btn btn-primary" type="submit">Simpan</button>
                                     </div>
@@ -1438,6 +1467,7 @@
 
             <!--RAYUAN EPH BANGUNAN-->
             @role('ketua-pasukan|penolong-ketua-pasukan')
+            @if($projek->status == "Proses Rayuan Bangunan")
             <div class="tab-pane" id="tab-6" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
@@ -1466,7 +1496,7 @@
                                     <label class="col-form-label">Markah Rekabentuk:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number">
+                                    <input class="form-control" type="number" name="markah">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -1479,14 +1509,14 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei">
+                                    <input class="form-control" type="number" nama="markah_bei" min="0" max="10">
                                 </div>
                                 @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Markah Verifikasi:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number">
+                                    <input class="form-control" type="number" name="markah">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -1499,14 +1529,14 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei">
+                                    <input class="form-control" type="number" nama="markah_bei" min="0" max="10">
                                 </div>
                                 @endif
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Markah Validasi:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number">
+                                    <input class="form-control" type="number" name="markah">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -1519,15 +1549,15 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei">
+                                    <input class="form-control" type="number" nama="markah_bei" min="0" max="10">
                                 </div>
                                 @endif
-                                <div class="col-5 mb-2">
+                                {{-- <div class="col-5 mb-2">
                                     <label class="col-form-label">Ulasan:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan"></textarea>
-                                </div>
+                                </div> --}}
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Ulasan Rayuan:</label>
@@ -1539,11 +1569,11 @@
                                     <label class="col-form-label">Dokumen Rayuan:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="file" name="dokumen1">
-                                    <input class="form-control" type="file" name="dokumen2">
-                                    <input class="form-control" type="file" name="dokumen3">
-                                    <input class="form-control" type="file" name="dokumen4">
-                                    <input class="form-control" type="file" name="dokumen5">
+                                    <input class="form-control" type="file" name="dokumen_rayuan1">
+                                    <input class="form-control" type="file" name="dokumen_rayuan2">
+                                    <input class="form-control" type="file" name="dokumen_rayuan3">
+                                    <input class="form-control" type="file" name="dokumen_rayuan4">
+                                    <input class="form-control" type="file" name="dokumen_rayuan5">
                                 </div>
                                 @endrole
                                 <div class="row mt-3">
@@ -1556,6 +1586,7 @@
                     </div>
                 </div>
             </div>
+            @endif
             @endrole
 
             <!--SIJIL EPH BANGUNAN-->
@@ -1588,6 +1619,7 @@
 
 
 <!--JavaScript-->
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> --}}
 <!--Button Simpan TOOLTIPS-->
 <script>
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -1595,6 +1627,38 @@
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 </script>
+
+<!--Download Web Page to PDF with margin-->
+{{-- <script>
+    window.onload = function(){
+        document.getElementById("download")
+        .addEventListener("click",()=>{
+            const skorkadpenilaian = this.document.getElementById("skorkadpenilaian");
+            console.log(skorkadpenilaian); 
+            console.log(window);
+            
+            var opt = {
+                margin:       0.5,
+                filename:     'myfile.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 },
+                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(skorkadpenilaian).set(opt).save(); 
+        })
+        
+    }
+</script> --}}
+
+{{-- <script>
+    document.getElementById('generate').onclick = function () {
+	// Your html2pdf code here.
+	var element = document.getElementById('element-to-print');
+	html2pdf(element);
+};
+</script> --}}
+
+
 
 <script>
     kriteriaRekabentuk();
@@ -1670,6 +1734,10 @@
                 {
                     data: 'dokumen_',
                     name: 'dokumen_'
+                },
+                {
+                    data: 'markah_rayuan',
+                    name: 'markah_rayuan'
                 },
                 {
                     data: 'ulasan_rayuan',
