@@ -44,9 +44,11 @@
         <div class="row mt-3">
           <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist">
-              <a class="nav-link" id="v-pills-project1-tab" data-toggle="pill" href="#tab1" role="tab">
-                              Sejarah JKR
+              <li class="nav-item">
+              <a class="nav-link active" id="v-pills-project1-tab" data-toggle="pill" href="#tab1" role="tab">
+                              Sejarah Penubuhan CASKT JKR
                           </a>
+              </li>
               <a class="nav-link" id="v-pills-project2-tab" data-toggle="pill" href="#tab2" role="tab">
                               Visi, Misi, Objektif, Fungsi & Profil JKR
                           </a>
@@ -72,9 +74,35 @@
           </div>
           <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
-              <div class="tab-pane fade" id="tab1" role="tabpanel">
-                <h1 class="mt-3 mb-3">Sejarah JKR</h1>
-                <h3>Peristiwa semasa</h3>
+              <div class="tab-pane active" id="tab1" role="tabpanel">
+                <h1 class="mt-3 mb-3">Sejarah Penubuhan CASKT JKR</h1>
+                <h3>2002</h3>
+                <p class="mt-3" align="justify">
+                  Cawangan Alam Sekitar (CAS) ditubuhkan. 
+                </p>
+
+                <h3>2008</h3>
+                <p class="mt-3" align="justify">
+                  Cawangan Alam Sekitar telah diubah
+                  nama kepada Cawangan Alam Sekitar Dan Tenaga (CASKT) 
+                </p>
+
+                <h3>2011</h3>
+                <p class="mt-3" align="justify">
+                  Penambahan fungsi cawangan dengan
+                  mengambil kira lain-lain
+                  aspek kelestarian 
+                </p>
+
+                <h3>2015</h3>
+                <p class="mt-3" align="justify">
+                  CAST telah diubah nama kepada
+                  Cawangan Alam Sekitar dan
+                  Kecekapan Tenaga (CASKT) 
+                </p>
+
+
+                {{-- <h3>Peristiwa semasa</h3>
                 <h3 class="mb-3">Public Works Department diwujudkan</h3>
     
                 <img src="/assets/img/13.png" alt="Error" class="center" style="width: 100%">
@@ -289,7 +317,7 @@
                 </p>
                 <p class="mt-3" align="justify">
                   40. Dato' Seri Ir. Haji Mohamad Zulkefly bin Sulaiman (24 Julai 2020)        
-                </p>
+                </p> --}}
               </div>
               <div class="tab-pane fade" id="tab2" role="tabpanel">
                 <h1 class="mt-3">VISI, MISI, OBJEKTIF, FUNGSI & PROFIL JKR </h1>

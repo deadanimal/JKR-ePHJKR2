@@ -54,6 +54,16 @@ Route::middleware(['auth'])->group(function () {
     // Mai tambah
     Route::post('projek/{id}/markah-gpss', [ProjekController::class, 'markah_gpss']); 
     Route::post('projek/{id}/sah', [ProjekController::class, 'sah_projek']); 
+    Route::post('projek/{id}/sah-eph-rayuan', [ProjekController::class, 'sah_projek_eph_rayuan']); 
+    Route::post('projek/{id}/sah-gpss', [ProjekController::class, 'sah_projek_gpss']);
+    Route::post('projek/{id}/sah-gpss-rayuan', [ProjekController::class, 'sah_projek_gpss_rayuan']); 
+    Route::post('projek/{id}/sah-eph-jalan', [ProjekController::class, 'sah_projek_eph_jalan']);
+    Route::post('projek/{id}/sah-eph-jalan-rayuan', [ProjekController::class, 'sah_projek_eph_jalan_rayuan']);
+    Route::get('projek/{id}/cetak-maklumat', [ProjekController::class, 'cetak_maklumat_projek']); 
+ 
+
+
+
 
 
     Route::post('projek/{id}/eph-bangunan/rekabentuk', [KriteriaEphBangunanController::class, 'simpan']); 
