@@ -9,6 +9,7 @@ use App\Http\Controllers\HebahanController;
 use App\Http\Controllers\MaklumbalasController;
 use App\Http\Controllers\ManualController;
 
+
 use App\Http\Controllers\KriteriaEphBangunanController;
 use App\Http\Controllers\KriteriaEphJalanController;
 use App\Http\Controllers\KriteriaGpssBangunanController;
@@ -71,6 +72,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek/{id}/sah-eph-jalan-rayuan', [ProjekController::class, 'sah_projek_eph_jalan_rayuan']);
     Route::get('projek/{id}/cetak-maklumat', [ProjekController::class, 'cetak_maklumat_projek']);
     Route::get('projek/{id}/sijil-eph-bangunan', [ProjekController::class, 'sijil_eph_bangunan']);
+    Route::get('projek/{id}/projek_status_berubah', [ProjekController::class, 'projek_status_berubah']);
 
  
 

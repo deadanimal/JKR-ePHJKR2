@@ -89,11 +89,11 @@
                                 <p style="text-align:center" class="mx-6">
                                     
                                 <br><br>
-                                   <b> edit MOHAMAD HARIS BIN MOHD ZAHARI</b>
+                                   <b> {{$projek->nama}}</b>
                                 <br><br>
-                                    Telah Menghadiri
+                                    Telah Dianugerahkan
                                 <br><br>
-                                   <b> <span style="text-transform:capitalize"> edit Kursus ePHJKR JALAN</span></b>
+                                   <b> <span style="text-transform:capitalize"> Kategori {{$projek->kategori}}</span></b>
                                 <br><br>
                                     Anjuran
                                 <br><br>
@@ -101,13 +101,13 @@
                                 <br><br>
                                 Di
                                 <br><br>
-                               <b> edit LOT 1708 TEPI BANGUNAN UMNO KUALA LUMPUR <br> edit 42000</b>
+                               <b> {{$projek->alamat}} <br> {{$projek->poskod}}</b>
                                 <br><br>
                                  Pada
                                 <br><br>
-                                <b>edit 18/10/2022</b>
+                                <b>9 November 2022</b>
                                 <br><br>
-                                <b>edit no pendaftaran rujukan projek</b>
+                                {{-- <b>edit no pendaftaran rujukan projek</b> --}}
                                 
                                 {{-- @if ($jadual->bilangan_hari=="1")
                                     <b>{{date('d-m-Y', strtotime($jadual->tarikh_mula))}}
