@@ -805,6 +805,7 @@
                                     <div class="col">
                                         <div class="card">
                                             <div class="card-body">
+                                                {{-- <input type=“text” id=“myInput” class=“form-control” placeholder=“e-Penarafan Hijau Jabatan Kerja Raya”/> --}}
                                                 <table class="table datatable table-striped" style="width:100%">
                                                     <thead class="bg-primary">
                                                         <tr>
@@ -816,15 +817,15 @@
                                                     </thead>
                                                     <tbody class="bg-white">
 
-                                                        {{-- @foreach ($selenggara as $selenggaraAudit) --}}
-                                                        <tr>
-                                                            {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                            {{-- <td>{{ $selenggaraAudit->icPengguna }}</td> --}}
-                                                            {{-- <td>{{ $selenggaraAudit->created_at }}</td> --}}
-                                                            {{-- <td>{{ $selenggaraAudit->aktiviti }}</td> --}}
+                                                        @foreach ($audits as $selenggaraAudit)
+                                                            <tr>
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $selenggaraAudit->user_id }}</td>
+                                                                <td>{{ $selenggaraAudit->created_at }}</td>
+                                                                <td>{{ $selenggaraAudit->event }}</td>
 
-                                                        </tr>
-                                                        {{-- @endforeach --}}
+                                                            </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -838,4 +839,14 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+          $(“#myInput”).on(“keyup”, function() {
+            var value = $(this).val().toLowerCase();
+            $(“#myTable tr”).filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
 @endsection

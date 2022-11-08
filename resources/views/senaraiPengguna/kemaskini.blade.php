@@ -37,7 +37,7 @@
                         <input class="form-control" name="name" value="{{ $pengguna->name }}" />
                     </div>
 
-                    <div class="col-3 mb-2">
+                    {{-- <div class="col-3 mb-2">
                         <label class="col-form-label">Peranan:</label>
                     </div>
                     <div class="col-7 mb-2">
@@ -50,7 +50,7 @@
                             <option value="penilai">Penilai</option>
                             <option value="pasukan-validasi">Pasukan Validasi</option>
                         </select>
-                    </div>
+                    </div> --}}
 
                     <div class="col-3 mb-2">
                         <label class="col-form-label">IC Pengguna:</label>

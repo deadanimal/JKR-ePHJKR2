@@ -261,7 +261,37 @@
                                 </div>
                             </div> 
                         </div>
-                    </div>                        
+                    </div>
+                    <div class="card mt-3">
+                        <div class="card-body row mx-4">
+                            <h1>Kategori Projek</h1>
+                            <div class="col-3 mb-2">
+                                <label class="col-form-label">Kategori Projek:</label>
+                            </div>
+                            <div class="col-7 mb-2">
+                                <select class="form-select form-control" name="kategori">
+                                    <option value="phJKR Bangunan Baru A">phJKR Bangunan Baru A</option>
+                                    <option value="phJKR Bangunan Baru B">phJKR Bangunan Baru B</option>
+                                    <option value="phJKR Bangunan Baru C">phJKR Bangunan Baru C</option>
+                                    <option value="phJKR Bangunan Baru D">phJKR Bangunan Baru D</option>                            
+                                    <option value="phJKR Bangunan PUN A">phJKR Bangunan PUN A</option>
+                                    <option value="phJKR Bangunan PUN B">phJKR Bangunan PUN B</option>
+                                    <option value="phJKR Bangunan PUN C">phJKR Bangunan PUN C</option>
+                                    <option value="phJKR Bangunan PUN D">phJKR Bangunan PUN D</option>
+                                    <option value="phJKR Bangunan Sedia Ada A">phJKR Bangunan Sedia Ada A</option>
+                                    <option value="phJKR Bangunan Sedia Ada B">phJKR Bangunan Sedia Ada B</option>
+                                    <option value="phJKR Bangunan Sedia Ada C">phJKR Bangunan Sedia Ada C</option>
+                                    <option value="phJKR Bangunan Sedia Ada D">phJKR Bangunan Sedia Ada D</option>                            
+                                    <option value="phJKR Jalan Baru">phJKR Jalan Baru</option>
+                                    <option value="phJKR Jalan Naiktaraf">phJKR Jalan Naiktaraf</option>
+                                    <option value="GPSS Bangunan 1">GPSS Bangunan 1</option>
+                                    <option value="GPSS Bangunan 2">GPSS Bangunan 2</option>
+                                    <option value="GPSS Bangunan 3">GPSS Bangunan 3</option>
+                                    <option value="GPSS Jalan">GPSS Jalan</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>                       
                     <div class="col-3 mb-2">
                         
                     </div>

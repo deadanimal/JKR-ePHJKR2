@@ -30,7 +30,7 @@
 
     <div class="row mt-4 mb-3">
         <div class="col">
-            <form action="/profil/simpan_tukar_peranan" method="post">
+            <form action="/profil/simpan_tukar_peranan/{{ Auth::user()->id }}" method="post">
                 @method('PUT')
                 @csrf
                 <div class="row mx-4">
@@ -55,32 +55,32 @@
                         <select name="projek_id" class="form-select form-control" id="projek">
                             <option value="" selected hidden>Sila Pilih</option>
                             @foreach ($projek as $pr)
-                                <option value="{{ $pr->projek->id }}">{{ $pr->projek->nama }}</option>
+                                <option value="{{ $pr->projek_id }}">{{ $pr->projek->nama }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    <div class="col-3 mb-2">
+                    {{-- <div class="col-3 mb-2">
                         <label class="col-form-label">Peranan Sekarang:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input type="text" class="form-control" value="Tiada" disabled id="peranan_sekarang">
+                        <input type="text" class="form-control" Value="" disabled id="peranan_sekarang">
 
-                    </div>
+                    </div> --}}
 
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Peranan Baru:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <select name="role" class="form-select form-control">
+                        <select name="role_id" class="form-select form-control">
                             @if ($pengguna->perananPengguna == null)
                                 <option value="" selected hidden>Sila Pilih</option>
                             @else
-                                <option value="{{ $pengguna->perananPengguna }}" selected hidden>
+                                <option value="{{ $pengguna->id }}" selected hidden>
                                     {{ $pengguna->perananPengguna }}</option>
                             @endif
                             @foreach ($peranan as $pp)
-                                <option value="{{ $pp->name }}">{{ $pp->name }}</option>
+                                <option value="{{ $pp->id }}">{{ $pp->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -109,10 +109,10 @@
         $('#projek').change(function() {
             var projek_id = $('#projek').val();
             var role = @json($projek->toArray());
-
+            
             role.forEach(e => {
                 if (projek_id == e.projek_id) {
-                    $('#peranan_sekarang').val(e.peranan.name);
+                    $('#peranan_sekarang').val(e.role.name);
                 }
             });
         });

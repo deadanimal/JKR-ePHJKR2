@@ -28,8 +28,27 @@ class FaqController extends Controller
         $faq->user_id = $user->id;
         $faq->save();
 
+        alert('maklumat telah diisi','berjaya');
+
         return back();
-    }    
+    }  
+    public function kemaskini(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $faq = Faq::find($id); 
+        $faq->soalan = $request->soalan;
+        $faq->jawapan = $request->jawapan;
+        $faq->save();
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return back();
+    }  
+
+    public function buang(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $faq = Faq::find($id); 
+        $faq->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return back();
+    } 
 
 
 

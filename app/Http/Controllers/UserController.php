@@ -14,12 +14,17 @@ use App\Models\KriteriaGpssBangunan;
 use App\Models\KriteriaGpssJalan;
 use App\Models\ProjekRoleUser;
 use App\Models\Role;
+use OwenIt\Auditing\Models\Audit;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
 
     public function home(Request $request) {  
-        $hebahans=Hebahan::get()->first();  
+        $hebahans=Hebahan::all();  
 
         return view('home',compact('hebahans'));
     }
@@ -67,14 +72,12 @@ class UserController extends Controller
     }
 
     public function simpan_tukar_peranan(Request $request) {  
-
-        $perananProjek = ProjekRoleUser::where('user_id', $id)->where('projek_id', $request->projek_id)->first();
+        $id = (int)$request->route('id'); 
+        $perananProjek = ProjekRoleUser::where('user_id', $id)->first();
         if ($perananProjek == null) {
             $perananProjek = new ProjekRoleUser();
         }
-
-        $id = (int)$request->route('id'); 
-        $perananProjek = User::find($id);
+        
         $perananProjek->projek_id = $request->projek_id;
         $perananProjek->role_id = $request->role_id;
 
@@ -168,7 +171,9 @@ class UserController extends Controller
     public function selenggara(Request $request) {
         $peranan = Role::all();
         $projek = Projek::all();
-        return view('selenggara.senarai', compact('peranan','projek'));
+        $audits = Audit::all();
+
+        return view('selenggara.senarai', compact('peranan','projek', 'audits'));
     }
     //selenggara peranan
 
@@ -250,8 +255,28 @@ class UserController extends Controller
         return view('daftarjkr');
     }
 
+    public function custom_login(Request $request) {
+
+        $user = User::where([
+            ['icPengguna', '=', $request->icPengguna],
+            ['password', '=', $request->password]
+        ])->first();
+
+        if (Auth::attempt($this->only('icPengguna', 'password'))) {
+            return redirect('/dashboard');
+        } else {
+            dd('not ok');
+        }
+    }
 
 
+// public function audit()
+// {
+//     $audits = Audit::all();
+
+//     return view('/selenggara');
+
+// }
 
 
 }

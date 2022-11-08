@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
 class ProjekRoleUser extends Model
 {
@@ -15,6 +16,9 @@ class ProjekRoleUser extends Model
 
     public function role() {
         return $this->belongsTo(Role::class);
+    }        
+    public function projek() {
+        return $this->belongsTo(Projek::class);
     }        
 
 
