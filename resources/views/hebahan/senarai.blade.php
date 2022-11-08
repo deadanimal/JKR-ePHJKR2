@@ -20,7 +20,7 @@
 
 @section('content')
 
-    @role('sekretariat')
+    @role('sekretariat|pentadbir')
     <div class="row my-3">
         <div class="col">
             <div class="card">
@@ -110,7 +110,7 @@
                                                         <a href="/hebahan/{{ $hebahan->id }}"
                                                             class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                     </div>
-                                                    @role('sekretariat')
+                                                    @role('sekretariat|pentadbir')
                                                     <div class="col-auto">
                                                         <form action="/hebahan/{{ $hebahan->id }}" method="post">
                                                             @method('DELETE')

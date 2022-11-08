@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="col-7 mb-2">
                                             <div class="row mt-4">
-                                                @role('sekretariat| Pentadbir')
+                                                @role('sekretariat|pentadbir')
                                                 <div class="col-6">
                                                     <a href="/hebahan" class="btn btn-outline-primary">Batal</a>
                                                 </div>                                                

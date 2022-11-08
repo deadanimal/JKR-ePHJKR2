@@ -143,7 +143,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="col mb-">
-                                    <h2 class="h2 mb-3">BORANG SELENGGARA PROJEK</h2>
+                                    <h2 class="h2 mb-3">BORANG SELENGGARA STATUS PROJEK</h2>
                                 </div>
 
                                 <div class="col">
@@ -259,129 +259,519 @@
                         <h3 class="mb-0 text-primary"><strong>SELENGGARA KRITERIA</strong></h3>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="col mb-">
-                                    <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA</h2>
-                                </div>
-
+                <div class="tab mt-1">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item"><a class="nav-link active" href="#tab-5" data-bs-toggle="tab" role="tab">phJKR Bangunan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">phJKR Jalan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">GPSS Bangunan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tab-8" data-bs-toggle="tab" role="tab">GPSS Jalan</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab-5" role="tabpanel">
+                            <div class="row mb-3">
                                 <div class="col">
-                                    <hr class="text-primary mb-3">
-
-                                    <div class="row mt-4 mb-3">
-                                        <div class="col">
-                                            <form action="/selenggaraKriteria" method="post"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="row mx-4">
-                                                    <div class="col-3 mb-2">
-                                                        <label class="col-form-label">Nama Kriteria:</label>
-                                                    </div>
-                                                    <div class="col-7 mb-2">
-                                                        <input class="form-control" name="nama" type="text" />
-                                                    </div>
-                                                    <div class="col-3 mb-2">
-                                                        <label class="col-form-label">Kod Kriteria:</label>
-                                                    </div>
-                                                    <div class="col-7 mb-2">
-                                                        <input class="form-control" name="kod" type="text" />
-                                                    </div>
-                                                    <div class="col-3 mb-2">
-                                                        <label class="col-form-label">Jenis Kriteria:</label>
-                                                    </div>
-                                                    <div class="col-7 mb-2">
-                                                        <input class="form-control" name="jenis" type="text" />
-                                                    </div>
-                                                    <div class="col-3 mb-2">
-                                                        <label class="col-form-label">Kategori Kriteria:</label>
-                                                    </div>
-                                                    <div class="col-7 mb-2">
-                                                        <input class="form-control" name="kategori" type="text" />
-                                                    </div>
-
-                                                    <div class="col-7 mb-2">
-                                                        <div class="row mt-4">
-                                                            <div class="col-6">
-                                                                <a href="/selenggaraKriteria"
-                                                                    class="btn btn-outline-primary">Batal</a>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col mb-">
+                                                <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA phJKR Bangunan</h2>
+                                            </div>
+            
+                                            <div class="col">
+                                                <hr class="text-primary mb-3">
+            
+                                                <div class="row mt-4 mb-3">
+                                                    <div class="col">
+                                                        <form action="/selenggaraKriteria" method="post"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="row mx-4">
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Nama Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="nama" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kod Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kod" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Jenis Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="jenis" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kategori Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kategori" type="text" />
+                                                                </div>
+            
+                                                                <div class="col-7 mb-2">
+                                                                    <div class="row mt-4">
+                                                                        <div class="col-6">
+                                                                            <a href="/selenggara"
+                                                                                class="btn btn-outline-primary">Batal</a>
+                                                                        </div>
+                                                                        <div class="col-6 text-end">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Tambah</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-6 text-end">
-                                                                <button type="submit"
-                                                                    class="btn btn-primary">Tambah</button>
-                                                            </div>
-                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="col mb-">
-                                    <h2 class="h2 mb-3">SENARAI SELENGGARA KRITERIA BARU</h2>
-                                </div>
-
-                                <div class="row mt-2">
-                                    <div class="col">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <table class="table datatable table-striped" style="width:100%">
-                                                    <thead class="bg-primary">
-                                                        <tr>
-                                                            <th class="sort">Bil.</th>
-                                                            <th class="sort">Nama Kriteria</th>
-                                                            <th class="sort">Jenis Kriteria</th>
-                                                            <th class="sort">Kategori Kriteria</th>
-                                                            <th class="sort">Tindakan</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="bg-white">
-
-                                                        {{-- @foreach ($selenggara as $selenggaraKriteria) --}}
-                                                        <tr>
-                                                            {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                            {{-- <td>{{ $selenggaraKriteria->nama }}</td> --}}
-                                                            {{-- <td>{{ $selenggaraKriteria->jenis }}</td> --}}
-                                                            {{-- <td>{{ $selenggaraKriteria->kategori }}</td> --}}
-                                                            <td>
-                                                                <div class="row">
-                                                                    <div class="col-auto">
-                                                                        {{-- <a href="/selenggaraKriteria/{{ $selenggaraKriteria->id }}/edit" --}}
-                                                                        class="btn btn-sm btn-primary"><i
-                                                                            class="fas fa-edit"></i></a>
-                                                                    </div>
-                                                                    <div class="col-auto">
-                                                                        {{-- <form action="/selenggaraKriteria/{{ $selenggaraKriteria->id }}" method="post"> --}}
-                                                                        @method('DELETE')
-                                                                        @csrf
-                                                                        <button type="submit"
-                                                                            class="btn btn-sm btn-outline-primary"><i
-                                                                                class="fas fa-trash-alt"></i></button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        {{-- @endforeach --}}
-                                                    </tbody>
-                                                </table>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col mb-">
+                                                <h2 class="h2 mb-3">SENARAI SELENGGARA KRITERIA BARU</h2>
+                                            </div>
+            
+                                            <div class="row mt-2">
+                                                <div class="col">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <table class="table datatable table-striped" style="width:100%">
+                                                                <thead class="bg-primary">
+                                                                    <tr>
+                                                                        <th class="sort">Bil.</th>
+                                                                        <th class="sort">Nama Kriteria</th>
+                                                                        <th class="sort">Jenis Kriteria</th>
+                                                                        <th class="sort">Kategori Kriteria</th>
+                                                                        <th class="sort">Tindakan</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="bg-white">
+            
+                                                                    {{-- @foreach ($selenggara as $selenggaraKriteria) --}}
+                                                                    <tr>
+                                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->nama }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->jenis }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->kategori }}</td> --}}
+                                                                        <td>
+                                                                            <div class="row">
+                                                                                <div class="col-auto">
+                                                                                    {{-- <a href="/selenggaraKriteria/{{ $selenggaraKriteria->id }}/edit" --}}
+                                                                                    class="btn btn-sm btn-primary"><i
+                                                                                        class="fas fa-edit"></i></a>
+                                                                                </div>
+                                                                                <div class="col-auto">
+                                                                                    {{-- <form action="/selenggaraKriteria/{{ $selenggaraKriteria->id }}" method="post"> --}}
+                                                                                    @method('DELETE')
+                                                                                    @csrf
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-sm btn-outline-primary"><i
+                                                                                            class="fas fa-trash-alt"></i></button>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    {{-- @endforeach --}}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="tab-pane" id="tab-6" role="tabpanel">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col mb-">
+                                                <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA phJKR Jalan</h2>
+                                            </div>
+            
+                                            <div class="col">
+                                                <hr class="text-primary mb-3">
+            
+                                                <div class="row mt-4 mb-3">
+                                                    <div class="col">
+                                                        <form action="/selenggaraKriteria" method="post"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="row mx-4">
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Nama Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="nama" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kod Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kod" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Jenis Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="jenis" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kategori Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kategori" type="text" />
+                                                                </div>
+            
+                                                                <div class="col-7 mb-2">
+                                                                    <div class="row mt-4">
+                                                                        <div class="col-6">
+                                                                            <a href="/selenggara"
+                                                                                class="btn btn-outline-primary">Batal</a>
+                                                                        </div>
+                                                                        <div class="col-6 text-end">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Tambah</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col mb-">
+                                                <h2 class="h2 mb-3">SENARAI SELENGGARA KRITERIA BARU</h2>
+                                            </div>
+            
+                                            <div class="row mt-2">
+                                                <div class="col">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <table class="table datatable table-striped" style="width:100%">
+                                                                <thead class="bg-primary">
+                                                                    <tr>
+                                                                        <th class="sort">Bil.</th>
+                                                                        <th class="sort">Nama Kriteria</th>
+                                                                        <th class="sort">Jenis Kriteria</th>
+                                                                        <th class="sort">Kategori Kriteria</th>
+                                                                        <th class="sort">Tindakan</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="bg-white">
+            
+                                                                    {{-- @foreach ($selenggara as $selenggaraKriteria) --}}
+                                                                    <tr>
+                                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->nama }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->jenis }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->kategori }}</td> --}}
+                                                                        <td>
+                                                                            <div class="row">
+                                                                                <div class="col-auto">
+                                                                                    {{-- <a href="/selenggaraKriteria/{{ $selenggaraKriteria->id }}/edit" --}}
+                                                                                    class="btn btn-sm btn-primary"><i
+                                                                                        class="fas fa-edit"></i></a>
+                                                                                </div>
+                                                                                <div class="col-auto">
+                                                                                    {{-- <form action="/selenggaraKriteria/{{ $selenggaraKriteria->id }}" method="post"> --}}
+                                                                                    @method('DELETE')
+                                                                                    @csrf
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-sm btn-outline-primary"><i
+                                                                                            class="fas fa-trash-alt"></i></button>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    {{-- @endforeach --}}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-7" role="tabpanel">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col mb-">
+                                                <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA GPSS Bangunan</h2>
+                                            </div>
+            
+                                            <div class="col">
+                                                <hr class="text-primary mb-3">
+            
+                                                <div class="row mt-4 mb-3">
+                                                    <div class="col">
+                                                        <form action="/selenggaraKriteria" method="post"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="row mx-4">
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Nama Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="nama" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kod Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kod" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Jenis Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="jenis" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kategori Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kategori" type="text" />
+                                                                </div>
+            
+                                                                <div class="col-7 mb-2">
+                                                                    <div class="row mt-4">
+                                                                        <div class="col-6">
+                                                                            <a href="/selenggara"
+                                                                                class="btn btn-outline-primary">Batal</a>
+                                                                        </div>
+                                                                        <div class="col-6 text-end">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Tambah</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col mb-">
+                                                <h2 class="h2 mb-3">SENARAI SELENGGARA KRITERIA BARU</h2>
+                                            </div>
+            
+                                            <div class="row mt-2">
+                                                <div class="col">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <table class="table datatable table-striped" style="width:100%">
+                                                                <thead class="bg-primary">
+                                                                    <tr>
+                                                                        <th class="sort">Bil.</th>
+                                                                        <th class="sort">Nama Kriteria</th>
+                                                                        <th class="sort">Jenis Kriteria</th>
+                                                                        <th class="sort">Kategori Kriteria</th>
+                                                                        <th class="sort">Tindakan</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="bg-white">
+            
+                                                                    {{-- @foreach ($selenggara as $selenggaraKriteria) --}}
+                                                                    <tr>
+                                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->nama }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->jenis }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->kategori }}</td> --}}
+                                                                        <td>
+                                                                            <div class="row">
+                                                                                <div class="col-auto">
+                                                                                    {{-- <a href="/selenggaraKriteria/{{ $selenggaraKriteria->id }}/edit" --}}
+                                                                                    class="btn btn-sm btn-primary"><i
+                                                                                        class="fas fa-edit"></i></a>
+                                                                                </div>
+                                                                                <div class="col-auto">
+                                                                                    {{-- <form action="/selenggaraKriteria/{{ $selenggaraKriteria->id }}" method="post"> --}}
+                                                                                    @method('DELETE')
+                                                                                    @csrf
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-sm btn-outline-primary"><i
+                                                                                            class="fas fa-trash-alt"></i></button>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    {{-- @endforeach --}}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="tab-8" role="tabpanel">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col mb-">
+                                                <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA GPSS Jalan</h2>
+                                            </div>
+            
+                                            <div class="col">
+                                                <hr class="text-primary mb-3">
+            
+                                                <div class="row mt-4 mb-3">
+                                                    <div class="col">
+                                                        <form action="/selenggaraKriteria" method="post"
+                                                            enctype="multipart/form-data">
+                                                            @csrf
+                                                            <div class="row mx-4">
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Nama Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="nama" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kod Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kod" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Jenis Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="jenis" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kategori Kriteria:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kategori" type="text" />
+                                                                </div>
+            
+                                                                <div class="col-7 mb-2">
+                                                                    <div class="row mt-4">
+                                                                        <div class="col-6">
+                                                                            <a href="/selenggara"
+                                                                                class="btn btn-outline-primary">Batal</a>
+                                                                        </div>
+                                                                        <div class="col-6 text-end">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary">Tambah</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="col mb-">
+                                                <h2 class="h2 mb-3">SENARAI SELENGGARA KRITERIA BARU</h2>
+                                            </div>
+            
+                                            <div class="row mt-2">
+                                                <div class="col">
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <table class="table datatable table-striped" style="width:100%">
+                                                                <thead class="bg-primary">
+                                                                    <tr>
+                                                                        <th class="sort">Bil.</th>
+                                                                        <th class="sort">Nama Kriteria</th>
+                                                                        <th class="sort">Jenis Kriteria</th>
+                                                                        <th class="sort">Kategori Kriteria</th>
+                                                                        <th class="sort">Tindakan</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody class="bg-white">
+            
+                                                                    {{-- @foreach ($selenggara as $selenggaraKriteria) --}}
+                                                                    <tr>
+                                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->nama }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->jenis }}</td> --}}
+                                                                        {{-- <td>{{ $selenggaraKriteria->kategori }}</td> --}}
+                                                                        <td>
+                                                                            <div class="row">
+                                                                                <div class="col-auto">
+                                                                                    {{-- <a href="/selenggaraKriteria/{{ $selenggaraKriteria->id }}/edit" --}}
+                                                                                    class="btn btn-sm btn-primary"><i
+                                                                                        class="fas fa-edit"></i></a>
+                                                                                </div>
+                                                                                <div class="col-auto">
+                                                                                    {{-- <form action="/selenggaraKriteria/{{ $selenggaraKriteria->id }}" method="post"> --}}
+                                                                                    @method('DELETE')
+                                                                                    @csrf
+                                                                                    <button type="submit"
+                                                                                        class="btn btn-sm btn-outline-primary"><i
+                                                                                            class="fas fa-trash-alt"></i></button>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    {{-- @endforeach --}}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
                 </div>
+                
+                
+                
             </div>
 
             <div class="tab-pane" id="tab-4" role="tabpanel">

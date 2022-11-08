@@ -27,6 +27,7 @@ class HebahanController extends Controller
         $hebahan->isi = $request->isi;
         $hebahan->user_id = $user->id;
         $hebahan->save();
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
         return back();
     }    
     
@@ -36,6 +37,7 @@ class HebahanController extends Controller
         $hebahan->tajuk = $request->tajuk;
         $hebahan->isi = $request->isi;
         $hebahan->save();
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
         return back();
     }   
     
@@ -43,6 +45,7 @@ class HebahanController extends Controller
         $id = (int)$request->route('id'); 
         $hebahan = Hebahan::find($id); 
         $hebahan->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
         return back();
     }     
 
