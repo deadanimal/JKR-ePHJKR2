@@ -48,28 +48,28 @@
                         <label class="col-form-label">No. Telefon Bimbit:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="notelbimbitPengguna" value="{{ $pengguna->notelbimbitPengguna }}" />
+                        <input class="form-control" name="notelbimbitPengguna" value="{{ $pengguna->telNo}}" />
                     </div>
     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Nama Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="namaSyarikat" value="{{ $pengguna->namaSyarikat }}" />
+                        <input class="form-control" name="namaSyarikat" value="{{ $pengguna->nama_syarikat }}" />
                     </div>
     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Nama Cawangan:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="namaCawangan" value="{{ $pengguna->namaCawangan }}" />
+                        <input class="form-control" name="namaCawangan" value="{{ $pengguna->nama_cawangan }}" />
                     </div>
     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Alamat Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="alamatSyarikat" value="{{ $pengguna->alamatSyarikat }}" />
+                        <input class="form-control" name="alamatSyarikat" value="{{ $pengguna->alamat_syarikat }}" />
                     </div>
 
                     <div class="col-10 text-end">

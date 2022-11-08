@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col mb-">
-                    <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA GPSS Bangunan</h2>
+                    <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA phJKR Bangunan</h2>
                 </div>
 
                 <div class="col">

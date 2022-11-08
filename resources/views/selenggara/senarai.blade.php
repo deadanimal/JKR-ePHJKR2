@@ -281,33 +281,39 @@
             
                                                 <div class="row mt-4 mb-3">
                                                     <div class="col">
-                                                        <form action="/selenggaraKriteria" method="post"
+                                                        <form action="/selenggara/cipta_kriteria" method="post"
                                                             enctype="multipart/form-data">
                                                             @csrf
                                                             <div class="row mx-4">
                                                                 <div class="col-3 mb-2">
-                                                                    <label class="col-form-label">Nama Kriteria:</label>
+                                                                    <label class="col-form-label">Jenis Kriteria:</label>
                                                                 </div>
                                                                 <div class="col-7 mb-2">
-                                                                    <input class="form-control" name="nama" type="text" />
+                                                                    <input class="form-control" name="borang" type="text" />
                                                                 </div>
                                                                 <div class="col-3 mb-2">
-                                                                    <label class="col-form-label">Kod Kriteria:</label>
+                                                                    <label class="col-form-label">jenis kategori:</label>
+                                                                </div>
+                                                                <div class="col-7 mb-2">
+                                                                    <input class="form-control" name="kategori" type="text" />
+                                                                </div>
+                                                                <div class="col-3 mb-2">
+                                                                    <label class="col-form-label">Kod Kategori:</label>
                                                                 </div>
                                                                 <div class="col-7 mb-2">
                                                                     <input class="form-control" name="kod" type="text" />
                                                                 </div>
                                                                 <div class="col-3 mb-2">
-                                                                    <label class="col-form-label">Jenis Kriteria:</label>
+                                                                    <label class="col-form-label">Bukti:</label>
                                                                 </div>
                                                                 <div class="col-7 mb-2">
-                                                                    <input class="form-control" name="jenis" type="text" />
+                                                                    <input class="form-control" name="bukti" type="text" />
                                                                 </div>
                                                                 <div class="col-3 mb-2">
-                                                                    <label class="col-form-label">Kategori Kriteria:</label>
+                                                                    <label class="col-form-label">Nama Kriteria:</label>
                                                                 </div>
                                                                 <div class="col-7 mb-2">
-                                                                    <input class="form-control" name="kategori" type="text" />
+                                                                    <input class="form-control" name="nama" type="text" />
                                                                 </div>
             
                                                                 <div class="col-7 mb-2">
@@ -336,7 +342,7 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="col mb-">
-                                                <h2 class="h2 mb-3">SENARAI SELENGGARA KRITERIA BARU</h2>
+                                                <h2 class="h2 mb-3">SENARAI SELENGGARA KRITERIA</h2>
                                             </div>
             
                                             <div class="row mt-2">
@@ -355,21 +361,21 @@
                                                                 </thead>
                                                                 <tbody class="bg-white">
             
-                                                                    {{-- @foreach ($selenggara as $selenggaraKriteria) --}}
+                                                                    @foreach ($kriteria as $kriteria)
                                                                     <tr>
-                                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                                        {{-- <td>{{ $selenggaraKriteria->nama }}</td> --}}
-                                                                        {{-- <td>{{ $selenggaraKriteria->jenis }}</td> --}}
-                                                                        {{-- <td>{{ $selenggaraKriteria->kategori }}</td> --}}
+                                                                        <td>{{ $loop->iteration }}</td>
+                                                                        <td>{{ $kriteria->nama }}</td>
+                                                                        <td>{{ $kriteria->borang }}</td>
+                                                                        <td>{{ $kriteria->kategori }}</td>
                                                                         <td>
                                                                             <div class="row">
                                                                                 <div class="col-auto">
-                                                                                    {{-- <a href="/selenggaraKriteria/{{ $selenggaraKriteria->id }}/edit" --}}
+                                                                                    <a href="/selenggara/kemaskini_kriteria/{{$kriteria->id}}"
                                                                                     class="btn btn-sm btn-primary"><i
                                                                                         class="fas fa-edit"></i></a>
                                                                                 </div>
                                                                                 <div class="col-auto">
-                                                                                    {{-- <form action="/selenggaraKriteria/{{ $selenggaraKriteria->id }}" method="post"> --}}
+                                                                                    <form action="/selenggaraKriteria/{{ $kriteria->id }}" method="post">
                                                                                     @method('DELETE')
                                                                                     @csrf
                                                                                     <button type="submit"
@@ -380,7 +386,7 @@
                                                                             </div>
                                                                         </td>
                                                                     </tr>
-                                                                    {{-- @endforeach --}}
+                                                                    @endforeach
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -810,7 +816,7 @@
                                                     <thead class="bg-primary">
                                                         <tr>
                                                             <th class="sort">Bil.</th>
-                                                            <th class="sort">IC Pengguna </th>
+                                                            <th class="sort">User ID </th>
                                                             <th class="sort">Tarikh dan Masa </th>
                                                             <th class="sort">Proses Aktiviti </th>
                                                         </tr>

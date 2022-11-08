@@ -9,7 +9,7 @@
                         <a href="/profil" class="text-secondary">Paparan Profil</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/profil/{{ $pengguna->id }}/edit"
+                        <a href="/profil/edit"
                             class="text-secondary">Kemaskini Profil</a>
                     </li>
                     <li class="breadcrumb-item text-dark-green-jkr" style="font-weight: 700" aria-current="page">
@@ -28,93 +28,59 @@
 
     <hr class="text-primary mb-3">
 
-    <div class="row mt-4 mb-3">
+    <div class="row mt-2">
         <div class="col">
-            <form action="/profil/simpan_tukar_peranan/{{ Auth::user()->id }}" method="post">
-                @method('PUT')
-                @csrf
-                <div class="row mx-4">
-                    <div class="col-3 mb-2">
-                        <label class="col-form-label">Nama:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <input class="form-control" name="name" value="{{ $pengguna->name }}" disabled />
-                    </div>
-
-                    <div class="col-3 mb-2">
-                        <label class="col-form-label">e-Mel Pengguna:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <input class="form-control" name="email" value="{{ $pengguna->email }}" disabled />
-                    </div>
-
-                    <div class="col-3 mb-2">
-                        <label class="col-form-label">Nama Projek:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <select name="projek_id" class="form-select form-control" id="projek">
-                            <option value="" selected hidden>Sila Pilih</option>
-                            @foreach ($projek as $pr)
-                                <option value="{{ $pr->projek_id }}">{{ $pr->projek->nama }}</option>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table datatable table-striped" style="width:100%">
+                        <thead class="bg-primary">
+                            <tr>
+                                <th class="sort">Bil.</th>
+                                <th class="sort">Nama Projek</th>
+                                <th class="sort">Peranan</th>
+                                <th class="sort">Tindakan</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            @foreach ($lantikans as $p)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $p->projek->nama }}</td>
+                                    <td>{{ $p->role->name }}</td>
+                                    <td>
+                                        <div class="col">
+                                            <div class="col-auto">
+                                                <form action="/profil/simpan_tukar_peranan/{{ $p->id }}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="name" value="7" type="submit"
+                                                    class="btn btn-primary">Ubah Penilai</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-auto">
+                                                <form action="/profil/simpan2_tukar_peranan/{{ $p->id }}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="name" value="6" type="submit"
+                                                    class="btn btn-primary">Ubah Pemudah-cara</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-auto">
+                                                <form action="/profil/simpan3_tukar_peranan/{{ $p->id }}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="name" value="10" type="submit"
+                                                    class="btn btn-primary">Ubah Pasukan-validasi</button>
+                                                </form>
+                                            </div>
+                                        </div> 
+                                    </td>
+                                </tr>
                             @endforeach
-                        </select>
-                    </div>
-
-                    {{-- <div class="col-3 mb-2">
-                        <label class="col-form-label">Peranan Sekarang:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <input type="text" class="form-control" Value="" disabled id="peranan_sekarang">
-
-                    </div> --}}
-
-                    <div class="col-3 mb-2">
-                        <label class="col-form-label">Peranan Baru:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <select name="role_id" class="form-select form-control">
-                            @if ($pengguna->perananPengguna == null)
-                                <option value="" selected hidden>Sila Pilih</option>
-                            @else
-                                <option value="{{ $pengguna->id }}" selected hidden>
-                                    {{ $pengguna->perananPengguna }}</option>
-                            @endif
-                            @foreach ($peranan as $pp)
-                                <option value="{{ $pp->id }}">{{ $pp->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-
-                    <div class="col-3 mb-2">
-                        {{-- biar kosong --}}
-                    </div>
-                    <div class="col-7 mb-2">
-                        <div class="row mt-4">
-                            <div class="col-6">
-                                <a href="/profil/profil_kemaskini/{{ $pengguna->id }}"
-                                    class="btn btn-outline-primary">Batal</a>
-                            </div>
-                            <div class="col-6 text-end">
-                                <button type="submit" class="btn btn-primary">Simpan Tukar Peranan</button>
-                            </div>
-                        </div>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-
-    <script>
-        $('#projek').change(function() {
-            var projek_id = $('#projek').val();
-            var role = @json($projek->toArray());
-            
-            role.forEach(e => {
-                if (projek_id == e.projek_id) {
-                    $('#peranan_sekarang').val(e.role.name);
-                }
-            });
-        });
-    </script>
 @endsection

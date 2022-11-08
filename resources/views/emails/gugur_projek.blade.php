@@ -1,0 +1,1 @@
+Permohonan Gugur Projek {{ $projek->nama }} Dihantar.

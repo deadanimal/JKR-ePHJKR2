@@ -44,28 +44,28 @@
                             <h5 class="h6">No. Telefon Bimbit:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;"> {{--{{ $pengguna->notelbimbitPengguna }}--}}</h5>
+                            <h5 class="h6" style="font-weight: 700;"> {{ $pengguna['telNo'] }}</h5>
                         </div>
 
                         <div class="col-4 mb-2">
                             <h5 class="h6">Nama Syarikat:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{--{{ $pengguna->namaSyarikat }}--}}</h5>
+                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna['nama_syarikat'] }}</h5>
                         </div>
 
                         <div class="col-4 mb-2">
                             <h5 class="h6">Nama Cawangan:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{--{{ $pengguna->namaCawangan }}--}}</h5>
+                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna['nama_cawangan'] }}</h5>
                         </div>
 
                         <div class="col-4 mb-2">
                             <h5 class="h6">Alamat Syarikat:</h5>
                         </div>
                         <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{--{{ $pengguna->alamatSyarikat }}--}}</h5>
+                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna['alamat_syarikat'] }}</h5>
                         </div>
                     </div>
                 </div>

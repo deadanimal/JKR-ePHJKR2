@@ -23,28 +23,28 @@
                             </thead>
                             <tbody class="bg-white">
 
-                                {{-- @foreach ($projek as $projek) --}}
+                                @foreach ($projek as $projek)
                                     <tr>
-                                        {{-- <td>{{ $loop->iteration }}</td> --}}
-                                        {{-- <td>{{ $projek->nama }}</td> --}}
-                                        {{-- <td>{{ $projek->alasan }}</td> --}}
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $projek->nama }}</td>
+                                        <td>{{ $projek->alasan }}</td>
 
 
                                         <td>
                                             <div class="row">
-                                                @role('sekretariat|pentadbir')
+                                                {{-- @role('sekretariat|pentadbir') --}}
                                                 <div class="col-auto">
-                                                    {{-- <form action="/projek/pengesahan/{{ $projek->id }}" method="post"> --}}
+                                                    <form action="/Pengesahan/{{ $projek->id }}" method="post">
                                                         @method('DELETE')
                                                         @csrf
-                                                        <button type="submit" class="btn btn-sm btn-outline-primary">Pengesahan</button>
+                                                        <button type="submit" class="btn btn-primary">Pengesahan</button>
                                                     </form>
                                                 </div>
-                                                @endrole
+                                                {{-- @endrole --}}
                                             </div>
                                         </td>
                                     </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

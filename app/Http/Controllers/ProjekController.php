@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 
 
@@ -10,7 +11,7 @@ use DataTables;
 use DateTime;
 use Carbon\Carbon;
 use Alert;
-
+use App\Mail\GugurProjek;
 use App\Models\User;
 use App\Models\Projek;
 use App\Models\Kriteria;
@@ -203,18 +204,51 @@ class ProjekController extends Controller
     }
 
     //gugurprojek
-    // public function gugur_projek(Request $request) {
-    //     $id = (int)$request->route('id'); 
-    //     $projek = Projek::find($id);
-    //     return view('projek.gugur_projek', compact('projek'));
-    // }
+    public function gugur_projek(Request $request) {
+        $id = (int)$request->route('id'); 
+        $projek = Projek::find($id);
+        return view('projek.gugur_projek', compact('projek'));
+    }
+
+    public function simpan_permohonan_gugur(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $projek = Projek::find($id);
+        $projek->alasan = $request->alasan;
+        $projek->gugur = true;
+
+        $projek->save();
+        alert()->success('Permohonan Gugur Projek telah dihantar', 'Berjaya');
+        return redirect('/projek');
+    }
 
     // public function senarai_gugur_projek(Request $request) { 
     //     $projek = Projek::all();
     //     return view('projek.senarai_gugur_projek', compact('projek'));
     // }
     public function senarai_gugur_projek(Request $request) {
-        return view('projek.senarai_gugur_projek');
+        // $id = (int)$request->route('id'); 
+        $projek = Projek::where('gugur','1')->get();
+        return view('projek.senarai_gugur_projek',compact('projek'));
+    }
+
+    public function Pengesahan(Request $request) {
+        $id = (int)$request->route('id'); 
+        $projek = Projek::find($id); 
+        $projek->delete();
+
+        alert()->success('Maklumat telah disahkan', 'Berjaya');
+        return redirect('/projek/gugur/senarai_gugur_projek');
+    }
+
+    //email
+    public function email_gugur_projek(Request $request){
+        $user = $request->user();
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);
+        Mail::to('maisarah.musa@pipeline-network.com')->send(new GugurProjek($projek));
+        // $email = Auth::user()->email;
+        // Mail::to($user->email)->send(new ProjekStatusBerubah($projek));
+        return back();
     }
 
     public function cipta_projek(Request $request) {
@@ -236,6 +270,7 @@ class ProjekController extends Controller
         $projek->jenisProjek = $request->jenisProjek;
         $projek->kategori = $request->kategori; 
 
+        alert('maklumat telah disimpan','Berjaya');
         $projek->save();
 
         return back();

@@ -34,11 +34,18 @@ Route::middleware(['auth'])->group(function () {
     Route::put('profil/simpan_kemaskini/{id}', [UserController::class, 'simpan_kemaskini']);
     Route::get('profil/tukar_peranan/{id}', [UserController::class, 'tukar_peranan']);
     Route::put('profil/simpan_tukar_peranan/{id}', [UserController::class, 'simpan_tukar_peranan']);
+    Route::put('profil/simpan2_tukar_peranan/{id}', [UserController::class, 'simpan2_tukar_peranan']);
+    Route::put('profil/simpan3_tukar_peranan/{id}', [UserController::class, 'simpan3_tukar_peranan']);
     Route::get('senaraiPengguna', [UserController::class, 'senaraiPengguna']);
     Route::get('senaraiPengguna/cipta', [UserController::class, 'cipta']);
     Route::post('senaraiPengguna/cipta_pengguna', [UserController::class, 'cipta_pengguna']);
     Route::get('senaraiPengguna/kemaskini_pengguna/{id}', [UserController::class, 'kemaskini_pengguna']);
     Route::put('senaraiPengguna/simpan_kemaskini_pengguna/{id}', [UserController::class, 'simpan_kemaskini_pengguna']);
+    Route::put('senaraiPengguna/simpan_tukar_status/{id}', [UserController::class, 'simpan_tukar_status']);
+    Route::put('senaraiPengguna/simpan2_tukar_status/{id}', [UserController::class, 'simpan2_tukar_status']);
+    Route::put('senaraiPengguna/simpan3_tukar_status/{id}', [UserController::class, 'simpan3_tukar_status']);
+    Route::put('senaraiPengguna/simpan4_tukar_status/{id}', [UserController::class, 'simpan4_tukar_status']);
+    // Route::put('senaraiPengguna/simpan2_kemaskini_pengguna/{id}', [UserController::class, 'simpan2_kemaskini_pengguna']);
     Route::get('senaraiPengguna/senarai_tukar_peranan', [UserController::class, 'senarai_tukar_peranan']);
     Route::get('senaraiPengguna/sembunyi', [UserController::class, 'senarai_sembunyi']);
 
@@ -58,8 +65,12 @@ Route::middleware(['auth'])->group(function () {
 
 
     //gugurprojek
-    Route::post('projek/{id}/gugur_projek', [ProjekController::class, 'gugur_projek']);
+    // Route::get('projek/gugur/senarai_gugur_projek', [ProjekController::class, 'senarai_gugur_projek']);
+    Route::get('projek/gugur_projek/{id}', [ProjekController::class, 'gugur_projek']);
+    Route::put('permohonan/gugur_projek/{id}', [ProjekController::class, 'simpan_permohonan_gugur']);
     Route::get('projek/gugur/senarai_gugur_projek', [ProjekController::class, 'senarai_gugur_projek']);
+    Route::delete('Pengesahan/{id}', [ProjekController::class, 'Pengesahan']);
+
 
     // Mai tambah
     Route::post('projek/{id}/markah-gpss', [ProjekController::class, 'markah_gpss']); 
@@ -124,6 +135,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('selenggara/kemaskini_status/{id}', [UserController::class, 'kemaskini_status']);
     Route::put('selenggara/simpankemaskini_status/{id}', [UserController::class, 'simpankemaskini_status']);
     Route::delete('buang_status/{id}', [UserController::class, 'buang_status']);
+
+    //selenggarakriteria
+    Route::post('selenggara/cipta_kriteria', [UserController::class, 'cipta_kriteria']); 
+    Route::get('selenggara/kemaskini_kriteria/{id}', [UserController::class, 'kemaskini_kriteria']);
+    Route::put('selenggara/simpankemaskini_kriteria/{id}', [UserController::class, 'simpankemaskini_kriteria']);
+
+    //email
+    Route::get('projek/{id}/gugur_projek', [ProjekController::class, 'email_gugur_projek']);
+
+
 
 
 });

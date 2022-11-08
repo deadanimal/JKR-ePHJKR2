@@ -269,7 +269,7 @@
                                 <label class="col-form-label">Kategori Projek:</label>
                             </div>
                             <div class="col-7 mb-2">
-                                <select class="form-select form-control" name="kategori">
+                                <select class="form-select form-control" name="kategori" required>
                                     <option value="phJKR Bangunan Baru A">phJKR Bangunan Baru A</option>
                                     <option value="phJKR Bangunan Baru B">phJKR Bangunan Baru B</option>
                                     <option value="phJKR Bangunan Baru C">phJKR Bangunan Baru C</option>

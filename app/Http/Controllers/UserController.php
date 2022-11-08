@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hebahan;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 
 use App\Models\Projek;
@@ -53,6 +54,9 @@ class UserController extends Controller
         $pengguna = User::find($id);
         $pengguna->name = $request->name;
         $pengguna->email = $request->email;
+        // $pengguna->telNo = $request->telNo;
+        // $pengguna->nama_syarikat = $request->nama_syarikat;
+        // $pengguna->alamat_syarikat = $request->alamat_syarikat;
 
         $pengguna->save();
         alert()->success('Maklumat telah disimpan', 'Berjaya');
@@ -62,26 +66,41 @@ class UserController extends Controller
     public function tukar_peranan(Request $request) {  
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
-        $peranan = Role::all();
+        $lantikans = Role::all();
         // $projek = ProjekRoleUser::with(['projek'])->where('user_id', $id)->get();
-        $projek = ProjekRoleUser::where('user_id', $id)->get();
+        $lantikans = ProjekRoleUser::where('projek_id', $id)->get();
         // $projek = ProjekRoleUser::all();
 
-        // dd($projek);
-        return view('profil.tukar_peranan', compact('pengguna','projek','peranan'));
+        // dd($lantikans);
+        return view('profil.tukar_peranan', compact('lantikans','pengguna'));
     }
 
     public function simpan_tukar_peranan(Request $request) {  
         $id = (int)$request->route('id'); 
-        $perananProjek = ProjekRoleUser::where('user_id', $id)->first();
-        if ($perananProjek == null) {
-            $perananProjek = new ProjekRoleUser();
-        }
-        
-        $perananProjek->projek_id = $request->projek_id;
-        $perananProjek->role_id = $request->role_id;
+        $lantikan = ProjekRoleUser::find($id);
+        $lantikan->role_id = $request->name;
+        // $lantikan->user_id->status_tukar_peranan = true;
 
-        $perananProjek->save();
+        $lantikan->save();
+        alert()->success('Peranan telah dikemaskini', 'Berjaya');
+        return redirect('/profil');
+    }
+
+    public function simpan2_tukar_peranan(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $lantikan = ProjekRoleUser::find($id);
+        $lantikan->role_id = $request->name;
+
+        $lantikan->save();
+        alert()->success('Peranan telah dikemaskini', 'Berjaya');
+        return redirect('/profil');
+    }
+    public function simpan3_tukar_peranan(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $lantikan = ProjekRoleUser::find($id);
+        $lantikan->role_id = $request->name;
+
+        $lantikan->save();
         alert()->success('Peranan telah dikemaskini', 'Berjaya');
         return redirect('/profil');
     }
@@ -138,6 +157,46 @@ class UserController extends Controller
         return view('senaraiPengguna.sembunyi', compact('pengguna'));
     }
 
+    public function simpan_tukar_status(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $penggunaa = User::find($id);
+        $penggunaa->aktif = $request->aktif;
+
+        $penggunaa->save();
+        alert()->success('Status Peranan telah disimpan', 'Berjaya');
+        return redirect('/senaraiPengguna');
+    }
+
+    public function simpan2_tukar_status(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $penggunaa = User::find($id);
+        $penggunaa->aktif = $request->aktif;
+
+        $penggunaa->save();
+        alert()->success('Status Peranan telah disimpan', 'Berjaya');
+        return redirect('/senaraiPengguna');
+    }
+
+    public function simpan3_tukar_status(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $penggunaa = User::find($id);
+        $penggunaa->aktif = $request->aktif;
+
+        $penggunaa->save();
+        alert()->success('Status Peranan telah disimpan', 'Berjaya');
+        return redirect('/senaraiPengguna');
+    }
+
+    public function simpan4_tukar_status(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $penggunaa = User::find($id);
+        $penggunaa->aktif = $request->aktif;
+
+        $penggunaa->save();
+        alert()->success('Status Peranan telah disimpan', 'Berjaya');
+        return redirect('/senaraiPengguna');
+    }
+
     public function tukar_status(Request $request) {   
         $id = (int)$request->route('id'); 
         $pengguna = User::all();
@@ -172,8 +231,9 @@ class UserController extends Controller
         $peranan = Role::all();
         $projek = Projek::all();
         $audits = Audit::all();
+        $kriteria = Kriteria::all();
 
-        return view('selenggara.senarai', compact('peranan','projek', 'audits'));
+        return view('selenggara.senarai', compact('peranan','projek', 'audits', 'kriteria'));
     }
     //selenggara peranan
 
@@ -244,6 +304,38 @@ class UserController extends Controller
         alert()->success('Maklumat telah dibuang', 'Berjaya');
         return redirect('/selenggara');
     }
+    //selenggarakriteria
+    public function cipta_kriteria(Request $request) {
+        $kriteria = New Kriteria();
+        $kriteria->borang = $request->borang;
+        $kriteria->kategori = $request->kategori;
+        $kriteria->kod = $request->kod;
+        $kriteria->bukti = $request->bukti;
+        $kriteria->nama = $request->nama;
+        $kriteria->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function kemaskini_kriteria(Request $request) {   
+        $id = (int)$request->route('id'); 
+        $kriteria = Kriteria::find($id);
+        return view('selenggara/phjkr_bangunan', compact('kriteria'));
+    }
+
+    public function simpankemaskini_kriteria(Request $request) {
+        $id = (int)$request->route('id');
+        $kriteria = Kriteria::find($id);
+        $kriteria->kod = $request->kod;
+        $kriteria->kategori = $request->kategori;
+        $kriteria->nama = $request->nama;
+        $kriteria->save();
+
+        alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
 
     public function loginjkr()
     {

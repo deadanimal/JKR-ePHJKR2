@@ -11,7 +11,7 @@
                             <div class="p-4 p-md-5 flex-grow-1">
                                 <div class="row flex-between-center">
                                     <div class="col mb-3">
-                                        <h3 class="text-primary text-center">Log Masuk SSO</h3>
+                                        <h3 class="text-primary text-center">Log Masuk </h3>
                                     </div>
                                 </div>
                                 {{-- <form method="POST" action="{{ route('login') }}">
@@ -96,12 +96,12 @@
                                             name="submit">Log Masuk</button>
                                     </div>
 
-                                    <hr class="text-primary mb-3">
+                                    {{-- <hr class="text-primary mb-3"> --}}
                                 </form>
                                 <div class="row">
                                     <div class="col text-center">
                                         <div class="mb-3">
-                                            <a class="btn btn-outline-primary d-block w-100" href="/daftarjkr">Daftar Akaun</a>
+                                            {{-- <a class="btn btn-outline-primary d-block w-100" href="/daftarjkr">Daftar Akaun</a> --}}
                                             {{-- <a class="mt-3" style="color:#5B8E7D" href="/register">Anda Pengguna JKR? Daftar Sini.</a> --}}
                                         </div>
                                     </div>
