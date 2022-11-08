@@ -51,6 +51,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('projek/{id}', [ProjekController::class, 'kemaskini_projek']); 
     Route::post('projek/{id}/lantik', [ProjekController::class, 'lantik']); 
     Route::post('projek/{id}/markah', [ProjekController::class, 'markah_eph']); 
+    Route::post('projek/{id}/markah-eph-rayuan', [ProjekController::class, 'markah_eph_rayuan']); 
+
     // Mai tambah
     Route::post('projek/{id}/markah-gpss', [ProjekController::class, 'markah_gpss']); 
     Route::post('projek/{id}/sah', [ProjekController::class, 'sah_projek']); 
@@ -59,7 +61,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek/{id}/sah-gpss-rayuan', [ProjekController::class, 'sah_projek_gpss_rayuan']); 
     Route::post('projek/{id}/sah-eph-jalan', [ProjekController::class, 'sah_projek_eph_jalan']);
     Route::post('projek/{id}/sah-eph-jalan-rayuan', [ProjekController::class, 'sah_projek_eph_jalan_rayuan']);
-    Route::get('projek/{id}/cetak-maklumat', [ProjekController::class, 'cetak_maklumat_projek']); 
+    Route::get('projek/{id}/cetak-maklumat', [ProjekController::class, 'cetak_maklumat_projek']);
+    Route::get('projek/{id}/sijil-eph-bangunan', [ProjekController::class, 'sijil_eph_bangunan']);
+
  
 
 

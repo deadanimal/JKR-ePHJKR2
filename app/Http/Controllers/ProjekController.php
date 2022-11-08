@@ -17,8 +17,10 @@ use App\Models\Kriteria;
 use App\Models\GpssKriteria;
 use App\Models\Markah;
 use App\Models\GpssMarkah;
+use App\Models\EphBangunanRayuanMarkah;
 use App\Models\ProjekRoleUser;
 use Illuminate\Support\Facades\Http;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 use App\Models\KriteriaEphBangunan;
 use App\Models\KriteriaEphJalan;
@@ -242,9 +244,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -269,16 +271,16 @@ class ProjekController extends Controller
                 $html_button = '?';
                 // $html_button2 = '?';
                 // $html_button3 = '?';
-                $markah1 = Markah::where([
+                $markah1 = EphBangunanRayuanMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -313,7 +315,7 @@ class ProjekController extends Controller
             ->addColumn('ulasan_rayuan', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button1 = '?';
-                $markah = Markah::where([
+                $markah = EphBangunanRayuanMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
@@ -437,9 +439,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -464,16 +466,16 @@ class ProjekController extends Controller
                 $html_button = '?';
                 // $html_button2 = '?';
                 // $html_button3 = '?';
-                $markah1 = Markah::where([
+                $markah1 = EphBangunanRayuanMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -508,7 +510,7 @@ class ProjekController extends Controller
             ->addColumn('ulasan_rayuan', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button = '?';
-                $markah = Markah::where([
+                $markah = EphBangunanRayuanMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
@@ -552,7 +554,7 @@ class ProjekController extends Controller
             ->addColumn('dokumen_rayuan', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button = '?';
-                $markah = Markah::where([
+                $markah = EphBangunanRayuanMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first(); 
@@ -600,9 +602,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -634,9 +636,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -763,9 +765,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -797,9 +799,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -926,9 +928,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -960,9 +962,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1089,9 +1091,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1123,9 +1125,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1252,9 +1254,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1286,9 +1288,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1415,9 +1417,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1449,9 +1451,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1579,9 +1581,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1613,9 +1615,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -1776,9 +1778,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -2068,9 +2070,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -2102,9 +2104,9 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi'],
                     ['fasa', '=', 'validasi'],
                 ])->first();       
-                // if($markah1) {
-                //     $html_button1 = $markah1->markah;
-                // }    
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
                 // $markah2 = Markah::where([
                 //     ['projek_id', '=', $projek->id],
                 //     ['kriteria_id', '=', $kriteria_id],
@@ -2513,25 +2515,20 @@ class ProjekController extends Controller
             return DataTables::collection($kriterias)
             ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
-                $html_button1 = '?';
-                $html_button2 = '?';
+                $html_button = '?';
+                // $html_button2 = '?';
                 $markah1 = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'rekabentuk'],
-                ])->first();       
-                if($markah1) {
-                    $html_button1 = $markah1->markah;
-                }    
-                $markah2 = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
                     ['fasa', '=', 'verifikasi'],
                 ])->first();       
-                if($markah2) {
-                    $html_button2 = $markah2->markah;
-                }                                       
-                $html_button = $html_button1.' - '.$html_button2;
+                if($markah1) {
+                    $html_button = $markah1->markah;
+                }    
+                       
+                                                       
+                $html_button = $html_button;
                 return $html_button;
             })
             ->addColumn('ulasan_', function (Kriteria $kriteria) use ($projek) {
@@ -4869,8 +4866,140 @@ class ProjekController extends Controller
             'tl_ml','kt_ml','sb_ml','pa_ml','pd_ml', 'fl_ml','in_ml','total_ml',
         )); 
         } elseif ($projek->kategori ==  'phJKR Jalan Baru') {
-            $kriterias = Kriteria::where('borang', 'NEW ROADS')->get();   
+            $kriterias = Kriteria::where('borang', 'NEW ROADS')->get();  
+        
+            // Verifikasi borang SEDIA ADA D
+            // $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
+            // $tl_mv = 0;
+            // $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
+            // $kt_mv = 0;
+            // $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
+            // $sb_mv = 0;
+            // $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
+            // $pa_mv = 0;
+            // $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
+            // $pd_mv = 0;
+            // $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
+            // $fl_mv = 0;
+            // $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
+            // $in_mv = 0;
 
+            // Validasi borang SEDIA ADA D
+            // $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
+            // $tl_ml = 0;
+            // $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
+            // $kt_ml = 0;
+            // $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
+            // $sb_ml = 0;
+            // $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
+            // $pa_ml = 0;
+            // $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
+            // $pd_ml = 0;
+            // $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
+            // $fl_ml = 0;
+            // $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
+            // $in_ml = 0;
+            
+            
+            // foreach($tl_kriterias as $tl_kriteria) {                
+            //     $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+            //     if ($markah_tl_mv){
+            //         $tl_mv += $markah_tl_mv->markah;
+            //     } 
+            //     elseif ($markah_tl_ml){
+            //         $tl_ml += $markah_tl_ml->markah;
+            //     }                                
+            // }  
+            // foreach($kt_kriterias as $kt_kriteria) {
+            //     $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first();                
+            //     if ($markah_kt_mv){
+            //         $kt_mv += $markah_kt_mv->markah;
+            //     }
+            //     elseif ($markah_kt_ml){
+            //         $kt_ml += $markah_kt_ml->markah;
+            //     }
+            // }
+            // foreach($sb_kriterias as $sb_kriteria) {
+            //     $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();                
+            //     if ($markah_sb_mv){
+            //         $sb_mv += $markah_sb_mv->markah;
+            //     }
+            //     elseif ($markah_sb_ml){
+            //         $sb_ml += $markah_sb_ml->markah;
+            //     }
+            // }
+            // foreach($pa_kriterias as $pa_kriteria) {
+            //     $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first();                
+            //     if ($markah_pa_mv){
+            //         $pa_mv += $markah_pa_mv->markah;
+            //     }
+            //     elseif ($markah_pa_ml){
+            //         $pa_ml += $markah_pa_ml->markah;
+            //     }
+            // }
+            // foreach($pd_kriterias as $pd_kriteria) {
+            //     $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first();                
+            //     if ($markah_pd_mv){
+            //         $pd_mv +=  $markah_pd_mv->markah;
+            //     } 
+            //     elseif ($markah_pd_ml){
+            //         $pd_ml += $markah_pd_ml->markah;
+            //     }
+            // }
+            // foreach($fl_kriterias as $fl_kriteria) {                
+            //     $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first();
+            //     if($markah_fl_mv){
+            //         $fl_mv +=  $markah_fl_mv->markah;
+            //     } 
+            //     elseif ($markah_fl_ml){
+            //         $fl_ml += $markah_fl_ml->markah;
+            //     }                              
+            // }  
+            // foreach($in_kriterias as $in_kriteria) {                
+            //     $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+            //     $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+            //     if($markah_in_mv){
+            //         $in_mv +=  $markah_in_mv->markah;
+            //     } 
+            //     elseif ($markah_in_ml){
+            //         $in_ml += $markah_in_ml->markah;
+            //     }                              
+            // }                                  
+                 
+            // $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv; 
+            // $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+
+            // $peratusan_mv = $total_mv /108 *100;     
+            // if($peratusan_mv >= 80) {
+            //     $bintang_mv = 5;
+            // } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+            //     $bintang_mv = 4;
+            // } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+            //     $bintang_mv = 3;
+            // } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+            //     $bintang_mv = 2;
+            // } else {
+            //     $bintang_mv = 1;
+            // }
+
+            // $peratusan_ml = $total_ml /108 *100;     
+            // if($peratusan_ml >= 80) {
+            //     $bintang_ml = 5;
+            // } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+            //     $bintang_ml = 4;
+            // } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+            //     $bintang_ml = 3;
+            // } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+            //     $bintang_ml = 2;
+            // } else {
+            //     $bintang_ml = 1;
+            // }
 
             return view('projek.satu_eph_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
         } elseif ($projek->kategori ==  'phJKR Jalan Naiktaraf') {
@@ -5425,6 +5554,7 @@ class ProjekController extends Controller
         return back();
     }
 
+    //Eph Bangunan
     public function markah_eph(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
@@ -5496,6 +5626,63 @@ class ProjekController extends Controller
 
 
     }    
+
+    public function markah_eph_rayuan(Request $request){
+        $user = $request->user();
+        $id = (int)$request->route('id');
+
+        // $kriteria = Kriteria::find($request->kriteria);
+        // if ($request->markah >$kriteria->maksimum) {
+        //     Alert::error('Salah Markah', 'Sila letakkan markah kurang dari maksimum');
+        //     return back();
+        // }
+
+        $markah = New EphBangunanRayuanMarkah;
+        $markah->projek_id = $id;
+        $markah->user_id = $user->id;
+        $markah->kriteria_id = $request->kriteria;
+        // $markah->markah_rayuan = $request->markah_rayuan;
+        $markah->markah_rekabentuk = $request->markah_rekabentuk;
+        $markah->markah_verifikasi = $request->markah_verifikasi;
+        $markah->markah_validasi = $request->markah_validasi;
+        $markah->ulasan = $request->ulasan;
+        $markah->fasa = $request->fasa;
+        $markah->ulasan_rayuan = $request->ulasan_rayuan;
+        $markah->markah_bei_rekabentuk = $request->markah_bei_rekabentuk;
+        $markah->markah_bei_verifikasi = $request->markah_bei_verifikasi;
+        $markah->markah_bei_validasi = $request->markah_bei_validasi;
+
+        
+
+        if ($request->hasFile('dokumen_rayuan1')) {
+            $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
+        } 
+        // else {
+        //     if ($request->markah > 0) {
+        //         Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+        //         return back();
+        //     }            
+        // } 
+           
+        if ($request->hasFile('dokumen_rayuan2')) {
+            $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan3')) {
+            $markah->dokumen3 = $request->file('dokumen3')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan4')) {
+            $markah->dokumen4 = $request->file('dokumen4')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan5')) {
+            $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
+        }    
+
+        $markah->save();
+
+        alert()->success('Markah Disimpan', 'Berjaya');
+
+        return back(); 
+    }
 
     // Mai tambah
     public function markah_gpss(Request $request) {
@@ -5569,6 +5756,75 @@ class ProjekController extends Controller
 
 
     }
+
+    public function markah_eph_jalan(Request $request){
+        $user = $request->user();
+        $id = (int)$request->route('id');
+
+        $kriteria = Kriteria::find($request->kriteria);
+        if ($request->markah >$kriteria->maksimum) {
+            Alert::error('Salah Markah', 'Sila letakkan markah kurang dari maksimum');
+            return back();
+        }
+
+        $markah = New Markah;
+        $markah->projek_id = $id;
+        $markah->user_id = $user->id;
+        $markah->kriteria_id = $request->kriteria;
+        $markah->markah = $request->markah;
+        $markah->ulasan = $request->ulasan;
+        $markah->fasa = $request->fasa;
+        $markah->ulasan_rayuan = $request->ulasan_rayuan;
+
+        if ($request->hasFile('dokumen1')) {
+            $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
+        } else {
+            if ($request->markah > 0) {
+                Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+                return back();
+            }            
+        } 
+           
+        if ($request->hasFile('dokumen2')) {
+            $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen3')) {
+            $markah->dokumen3 = $request->file('dokumen3')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen4')) {
+            $markah->dokumen4 = $request->file('dokumen4')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen5')) {
+            $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
+        }  
+
+        if ($request->hasFile('dokumen_rayuan1')) {
+            $markah->dokumen_rayuan1 = $request->file('dokumen_rayuan1')->store('jkr-ephjkr/uploads');
+        // } else {
+        //     if ($request->markah > 0) {
+        //         Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+        //         return back();
+        //     }            
+        }    
+        if ($request->hasFile('dokumen_rayuan2')) {
+            $markah->dokumen_rayuan2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan3')) {
+            $markah->dokumen3 = $request->file('dokumen_rayuan3')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan4')) {
+            $markah->dokumen4 = $request->file('dokumen_rayuan4')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen_rayuan5')) {
+            $markah->dokumen5 = $request->file('dokumen_rayuan5')->store('jkr-ephjkr/uploads');
+        }  
+
+        $markah->save();
+
+        alert()->success('Markah Disimpan', 'Berjaya');
+
+        return back();
+    }
     
     public function sah_projek(Request $request) {
         $id = (int)$request->route('id');
@@ -5630,6 +5886,14 @@ class ProjekController extends Controller
             $projek->status = "Dalam Pengesahan Rayuan Bangunan";
             alert()->success('Proses Rayuan Bangunan Disahkan', 'Berjaya');
         }
+        elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan"){
+            $projek->status = "Selesai Pengesahan Rayuan Bangunan";
+            alert()->success('Pengesahan Rayuan Bangunan Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Selesai Pengesahan Rayuan Bangunan"){
+            $projek->status = "Selesai Rayuan Bangunan";
+            alert()->success('Rayuan Bangunan Disahkan', 'Berjaya');
+        }
 
         $projek->save();
         return back();
@@ -5677,7 +5941,71 @@ class ProjekController extends Controller
         return back();
     }
 
+    public function sah_projek_gpss_rayuan(Request $request){
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);
+
+        if ($projek->status == "Selesai Pengesahan  Verifikasi GPSS Bangunan"){
+            $projek->status = "Proses Rayuan GPSS Bangunan";
+            alert()->success('Rayuan Bangunan sedang Diproses', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Rayuan GPSS Bangunan"){
+            $projek->status = "Dalam Pengesahan Rayuan GPSS Bangunan";
+            alert()->success('Proses Rayuan GPSS Bangunan Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan"){
+            $projek->status = "Selesai Pengesahan Rayuan GPSS Bangunan";
+            alert()->success('Pengesahan Rayuan GPSS Bangunan telah Disahkan', 'Berjaya');
+        }
+
+        $projek->save();
+        return back();
+    }
+
     public function sah_projek_gpss_jalan(Request $request){
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);
+
+        if ($projek->status == "Menunggu Pengesahan Sekretariat"){
+            $projek->status = "Proses Pengisian Skor Rekabentuk GPSS Jalan";
+            alert()->success('Projek Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan"){
+            $projek->status = "Dalam Pengesahan Skor Rekabentuk GPSS Jalan";
+            alert()->success('Sahkan Pengisian Skor Rekabentuk GPSS Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Jalan"){
+            $projek->status = "Selesai Pengesahan Rekabentuk GPSS Jalan";
+            alert()->success('Pengesahan Skor Rekabentuk GPSS Jalan telah Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan"){
+            $projek->status = "Proses Jana Keputusan Rekabentuk GPSS Jalan";
+            alert()->success('Selesai Pengesahan Rekabentuk GPSS Jalan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Jalan"){
+            $projek->status = "Selesai Jana Keputusan Rekabentuk GPSS Jalan";
+            alert()->success('Sahkan Proses Jana Keputusan Rekabentuk GPSS Jalan', 'Berjaya');
+        }
+        elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan"){
+            $projek->status = "Proses Pengisian Skor Verifikasi GPSS Jalan";
+            alert()->success('Selesai Jana Keputusan Rekabentuk GPSS Bangunan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan"){
+            $projek->status = "Dalam Pengesahan Skor Verifikasi GPSS Jalan";
+            alert()->success('Pengisian Skor Verifikasi GPSS Bangunan Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan"){
+            $projek->status == "Proses Jana Keputusan Verifikasi GPSS Jalan";
+            alert()->success('Pengesahan Skor Verifikasi GPSS Jalan telah Disahkan', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Jana Keputusan Verifikasi GPSS Jalan"){
+            $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan ";
+            alert()->success('Jana Keputusan Verifikasi GPSS Jalan telah Dijana', 'Berjaya');
+        }
+        elseif ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan "){
+            $projek->status == "Selesai Pengesahan Jana Sijil Verifikasi GPSS Jalan ";
+            alert()->success('Keputusan Verifikasi GPSS Jalan telah Dijana', 'Berjaya');
+        }
 
     }
 
@@ -5688,6 +6016,36 @@ class ProjekController extends Controller
     // public function cetak_maklumat(Request $request){
 
     // }
+
+    public function sah_projek_gpss_jalan_rayuan(Request $request){
+        $id = (int)$request->route('id');
+        $projek = Projek::find($id);
+
+        if ($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan"){
+            $projek->status = "Proses Rayuan GPSS Bangunan";
+            alert()->success('Rayuan Bangunan sedang Diproses', 'Berjaya');
+        }
+        elseif ($projek->status == "Proses Rayuan GPSS Bangunan"){
+            $projek->status = "Dalam Pengesahan Rayuan GPSS Bangunan";
+            alert()->success('Proses Rayuan GPSS Bangunan Disahkan', 'Berjaya');
+        }
+
+        $projek->save();
+        return back();
+    }
+
+    public function sijil_eph_bangunan(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+
+        $projek = FacadePdf::loadView('projek.sijil_eph_bangunan');
+        // $pdf = PDF::loadView('pendaftaran_projek.test');
+
+
+        return $projek->download('PROJEK.'.'pdf');
+
+    }
 
     
 
