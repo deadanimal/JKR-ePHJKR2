@@ -29,7 +29,7 @@
                             <label>No. Kad Pengguna:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="text" name="icPengguna" class="form-control">
+                            <input type="number" name="icPengguna" class="form-control">
                         </div>
                         <div class="col-3">
                             <label>E-mel Pengguna:</label>
@@ -41,25 +41,25 @@
                             <label>No. Tel Bimbit Pengguna:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="text" name="notelbimbitPengguna" class="form-control">
+                            <input type="number" name="telNo" class="form-control">
                         </div>
                         <div class="col-3">
                             <label>No. Fax Bimbit Pengguna:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="text" name="nofaxPengguna" class="form-control">
+                            <input type="number" name="faxNo" class="form-control">
                         </div>
                         <div class="col-3">
                             <label>Nama Syarikat:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="text" name="namaSyarikat" id="districtSel" class="form-control">
+                            <input type="text" name="nama_syarikat" id="districtSel" class="form-control">
                         </div>
                         <div class="col-3">
                             <label>Alamat Syarikat:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="text" name="alamatSyarikat" class="form-control">
+                            <input type="text" name="alamat_syarikat" class="form-control">
                         </div>
 
                         <div class="col-3">
@@ -75,8 +75,8 @@
                             <label>Daerah:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <select name="bandar" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
-                                <option selected>Pilih bandar</option>
+                            <select name="daerah" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
+                                <option selected>Pilih daerah</option>
                             </select>
                         </div>
 

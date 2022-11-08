@@ -33,17 +33,34 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        // ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        // $user = User::create([
+        //     'name' => $request->name,
+        //     'email' => $request->email,
+        //     'password' => Hash::make($request->password),
+        // ]);
+        
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->icPengguna = $request->icPengguna;
+        $user->telNo = $request->telNo;
+        $user->faxNo = $request->faxNo;
+        $user->daerah = $request->daerah;
+        $user->aktif = '0';
+        $user->negeri = $request->negeri;
+        $user->alamat_syarikat = $request->alamat_syarikat;
+        $user->nama_syarikat = $request->nama_syarikat;
+        //$user->password = $request->password;
+        $user->password = Hash::make($request->password);
+
+        alert('maklumat telah berjaya', 'Berjaya');
+        $user->save();
 
         event(new Registered($user));
 
