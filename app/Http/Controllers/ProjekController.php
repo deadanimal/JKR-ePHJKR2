@@ -19,9 +19,12 @@ use App\Models\GpssKriteria;
 use App\Models\Markah;
 use App\Models\GpssMarkah;
 use App\Models\EphBangunanRayuanMarkah;
+use App\Mail\ProjekStatusBerubah;
 use App\Models\ProjekRoleUser;
 use Illuminate\Support\Facades\Http;
 use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
+use Illuminate\Support\Facades\Mail;
+
 
 use App\Models\KriteriaEphBangunan;
 use App\Models\KriteriaEphJalan;
@@ -2585,9 +2588,7 @@ class ProjekController extends Controller
                 ])->first();       
                 if($markah1) {
                     $html_button = $markah1->markah;
-                }    
-                       
-                                                       
+                }                                         
                 $html_button = $html_button;
                 return $html_button;
             })
@@ -2653,6 +2654,7 @@ class ProjekController extends Controller
                 $markah = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
+
                 ])->first(); 
             
                 // Rayuan
@@ -4928,143 +4930,608 @@ class ProjekController extends Controller
         } elseif ($projek->kategori ==  'phJKR Jalan Baru') {
             $kriterias = Kriteria::where('borang', 'NEW ROADS')->get();  
         
-            // Verifikasi borang SEDIA ADA D
-            // $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
-            // $tl_mv = 0;
-            // $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
-            // $kt_mv = 0;
-            // $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
-            // $sb_mv = 0;
-            // $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
-            // $pa_mv = 0;
-            // $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
-            // $pd_mv = 0;
-            // $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
-            // $fl_mv = 0;
-            // $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
-            // $in_mv = 0;
+            // Rekabentuk borang NEW ROADS D
+            $sm_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 1]])->get();
+            $sm_td = 0;
+            $pt_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 2]])->get();
+            $pt_td = 0;
+            $ew_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 3]])->get();
+            $ew_td = 0;
+            $ae_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 4]])->get();
+            $ae_td = 0;
+            $ca_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 5]])->get();
+            $ca_td = 0;
+            $mr_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 6]])->get();
+            $mr_td = 0;
+            $ec_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 7]])->get();
+            $ec_td = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 8]])->get();
+            $in_td = 0;
+            $sm_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 1]])->get();
+            $sm_ad = 0;
+            $pt_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 2]])->get();
+            $pt_ad = 0;
+            $ew_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 3]])->get();
+            $ew_ad = 0;
+            $ae_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 4]])->get();
+            $ae_ad = 0;
+            $ca_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 5]])->get();
+            $ca_ad = 0;
+            $mr_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 6]])->get();
+            $mr_ad = 0;
+            $ec_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 7]])->get();
+            $ec_ad = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 8]])->get();
+            $in_ad = 0;
 
-            // Validasi borang SEDIA ADA D
-            // $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
-            // $tl_ml = 0;
-            // $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
-            // $kt_ml = 0;
-            // $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
-            // $sb_ml = 0;
-            // $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
-            // $pa_ml = 0;
-            // $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
-            // $pd_ml = 0;
-            // $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
-            // $fl_ml = 0;
-            // $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
-            // $in_ml = 0;
+            // Verifikasi borang NEW ROADS D
+            $sm_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 1]])->get();
+            $sm_tv = 0;
+            $pt_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 2]])->get();
+            $pt_tv = 0;
+            $ew_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 3]])->get();
+            $ew_tv = 0;
+            $ae_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 4]])->get();
+            $ae_tv = 0;
+            $ca_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 5]])->get();
+            $ca_tv = 0;
+            $mr_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 6]])->get();
+            $mr_tv = 0;
+            $ec_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 7]])->get();
+            $ec_tv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 8]])->get();
+            $in_tv = 0;
+            $sm_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 1]])->get();
+            $sm_av = 0;
+            $pt_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 2]])->get();
+            $pt_av = 0;
+            $ew_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 3]])->get();
+            $ew_av = 0;
+            $ae_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 4]])->get();
+            $ae_av = 0;
+            $ca_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 5]])->get();
+            $ca_av = 0;
+            $mr_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 6]])->get();
+            $mr_av = 0;
+            $ec_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 7]])->get();
+            $ec_av = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 8]])->get();
+            $in_av = 0;
             
             
-            // foreach($tl_kriterias as $tl_kriteria) {                
-            //     $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
-            //     $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
-            //     if ($markah_tl_mv){
-            //         $tl_mv += $markah_tl_mv->markah;
-            //     } 
-            //     elseif ($markah_tl_ml){
-            //         $tl_ml += $markah_tl_ml->markah;
-            //     }                                
-            // }  
-            // foreach($kt_kriterias as $kt_kriteria) {
-            //     $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
-            //     $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first();                
-            //     if ($markah_kt_mv){
-            //         $kt_mv += $markah_kt_mv->markah;
-            //     }
-            //     elseif ($markah_kt_ml){
-            //         $kt_ml += $markah_kt_ml->markah;
-            //     }
-            // }
-            // foreach($sb_kriterias as $sb_kriteria) {
-            //     $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
-            //     $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();                
-            //     if ($markah_sb_mv){
-            //         $sb_mv += $markah_sb_mv->markah;
-            //     }
-            //     elseif ($markah_sb_ml){
-            //         $sb_ml += $markah_sb_ml->markah;
-            //     }
-            // }
-            // foreach($pa_kriterias as $pa_kriteria) {
-            //     $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
-            //     $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first();                
-            //     if ($markah_pa_mv){
-            //         $pa_mv += $markah_pa_mv->markah;
-            //     }
-            //     elseif ($markah_pa_ml){
-            //         $pa_ml += $markah_pa_ml->markah;
-            //     }
-            // }
-            // foreach($pd_kriterias as $pd_kriteria) {
-            //     $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
-            //     $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first();                
-            //     if ($markah_pd_mv){
-            //         $pd_mv +=  $markah_pd_mv->markah;
-            //     } 
-            //     elseif ($markah_pd_ml){
-            //         $pd_ml += $markah_pd_ml->markah;
-            //     }
-            // }
-            // foreach($fl_kriterias as $fl_kriteria) {                
-            //     $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
-            //     $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first();
-            //     if($markah_fl_mv){
-            //         $fl_mv +=  $markah_fl_mv->markah;
-            //     } 
-            //     elseif ($markah_fl_ml){
-            //         $fl_ml += $markah_fl_ml->markah;
-            //     }                              
-            // }  
-            // foreach($in_kriterias as $in_kriteria) {                
-            //     $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
-            //     $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            //     if($markah_in_mv){
-            //         $in_mv +=  $markah_in_mv->markah;
-            //     } 
-            //     elseif ($markah_in_ml){
-            //         $in_ml += $markah_in_ml->markah;
-            //     }                              
-            // }                                  
-                 
-            // $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv; 
-            // $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+            foreach($sm_kriterias as $sm_kriteria) {                
+                $markah_sm_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_sm_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_sm_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_sm_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
 
-            // $peratusan_mv = $total_mv /108 *100;     
-            // if($peratusan_mv >= 80) {
-            //     $bintang_mv = 5;
-            // } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
-            //     $bintang_mv = 4;
-            // } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
-            //     $bintang_mv = 3;
-            // } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
-            //     $bintang_mv = 2;
-            // } else {
-            //     $bintang_mv = 1;
-            // }
+                if ($markah_sm_td){
+                    $sm_td += $markah_sm_td->markah;
+                } 
+                elseif ($markah_sm_ad){
+                    $sm_ad += $markah_sm_ad->markah;
+                }
+                elseif ($markah_sm_tv){
+                    $sm_ad += $markah_sm_tv->markah;
+                }
+                elseif ($markah_sm_av){
+                    $sm_ad += $markah_sm_av->markah;
+                }                                
+            }  
+            foreach($pt_kriterias as $pt_kriteria) {                
+                $markah_pt_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_pt_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_pt_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_pt_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
 
-            // $peratusan_ml = $total_ml /108 *100;     
-            // if($peratusan_ml >= 80) {
-            //     $bintang_ml = 5;
-            // } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
-            //     $bintang_ml = 4;
-            // } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
-            //     $bintang_ml = 3;
-            // } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
-            //     $bintang_ml = 2;
-            // } else {
-            //     $bintang_ml = 1;
-            // }
+                if ($markah_pt_td){
+                    $pt_td += $markah_pt_td->markah;
+                } 
+                elseif ($markah_pt_ad){
+                    $pt_ad += $markah_pt_ad->markah;
+                }
+                elseif ($markah_pt_tv){
+                    $pt_tv += $markah_pt_tv->markah;
+                }
+                elseif ($markah_pt_av){
+                    $pt_av += $markah_pt_av->markah;
+                }                                
+            } 
+            foreach($ew_kriterias as $ew_kriteria) {                
+                $markah_ew_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ew_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
 
-            return view('projek.satu_eph_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
+                if ($markah_ew_td){
+                    $ew_td += $markah_ew_td->markah;
+                } 
+                elseif ($markah_ew_ad){
+                    $ew_ad += $markah_ew_ad->markah;
+                } 
+                elseif ($markah_ew_tv){
+                    $ew_tv += $markah_ew_tv->markah;
+                }  
+                elseif ($markah_ew_av){
+                    $ew_av += $markah_ew_av->markah;
+                }                             
+            } 
+            foreach($ae_kriterias as $ae_kriteria) {                
+                $markah_ae_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ae_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ae_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ae_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_ae_td){
+                    $ae_td += $markah_ae_td->markah;
+                } 
+                elseif ($markah_ae_ad){
+                    $ae_ad += $markah_ae_ad->markah;
+                }
+                elseif ($markah_ae_tv){
+                    $ae_tv += $markah_ae_tv->markah;
+                }  
+                elseif ($markah_ae_av){
+                    $ae_av += $markah_ae_av->markah;
+                }                                 
+            }
+            foreach($ca_kriterias as $ca_kriteria) {                
+                $markah_ca_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ca_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ca_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ca_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_ca_td){
+                    $ca_td += $markah_ca_td->markah;
+                } 
+                elseif ($markah_ca_ad){
+                    $ca_ad += $markah_ca_ad->markah;
+                }   
+                elseif ($markah_ca_tv){
+                    $ca_tv += $markah_ca_tv->markah;
+                }  
+                elseif ($markah_ca_av){
+                    $ca_av += $markah_ca_av->markah;
+                }                              
+            } 
+            foreach($mr_kriterias as $mr_kriteria) {                
+                $markah_mr_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mr_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mr_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_mr_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_mr_td){
+                    $mr_td += $markah_mr_td->markah;
+                } 
+                elseif ($markah_mr_ad){
+                    $mr_ad += $markah_mr_ad->markah;
+                }    
+                elseif ($markah_mr_tv){
+                    $mr_tv += $markah_mr_tv->markah;
+                }  
+                elseif ($markah_mr_av){
+                    $mr_av += $markah_mr_av->markah;
+                }                             
+            }
+            foreach($ec_kriterias as $ec_kriteria) {                
+                $markah_ec_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ec_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ec_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ec_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_ec_td){
+                    $ec_td += $markah_ec_td->markah;
+                } 
+                elseif ($markah_ec_ad){
+                    $ec_ad += $markah_ec_ad->markah;
+                }
+                elseif ($markah_ec_tv){
+                    $ec_tv += $markah_ec_tv->markah;
+                }  
+                elseif ($markah_ec_av){
+                    $ec_av += $markah_ec_av->markah;
+                }                                 
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_in_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_in_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_in_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_in_td){
+                    $in_td += $markah_in_td->markah;
+                } 
+                elseif ($markah_in_ad){
+                    $in_ad += $markah_in_ad->markah;
+                }
+                elseif ($markah_in_tv){
+                    $in_tv += $markah_in_tv->markah;
+                }  
+                elseif ($markah_in_av){
+                    $in_av += $markah_in_av->markah;
+                }                                 
+            }                               
+             
+            //Rekabentuk Design
+            $totalcp_td = $sm_td + $pt_td + $ew_td + $ae_td + $ca_td + $mr_td; 
+            $totaleip_td = $ec_td + $in_td;
+            $totalcp_ad = $sm_ad + $pt_ad + $ew_ad + $ae_ad + $ca_ad + $mr_ad; 
+            $totaleip_ad = $ec_ad + $in_ad;
+
+            //Verifikasi
+            $totalcp_tv = $sm_tv + $pt_tv + $ew_tv + $ae_tv + $ca_tv + $mr_tv;
+            $totaleip_tv = $ec_tv + $in_tv;
+            $totalcp_av = $sm_av + $pt_av + $ew_av + $ae_av + $ca_av + $mr_av; 
+            $totaleip_av = $ec_av + $in_av;
+
+
+            //Total Core Point
+            $final_score = $totalcp_td / 68 * 0.85 + ($totaleip_td + $totaleip_ad + $totaleip_tv + $totaleip_av);
+            if($final_score >=85){
+                $bintang_fs = 5;
+                $bintang_fss = 'GLOBAL EXCELLENCE';
+            } elseif($final_score >=70 && $final_score < 84){
+                $bintang_fs = 4;
+                $bintang_fss = 'NATIONAL EXCELLENCE';
+            } elseif($final_score >= 50 && $final_score < 69){
+                $bintang_fs = 3;
+                $bintang_fss = 'BEST MANAGEMENT PRACTICES';
+            } elseif($final_score >=40 && $final_score < 49){
+                $bintang_fs = 2;
+                $bintang_fss = 'POTENTIAL RECOGNITION';
+            } else {
+                $bintang_fs = 0;
+                $bintang_fss = 'NO RECOGNITION';
+            }
+
+            //Design Assessment 
+            $final_score2 = $totalcp_ad / 68 * 0.85 + ($totaleip_td + $totaleip_ad + $totaleip_tv + $totaleip_av);
+            if($final_score2 >=85){
+                $bintang_fs2 = 5;
+                $bintang_fss2 = 'GLOBAL EXCELLENCE';
+            } elseif($final_score2 >=70 && $final_score2 < 84){
+                $bintang_fs2 = 4;
+                $bintang_fss2 = 'NATIONAL EXCELLENCE';
+            } elseif($final_score2 >= 50 && $final_score2 < 69){
+                $bintang_fs2 = 3;
+                $bintang_fss2 = 'BEST MANAGEMENT PRACTICES';
+            } elseif($final_score2 >=40 && $final_score2 < 49){
+                $bintang_fs2 = 2;
+                $bintang_fss2 = 'POTENTIAL RECOGNITION';
+            } else {
+                $bintang_fs2 = 0;
+                $bintang_fss2 = 'NO RECOGNITION';
+            }
+            
+            //Verification Assessment 
+            $final_score3 = $totalcp_ad / 68 * 0.85 + ($totaleip_td + $totaleip_ad + $totaleip_tv + $totaleip_av);
+            if($final_score3 >=85){
+                $bintang_fs3 = 5;
+                $bintang_fss3 = 'GLOBAL EXCELLENCE';
+            } elseif($final_score3 >=70 && $final_score3 < 84){
+                $bintang_fs3 = 4;
+                $bintang_fss3 = 'NATIONAL EXCELLENCE';
+            } elseif($final_score3 >= 50 && $final_score3 < 69){
+                $bintang_fs3 = 3;
+                $bintang_fss3 = 'BEST MANAGEMENT PRACTICES';
+            } elseif($final_score3 >=40 && $final_score3 < 49){
+                $bintang_fs3 = 2;
+                $bintang_fss3 = 'POTENTIAL RECOGNITION';
+            } else {
+                $bintang_fs3 = 0;
+                $bintang_fss3 = 'NO RECOGNITION';
+            }
+    
+
+            return view('projek.satu_eph_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans',
+            'totalcp_td', 'totaleip_td', 'totalcp_ad', 'totalcp_av','totaleip_ad', 'totaleip_ad', 'totalcp_tv', 'totaleip_ad',
+            'totaleip_av', 'totaleip_tv', 'sm_td', 'pt_td', 'ew_td', 'ae_td', 'ca_td', 'mr_td', 'ec_td', 'in_td' ,'sm_ad', 
+            'pt_ad', 'ew_ad', 'ae_ad', 'ca_ad', 'mr_ad', 'ec_ad', 'in_ad', 'sm_tv', 'sm_av', 'pt_tv', 'pt_av', 'ew_tv', 'ew_av', 
+            'ae_tv', 'ae_av', 'ca_tv', 'ca_av','mr_av', 'mr_tv', 'ec_tv', 'ec_av', 'in_td', 'in_ad', 'in_tv', 'in_av', 'final_score',
+            'bintang_fs', 'bintang_fss', 'final_score', 'final_score2', 'final_score3', 'bintang_fss3', 'bintang_fss2',
+    )); 
         } elseif ($projek->kategori ==  'phJKR Jalan Naiktaraf') {
-            $kriterias = Kriteria::where('borang', 'UPGRADING ROADS')->get();            
-            return view('projek.satu_eph_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans')); 
+            $kriterias = Kriteria::where('borang', 'UPGRADING ROADS')->get();  
+            
+            // Rekabentuk borang UPGRADING ROADS
+            $sm_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 1]])->get();
+            $sm_td = 0;
+            $pt_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 2]])->get();
+            $pt_td = 0;
+            $ew_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 3]])->get();
+            $ew_td = 0;
+            $ae_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 4]])->get();
+            $ae_td = 0;
+            $ca_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 5]])->get();
+            $ca_td = 0;
+            $mr_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 6]])->get();
+            $mr_td = 0;
+            $ec_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 7]])->get();
+            $ec_td = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 8]])->get();
+            $in_td = 0;
+            $sm_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 1]])->get();
+            $sm_ad = 0;
+            $pt_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 2]])->get();
+            $pt_ad = 0;
+            $ew_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 3]])->get();
+            $ew_ad = 0;
+            $ae_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 4]])->get();
+            $ae_ad = 0;
+            $ca_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 5]])->get();
+            $ca_ad = 0;
+            $mr_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 6]])->get();
+            $mr_ad = 0;
+            $ec_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 7]])->get();
+            $ec_ad = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 8]])->get();
+            $in_ad = 0;
+
+            // Verifikasi borang UPGRADING ROADS
+            $sm_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 1]])->get();
+            $sm_tv = 0;
+            $pt_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 2]])->get();
+            $pt_tv = 0;
+            $ew_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 3]])->get();
+            $ew_tv = 0;
+            $ae_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 4]])->get();
+            $ae_tv = 0;
+            $ca_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 5]])->get();
+            $ca_tv = 0;
+            $mr_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 6]])->get();
+            $mr_tv = 0;
+            $ec_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 7]])->get();
+            $ec_tv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 8]])->get();
+            $in_tv = 0;
+            $sm_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 1]])->get();
+            $sm_av = 0;
+            $pt_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 2]])->get();
+            $pt_av = 0;
+            $ew_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 3]])->get();
+            $ew_av = 0;
+            $ae_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 4]])->get();
+            $ae_av = 0;
+            $ca_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 5]])->get();
+            $ca_av = 0;
+            $mr_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 6]])->get();
+            $mr_av = 0;
+            $ec_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 7]])->get();
+            $ec_av = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 8]])->get();
+            $in_av = 0;
+            
+            
+            foreach($sm_kriterias as $sm_kriteria) {                
+                $markah_sm_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_sm_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_sm_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_sm_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_sm_td){
+                    $sm_td += $markah_sm_td->markah;
+                } 
+                elseif ($markah_sm_ad){
+                    $sm_ad += $markah_sm_ad->markah;
+                }
+                elseif ($markah_sm_tv){
+                    $sm_ad += $markah_sm_tv->markah;
+                }
+                elseif ($markah_sm_av){
+                    $sm_ad += $markah_sm_av->markah;
+                }                                
+            }  
+            foreach($pt_kriterias as $pt_kriteria) {                
+                $markah_pt_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_pt_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_pt_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_pt_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_pt_td){
+                    $pt_td += $markah_pt_td->markah;
+                } 
+                elseif ($markah_pt_ad){
+                    $pt_ad += $markah_pt_ad->markah;
+                }
+                elseif ($markah_pt_tv){
+                    $pt_tv += $markah_pt_tv->markah;
+                }
+                elseif ($markah_pt_av){
+                    $pt_av += $markah_pt_av->markah;
+                }                                
+            } 
+            foreach($ew_kriterias as $ew_kriteria) {                
+                $markah_ew_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ew_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_ew_td){
+                    $ew_td += $markah_ew_td->markah;
+                } 
+                elseif ($markah_ew_ad){
+                    $ew_ad += $markah_ew_ad->markah;
+                } 
+                elseif ($markah_ew_tv){
+                    $ew_tv += $markah_ew_tv->markah;
+                }  
+                elseif ($markah_ew_av){
+                    $ew_av += $markah_ew_av->markah;
+                }                             
+            } 
+            foreach($ae_kriterias as $ae_kriteria) {                
+                $markah_ae_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ae_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ae_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ae_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_ae_td){
+                    $ae_td += $markah_ae_td->markah;
+                } 
+                elseif ($markah_ae_ad){
+                    $ae_ad += $markah_ae_ad->markah;
+                }
+                elseif ($markah_ae_tv){
+                    $ae_tv += $markah_ae_tv->markah;
+                }  
+                elseif ($markah_ae_av){
+                    $ae_av += $markah_ae_av->markah;
+                }                                 
+            }
+            foreach($ca_kriterias as $ca_kriteria) {                
+                $markah_ca_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ca_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ca_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ca_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_ca_td){
+                    $ca_td += $markah_ca_td->markah;
+                } 
+                elseif ($markah_ca_ad){
+                    $ca_ad += $markah_ca_ad->markah;
+                }   
+                elseif ($markah_ca_tv){
+                    $ca_tv += $markah_ca_tv->markah;
+                }  
+                elseif ($markah_ca_av){
+                    $ca_av += $markah_ca_av->markah;
+                }                              
+            } 
+            foreach($mr_kriterias as $mr_kriteria) {                
+                $markah_mr_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mr_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mr_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_mr_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_mr_td){
+                    $mr_td += $markah_mr_td->markah;
+                } 
+                elseif ($markah_mr_ad){
+                    $mr_ad += $markah_mr_ad->markah;
+                }    
+                elseif ($markah_mr_tv){
+                    $mr_tv += $markah_mr_tv->markah;
+                }  
+                elseif ($markah_mr_av){
+                    $mr_av += $markah_mr_av->markah;
+                }                             
+            }
+            foreach($ec_kriterias as $ec_kriteria) {                
+                $markah_ec_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ec_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ec_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ec_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_ec_td){
+                    $ec_td += $markah_ec_td->markah;
+                } 
+                elseif ($markah_ec_ad){
+                    $ec_ad += $markah_ec_ad->markah;
+                }
+                elseif ($markah_ec_tv){
+                    $ec_tv += $markah_ec_tv->markah;
+                }  
+                elseif ($markah_ec_av){
+                    $ec_av += $markah_ec_av->markah;
+                }                                 
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_in_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_in_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_in_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_in_td){
+                    $in_td += $markah_in_td->markah;
+                } 
+                elseif ($markah_in_ad){
+                    $in_ad += $markah_in_ad->markah;
+                }
+                elseif ($markah_in_tv){
+                    $in_tv += $markah_in_tv->markah;
+                }  
+                elseif ($markah_in_av){
+                    $in_av += $markah_in_av->markah;
+                }                                 
+            }                               
+             
+            //Rekabentuk Design
+            $totalcp_td = $sm_td + $pt_td + $ew_td + $ae_td + $ca_td + $mr_td; 
+            $totaleip_td = $ec_td + $in_td;
+            $totalcp_ad = $sm_ad + $pt_ad + $ew_ad + $ae_ad + $ca_ad + $mr_ad; 
+            $totaleip_ad = $ec_ad + $in_ad;
+
+            //Verifikasi
+            $totalcp_tv = $sm_tv + $pt_tv + $ew_tv + $ae_tv + $ca_tv + $mr_tv;
+            $totaleip_tv = $ec_tv + $in_tv;
+            $totalcp_av = $sm_av + $pt_av + $ew_av + $ae_av + $ca_av + $mr_av; 
+            $totaleip_av = $ec_av + $in_av;
+
+
+            //Target Point
+            $final_score = $totalcp_td / 68 * 0.85 + ($totaleip_td + $totaleip_ad + $totaleip_tv + $totaleip_av);
+            if($final_score >=85){
+                $bintang_fs = 5;
+                $bintang_fss = 'GLOBAL EXCELLENCE';
+            } elseif($final_score >=70 && $final_score < 84){
+                $bintang_fs = 4;
+                $bintang_fss = 'NATIONAL EXCELLENCE';
+            } elseif($final_score >= 50 && $final_score < 69){
+                $bintang_fs = 3;
+                $bintang_fss = 'BEST MANAGEMENT PRACTICES';
+            } elseif($final_score >=40 && $final_score < 49){
+                $bintang_fs = 2;
+                $bintang_fss = 'POTENTIAL RECOGNITION';
+            } else {
+                $bintang_fs = 0;
+                $bintang_fss = 'NO RECOGNITION';
+            }
+
+            //Design Assessment 
+            $final_score2 = $totalcp_ad / 68 * 0.85 + ($totaleip_td + $totaleip_ad + $totaleip_tv + $totaleip_av);
+            if($final_score2 >=85){
+                $bintang_fs2 = 5;
+                $bintang_fss2 = 'GLOBAL EXCELLENCE';
+            } elseif($final_score2 >=70 && $final_score2 < 84){
+                $bintang_fs2 = 4;
+                $bintang_fss2 = 'NATIONAL EXCELLENCE';
+            } elseif($final_score2 >= 50 && $final_score2 < 69){
+                $bintang_fs2 = 3;
+                $bintang_fss2 = 'BEST MANAGEMENT PRACTICES';
+            } elseif($final_score2 >=40 && $final_score2 < 49){
+                $bintang_fs2 = 2;
+                $bintang_fss2 = 'POTENTIAL RECOGNITION';
+            } else {
+                $bintang_fs2 = 0;
+                $bintang_fss2 = 'NO RECOGNITION';
+            }
+            
+            //Verification Assessment 
+            $final_score3 = $totalcp_ad / 68 * 0.85 + ($totaleip_td + $totaleip_ad + $totaleip_tv + $totaleip_av);
+            if($final_score3 >=85){
+                $bintang_fs3 = 5;
+                $bintang_fss3 = 'GLOBAL EXCELLENCE';
+            } elseif($final_score3 >=70 && $final_score3 < 84){
+                $bintang_fs3 = 4;
+                $bintang_fss3 = 'NATIONAL EXCELLENCE';
+            } elseif($final_score3 >= 50 && $final_score3 < 69){
+                $bintang_fs3 = 3;
+                $bintang_fss3 = 'BEST MANAGEMENT PRACTICES';
+            } elseif($final_score3 >=40 && $final_score3 < 49){
+                $bintang_fs3 = 2;
+                $bintang_fss3 = 'POTENTIAL RECOGNITION';
+            } else {
+                $bintang_fs3 = 0;
+                $bintang_fss3 = 'NO RECOGNITION';
+            }
+            return view('projek.satu_eph_jalan', compact('projek', 'user', 'user_role' ,'kriterias', 'users', 'lantikans',
+            'totalcp_td', 'totaleip_td', 'totalcp_ad', 'totalcp_av','totaleip_ad', 'totaleip_ad', 'totalcp_tv', 'totaleip_ad',
+            'totaleip_av', 'totaleip_tv', 'sm_td', 'pt_td', 'ew_td', 'ae_td', 'ca_td', 'mr_td', 'ec_td', 'in_td' ,'sm_ad', 
+            'pt_ad', 'ew_ad', 'ae_ad', 'ca_ad', 'mr_ad', 'ec_ad', 'in_ad', 'sm_tv', 'sm_av', 'pt_tv', 'pt_av', 'ew_tv', 'ew_av', 
+            'ae_tv', 'ae_av', 'ca_tv', 'ca_av','mr_av', 'mr_tv', 'ec_tv', 'ec_av', 'in_td', 'in_ad', 'in_tv', 'in_av',
+            'final_score', 'bintang_fs', 'bintang_fss', 'final_score3', 'final_score2', 'bintang_fs2', 'bintang_fss2', 'bintang_fs3',
+            'bintang_fss3',
+        )); 
         } elseif ($projek->kategori ==  'GPSS Bangunan 1') {
             $gpss_kriterias = GpssKriteria::where('borang', 'CATEGORY 1')->get();            
             // $gpss_kriterias = GpssKriteria::where('borang', 'like', '%CATEGORY 1%')->get();                      
@@ -6106,6 +6573,33 @@ class ProjekController extends Controller
         return $projek->download('PROJEK.'.'pdf');
 
     }
+
+    public function projek_status_berubah(Request $request){
+        $user = $request->user();
+        $id = (int)$request->route('id');
+
+        $projek = Projek::find($id);
+        
+        if ($request->hantar_skorkad=="hantar"){	
+            // Mail::to($user->email)->send(new ProjekStatusBerubah($projek));
+            $projek->status == "Sudah Emel";
+            alert()->success('Penilaian telah diemelkan ke Sekretariat', 'Berjaya');
+
+
+
+            }
+        
+        
+
+        Mail::to('maisarah.musa@pipeline-network.com')->send(new ProjekStatusBerubah($projek));
+
+        // $email = Auth::user()->email;
+        // Mail::to($user->email)->send(new ProjekStatusBerubah($projek));
+
+        return back();
+    }
+
+    
 
     
 

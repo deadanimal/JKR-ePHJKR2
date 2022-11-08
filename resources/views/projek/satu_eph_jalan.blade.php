@@ -240,100 +240,100 @@
                                                 <th colspan="1">SM</th>
                                                 <th colspan="2">SUSTAINABLE SITE PLANNING AND MANAGEMENT</th>
                                                 <th>18</th>
-                                                <th value="SM_TOTAL_TARGET_DESIGN">SM_TD</th>
-                                                <th value="SM_TOTAL_ASSESSMENT_DESIGN">SM_AD</th>
+                                                <th value="SM_TOTAL_TARGET_DESIGN">{{$sm_td}}</th>
+                                                <th value="SM_TOTAL_ASSESSMENT_DESIGN">{{$sm_ad}}</th>
                                                 <th>18</th>
-                                                <th value="SM_TOTAL_TARGET_VERIFIKASI">SM_TV</th>
-                                                <th value="SM_TOTAL_ASSESSMENT_VERIFIKASI">SM_AV</th>
+                                                <th value="SM_TOTAL_TARGET_VERIFIKASI">{{$sm_tv}}</th>
+                                                <th value="SM_TOTAL_ASSESSMENT_VERIFIKASI">{{$sm_av}}</th>
                                             </tr>
                                             <tr>
                                                 <th colspan="1">PT</th>
                                                 <th colspan="2">PAVEMENT TECHNOLOGIES</th>
                                                 <th>12</th>
-                                                <th value="PT_TOTAL_TARGET_DESIGN">PT_TD</th>
-                                                <th value="PT_TOTAL_ASSESSMENT_DESIGN">PT_AD</th>
+                                                <th value="PT_TOTAL_TARGET_DESIGN">{{$pt_td}}</th>
+                                                <th value="PT_TOTAL_ASSESSMENT_DESIGN">{{$pt_ad}}</th>
                                                 <th>12</th>
-                                                <th value="PT_TOTAL_TARGET_VERIFIKASI">PT_TV</th>
-                                                <th value="PT_TOTAL_ASSESSMENT_VERIFIKASI">PT_AV</th>
+                                                <th value="PT_TOTAL_TARGET_VERIFIKASI">{{$pt_tv}}</th>
+                                                <th value="PT_TOTAL_ASSESSMENT_VERIFIKASI">{{$pt_av}}</th>
                                             </tr>
                                             <tr>
                                                 <th colspan="1">EW</th>
                                                 <th colspan="2">ENVIRONMENT & WATER</th>
                                                 <th>4</th>
-                                                <th value="EW_TOTAL_TARGET_DESIGN">EW_TD</th>
-                                                <th value="EW_TOTAL_ASSESSMENT_DESIGN">EW_AD</th>
+                                                <th value="EW_TOTAL_TARGET_DESIGN">{{$ew_td}}</th>
+                                                <th value="EW_TOTAL_ASSESSMENT_DESIGN">{{$ew_ad}}</th>
                                                 <th>5</th>
-                                                <th value="EW_TOTAL_TARGET_VERIFIKASI">EW_TV</th>
-                                                <th value="EW_TOTAL_ASSESSMENT_VERIFIKASI">EW_AV</th>
+                                                <th value="EW_TOTAL_TARGET_VERIFIKASI">{{$ew_tv}}</th>
+                                                <th value="EW_TOTAL_ASSESSMENT_VERIFIKASI">{{$ew_av}}</th>
                                             </tr>
                                             <tr>
                                                 <th colspan="1">AE</th>
                                                 <th colspan="2">ACCESS & EQUITY</th>
                                                 <th>3</th>
-                                                <th value="AE_TOTAL_TARGET_DESIGN">AE_TD</th>
-                                                <th value="AE_TOTAL_ASSESSMENT_DESIGN">AE_AD</th>
+                                                <th value="AE_TOTAL_TARGET_DESIGN">{{$ae_td}}</th>
+                                                <th value="AE_TOTAL_ASSESSMENT_DESIGN">{{$ae_ad}}</th>
                                                 <th>5</th>
-                                                <th value="AE_TOTAL_TARGET_VERIFIKASI">AE_TV</th>
-                                                <th value="AE_TOTAL_ASSESSMENT_VERIFIKASI">AE_AV</th>
+                                                <th value="AE_TOTAL_TARGET_VERIFIKASI">{{$ae_tv}}</th>
+                                                <th value="AE_TOTAL_ASSESSMENT_VERIFIKASI">{{$ae_av}}</th>
                                             </tr>
 
                                             <tr>
                                                 <th colspan="1">CA</th>
                                                 <th colspan="2">CONSTRUCTION ACTIVITIES</th>
                                                 <th>19</th>
-                                                <th value="CA_TOTAL_TARGET_DESIGN">CA_TD</th>
-                                                <th value="CA_TOTAL_ASSESSMENT_DESIGN">CA_AD</th>
+                                                <th value="ca_td">{{$ca_td}}</th>
+                                                <th value="ca_ad">{{$ca_ad}}</th>
                                                 <th>22</th>
-                                                <th value="CA_TOTAL_TARGET_VERIFIKASI">CA_TV</th>
-                                                <th value="CA_TOTAL_ASSESSMENT_VERIFIKASI">CA_AV</th>
+                                                <th value="ca_tv">{{$ca_tv}}</th>
+                                                <th value="ca_av">{{$ca_av}}</th>
                                             </tr>
                                             <tr>
                                                 <th colspan="1">MR</th>
                                                 <th colspan="2">MATERIAL AND RESOURCES</th>
                                                 <th>12</th>
-                                                <th value="MR_TOTAL_TARGET_DESIGN">MR_TD</th>
-                                                <th value="MR_TOTAL_ASSESSMENT_DESIGN">MR_AD</th>
+                                                <th value="mr_td">{{$mr_td}}</th>
+                                                <th value="mr_ad">{{$mr_ad}}</th>
                                                 <th>12</th>
-                                                <th value="MR_TOTAL_TARGET_VERIFIKASI">MR_TV</th>
-                                                <th value="MR_TOTAL_ASSESSMENT_VERIFIKASI">MR_AV</th>
+                                                <th value="mr_tv">{{$mr_tv}}</th>
+                                                <th value="mr_av">{{$mr_av}}</th>
                                             </tr>
                                             <tr>
                                                 <th colspan="1">EC</th>
                                                 <th colspan="2">ELECTIVE CRITERIA</th>
                                                 <th>27</th>
-                                                <th value="EC_TOTAL_TARGET_DESIGN">EC_TD</th>
-                                                <th value="EC_TOTAL_ASSESSMENT_DESIGN">EC_AD</th>
+                                                <th value="ec_td">{{$ec_td}}</th>
+                                                <th value="ec_ad">{{$ec_ad}}</th>
                                                 <th>27</th>
-                                                <th value="EC_TOTAL_TARGET_VERIFIKASI">EC_TV</th>
-                                                <th value="EC_TOTAL_ASSESSMENT_VERIFIKASI">EC_AV</th>
+                                                <th value="ec_tv">{{$ec_tv}}</th>
+                                                <th value="ec_av">{{$ec_av}}</th>
                                             </tr>
                                             <tr>
                                                 <th colspan="1">IN</th>
                                                 <th colspan="2">INOVATION</th>
                                                 <th>5</th>
-                                                <th value="IN_TOTAL_TARGET_DESIGN">IN_TD</th>
-                                                <th value="IN_TOTAL_ASSESSMENT_DESIGN">IN_AD</th>
+                                                <th value="in_td">{{$in_td}}</th>
+                                                <th value="in_ad">{{$in_ad}}</th>
                                                 <th>5</th>
-                                                <th value="IN_TOTAL_TARGET_VERIFIKASI">IN_TV</th>
-                                                <th value="IN_TOTAL_ASSESSMENT_VERIFIKASI">IN_AV</th>
+                                                <th value="in_tv">{{$in_tv}}</th>
+                                                <th value="IN_TOTAL_ASSESSMENT_VERIFIKASI">{{$in_av}}</th>
                                             </tr>
                                             <tr>
                                                 <th colspan="3">TOTAL CORE POINTS</th>
                                                 <th>68</th>
-                                                <th value="TOTALCP_TARGET_DESIGN">TCP_TD</th>
-                                                <th value="TOTALCP_ASSESSMENT_DESIGN">TCP_AD</th>
+                                                <th value="TOTALCP_TARGET_DESIGN">{{$totalcp_td}}</th>
+                                                <th value="TOTALCP_ASSESSMENT_DESIGN">{{$totalcp_ad}}</th>
                                                 <th>74</th>
-                                                <th value="TOTALCP_TARGET_VERIFIKASI">TCP_TV</th>
-                                                <th value="TOTALCP_ASSESSMENT_VERIFIKASI">TCP_AV</th>
+                                                <th value="TOTALCP_TARGET_VERIFIKASI">{{$totalcp_tv}}</th>
+                                                <th value="TOTALCP_ASSESSMENT_VERIFIKASI">{{$totalcp_av}}</th>
                                             </tr>
                                             <tr>
                                                 <th colspan="3">TOTAL ELECTIVE & INNOVATION POINTS</th>
                                                 <th>12</th>
-                                                <th value="TOTALEIP_TARGET_DESIGN">TEIP_TD</th>
-                                                <th value="TOTALEIP_ASSESSMENT_DESIGN">TEIP_AD</th>
+                                                <th value="totaleip_td">{{$totaleip_td}}</th>
+                                                <th value="totaleip_ad">{{$totaleip_ad}}</th>
                                                 <th>15</th>
-                                                <th value="TOTALEIP_TARGET_VERIFIKASI">TEIP_TV</th>
-                                                <th value="TOTALEIP_ASSESSMENT_VERIFIKASI">TEIP_AV</th>
+                                                <th value="totaleip_tv">{{$totaleip_tv}}</th>
+                                                <th value="totaleip_ad">{{$totaleip_ad}}</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -343,23 +343,64 @@
                                                 <tr>
                                                     <th></th>
                                                     <th colspan="3" rowspan="3">TARGET SUMMARY</th>
-                                                    <th colspan="3" rowspan="3">SCORING VERIFICATION SUMMARY</th>
+                                                    <th colspan="3" rowspan="3">DESIGN ASSESSMENT SUMMARY</th>
+                                                    <th colspan="3" rowspan="3">VERIFICATION ASSESSMENT SUMMARY</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody class="text-black">
                                                 <tr>
-                                                    <th colspan="1">TOTAL SCORE (%)</th>
-                                                    <th colspan="2" value="SM_TOTAL_TARGET_DESIGN">SM_TOT_TD</th>
-                                                    <th colspan="2" value="SM_TOTAL_TARGET_DESIGN">SM_TOT_TD</th>
+                                                    <th >TOTAL SCORE (%)</th>
+                                                    <th colspan="3" value="final_score">{{$final_score}}</th>
+                                                    <th colspan="3" value="final_score2">{{$final_score2}}</th>
+                                                    <th colspan="3" value="final_score3">{{$final_score3}}</th>                                               
+
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1" rowspan="3">pH JKR RATING</th>
-                                                    <th colspan="2">0<span class="star">&starf;</span></th>
-                                                    <th colspan="2">0<span class="star">&starf;</span></th>
+                                                    <th colspan="2">
+                                                        <span class="star">
+                                                            @if ($bintang_fs == 1)
+                                                                1 &starf;
+                                                            @elseif ($bintang_fs == 2)
+                                                                2 &starf; &starf;
+                                                            @elseif ($bintang_fs == 3)
+                                                                3 &starf; &starf; &starf;
+                                                            @elseif ($bintang_fs == 4)
+                                                                4 &starf; &starf; &starf; &starf;  
+                                                            @elseif ($bintang_fs == 5)
+                                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                                            @endif                                            
+                                                        </span>
+                                                    <th colspan="3">
+                                                        <span class="star">
+                                                            @if ($bintang_fs == 1)
+                                                                1 &starf;
+                                                            @elseif ($bintang_fs == 2)
+                                                                2 &starf; &starf;
+                                                            @elseif ($bintang_fs == 3)
+                                                                3 &starf; &starf; &starf;
+                                                            @elseif ($bintang_fs == 4)
+                                                                4 &starf; &starf; &starf; &starf;  
+                                                            @elseif ($bintang_fs == 5)
+                                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                                            @endif                                            
+                                                        </span>
                                                 </tr>
                                                 <tr>
+                                                    @if ($bintang_fs == 1)
                                                     <th colspan="2">NO RECOGNITION</th>
-                                                    <th colspan="2">NO RECOGNITION</th>
+                                                    @elseif ($bintang_fs == 2)
+                                                    <th colspan="2">POTENTIAL RECOGNITION</th>
+                                                    @elseif ($bintang_fs == 3)
+                                                    <th colspan="2">BEST MANAGEMENT PRACTICES</th>
+                                                    @elseif ($bintang_fs == 4)
+                                                    <th colspan="2">NATIONAL EXCELLENCE</th>
+                                                    @elseif ($bintang_fs == 5)
+                                                    <th colspan="2">GLOBAL EXCELLENCE</th>
+                                                    @endif
+                                                    
+
                                                 </tr>
                                             </tbody>
                                         </table>
