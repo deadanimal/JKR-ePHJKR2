@@ -6,7 +6,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="col mb-">
-                    <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA phJKR Bangunan</h2>
+                    <h2 class="h2 mb-3">BORANG SELENGGARA KRITERIA</h2>
                 </div>
 
                 <div class="col">
@@ -14,33 +14,27 @@
 
                     <div class="row mt-4 mb-3">
                         <div class="col">
-                            <form action="/kemaskiniKriteria" method="post"
-                                enctype="multipart/form-data">
+                            <form action="/selenggara/simpankemaskini_kriteria/{{$kriteria->id}}" method="post" enctype="multipart/form-data">
+                                @method('PUT')
                                 @csrf
                                 <div class="row mx-4">
                                     <div class="col-3 mb-2">
                                         <label class="col-form-label">Nama Kriteria:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="nama" type="text"  value="{{->nama}}"/>
-                                    </div>
-                                    <div class="col-3 mb-2">
-                                        <label class="col-form-label">Kod Kriteria:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input class="form-control" name="kod" type="text" value="{{->kod}}"/>
+                                        <input class="form-control" name="nama" type="text"  value="{{$kriteria->nama}}"/>
                                     </div>
                                     <div class="col-3 mb-2">
                                         <label class="col-form-label">Jenis Kriteria:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="jenis" type="text" value="{{->jenis}}"/>
+                                        <input class="form-control" name="borang" type="text" value="{{$kriteria->borang}}"/>
                                     </div>
                                     <div class="col-3 mb-2">
                                         <label class="col-form-label">Kategori Kriteria:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="kategori" type="text" value="{{->kategori}}"/>
+                                        <input class="form-control" name="kategori" type="text" value="{{$kriteria->kategori}}"/>
                                     </div>
 
                                     <div class="col-7 mb-2">

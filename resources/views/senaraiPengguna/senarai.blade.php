@@ -61,12 +61,30 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $p->name }}</td>
-                                    <td>{{ $p->namaSyarikat }}</td>
-                                    <td>{{ $p->namaCawangan }}</td>
+                                    <td>{{ $p->nama_syarikat }}</td>
+                                    <td>{{ $p->nama_cawangan }}</td>
                                     <td>{{ $p->negeri }}</td>
                                     <td></td>
                                     <td>
                                         <div class="col">
+                                            <div class="col-auto">
+                                                <form action="/senaraiPengguna/simpan_tukar_status/{{ $p->id }}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="aktif" value="0" type="submit"
+                                                    class="btn btn-primary">Active</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-auto">
+                                                <form action="/senaraiPengguna/simpan2_tukar_status/{{ $p->id }}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="aktif" value="1" type="submit"
+                                                    class="btn btn-primary">Deactive</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        {{-- <div class="col">
                                             <div class="col-auto mb-2 px-0"
                                                 style="border: 1px solid #F4A258; box-shadow: inset 2px 2px 5px 2px lightgrey; background-color: white; z-index: 2; border-radius:5px;">
                                                 @if ($p->aktif == '0')
@@ -89,7 +107,7 @@
                                                         data-bs-target="#tolak">Inactive</button>
                                                 @endif
 
-                                            </div>
+                                            </div> --}}
 
 
                                            {{-- class="col-auto mb-2 px-0"
@@ -128,7 +146,7 @@
                                                     data-bs-target="#gagal">Inactive</button> --}}
                                             
 
-                                        </div>
+                                        {{-- </div> --}}
                                     </td>
                                     <td>
                                         <a href="/senaraiPengguna/kemaskini_pengguna/{{ $p->id }}"

@@ -54,14 +54,30 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $p->name }}</td>
-                                    <td>{{ $p->namaSyarikat }}</td>
-                                    <td>{{ $p->namaCawangan }}</td>
+                                    <td>{{ $p->nama_syarikat }}</td>
+                                    <td>{{ $p->nama_cawangan }}</td>
                                     <td>{{ $p->negeri }}</td>
                                     <td></td>
-                                    {{-- <td>
-                                        <a href="/pengurusan_maklumat/senarai_pengguna/{{ $p->id }}/edit"
-                                            class="btn btn-sm btn-primary">Kemaskini</a>
-                                    </td> --}}
+                                    <td>
+                                        <div class="col">
+                                            <div class="col-auto">
+                                                <form action="/senaraiPengguna/simpan3_tukar_status/{{ $p->id }}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="aktif" value="0" type="submit"
+                                                    class="btn btn-primary">Active</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-auto">
+                                                <form action="/senaraiPengguna/simpan4_tukar_status/{{ $p->id }}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="aktif" value="1" type="submit"
+                                                    class="btn btn-primary">Deactive</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
