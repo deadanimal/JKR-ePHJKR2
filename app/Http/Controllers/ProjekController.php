@@ -2351,7 +2351,7 @@ class ProjekController extends Controller
                 }         
                 return $html_button;
             })                        
-            ->rawColumns(['markah_gpss', 'remarks_gpss', 'dokumen_gpss'])
+            ->rawColumns(['markah_gpss', 'point_awarded','remarks_gpss', 'dokumen_gpss'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'GPSS Bangunan 2') {
