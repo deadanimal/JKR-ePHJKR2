@@ -2319,7 +2319,22 @@ class ProjekController extends Controller
                     $html_button = $markah->remarks;
                 }         
                 return $html_button;
-            })   
+            }) 
+            ->addColumn('point_awarded', function (GpssKriteria $gpss_kriteria) use ($projek) {
+                $gpss_kriteria_id = $gpss_kriteria->id;
+                $html_button = '?';
+                $markah = GpssMarkah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['gpss_kriteria_id', '=', $gpss_kriteria_id],
+                    ['fasa', '=', 'rekabentuk'],
+                    ['fasa', '=', 'verifikasi'],
+                ])->first();       
+                if($markah) {
+                    $html_button = $markah->point_awarded;
+                }         
+                return $html_button;
+            })
+              
             ->addColumn('dokumen_gpss', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
                 $html_button = '?';
@@ -6565,13 +6580,36 @@ class ProjekController extends Controller
         // dd('OK');
         $id = (int)$request->route('id'); //cari id dlm route
         $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
 
-        $projek = FacadePdf::loadView('projek.sijil_eph_bangunan');
-        // $pdf = PDF::loadView('pendaftaran_projek.test');
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_eph_bangunan',compact('projek','date'));
 
+        return $projek->download('ePHJKR_SIJIL_EPH_BANGUNAN.'.'pdf');
+    }
 
-        return $projek->download('PROJEK.'.'pdf');
+    public function sijil_gpss_bangunan(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
 
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_gpss_bangunan',compact('projek','date'));
+
+        return $projek->download('ePHJKR_SIJIL_GPSS_BANGUNAN.'.'pdf');
+    }
+
+    public function sijil_gpss_jalan(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_jalan_bangunan',compact('projek','date'));
+
+        return $projek->download('ePHJKR_SIJIL_GPSS_BANGUNAN.'.'pdf');
     }
 
     public function projek_status_berubah(Request $request){

@@ -90,6 +90,7 @@
                                     
                                 <br><br>
                                    <b> {{$projek->nama}}</b>
+                                   {{-- {{$projek}}; --}}
                                 <br><br>
                                     Telah Dianugerahkan
                                 <br><br>
@@ -105,7 +106,7 @@
                                 <br><br>
                                  Pada
                                 <br><br>
-                                <b>9 November 2022</b>
+                                <b>{{$date}}</b>
                                 <br><br>
                                 {{-- <b>edit no pendaftaran rujukan projek</b> --}}
                                 
