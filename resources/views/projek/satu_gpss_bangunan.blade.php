@@ -790,6 +790,10 @@
                     name: 'markah_gpss'
                 },
                 {
+                    data: 'point_awarded',
+                    name: 'point_awarded'
+                },
+                {
                     data: 'remarks_gpss',
                     name: 'remarks_gpss'
                 },

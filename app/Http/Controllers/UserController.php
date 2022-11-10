@@ -56,7 +56,7 @@ class UserController extends Controller
         $pengguna->email = $request->email;
         // $pengguna->telNo = $request->telNo;
         // $pengguna->nama_syarikat = $request->nama_syarikat;
-        // $pengguna->alamat_syarikat = $request->alamat_syarikat;
+        $pengguna->alamat_syarikat = $request->alamat_syarikat;
 
         $pengguna->save();
         alert()->success('Maklumat telah disimpan', 'Berjaya');
