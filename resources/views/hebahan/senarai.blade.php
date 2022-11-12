@@ -115,7 +115,7 @@
                                                         <form action="/hebahan/{{ $hebahan->id }}" method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <button type="submit" class="btn btn-sm btn-outline-primary"><i
+                                                            <button type="submit" onclick="myFunction({{ $hebahan->id }})" class="btn btn-sm btn-outline-primary" style="border-radius: 38px"><i
                                                                     class="fas fa-trash-alt"></i></button>
                                                         </form>
                                                     </div>
@@ -133,4 +133,27 @@
 
         </div>
     </div>
+    <script>
+        function myFunction(id) {
+
+
+        let alert = "Adakah anda mahu membuang data?";
+        if (confirm(alert) == true) {
+            $.ajax({
+                method: "DELETE",
+                url: "/PPD/fokusutama/" + id,
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                }
+            });
+
+            alert = "Berjaya di buang!";
+            location.href = "/PPD/fokusutama";
+
+        } else {
+            alert("Dibatalkan!");
+        }
+        document.getElementById("ppd").innerHTML = text;
+        }
+    </script>
 @endsection

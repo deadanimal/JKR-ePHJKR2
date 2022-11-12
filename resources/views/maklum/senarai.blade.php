@@ -139,14 +139,18 @@
                                                             <a href="/maklumbalas/{{ $maklum->id }}"
                                                                 class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                         </div>
+                                                        <div class="col-auto">
+                                                            <a href="/maklumbalas/{{ $maklum->id }}"
+                                                                class="btn btn-sm btn-primary">Papar</a>
+                                                        </div>
                                                         @role('sekretariat|pentadbir')
-                                                        {{-- <div class="col-auto">
+                                                        <div class="col-auto">
                                                             <form action="/maklumbalas/{{ $maklum->id }}" method="post">
                                                                 @method('DELETE')
                                                                 @csrf
                                                                 <button type="submit" class="btn btn-sm btn-outline-primary"><i class="fas fa-trash-alt"></i></button>
                                                             </form>
-                                                        </div> --}}
+                                                        </div>
                                                         @endrole
                                                     </div>
                                                 </td>
