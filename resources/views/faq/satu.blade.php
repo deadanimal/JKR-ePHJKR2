@@ -38,10 +38,10 @@
                                         </div>
                                         <div class="col-7 mb-2">
                                             <div class="row mt-4">
-                                                @role('sekretariat|pentadbir')
+                                                @role('sekretariat|pentadbir|pengurusan-atasan')
                                                 <div class="col-6">
                                                     <a href="/faq" class="btn btn-outline-primary">Batal</a>
-                                                </div>                                                
+                                                </div>
                                                 <div class="col-6 text-end">
                                                     <button type="submit" class="btn btn-primary">Kemaskini</button>
                                                 </div>

@@ -135,6 +135,15 @@
             </a>
         </li>
 
+        @role('pengurusan-atasan') 
+        <li class="nav-item">
+            <a class="nav-link" href="/faq">
+                <div class="d-flex align-items-center nav-link-side">
+                    <span class="px-0">Faq</span>
+                </div>
+            </a>
+        </li>
+        @endrole
 
         <li class="nav-item">
             <a class="nav-link" href="/maklumbalas">

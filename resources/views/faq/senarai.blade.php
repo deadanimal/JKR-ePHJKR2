@@ -1,7 +1,7 @@
 @extends('layouts.anon')
 
 @section('content')
-    @role('sekretariat|pentadbir')
+    @role('sekretariat|pentadbir|pengurusan-atasan')
     <div class="row my-3">
         <div class="col">
             <div class="card">
@@ -38,7 +38,7 @@
                                         <div class="col-7 mb-2">
                                             <div class="row mt-4">
                                                 <div class="col-6">
-                                                    <a href="/faq" class="btn btn-outline-primary">Batal</a>
+                                                    <a href="/dashboard" class="btn btn-outline-primary">Batal</a>
                                                 </div>
                                                 <div class="col-6 text-end">
                                                     <button type="submit" class="btn btn-primary">Tambah</button>
@@ -91,7 +91,7 @@
                                                         <a href="/faq/{{ $faq->id }}"
                                                             class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                     </div>
-                                                    @role('sekretariat|pentadbir')
+                                                    @role('sekretariat|pentadbir|pengurusan-atasan')
                                                     <div class="col-auto">
                                                         <form action="/faq/{{ $faq->id }}" method="post">
                                                             @method('DELETE')
