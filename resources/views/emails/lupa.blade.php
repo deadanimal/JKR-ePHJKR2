@@ -1,0 +1,1 @@
+Katalaluan baru anda adalah ePHJKR2022 . Sila tukar kata laluan anda sebaik anda masuk ke sistem kembali,

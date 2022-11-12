@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AkaunBaru;
 class RegisteredUserController extends Controller
 {
     /**
@@ -52,7 +53,7 @@ class RegisteredUserController extends Controller
         $user->telNo = $request->telNo;
         $user->faxNo = $request->faxNo;
         $user->daerah = $request->daerah;
-        $user->aktif = '0';
+        $user->aktif = false;
         $user->negeri = $request->negeri;
         $user->alamat_syarikat = $request->alamat_syarikat;
         $user->nama_syarikat = $request->nama_syarikat;
@@ -63,9 +64,10 @@ class RegisteredUserController extends Controller
         $user->save();
 
         event(new Registered($user));
+        Mail::to('maisarah.musa@pipeline-network.com')->send(new AkaunBaru());
+        return redirect('/');
+        // Auth::login($user);
 
-        Auth::login($user);
-
-        return redirect(RouteServiceProvider::HOME);
+        // return redirect(RouteServiceProvider::HOME);
     }
 }

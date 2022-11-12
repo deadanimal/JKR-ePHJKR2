@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\LupaKatalaluan;
 use App\Models\Hebahan;
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
@@ -20,6 +21,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
+
 
 class UserController extends Controller
 {
@@ -299,7 +302,8 @@ class UserController extends Controller
     public function buang_status(Request $request) {  
         $id = (int)$request->route('id'); 
         $projek = Projek::find($id); 
-        $projek->delete();
+        
+        // $projek->delete();
 
         alert()->success('Maklumat telah dibuang', 'Berjaya');
         return redirect('/selenggara');
@@ -360,6 +364,22 @@ class UserController extends Controller
             dd('not ok');
         }
     }
+
+    public function lupa() {
+        return view('lupa');
+    }
+
+    public function lupa_katalaluan(Request $request) {
+        $email = $request->email;
+        $user = User::where('email', $email)->first();
+        $new_password = Hash::make('ePHJKR2022');
+        $user->password = $new_password;
+        $user->save();
+
+        Mail::to($email)->send(new LupaKatalaluan());
+        return back();
+    }
+
 
 
 // public function audit()

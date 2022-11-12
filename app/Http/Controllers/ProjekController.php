@@ -237,7 +237,8 @@ class ProjekController extends Controller
     public function Pengesahan(Request $request) {
         $id = (int)$request->route('id'); 
         $projek = Projek::find($id); 
-        $projek->delete();
+        $projek->aktif = false;
+        $projek->save();
 
         alert()->success('Maklumat telah disahkan', 'Berjaya');
         return redirect('/projek/gugur/senarai_gugur_projek');

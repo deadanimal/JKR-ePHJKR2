@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
@@ -28,6 +29,10 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request)
     {
+        $user = User::where('email', $request->email)->first();
+        if($user->sah == false || $user->aktif == false) {
+            return redirect('/login');
+        }
         $request->authenticate();
 
         $request->session()->regenerate();
