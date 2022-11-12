@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\PengesahanPendaftaran;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -11,7 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\AkaunBaru;
+
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -63,10 +65,18 @@ class RegisteredUserController extends Controller
         alert('maklumat telah berjaya', 'Berjaya');
         $user->save();
 
+        Mail::to('haris.zahari@pipeline-network.com')->send(new PengesahanPendaftaran);
+
         event(new Registered($user));
         Mail::to('maisarah.musa@pipeline-network.com')->send(new AkaunBaru());
         return redirect('/');
         // Auth::login($user);
+
+
+        return redirect('/login');
+
+        // Auth::login($user);
+
 
         // return redirect(RouteServiceProvider::HOME);
     }

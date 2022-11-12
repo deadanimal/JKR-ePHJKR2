@@ -86,7 +86,7 @@
                                     <div class="form-check mb-0">
                                         <div class="row">
                                             <div class="col text-end">
-                                                <a class="fs--1 text-primary" href="/forgot-password">Terlupa Kata
+                                                <a class="fs--1 text-primary" href="/lupa">Terlupa Kata
                                                     Laluan?</a>
                                             </div>
                                         </div>

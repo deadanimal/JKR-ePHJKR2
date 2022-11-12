@@ -28,6 +28,10 @@ Route::post('lupa', [UserController::class, 'lupa_katalaluan']);
 
 Route::post('custom-login', [UserController::class, 'custom_login']);
 
+//lupa password
+Route::get('lupa', [UserController::class, 'tunjuk_lupa']);
+Route::post('lupa', [UserController::class, 'cipta_lupa']);
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('dashboard', [UserController::class, 'dashboard']); 
@@ -51,6 +55,8 @@ Route::middleware(['auth'])->group(function () {
     // Route::put('senaraiPengguna/simpan2_kemaskini_pengguna/{id}', [UserController::class, 'simpan2_kemaskini_pengguna']);
     Route::get('senaraiPengguna/senarai_tukar_peranan', [UserController::class, 'senarai_tukar_peranan']);
     Route::get('senaraiPengguna/sembunyi', [UserController::class, 'senarai_sembunyi']);
+    Route::get('senaraiPengguna/pengesahan_akaun_baru', [UserController::class, 'senarai_pengesahan_akaun']);
+    Route::put('senaraiPengguna/simpan_sah_akaun/{id}', [UserController::class, 'simpan_sah_akaun']);
 
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
     Route::get('projek/borang', [ProjekController::class, 'borang_projek']); 
@@ -147,6 +153,8 @@ Route::middleware(['auth'])->group(function () {
 
     //email
     Route::get('projek/{id}/gugur_projek', [ProjekController::class, 'email_gugur_projek']);
+
+    
 
 
 

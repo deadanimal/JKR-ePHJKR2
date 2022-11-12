@@ -30,9 +30,11 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $user = User::where('email', $request->email)->first();
-        if($user->sah == false || $user->aktif == false) {
+
+        if($user->sah == false || $user->aktif == true) {
             return redirect('/login');
         }
+
         $request->authenticate();
 
         $request->session()->regenerate();
