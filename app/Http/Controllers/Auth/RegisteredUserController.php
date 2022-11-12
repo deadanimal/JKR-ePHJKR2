@@ -68,10 +68,15 @@ class RegisteredUserController extends Controller
         Mail::to('haris.zahari@pipeline-network.com')->send(new PengesahanPendaftaran);
 
         event(new Registered($user));
+        Mail::to('maisarah.musa@pipeline-network.com')->send(new AkaunBaru());
+        return redirect('/');
+        // Auth::login($user);
+
 
         return redirect('/login');
 
         // Auth::login($user);
+
 
         // return redirect(RouteServiceProvider::HOME);
     }
