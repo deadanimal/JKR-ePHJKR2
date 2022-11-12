@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\LupaKatalaluan;
 use App\Models\Hebahan;
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ use OwenIt\Auditing\Models\Audit;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 
 class UserController extends Controller
@@ -149,6 +151,22 @@ class UserController extends Controller
         $id = (int)$request->route('id'); 
         $pengguna = User::all();
         return view('senaraiPengguna.senarai_tukar_peranan', compact('pengguna'));
+    }
+
+    public function senarai_pengesahan_akaun(Request $request) {   
+        $id = (int)$request->route('id'); 
+        $pengguna = User::where('sah','0')->get();
+        return view('senaraiPengguna.pengesahan_akaun_baru', compact('pengguna'));
+    }
+
+    public function simpan_sah_akaun(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $penggunaa = User::find($id);
+        $penggunaa->sah = $request->sah;
+
+        $penggunaa->save();
+        alert()->success('Akaun telah disahkan', 'Berjaya');
+        return redirect('/senaraiPengguna');
     }
 
     public function senarai_sembunyi(Request $request) {   
@@ -359,6 +377,22 @@ class UserController extends Controller
         } else {
             dd('not ok');
         }
+    }
+
+    public function tunjuk_lupa(){
+        return view('auth.lupa');
+    }
+
+    public function cipta_lupa(Request $request){
+        $email = $request->email;
+        $user = User::where('email',$email)->first();
+        $user->password = Hash::make('ePHJKR');
+        $user->save();
+
+        // Mail::to('haris.zahari@pipeline-network.com')->send(new LupaKatalaluan);
+        Mail::to($user->email)->send(new LupaKatalaluan);
+
+        return redirect('/login');
     }
 
 

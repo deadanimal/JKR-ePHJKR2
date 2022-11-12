@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\PengesahanPendaftaran;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -10,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
+
 
 class RegisteredUserController extends Controller
 {
@@ -52,7 +55,7 @@ class RegisteredUserController extends Controller
         $user->telNo = $request->telNo;
         $user->faxNo = $request->faxNo;
         $user->daerah = $request->daerah;
-        $user->aktif = '0';
+        $user->aktif = false;
         $user->negeri = $request->negeri;
         $user->alamat_syarikat = $request->alamat_syarikat;
         $user->nama_syarikat = $request->nama_syarikat;
@@ -62,10 +65,14 @@ class RegisteredUserController extends Controller
         alert('maklumat telah berjaya', 'Berjaya');
         $user->save();
 
+        Mail::to('haris.zahari@pipeline-network.com')->send(new PengesahanPendaftaran);
+
         event(new Registered($user));
 
-        Auth::login($user);
+        return redirect('/login');
 
-        return redirect(RouteServiceProvider::HOME);
+        // Auth::login($user);
+
+        // return redirect(RouteServiceProvider::HOME);
     }
 }

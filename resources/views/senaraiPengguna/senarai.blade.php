@@ -35,6 +35,13 @@
 
     <div class="row mt-3">
         <div class="col text-end">
+            <a href="senaraiPengguna/pengesahan_akaun_baru"
+                class="mt-2 btn btn-sm btn-primary">Pengesahan Akaun Baru</a>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col text-end">
             <a href="/senaraiPengguna/cipta" class="btn btn-primary">Tambah</a>
         </div>
     </div>
