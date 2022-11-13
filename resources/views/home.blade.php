@@ -77,7 +77,7 @@
 </div>
 
 <div class="col text-end mt-3">
-    <a href="/maklumbalas" class="btn btn-primary"> Maklum Balas</a>
+    <a href="/maklumbalas/pengguna_luar" class="btn btn-primary"> Maklum Balas</a>
     {{-- <button type="submit" class="btn btn-primary">Maklum Balas</button> --}}
 </div>
 

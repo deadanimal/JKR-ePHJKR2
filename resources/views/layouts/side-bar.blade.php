@@ -135,7 +135,7 @@
             </a>
         </li>
 
-        @role('pengurusan-atasan') 
+        {{-- @role('pengurusan-atasan')  --}}
         <li class="nav-item">
             <a class="nav-link" href="/faq">
                 <div class="d-flex align-items-center nav-link-side">
@@ -143,7 +143,7 @@
                 </div>
             </a>
         </li>
-        @endrole
+        {{-- @endrole --}}
 
         <li class="nav-item">
             <a class="nav-link" href="/maklumbalas">
