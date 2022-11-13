@@ -102,7 +102,39 @@
                     </div>
                 </div>
                 @role('sekretariat')
-                    <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @if($projek->status == "Menunggu Pengesahan Sekretariat")
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                    @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk GPSS Bangunan Sudah Diproses</button>
+                    @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk GPSS Bangunan Sudah Selesai</button>
+                    @elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk GPSS Bangunan</button>
+                    @elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Jana Keputusan Rekabentuk GPSS Bangunan</button>
+                    @elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Jana Keputusan Rekabentuk GPSS Bangunan</button>
+                    @elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Verifikasi GPSS Bangunan Sudah Diproses</button>
+                    @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi GPSS Bangunan</button>
+                    @elseif ($projek->status == "Proses Jana Keputusan Verifikasi GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
+                    @elseif ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
+                    @elseif ($projek->status == "Selesai Pengesahan  Verifikasi GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
+                    @elseif ($projek->status == "Proses Rayuan GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Rayuan Bangunan</button>
+                    @elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
+                    @elseif ($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button>
+                    @endif
+
+                </form>
                 @endrole 
                 @role('ketua-pasukan')
                     <button class="btn btn-primary mx-3 my-3" type="submit">Muat Turun Maklumat Projek</button>
@@ -210,13 +242,14 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4 class="h4 mb-3">RUMUSAN SKOR KAD</h4>
-                        <div class="col">
+                        <div class="table-responsive scrollbar">
                             <table class="table table-bordered line-table text-center" style="width: 100%">
                                 <thead class="text-white bg-orange-jkr">
                                     <tr> 
                                         <th rowspan="2">No.</th>
                                         <th rowspan="2">Work Element</th>
                                         <th rowspan="2">Total Point Allocated</th>
+                                        <th rowspan="2">Current Point Allocated</th>
                                         <th colspan="2">Total Points Requested</th>
                                         <th rowspan="2">Total Points Awarded</th>
                                         <th rowspan="2">Weightage (Refer Annex C)</th>
@@ -231,7 +264,8 @@
                                     <tr>
                                     <th>1</th>
                                     <th>Architectural (Aw)</th>
-                                    <th>{{$total_pa}}</th>
+                                    <th>232</th>
+                                    <th>{{$aw_pa}}</th>
                                     <th>{{$aw_ds}}</th>
                                     <th>{{$aw_cs}}</th>
                                     <th>AW_TPA</th>
@@ -243,6 +277,7 @@
                                     <th>2</th>
                                     <th>Mechanical (Mw)</th>
                                     <th>34</th>
+                                    <th>{{$mw_pa}}</th>
                                     <th>{{$mw_ds}}</th>
                                     <th>{{$mw_cs}}</th>
                                     <th>MW_TPA</th>
@@ -254,6 +289,7 @@
                                     <th>3</th>
                                     <th>Electrical (Ew)</th>
                                     <th>110</th>
+                                    <th>{{$ew_pa}}</th>
                                     <th>{{$ew_ds}}</th>
                                     <th>{{$ew_cs}}</th>
                                     <th>EW_TPA</th>
@@ -265,6 +301,7 @@
                                     <th>4</th>
                                     <th>Civil & Structural (Cw)</th>
                                     <th>124</th>
+                                    <th>{{$cw_pa}}</th>
                                     <th>{{$cw_ds}}</th>
                                     <th>{{$cw_cs}}</th>
                                     <th>CW_TPA</th>
@@ -281,6 +318,7 @@
                                     <th>0</th>
                                     <th>0</th>
                                     <th>0</th>
+                                    <th></th>
                                     </tr>
 
                                     <tr>
@@ -292,11 +330,13 @@
                                     <th>0</th>
                                     <th>0</th>
                                     <th>0</th>
+                                    <th></th>
                                     </tr>
 
                                     <tr>
                                     <th colspan="2">Total points</th>
                                     <th>610</th>
+                                    <th>{{$total_pa}}</th>
                                     <th>{{$total_ds}}</th>
                                     <th>{{$total_cs}}</th>
                                     <th>TPA_TP</th>
@@ -480,7 +520,7 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRekabentukDipilih"
                                         name="gpss_kriteria" onchange="kriteriaRekabentuk()">
-                                        @foreach ($gpss_kriterias as $akriteria)
+                                        @foreach ($rekabentuk_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
                                                 {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
                                         @endforeach
@@ -547,7 +587,7 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
                                         name="gpss_kriteria" onchange="kriteriaVerifikasi()">
-                                        @foreach ($gpss_kriterias as $akriteria)
+                                        @foreach ($verifikasi_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
                                                 {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
                                         @endforeach
@@ -614,7 +654,7 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRayuanDipilih"
                                         name="gpss_kriteria" onchange="kriteriaRayuan()">
-                                        @foreach ($gpss_kriterias as $akriteria)
+                                        @foreach ($rayuan_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
                                                 {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
                                         @endforeach
@@ -688,14 +728,14 @@
                         @role('sekretariat')
                         <div class="row mt-3">
                             <div class="col text-center">
-                                <button class="btn btn-primary" type="submit">Jana Sijil</button>
+                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Jana Sijil</a>
                             </div>
                         </div>
                         @endrole
                         @role('ketua-pasukan|penolong-ketua-pasukan')
                         <div class="row mt-3">
                             <div class="col text-center">
-                                <button class="btn btn-primary" type="submit">Muat Turun Sijil</button>
+                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Muat Turun Sijil</a>
                             </div>
                         </div>
                         @endrole
@@ -723,7 +763,7 @@
     kriteriaRayuan();
 
     function kriteriaRekabentuk() {
-        var lols = {!! $gpss_kriterias !!}
+        var lols = {!! $rekabentuk_kriterias !!}
         console.log(lols);
         var kriteriaRekabentuk = document.getElementById("kriteriaRekabentukDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRekabentuk);
@@ -732,14 +772,14 @@
 
 
     function kriteriaVerifikasi() {
-        var lols = {!! $gpss_kriterias !!}
+        var lols = {!! $verifikasi_kriterias !!}
         var kriteriaVerifikasi = document.getElementById("kriteriaVerifikasiDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaVerifikasi);
         document.getElementById("infoKriteriaVerifikasiDipilih").innerHTML = selectedKriteria.maksimum;
     }
 
     function kriteriaRayuan() {
-        var lols = {!! $gpss_kriterias !!}
+        var lols = {!! $rayuan_kriterias !!}
         var kriteriaRayuan = document.getElementById("kriteriaRayuanDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRayuan);
         document.getElementById("infoKriteriaRayuanDipilih").innerHTML = selectedKriteria.maksimum;

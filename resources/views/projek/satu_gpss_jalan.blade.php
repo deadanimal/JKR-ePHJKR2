@@ -214,44 +214,44 @@
                                         <th >1</th>
                                         <th >Architectural (Aw)</th>
                                         <th>232</th>
-                                        <th>AW_DS</th>
-                                        <th>AW_CS</th>
-                                        <th>AW_TPA</th>
-                                        <th>AW_W</th>
-                                        <th>AW_GPSS</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
                                         </tr>
 
                                         <tr>
                                         <th >2</th>
                                         <th >Mechanical (Mw)</th>
                                         <th>34</th>
-                                        <th>MW_DS</th>
-                                        <th>MW_CS</th>
-                                        <th>MW_TPA</th>
-                                        <th>MW_W</th>
-                                        <th>MW_GPSS</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
                                         </tr>
 
                                         <tr>
                                         <th >3</th>
                                         <th >Electrical (Ew)</th>
                                         <th>110</th>
-                                        <th>EW_DS</th>
-                                        <th>EW_CS</th>
-                                        <th>EW_TPA</th>
-                                        <th>EW_W</th>
-                                        <th>EW_GPSS</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
                                         </tr>
 
                                         <tr>
                                         <th >4</th>
                                         <th >Civil & Structural (Cw)</th>
                                         <th>124</th>
-                                        <th>CW_DS</th>
-                                        <th>CW_CS</th>
-                                        <th>CW_TPA</th>
-                                        <th>CW_W</th>
-                                        <th>CW_GPSS</th>                                            
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>
+                                        <th>0</th>                                            
                                         </tr>
 
                                         <tr>
@@ -564,6 +564,13 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4>SIJIL GPSS JALAN</h4>
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Muat Turun Sijil</a>
+                            </div>
+                        </div>
+                        @endrole
                     </div>
                 </div>
             </div>

@@ -1,2 +1,3 @@
 {{-- Projek {{$projek->nama}} Status Berubah Berjaya! --}}
-Projek {{$projek->kategori}} : {{$projek->nama}} Berjaya Dinilai!
+Projek {{$projek->name}} bagi Kategori {{$projek->kategori}} Berjaya Dinilai
+dan perlu disahkan.
