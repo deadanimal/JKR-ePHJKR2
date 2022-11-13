@@ -46,7 +46,7 @@
 
         </style>
 
-    <title>Sijil Kursus ePHJKR JALAN</title>
+    <title>Sijil ePHJKR GPSS Bangunan</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -124,14 +124,6 @@
                                 <br><br>
                                 <b>{{$date}}</b>
                                 <br><br>
-                                {{-- <b>edit no pendaftaran rujukan projek</b> --}}
-                                
-                                {{-- @if ($jadual->bilangan_hari=="1")
-                                    <b>{{date('d-m-Y', strtotime($jadual->tarikh_mula))}}
-                                @else
-                                    <b>{{date('d-m-Y', strtotime($jadual->tarikh_mula))}} hingga {{date('d-m-Y', strtotime($jadual->tarikh_tamat))}}</b>
-                                @endif --}}
-
                                 </p>
                             </div>
                         </div>

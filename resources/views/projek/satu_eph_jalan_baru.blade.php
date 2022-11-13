@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<link rel="stylesheet" type="text/css" href="print.css">
 
 @section('content')
 <div class="container-fluid">
@@ -101,59 +102,42 @@
                     </div>
                 </div>
                 @role('sekretariat')
-                    <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
-                @endrole 
+                    <form action="/projek/{{$projek->id}}/sah-eph-jalan-baru" method="POST" enctype="multipart/form-data">
+                        @csrf
+                            @if($projek->status == "Menunggu Pengesahan Sekretariat")
+                                <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Maklumat Projek</button>
+                            @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk Jalan Baru")
+                                <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk Jalan Baru Sudah Dinilai</button>
+                            @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Jalan Baru")
+                                <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk Jalan Baru Sudah Selesai</button>
+                            @elseif ($projek->status == "Selesai Pengesahan Rekabentuk Jalan Baru") 
+                                <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk Jalan Baru</button>
+                            @elseif ($projek->status == "Proses Jana Keputusan Rekabentuk Jalan Baru")   
+                                <button class="btn btn-primary mx-3 my-3" type="submit">Proses Jana Keputusan Rekabentuk Jalan Baru</button>
+                            @elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Baru")  
+                                <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rekabentuk Jalan Baru</button>
+                            @endif
+                    </form>
+                    @endrole 
+                    @role('ketua-pasukan|penolong-ketua-pasukan|pentadbir|sekretariat')
+                        <button class="btn btn-primary mx-3 my-3" onclick="printJS('printJS-form', 'html')">Muat Turun Maklumat Projek</button>
+                    @endrole 
+                    <form action="/projek/{{$projek->id}}/sah-eph-jalan-rayuan-baru" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                        @if($projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Baru")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Membuat Rayuan Jalan Baru</button>
+                        @endif
+                        @endrole
+                        @role('sekretariat')
+                        @if ($projek->status == "Proses Rayuan Rekabentuk Jalan Baru")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Proses Pengisian Rayuan Jalan Baru</button>
+                        @endif
+                        @endrole
+                    </form>
             </div>
         </div>
 
-        @role('ketua-pasukan|sekretariat|penolong-ketua-pasukan')
-        <div class="col-12 mt-6">
-            <div class="card">
-                <div class="card-body">
-                    <form action="/projek/{{ $projek->id }}/lantik" method="POST">
-                        @csrf
-                        <div class="row mx-3 mb-2">
-                            <h2 class="mb-3">Pelantikan</h2>
-                            <div class="col-5 mb-2">
-                                <label class="col-form-label">Nama:</label>
-                            </div>
-                            <div class="col-7 mb-2">
-                                <select class="form-select" name="user_id">
-                                    @foreach ($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="col-5 mb-2">
-                                <label class="col-form-label">Peranan:</label>
-                            </div>
-                            @role('ketua-pasukan|penolong-ketua-pasukan')
-                            <div class="col-7 mb-2">
-                                <select class="form-select" name="role_id">
-                                    <option value=12 selected>Ketua Pemudah Cara</option>
-                                    <option value=6>Pemudah Cara</option>
-                                </select>
-                            </div>
-                            @endrole
-                            @role('sekretariat')
-                            <div class="col-7 mb-2">
-                                <select class="form-select" name="role_id">
-                                   <option value=8 selected>Ketua Penilai Jalan</option>
-                                    <option value=6>Penilai</option>
-                                </select>
-                            </div>
-                            @endrole
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col text-center">
-                                <button class="btn btn-primary" type="submit">Lantik</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        @endrole
 
         @if (!$lantikans->isEmpty())
         <div class="col-12 mt-6">
@@ -197,12 +181,12 @@
                         role="tab">Rayuan Rekabentuk</a></li>
                 <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab"
                         role="tab">Rayuan Verifikasi</a></li>
-                {{-- @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan') --}}
+                @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan')
                 <li class="nav-item"><a class="nav-link" href="#tab-7" data-bs-toggle="tab"
                         role="tab">Sijil Rekabentuk</a></li>
                 <li class="nav-item"><a class="nav-link" href="#tab-8" data-bs-toggle="tab"
                         role="tab">Sijil Verifikasi</a></li>
-                {{-- @endrole --}}
+                @endrole
             </ul>
             <div class="tab-content">
                 <!--RUMUSAN SKOR KAD-->
@@ -613,7 +597,7 @@
                                         <label class="col-form-label">Target Point:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="markah" type="number" />
+                                        <input class="form-control" name="markah" type="number" id="target_point"  />
                                     </div>
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Assessment Point:</label>
@@ -752,6 +736,9 @@
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 </script>
+
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.css"></script>
 
 <script>
     kriteriaRekabentuk();

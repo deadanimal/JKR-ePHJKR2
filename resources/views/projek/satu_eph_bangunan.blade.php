@@ -107,7 +107,7 @@
                     <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
                         @csrf
                         @if($projek->status == "Menunggu Pengesahan Sekretariat")
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Maklumat Projek</button>
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
                         @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Pengisian Skor Rekabentuk Bangunan Sudah Diproses</button>
                         @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
@@ -155,15 +155,7 @@
                         @endrole
                     </form>
                 </div>
-                @endrole 
-
-                {{-- @role('sekretariat') --}}
-                    {{-- @if($projek->status == "Menunggu Pengesahan Sekretariat")
-                        <a href="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data" class="btn btn-primary mx-3 my-3">Proses Pengisian Skor Rekabentuk Bangunan</a>
-                    @elseif($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan")
-                        <a href="/projek/{{$projek->id}}/sah" method="POST" class="btn btn-primary mx-3 my-3">Dalam Pengesahan Skor Rekabentuk Bangunan</a>
-                    @endif --}}
-                {{-- @endrole  --}}                   
+                @endrole                  
             </div>
         </div>
 
@@ -248,7 +240,7 @@
 
     <div class="tab mt-6">
         <ul class="nav nav-tabs" role="tablist">
-            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara')
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara|ketua-pasukan-validasi|pasukan-validasi')
             <li class="nav-item">
                 {{-- @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan") --}}
                 <a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rumusan</a>
@@ -277,11 +269,13 @@
                 <a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Verifikasi</a>
             </li>
             @endrole
+            @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_ml >= 80)
             @role('pasukan-validasi|ketua-pasukan-validasi')
             <li class="nav-item">
                 <a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Validasi</a>
             </li>
             @endrole
+            @endif
             @role('ketua-pasukan|penolong-ketua-pasukan')
             @if($projek->status == "Proses Rayuan Bangunan")
             <li class="nav-item">
@@ -297,11 +291,11 @@
         </ul>
         <div class="tab-content">
             <!--RUMUSAN SKOR KAD-->
-            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara')
+            @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara|ketua-pasukan-validasi|pasukan-validasi')
             {{-- @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan") --}}
             <div class="tab-pane active" id="tab-1" role="tabpanel">
                 <div class="card mt-3">
-                    <div class="card-body" id="printJS-form">
+                    <div class="card-body" id="rumusan_skor_kad">
                         <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
                         <table class="table table-bordered line-table shadow-table-jkr line-corner-table-jkr">
                             <thead class="text-white line-table">
@@ -522,19 +516,19 @@
                                     <th>{{$sb_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
                                     <th>20</th>
-                                    <th>{{$sb_mv}}</th>
+                                    <th>{{$sb_mr}}</th>
                                     <th>20</th>
                                     <th>{{$sb_mv}}</th>
                                     <th>{{$sb_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
                                     <th>20</th>
-                                    <th>{{$sb_mv}}</th>
+                                    <th>{{$sb_mr}}</th>
                                     <th>20</th>
                                     <th>{{$sb_mv}}</th>
                                     <th>{{$sb_ml}}</th>
                                 @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
                                     <th>20</th>
-                                    <th>{{$sb_mv}}</th>
+                                    <th>{{$sb_mr}}</th>
                                     <th>20</th>
                                     <th>{{$sb_mv}}</th>
                                     <th>{{$sb_ml}}</th>
@@ -1009,8 +1003,8 @@
                         </table><!--Table-->
                     </div>
 
-                    <div class="mb-3 row mx-3" id="element-to-print">
-                        <table class="table table-bordered line-table shadow-table-jkr">
+                    <div class="mb-3 row mx-3">
+                        <table class="table table-bordered line-table shadow-table-jkr" id="rumusan_skor_kad">
                             <thead class="text-white line-table">
                                 <tr align="center" style="background-color:#EB5500">
                                     <th colspan="8">KEPUTUSAN PENARAFAN HIJAU PERINGKAT REKA BENTUK (PRB) |
@@ -1047,7 +1041,7 @@
                                     || 'phJKR Bangunan PUN A' || 'phJKR Bangunan PUN B' || 'phJKR Bangunan PUN C' || 'phJKR Bangunan PUN D')
                                     <th colspan="2"> {{number_format($peratusan_mr,2,".",",")}}%</th>
                                     @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A' || 'phJKR Bangunan Sedia Ada B' || 'phJKR Bangunan Sedia Ada C' || 'phJKR Bangunan Sedia Ada D')
-                                    <th colspan="2"> 0 %</th>
+                                    <th colspan="2"> 0%</th>
                                     @endif
                                     <th colspan="2"> {{number_format($peratusan_mv,2,".",",")}}%</th>
                                     <th colspan="2"> {{number_format($peratusan_ml,2,".",",")}}%</th>
@@ -1059,52 +1053,51 @@
                                     <th colspan="2">
                                         <input type="hidden" name="fasa" value="rekabentuk">
                                         <span class="star">
-                                            @if ($bintang_mr == 1)
-                                                1 &starf;
-                                            @elseif ($bintang_mr == 2)
-                                                2 &starf; &starf;
-                                            @elseif ($bintang_mr == 3)
-                                                3 &starf; &starf; &starf;
-                                            @elseif ($bintang_mr == 4)
-                                                4 &starf; &starf; &starf; &starf;  
-                                            @elseif ($bintang_mr == 5)
-                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                            @if ($peratusan_mr >= 80)
+                                                &starf; &starf; &starf; &starf; &starf;
+                                            @elseif ($peratusan_mr >= 65 && $peratusan_mr < 80)
+                                                &starf; &starf; &starf; &starf;
+                                            @elseif ($peratusan_mr >= 45 && $peratusan_mr < 65)
+                                                 &starf; &starf; &starf;
+                                            @elseif ($peratusan_mr >= 30 && $peratusan_mr < 45)
+                                                 &starf; &starf; 
+                                            @elseif ($peratusan_mr <= 29)
+                                                 &starf;                                                                                            
                                             @endif                                            
                                         </span>
                                     </th>
                                     <th colspan="2">
                                         <input type="hidden" name="fasa" value="verifikasi">
                                         <span class="star">
-                                            @if ($bintang_mv >= 1)
-                                                1 &starf;
-                                            @elseif ($bintang_mv == 2)
-                                                2 &starf; &starf;
-                                            @elseif ($bintang_mv == 3)
-                                                3 &starf; &starf; &starf;
-                                            @elseif ($bintang_mv == 4)
-                                                4 &starf; &starf; &starf; &starf;  
-                                            @elseif ($bintang_mv == 5)
-                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                            @if ($peratusan_mv >= 80)
+                                                &starf; &starf; &starf; &starf; &starf;
+                                            @elseif ($peratusan_mv >= 65 && $peratusan_mv < 80)
+                                                 &starf; &starf; &starf; &starf;
+                                            @elseif ($peratusan_mv >= 45 && $peratusan_mv < 65)
+                                                 &starf; &starf; &starf;
+                                            @elseif ($peratusan_mv >= 30 && $peratusan_mv < 45)
+                                                 &starf; &starf;   
+                                            @elseif ($peratusan_mv <= 29)
+                                                 &starf;                                                                                                
                                             @endif                                            
                                         </span>
                                     </th>
                                     <th colspan="2">
                                         <input type="hidden" name="fasa" value="validasi">
                                         <span class="star">
-                                            @if ($bintang_ml == 1)
-                                                1 &starf;
-                                            @elseif ($bintang_ml == 2)
-                                                2 &starf; &starf;
-                                            @elseif ($bintang_ml == 3)
-                                                3 &starf; &starf; &starf;
-                                            @elseif ($bintang_ml == 4)
-                                                4 &starf; &starf; &starf; &starf;  
-                                            @elseif ($bintang_ml == 5)
-                                                5 &starf; &starf; &starf; &starf; &starf;                                                                                               
+                                            @if ($peratusan_ml >= 80)
+                                                &starf; &starf; &starf; &starf; &starf;
+                                            @elseif ($peratusan_ml >= 65 && $peratusan_ml < 80)
+                                                &starf; &starf; &starf; &starf;
+                                            @elseif ($peratusan_ml >= 45 && $peratusan_ml < 65)
+                                                 &starf; &starf; &starf;
+                                            @elseif ($peratusan_ml >= 30 && $peratusan_ml < 45)
+                                                 &starf; &starf;  
+                                            @elseif ($peratusan_ml <= 29)
+                                                 &starf;                                                                                             
                                             @endif                                            
                                         </span>
                                     </th>
-
                                 </tr>
 
                                 <tr align="center" style="background-color:#EB5500">
@@ -1153,7 +1146,7 @@
                         @role('ketua-pasukan')
                             <div class="row mt-3">
                                 <div class="col text-center">
-                                    <button class="btn btn-primary" id="generate">Muat Turun Rumusan Skor Kad</button>
+                                    <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun Rumusan Skor Kad</button>
                                 </div>
                             </div>
                         @endrole
@@ -2034,7 +2027,7 @@
             <!--SKOR KAD EPH BANGUNAN-->
             <div class="tab-pane" id="tab-2" role="tabpanel">
                 <div class="card mt-3">
-                    <div class="card-body" id="skorkadpenilaian">
+                    <div class="card-body" id="skor_kad">
                         <h4 class="h4 mb-3">SKOR KAD EPH BANGUNAN</h4>
                         <div class="table-responsive scrollbar">
                             <table id="SkorKad" class="table table-bordered skor-datatable line-table display">
@@ -2043,17 +2036,17 @@
                                         @if ($projek->kategori == 'phJKR Bangunan Baru A')
                                             <th colspan="10">Pembangunan Baru A</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
-                                            <th colspan="11">Pembangunan Baru B</th>
+                                            <th colspan="10">Pembangunan Baru B</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
-                                            <th colspan="11">Pembangunan Baru C</th>
+                                            <th colspan="10">Pembangunan Baru C</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
                                             <th colspan="10">Pembangunan Baru D</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
                                             <th colspan="10">Pembangunan PUN A</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
-                                            <th colspan="11">Pembangunan PUN B</th>
+                                            <th colspan="10">Pembangunan PUN B</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
-                                            <th colspan="11">Pembangunan PUN C</th>
+                                            <th colspan="10">Pembangunan PUN C</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
                                             <th colspan="10">Pembangunan PUN D</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
@@ -2061,29 +2054,22 @@
                                         @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
                                             <th colspan="10">Pembangunan Sedia Ada B</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
-                                            <th colspan="11">Pembangunan Sedia Ada C</th>
+                                            <th colspan="10">Pembangunan Sedia Ada C</th>
                                         @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
-                                            <th colspan="11">Pembangunan Sedia Ada D</th>
+                                            <th colspan="10">Pembangunan Sedia Ada D</th>
                                         @endif
                                     </tr>
                                     <tr class="pg-1" align="center" style="background-color:#EB5500">
                                         <th>Kod</th>
                                         <th>Kriteria</th>
                                         <th>Fasa</th>
-                                        <th>Markah Terdahulu</th>
-                                        {{-- @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
-                                        || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
-                                        || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D') --}}
-                                        {{-- <th>Markah BEI</th> --}}
-                                        {{-- @endif --}}
+                                        <th>Markah Terkini</th>
+                                        <th>Markah BEI (Untuk KT9 Sahaja)</th>
                                         <th>Ulasan/Maklumbalas</th>
                                         <th>Dokumen Sokongan</th>
                                         <th>Markah Rayuan</th>
                                         <th>Ulasan Rayuan</th>
                                         <th>Dokumen Rayuan</th>
-                                        {{-- @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                                        <th>Ulasan Rayuan</th>
-                                        @endrole --}}
                                     </tr>
                                 </thead>
                             </table>
@@ -2101,7 +2087,7 @@
                                     {{-- @if($projek->fasa == "rekabentuk") --}}
                                     <div class="col text-center">
                                         <input type="hidden" name="fasa" value="rekabentuk">
-                                        <a href="/projek/{{ $projek->id }}/projek_status_berubah" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Penilaian Diemel kepada Sekretariat</a>
+                                        <a href="/projek/{{ $projek->id }}/projek_status_berubah" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
                                         {{-- <button class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Penilaian Diemel ke Sekretariat</button> --}}
                                     </div>
                                 </div>
@@ -2110,7 +2096,7 @@
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
-                                        <button class="btn btn-primary" id="download">Muat Turun Skor Kad</button>
+                                        <button class="btn btn-primary" onclick="printJS('skor_kad', 'html')">Muat Turun Skor Kad</button>
                                     </div>
                                 </div>
                             @endrole
@@ -2136,7 +2122,7 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRekabentukDipilih"
                                         name="kriteria" onchange="kriteriaRekabentuk()" required>
-                                        @foreach ($kriterias as $akriteria)
+                                        @foreach ($rekabentuk_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                 {{ $akriteria->nama }}</option>
                                         @endforeach
@@ -2147,6 +2133,11 @@
                                 </div>
                                 <div class="col-7 mb-2" id="infoKriteriaRekabentukDipilih">
                                 </div>
+                                {{-- <div class="col-5 mb-2">
+                                    <label class="col-form-label">Markah Maksimum:</label>
+                                </div>
+                                <div class="col-7 mb-2" id="infoKriteriaRekabentukMaksimum">
+                                </div> --}}
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Markah:</label>
                                 </div>
@@ -2165,7 +2156,7 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei">
+                                    <input class="form-control" type="number" name="markah_bei">
                                 </div>
                                 @endif
                                 <div class="col-5 mb-2">
@@ -2214,7 +2205,7 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
                                         name="kriteria" onchange="kriteriaVerifikasi()">
-                                        @foreach ($kriterias as $akriteria)
+                                        @foreach ($verifikasi_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                 {{ $akriteria->nama }}</option>
                                         @endforeach
@@ -2229,6 +2220,7 @@
                                     <label class="col-form-label">Markah:</label>
                                 </div>
                                 <div class="col-7 mb-2">
+                                    <input type="hidden" name="fasa" value="verifikasi">
                                     <input class="form-control" type="number" name="markah">
                                 </div>
                                 {{-- Untuk KT9 --}}
@@ -2243,7 +2235,7 @@
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                     || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei">
+                                    <input class="form-control" type="number" name="markah_bei">
                                 </div>
                                 @endif
                                 <div class="col-5 mb-2">
@@ -2276,81 +2268,84 @@
             @endrole
 
              <!--VALIDASI BANGUNAN-->
-            @role('pasukan-validasi|ketua-pasukan-validasi')
-            <div class="tab-pane" id="tab-5" role="tabpanel">
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <form action="/projek/{{ $projek->id }}/markah" method="POST"
-                            enctype="multipart/form-data">
-                            @csrf
-                            <input type="hidden" name="fasa" value="validasi">
-                            <h4 class="mb-3">VALIDASI BANGUNAN</h4>
-                            <div class="row mx-3 mb-2">
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Kriteria:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <select class="form-select form-control" id="kriteriaValidasiDipilih"
-                                        name="kriteria" onchange="kriteriaValidasi()">
-                                        @foreach ($kriterias as $akriteria)
-                                            <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
-                                                {{ $akriteria->nama }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Info kriteria:</label>
-                                </div>
-                                <div class="col-7 mb-2" id="infoKriteriaValidasiDipilih">
-                                </div>
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Markah:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" name="markah">
-                                </div>
-                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
-                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
-                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Markah BEI:</label>
-                                </div>
-                                @endif
-                                @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
-                                    || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
-                                    || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
-                                <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" nama="markah_bei">
-                                </div>
-                                @endif
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Ulasan:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="3" placeholder="Ulasan" name="ulasan"></textarea>
-                                </div>
-                                <div class="col-5 mb-2">
-                                    <label class="col-form-label">Dokumen Sokongan:</label>
-                                </div>
-                                <div class="col-7 mb-2">
-                                    <input class="form-control" type="file" name="dokumen1">
-                                    <input class="form-control" type="file" name="dokumen2">
-                                    <input class="form-control" type="file" name="dokumen3">
-                                    <input class="form-control" type="file" name="dokumen4">
-                                    <input class="form-control" type="file" name="dokumen5">
-                                </div>
+                @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_mv >= 80)
+                @role('pasukan-validasi|ketua-pasukan-validasi')
+                <div class="tab-pane" id="tab-5" role="tabpanel">
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="fasa" value="validasi">
+                                <h4 class="mb-3">VALIDASI BANGUNAN</h4>
+                                <div class="row mx-3 mb-2">
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Kriteria:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <select class="form-select form-control" id="kriteriaValidasiDipilih"
+                                            name="kriteria" onchange="kriteriaValidasi()">
+                                            @foreach ($validasi_kriterias as $akriteria)
+                                                <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
+                                                    {{ $akriteria->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Info kriteria:</label>
+                                    </div>
+                                    <div class="col-7 mb-2" id="infoKriteriaValidasiDipilih">
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Markah:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <input type="hidden" name="fasa" value="validasi">
+                                        <input class="form-control" type="number" name="markah">
+                                    </div>
+                                    @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                        || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                        || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Markah BEI:</label>
+                                    </div>
+                                    @endif
+                                    @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
+                                        || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
+                                        || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                    <div class="col-7 mb-2">
+                                        <input class="form-control" type="number" name="markah_bei">
+                                    </div>
+                                    @endif
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Ulasan:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <textarea class="form-control" rows="3" placeholder="Ulasan" name="ulasan"></textarea>
+                                    </div>
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Dokumen Sokongan:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <input class="form-control" type="file" name="dokumen1">
+                                        <input class="form-control" type="file" name="dokumen2">
+                                        <input class="form-control" type="file" name="dokumen3">
+                                        <input class="form-control" type="file" name="dokumen4">
+                                        <input class="form-control" type="file" name="dokumen5">
+                                    </div>
 
-                                <div class="row mt-3">
-                                    <div class="col text-center">
-                                        <button class="btn btn-primary" type="submit">Simpan</button>
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary" type="submit">Simpan</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endrole
+                @endrole
+                @endif
 
             <!--RAYUAN EPH BANGUNAN-->
             @role('ketua-pasukan|penolong-ketua-pasukan')
@@ -2368,7 +2363,7 @@
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRayuanDipilih"
                                         name="kriteria" onchange="kriteriaRayuan()">
-                                        @foreach ($kriterias as $akriteria)
+                                        @foreach ($rayuan_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                 {{ $akriteria->nama }}</option>
                                         @endforeach
@@ -2383,7 +2378,7 @@
                                     <label class="col-form-label">Markah Rekabentuk:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" name="markah_rekabentuk">
+                                    <input class="form-control" type="number" name="markah">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -2403,7 +2398,7 @@
                                     <label class="col-form-label">Markah Verifikasi:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" name="markah_verifikasi">
+                                    <input class="form-control" type="number" name="markah">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -2423,7 +2418,7 @@
                                     <label class="col-form-label">Markah Validasi:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" type="number" name="markah_validasi">
+                                    <input class="form-control" type="number" name="markah">
                                 </div>
                                 @if ($projek->kategori == 'phJKR Bangunan Baru C' || $projek->kategori == 'phJKR Bangunan Baru D'
                                     || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
@@ -2508,52 +2503,19 @@
 
 
 <!--JavaScript-->
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script> --}}
 <!--Button Simpan TOOLTIPS-->
-{{-- <script>
+<script>
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
     var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl)
     })
-</script> --}}
-
-<!--Download Web Page to PDF with margin-->
-{{-- <script>
-    window.onload = function(){
-        document.getElementById("download")
-        .addEventListener("click",()=>{
-            const skorkadpenilaian = this.document.getElementById("skorkadpenilaian");
-            console.log(skorkadpenilaian); 
-            console.log(window);
-            
-            var opt = {
-                margin:       0.5,
-                filename:     'myfile.pdf',
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            html2pdf().from(skorkadpenilaian).set(opt).save(); 
-        })
-        
-    }
-</script> --}}
-
-{{-- <script src="html2pdf.bundle.min.js"></script> --}}
-
-{{-- <script>
-    document.getElementById('generate').onclick = function () {
-	// Your html2pdf code here.
-	var element = document.getElementById('element-to-print');
-	html2pdf(element);
-};
-</script> --}}
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 <script src="https://printjs-4de6.kxcdn.com/print.min.css"></script>
 
-<script>
+{{-- <script>
     window.onload = function(){
         document.getElementById("download")
         .addEventListener("click",()=>{
@@ -2572,7 +2534,7 @@
         })
         
     }
-</script>
+</script> --}}
 
 <script>
     kriteriaRekabentuk();
@@ -2581,7 +2543,7 @@
     kriteriaRayuan();
 
     function kriteriaRekabentuk() {
-        var lols = {!! $kriterias !!}
+        var lols = {!! $rekabentuk_kriterias !!}
         var kriteriaRekabentuk = document.getElementById("kriteriaRekabentukDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRekabentuk);
         document.getElementById("infoKriteriaRekabentukDipilih").innerHTML = selectedKriteria.bukti;
@@ -2589,24 +2551,42 @@
 
 
     function kriteriaVerifikasi() {
-        var lols = {!! $kriterias !!}
+        var lols = {!! $verifikasi_kriterias !!}
         var kriteriaVerifikasi = document.getElementById("kriteriaVerifikasiDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaVerifikasi);
         document.getElementById("infoKriteriaVerifikasiDipilih").innerHTML = selectedKriteria.bukti;
     }
 
     function kriteriaValidasi() {
-        var lols = {!! $kriterias !!}
+        var lols = {!! $validasi_kriterias !!}
         var kriteriaValidasi = document.getElementById("kriteriaValidasiDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaValidasi);
         document.getElementById("infoKriteriaValidasiDipilih").innerHTML = selectedKriteria.bukti;
     }
 
     function kriteriaRayuan() {
-        var lols = {!! $kriterias !!}
+        var lols = {!! $rayuan_kriterias !!}
         var kriteriaRayuan = document.getElementById("kriteriaRayuanDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRayuan);
         document.getElementById("infoKriteriaRayuanDipilih").innerHTML = selectedKriteria.bukti;
+    }
+</script>
+
+{{-- <script>
+    kriteriaRekabentukMaksimum();
+
+    function kriteriaRekabentukMaksimum() {
+        var lols = {!! $rekabentuk_kriterias !!}
+        var kriteriaRekabentukMaks = document.getElementById("kriteriaRekabentukMaksimum").value;
+        let selectedKriteria = lols.find(el => el.id == kriteriaRekabentukMaks);
+        document.getElementById("infoKriteriaRekabentukMaksimum").innerhtml = selectedKriteria.maksimum;
+}
+</script> --}}
+
+{{-- For KT9 read in 2 decimal points --}}
+<script>
+    function setTwoNumberDecimal(event) {
+        this.value = parseFloat(this.value).toFixed(2);
     }
 </script>
 
@@ -2637,10 +2617,10 @@
                     data: 'markah_',
                     name: 'markah_'
                 },
-                // {
-                //     data: 'markah_bei',
-                //     name: 'markah_bei'
-                // },
+                {
+                    data: 'markah_bei',
+                    name: 'markah_bei'
+                },
                 {
                     data: 'ulasan_',
                     name: 'ulasan_'
