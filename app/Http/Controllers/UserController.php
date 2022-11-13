@@ -22,7 +22,6 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
-use Illuminate\Support\Facades\Mail;
 
 
 class UserController extends Controller
