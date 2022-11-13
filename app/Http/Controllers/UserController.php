@@ -71,9 +71,7 @@ class UserController extends Controller
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
         $lantikans = Role::all();
-        // $projek = ProjekRoleUser::with(['projek'])->where('user_id', $id)->get();
         $lantikans = ProjekRoleUser::where('projek_id', $id)->get();
-        // $projek = ProjekRoleUser::all();
 
         // dd($lantikans);
         return view('profil.tukar_peranan', compact('lantikans','pengguna'));

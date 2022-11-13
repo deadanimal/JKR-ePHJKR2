@@ -23,8 +23,15 @@ Route::get('privasi', [UserController::class, 'privasi']);
 Route::get('faq', [FaqController::class, 'senarai']);
 Route::get('loginjkr', [UserController::class, 'loginjkr']);
 Route::get('daftarjkr', [UserController::class, 'daftarjkr']);
+
+Route::get('maklumbalas/pengguna_luar', [MaklumbalasController::class, 'pengguna_luar']);
+Route::post('maklumbalas/cipta_pengguna_luar', [MaklumbalasController::class, 'cipta_pengguna_luar']); 
+
+
+
 Route::get('lupa', [UserController::class, 'lupa']);
 Route::post('lupa', [UserController::class, 'lupa_katalaluan']);
+
 
 Route::post('custom-login', [UserController::class, 'custom_login']);
 
@@ -130,8 +137,14 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('maklumbalas', [MaklumbalasController::class, 'senarai']); 
     Route::post('maklumbalas', [MaklumbalasController::class, 'cipta']); 
-    Route::get('maklumbalas/{id}', [MaklumbalasController::class, 'satu']); 
-    Route::put('maklumbalas/{id}', [MaklumbalasController::class, 'kemaskini']); 
+    // Route::get('maklumbalas/satu/{id}', [MaklumbalasController::class, 'satu']); 
+    // Route::put('maklumbalas/kemaskini/{id}', [MaklumbalasController::class, 'kemaskini']);
+    Route::get('maklumbalas/papar/{id}', [MaklumbalasController::class, 'papar']);
+    Route::put('maklumbalas/{id}/mesej', [MaklumbalasController::class, 'hantar_mesej']); 
+ 
+
+
+
 
     Route::get('selenggara', [UserController::class, 'selenggara']); 
     Route::post('selenggara/cipta', [UserController::class, 'cipta_peranan']); 

@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.anon')
+
 @section('content')
 
 <div class="row mb-3">
@@ -14,7 +15,7 @@
 
                     <div class="row mt-4 mb-3">
                         <div class="col">
-                            <form action="/maklumbalas" method="post" enctype="multipart/form-data">
+                            <form action="/maklumbalas/cipta_pengguna_luar" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mx-4">
 
@@ -73,12 +74,6 @@
                                         <textarea class="form-control" name="keterangan"></textarea>
                                     </div>                                    
                 
-                
-                                    
-                                    
-                
-                                    
-                    
                                     <div class="col-3 mb-2">
                                         
                                     </div>
@@ -94,71 +89,6 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row mb-3">
-    <div class="col">
-        <div class="card">
-            <div class="card-body">
-                <div class="col mb-">
-                    <h2 class="h2 mb-3">SENARAI MAKLUM BALAS</h2>
-                </div>
-
-                <div class="row mt-2">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <table class="table datatable table-striped" style="width:100%">
-                                    <thead class="bg-primary">
-                                        <tr>
-                                            <th class="sort">Bil.</th>
-                                            <th class="sort">Maklum Balas</th>
-                                            <th class="sort">Kategori</th>
-                                            {{-- <th class="sort">Status</th> --}}
-                                            <th class="sort">Tindakan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="bg-white">
-                                        
-                                        @foreach ($maklums as $maklum)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $maklum->subjek }}</td>
-                                                <td>{{ $maklum->kategori }}</td>
-                                                {{-- <td>{{ $maklum->status }}</td> --}}
-                                                
-                                                <td>
-                                                    <div class="row">
-                                                        {{-- <div class="col-auto">
-                                                            <a href="/maklumbalas/satu/{{ $maklum->id }}"
-                                                                class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
-                                                        </div> --}}
-                                                        <div class="col-auto">
-                                                            <a href="/maklumbalas/papar/{{ $maklum->id }}"
-                                                                class="btn btn-sm btn-primary">Papar</a>
-                                                        </div>
-                                                        @role('sekretariat')
-                                                        <div class="col-auto">
-                                                            <form action="/maklumbalas/{{ $maklum->id }}" method="post">
-                                                                @method('DELETE')
-                                                                @csrf
-                                                                <button type="submit" class="btn btn-sm btn-outline-primary"><i class="fas fa-trash-alt"></i></button>
-                                                            </form>
-                                                        </div>
-                                                        @endrole
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                     </div>
                 </div>

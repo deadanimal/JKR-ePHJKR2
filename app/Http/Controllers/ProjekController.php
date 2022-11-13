@@ -30,6 +30,7 @@ use App\Models\KriteriaEphBangunan;
 use App\Models\KriteriaEphJalan;
 use App\Models\KriteriaGpssBangunan;
 use App\Models\KriteriaGpssJalan;
+use Illuminate\Support\Facades\Auth;
 
 class ProjekController extends Controller
 {
@@ -37,13 +38,16 @@ class ProjekController extends Controller
     public function senarai_projek(Request $request) {
         
         // $user = $request->user();
-        // if($user->hasRole('pentadbir|sekretariat')) {
+        // if($user->hasRole('pentadbir|sekretariat|pengurusan-atasan')) {
         //     $projeks = Projek::all();
-        // } else {
-
+        //     //dd($projeks);
+        // } else if ($user->hasrole('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara') ){
+        //     $projeks = ProjekRoleUser::where('user_id', Auth::user())->get();
         // }
+        // // dd('$projeks');
 
         $projeks = Projek::all();
+        //dd('$projeks');
 
         if($request->ajax()) {
             return DataTables::collection($projeks)
