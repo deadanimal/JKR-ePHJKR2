@@ -63,7 +63,6 @@
                                 <option value="10">Pasukan Validasi</option>
                             </select>
                         </div>
-        
                         <div class="col-7 mb-2">
                             <div class="row mt-4">
                                 <div class="col-6">
