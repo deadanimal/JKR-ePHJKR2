@@ -23,9 +23,14 @@ Route::get('privasi', [UserController::class, 'privasi']);
 Route::get('faq', [FaqController::class, 'senarai']);
 Route::get('loginjkr', [UserController::class, 'loginjkr']);
 Route::get('daftarjkr', [UserController::class, 'daftarjkr']);
+
 Route::get('maklumbalas/pengguna_luar', [MaklumbalasController::class, 'pengguna_luar']);
 Route::post('maklumbalas/cipta_pengguna_luar', [MaklumbalasController::class, 'cipta_pengguna_luar']); 
 
+
+
+Route::get('lupa', [UserController::class, 'lupa']);
+Route::post('lupa', [UserController::class, 'lupa_katalaluan']);
 
 
 Route::post('custom-login', [UserController::class, 'custom_login']);

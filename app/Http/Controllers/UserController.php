@@ -22,6 +22,8 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
+
 
 class UserController extends Controller
 {
@@ -315,7 +317,8 @@ class UserController extends Controller
     public function buang_status(Request $request) {  
         $id = (int)$request->route('id'); 
         $projek = Projek::find($id); 
-        $projek->delete();
+        
+        // $projek->delete();
 
         alert()->success('Maklumat telah dibuang', 'Berjaya');
         return redirect('/selenggara');
@@ -392,6 +395,7 @@ class UserController extends Controller
 
         return redirect('/login');
     }
+
 
 
 // public function audit()

@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class LupaKatalaluan extends Mailable
+class AkaunBaru extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,7 +31,7 @@ class LupaKatalaluan extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Lupa Katalaluan',
+            subject: 'Akaun Baru',
         );
     }
 
@@ -43,7 +43,7 @@ class LupaKatalaluan extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.lupa',
+            view: 'emails.akaun_baru',
         );
     }
 
@@ -56,11 +56,4 @@ class LupaKatalaluan extends Mailable
     {
         return [];
     }
-
-
-    // public function build()
-    // {
-    //     return $this->view('emails.lupa');
-    // }
-
 }
