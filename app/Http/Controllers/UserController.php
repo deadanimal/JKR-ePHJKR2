@@ -77,6 +77,27 @@ class UserController extends Controller
         return view('profil.tukar_peranan', compact('lantikans','pengguna'));
     }
 
+    public function tukar_peranan2(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $pengguna = User::find($id);
+        // $projek = ProjekRoleUser::all();
+        $projek = ProjekRoleUser::where('projek_id', $id)->get();
+
+        // dd($lantikans);
+        return view('profil.tukar_peranan2', compact('pengguna','projek'));
+    }
+
+    public function simpan_tukar_peranan2(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $lantikan = ProjekRoleUser::find($id);
+        $lantikan->role_id = $request->name;
+        // $lantikan->user_id->status_tukar_peranan = true;
+
+        $lantikan->save();
+        alert()->success('Peranan telah dikemaskini', 'Berjaya');
+        return redirect('/profil');
+    }
+
     public function simpan_tukar_peranan(Request $request) {  
         $id = (int)$request->route('id'); 
         $lantikan = ProjekRoleUser::find($id);

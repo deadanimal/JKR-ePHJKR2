@@ -17,5 +17,9 @@ class Projek extends Model implements Auditable
     
     public function users() {
         return $this->hasMany(ProjekRoleUser::class);
-    }       
+    }  
+    
+    public function peranan() {
+        return $this->hasMany(PenukaranPeranan::class);
+    }
 }

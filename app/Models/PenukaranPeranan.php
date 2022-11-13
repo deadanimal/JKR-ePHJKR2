@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class PenukaranPeranan extends Model
 {
     use HasFactory;
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }    
+
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }        
+    public function projek() {
+        return $this->belongsTo(Projek::class);
+    } 
 }

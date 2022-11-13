@@ -73,7 +73,7 @@
                     </div>
 
                     <div class="col-10 text-end">
-                        <a href="/profil/tukar_peranan/{{$pengguna->id}}" class="text-primary">Penukaran Peranan</a>
+                        <a href="/profil/tukar_peranan2/{{$pengguna->id}}" class="text-primary">Penukaran Peranan</a>
                     </div>
     
                     <div class="col-3 mb-2">
