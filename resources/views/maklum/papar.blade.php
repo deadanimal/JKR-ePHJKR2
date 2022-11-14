@@ -55,10 +55,14 @@
                         <h5 class="h6" style="font-weight: 700;">{{ $maklum['alamat_syarikat'] }}</h5>
                     </div> --}}
                 </div>
+                <div class="col text-center">
+                    <a href="/maklumbalas" class="btn btn-outline-primary">Kembali</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
+@role('sekretariat|pentadbir')
 <div class="row mt-4 mb-3">
     <div class="col">
         <div class="card">
@@ -114,5 +118,6 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
+@endrole
 @endsection

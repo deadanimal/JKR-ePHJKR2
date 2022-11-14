@@ -72,9 +72,11 @@
                         <input class="form-control" name="alamatSyarikat" value="{{ $pengguna->alamat_syarikat }}" />
                     </div>
 
+                    @role('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|penilai|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara')
                     <div class="col-10 text-end">
                         <a href="/profil/tukar_peranan2/{{$pengguna->id}}" class="text-primary">Penukaran Peranan</a>
                     </div>
+                    @endrole
     
                     <div class="col-3 mb-2">
                         

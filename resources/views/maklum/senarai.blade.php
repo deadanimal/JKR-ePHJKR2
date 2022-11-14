@@ -5,6 +5,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
+                @role('sekretariat|pentadbir')
                 <div class="col mb-">
                     <h2 class="h2 mb-3">MAKLUM BALAS</h2>
                 </div>
@@ -17,20 +18,6 @@
                             <form action="/maklumbalas" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mx-4">
-
-                                    <div class="col-3 mb-2">
-                                        <label class="col-form-label">Nama:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input class="form-control" name="nama" type="text"/>
-                                    </div>
-
-                                    <div class="col-3 mb-2">
-                                        <label class="col-form-label">Email:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input class="form-control" name="email" type="text"/>
-                                    </div>
 
                 
                                     <div class="col-3 mb-2">
@@ -96,6 +83,7 @@
                             </form>
                         </div>
                     </div>
+                    @endrole
                 </div>
             </div>
         </div>

@@ -105,12 +105,13 @@
 
 
                                             <td>
+                                                @role('sekretariat|pentadbir')
                                                 <div class="row">
                                                     <div class="col-auto">
                                                         <a href="/hebahan/{{ $hebahan->id }}"
                                                             class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                     </div>
-                                                    @role('sekretariat|pentadbir')
+                                                    
                                                     <div class="col-auto">
                                                         <form action="/hebahan/{{ $hebahan->id }}" method="post">
                                                             @method('DELETE')

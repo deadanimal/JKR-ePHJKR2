@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
+@role('sekretariat|pentadbir')
 <div class="row mb-3">
     <div class="col">
         <div class="card">
@@ -60,6 +61,7 @@
         </div>
     </div>
 </div>
+@endrole
 
 <div class="row mb-3">
     <div class="col">
@@ -94,6 +96,7 @@
                                                 
                                                 
                                                 <td>
+                                                    @role('sekretariat|pentadbir')
                                                     <div class="row">
                                                         <div class="col-auto">
                                                             <a href="/manual/{{ $manual->id }}"
@@ -107,6 +110,7 @@
                                                             </form>
                                                         </div>
                                                     </div>
+                                                    @endrole
                                                 </td>
                                             </tr>
                                         @endforeach
