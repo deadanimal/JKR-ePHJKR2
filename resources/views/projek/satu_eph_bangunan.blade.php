@@ -2575,7 +2575,7 @@
     kriteriaValidasi();
     kriteriaRayuan();
 
-    function kriteriaRekabentuk() {
+    function kriteriaRekabentukkriteriaRekabentuk() {
         var lols = {!! $rekabentuk_kriterias !!}
         var kriteriaRekabentuk = document.getElementById("kriteriaRekabentukDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRekabentuk);
