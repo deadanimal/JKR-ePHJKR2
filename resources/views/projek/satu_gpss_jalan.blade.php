@@ -102,7 +102,44 @@
                     </div>
                 </div>
                 @role('sekretariat')
-                    <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                <form action="/projek/{{$projek->id}}/sah-gpss-jalan" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @if($projek->status == "Menunggu Pengesahan Sekretariat")
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                    @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Jalan")
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk GPSS Jalan Sudah Diproses</button>
+                    @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Jalan")
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk GPSS Jalan Sudah Selesai</button>
+                    @elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk GPSS Jalan</button>
+                    @elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Jalan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Jana Keputusan Rekabentuk GPSS Jalan</button>
+                    @elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Jana Keputusan Rekabentuk GPSS Jalan</button>
+                    @elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Verifikasi GPSS Jalan Sudah Diproses</button>
+                    @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi GPSS Jalan</button>
+                    @elseif ($projek->status == "Proses Jana Keputusan Verifikasi GPSS Jalan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Jana Keputusan Verifikasi GPSS Jalan</button>
+                    @elseif ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Jana Keputusan Verifikasi GPSS Jalan</button>
+                    @endif
+                </form>
+                <form action="/projek/{{$projek->id}}/sah-gpss-jalan-rayuan" method="POST" enctype="multipart/form-data">
+                    @if ($projek->status == "Selesai Pengesahan Jana Sijil Verifikasi GPSS Jalan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan GPSS Jalan</button>
+                    @elseif ($projek->status == "Proses Rayuan GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Rayuan Bangunan</button>
+                    @elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
+                    @elseif ($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")    
+                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button>
+                    @endif
+                </form>
+                @endrole 
+                @role('ketua-pasukan')
+                    <button class="btn btn-primary mx-3 my-3" type="submit">Muat Turun Maklumat Projek</button>
                 @endrole 
             </div>
         </div>
@@ -197,16 +234,18 @@
                                     <thead class="text-white bg-orange-jkr">
                                         <tr> 
                                             <th rowspan="2">No.</th>
-                                            <th rowspan="2">Work Element</th>
-                                            <th rowspan="2">Total Point Allocated</th>
-                                            <th colspan="2">Total Points Requested</th>
-                                            <th rowspan="2">Total Points Awarded</th>
-                                            <th rowspan="2">Weightage (Refer Annex C)</th>
-                                            <th rowspan="2">Percentage of Green Product Scoring Score</th>
+                                                <th rowspan="2">Work Element</th>
+                                                <th rowspan="2">Total Point Allocated</th>
+                                                <th rowspan="2">Current Point Allocated</th>
+                                                <th colspan="2">Total Points Requested</th>
+                                                <th>Total Points Awarded</th>
+                                                <th rowspan="2">Weightage (Refer Annex C)</th>
+                                                <th rowspan="2">Percentage of Green Product Scoring Score %</th>
                                         </tr>
                                         <tr>
-                                            <th >Design stage</th>
-                                            <th >Construction stage</th>
+                                            <th>Design stage</th>
+                                            <th>Construction stage</th>
+                                            <th>Construction Stage</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-black">
@@ -214,6 +253,7 @@
                                         <th >1</th>
                                         <th >Architectural (Aw)</th>
                                         <th>232</th>
+                                        <th>0</th>
                                         <th>0</th>
                                         <th>0</th>
                                         <th>0</th>
@@ -230,12 +270,14 @@
                                         <th>0</th>
                                         <th>0</th>
                                         <th>0</th>
+                                        <th>0</th>
                                         </tr>
 
                                         <tr>
                                         <th >3</th>
                                         <th >Electrical (Ew)</th>
                                         <th>110</th>
+                                        <th>0</th>
                                         <th>0</th>
                                         <th>0</th>
                                         <th>0</th>
@@ -251,12 +293,13 @@
                                         <th>0</th>
                                         <th>0</th>
                                         <th>0</th>
-                                        <th>0</th>                                            
+                                        <th>0</th> 
+                                        <th>0</th>                                           
                                         </tr>
 
                                         <tr>
-                                        <th >5</th>
-                                        <th >Road & Geotechnial (Rw)</th>
+                                        <th>5</th>
+                                        <th>Road & Geotechnial (Rw)</th>
                                         <th>98</th>
                                         <th>RW_DS</th>
                                         <th>RW_CS</th>
@@ -266,8 +309,8 @@
                                         </tr>
 
                                         <tr>
-                                        <th >6</th>
-                                        <th >Structural(Bridge) (Sw)</th>
+                                        <th>6</th>
+                                        <th>Structural(Bridge) (Sw)</th>
                                         <th>12</th>
                                         <th>SW_DS</th>
                                         <th>SW_CS</th>
@@ -321,20 +364,23 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4 class="mb-3">SKOR KAD GPSS JALAN</h4>
-                        <table class="table table-bordered line-table text-center skor-datatable" style="width: 100%">
+                        <table class="table table-bordered line-table text-center skor-gpss-datatable" style="width: 100%">
                             <thead class="text-white bg-orange-jkr">
                                 <tr>          
-                                    <th colspan="7">Green Product Scoring Sheet</th>
+                                    <th colspan="10">Green Product Scoring Sheet</th>
                                 </tr>
                                 <tr>  
-                                    <th colspan="7">ROAD</th>
+                                    <th colspan="10">ROAD</th>
                                 </tr>
                                 <tr>
                                     <th>Element</th>
                                     <th>Component</th>
                                     <th>Product</th>
+                                    <th>Phase</th>
                                     <th>Point Allocated</th>
                                     <th>Point Requested (Design)</th>
+                                    <th>Point Requested (Construction)</th>
+                                    <th>Point Awarded</th>
                                     <th>Remarks</th>
                                     <th>Supporting Documents</th>
                                 </tr>
@@ -362,7 +408,7 @@
             <div class="tab-pane" id="tab-3" role="tabpanel">
                 <div class="card mt-3">
                     <div class="card-body">
-                        <form action="/projek/{{ $projek->id }}/markah" method="POST" enctype="multipart/form-data">
+                        <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="fasa" value="rekabentuk">
                             <h4 class="mb-3">PENILAIAN REKABENTUK GPSS JALAN</h4>
@@ -372,8 +418,8 @@
                                 </div>
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRekabentukDipilih"
-                                        name="kriteria" onchange="kriteriaRekabentuk()">
-                                        @foreach ($gpss_kriterias as $akriteria)
+                                        name="gpss_kriteria" onchange="kriteriaRekabentuk()">
+                                        @foreach ($rekabentuk_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                 {{ $akriteria->nama }}</option>
                                         @endforeach
@@ -429,7 +475,7 @@
                 <div class="card mt-3">
                     <div class="card-body">
                         <h4 class="mb-3">VERIFIKASI PERMARKAHAN GPSS JALAN</h4>
-                        <form action="/projek/{{ $projek->id }}/markah" method="POST" enctype="multipart/form-data">
+                        <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row mx-3 mb-2">
                                 <div class="col-5 mb-2">
@@ -437,24 +483,37 @@
                                 </div>
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
-                                        name="kriteria" onchange="kriteriaVerifikasi()">
-                                        @foreach ($gpss_kriterias as $akriteria)
+                                        name="gpss_kriteria" onchange="kriteriaVerifikasi()">
+                                        @foreach ($verifikasi_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                 {{ $akriteria->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="col-5 mb-2">
+                                @role('penilai|ketua-penilai')
+                                    <div class="col-5 mb-2">
+                                        <label class="col-form-label">Point Awarded:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <select class="form-select form-control" name="point_awarded" aria-label="Default select example">
+                                            <option selected>Sila Pilih</option>
+                                            <option value="0">0</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                        {{-- <input name="point_awarded" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /> --}}
+                                    </div>
+                                @endrole
+                                {{-- <div class="col-5 mb-2">
                                     <label class="col-form-label">Maximum Marks:</label>
                                 </div>
                                 <div class="col-7 mb-2">
                                     <div class="col-7 mb-2" id="infoKriteriaVerifikasiDipilih"></div>
-                                </div>
+                                </div> --}}
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Requested (Construction):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
+                                    <input class="form-control" name="point_req_construction" type="number" min="0" max="2"/>
                                 </div> 
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Remarks:</label>
@@ -496,8 +555,8 @@
                                 </div>
                                 <div class="col-7 mb-2">
                                     <select class="form-select form-control" id="kriteriaRayuanDipilih"
-                                        name="kriteria" onchange="kriteriaRayuan()">
-                                        @foreach ($gpss_kriterias as $akriteria)
+                                        name="gpss_kriteria" onchange="kriteriaRayuan()">
+                                        @foreach ($rayuan_kriterias as $akriteria)
                                             <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} -
                                                 {{ $akriteria->komponen }}</option>
                                         @endforeach
@@ -513,19 +572,19 @@
                                     <label class="col-form-label">Point Allocated:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number"/>
+                                    <input class="form-control" name="point_allocated" type="number"/>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Requested (Design):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
+                                    <input class="form-control" name="point_req_design" type="number" min="0" max="2"/>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Point Requested (Construction):</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <input class="form-control" name="markah" type="number" min="0" max="2"/>
+                                    <input class="form-control" name="point_req_construction" type="number" min="0" max="2"/>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Remarks:</label>
@@ -537,7 +596,7 @@
                                     <label class="col-form-label">Comment on Appeal:</label>
                                 </div>
                                 <div class="col-7 mb-2">
-                                    <textarea class="form-control" rows="3" name="ulasan_rayuan" type="text" placeholder="Comment on Appeal"></textarea>
+                                    <textarea class="form-control" rows="3" name="comment_on_appeal" type="text" placeholder="Comment on Appeal"></textarea>
                                 </div>
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Upload File:</label>
@@ -594,7 +653,7 @@
     kriteriaRayuan();
 
     function kriteriaRekabentuk() {
-        var lols = {!! $gpss_kriterias !!}
+        var lols = {!! $rekabentuk_kriterias !!}
         var kriteriaRekabentuk = document.getElementById("kriteriaRekabentukDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRekabentuk);
         document.getElementById("infoKriteriaRekabentukDipilih").innerHTML = selectedKriteria.maksimum;
@@ -602,14 +661,14 @@
 
 
     function kriteriaVerifikasi() {
-        var lols = {!! $gpss_kriterias !!}
+        var lols = {!! $verifikasi_kriterias !!}
         var kriteriaVerifikasi = document.getElementById("kriteriaVerifikasiDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaVerifikasi);
         document.getElementById("infoKriteriaVerifikasiDipilih").innerHTML = selectedKriteria.maksimum;
     }
 
     function kriteriaRayuan() {
-        var lols = {!! $gpss_kriterias !!}
+        var lols = {!! $rayuan_kriterias !!}
         var kriteriaRayuan = document.getElementById("kriteriaRayuanDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRayuan);
         document.getElementById("infoKriteriaRayuanDipilih").innerHTML = selectedKriteria.maksimum;
@@ -622,7 +681,7 @@
         var idProjek = {!! json_decode($projek->id) !!}
         console.log(idProjek);
         var url = "/projek/" + idProjek;
-        var table = $('.skor-datatable').DataTable({
+        var table = $('.skor-gpss-datatable').DataTable({
             processing: true,
             serverSide: true,
             responsive: true,
