@@ -92,6 +92,7 @@ Route::middleware(['auth'])->group(function () {
 
     // Mai tambah
     Route::post('projek/{id}/markah-gpss', [ProjekController::class, 'markah_gpss']); 
+    Route::post('projek/{id}/markah-gpss-rayuan', [ProjekController::class, 'markah_gpss_rayuan']); 
     Route::post('projek/{id}/sah', [ProjekController::class, 'sah_projek']); 
     Route::post('projek/{id}/sah-eph-rayuan', [ProjekController::class, 'sah_projek_eph_rayuan']); 
     Route::post('projek/{id}/sah-gpss-bangunan', [ProjekController::class, 'sah_projek_gpss']);

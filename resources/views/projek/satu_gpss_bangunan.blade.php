@@ -269,7 +269,7 @@
                     @role('pemudah-cara|ketua-pemudah-cara|ketua-penilai|penilai') 
                     <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Verifikasi</a></li>
                     @endrole
-                    @role('ketua-pasukan')
+                    @role('ketua-pasukan|penolong-ketua-pasukan')
                     <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Rayuan</a></li>
                     @endrole
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
@@ -589,7 +589,7 @@
                                     </div>
                                 </div>
                                 @endrole
-                                @role('ketua-pasukan')
+                                @role('ketua-pasukan|penolong-ketua-pasukan')
                                     <div class="row mt-3">
                                         <div class="col text-center">
                                             <button class="btn btn-primary">Muat Turun Rumusan Skor Kad</button>
