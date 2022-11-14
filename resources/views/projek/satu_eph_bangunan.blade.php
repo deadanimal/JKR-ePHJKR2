@@ -126,6 +126,7 @@
                             <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
                         @elseif ($projek->status == "Selesai Pengesahan Validasi Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
+                        @endif
                     </form>
                     <form action="/projek/{{$projek->id}}/sah-eph-rayuan">
                         @if ($projek->status == "Proses Rayuan Bangunan")    
@@ -211,11 +212,13 @@
                                     </div>
                                     @endrole
                                 </div>
+                                @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         <button class="btn btn-primary" type="submit">Lantik</button>
                                     </div>
                                 </div>
+                                @endrole
                             </form>
                         </div>
                     </div>
@@ -1170,7 +1173,7 @@
                                         </div>
                                     </div>
                                 @endrole
-                                @role('ketua-pasukan')
+                                @role('ketua-pasukan|penolong-ketua-pasukan')
                                     <div class="row mt-3">
                                         <div class="col text-center">
                                             <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun Rumusan Skor Kad</button>
@@ -2031,6 +2034,7 @@
                                     </thead>
                                 </table>
                                 @role('sekretariat')
+                                {{-- smtp --}}
                                     <div class="row mt-3">
                                         <div class="col text-center">
                                             <button class="btn btn-primary">Jana Keputusan</button>

@@ -5260,8 +5260,6 @@ class ProjekController extends Controller
             //Total Point Awarded
             $total_pad = $aw_pad + $mw_pad + $ew_pad + $cw_pad;
 
-
-
             //Percentage GPSS Score
             //Building Category 1
             $peratus_aw_gpss_1 = ($aw_ds/232) * 0.45 * 100;
@@ -5291,7 +5289,6 @@ class ProjekController extends Controller
 
             //MyCrest Star
             $total_peratus_crest = $peratus_aw_gpss_1 + $peratus_mw_gpss_1 + $peratus_ew_gpss_1 + $peratus_cw_gpss_1;
-
 
             // dd($aw_cs);
             return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_kriterias', 'users', 'lantikans',
@@ -5673,7 +5670,7 @@ class ProjekController extends Controller
             'total_ds', 'total_cs', 'total_pa', 'peratus_aw_gpss_3', 'peratus_mw_gpss_3', 'peratus_ew_gpss_3', 'peratus_cw_gpss_3', 'total_peratus_3', 'total_peratus_crest_3',
             'aw_pad', 'mw_pad', 'ew_pad', 'cw_pad', 'total_pad'
         ));   
-        }  elseif ($projek->kategori ==  'GPSS Jalan') {
+        } elseif ($projek->kategori ==  'GPSS Jalan') {
             // $gpss_kriterias = GpssKriteria::where('borang', 'like', 'ROAD')->get();
             $rekabentuk_kriterias = GpssKriteria::where([
                 ['borang','=', 'ROAD'],
@@ -5706,11 +5703,27 @@ class ProjekController extends Controller
             $sw_kriterias = GpssKriteria::where([['borang','=', 'ROAD'],['element_seq','=', 2]])->get();
             $sw_cs = 0;
 
+            // Verifikasi Point Awarded
             $rw_kriterias = GpssKriteria::where([['borang','=', 'ROAD'],['element_seq','=', 1]])->get();
             $rw_pad = 0;
             $sw_kriterias = GpssKriteria::where([['borang','=', 'ROAD'],['element_seq','=', 2]])->get();
             $sw_pad = 0;
 
+            //Point Allocated
+            foreach($rw_kriterias as $rw_kriteria) {
+                $markah_rw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                if($markah_rw_pa){
+                    $rw_pa +=  $markah_rw_pa->point_awarded;
+                } 
+            }
+            foreach($sw_kriterias as $sw_kriteria) {
+                $markah_sw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                if($markah_sw_pa){
+                    $sw_pa +=  $markah_sw_pa->point_awarded;
+                } 
+            }
+
+            //Point Requested (Design/Construction)
             foreach($rw_kriterias as $rw_kriteria) {                
                 $markah_rw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_rw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','verifikasi']])->first();
@@ -5732,13 +5745,61 @@ class ProjekController extends Controller
                 }
             }
 
+            //Point Awarded
+            foreach($rw_kriterias as $rw_kriteria) {
+                $markah_rw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_rw_pad){
+                    $rw_pad +=  $markah_rw_pad->point_awarded;
+                } 
+            }
+            foreach($sw_kriterias as $sw_kriteria) {
+                $markah_sw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','verifikasi']])->first();
+                if($markah_sw_pad){
+                    $sw_pad +=  $markah_sw_pad->point_awarded;
+                } 
+            }
+
+            //Total Point Allocated
+            $total_pa = $rw_pa + $sw_pa;
+            //Total Design Stage
             $total_ds = $rw_ds + $sw_ds;
+            //Total Construction Stage
             $total_cs = $rw_cs + $sw_cs;
+            //Total Point Awarded
             $total_pad = $rw_pad + $sw_pad;
             
+            //Percentage GPSS Score
+            //Road
+            $peratus_rw = ($rw_ds/232) * 0.33 * 100;
+            $peratus_sw = ($sw_ds/232) * 0.33 * 100;
+            $total_peratus_road = $peratus_rw + $peratus_sw;
+
+            //GPSS Star
+            if($total_peratus_road >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_road >= 70 && $total_peratus_road <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_road >= 50 && $total_peratus_road <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_road >= 30 && $total_peratus_road <49){
+                $bintang = 2;
+            }
+             elseif($total_peratus_road >= 10 && $total_peratus_road <29){
+                $bintang = 1;
+            }
+            elseif($total_peratus_road <10){
+                $bintang = 0;
+            }
+
+            //MyCrest Star
+            $total_peratus_crest = $peratus_rw + $peratus_sw;
 
             return view('projek.satu_gpss_jalan', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_kriterias', 'users', 'lantikans',
-            'total_ds', 'total_cs', 'rw_ds', 'rw_ds', 'sw_cs', 'rw_cs',
+            'total_ds', 'total_cs', 'rw_ds', 'rw_ds', 'sw_cs', 'rw_cs', 'rw_pad', 'sw_pad', 'total_pad', 'total_pa', 'peratus_rw', 'peratus_sw', 'bintang', 'sw_ds',
+            'total_peratus_road', 'total_peratus_crest', 'rw_pa', 'sw_pa'
         ));       
         }
         
@@ -5861,6 +5922,56 @@ class ProjekController extends Controller
 
     // Mai tambah
     public function markah_gpss(Request $request) {
+        $user = $request->user();
+        $id = (int)$request->route('id');
+
+        // $gpss_kriteria = GpssKriteria::find($request->gpss_kriteria);
+        // if ($request->markah >$gpss_kriteria->maksimum) {
+        //     Alert::error('Salah Markah', 'Sila letakkan markah kurang dari maksimum');
+        //     return back();
+        // }
+
+        $markah = New GpssMarkah;
+        $markah->projek_id = $id;
+        $markah->user_id = $user->id;
+        $markah->gpss_kriteria_id = $request->gpss_kriteria;
+        $markah->fasa = $request->fasa;
+        $markah->point_allocated = $request->point_allocated;
+        $markah->point_req_design = $request->point_req_design;
+        $markah->point_req_construction = $request->point_req_construction;
+        $markah->remarks = $request->remarks;
+        $markah->comment_on_appeal = $request->comment_on_appeal;
+
+        if ($request->hasFile('dokumen1')) {
+            $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
+        } else {
+            if ($request->markah > 0) {
+                Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+                return back();
+            }            
+        }    
+        if ($request->hasFile('dokumen2')) {
+            $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen3')) {
+            $markah->dokumen3 = $request->file('dokumen3')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen4')) {
+            $markah->dokumen4 = $request->file('dokumen4')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen5')) {
+            $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
+        }  
+
+        $markah->save();
+
+        alert()->success('Markah Disimpan', 'Berjaya');
+
+        return back();
+    }
+
+    // Mai tambah
+    public function markah_gpss_rayuan(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
 
@@ -6166,6 +6277,9 @@ class ProjekController extends Controller
             alert()->success('Keputusan Verifikasi GPSS Jalan telah Dijana', 'Berjaya');
         }
 
+        $projek->save();
+        return back();
+
     }
 
     public function sah_projek_gpss_jalan_rayuan(Request $request){
@@ -6177,7 +6291,7 @@ class ProjekController extends Controller
             alert()->success('Rayuan Bangunan sedang Diproses', 'Berjaya');
         }
         elseif ($projek->status == "Proses Rayuan GPSS Jalan"){
-            $projek->status = "Dalam Pengesahan Rayuan GPSS Jalan";
+            $projek->status = "Selesai Rayuan GPSS Jalan";
             alert()->success('Proses Rayuan GPSS Jalan Disahkan', 'Berjaya');
         }
 
