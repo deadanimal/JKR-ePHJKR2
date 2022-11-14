@@ -6,7 +6,7 @@
     <div class="row mb-3">
         <div class="col">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" id="maklumat-projek">
                     <div class="row mx-3 mb-2">
                         <h2 class="mb-3">Maklumat Projek</h2>
                         <div class="col-4 mb-2">
@@ -146,8 +146,8 @@
                     @endif
                 </form>
                 @endrole 
-                @role('ketua-pasukan')
-                    <button class="btn btn-primary mx-3 my-3" type="submit">Muat Turun Maklumat Projek</button>
+                @role('ketua-pasukan|penolong-ketua-pasukan')
+                    <button class="btn btn-primary mx-3 my-3" type="submit" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
                 @endrole
             </div>
         </div>
@@ -592,7 +592,7 @@
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                     <div class="row mt-3">
                                         <div class="col text-center">
-                                            <button class="btn btn-primary">Muat Turun Rumusan Skor Kad</button>
+                                            <button class="btn btn-primary">Muat Turun</button>
                                         </div>
                                     </div>
                                 @endrole
@@ -603,7 +603,7 @@
                     <!--SKOR KAD GPSS BANGUNAN-->
                     <div class="tab-pane" id="tab-2" role="tabpanel">
                         <div class="card mt-3">
-                            <div class="card-body">
+                            <div class="card-body" id="skor-kad">
                                 <h4 class="mb-3">SKOR KAD GPSS BANGUNAN</h4>
                                 <div class="table-responsive scrollbar">
                                     <table class="table table-bordered line-table text-center skor-gpss-datatable" style="width: 100%">
@@ -642,10 +642,10 @@
                                     </div>
                                 </div>
                                 @endrole
-                                @role('ketua-pasukan')
+                                @role('ketua-pasukan|penolong-ketua-pasukan')
                                     <div class="row mt-3">
                                         <div class="col text-center">
-                                            <button class="btn btn-primary">Muat Turun Skor Kad</button>
+                                            <button class="btn btn-primary" onclick="printJS('skor-kad', 'html')">Muat Turun</button>
                                         </div>
                                     </div>
                                 @endrole
@@ -792,7 +792,7 @@
                     @endrole        
 
                     <!--RAYUAN GPSS BANGUNAN-->
-                    @role('ketua-pasukan')
+                    @role('ketua-pasukan|penolong-ketua-pasukan')
                     <div class="tab-pane" id="tab-5" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body"> 
