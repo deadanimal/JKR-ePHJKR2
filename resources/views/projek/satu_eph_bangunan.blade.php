@@ -253,8 +253,8 @@
                 </div>
             </div>
             @endif
-        @endif
-        </div>
+            @endif
+    </div>
 
         @if($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan" ||
             $projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan" ||
@@ -2150,7 +2150,7 @@
                                         </div>
                                         <div class="col-7 mb-2">
                                             <select class="form-select form-control" id="kriteriaRekabentukDipilih"
-                                                name="kriteria" onchange="kriteriaRekabentuk()" required>
+                                                name="kriteria" onchange="kriteriaRekabentuk()">
                                                 @foreach ($rekabentuk_kriterias as $akriteria)
                                                     <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                         {{ $akriteria->nama }}</option>
@@ -2463,12 +2463,6 @@
                                             <input class="form-control" type="number" nama="markah_bei_validasi">
                                         </div>
                                         @endif
-                                        {{-- <div class="col-5 mb-2">
-                                            <label class="col-form-label">Ulasan:</label>
-                                        </div>
-                                        <div class="col-7 mb-2">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ulasan"></textarea>
-                                        </div> --}}
                                         @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Ulasan Rayuan:</label>
@@ -2573,7 +2567,7 @@
     kriteriaValidasi();
     kriteriaRayuan();
 
-    function kriteriaRekabentukkriteriaRekabentuk() {
+    function kriteriaRekabentuk() {
         var lols = {!! $rekabentuk_kriterias !!}
         var kriteriaRekabentuk = document.getElementById("kriteriaRekabentukDipilih").value;
         let selectedKriteria = lols.find(el => el.id == kriteriaRekabentuk);
