@@ -59,12 +59,16 @@ class ProjekController extends Controller
             })             
             ->addColumn('tindakan', function (Projek $projek) {
                 $url = '/projek/'.$projek->id;
-                $html_button = '<a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>';
+                $html_button = '<div class="row mt-3"><div class="col text-center">
+                <a href="'.$url.'"><button class="btn btn-primary">Lihat</button></a>
+                </div></div>';
                 return $html_button;
             })
             ->addColumn('gugur', function (Projek $projek) {
                 $url = '/projek/gugur_projek/'.$projek->id;
-                $html_button = '<a href="'.$url.'"><button class="btn btn-primary">gugur</button></a>';
+                $html_button = '<div class="row mt-3"><div class="col text-center">
+                <a href="'.$url.'"><button class="btn btn-primary">gugur</button></a>
+                </div></div>';
                 return $html_button;
             })
             ->editColumn('created_at', function (Projek $projek) {

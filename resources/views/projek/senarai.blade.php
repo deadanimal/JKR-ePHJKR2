@@ -27,7 +27,7 @@
 </div>
 
     <table class="table table-bordered projek-datatable line-table" style="width:100%">
-        <thead>
+        <thead class="text-white bg-orange-jkr">
             <tr>
                 <th class="text-center">Nama</th>
                 <th class="text-center">Alamat</th>
@@ -36,12 +36,8 @@
                 <th class="text-center">Jenis Kategori</th>
                 <th class="text-center">Tindakan</th> 
                 <th class="text-center">Gugur Projek</th>
-
             </tr>
         </thead>
-
-        <tbody>            
-        </tbody>
      </table> 
 
 
