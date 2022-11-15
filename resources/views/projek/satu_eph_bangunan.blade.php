@@ -2185,7 +2185,7 @@
                                             || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                             || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="number" name="markah_bei">
+                                            <input class="form-control" type="number" name="markah_bei" oninput="input(this)">
                                         </div>
                                         @endif
                                         <div class="col-5 mb-2">
@@ -2264,7 +2264,7 @@
                                             || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                             || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="number" name="markah_bei">
+                                            <input class="form-control" type="number" name="markah_bei" oninput="input(this)">
                                         </div>
                                         @endif
                                         <div class="col-5 mb-2">
@@ -2343,7 +2343,7 @@
                                             || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                             || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="number" name="markah_bei">
+                                            <input class="form-control" type="number" name="markah_bei" oninput="input(this)">
                                         </div>
                                         @endif
                                         <div class="col-5 mb-2">
@@ -2420,7 +2420,7 @@
                                             || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                             || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="number" nama="markah_bei_rekabentuk" min="0" max="10">
+                                            <input class="form-control" type="number" nama="markah_bei_rekabentuk" oninput="input(this)">
                                         </div>
                                         @endif
                                         <div class="col-5 mb-2">
@@ -2440,7 +2440,7 @@
                                             || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                             || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="number" nama="markah_bei_verifikasi" min="0" max="10">
+                                            <input class="form-control" type="number" nama="markah_bei_verifikasi" oninput="input(this)">
                                         </div>
                                         @endif
                                         <div class="col-5 mb-2">
@@ -2460,7 +2460,7 @@
                                             || $projek->kategori == 'phJKR Bangunan PUN C' || $projek->kategori == 'phJKR Bangunan PUN D'
                                             || $projek->kategori == 'phJKR Bangunan Sedia Ada C' || $projek->kategori == 'phJKR Bangunan Sedia Ada D')
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="number" nama="markah_bei_validasi" min="0" max="10">
+                                            <input class="form-control" type="number" nama="markah_bei_validasi">
                                         </div>
                                         @endif
                                         {{-- <div class="col-5 mb-2">
@@ -2603,22 +2603,15 @@
     }
 </script>
 
-{{-- <script>
-    kriteriaRekabentukMaksimum();
-
-    function kriteriaRekabentukMaksimum() {
-        var lols = {!! $rekabentuk_kriterias !!}
-        var kriteriaRekabentukMaks = document.getElementById("kriteriaRekabentukMaksimum").value;
-        let selectedKriteria = lols.find(el => el.id == kriteriaRekabentukMaks);
-        document.getElementById("infoKriteriaRekabentukMaksimum").innerhtml = selectedKriteria.maksimum;
-}
-</script> --}}
-
 {{-- For KT9 read in 2 decimal points --}}
 <script>
-    function setTwoNumberDecimal(event) {
-        this.value = parseFloat(this.value).toFixed(2);
-    }
+    var delayTimer;
+    function input(ele) {
+    clearTimeout(delayTimer);
+    delayTimer = setTimeout(function() {
+       ele.value = parseFloat(ele.value).toFixed(2).toString();
+    }, 800); 
+}
 </script>
 
 <script type="text/javascript">

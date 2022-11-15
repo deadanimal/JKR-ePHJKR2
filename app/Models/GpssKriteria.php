@@ -13,5 +13,9 @@ class GpssKriteria extends Model
     // Mai tambah
     public function gpssmarkah() {
         return $this->hasMany(GpssMarkah::class);
-    }  
+    }
+    
+    public function gpss_markah_rayuan() {
+        return $this->hasMany(GpssMarkahRayuan::class);
+    }
 }

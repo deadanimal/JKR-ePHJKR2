@@ -726,6 +726,9 @@
                 <div class="col-1 text-end">
                     <a href="/" class="jkr-header">UTAMA</a>
                 </div>
+                {{-- <div class="col-2 text-end">
+                    <a href="/about" class="jkr-header">MENGENAI KAMI</a>
+                </div> --}}
                 <div class="col-2 text-end">
                     <a href="/about" class="jkr-header">MENGENAI KAMI</a>
                 </div>

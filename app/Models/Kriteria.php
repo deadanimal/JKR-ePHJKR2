@@ -12,9 +12,9 @@ class Kriteria extends Model
     public function markah() {
         return $this->hasMany(Markah::class);
     }
-    
-    public function eph_bangunan_rayuan_markah() {
-        return $this->hasMany(EphBangunanRayuanMarkah::class);
+
+    public function markah_rayuan() {
+        return $this->hasMany(MarkahRayuan::class);
     }
     
 }
