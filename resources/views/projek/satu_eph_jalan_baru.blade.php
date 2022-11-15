@@ -101,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-                @role('sekretariat')
+                    @role('sekretariat')
                     <form action="/projek/{{$projek->id}}/sah-eph-jalan-baru" method="POST" enctype="multipart/form-data">
                         @csrf
                             @if($projek->status == "Menunggu Pengesahan Sekretariat")
@@ -218,12 +218,9 @@
                                 <tr class="text-black">
                                     <td style="text-align: center; vertical-align: middle;">{{ $loop->iteration }}</td>
                                     <td style="text-align: center; vertical-align: middle;">{{ $lantikan->user->name }}</td>
-                                    <td style="text-align: center; vertical-align: middle;">{{ $lantikan->role->display_name }}
-                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">{{ $lantikan->role->display_name }}</td>
                                 </tr>
                             @endforeach
-                            <tbody>
-                            </tbody>
                         </table>
                     </div>
                 </div>
@@ -276,17 +273,17 @@
                                                 <th colspan="9">NEW ROADS</th>
                                             </tr>
                                             <tr align="center" style="background-color:#EB5500">
-                                                <th colspan="3" rowspan="2">TOTAL POINTS (CORE)</th>
+                                                <th colspan="3" rowspan="2">TOTAL POINTS (CORE) / TOTAL ELECTIVE & INNOVATION POINTS</th>
                                                 <th colspan="3">DESIGN</th>
                                                 <th colspan="3">VERIFICATION</th>
                                             </tr>
                                             <tr>
-                                                <th>MAX </th>
-                                                <th>TARGET </th>
-                                                <th>ASSESSMENT </th>
-                                                <th>MAX </th>
-                                                <th>TARGET </th>
-                                                <th>ASSESSMENT </th>
+                                                <th>MAX</th>
+                                                <th>TARGET</th>
+                                                <th>ASSESSMENT</th>
+                                                <th>MAX</th>
+                                                <th>TARGET</th>
+                                                <th>ASSESSMENT</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-black">
@@ -395,93 +392,143 @@
                                         <thead class="text-white bg-orange-jkr">
                                             <tr>
                                                 <th></th>
-                                                <th colspan="3">TARGET SUMMARY</th>
-                                                <th colspan="3">DESIGN ASSESSMENT SUMMARY</th>
-                                                <th colspan="3">VERIFICATION ASSESSMENT SUMMARY</th>
+                                                <th>TARGET SUMMARY (DESIGN)</th>
+                                                <th>DESIGN ASSESSMENT SUMMARY</th>
+                                                <th>TARGET SUMMARY (VERIFICATION)</th>
+                                                <th>VERIFICATION ASSESSMENT SUMMARY</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-black">
                                             <tr>
                                                 <th >TOTAL SCORE (%)</th>
-                                                <th colspan="3">{{number_format($final_score,2,".",",")}}</th>
-                                                <th colspan="3">{{number_format($final_score2,2,".",",")}}</th>
-                                                <th colspan="3">{{number_format($final_score3,2,".",",")}}</th>                                               
+                                                <th>{{number_format($final_score,2,".",",")}}</th>
+                                                <th>{{number_format($final_score3,2,".",",")}}</th>
+                                                <th>{{number_format($final_score2,2,".",",")}}</th>
+                                                <th>{{number_format($final_score4,2,".",",")}}</th>                                               
                                             </tr>
                                             <tr>
                                                 <th colspan="1" rowspan="2">pH JKR RATING</th>
-                                                <th colspan="2">
+                                                <th>
                                                     <span class="star">
-                                                        @if ($final_score >= 80)
+                                                        @if($final_score >=85)
                                                             5 &starf; &starf; &starf; &starf; &starf;
-                                                        @elseif ($final_score >= 70 && $final_score < 84)
+                                                        @elseif($final_score >=70 && $final_score < 84)
                                                             4 &starf; &starf; &starf; &starf;
-                                                        @elseif ($final_score >= 50 && $final_score < 69)
+                                                        @elseif($final_score >= 50 && $final_score < 69)
                                                             3 &starf; &starf; &starf;
-                                                        @elseif ($final_score >= 41 && $final_score < 49)
-                                                            2 &starf; &starf; 
-                                                        @elseif ($final_score < 40)
-                                                            0 &starf;                                                                                            
-                                                        @endif                                            
+                                                        @elseif($final_score >=41 && $final_score < 49)
+                                                            2 &starf; &starf;
+                                                        @elseif($final_score < 40)
+                                                            0 &starf;
+                                                        @endif                                           
                                                     </span>
                                                 </th>
-                                                <th colspan="3">
+                                                <th>
                                                     <span class="star">
-                                                        @if ($bintang_fs == 1)
-                                                            1 &starf;
-                                                        @elseif ($bintang_fs == 2)
-                                                            2 &starf; &starf;
-                                                        @elseif ($bintang_fs == 3)
+                                                        @if($final_score3 >=85)
+                                                            5 &starf; &starf; &starf; &starf; &starf;
+                                                        @elseif($final_score3 >=70 && $final_score3 < 84)
+                                                            4 &starf; &starf; &starf; &starf;
+                                                        @elseif($final_score3 >= 50 && $final_score3 < 69)
                                                             3 &starf; &starf; &starf;
-                                                        @elseif ($bintang_fs == 4)
-                                                            4 &starf; &starf; &starf; &starf;  
-                                                        @elseif ($bintang_fs == 5)
-                                                            5 &starf; &starf; &starf; &starf; &starf;                                                                                               
-                                                        @endif                                            
+                                                        @elseif($final_score3 >=41 && $final_score3 < 49)
+                                                            2 &starf; &starf;
+                                                        @elseif($final_score3 < 40)
+                                                            0 &starf;
+                                                        @endif                                           
+                                                    </span>
+                                                </th>
+                                                <th>
+                                                    <span class="star">
+                                                        @if($final_score2 >=85)
+                                                            5 &starf; &starf; &starf; &starf; &starf;
+                                                        @elseif($final_score2 >=70 && $final_score2 < 84)
+                                                            4 &starf; &starf; &starf; &starf;
+                                                        @elseif($final_score2 >= 50 && $final_score2 < 69)
+                                                            3 &starf; &starf; &starf;
+                                                        @elseif($final_score2 >=41 && $final_score2 < 49)
+                                                            2 &starf; &starf;
+                                                        @elseif($final_score2 < 40)
+                                                            0 &starf;
+                                                        @endif                                           
+                                                    </span>
+                                                </th>
+                                                <th>
+                                                    <span class="star">
+                                                        @if($final_score4 >=85)
+                                                            5 &starf; &starf; &starf; &starf; &starf;
+                                                        @elseif($final_score4 >=70 && $final_score4 < 84)
+                                                            4 &starf; &starf; &starf; &starf;
+                                                        @elseif($final_score4 >= 50 && $final_score4 < 69)
+                                                            3 &starf; &starf; &starf;
+                                                        @elseif($final_score4 >=41 && $final_score4 < 49)
+                                                            2 &starf; &starf;
+                                                        @elseif($final_score4 < 40)
+                                                            0 &starf;
+                                                        @endif                                           
                                                     </span>
                                                 </th>
                                             </tr>
                                             <tr>
                                                 <th>
-                                                    test
-                                                    @if ($bintang_fs == 1)
-                                                    <th colspan="2">NO RECOGNITION</th>
-                                                    @elseif ($bintang_fs == 2)
-                                                    <th colspan="2">POTENTIAL RECOGNITION</th>
-                                                    @elseif ($bintang_fs == 3)
-                                                    <th colspan="2">BEST MANAGEMENT PRACTICES</th>
-                                                    @elseif ($bintang_fs == 4)
-                                                    <th colspan="2">NATIONAL EXCELLENCE</th>
-                                                    @elseif ($bintang_fs == 5)
-                                                    <th colspan="2">GLOBAL EXCELLENCE</th>
-                                                    @endif
+                                                    <span>
+                                                        @if($final_score >=85)
+                                                            GLOBAL EXCELLENCE
+                                                        @elseif($final_score >=70 && $final_score < 84)
+                                                            NATIONAL EXCELLENCE
+                                                        @elseif($final_score >= 50 && $final_score < 69)
+                                                            BEST MANAGEMENT PRACTICES
+                                                        @elseif($final_score >=41 && $final_score < 49)
+                                                            POTENTIAL RECOGNITION
+                                                        @elseif($final_score < 40)
+                                                            NO RECOGNITION
+                                                        @endif                                           
+                                                    </span>
                                                 </th>
                                                 <th>
-                                                    test2
-                                                    @if ($bintang_fs == 1)
-                                                    <th colspan="2">NO RECOGNITION</th>
-                                                    @elseif ($bintang_fs == 2)
-                                                    <th colspan="2">POTENTIAL RECOGNITION</th>
-                                                    @elseif ($bintang_fs == 3)
-                                                    <th colspan="2">BEST MANAGEMENT PRACTICES</th>
-                                                    @elseif ($bintang_fs == 4)
-                                                    <th colspan="2">NATIONAL EXCELLENCE</th>
-                                                    @elseif ($bintang_fs == 5)
-                                                    <th colspan="2">GLOBAL EXCELLENCE</th>
-                                                    @endif
+                                                    <span>
+                                                        @if($final_score2 >=85)
+                                                            GLOBAL EXCELLENCE
+                                                        @elseif($final_score2 >=70 && $final_score2 < 84)
+                                                            NATIONAL EXCELLENCE
+                                                        @elseif($final_score2 >= 50 && $final_score2 < 69)
+                                                            BEST MANAGEMENT PRACTICES
+                                                        @elseif($final_score2 >=41 && $final_score2 < 49)
+                                                            POTENTIAL RECOGNITION
+                                                        @elseif($final_score2 < 40)
+                                                            NO RECOGNITION
+                                                        @endif                                           
+                                                    </span>
                                                 </th>
                                                 <th>
-                                                    test3
-                                                    @if ($bintang_fs == 1)
-                                                    <th colspan="2">NO RECOGNITION</th>
-                                                    @elseif ($bintang_fs == 2)
-                                                    <th colspan="2">POTENTIAL RECOGNITION</th>
-                                                    @elseif ($bintang_fs == 3)
-                                                    <th colspan="2">BEST MANAGEMENT PRACTICES</th>
-                                                    @elseif ($bintang_fs == 4)
-                                                    <th colspan="2">NATIONAL EXCELLENCE</th>
-                                                    @elseif ($bintang_fs == 5)
-                                                    <th colspan="2">GLOBAL EXCELLENCE</th>
-                                                    @endif
+                                                    <span>
+                                                        @if($final_score3 >=85)
+                                                            GLOBAL EXCELLENCE
+                                                        @elseif($final_score3 >=70 && $final_score3 < 84)
+                                                            NATIONAL EXCELLENCE
+                                                        @elseif($final_score3 >= 50 && $final_score3 < 69)
+                                                            BEST MANAGEMENT PRACTICES
+                                                        @elseif($final_score3 >=41 && $final_score3 < 49)
+                                                            POTENTIAL RECOGNITION
+                                                        @elseif($final_score3 < 40)
+                                                            NO RECOGNITION
+                                                        @endif                                           
+                                                    </span>
+                                                </th>
+                                                <th>
+                                                    <span>
+                                                        @if($final_score4 >=85)
+                                                            GLOBAL EXCELLENCE
+                                                        @elseif($final_score4 >=70 && $final_score4 < 84)
+                                                            NATIONAL EXCELLENCE
+                                                        @elseif($final_score4 >= 50 && $final_score4 < 69)
+                                                            BEST MANAGEMENT PRACTICES
+                                                        @elseif($final_score4 >=41 && $final_score4 < 49)
+                                                            POTENTIAL RECOGNITION
+                                                        @elseif($final_score4 < 40)
+                                                            NO RECOGNITION
+                                                        @endif                                           
+                                                    </span>
                                                 </th>
                                             </tr>
                                         </tbody>
@@ -526,18 +573,7 @@
                                                     <th>Assessment Point</th>
                                                     <th>Comment by Assessor</th>
                                                     <th>Supporting Documents</th>
-                                                    {{-- @if ($projek->fasa == 'rekabentuk')
-                                                    <th colspan="4">Design</th>
-                                                    @elseif ($projek->fasa == 'verifikasi')
-                                                    <th colspan="4">Verification</th>
-                                                    @endif --}}
                                                 </tr>
-                                                {{-- <tr>
-                                                    <th>Target Point</th>
-                                                    <th>Assessment Point</th>
-                                                    <th>Comment by Assessor</th>
-                                                    <th>Supporting Documents</th>
-                                                </tr> --}}
                                             </thead>
                                         </table>
                                         @role('sekretariat')
@@ -547,7 +583,7 @@
                                             </div>
                                         </div>
                                         @endrole
-                                        @role('ketua-pasukan')
+                                        @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 <button class="btn btn-primary">Muat Turun</button>
@@ -561,6 +597,7 @@
                     </div>
 
                     <!--REKABENTUK EPH JALAN-->
+                    @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
                     <div class="tab-pane" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
@@ -625,7 +662,7 @@
                     <div class="tab-pane" id="tab-4" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <form action="/projek/{{ $projek->id }}/markah" method="POST" enctype="multipart/form-data">
+                                <form action="/projek/{{ $projek->id }}/markah-eph-jalan" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="fasa" value="verifikasi">
                                     <h4 class="mb-3">VERIFIKASI PERMARKAHAN JALAN</h4>
@@ -681,6 +718,7 @@
                             </div>
                         </div>
                     </div>
+                    @endrole
 
                     <!--RAYUAN REKABENTUK EPH JALAN-->
                     @if($projek->status == "Proses Rayuan Rekabentuk Jalan Baru")
@@ -750,8 +788,10 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     
                     <!--RAYUAN VERIFIKASI EPH JALAN-->
+                    @if($projek->status == "Proses Rayuan Rekabentuk Jalan Naiktaraf")
                     <div class="tab-pane" id="tab-6" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
@@ -817,8 +857,8 @@
                             </div>
                         </div>
                     </div>
-                    @endrole
                     @endif
+                    @endrole
 
                     <!--SIJIL REKABENTUK EPH JALAN-->
                     <div class="tab-pane" id="tab-7" role="tabpanel">
