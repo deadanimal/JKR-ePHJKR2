@@ -140,7 +140,7 @@
                 </form>
                 @endrole 
                 @role('ketua-pasukan|pentadbir|sekretariat')
-                    <button class="btn btn-primary mx-3 my-3" type="submit" onclick="printJS('printJS-form', 'html')">Muat Turun Maklumat Projek</button>
+                    <button class="btn btn-primary mx-3 my-3" type="submit" onclick="printJS('printJS-form', 'html')">Muat Turun</button>
                 @endrole 
                 <form action="/projek/{{$projek->id}}/sah-gpss-jalan-rayuan" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -279,18 +279,21 @@
                                         <thead class="text-white bg-orange-jkr">
                                             <tr> 
                                                 <th rowspan="2">No.</th>
-                                                    <th rowspan="2">Work Element</th>
-                                                    <th rowspan="2">Total Point Allocated</th>
-                                                    <th rowspan="2">Current Point Allocated</th>
-                                                    <th colspan="2">Total Points Requested</th>
-                                                    <th>Total Points Awarded</th>
-                                                    <th rowspan="2">Weightage (Refer Annex C)</th>
-                                                    <th rowspan="2">Percentage of Green Product Scoring Score %</th>
+                                                <th rowspan="2">Work Element</th>
+                                                <th rowspan="2">Total Point Allocated</th>
+                                                <th rowspan="2">Current Point Allocated</th>
+                                                <th colspan="2">Total Points Requested</th>
+                                                <th>Total Points Awarded</th>
+                                                <th rowspan="2">Weightage (Refer Annex C)</th>
+                                                <th colspan="3">Percentage of Green Product Scoring Score %</th>
                                             </tr>
                                             <tr>
                                                 <th>Design stage</th>
                                                 <th>Construction stage</th>
                                                 <th>Construction Stage</th>
+                                                <th>Point Requested Design</th>
+                                                <th>Point Requested Construction</th>
+                                                <th>Point Awarded</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-black">
@@ -304,6 +307,8 @@
                                             <th>0</th>
                                             <th>0</th>
                                             <th>0</th>
+                                            <th>0.00</th> 
+                                            <th>0.00</th>
                                             </tr>
 
                                             <tr>
@@ -316,6 +321,8 @@
                                             <th>0</th>
                                             <th>0</th>
                                             <th>0</th>
+                                            <th>0.00</th> 
+                                            <th>0.00</th>
                                             </tr>
 
                                             <tr>
@@ -328,6 +335,8 @@
                                             <th>0</th>
                                             <th>0</th>
                                             <th>0</th>
+                                            <th>0.00</th>
+                                            <th>0.00</th>
                                             </tr>
 
                                             <tr>
@@ -339,7 +348,9 @@
                                             <th>0</th>
                                             <th>0</th>
                                             <th>0</th> 
-                                            <th>0</th>                                           
+                                            <th>0</th>
+                                            <th>0.00</th> 
+                                            <th>0.00</th>
                                             </tr>
 
                                             <tr>
@@ -351,7 +362,9 @@
                                             <th>{{$rw_cs}}</th>
                                             <th>{{$rw_pad}}</th>
                                             <th>0.33</th>
-                                            <th>{{number_format($peratus_rw,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_rw_ds,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_rw_cs,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_rw_pad,2,".",",")}}</th>
                                             </tr>
 
                                             <tr>
@@ -363,7 +376,9 @@
                                             <th>{{$sw_cs}}</th>
                                             <th>{{$sw_pad}}</th>
                                             <th>0.33</th>
-                                            <th>{{number_format($peratus_sw,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_sw_ds,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_sw_cs,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_sw_pad,2,".",",")}}</th>
                                             </tr>
 
                                             <tr>
@@ -374,7 +389,9 @@
                                             <th>{{$total_cs}}</th>
                                             <th>{{$total_pad}}</th>
                                             <th>0.66</th>
-                                            <th>{{number_format($total_peratus_road,2,".",",")}}</th>
+                                            <th>{{number_format($total_peratus_road_ds,2,".",",")}}</th>
+                                            <th>{{number_format($total_peratus_road_cs,2,".",",")}}</th>
+                                            <th>{{number_format($total_peratus_road_pad,2,".",",")}}</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -383,14 +400,25 @@
                             <table class="table table-bordered line-table text-center" style="width: 100%">
                                 <thead class="text-white bg-orange-jkr">
                                     <tr>
-                                        <th colspan="2">SUMMARY</th>
+                                        <th>SUMMARY</th>
+                                        <th rowspan="2">Point Requested Design</th>
+                                        <th rowspan="2">Point Requested Construction</th>
+                                        <th rowspan="2">Point Awarded</th>
+                                    </tr>
+                                    <tr>
+                                        <th>PERCENTAGE OF GPSS SCORE %</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-black">
                                     <tr>
                                         <th>GPSS Star (Bangunan) </th>
                                         <th>
-                                            <input type="hidden" name="fasa" value="rekabentuk">
+                                            <span class="star">0&#160;&starf;</span>
+                                        </th>
+                                        <th>
+                                            <span class="star">0&#160;&starf;</span>
+                                        </th>
+                                        <th>
                                             <span class="star">0&#160;&starf;</span>
                                         </th>
                                     </tr>
@@ -399,17 +427,51 @@
                                         <th>GPSS Star (Jalan)</th>
                                         <th>
                                             <span class="star">
-                                                @if ($total_peratus_road >= 80)
+                                                @if ($total_peratus_road_ds >= 80)
                                                     5&#160;&starf; &starf; &starf; &starf; &starf;
-                                                @elseif ($total_peratus_road >= 70 && $total_peratus_road < 79)
+                                                @elseif ($total_peratus_road_ds >= 70 && $total_peratus_road_ds < 79)
                                                     4&#160;&starf; &starf; &starf; &starf;
-                                                @elseif ($total_peratus_road >= 50 && $total_peratus_road < 69)
+                                                @elseif ($total_peratus_road_ds >= 60 && $total_peratus_road_ds < 69)
                                                     3&#160;&starf; &starf; &starf;
-                                                @elseif ($total_peratus_road >= 30 && $total_peratus_road < 49)
+                                                @elseif ($total_peratus_road_ds >= 50 && $total_peratus_road_ds < 59)
                                                     2&#160;&starf; &starf; 
-                                                @elseif ($total_peratus_road >= 10 && $total_peratus_road <49)
+                                                @elseif ($total_peratus_road_ds >= 40 && $total_peratus_road_ds <49)
                                                     1&#160;&starf;
-                                                @elseif ($total_peratus_road <10)
+                                                @elseif ($total_peratus_road_ds <39)
+                                                    0&#160;&starf;                                                                                            
+                                                @endif
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span class="star">
+                                                @if ($total_peratus_road_cs >= 80)
+                                                    5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                @elseif ($total_peratus_road_cs >= 70 && $total_peratus_road_cs < 79)
+                                                    4&#160;&starf; &starf; &starf; &starf;
+                                                @elseif ($total_peratus_road_cs >= 60 && $total_peratus_road_cs < 69)
+                                                    3&#160;&starf; &starf; &starf;
+                                                @elseif ($total_peratus_road_cs >= 50 && $total_peratus_road_cs < 59)
+                                                    2&#160;&starf; &starf; 
+                                                @elseif ($total_peratus_road_cs >= 40 && $total_peratus_road_cs <49)
+                                                    1&#160;&starf;
+                                                @elseif ($total_peratus_road_cs <39)
+                                                    0&#160;&starf;                                                                                            
+                                                @endif
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span class="star">
+                                                @if ($total_peratus_road_pad >= 80)
+                                                    5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                @elseif ($total_peratus_road_pad >= 70 && $total_peratus_road_pad < 79)
+                                                    4&#160;&starf; &starf; &starf; &starf;
+                                                @elseif ($total_peratus_road_pad >= 60 && $total_peratus_road_pad < 69)
+                                                    3&#160;&starf; &starf; &starf;
+                                                @elseif ($total_peratus_road_pad >= 50 && $total_peratus_road_pad < 59)
+                                                    2&#160;&starf; &starf; 
+                                                @elseif ($total_peratus_road_pad >= 40 && $total_peratus_road_pad <49)
+                                                    1&#160;&starf;
+                                                @elseif ($total_peratus_road_pad <39)
                                                     0&#160;&starf;                                                                                            
                                                 @endif
                                             </span>
@@ -420,20 +482,54 @@
                                     <th>MyCREST</th>
                                     <th>
                                         <span>
-                                            @if ($total_peratus_crest >= 80)
+                                            @if ($total_peratus_crest_ds >= 80)
                                                     3&#160;Points
-                                                @elseif ($total_peratus_crest >= 70 && $total_peratus_crest < 79)
+                                                @elseif ($total_peratus_crest_ds >= 70 && $total_peratus_crest_ds < 79)
                                                     3&#160;Points
-                                                @elseif ($total_peratus_crest >= 50 && $total_peratus_crest < 69)
+                                                @elseif ($total_peratus_crest_ds >= 50 && $total_peratus_crest_ds < 69)
                                                     2&#160;Points
-                                                @elseif ($total_peratus_crest >= 30 && $total_peratus_crest < 49)
+                                                @elseif ($total_peratus_crest_ds >= 30 && $total_peratus_crest_ds < 49)
                                                     2&#160;Points 
-                                                @elseif ($total_peratus_crest >= 10 && $total_peratus_crest <29)
+                                                @elseif ($total_peratus_crest_ds >= 10 && $total_peratus_crest_ds <29)
                                                     1&#160;Points  
-                                                @elseif ($total_peratus_crest <10)
+                                                @elseif ($total_peratus_crest_ds <10)
                                                     0&#160;Point                                                                                          
                                             @endif
-                                        </span>                    
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <span>
+                                            @if ($total_peratus_crest_cs >= 80)
+                                                    3&#160;Points
+                                                @elseif ($total_peratus_crest_cs >= 70 && $total_peratus_crest_cs < 79)
+                                                    3&#160;Points
+                                                @elseif ($total_peratus_crest_cs >= 50 && $total_peratus_crest_cs < 69)
+                                                    2&#160;Points
+                                                @elseif ($total_peratus_crest_cs >= 30 && $total_peratus_crest_cs < 49)
+                                                    2&#160;Points 
+                                                @elseif ($total_peratus_crest_cs >= 10 && $total_peratus_crest_cs <29)
+                                                    1&#160;Points  
+                                                @elseif ($total_peratus_crest_cs <10)
+                                                    0&#160;Point                                                                                          
+                                            @endif
+                                        </span>
+                                    </th>
+                                    <th>
+                                        <span>
+                                            @if ($total_peratus_crest_pad >= 80)
+                                                    3&#160;Points
+                                                @elseif ($total_peratus_crest_pad >= 70 && $total_peratus_crest_pad < 79)
+                                                    3&#160;Points
+                                                @elseif ($total_peratus_crest_pad >= 50 && $total_peratus_crest_pad < 69)
+                                                    2&#160;Points
+                                                @elseif ($total_peratus_crest_pad >= 30 && $total_peratus_crest_pad < 49)
+                                                    2&#160;Points 
+                                                @elseif ($total_peratus_crest_pad >= 10 && $total_peratus_crest_pad <29)
+                                                    1&#160;Points  
+                                                @elseif ($total_peratus_crest_pad <10)
+                                                    0&#160;Point                                                                                          
+                                            @endif
+                                        </span>
                                     </th>
                                     </tr>
                                 </tbody> 
@@ -457,7 +553,7 @@
                     @role('ketua-pasukan|penolong-ketua-pasukan')
                         <div class="row mt-3">
                             <div class="col text-center">
-                                <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun Rumusan Skor Kad</button>
+                                <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun</button>
                             </div>
                         </div>
                     @endrole
@@ -496,6 +592,11 @@
                             @role('sekretariat')
                                 <div class="row mt-3">
                                     <div class="col text-center">
+                                        <a href="#" class="btn btn-primary">Sah Penilaian</a>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col text-center">
                                         <button class="btn btn-primary">Jana Skor Kad</button>
                                     </div>
                                 </div>
@@ -503,7 +604,7 @@
                             @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="row mt-3">
                                     <div class="col text-center">
-                                        <button class="btn btn-primary" onclick="printJS('skor-kad', 'html')">Muat Turun Skor Kad</button>
+                                        <button class="btn btn-primary" onclick="printJS('skor-kad', 'html')">Muat Turun</button>
                                     </div>
                                 </div>
                             @endrole
@@ -526,12 +627,12 @@
                                     </div>
                                     <div class="col-7 mb-2">
                                         <select class="form-select form-control" id="kriteriaRekabentukDipilih"
-                                            name="gpss_kriteria" onchange="kriteriaRekabentuk()">
-                                            @foreach ($rekabentuk_kriterias as $akriteria)
-                                                <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
-                                                    {{ $akriteria->nama }}</option>
-                                            @endforeach
-                                        </select>
+                                                name="gpss_kriteria" onchange="kriteriaRekabentuk()" required>
+                                                @foreach ($rekabentuk_kriterias as $akriteria)
+                                                    <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
+                                                        {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
                                     {{-- <div class="col-5 mb-2">
                                         <label class="col-form-label">Maximum Marks:</label>
@@ -597,12 +698,12 @@
                                     </div>
                                     <div class="col-7 mb-2">
                                         <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
-                                            name="gpss_kriteria" onchange="kriteriaVerifikasi()">
-                                            @foreach ($verifikasi_kriterias as $akriteria)
-                                                <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} >
-                                                    {{ $akriteria->nama }} > {{$akriteria->produk}}</option>
-                                            @endforeach
-                                        </select>
+                                                name="gpss_kriteria" onchange="kriteriaVerifikasi()" required>
+                                                @foreach ($verifikasi_kriterias as $akriteria)
+                                                    <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
+                                                        {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
                                     @role('penilai|ketua-penilai')
                                         <div class="col-5 mb-2">
@@ -674,19 +775,13 @@
                                     </div>
                                     <div class="col-7 mb-2">
                                         <select class="form-select form-control" id="kriteriaRayuanDipilih"
-                                            name="gpss_kriteria" onchange="kriteriaRayuan()">
-                                            @foreach ($rayuan_kriterias as $akriteria)
-                                                <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} -
-                                                    {{ $akriteria->komponen }}</option>
-                                            @endforeach
-                                        </select>
+                                                name="gpss_kriteria" onchange="kriteriaRayuan()">
+                                                @foreach ($rayuan_kriterias as $akriteria)
+                                                    <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
+                                                        {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
+                                                @endforeach
+                                            </select>
                                     </div>
-                                    {{-- <div class="col-5 mb-2">
-                                        <label class="col-form-label">Maximum Marks:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <div class="col-7 mb-2" id="infoKriteriaRayuanDipilih"></div>
-                                    </div> --}}
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Point Allocated:</label>
                                     </div>
@@ -755,7 +850,7 @@
                             @role('ketua-pasukan|penolong-ketua-pasukan')
                             <div class="row mt-3">
                                 <div class="col text-center">
-                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Muat Turun Sijil</a>
+                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Muat Turun</a>
                                 </div>
                             </div>
                             @endrole

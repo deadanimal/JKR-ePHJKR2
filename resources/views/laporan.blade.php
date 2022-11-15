@@ -96,17 +96,20 @@
 
 <div class="container-fluid">
     <div class="card">
-        <div class="card-body">
+        <div class="card-body" id="graf-analisa-keseluruhan">
             <h3>Analisa Keseluruhan PHJKR (dari Tahun 2020)</h3>
             <h4>Senarai Projek PHJKR (Jalan & Bangunan)</h4>
-                <div id="senarai_projek_phjkr"></div>
-                <div id="phjkr_bangunan"></div>
-                <div id="phjkr_jalan"></div>
+            <div id="senarai_projek_phjkr"></div>
+            <div id="phjkr_bangunan"></div>
+            <div id="phjkr_jalan"></div>
+            <div class="col text-center">
+              <button class="btn btn-primary" onclick="printJS('graf-analisa-keseluruhan', 'html')">Muat Turun</button>
+            </div>
         </div> 
     </div>
 
     <div class="card mt-6">
-        <div class="card-body">
+        <div class="card-body" id="graf-analisa-phjkr-bangunan-1">
             <h3>Analisa PHJKR 2018-2021 (Bangunan)</h3>
             <div id="tapak_lestari_bangunan"></div>
             <div id="kecekapan_tenaga_bangunan"></div>
@@ -115,12 +118,15 @@
             <div id="persekitaran_dalaman_bangunan"></div>
             <div id="fasiliti_lestari_bangunan"></div>
             <div id="inovasi_bangunan"></div>
+            <div class="col text-center">
+              <button class="btn btn-primary" onclick="printJS('graf-analisa-phjkr-bangunan-1', 'html')">Muat Turun</button>
+            </div>
         </div>
     </div>
             
 
     <div class="card mt-6">
-        <div class="card-body">
+        <div class="card-body" id="graf-analisa-phjkr-bangunan">
             <h3>Analisa PHJKR 2019-2022 (Bangunan) VP</h3>
                 <div id="tapak_lestari_bangunan_vp"></div>
                 <div id="kecekapan_tenaga_bangunan_vp"></div>
@@ -129,15 +135,21 @@
                 <div id="persekitaran_dalaman_bangunan_vp"></div>
                 <div id="fasiliti_lestari_bangunan_vp"></div>
                 <div id="inovasi_bangunan_vp"></div>
+                <div class="col text-center">
+                  <button class="btn btn-primary" onclick="printJS('graf-analisa-phjkr-bangunan', 'html')">Muat Turun</button>
+                </div>
         </div>
     </div>
 
     <div class="card mt-6">
-        <div class="card-body">
+        <div class="card-body" id="graf-analisa-phjkr-jalan">
             <h3>Analisa PHJKR 2018-2021 (Jalan)</h3>
             <h4>Bilangan Pencapaian mengikut Pematuhan Kriteria</h4>
             <h5>(Jumlah Projek Melaksanakan Kriteria) pHJKR JALAN</h5>
                 <div id="analisa_phjkr_jalan"></div>
+            <div class="col text-center">
+              <button class="btn btn-primary" onclick="printJS('graf-analisa-phjkr-jalan', 'html')">Muat Turun</button>
+            </div>
         </div>
     </div>
 
