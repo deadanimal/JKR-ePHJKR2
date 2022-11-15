@@ -190,6 +190,15 @@
                             <div class="col-5 mb-2">
                                 <label class="col-form-label">Peranan:</label>
                             </div>
+                            @role('sekretariat')
+                            <div class="col-7 mb-2">
+                                <select class="form-select" name="role_id">
+                                    <option value=3 selected>Ketua Pasukan</option>
+                                    <option value=4>Penolong Ketua Pasukan</option>
+                                </select>
+                            </div>
+                            @endrole
+                            @role('ketua-pasukan|penolong-ketua-pasukan')
                             <div class="col-7 mb-2">
                                 <select class="form-select" name="role_id">
                                     <option value=6 selected>Pemudah Cara</option>
@@ -197,14 +206,13 @@
                                     <option value=7>Penilai</option>
                                 </select>
                             </div>
+                            @endrole
                         </div>
-                        @role('ketua-pasukan|penolong-ketua-psaukan')
                         <div class="row mt-3">
                             <div class="col text-center">
                                 <button class="btn btn-primary" type="submit">Lantik</button>
                             </div>
                         </div>
-                        @endrole
                     </form>
                 </div>
             </div>
