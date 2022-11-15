@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-7 mb-2">
                         <select name="negeri" id="countySel" size="1" class="form-select form-control" aria-label="Default select example" >
-                            <option selected>Pilih negeri</option>
+                            <option selected>Pilih Negeri</option>
                             
                         </select>
                     </div>
@@ -36,7 +36,7 @@
                     </div>
                     <div class="col-7 mb-2">
                         <select name="bandar" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
-                            <option selected>Pilih bandar</option>
+                            <option selected>Pilih Bandar</option>
                             
                         </select>
                     </div>
