@@ -1,7 +1,7 @@
 @extends('layouts.anon')
 
 @section('content')
-    @role('sekretariat|pentadbir|pengurusan-atasan')
+    @role('sekretariat|pentadbir')
     <div class="row my-3">
         <div class="col">
             <div class="card">
@@ -73,7 +73,9 @@
                                         <th class="sort">Bil.</th>
                                         <th class="sort">Soalan</th>
                                         <th class="sort">Jawapan</th>
+                                        @role('sekretariat|pentadbir')
                                         <th class="sort">Tindakan</th>
+                                        @endrole
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white">
@@ -86,12 +88,13 @@
 
 
                                             <td>
+                                                @role('sekretariat|pentadbir')
                                                 <div class="row">
                                                     <div class="col-auto">
                                                         <a href="/faq/{{ $faq->id }}"
                                                             class="btn btn-sm btn-primary"><i class="fas fa-edit"></i></a>
                                                     </div>
-                                                    @role('sekretariat|pentadbir|pengurusan-atasan')
+                                                    
                                                     <div class="col-auto">
                                                         <form action="/faq/{{ $faq->id }}" method="post">
                                                             @method('DELETE')

@@ -49,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('profil/tukar_peranan/{id}', [UserController::class, 'tukar_peranan']);
     Route::get('profil/tukar_peranan2/{id}', [UserController::class, 'tukar_peranan2']);
 
+    Route::post('profil/simpan_tukar_peranan2/{id}', [UserController::class, 'simpan_tukar_peranan2']);
     Route::put('profil/simpan_tukar_peranan/{id}', [UserController::class, 'simpan_tukar_peranan']);
     Route::put('profil/simpan2_tukar_peranan/{id}', [UserController::class, 'simpan2_tukar_peranan']);
     Route::put('profil/simpan3_tukar_peranan/{id}', [UserController::class, 'simpan3_tukar_peranan']);
@@ -66,6 +67,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('senaraiPengguna/sembunyi', [UserController::class, 'senarai_sembunyi']);
     Route::get('senaraiPengguna/pengesahan_akaun_baru', [UserController::class, 'senarai_pengesahan_akaun']);
     Route::put('senaraiPengguna/simpan_sah_akaun/{id}', [UserController::class, 'simpan_sah_akaun']);
+    Route::get('senaraiPengguna/papar/{id}', [UserController::class, 'papar_pengguna']);
+
 
     Route::get('projek', [ProjekController::class, 'senarai_projek']); 
     Route::get('projek/borang', [ProjekController::class, 'borang_projek']); 

@@ -33,21 +33,42 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <form action="/profil/simpan_kemaskini/{{$pengguna->id}}" method="post">
-                    @method('PUT')
+                <form action="/profil/simpan_tukar_peranan2/{{$pengguna->id}}" method="post">
+                    @method('POST')
                     @csrf
                     <div class="row mx-4">
+                        <div class="col-3 mb-2">
+                            <label class="col-form-label">Nama:</label>
+                        </div>
+                        <div class="col-7 mb-2">
+                            <input class="form-control" type="text" value="{{ $pengguna->name }}" readonly/>
+                            <input class="form-control" name="user_id" type="hidden" value="{{ $pengguna->id }}"/>
+                        </div>
+                            {{-- <input class="form-control" type="hidden" name="user_id" value="{{ $pengguna->id }}" /> --}}
+                        
+                            {{-- <input class="form-control" type="hidden" name="role_id_lama" value="{{ $projeks->role->role_id}}" /> --}}
+
                         <div class="col-3 mb-2">
                             <label class="col-form-label">Nama Projek:</label>
                         </div>
                         <div class="col-7 mb-2">
-                            <select name="projek_id" class="form-select form-control">
-                                <option value="" selected hidden>Sila Pilih</option>
-                                @foreach ($projek as $pr)
-                                    <option value="{{ $pr->projek->id }}">{{ $pr->projek->namaProjek }}</option>
+                            <select name="projek_id" class="form-select form-control" id="projek">
+                                <option value="projek_id" selected hidden>Sila Pilih</option>
+                                @foreach ($projeks as $pr)
+                                    <option value="{{ $pr->projek->id}}">{{ $pr->projek->nama}}</option>
                                 @endforeach
                             </select>
                         </div>
+
+                        <div class="col-3 mb-2">
+                            <label class="col-form-label">Peranan Sekarang:</label>
+                        </div>
+
+                        <div class="col-7 mb-2">
+                            <input id="nama_peranan" type="text" class="form-control" readonly>
+                            <input id="nama_peranan2" name="role_id_lama" type="hidden" class="form-control" readonly>
+                        </div>
+
                         <div class="col-3 mb-2">
                             <label class="col-form-label">Peranan Baru:</label>
                         </div>
@@ -89,47 +110,64 @@
                         <tr>
                             <th class="sort">Bil.</th>
                             <th class="sort">Nama Projek</th>
-                            <th class="sort">Peranan</th>
+                            <th class="sort">Peranan lama</th>
+                            <th class="sort">Peranan baru</th>
                             <th class="sort">Tindakan</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white">
-                        {{-- @foreach ($lantikans as $p) --}}
+                        @foreach ($peranans as $p)
                             <tr>
+                                {{-- <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td></td> --}}
 
-                                {{-- <td>{{ $loop->iteration }}</td> --}}
-                                {{-- <td>{{ $p->projek->nama }}</td> --}}
-                                {{-- <td>{{ $p->role->name }}</td> --}}
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $p->projek_id }}</td>
+                                <td>{{ $p->role_id_lama }}</td>
+                                <td>{{ $p->role_id_baru }}</td>
                                 <td>
                                     <div class="col">
                                         <div class="col-auto">
                                             <form action="/profil/simpan_tukar_peranan/{{--{{ $p->id }}--}}" method="post">
                                             @method('PUT')
                                             @csrf
-                                            <button name="name" value="7" type="submit"
-                                                class="btn btn-primary">Accept</button>
+                                            <button name="sah" value="1" type="submit"
+                                                class="btn btn-primary">Pengesahan</button>
                                             </form>
                                         </div>
-                                        <div class="col-auto">
-                                            <form action="/profil/simpan2_tukar_peranan/{{--{{ $p->id }}--}}" method="post">
+                                        {{-- <div class="col-auto">
+                                            <form action="/profil/simpan2_tukar_peranan/{{--{{ $p->id }}--}" method="post">
                                             @method('PUT')
                                             @csrf
-                                            <button name="name" value="6" type="submit"
+                                            <button name="name" value="0" type="submit"
                                                 class="btn btn-primary">Reject</button>
                                             </form>
-                                        </div>
+                                        </div> --}}
                                     </div> 
                                 </td>
                             </tr>
-                        {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $('#projek').change(function() {
+        var projek_id = $('#projek').val();
+        var role = @json($projeks->toArray());
+
+        role.forEach(e => {
+            if (projek_id == e.projek_id) {
+                $('#nama_peranan').val(e.nama_peranan);
+                $('#nama_peranan2').val(e.role_id);
+            }
+        });
+    });
+</script>
 
 @endsection

@@ -14,6 +14,7 @@ use App\Models\KriteriaEphBangunan;
 use App\Models\KriteriaEphJalan;
 use App\Models\KriteriaGpssBangunan;
 use App\Models\KriteriaGpssJalan;
+use App\Models\PenukaranPeranan;
 use App\Models\ProjekRoleUser;
 use App\Models\Role;
 use OwenIt\Auditing\Models\Audit;
@@ -57,8 +58,12 @@ class UserController extends Controller
         $pengguna = User::find($id);
         $pengguna->name = $request->name;
         $pengguna->email = $request->email;
-        // $pengguna->telNo = $request->telNo;
-        // $pengguna->nama_syarikat = $request->nama_syarikat;
+        $pengguna->negeri = $request->negeri;
+        $pengguna->daerah = $request->daerah;
+        $pengguna->telNo = $request->telNo;
+        $pengguna->faxNo = $request->faxNo;
+        $pengguna->nama_cawangan = $request->nama_cawangan;
+        $pengguna->nama_syarikat = $request->nama_syarikat;
         $pengguna->alamat_syarikat = $request->alamat_syarikat;
 
         $pengguna->save();
@@ -79,17 +84,28 @@ class UserController extends Controller
     public function tukar_peranan2(Request $request) {  
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
-        // $projek = ProjekRoleUser::all();
-        $projek = ProjekRoleUser::where('projek_id', $id)->get();
+        $peranans = PenukaranPeranan::all();
+        $projeks = ProjekRoleUser::with(['projek','user'])->where('user_id', $id)->get();
+        foreach ($projeks as $key => $p) {
+            $peranan = Role::find($p->role_id)->name;
+            $p['nama_peranan'] = $peranan;
+        }
 
-        // dd($lantikans);
-        return view('profil.tukar_peranan2', compact('pengguna','projek'));
+        // dd($projeks);
+        return view('profil.tukar_peranan2', compact('pengguna','projeks','peranans','p'));
     }
 
     public function simpan_tukar_peranan2(Request $request) {  
-        $id = (int)$request->route('id'); 
-        $lantikan = ProjekRoleUser::find($id);
-        $lantikan->role_id = $request->name;
+        $lantikan = new PenukaranPeranan(); 
+        $lantikan->projek_id = $request->projek_id;
+        $lantikan->role_id_baru = $request->role_id_baru;
+        $lantikan->user_id = $request->user_id;
+        $lantikan->sah = false;
+        $lantikan->role_id_lama = $request->role_id_lama;
+
+        // $id = (int)$request->route('id'); 
+        // $lantikan = ProjekRoleUser::find($id);
+        // $lantikan->role_id = $request->name;
         // $lantikan->user_id->status_tukar_peranan = true;
 
         $lantikan->save();
@@ -97,35 +113,35 @@ class UserController extends Controller
         return redirect('/profil');
     }
 
-    public function simpan_tukar_peranan(Request $request) {  
-        $id = (int)$request->route('id'); 
-        $lantikan = ProjekRoleUser::find($id);
-        $lantikan->role_id = $request->name;
-        // $lantikan->user_id->status_tukar_peranan = true;
+    // public function simpan_tukar_peranan(Request $request) {  
+    //     $id = (int)$request->route('id'); 
+    //     $lantikan = ProjekRoleUser::find($id);
+    //     $lantikan->role_id = $request->name;
+    //     // $lantikan->user_id->status_tukar_peranan = true;
 
-        $lantikan->save();
-        alert()->success('Peranan telah dikemaskini', 'Berjaya');
-        return redirect('/profil');
-    }
+    //     $lantikan->save();
+    //     alert()->success('Peranan telah dikemaskini', 'Berjaya');
+    //     return redirect('/profil');
+    // }
 
-    public function simpan2_tukar_peranan(Request $request) {  
-        $id = (int)$request->route('id'); 
-        $lantikan = ProjekRoleUser::find($id);
-        $lantikan->role_id = $request->name;
+    // public function simpan2_tukar_peranan(Request $request) {  
+    //     $id = (int)$request->route('id'); 
+    //     $lantikan = ProjekRoleUser::find($id);
+    //     $lantikan->role_id = $request->name;
 
-        $lantikan->save();
-        alert()->success('Peranan telah dikemaskini', 'Berjaya');
-        return redirect('/profil');
-    }
-    public function simpan3_tukar_peranan(Request $request) {  
-        $id = (int)$request->route('id'); 
-        $lantikan = ProjekRoleUser::find($id);
-        $lantikan->role_id = $request->name;
+    //     $lantikan->save();
+    //     alert()->success('Peranan telah dikemaskini', 'Berjaya');
+    //     return redirect('/profil');
+    // }
+    // public function simpan3_tukar_peranan(Request $request) {  
+    //     $id = (int)$request->route('id'); 
+    //     $lantikan = ProjekRoleUser::find($id);
+    //     $lantikan->role_id = $request->name;
 
-        $lantikan->save();
-        alert()->success('Peranan telah dikemaskini', 'Berjaya');
-        return redirect('/profil');
-    }
+    //     $lantikan->save();
+    //     alert()->success('Peranan telah dikemaskini', 'Berjaya');
+    //     return redirect('/profil');
+    // }
 
     public function senaraiPengguna(Request $request) {   
         $id = (int)$request->route('id'); 
@@ -156,6 +172,12 @@ class UserController extends Controller
         return view('senaraiPengguna.kemaskini', compact('pengguna'));
     }
 
+    public function papar_pengguna(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $pengguna = User::find($id);  
+        return view('senaraiPengguna.papar', compact('pengguna'));
+    }
+
     public function simpan_kemaskini_pengguna(Request $request) {  
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
@@ -169,8 +191,8 @@ class UserController extends Controller
 
     public function senarai_tukar_peranan(Request $request) {   
         $id = (int)$request->route('id'); 
-        $pengguna = User::all();
-        return view('senaraiPengguna.senarai_tukar_peranan', compact('pengguna'));
+        $peranan = PenukaranPeranan::all();
+        return view('senaraiPengguna.senarai_tukar_peranan', compact('peranan'));
     }
 
     public function senarai_pengesahan_akaun(Request $request) {   

@@ -41,27 +41,43 @@
                         <thead class="bg-primary">
                             <tr>
                                 <th class="sort">Bil.</th>
-                                <th class="sort">Nama Pengguna</th>
-                                <th class="sort">Nama Syarikat</th>
-                                <th class="sort">Nama Cawangan</th>
-                                <th class="sort">Nama Negeri</th>
-                                <th class="sort">Nama Peranan</th>
+                                <th class="sort">Nama Projek</th>
+                                <th class="sort">Peranan Lama</th>
+                                <th class="sort">Peranan Baru</th>
                                 <th class="sort">Tindakan</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white">
-                            @foreach ($pengguna as $p)
+                            @foreach ($peranan as $p)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $p->name }}</td>
-                                    <td>{{ $p->namaSyarikat }}</td>
-                                    <td>{{ $p->namaCawangan }}</td>
-                                    <td>{{ $p->negeri }}</td>
-                                    <td></td>
+                                    <td>{{ $p->projek_id }}</td>
+                                    <td>{{ $p->role_id_lama }}</td>
+                                    <td>{{ $p->role_id_baru }}</td>
                                     <td>
+                                        <div class="col">
+                                            <div class="col-auto">
+                                                <form action="/profil/simpan_tukar_peranan/{{--{{ $p->id }}--}}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="sah" value="1" type="submit"
+                                                    class="btn btn-primary">Sah</button>
+                                                </form>
+                                            </div>
+                                            {{-- <div class="col-auto">
+                                                <form action="/profil/simpan2_tukar_peranan/{{--{{ $p->id }}--}" method="post">
+                                                @method('PUT')
+                                                @csrf
+                                                <button name="name" value="0" type="submit"
+                                                    class="btn btn-primary">Reject</button>
+                                                </form>
+                                            </div> --}}
+                                        </div> 
+                                    </td>
+                                    {{-- <td>
                                         <a href="//senarai_pengguna/{{ $p->id }}/edit"
                                             class="btn btn-sm btn-primary">Pengesahan</a>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>
