@@ -300,7 +300,7 @@ class ProjekController extends Controller
         $user_role = ProjekRoleUser::where([
             ['projek_id', '=', $id],
             ['user_id', '=',$user->id],
-        ])->first();        
+        ])->first();                
 
         if($request->ajax() && $projek->kategori ==  'phJKR Bangunan Baru A') {
             $kriterias = Kriteria::where('borang', 'BARU A')->get();
@@ -1435,73 +1435,85 @@ class ProjekController extends Controller
             ->addColumn('markah_point_allocated', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
                 $html_button = '?';
+                // dd($markah);      
                 $markah = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
-                ])->first(); 
-                // dd($markah);      
-                if($markah) {
-                    $html_button = $markah->point_allocated;
+                ])->first();                
+                if($markah) {  
+                    if ($markah->point_allocated != null) {
+                        $html_button = $markah->point_allocated;
+                    }                                       
                 }         
                 return $html_button;   
             })
             ->addColumn('markah_point_req_design', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
-                $html_button = '?';
+                $html_button = '?'; 
                 $markah = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
-                ])->first();       
-                if($markah) {
-                    $html_button = $markah->point_req_design;
+                ])->first();                    
+                if($markah) {                     
+                    if ($markah->point_req_design != null) {
+                        $html_button = $markah->point_req_design;
+                    }                    
                 }         
                 return $html_button;
             })
             ->addColumn('markah_point_req_construction', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
-                $html_button = '?';
+                $html_button = '?'; 
                 $markah = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id],
                     ['fasa', '=', 'verifikasi']
-                ])->first();       
+                ])->first();                  
                 if($markah) {
-                    $html_button = $markah->point_req_construction;
+                    if($markah->point_req_construction != null) {
+                        $html_button = $markah->point_req_construction;
+                    }
+                                            
                 }         
                 return $html_button;
             })
             ->addColumn('markah_point_awarded', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
-                $html_button = '?';
+                $html_button = '?';    
                 $markah = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
-                ])->first();       
-                if($markah) {
-                    $html_button = $markah->point_awarded;
+                ])->first();                   
+                if($markah) { 
+                    if ($markah->point_awarded != null) {
+                        $html_button = $markah->point_awarded;
+                    }                                    
                 }         
                 return $html_button;
             })
             ->addColumn('remarks_', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
-                $html_button = '?';
+                $html_button = '?';  
                 $markah = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id],
-                ])->first();       
+                ])->first();                     
                 if($markah) {
-                    $html_button = $markah->remarks;
+                    if ($markah->remarks != null) {
+                        $html_button = $markah->remarks;
+                    }                    
                 }         
                 return $html_button;
             })     
             ->addColumn('dokumen_', function (GpssKriteria $gpss_kriteria) use ($projek) {
                 $gpss_kriteria_id = $gpss_kriteria->id;
-                $html_button = '?';
+                $html_button = '?';    
                 $markah = GpssMarkah::where([
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id],
-                ])->first();       
+                ])->first();                  
                 if($markah) {
+                     
                     if($markah->dokumen1) {
                         $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
                         $html_button = '<a href="'.$url.'">Dokumen 1</a>';
@@ -1540,8 +1552,10 @@ class ProjekController extends Controller
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first(); 
                 // dd($markah);      
-                if($markah) {
-                    $html_button = $markah->point_allocated;
+                if($markah) {  
+                    if ($markah->point_allocated != null) {
+                        $html_button = $markah->point_allocated;
+                    }                                       
                 }         
                 return $html_button;   
             })
@@ -1552,8 +1566,10 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first();       
-                if($markah) {
-                    $html_button = $markah->point_req_design;
+                if($markah) {                     
+                    if ($markah->point_req_design != null) {
+                        $html_button = $markah->point_req_design;
+                    }                    
                 }         
                 return $html_button;
             })
@@ -1566,7 +1582,10 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi']
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->point_req_construction;
+                    if($markah->point_req_construction != null) {
+                        $html_button = $markah->point_req_construction;
+                    }
+                                            
                 }         
                 return $html_button;
             })
@@ -1577,8 +1596,10 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first();       
-                if($markah) {
-                    $html_button = $markah->point_awarded;
+                if($markah) { 
+                    if ($markah->point_awarded != null) {
+                        $html_button = $markah->point_awarded;
+                    }                                    
                 }         
                 return $html_button;
             })
@@ -1590,8 +1611,10 @@ class ProjekController extends Controller
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id],
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->remarks;
-                }         
+                    if ($markah->remarks != null) {
+                        $html_button = $markah->remarks;
+                    }                    
+                }          
                 return $html_button;
             })     
             ->addColumn('dokumen_', function (GpssKriteria $gpss_kriteria) use ($projek) {
@@ -1640,9 +1663,11 @@ class ProjekController extends Controller
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first(); 
                 // dd($markah);      
-                if($markah) {
-                    $html_button = $markah->point_allocated;
-                }         
+                if($markah) {  
+                    if ($markah->point_allocated != null) {
+                        $html_button = $markah->point_allocated;
+                    }                                       
+                }          
                 return $html_button;   
             })
             ->addColumn('markah_point_req_design', function (GpssKriteria $gpss_kriteria) use ($projek) {
@@ -1652,8 +1677,10 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first();       
-                if($markah) {
-                    $html_button = $markah->point_req_design;
+                if($markah) {                     
+                    if ($markah->point_req_design != null) {
+                        $html_button = $markah->point_req_design;
+                    }                    
                 }         
                 return $html_button;
             })
@@ -1666,7 +1693,10 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi']
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->point_req_construction;
+                    if($markah->point_req_construction != null) {
+                        $html_button = $markah->point_req_construction;
+                    }
+                                            
                 }         
                 return $html_button;
             })
@@ -1677,8 +1707,10 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first();       
-                if($markah) {
-                    $html_button = $markah->point_awarded;
+                if($markah) { 
+                    if ($markah->point_awarded != null) {
+                        $html_button = $markah->point_awarded;
+                    }                                    
                 }         
                 return $html_button;
             })
@@ -1690,7 +1722,9 @@ class ProjekController extends Controller
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id],
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->remarks;
+                    if ($markah->remarks != null) {
+                        $html_button = $markah->remarks;
+                    }                    
                 }         
                 return $html_button;
             })     
@@ -1740,8 +1774,10 @@ class ProjekController extends Controller
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first(); 
                 // dd($markah);      
-                if($markah) {
-                    $html_button = $markah->point_allocated;
+                if($markah) {  
+                    if ($markah->point_allocated != null) {
+                        $html_button = $markah->point_allocated;
+                    }                                       
                 }         
                 return $html_button;   
             })
@@ -1752,8 +1788,10 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first();       
-                if($markah) {
-                    $html_button = $markah->point_req_design;
+                if($markah) {                     
+                    if ($markah->point_req_design != null) {
+                        $html_button = $markah->point_req_design;
+                    }                    
                 }         
                 return $html_button;
             })
@@ -1766,7 +1804,10 @@ class ProjekController extends Controller
                     ['fasa', '=', 'verifikasi']
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->point_req_construction;
+                    if($markah->point_req_construction != null) {
+                        $html_button = $markah->point_req_construction;
+                    }
+                                            
                 }         
                 return $html_button;
             })
@@ -1777,8 +1818,10 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id]
                 ])->first();       
-                if($markah) {
-                    $html_button = $markah->point_awarded;
+                if($markah) { 
+                    if ($markah->point_awarded != null) {
+                        $html_button = $markah->point_awarded;
+                    }                                    
                 }         
                 return $html_button;
             })
@@ -1790,7 +1833,9 @@ class ProjekController extends Controller
                     ['gpss_kriteria_id', '=', $gpss_kriteria_id],
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->remarks;
+                    if ($markah->remarks != null) {
+                        $html_button = $markah->remarks;
+                    }                    
                 }         
                 return $html_button;
             })     
@@ -1838,7 +1883,7 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
-                if($markah) {
+                if($markah->target_point != null) {
                     $html_button = $markah->target_point;
                 }         
                 return $html_button;
@@ -1850,7 +1895,7 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
-                if($markah) {
+                if($markah->assessment_point != null) {
                     $html_button = $markah->assessment_point;
                 }         
                 return $html_button;
@@ -1862,7 +1907,7 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
-                if($markah) {
+                if($markah->ulasan != null) {
                     $html_button = $markah->ulasan;
                 }         
                 return $html_button;
@@ -1905,15 +1950,27 @@ class ProjekController extends Controller
         elseif($request->ajax() && $projek->kategori ==  'phJKR Jalan Naiktaraf') {
             $kriterias = Kriteria::where('borang', 'NEW ROADS')->get();
             return DataTables::collection($kriterias)
-            ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
+            ->addColumn('targetpoint_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button = '?';
                 $markah = Markah::where([
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
-                if($markah) {
-                    $html_button = $markah->markah;
+                if($markah->target_point != null) {
+                    $html_button = $markah->target_point;
+                }         
+                return $html_button;
+            })
+            ->addColumn('assessmentpoint_', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                $markah = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                ])->first();       
+                if($markah->assessment_point != null) {
+                    $html_button = $markah->assessment_point;
                 }         
                 return $html_button;
             })
@@ -1924,7 +1981,7 @@ class ProjekController extends Controller
                     ['projek_id', '=', $projek->id],
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
-                if($markah) {
+                if($markah->ulasan != null) {
                     $html_button = $markah->ulasan;
                 }         
                 return $html_button;
@@ -1961,10 +2018,10 @@ class ProjekController extends Controller
                 }         
                 return $html_button;
             })
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_'])
+            ->rawColumns(['targetpoint_', 'assessmentpoint_', 'ulasan_', 'dokumen_'])
             ->make(true);
         }
-           
+        
 
         //Calculation Part
         if ($projek->kategori ==  'phJKR Bangunan Baru A') {
@@ -4494,16 +4551,24 @@ class ProjekController extends Controller
                 $markah_sm_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_sm_td){
-                    $sm_td += $markah_sm_td->target_point;
+                    if($markah_sm_td->target_point > 0){
+                        $sm_td += $markah_sm_td->target_point;
+                    }
                 } 
                 if ($markah_sm_ad){
-                    $sm_ad += $markah_sm_ad->assessment_point;
+                    if($markah_sm_ad->assessment_point > 0){
+                        $sm_ad += $markah_sm_ad->assessment_point;
+                    }
                 }
                 if ($markah_sm_tv){
-                    $sm_tv += $markah_sm_tv->target_point;
+                    if($markah_sm_tv->target_point > 0){
+                        $sm_tv += $markah_sm_tv->target_point;
+                    }
                 }
                 if ($markah_sm_av){
-                    $sm_av += $markah_sm_av->assessment_point;
+                    if($markah_sm_av->assessment_point > 0){
+                        $sm_av += $markah_sm_av->assessment_point;
+                    }
                 }                  
                 // dd($markah_sm_ad);              
             }  
@@ -4514,16 +4579,24 @@ class ProjekController extends Controller
                 $markah_pt_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_pt_td){
-                    $pt_td += $markah_pt_td->target_point;
+                    if($markah_pt_td->target_point > 0){
+                        $pt_td += $markah_pt_td->target_point;
+                    }
                 } 
                 if ($markah_pt_ad){
-                    $pt_ad += $markah_pt_ad->assessment_point;
+                    if($markah_pt_ad->assessment_point > 0){
+                        $pt_ad += $markah_pt_ad->assessment_point;
+                    }
                 }
                 if ($markah_pt_tv){
-                    $pt_tv += $markah_pt_tv->target_point;
+                    if($markah_pt_tv->target_point > 0){
+                        $pt_tv += $markah_pt_tv->target_point;
+                    }
                 }
                 if ($markah_pt_av){
-                    $pt_av += $markah_pt_av->assessment_point;
+                    if($markah_pt_av->assessment_point > 0){
+                        $pt_av += $markah_pt_av->assessment_point;
+                    }
                 }                                
             } 
             foreach($ew_kriterias as $ew_kriteria) {                
@@ -4533,16 +4606,24 @@ class ProjekController extends Controller
                 $markah_ew_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ew_td){
-                    $ew_td += $markah_ew_td->target_point;
+                    if($markah_ew_td->target_point > 0){
+                        $ew_td += $markah_ew_td->target_point;
+                    }
                 } 
                 if ($markah_ew_ad){
-                    $ew_ad += $markah_ew_ad->assessment_point;
+                    if($markah_ew_ad->assessment_point > 0){
+                        $ew_ad += $markah_ew_ad->assessment_point;
+                    }
                 } 
                 if ($markah_ew_tv){
-                    $ew_tv += $markah_ew_tv->target_point;
+                    if($markah_ew_tv->target_point > 0){
+                        $ew_tv += $markah_ew_tv->target_point;
+                    }
                 }  
                 if ($markah_ew_av){
-                    $ew_av += $markah_ew_av->assessment_point;
+                    if($markah_ew_av->assessment_point > 0){
+                        $ew_av += $markah_ew_av->assessment_point;
+                    }
                 }                             
             } 
             foreach($ae_kriterias as $ae_kriteria) {                
@@ -4552,16 +4633,24 @@ class ProjekController extends Controller
                 $markah_ae_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ae_td){
-                    $ae_td += $markah_ae_td->target_point;
+                    if($markah_ae_td->target_point > 0){
+                        $ae_td += $markah_ae_td->target_point;
+                    }
                 } 
                 if ($markah_ae_ad){
-                    $ae_ad += $markah_ae_ad->assessment_point;
+                    if($markah_ae_ad->assessment_point > 0){
+                        $ae_ad += $markah_ae_ad->assessment_point;
+                    }
                 }
                 if ($markah_ae_tv){
-                    $ae_tv += $markah_ae_tv->target_point;
+                    if($markah_ae_tv->target_point > 0){
+                        $ae_tv += $markah_ae_tv->target_point;
+                    }
                 }  
                 if ($markah_ae_av){
-                    $ae_av += $markah_ae_av->assessment_point;
+                    if($markah_ae_av->assessment_point > 0){
+                        $ae_av += $markah_ae_av->assessment_point;
+                    }
                 }                                 
             }
             foreach($ca_kriterias as $ca_kriteria) {                
@@ -4571,16 +4660,24 @@ class ProjekController extends Controller
                 $markah_ca_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ca_td){
-                    $ca_td += $markah_ca_td->target_point;
+                    if($markah_ca_td->target_point > 0){
+                        $ca_td += $markah_ca_td->target_point;
+                    }
                 } 
                 if ($markah_ca_ad){
-                    $ca_ad += $markah_ca_ad->assessment_point;
+                    if($markah_ca_ad->assessment_point > 0){
+                        $ca_ad += $markah_ca_ad->assessment_point;
+                    }
                 }   
                 if ($markah_ca_tv){
-                    $ca_tv += $markah_ca_tv->target_point;
+                    if($markah_ca_tv->target_point > 0){
+                        $ca_tv += $markah_ca_tv->target_point;
+                    }
                 }  
                 if ($markah_ca_av){
-                    $ca_av += $markah_ca_av->assessment_point;
+                    if($markah_ca_av->assessment_point > 0){
+                        $ca_av += $markah_ca_av->assessment_point;
+                    }
                 }                              
             } 
             foreach($mr_kriterias as $mr_kriteria) {                
@@ -4590,16 +4687,24 @@ class ProjekController extends Controller
                 $markah_mr_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_mr_td){
-                    $mr_td += $markah_mr_td->target_point;
+                    if($markah_mr_td->target_point > 0){
+                        $mr_td += $markah_mr_td->target_point;
+                    }
                 } 
                 if ($markah_mr_ad){
-                    $mr_ad += $markah_mr_ad->assessment_point;
+                    if($markah_mr_ad->assessment_point > 0){
+                        $mr_ad += $markah_mr_ad->assessment_point;
+                    }
                 }    
                 if ($markah_mr_tv){
-                    $mr_tv += $markah_mr_tv->target_point;
+                    if($markah_mr_tv->target_point > 0){
+                        $mr_tv += $markah_mr_tv->target_point;
+                    }
                 }  
                 if ($markah_mr_av){
-                    $mr_av += $markah_mr_av->assessment_point;
+                    if($markah_mr_av->assessment_point > 0){
+                        $mr_av += $markah_mr_av->assessment_point;
+                    }
                 }                             
             }
             foreach($ec_kriterias as $ec_kriteria) {                
@@ -4609,16 +4714,24 @@ class ProjekController extends Controller
                 $markah_ec_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ec_td){
-                    $ec_td += $markah_ec_td->target_point;
+                    if($markah_ec_td->target_point > 0){
+                        $ec_td += $markah_ec_td->target_point;
+                    }
                 } 
                 if ($markah_ec_ad){
-                    $ec_ad += $markah_ec_ad->assessment_point;
+                    if($markah_ec_ad->assessment_point > 0){
+                        $ec_ad += $markah_ec_ad->assessment_point;
+                    }
                 }
                 if ($markah_ec_tv){
-                    $ec_tv += $markah_ec_tv->target_point;
+                    if($markah_ec_tv->target_point > 0){
+                        $ec_tv += $markah_ec_tv->target_point;
+                    }
                 }  
                 if ($markah_ec_av){
-                    $ec_av += $markah_ec_av->assessment_point;
+                    if($markah_ec_av->assessment_point > 0){
+                        $ec_av += $markah_ec_av->assessment_point;
+                    }
                 }                                 
             }
             foreach($in_kriterias as $in_kriteria) {                
@@ -4628,16 +4741,24 @@ class ProjekController extends Controller
                 $markah_in_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_in_td){
-                    $in_td += $markah_in_td->target_point;
+                    if($markah_in_td->target_point > 0){
+                        $in_td += $markah_in_td->target_point;
+                    }
                 } 
                 if ($markah_in_ad){
-                    $in_ad += $markah_in_ad->assessment_point;
+                    if($markah_in_ad->assessment_point > 0){
+                        $in_ad += $markah_in_ad->assessment_point;
+                    }
                 }
                 if ($markah_in_tv){
-                    $in_tv += $markah_in_tv->target_point;
+                    if($markah_in_tv->target_point > 0){
+                        $in_tv += $markah_in_tv->target_point;
+                    }
                 }  
                 if ($markah_in_av){
-                    $in_av += $markah_in_av->assessment_point;
+                    if($markah_in_av->assessment_point > 0){
+                        $in_av += $markah_in_av->assessment_point;
+                    }
                 }                                 
             }                               
              
@@ -4811,16 +4932,24 @@ class ProjekController extends Controller
                 $markah_sm_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_sm_td){
-                    $sm_td += $markah_sm_td->target_point;
+                    if($markah_sm_td->target_point > 0){
+                        $sm_td += $markah_sm_td->target_point;
+                    }
                 } 
                 if ($markah_sm_ad){
-                    $sm_ad += $markah_sm_ad->assessment_point;
+                    if($markah_sm_ad->assessment_point > 0){
+                        $sm_ad += $markah_sm_ad->assessment_point;
+                    }
                 }
                 if ($markah_sm_tv){
-                    $sm_ad += $markah_sm_tv->target_point;
+                    if($markah_sm_tv->target_point > 0){
+                        $sm_ad += $markah_sm_tv->target_point;
+                    }
                 }
                 if ($markah_sm_av){
-                    $sm_ad += $markah_sm_av->assessment_point;
+                    if($markah_sm_av->assessment_point > 0){
+                        $sm_ad += $markah_sm_av->assessment_point;
+                    }
                 }                                
             }  
             foreach($pt_kriterias as $pt_kriteria) {                
@@ -4830,16 +4959,24 @@ class ProjekController extends Controller
                 $markah_pt_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_pt_td){
-                    $pt_td += $markah_pt_td->target_point;
+                    if($markah_pt_td->target_point > 0){
+                        $pt_td += $markah_pt_td->target_point;
+                    }
                 } 
                 if ($markah_pt_ad){
-                    $pt_ad += $markah_pt_ad->assessment_point;
+                    if($markah_pt_ad->assessment_point > 0){
+                        $pt_ad += $markah_pt_ad->assessment_point;
+                    }
                 }
                 if ($markah_pt_tv){
-                    $pt_tv += $markah_pt_tv->target_point;
+                    if($markah_pt_tv->target_point > 0){
+                        $pt_tv += $markah_pt_tv->target_point;
+                    }
                 }
                 if ($markah_pt_av){
-                    $pt_av += $markah_pt_av->assessment_point;
+                    if($markah_pt_av->assessment_point > 0){
+                        $pt_av += $markah_pt_av->assessment_point;
+                    }
                 }                                
             } 
             foreach($ew_kriterias as $ew_kriteria) {                
@@ -4849,16 +4986,24 @@ class ProjekController extends Controller
                 $markah_ew_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ew_td){
-                    $ew_td += $markah_ew_td->target_point;
+                    if($markah_ew_td->target_point > 0){
+                        $ew_td += $markah_ew_td->target_point;
+                    }
                 } 
                 if ($markah_ew_ad){
-                    $ew_ad += $markah_ew_ad->assessment_point;
+                    if($markah_ew_ad->assessment_point > 0){
+                        $ew_ad += $markah_ew_ad->assessment_point;
+                    }
                 } 
                 if ($markah_ew_tv){
-                    $ew_tv += $markah_ew_tv->target_point;
+                    if($markah_ew_tv->target_point > 0){
+                        $ew_tv += $markah_ew_tv->target_point;
+                    }
                 }  
                 if ($markah_ew_av){
-                    $ew_av += $markah_ew_av->assessment_point;
+                    if($markah_ew_av->assessment_point > 0){
+                        $ew_av += $markah_ew_av->assessment_point;
+                    }
                 }                             
             } 
             foreach($ae_kriterias as $ae_kriteria) {                
@@ -4868,16 +5013,24 @@ class ProjekController extends Controller
                 $markah_ae_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ae_td){
-                    $ae_td += $markah_ae_td->target_point;
+                    if($markah_ae_td->target_point > 0){
+                        $ae_td += $markah_ae_td->target_point;
+                    }
                 } 
                 if ($markah_ae_ad){
-                    $ae_ad += $markah_ae_ad->assessment_point;
+                    if($markah_ae_ad->assessment_point > 0){
+                        $ae_ad += $markah_ae_ad->assessment_point;
+                    }
                 }
                 if ($markah_ae_tv){
-                    $ae_tv += $markah_ae_tv->target_point;
+                    if($markah_ae_tv->target_point > 0){
+                        $ae_tv += $markah_ae_tv->target_point;
+                    }
                 }  
                 if ($markah_ae_av){
-                    $ae_av += $markah_ae_av->assessment_point;
+                    if($markah_ae_av->assessment_point > 0){
+                        $ae_av += $markah_ae_av->assessment_point;
+                    }
                 }                                 
             }
             foreach($ca_kriterias as $ca_kriteria) {                
@@ -4887,16 +5040,24 @@ class ProjekController extends Controller
                 $markah_ca_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ca_td){
-                    $ca_td += $markah_ca_td->target_point;
+                    if($markah_ca_td->target_point > 0){
+                        $ca_td += $markah_ca_td->target_point;
+                    }
                 } 
                 if ($markah_ca_ad){
-                    $ca_ad += $markah_ca_ad->assessment_point;
+                    if($markah_ca_ad->assessment_point > 0){
+                        $ca_ad += $markah_ca_ad->assessment_point;
+                    }
                 }   
                 if ($markah_ca_tv){
-                    $ca_tv += $markah_ca_tv->target_point;
+                    if($markah_ca_tv->target_point > 0){
+                        $ca_tv += $markah_ca_tv->target_point;
+                    }
                 }  
                 if ($markah_ca_av){
-                    $ca_av += $markah_ca_av->assessment_point;
+                    if($markah_ca_av->assessment_point > 0){
+                        $ca_av += $markah_ca_av->assessment_point;
+                    }
                 }                              
             } 
             foreach($mr_kriterias as $mr_kriteria) {                
@@ -4906,16 +5067,24 @@ class ProjekController extends Controller
                 $markah_mr_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_mr_td){
-                    $mr_td += $markah_mr_td->target_point;
+                    if($markah_mr_td->target_point > 0){
+                        $mr_td += $markah_mr_td->target_point;
+                    }
                 } 
                 if ($markah_mr_ad){
-                    $mr_ad += $markah_mr_ad->assessment_point;
+                    if($markah_mr_ad->assessment_point > 0){
+                        $mr_ad += $markah_mr_ad->assessment_point;
+                    }
                 }    
                 if ($markah_mr_tv){
-                    $mr_tv += $markah_mr_tv->target_point;
+                    if($markah_mr_tv->target_point > 0){
+                        $mr_tv += $markah_mr_tv->target_point;
+                    }
                 }  
                 if ($markah_mr_av){
-                    $mr_av += $markah_mr_av->assessment_point;
+                    if($markah_mr_av->assessment_point > 0){
+                        $mr_av += $markah_mr_av->assessment_point;
+                    }
                 }                             
             }
             foreach($ec_kriterias as $ec_kriteria) {                
@@ -4925,16 +5094,24 @@ class ProjekController extends Controller
                 $markah_ec_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ec_td){
-                    $ec_td += $markah_ec_td->target_point;
+                    if($markah_ec_td->target_point > 0){
+                        $ec_td += $markah_ec_td->target_point;
+                    }
                 } 
                 if ($markah_ec_ad){
-                    $ec_ad += $markah_ec_ad->assessment_point;
+                    if($markah_ec_ad->assessment_point > 0){
+                        $ec_ad += $markah_ec_ad->assessment_point;
+                    }
                 }
                 if ($markah_ec_tv){
-                    $ec_tv += $markah_ec_tv->target_point;
+                    if($markah_ec_tv->target_point > 0){
+                        $ec_tv += $markah_ec_tv->target_point;
+                    }
                 }  
                 if ($markah_ec_av){
-                    $ec_av += $markah_ec_av->assessment_point;
+                    if($markah_ec_av->assessment_point > 0){
+                        $ec_av += $markah_ec_av->assessment_point;
+                    }
                 }                                 
             }
             foreach($in_kriterias as $in_kriteria) {                
@@ -4944,16 +5121,24 @@ class ProjekController extends Controller
                 $markah_in_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_in_td){
-                    $in_td += $markah_in_td->target_point;
+                    if($markah_in_td->target_point > 0){
+                        $in_td += $markah_in_td->target_point;
+                    }
                 } 
                 if ($markah_in_ad){
-                    $in_ad += $markah_in_ad->assessment_point;
+                    if($markah_in_ad->assessment_point > 0){
+                        $in_ad += $markah_in_ad->assessment_point;
+                    }
                 }
                 if ($markah_in_tv){
-                    $in_tv += $markah_in_tv->target_point;
+                    if($markah_in_tv->target_point > 0){
+                        $in_tv += $markah_in_tv->target_point;
+                    }
                 }  
                 if ($markah_in_av){
-                    $in_av += $markah_in_av->assessment_point;
+                    if($markah_in_av->assessment_point > 0){
+                        $in_av += $markah_in_av->assessment_point;
+                    }
                 }                                 
             }                               
              
@@ -5037,7 +5222,7 @@ class ProjekController extends Controller
         } elseif ($projek->kategori ==  'GPSS Bangunan 1') {
             // $gpss_kriterias = GpssKriteria::where('borang', 'CATEGORY 1')->get();            
             // $gpss_kriterias = GpssKriteria::where('borang', 'like', '%CATEGORY 1%')->get();                      
-            // dd($gpss_kriterias);
+            // dd($gpss_kriterias);            
             $rekabentuk_kriterias = GpssKriteria::where([
                 ['borang','like', '%CATEGORY 1%'],
                 ['fasa','=', 'rekabentuk'],
@@ -5054,7 +5239,7 @@ class ProjekController extends Controller
             $rayuan_kriterias = GpssKriteria::where([
                 ['borang','=', 'CATEGORY 1']
             ])->get();
-
+            
             // Rekabentuk borang CATEGORY 1
             //Point Allocated - Rekabentuk
             $aw_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 1]])->get();
@@ -5096,6 +5281,7 @@ class ProjekController extends Controller
             $ew_pad = 0;
             $cw_pad_kriterias = GpssKriteria::where([['borang','=', 'CATEGORY 1'],['element_seq','=', 4]])->get();
             $cw_pad = 0;
+            
 
             //Point Requested Design & Construction
             foreach($aw_kriterias as $aw_kriteria) {                
@@ -5104,82 +5290,125 @@ class ProjekController extends Controller
                 $markah_aw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_aw_ds){
-                    $aw_ds +=  $markah_aw_ds->point_req_design;
+                    if ($markah_aw_ds->point_req_design > 0) {
+                        $aw_ds +=  $markah_aw_ds->point_req_design;
+                    }                    
                 }  
                 if($markah_aw_cs){
-                    $aw_cs +=  $markah_aw_cs->point_req_construction;
+                    if ($markah_aw_cs->point_req_construction > 0) {
+                        $aw_cs +=  $markah_aw_cs->point_req_construction;
+                    }                    
                 }  
                 if($markah_aw_pa){
-                    $aw_pa += $markah_aw_pa->point_allocated;
+                    if ($markah_aw_pa->point_allocated > 0) {
+                        $aw_pa += $markah_aw_pa->point_allocated;
+                    }                    
                     // dd($markah_aw_pa);
                 }                           
             }
             foreach($mw_kriterias as $mw_kriteria) {                
                 $markah_mw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_mw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_mw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_mw_ds){
-                    $mw_ds +=  $markah_mw_ds->point_req_design;
-                } 
+                    if($markah_mw_ds->point_req_design > 0){
+                        $mw_ds +=  $markah_mw_ds->point_req_design;
+                    }                } 
                 if($markah_mw_cs){
-                    $mw_cs +=  $markah_mw_cs->point_req_construction;
+                    if($markah_mw_cs->point_req_construction > 0){
+                        $mw_cs +=  $markah_mw_cs->point_req_construction;
+                    }
+                }
+                if($markah_mw_pa){
+                    if($markah_mw_pa->point_allocated > 0){
+                        $mw_pa += $markah_mw_pa->point_allocated;
+                    }
+                    // dd($markah_aw_pa);
                 }
             }
             foreach($ew_kriterias as $ew_kriteria) {                
                 $markah_ew_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ew_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_ew_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_ew_ds){
-                    $ew_ds +=  $markah_ew_ds->point_req_design;
+                    if($markah_ew_ds->point_req_design){
+                        $ew_ds +=  $markah_ew_ds->point_req_design;
+                    }
                 }
                 if($markah_ew_cs){
-                    $ew_cs +=  $markah_ew_cs->point_req_construction;
+                    if($markah_ew_cs->point_req_construction > 0){
+                        $ew_cs +=  $markah_ew_cs->point_req_construction;
+                    }
+                }
+                if($markah_ew_pa){
+                    if($markah_ew_pa->point_allocated > 0){
+                        $ew_pa += $markah_ew_pa->point_allocated;
+                    }
                 } 
             }
             foreach($cw_kriterias as $cw_kriteria) {                
                 $markah_cw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_cw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_cw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_cw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_cw_ds){
-                    $cw_ds +=  $markah_cw_ds->point_req_design;
+                    if($markah_cw_ds->point_req_design > 0){
+                        $cw_ds +=  $markah_cw_ds->point_req_design;
+                    }
                 } 
                 if($markah_cw_cs){
-                    $cw_cs +=  $markah_cw_cs->point_req_construction;
+                    if($markah_cw_cs->point_req_construction > 0){
+                        $cw_cs +=  $markah_cw_cs->point_req_construction;
+                    }
+                }
+                if($markah_cw_pa){
+                    if($markah_cw_pa->point_allocated > 0){
+                        $cw_pa += $markah_cw_pa->point_allocated;
+                    }
+                    // dd($markah_aw_pa);
                 }
             }
 
-            //Point Awarded
+            // //Point Awarded
             foreach($aw_pad_kriterias as $aw) {
                 $markah_aw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_aw_pad){
-                    $aw_pad +=  $markah_aw_pad->point_awarded;
+                    if($markah_aw_pad->point_awarded > 0){
+                        $aw_pad +=  $markah_aw_pad->point_awarded;
+                    }
                 }  
             }
             foreach($mw_pad_kriterias as $mw) {
                 $markah_mw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_mw_pad){
-                    $mw_pad +=  $markah_mw_pad->point_awarded;
+                    if($markah_mw_pad->point_awarded > 0){
+                        $mw_pad +=  $markah_mw_pad->point_awarded;
+                    }
                 }  
             }
             foreach($ew_pad_kriterias as $ew) {
                 $markah_ew_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_ew_pad){
-                    $ew_pad +=  $markah_ew_pad->point_awarded;
+                    if($markah_ew_pad->point_awarded > 0){
+                        $ew_pad +=  $markah_ew_pad->point_awarded;
+                    }
                 }  
             }
             foreach($cw_pad_kriterias as $cw) {
                 $markah_cw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_cw_pad){
-                    $cw_pad +=  $markah_cw_pad->point_awarded;
+                    if($markah_cw_pad->point_awarded > 0){
+                        $cw_pad +=  $markah_cw_pad->point_awarded;
+                    }
                 }  
             }
+
             
             //Total Design Stage
             $total_ds = $aw_ds + $mw_ds + $ew_ds + $cw_ds;
@@ -5190,40 +5419,102 @@ class ProjekController extends Controller
             //Total Point Awarded
             $total_pad = $aw_pad + $mw_pad + $ew_pad + $cw_pad;
 
-            //Percentage GPSS Score
+            //Percentage GPSS Score (Point Requested Design)
             //Building Category 1
-            $peratus_aw_gpss_1 = ($aw_ds/232) * 0.45 * 100;
-            $peratus_mw_gpss_1 = ($mw_ds/232) * 0.20 * 100;
-            $peratus_ew_gpss_1 = ($ew_ds/232) * 0.15 * 100;
-            $peratus_cw_gpss_1 = ($cw_ds/232) * 0.20 * 100;
-            $total_peratus_1 = $peratus_aw_gpss_1 + $peratus_mw_gpss_1 + $peratus_ew_gpss_1 + $peratus_cw_gpss_1;
+            $peratus_aw_gpss_ds_1 = ($aw_ds/232) * 0.45 * 100;
+            $peratus_mw_gpss_ds_1 = ($mw_ds/232) * 0.20 * 100;
+            $peratus_ew_gpss_ds_1 = ($ew_ds/232) * 0.15 * 100;
+            $peratus_cw_gpss_ds_1 = ($cw_ds/232) * 0.20 * 100;
+            $total_peratus_ds_1 = $peratus_aw_gpss_ds_1 + $peratus_mw_gpss_ds_1 + $peratus_ew_gpss_ds_1 + $peratus_cw_gpss_ds_1;
             //GPSS Star
-            if($total_peratus_1 >= 80){
+            if($total_peratus_ds_1 >= 80){
                 $bintang = 5;
             }
-            elseif($total_peratus_1 >= 70 && $total_peratus_1 <79){
+            elseif($total_peratus_ds_1 >= 70 && $total_peratus_ds_1 <79){
                 $bintang = 4;
             }
-             elseif($total_peratus_1 >= 60 && $total_peratus_1 <69){
+             elseif($total_peratus_ds_1 >= 60 && $total_peratus_ds_1 <69){
                 $bintang = 3;
             }
-             elseif($total_peratus_1 >= 50 && $total_peratus_1 <59){
+             elseif($total_peratus_ds_1 >= 50 && $total_peratus_ds_1 <59){
                 $bintang = 2;
             }
-             elseif($total_peratus_1 >= 40 && $total_peratus_1 <49){
+             elseif($total_peratus_ds_1 >= 40 && $total_peratus_ds_1 <49){
                 $bintang = 1;
             }
-            elseif($total_peratus_1 <39){
+            elseif($total_peratus_ds_1 <39){
                 $bintang = 0;
             }
 
-            //MyCrest Star
-            $total_peratus_crest = $peratus_aw_gpss_1 + $peratus_mw_gpss_1 + $peratus_ew_gpss_1 + $peratus_cw_gpss_1;
+            //MyCrest Star (Point Requested Design)
+            $total_peratus_crest_ds_1 = $peratus_aw_gpss_ds_1 + $peratus_mw_gpss_ds_1 + $peratus_ew_gpss_ds_1 + $peratus_cw_gpss_ds_1;
+
+            //Percentage GPSS Score (Point Requested Construction)
+            //Building Category 1
+            $peratus_aw_gpss_cs_1 = ($aw_cs/232) * 0.45 * 100;
+            $peratus_mw_gpss_cs_1 = ($mw_cs/232) * 0.20 * 100;
+            $peratus_ew_gpss_cs_1 = ($ew_cs/232) * 0.15 * 100;
+            $peratus_cw_gpss_cs_1 = ($cw_cs/232) * 0.20 * 100;
+            $total_peratus_cs_1 = $peratus_aw_gpss_cs_1 + $peratus_mw_gpss_cs_1 + $peratus_ew_gpss_cs_1 + $peratus_cw_gpss_cs_1;
+            //GPSS Star
+            if($total_peratus_cs_1 >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_cs_1 >= 70 && $total_peratus_cs_1 <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_cs_1 >= 60 && $total_peratus_cs_1 <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_cs_1 >= 50 && $total_peratus_cs_1 <59){
+                $bintang = 2;
+            }
+             elseif($total_peratus_cs_1 >= 40 && $total_peratus_cs_1 <49){
+                $bintang = 1;
+            }
+            elseif($total_peratus_cs_1 <39){
+                $bintang = 0;
+            }
+
+            //MyCrest Star (Point Requested Design)
+            $total_peratus_crest_cs_1 = $peratus_aw_gpss_cs_1 + $peratus_mw_gpss_cs_1 + $peratus_ew_gpss_cs_1 + $peratus_cw_gpss_cs_1;
+
+            //Percentage GPSS Score (Point Awarded)
+            //Building Category 1
+            $peratus_aw_gpss_pad_1 = ($aw_pad/232) * 0.45 * 100;
+            $peratus_mw_gpss_pad_1 = ($mw_pad/232) * 0.20 * 100;
+            $peratus_ew_gpss_pad_1 = ($ew_pad/232) * 0.15 * 100;
+            $peratus_cw_gpss_pad_1 = ($cw_pad/232) * 0.20 * 100;
+            $total_peratus_pad_1 = $peratus_aw_gpss_pad_1 + $peratus_mw_gpss_pad_1 + $peratus_ew_gpss_pad_1 + $peratus_cw_gpss_pad_1;
+            //GPSS Star
+            if($total_peratus_pad_1 >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_pad_1 >= 70 && $total_peratus_pad_1 <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_pad_1 >= 60 && $total_peratus_pad_1 <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_pad_1 >= 50 && $total_peratus_pad_1 <59){
+                $bintang = 2;
+            }
+             elseif($total_peratus_pad_1 >= 40 && $total_peratus_pad_1 <49){
+                $bintang = 1;
+            }
+            elseif($total_peratus_pad_1 <39){
+                $bintang = 0;
+            }
+
+            //MyCrest Star (Point Requested Design)
+            $total_peratus_crest_pad_1 = $peratus_aw_gpss_pad_1 + $peratus_mw_gpss_pad_1 + $peratus_ew_gpss_pad_1 + $peratus_cw_gpss_pad_1;
 
             // dd($aw_cs);
             return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_kriterias', 'users', 'lantikans',
             'aw_ds', 'mw_ds', 'ew_ds', 'cw_ds', 'aw_cs', 'mw_cs', 'ew_cs', 'cw_cs', 'aw_pa', 'ew_pa', 'cw_pa', 'ew_pa', 'mw_pa', 
-            'total_ds', 'total_cs', 'total_pa', 'peratus_aw_gpss_1', 'peratus_mw_gpss_1', 'peratus_ew_gpss_1', 'peratus_cw_gpss_1', 'total_peratus_1', 'total_peratus_crest',
+            'total_ds', 'total_cs', 'total_pa', 'peratus_aw_gpss_ds_1', 'peratus_mw_gpss_ds_1', 'peratus_ew_gpss_ds_1', 'peratus_cw_gpss_ds_1', 'total_peratus_ds_1', 'total_peratus_crest_ds_1',
+            'peratus_aw_gpss_cs_1', 'peratus_mw_gpss_cs_1', 'peratus_ew_gpss_cs_1', 'peratus_cw_gpss_cs_1', 'total_peratus_cs_1', 'total_peratus_crest_cs_1',
+            'peratus_aw_gpss_pad_1', 'peratus_mw_gpss_pad_1', 'peratus_ew_gpss_pad_1', 'peratus_cw_gpss_pad_1', 'total_peratus_pad_1', 'total_peratus_crest_pad_1',
             'aw_pad', 'mw_pad', 'ew_pad', 'cw_pad', 'total_pad'
         )); 
         } elseif ($projek->kategori ==  'GPSS Bangunan 2') {
@@ -5291,80 +5582,124 @@ class ProjekController extends Controller
                 $markah_aw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_aw_ds){
-                    $aw_ds +=  $markah_aw_ds->point_req_design;
+                    if($markah_aw_ds->point_req_design > 0){
+                        $aw_ds +=  $markah_aw_ds->point_req_design;
+                    }
                 }  
                 if($markah_aw_cs){
-                    $aw_cs +=  $markah_aw_cs->point_req_construction;
+                    if($markah_aw_cs->point_req_construction > 0){
+                        $aw_cs +=  $markah_aw_cs->point_req_construction;
+                    }
                 }  
                 if($markah_aw_pa){
-                    $aw_pa += $markah_aw_pa->point_allocated;
+                    if($markah_aw_pa->point_allocated > 0){
+                        $aw_pa += $markah_aw_pa->point_allocated;
+                    }
                     // dd($markah_aw_pa);
                 }                           
             }
             foreach($mw_kriterias as $mw_kriteria) {                
                 $markah_mw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_mw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_mw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_mw_ds){
-                    $mw_ds +=  $markah_mw_ds->point_req_design;
+                    if($markah_mw_ds->point_req_design > 0){
+                        $mw_ds +=  $markah_mw_ds->point_req_design;
+                    }
                 } 
                 if($markah_mw_cs){
-                    $mw_cs +=  $markah_mw_cs->point_req_construction;
+                    if($markah_mw_cs->point_req_construction > 0){
+                        $mw_cs +=  $markah_mw_cs->point_req_construction;
+                    }
+                }
+                if($markah_mw_pa){
+                    if($markah_mw_pa->point_allocated > 0){
+                        $mw_pa += $markah_mw_pa->point_allocated;
+                    }
+                    // dd($markah_aw_pa);
                 }
             }
             foreach($ew_kriterias as $ew_kriteria) {                
                 $markah_ew_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ew_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_ew_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_ew_ds){
-                    $ew_ds +=  $markah_ew_ds->point_req_design;
+                    if($markah_ew_ds->point_req_design > 0){
+                        $ew_ds +=  $markah_ew_ds->point_req_design;
+                    }
                 }
                 if($markah_ew_cs){
-                    $ew_cs +=  $markah_ew_cs->point_req_construction;
+                    if($markah_ew_cs->point_req_construction > 0){
+                        $ew_cs +=  $markah_ew_cs->point_req_construction;
+                    }
                 } 
+                if($markah_ew_pa){
+                    if($markah_ew_pa->point_allocated > 0){
+                        $ew_pa += $markah_ew_pa->point_allocated;
+                    }
+                    // dd($markah_aw_pa);
+                }
             }
             foreach($cw_kriterias as $cw_kriteria) {                
                 $markah_cw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_cw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_cw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_cw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_cw_ds){
-                    $cw_ds +=  $markah_cw_ds->point_req_design;
+                    if($markah_cw_ds->point_req_design > 0){
+                        $cw_ds +=  $markah_cw_ds->point_req_design;
+                    }
                 } 
                 if($markah_cw_cs){
-                    $cw_cs +=  $markah_cw_cs->point_req_construction;
+                    if($markah_cw_cs->point_req_construction > 0){
+                        $cw_cs +=  $markah_cw_cs->point_req_construction;
+                    }
+                }
+                if($markah_cw_pa){
+                    if($markah_cw_pa->point_allocated > 0){
+                        $cw_pa += $markah_cw_pa->point_allocated;
+                    }
+                    // dd($markah_aw_pa);
                 }
             }
 
-            //Point Awarded
+            // //Point Awarded
             foreach($aw_pad_kriterias as $aw) {
                 $markah_aw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_aw_pad){
-                    $aw_pad +=  $markah_aw_pad->point_awarded;
+                    if($markah_aw_pad->point_awarded > 0){
+                        $aw_pad +=  $markah_aw_pad->point_awarded;
+                    }
                 }  
             }
             foreach($mw_pad_kriterias as $mw) {
                 $markah_mw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_mw_pad){
-                    $mw_pad +=  $markah_mw_pad->point_awarded;
+                    if($markah_mw_pad->point_awarded > 0){
+                        $mw_pad +=  $markah_mw_pad->point_awarded;
+                    }
                 }  
             }
             foreach($ew_pad_kriterias as $ew) {
                 $markah_ew_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_ew_pad){
-                    $ew_pad +=  $markah_ew_pad->point_awarded;
+                    if($markah_ew_pad->point_awarded > 0){
+                        $ew_pad +=  $markah_ew_pad->point_awarded;
+                    }
                 }  
             }
             foreach($cw_pad_kriterias as $cw) {
                 $markah_cw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_cw_pad){
-                    $cw_pad +=  $markah_cw_pad->point_awarded;
+                    if($markah_cw_pad->point_awarded > 0){
+                        $cw_pad +=  $markah_cw_pad->point_awarded;
+                    }
                 }  
             }
             
@@ -5377,41 +5712,133 @@ class ProjekController extends Controller
             //Total Point Awarded
             $total_pad = $aw_pad + $mw_pad + $ew_pad + $cw_pad;
 
-            //Percentage GPSS Score
+            //Percentage GPSS Score (Point Requested Construction)
             //Building Category 2
-            $peratus_aw_gpss_2 = ($aw_ds/232) * 0.55 * 100;
-            $peratus_mw_gpss_2 = ($mw_ds/232) * 0.15 * 100;
-            $peratus_ew_gpss_2 = ($ew_ds/232) * 0.10 * 100;
-            $peratus_cw_gpss_2 = ($cw_ds/232) * 0.20 * 100;
-            $total_peratus_2 = $peratus_aw_gpss_2 + $peratus_mw_gpss_2 + $peratus_ew_gpss_2 + $peratus_cw_gpss_2;
+            $peratus_aw_gpss_cs_2 = ($aw_cs/232) * 0.55 * 100;
+            $peratus_mw_gpss_cs_2 = ($mw_cs/232) * 0.15 * 100;
+            $peratus_ew_gpss_cs_2 = ($ew_cs/232) * 0.10 * 100;
+            $peratus_cw_gpss_cs_2 = ($cw_cs/232) * 0.20 * 100;
+            $total_peratus_cs_2 = $peratus_aw_gpss_cs_2 + $peratus_mw_gpss_cs_2 + $peratus_ew_gpss_cs_2 + $peratus_cw_gpss_cs_2;
             //GPSS Star
-            if($total_peratus_2 >= 80){
+            if($total_peratus_cs_2 >= 80){
                 $bintang = 5;
             }
-            elseif($total_peratus_2 >= 70 && $total_peratus_2 <79){
+            elseif($total_peratus_cs_2 >= 70 && $total_peratus_cs_2 <79){
                 $bintang = 4;
             }
-             elseif($total_peratus_2 >= 60 && $total_peratus_2 <69){
+             elseif($total_peratus_cs_2 >= 60 && $total_peratus_cs_2 <69){
                 $bintang = 3;
             }
-             elseif($total_peratus_2 >= 50 && $total_peratus_2 <59){
+             elseif($total_peratus_cs_2 >= 50 && $total_peratus_cs_2 <59){
                 $bintang = 2;
             }
-             elseif($total_peratus_2 >= 40 && $total_peratus_2 <49){
+             elseif($total_peratus_cs_2 >= 40 && $total_peratus_cs_2 <49){
                 $bintang = 1;
             }
-            elseif($total_peratus_2 <39){
+            elseif($total_peratus_cs_2 <39){
                 $bintang = 0;
             }
 
             //MyCrest Star
-            $total_peratus_crest_2 = $peratus_aw_gpss_2 + $peratus_mw_gpss_2 + $peratus_ew_gpss_2 + $peratus_cw_gpss_2;
+            $total_peratus_crest_cs_2 = $peratus_aw_gpss_cs_2 + $peratus_mw_gpss_cs_2 + $peratus_ew_gpss_cs_2 + $peratus_cw_gpss_cs_2;
+
+            //Percentage GPSS Score (Point Requested Design)
+            //Building Category 2
+            $peratus_aw_gpss_cs_2 = ($aw_cs/232) * 0.55 * 100;
+            $peratus_mw_gpss_cs_2 = ($mw_cs/232) * 0.15 * 100;
+            $peratus_ew_gpss_cs_2 = ($ew_cs/232) * 0.10 * 100;
+            $peratus_cw_gpss_cs_2 = ($cw_cs/232) * 0.20 * 100;
+            $total_peratus_cs_2 = $peratus_aw_gpss_cs_2 + $peratus_mw_gpss_cs_2 + $peratus_ew_gpss_cs_2 + $peratus_cw_gpss_cs_2;
+            //GPSS Star
+            if($total_peratus_cs_2 >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_cs_2 >= 70 && $total_peratus_cs_2 <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_cs_2 >= 60 && $total_peratus_cs_2 <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_cs_2 >= 50 && $total_peratus_cs_2 <59){
+                $bintang = 2;
+            }
+             elseif($total_peratus_cs_2 >= 40 && $total_peratus_cs_2 <49){
+                $bintang = 1;
+            }
+            elseif($total_peratus_cs_2 <39){
+                $bintang = 0;
+            }
+
+            //MyCrest Star
+            $total_peratus_crest_cs_2 = $peratus_aw_gpss_cs_2 + $peratus_mw_gpss_cs_2 + $peratus_ew_gpss_cs_2 + $peratus_cw_gpss_cs_2;
+
+            //Percentage GPSS Score (Point Requested Construction)
+            //Building Category 2
+            $peratus_aw_gpss_cs_2 = ($aw_cs/232) * 0.55 * 100;
+            $peratus_mw_gpss_cs_2 = ($mw_cs/232) * 0.15 * 100;
+            $peratus_ew_gpss_cs_2 = ($ew_cs/232) * 0.10 * 100;
+            $peratus_cw_gpss_cs_2 = ($cw_cs/232) * 0.20 * 100;
+            $total_peratus_cs_2 = $peratus_aw_gpss_cs_2 + $peratus_mw_gpss_cs_2 + $peratus_ew_gpss_cs_2 + $peratus_cw_gpss_cs_2;
+            //GPSS Star
+            if($total_peratus_cs_2 >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_cs_2 >= 70 && $total_peratus_cs_2 <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_cs_2 >= 60 && $total_peratus_cs_2 <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_cs_2 >= 50 && $total_peratus_cs_2 <59){
+                $bintang = 2;
+            }
+             elseif($total_peratus_cs_2 >= 40 && $total_peratus_cs_2 <49){
+                $bintang = 1;
+            }
+            elseif($total_peratus_cs_2 <39){
+                $bintang = 0;
+            }
+
+            //MyCrest Star
+            $total_peratus_crest_cs_2 = $peratus_aw_gpss_cs_2 + $peratus_mw_gpss_cs_2 + $peratus_ew_gpss_cs_2 + $peratus_cw_gpss_cs_2;
+
+            //Percentage GPSS Score (Point Awarded)
+            //Building Category 2
+            $peratus_aw_gpss_pad_2 = ($aw_pad/232) * 0.55 * 100;
+            $peratus_mw_gpss_pad_2 = ($mw_pad/232) * 0.15 * 100;
+            $peratus_ew_gpss_pad_2 = ($ew_pad/232) * 0.10 * 100;
+            $peratus_cw_gpss_pad_2 = ($cw_pad/232) * 0.20 * 100;
+            $total_peratus_pad_2 = $peratus_aw_gpss_pad_2 + $peratus_mw_gpss_pad_2 + $peratus_ew_gpss_pad_2 + $peratus_cw_gpss_pad_2;
+            //GPSS Star
+            if($total_peratus_pad_2 >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_pad_2 >= 70 && $total_peratus_pad_2 <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_pad_2 >= 60 && $total_peratus_pad_2 <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_pad_2 >= 50 && $total_peratus_pad_2 <59){
+                $bintang = 2;
+            }
+             elseif($total_peratus_pad_2 >= 40 && $total_peratus_pad_2 <49){
+                $bintang = 1;
+            }
+            elseif($total_peratus_pad_2 <39){
+                $bintang = 0;
+            }
+
+            //MyCrest Star
+            $total_peratus_crest_pad_2 = $peratus_aw_gpss_pad_2 + $peratus_mw_gpss_pad_2 + $peratus_ew_gpss_pad_2 + $peratus_cw_gpss_pad_2;
 
 
             // dd($aw_cs);
             return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_kriterias', 'users', 'lantikans',
             'aw_ds', 'mw_ds', 'ew_ds', 'cw_ds', 'aw_cs', 'mw_cs', 'ew_cs', 'cw_cs', 'aw_pa', 'ew_pa', 'cw_pa', 'ew_pa', 'mw_pa', 
-            'total_ds', 'total_cs', 'total_pa', 'peratus_aw_gpss_2', 'peratus_mw_gpss_2', 'peratus_ew_gpss_2', 'peratus_cw_gpss_2', 'total_peratus_2', 'total_peratus_crest',
+            'total_ds', 'total_cs', 'total_pa', 'peratus_aw_gpss_ds_2', 'peratus_mw_gpss_ds_2', 'peratus_ew_gpss_ds_2', 'peratus_cw_gpss_ds_2', 'total_peratus_ds_2', 'total_peratus_crest_ds_2',
+            'peratus_aw_gpss_cs_2', 'peratus_mw_gpss_cs_2', 'peratus_ew_gpss_cs_2', 'peratus_cw_gpss_cs_2', 'total_peratus_cs_2', 'total_peratus_crest_cs_2',
+            'peratus_aw_gpss_pad_2', 'peratus_mw_gpss_pad_2', 'peratus_ew_gpss_pad_2', 'peratus_cw_gpss_pad_2', 'total_peratus_pad_2', 'total_peratus_crest_pad_2',
             'aw_pad', 'mw_pad', 'ew_pad', 'cw_pad', 'total_pad' 
         ));         
         } elseif ($projek->kategori ==  'GPSS Bangunan 3') {
@@ -5479,50 +5906,85 @@ class ProjekController extends Controller
                 $markah_aw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_aw_ds){
-                    $aw_ds +=  $markah_aw_ds->point_req_design;
+                    if($markah_aw_ds->point_req_design > 0){
+                        $aw_ds +=  $markah_aw_ds->point_req_design;
+                    }
                 }  
                 if($markah_aw_cs){
-                    $aw_cs +=  $markah_aw_cs->point_req_construction;
+                    if($markah_aw_cs->point_req_construction > 0){
+                        $aw_cs +=  $markah_aw_cs->point_req_construction;
+                    }
                 }  
                 if($markah_aw_pa){
-                    $aw_pa += $markah_aw_pa->point_allocated;
-                    // dd($markah_aw_pa);
+                    if($markah_aw_pa->point_allocated > 0){
+                        $aw_pa += $markah_aw_pa->point_allocated;
+                    }
                 }                           
             }
             foreach($mw_kriterias as $mw_kriteria) {                
                 $markah_mw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_mw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_mw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_mw_ds){
-                    $mw_ds +=  $markah_mw_ds->point_req_design;
+                    if($markah_mw_ds->point_req_design > 0){
+                        $mw_ds +=  $markah_mw_ds->point_req_design;
+                    }
                 } 
                 if($markah_mw_cs){
-                    $mw_cs +=  $markah_mw_cs->point_req_construction;
+                    if($markah_mw_cs->point_req_construction > 0){
+                        $mw_cs +=  $markah_mw_cs->point_req_construction;
+                    }
+                }
+                if($markah_mw_pa){
+                    if($markah_mw_pa->point_allocated > 0){
+                        $mw_pa += $markah_mw_pa->point_allocated;
+                    }
+                    // dd($markah_aw_pa);
                 }
             }
             foreach($ew_kriterias as $ew_kriteria) {                
                 $markah_ew_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ew_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_ew_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_ew_ds){
-                    $ew_ds +=  $markah_ew_ds->point_req_design;
+                    if($markah_ew_ds->point_req_design > 0){
+                        $ew_ds +=  $markah_ew_ds->point_req_design;
+                    }
                 }
                 if($markah_ew_cs){
-                    $ew_cs +=  $markah_ew_cs->point_req_construction;
+                    if($markah_ew_cs->point_req_construction > 0){
+                        $ew_cs +=  $markah_ew_cs->point_req_construction;
+                    }
+                }
+                if($markah_ew_pa){
+                    if($markah_ew_pa->point_allocated > 0){
+                        $ew_pa += $markah_ew_pa->point_allocated;
+                    }
+                    // dd($markah_aw_pa);
                 } 
             }
             foreach($cw_kriterias as $cw_kriteria) {                
                 $markah_cw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_cw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','verifikasi']])->first();
-                // $markah_cw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_cw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw_kriteria->id],['fasa','=','rekabentuk']])->first();
 
                 if($markah_cw_ds){
-                    $cw_ds +=  $markah_cw_ds->point_req_design;
+                    if($markah_cw_ds->point_req_design > 0){
+                        $cw_ds +=  $markah_cw_ds->point_req_design;
+                    }
                 } 
                 if($markah_cw_cs){
-                    $cw_cs +=  $markah_cw_cs->point_req_construction;
+                    if($markah_cw_cs->point_req_construction > 0){
+                        $cw_cs +=  $markah_cw_cs->point_req_construction;
+                    }
+                }
+                if($markah_cw_pa){
+                    if($markah_cw_pa->point_allocated > 0){
+                        $cw_pa += $markah_cw_pa->point_allocated;
+                    }
+                    // dd($markah_aw_pa);
                 }
             }
 
@@ -5531,28 +5993,36 @@ class ProjekController extends Controller
                 $markah_aw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $aw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_aw_pad){
-                    $aw_pad +=  $markah_aw_pad->point_awarded;
+                    if($markah_aw_pad->point_awarded > 0){
+                        $aw_pad +=  $markah_aw_pad->point_awarded;
+                    }
                 }  
             }
             foreach($mw_pad_kriterias as $mw) {
                 $markah_mw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $mw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_mw_pad){
-                    $mw_pad +=  $markah_mw_pad->point_awarded;
+                    if($markah_mw_pad->point_awarded > 0){
+                        $mw_pad +=  $markah_mw_pad->point_awarded;
+                    }
                 }  
             }
             foreach($ew_pad_kriterias as $ew) {
                 $markah_ew_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $ew->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_ew_pad){
-                    $ew_pad +=  $markah_ew_pad->point_awarded;
+                    if($markah_ew_pad->point_awarded > 0){
+                        $ew_pad +=  $markah_ew_pad->point_awarded;
+                    }
                 }  
             }
             foreach($cw_pad_kriterias as $cw) {
                 $markah_cw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $cw->id],['fasa','=','verifikasi']])->first();
 
                 if($markah_cw_pad){
-                    $cw_pad +=  $markah_cw_pad->point_awarded;
+                    if($markah_cw_pad->point_awarded > 0){
+                        $cw_pad +=  $markah_cw_pad->point_awarded;
+                    }
                 }  
             }
             
@@ -5565,39 +6035,101 @@ class ProjekController extends Controller
             //Total Point Awarded
             $total_pad = $aw_pad + $mw_pad + $ew_pad + $cw_pad;
 
-            //Percentage GPSS Score
+            //Percentage GPSS Score (Point Requested Design)
             //Building Category 3
-            $peratus_aw_gpss_3 = ($aw_ds/232) * 0.60 * 100;
-            $peratus_mw_gpss_3 = ($mw_ds/232) * 0.10 * 100;
-            $peratus_ew_gpss_3 = ($ew_ds/232) * 0.10 * 100;
-            $peratus_cw_gpss_3 = ($cw_ds/232) * 0.20 * 100;
-            $total_peratus_3 = $peratus_aw_gpss_3 + $peratus_mw_gpss_3 + $peratus_ew_gpss_3 + $peratus_cw_gpss_3;
+            $peratus_aw_gpss_ds_3 = ($aw_ds/232) * 0.60 * 100;
+            $peratus_mw_gpss_ds_3 = ($mw_ds/232) * 0.10 * 100;
+            $peratus_ew_gpss_ds_3 = ($ew_ds/232) * 0.10 * 100;
+            $peratus_cw_gpss_ds_3 = ($cw_ds/232) * 0.20 * 100;
+            $total_peratus_ds_3 = $peratus_aw_gpss_ds_3 + $peratus_mw_gpss_ds_3 + $peratus_ew_gpss_ds_3 + $peratus_cw_gpss_ds_3;
             //GPSS Star
-            if($total_peratus_3 >= 80){
+            if($total_peratus_ds_3 >= 80){
                 $bintang = 5;
             }
-            elseif($total_peratus_3 >= 70 && $total_peratus_3 <79){
+            elseif($total_peratus_ds_3 >= 70 && $total_peratus_ds_3 <79){
                 $bintang = 4;
             }
-             elseif($total_peratus_3 >= 60 && $total_peratus_3 <69){
+             elseif($total_peratus_ds_3 >= 60 && $total_peratus_ds_3 <69){
                 $bintang = 3;
             }
-             elseif($total_peratus_3 >= 50 && $total_peratus_3 <59){
+             elseif($total_peratus_ds_3 >= 50 && $total_peratus_ds_3 <59){
                 $bintang = 2;
             }
-             elseif($total_peratus_3 >= 40 && $total_peratus_3 <49){
+             elseif($total_peratus_ds_3 >= 40 && $total_peratus_ds_3 <49){
                 $bintang = 1;
             }
-            elseif($total_peratus_3 <39){
+            elseif($total_peratus_ds_3 <39){
                 $bintang = 0;
             }
 
             //MyCrest Star
-            $total_peratus_crest_3 = $peratus_aw_gpss_3 + $peratus_mw_gpss_3 + $peratus_ew_gpss_3 + $peratus_cw_gpss_3;
+            $total_peratus_crest_ds_3 = $peratus_aw_gpss_ds_3 + $peratus_mw_gpss_ds_3 + $peratus_ew_gpss_ds_3 + $peratus_cw_gpss_ds_3;
+
+            //Percentage GPSS Score (Point Requested Construction)
+            //Building Category 3
+            $peratus_aw_gpss_cs_3 = ($aw_cs/232) * 0.60 * 100;
+            $peratus_mw_gpss_cs_3 = ($mw_cs/232) * 0.10 * 100;
+            $peratus_ew_gpss_cs_3 = ($ew_cs/232) * 0.10 * 100;
+            $peratus_cw_gpss_cs_3 = ($cw_cs/232) * 0.20 * 100;
+            $total_peratus_cs_3 = $peratus_aw_gpss_cs_3 + $peratus_mw_gpss_cs_3 + $peratus_ew_gpss_cs_3 + $peratus_cw_gpss_cs_3;
+            //GPSS Star
+            if($total_peratus_cs_3 >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_cs_3 >= 70 && $total_peratus_cs_3 <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_cs_3 >= 60 && $total_peratus_cs_3 <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_cs_3 >= 50 && $total_peratus_cs_3 <59){
+                $bintang = 2;
+            }
+             elseif($total_peratus_cs_3 >= 40 && $total_peratus_cs_3 <49){
+                $bintang = 1;
+            }
+            elseif($total_peratus_cs_3 <39){
+                $bintang = 0;
+            }
+
+            //MyCrest Star
+            $total_peratus_crest_cs_3 = $peratus_aw_gpss_cs_3 + $peratus_mw_gpss_cs_3 + $peratus_ew_gpss_cs_3 + $peratus_cw_gpss_cs_3;
+
+            //Percentage GPSS Score (Point Awarded)
+            //Building Category 3
+            $peratus_aw_gpss_pad_3 = ($aw_pad/232) * 0.60 * 100;
+            $peratus_mw_gpss_pad_3 = ($mw_pad/232) * 0.10 * 100;
+            $peratus_ew_gpss_pad_3 = ($ew_pad/232) * 0.10 * 100;
+            $peratus_cw_gpss_pad_3 = ($cw_pad/232) * 0.20 * 100;
+            $total_peratus_pad_3 = $peratus_aw_gpss_pad_3 + $peratus_mw_gpss_pad_3 + $peratus_ew_gpss_pad_3 + $peratus_cw_gpss_pad_3;
+            //GPSS Star
+            if($total_peratus_pad_3 >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_pad_3 >= 70 && $total_peratus_pad_3 <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_pad_3 >= 60 && $total_peratus_pad_3 <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_pad_3 >= 50 && $total_peratus_pad_3 <59){
+                $bintang = 2;
+            }
+             elseif($total_peratus_pad_3 >= 40 && $total_peratus_pad_3 <49){
+                $bintang = 1;
+            }
+            elseif($total_peratus_pad_3 <39){
+                $bintang = 0;
+            }
+
+            //MyCrest Star
+            $total_peratus_crest_pad_3 = $peratus_aw_gpss_pad_3 + $peratus_mw_gpss_pad_3 + $peratus_ew_gpss_pad_3 + $peratus_cw_gpss_pad_3;
 
             return view('projek.satu_gpss_bangunan', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_kriterias', 'users', 'lantikans',
             'aw_ds', 'mw_ds', 'ew_ds', 'cw_ds', 'aw_cs', 'mw_cs', 'ew_cs', 'cw_cs', 'aw_pa', 'ew_pa', 'cw_pa', 'ew_pa', 'mw_pa', 
-            'total_ds', 'total_cs', 'total_pa', 'peratus_aw_gpss_3', 'peratus_mw_gpss_3', 'peratus_ew_gpss_3', 'peratus_cw_gpss_3', 'total_peratus_3', 'total_peratus_crest_3',
+            'total_ds', 'total_cs', 'total_pa', 'peratus_aw_gpss_ds_3', 'peratus_mw_gpss_ds_3', 'peratus_ew_gpss_ds_3', 'peratus_cw_gpss_ds_3', 'total_peratus_ds_3', 'total_peratus_crest_ds_3',
+            'peratus_aw_gpss_cs_3', 'peratus_mw_gpss_cs_3', 'peratus_ew_gpss_cs_3', 'peratus_cw_gpss_cs_3', 'total_peratus_cs_3', 'total_peratus_crest_cs_3',
+            'peratus_aw_gpss_pad_3', 'peratus_mw_gpss_pad_3', 'peratus_ew_gpss_pad_3', 'peratus_cw_gpss_pad_3', 'total_peratus_pad_3', 'total_peratus_crest_pad_3',
             'aw_pad', 'mw_pad', 'ew_pad', 'cw_pad', 'total_pad'
         ));   
         } elseif ($projek->kategori ==  'GPSS Jalan') {
@@ -5643,13 +6175,17 @@ class ProjekController extends Controller
             foreach($rw_kriterias as $rw_kriteria) {
                 $markah_rw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 if($markah_rw_pa){
-                    $rw_pa +=  $markah_rw_pa->point_awarded;
+                    if($markah_rw_pa->point_allocated > 0){
+                        $rw_pa +=  $markah_rw_pa->point_allocated;
+                    }
                 } 
             }
             foreach($sw_kriterias as $sw_kriteria) {
                 $markah_sw_pa = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 if($markah_sw_pa){
-                    $sw_pa +=  $markah_sw_pa->point_awarded;
+                    if($markah_sw_pa->point_allocated > 0){
+                        $sw_pa +=  $markah_sw_pa->point_allocated;
+                    }
                 } 
             }
 
@@ -5658,20 +6194,28 @@ class ProjekController extends Controller
                 $markah_rw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_rw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','verifikasi']])->first();
                 if($markah_rw_ds){
-                    $rw_ds +=  $markah_rw_ds->point_req_design;
+                    if($markah_rw_ds->point_req_design > 0){
+                        $rw_ds +=  $markah_rw_ds->point_req_design;
+                    }
                 } 
                 if ($markah_rw_cs){
-                    $rw_cs += $markah_rw_cs->point_req_construction;
+                    if($markah_rw_cs->point_req_construction > 0){
+                        $rw_cs += $markah_rw_cs->point_req_construction;
+                    }
                 }                                 
             }
             foreach($sw_kriterias as $sw_kriteria) {                
                 $markah_sw_ds = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_sw_cs = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','verifikasi']])->first();
                 if($markah_sw_ds){
-                    $sw_ds +=  $markah_sw_ds->point_req_design;
+                    if($markah_sw_ds->point_req_design > 0){
+                        $sw_ds +=  $markah_sw_ds->point_req_design;
+                    }
                 } 
                 if ($markah_sw_cs){
-                    $sw_cs += $markah_sw_cs->point_req_construction;
+                    if($markah_sw_cs->point_req_construction > 0){
+                        $sw_cs += $markah_sw_cs->point_req_construction;
+                    }
                 }
             }
 
@@ -5679,13 +6223,17 @@ class ProjekController extends Controller
             foreach($rw_kriterias as $rw_kriteria) {
                 $markah_rw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $rw_kriteria->id],['fasa','=','verifikasi']])->first();
                 if($markah_rw_pad){
-                    $rw_pad +=  $markah_rw_pad->point_awarded;
+                    if($markah_rw_pad->point_awarded > 0){
+                        $rw_pad +=  $markah_rw_pad->point_awarded;
+                    }
                 } 
             }
             foreach($sw_kriterias as $sw_kriteria) {
                 $markah_sw_pad = GpssMarkah::where([['projek_id','=', $projek->id], ['gpss_kriteria_id','=', $sw_kriteria->id],['fasa','=','verifikasi']])->first();
                 if($markah_sw_pad){
-                    $sw_pad +=  $markah_sw_pad->point_awarded;
+                    if($markah_sw_pad->point_awarded > 0){
+                        $sw_pad +=  $markah_sw_pad->point_awarded;
+                    }
                 } 
             }
 
@@ -5698,38 +6246,98 @@ class ProjekController extends Controller
             //Total Point Awarded
             $total_pad = $rw_pad + $sw_pad;
             
-            //Percentage GPSS Score
+            //Percentage GPSS Score (Point Requested Design)
             //Road
-            $peratus_rw = ($rw_ds/232) * 0.33 * 100;
-            $peratus_sw = ($sw_ds/232) * 0.33 * 100;
-            $total_peratus_road = $peratus_rw + $peratus_sw;
+            $peratus_rw_ds = ($rw_ds/232) * 0.33 * 100;
+            $peratus_sw_ds = ($sw_ds/232) * 0.33 * 100;
+            $total_peratus_road_ds = $peratus_rw_ds + $peratus_sw_ds;
 
             //GPSS Star
-            if($total_peratus_road >= 80){
+            if($total_peratus_road_ds >= 80){
                 $bintang = 5;
             }
-            elseif($total_peratus_road >= 70 && $total_peratus_road <79){
+            elseif($total_peratus_road_ds >= 70 && $total_peratus_road_ds <79){
                 $bintang = 4;
             }
-             elseif($total_peratus_road >= 50 && $total_peratus_road <69){
+             elseif($total_peratus_road_ds >= 50 && $total_peratus_road_ds <69){
                 $bintang = 3;
             }
-             elseif($total_peratus_road >= 30 && $total_peratus_road <49){
+             elseif($total_peratus_road_ds >= 30 && $total_peratus_road_ds <49){
                 $bintang = 2;
             }
-             elseif($total_peratus_road >= 10 && $total_peratus_road <29){
+             elseif($total_peratus_road_ds >= 10 && $total_peratus_road_ds <29){
                 $bintang = 1;
             }
-            elseif($total_peratus_road <10){
+            elseif($total_peratus_road_ds <10){
                 $bintang = 0;
             }
 
             //MyCrest Star
-            $total_peratus_crest = $peratus_rw + $peratus_sw;
+            $total_peratus_crest_ds = $peratus_rw_ds + $peratus_sw_ds;
+
+            //Percentage GPSS Score (Point Requested Construction)
+            //Road
+            $peratus_rw_cs = ($rw_cs/232) * 0.33 * 100;
+            $peratus_sw_cs = ($sw_cs/232) * 0.33 * 100;
+            $total_peratus_road_cs = $peratus_rw_cs + $peratus_sw_cs;
+
+            //GPSS Star
+            if($total_peratus_road_cs >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_road_cs >= 70 && $total_peratus_road_cs <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_road_cs >= 50 && $total_peratus_road_cs <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_road_cs >= 30 && $total_peratus_road_cs <49){
+                $bintang = 2;
+            }
+             elseif($total_peratus_road_cs >= 10 && $total_peratus_road_cs <29){
+                $bintang = 1;
+            }
+            elseif($total_peratus_road_cs <10){
+                $bintang = 0;
+            }
+
+            //MyCrest Star
+            $total_peratus_crest_cs = $peratus_rw_cs + $peratus_sw_cs;
+
+            //Percentage GPSS Score (Point Awarded)
+            //Road
+            $peratus_rw_pad = ($rw_pad/232) * 0.33 * 100;
+            $peratus_sw_pad = ($sw_pad/232) * 0.33 * 100;
+            $total_peratus_road_pad = $peratus_rw_pad + $peratus_sw_pad;
+
+            //GPSS Star
+            if($total_peratus_road_pad >= 80){
+                $bintang = 5;
+            }
+            elseif($total_peratus_road_pad >= 70 && $total_peratus_road_pad <79){
+                $bintang = 4;
+            }
+             elseif($total_peratus_road_pad >= 50 && $total_peratus_road_pad <69){
+                $bintang = 3;
+            }
+             elseif($total_peratus_road_pad >= 30 && $total_peratus_road_pad <49){
+                $bintang = 2;
+            }
+             elseif($total_peratus_road_pad >= 10 && $total_peratus_road_pad <29){
+                $bintang = 1;
+            }
+            elseif($total_peratus_road_pad <10){
+                $bintang = 0;
+            }
+
+            //MyCrest Star
+            $total_peratus_crest_pad = $peratus_rw_pad + $peratus_sw_pad;
 
             return view('projek.satu_gpss_jalan', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_kriterias', 'users', 'lantikans',
-            'total_ds', 'total_cs', 'rw_ds', 'rw_ds', 'sw_cs', 'rw_cs', 'rw_pad', 'sw_pad', 'total_pad', 'total_pa', 'peratus_rw', 'peratus_sw', 'bintang', 'sw_ds',
-            'total_peratus_road', 'total_peratus_crest', 'rw_pa', 'sw_pa'
+            'total_ds', 'total_cs', 'rw_ds', 'rw_ds', 'sw_cs', 'rw_cs', 'rw_pad', 'sw_pad', 'total_pad', 'total_pa', 'peratus_rw_ds', 'peratus_sw_ds', 'peratus_rw_cs', 'peratus_sw_cs',
+            'peratus_rw_pad', 'peratus_sw_pad','bintang', 'sw_ds',
+            'total_peratus_road_ds', 'total_peratus_crest_ds', 'total_peratus_road_cs', 'total_peratus_crest_cs','total_peratus_road_pad', 'total_peratus_crest_pad',
+            'rw_pa', 'sw_pa'
         ));       
         }    
     }

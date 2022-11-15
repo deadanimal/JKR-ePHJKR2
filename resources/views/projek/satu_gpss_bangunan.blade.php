@@ -293,12 +293,15 @@
                                                 <th colspan="2">Total Points Requested</th>
                                                 <th>Total Points Awarded</th>
                                                 <th rowspan="2">Weightage (Refer Annex C)</th>
-                                                <th rowspan="2">Percentage of Green Product Scoring Score %</th>
+                                                <th colspan="3">Percentage of Green Product Scoring Score %</th>
                                             </tr>
                                             <tr>
                                                 <th>Design Stage</th>
                                                 <th>Construction Stage</th>
                                                 <th>Construction Stage</th>
+                                                <th>Point Requested Design</th>
+                                                <th>Point Requested Construction</th>
+                                                <th>Point Awarded</th>
                                             </tr>
                                         </thead>
                                         <tbody class="text-black">
@@ -317,7 +320,9 @@
                                             @elseif($projek->kategori == 'GPSS Bangunan 3')
                                             <th>0.60</th>
                                             @endif
-                                            <th>{{number_format($peratus_aw_gpss_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_aw_gpss_ds_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_aw_gpss_cs_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_aw_gpss_pad_1,2,".",",")}}</th>
                                             </tr>
 
                                             <tr>
@@ -335,8 +340,9 @@
                                             @elseif($projek->kategori == 'GPSS Bangunan 3')
                                             <th>0.10</th>
                                             @endif
-                                            <th>{{number_format($peratus_mw_gpss_1,2,".",",")}}</th>
-                                            </tr>
+                                            <th>{{number_format($peratus_mw_gpss_ds_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_mw_gpss_cs_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_mw_gpss_pad_1,2,".",",")}}</th>                                            </tr>
 
                                             <tr>
                                             <th>3</th>
@@ -353,8 +359,9 @@
                                             @elseif($projek->kategori == 'GPSS Bangunan 3')
                                             <th>0.10</th>
                                             @endif
-                                            <th>{{number_format($peratus_ew_gpss_1,2,".",",")}}</th>
-                                            </tr>
+                                            <th>{{number_format($peratus_ew_gpss_ds_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_ew_gpss_cs_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_ew_gpss_pad_1,2,".",",")}}</th>                                            </tr>
 
                                             <tr>
                                             <th>4</th>
@@ -371,8 +378,9 @@
                                             @elseif($projek->kategori == 'GPSS Bangunan 3')
                                             <th>0.20</th>
                                             @endif
-                                            <th>{{number_format($peratus_cw_gpss_1,2,".",",")}}</th>                                            
-                                            </tr>
+                                            <th>{{number_format($peratus_cw_gpss_ds_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_cw_gpss_cs_1,2,".",",")}}</th>
+                                            <th>{{number_format($peratus_cw_gpss_pad_1,2,".",",")}}</th>                                            </tr>
 
                                             <tr>
                                             <th>5</th>
@@ -383,6 +391,8 @@
                                             <th>0</th>
                                             <th>0</th>
                                             <th>0</th>
+                                            <th>0.00</th>
+                                            <th>0.00</th>
                                             <th>0.00</th>
                                             </tr>
 
@@ -396,6 +406,8 @@
                                             <th>0</th>
                                             <th>0</th>
                                             <th>0.00</th>
+                                            <th>0.00</th>
+                                            <th>0.00</th>
                                             </tr>
 
                                             <tr>
@@ -407,11 +419,25 @@
                                             <th>{{$total_pad}}</th>
                                             <th>1.00</th>
                                             @if($projek->kategori == "GPSS Bangunan 1")
-                                            <th>{{number_format($total_peratus_1,2,".",",")}}</th>
+                                            <th>{{number_format($total_peratus_ds_1,2,".",",")}}</th>
                                             @elseif($projek->kategori == "GPSS Bangunan 2")
-                                            <th>{{number_format($total_peratus_2,2,".",",")}}</th>
-                                            @elseif($projek->kategori == "GPSS Bangunan 1")
-                                            <th>{{number_format($total_peratus_3,2,".",",")}}</th>
+                                            <th>{{number_format($total_peratus_ds_2,2,".",",")}}</th>
+                                            @elseif($projek->kategori == "GPSS Bangunan 3")
+                                            <th>{{number_format($total_peratus_ds_3,2,".",",")}}</th>
+                                            @endif
+                                            @if($projek->kategori == "GPSS Bangunan 1")
+                                            <th>{{number_format($total_peratus_cs_1,2,".",",")}}</th>
+                                            @elseif($projek->kategori == "GPSS Bangunan 2")
+                                            <th>{{number_format($total_peratus_cs_2,2,".",",")}}</th>
+                                            @elseif($projek->kategori == "GPSS Bangunan 3")
+                                            <th>{{number_format($total_peratus_cs_3,2,".",",")}}</th>
+                                            @endif
+                                            @if($projek->kategori == "GPSS Bangunan 1")
+                                            <th>{{number_format($total_peratus_pad_1,2,".",",")}}</th>
+                                            @elseif($projek->kategori == "GPSS Bangunan 2")
+                                            <th>{{number_format($total_peratus_pad_2,2,".",",")}}</th>
+                                            @elseif($projek->kategori == "GPSS Bangunan 3")
+                                            <th>{{number_format($total_peratus_pad_3,2,".",",")}}</th>
                                             @endif
                                             </tr>
                                         </tbody>
@@ -420,7 +446,13 @@
                                 <table class="table table-bordered line-table text-center" style="width: 100%">
                                     <thead class="text-white bg-orange-jkr">
                                         <tr>
-                                            <th colspan="2">SUMMARY</th>
+                                            <th>SUMMARY</th>
+                                            <th rowspan="2">Point Requested Design</th>
+                                            <th rowspan="2">Point Requested Construction</th>
+                                            <th rowspan="2">Point Awarded</th>
+                                        </tr>
+                                        <tr>
+                                            <th>PERCENTAGE OF GPSS SCORE %</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-black">
@@ -430,94 +462,170 @@
                                                 <input type="hidden" name="fasa" value="rekabentuk">
                                                 @if($projek->kategori == "GPSS Bangunan 1")
                                                 <span class="star">
-                                                    @if ($total_peratus_1 >= 80)
+                                                    @if ($total_peratus_ds_1 >= 80)
                                                         5&#160;&starf; &starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 70 && $total_peratus_1 < 79)
+                                                    @elseif ($total_peratus_ds_1 >= 70 && $total_peratus_ds_1 < 79)
                                                         4&#160;&starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 60 && $total_peratus_1 < 69)
+                                                    @elseif ($total_peratus_ds_1 >= 60 && $total_peratus_ds_1 < 69)
                                                         3&#160;&starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 50 && $total_peratus_1 < 59)
+                                                    @elseif ($total_peratus_ds_1 >= 50 && $total_peratus_ds_1 < 59)
                                                         2&#160;&starf; &starf; 
-                                                    @elseif ($total_peratus_1 >= 40 && $total_peratus_1 <49)
+                                                    @elseif ($total_peratus_ds_1 >= 40 && $total_peratus_ds_1 <49)
                                                         1&#160;&starf;
-                                                    @elseif ($total_peratus_1 <39)
+                                                    @elseif ($total_peratus_ds_1 <39)
                                                         0&#160;&starf;                                                                                            
                                                     @endif
                                                 </span>
                                                 @elseif($projek->kategori == "GPSS Bangunan 2")
                                                 <span class="star">
-                                                    @if ($total_peratus_2 >= 80)
+                                                    @if ($total_peratus_ds_2 >= 80)
                                                         5&#160;&starf; &starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_2 >= 70 && $total_peratus_2 < 79)
+                                                    @elseif ($total_peratus_ds_2 >= 70 && $total_peratus_ds_2 < 79)
                                                         4&#160;&starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_2 >= 60 && $total_peratus_2 < 69)
+                                                    @elseif ($total_peratus_ds_2 >= 60 && $total_peratus_ds_2 < 69)
                                                         3&#160;&starf; &starf; &starf;
-                                                    @elseif ($total_peratus_2 >= 50 && $total_peratus_2 < 59)
+                                                    @elseif ($total_peratus_ds_2 >= 50 && $total_peratus_ds_2 < 59)
                                                         2&#160;&starf; &starf; 
-                                                    @elseif ($total_peratus_2 >= 40 && $total_peratus_2 <49)
+                                                    @elseif ($total_peratus_ds_2 >= 40 && $total_peratus_ds_2 <49)
                                                         1&#160;&starf;
-                                                    @elseif ($total_peratus_2 <39)
+                                                    @elseif ($total_peratus_ds_2 <39)
                                                         0&#160;&starf;                                                                                            
                                                     @endif
                                                 </span>
                                                 @elseif($projek->kategori == "GPSS Bangunan 3")
                                                 <span class="star">
-                                                    @if ($total_peratus_3 >= 80)
+                                                    @if ($total_peratus_ds_3 >= 80)
                                                         5&#160;&starf; &starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_3 >= 70 && $total_peratus_3 < 79)
+                                                    @elseif ($total_peratus_ds_3 >= 70 && $total_peratus_ds_3 < 79)
                                                         4&#160;&starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_3 >= 60 && $total_peratus_3 < 69)
+                                                    @elseif ($total_peratus_ds_3 >= 60 && $total_peratus_ds_3 < 69)
                                                         3&#160;&starf; &starf; &starf;
-                                                    @elseif ($total_peratus_3 >= 50 && $total_peratus_3 < 59)
+                                                    @elseif ($total_peratus_ds_3 >= 50 && $total_peratus_ds_3 < 59)
                                                         2&#160;&starf; &starf; 
-                                                    @elseif ($total_peratus_3 >= 40 && $total_peratus_3 <49)
+                                                    @elseif ($total_peratus_ds_3 >= 40 && $total_peratus_ds_3 <49)
                                                         1&#160;&starf;
-                                                    @elseif ($total_peratus_3 <39)
+                                                    @elseif ($total_peratus_ds_3 <39)
                                                         0&#160;&starf;                                                                                            
                                                     @endif
                                                 </span>
                                                 @endif
                                             </th>
-                                            {{-- <th>
+                                            <th>
                                                 <input type="hidden" name="fasa" value="verifikasi">
-                                                <span class="star">&#160;&starf;
-                                                    @if ($total_peratus_1 >= 80)
-                                                        &starf; &starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 70 && $total_peratus_1 < 79)
-                                                        &starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 60 && $total_peratus_1 < 69)
-                                                        &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 50 && $total_peratus_1 < 59)
-                                                        &starf; &starf; 
-                                                    @elseif ($total_peratus_1 >= 40 && $total_peratus_1 <49)
-                                                        &starf;                                                                                            
+                                                @if($projek->kategori == "GPSS Bangunan 1")
+                                                <span class="star">
+                                                    @if ($total_peratus_cs_1 >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_1 >= 70 && $total_peratus_cs_1 < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_1 >= 60 && $total_peratus_cs_1 < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_1 >= 50 && $total_peratus_cs_1 < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_cs_1 >= 40 && $total_peratus_cs_1 <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_cs_1 <39)
+                                                        0&#160;&starf;                                                                                            
                                                     @endif
                                                 </span>
-                                            </th> --}}
+                                                @elseif($projek->kategori == "GPSS Bangunan 2")
+                                                <span class="star">
+                                                    @if ($total_peratus_cs_2 >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_2 >= 70 && $total_peratus_cs_2 < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_2 >= 60 && $total_peratus_cs_2 < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_2 >= 50 && $total_peratus_cs_2 < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_cs_2 >= 40 && $total_peratus_cs_2 <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_cs_2 <39)
+                                                        0&#160;&starf;                                                                                            
+                                                    @endif
+                                                </span>
+                                                @elseif($projek->kategori == "GPSS Bangunan 3")
+                                                <span class="star">
+                                                    @if ($total_peratus_cs_3 >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_3 >= 70 && $total_peratus_cs_3 < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_3 >= 60 && $total_peratus_cs_3 < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_cs_3 >= 50 && $total_peratus_cs_3 < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_cs_3 >= 40 && $total_peratus_cs_3 <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_cs_3 <39)
+                                                        0&#160;&starf;                                                                                            
+                                                    @endif
+                                                </span>
+                                                @endif
+                                            </th>
+                                            <th>
+                                                @if($projek->kategori == "GPSS Bangunan 1")
+                                                <span class="star">
+                                                    @if ($total_peratus_pad_1 >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_1 >= 70 && $total_peratus_pad_1 < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_1 >= 60 && $total_peratus_pad_1 < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_1 >= 50 && $total_peratus_pad_1 < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_pad_1 >= 40 && $total_peratus_pad_1 <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_pad_1 <39)
+                                                        0&#160;&starf;                                                                                            
+                                                    @endif
+                                                </span>
+                                                @elseif($projek->kategori == "GPSS Bangunan 2")
+                                                <span class="star">
+                                                    @if ($total_peratus_pad_2 >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_2 >= 70 && $total_peratus_pad_2 < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_2 >= 60 && $total_peratus_pad_2 < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_2 >= 50 && $total_peratus_pad_2 < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_pad_2 >= 40 && $total_peratus_pad_2 <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_pad_2 <39)
+                                                        0&#160;&starf;                                                                                            
+                                                    @endif
+                                                </span>
+                                                @elseif($projek->kategori == "GPSS Bangunan 3")
+                                                <span class="star">
+                                                    @if ($total_peratus_pad_3 >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_3 >= 70 && $total_peratus_pad_3 < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_3 >= 60 && $total_peratus_pad_3 < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_pad_3 >= 50 && $total_peratus_pad_3 < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_pad_3 >= 40 && $total_peratus_pad_3 <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_pad_3 <39)
+                                                        0&#160;&starf;                                                                                            
+                                                    @endif
+                                                </span>
+                                                @endif
+                                            </th>
                                         </tr>
                 
                                         <tr>
                                             <th>GPSS Star (Jalan)</th>
                                             <th>
-                                                <input type="hidden" name="fasa" value="rekabentuk">
                                                 <span class="star">0&#160;&starf;</span>
                                             </th>
-                                            {{-- <th>
-                                                <input type="hidden" name="fasa" value="verifikasi">
-                                                <span class="star">&#160;&starf;
-                                                    @if ($total_peratus_1 >= 80)
-                                                        &starf; &starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 70 && $total_peratus_1 < 79)
-                                                        &starf; &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 60 && $total_peratus_1 < 69)
-                                                        &starf; &starf; &starf;
-                                                    @elseif ($total_peratus_1 >= 50 && $total_peratus_1 < 59)
-                                                        &starf; &starf; 
-                                                    @elseif ($total_peratus_1 >= 40 && $total_peratus_1 <49)
-                                                        &starf;                                                                                            
-                                                    @endif
-                                                </span>
-                                            </th> --}}
+                                            <th>
+                                                <span class="star">0&#160;&starf;</span>
+                                            </th>
+                                            <th>
+                                                <span class="star">0&#160;&starf;</span>
+                                            </th>
                                         </tr>
                                     
                                         <tr>
@@ -526,59 +634,156 @@
                                             <input type="hidden" name="fasa" value="rekabentuk">
                                             @if($projek->kategori == "GPSS Bangunan 1")
                                             <span>
-                                                @if ($total_peratus_crest >= 80)
+                                                @if ($total_peratus_crest_ds_1 >= 80)
                                                         3&#160;Points
-                                                    @elseif ($total_peratus_crest >= 70 && $total_peratus_crest < 79)
+                                                    @elseif ($total_peratus_crest_ds_1 >= 70 && $total_peratus_crest_ds_1 < 79)
                                                         3&#160;Points
-                                                    @elseif ($total_peratus_crest >= 60 && $total_peratus_crest < 69)
+                                                    @elseif ($total_peratus_crest_ds_1 >= 60 && $total_peratus_crest_ds_1 < 69)
                                                         2&#160;Points
-                                                    @elseif ($total_peratus_crest >= 50 && $total_peratus_crest < 59)
+                                                    @elseif ($total_peratus_crest_ds_1 >= 50 && $total_peratus_crest_ds_1 < 59)
                                                         2&#160;Points 
-                                                    @elseif ($total_peratus_crest >= 40 && $total_peratus_crest <49)
+                                                    @elseif ($total_peratus_crest_ds_1 >= 40 && $total_peratus_crest_ds_1 <49)
                                                         1&#160;Points  
-                                                    @elseif ($total_peratus_crest <39)
+                                                    @elseif ($total_peratus_crest_ds_1 <39)
                                                         0&#160;Point                                                                                          
                                                 @endif
                                             </span>
                                             @elseif($projek->kategori == "GPSS Bangunan 2")
                                             <span>
-                                                @if ($total_peratus_crest_2 >= 80)
+                                                @if ($total_peratus_crest_ds_2 >= 80)
                                                         3&#160;Points
-                                                    @elseif ($total_peratus_crest_2 >= 70 && $total_peratus_crest_2 < 79)
+                                                    @elseif ($total_peratus_crest_ds_2 >= 70 && $total_peratus_crest_ds_2 < 79)
                                                         3&#160;Points
-                                                    @elseif ($total_peratus_crest_2 >= 60 && $total_peratus_crest_2 < 69)
+                                                    @elseif ($total_peratus_crest_ds_2 >= 60 && $total_peratus_crest_ds_2 < 69)
                                                         2&#160;Points
-                                                    @elseif ($total_peratus_crest_2 >= 50 && $total_peratus_crest_2 < 59)
+                                                    @elseif ($total_peratus_crest_ds_2 >= 50 && $total_peratus_crest_ds_2 < 59)
                                                         2&#160;Points 
-                                                    @elseif ($total_peratus_crest_2 >= 40 && $total_peratus_crest_2 <49)
+                                                    @elseif ($total_peratus_crest_ds_2 >= 40 && $total_peratus_crest_ds_2 <49)
                                                         1&#160;Points  
-                                                    @elseif ($total_peratus_crest_2 <39)
+                                                    @elseif ($total_peratus_crest_ds_2 <39)
                                                         0&#160;Point                                                                                          
                                                 @endif
                                             </span>
                                             @elseif($projek->kategori == "GPSS Bangunan 3")
                                             <span>
-                                                @if ($total_peratus_crest_3 >= 80)
+                                                @if ($total_peratus_crest_ds_3 >= 80)
                                                         3&#160;Points
-                                                    @elseif ($total_peratus_crest_3 >= 70 && $total_peratus_crest_3 < 79)
+                                                    @elseif ($total_peratus_crest_ds_3 >= 70 && $total_peratus_crest_ds_3 < 79)
                                                         3&#160;Points
-                                                    @elseif ($total_peratus_crest_3 >= 60 && $total_peratus_crest_3 < 69)
+                                                    @elseif ($total_peratus_crest_ds_3 >= 60 && $total_peratus_crest_ds_3 < 69)
                                                         2&#160;Points
-                                                    @elseif ($total_peratus_crest_3 >= 50 && $total_peratus_crest_3 < 59)
+                                                    @elseif ($total_peratus_crest_ds_3 >= 50 && $total_peratus_crest_ds_3 < 59)
                                                         2&#160;Points 
-                                                    @elseif ($total_peratus_crest_3 >= 40 && $total_peratus_crest_3 <49)
+                                                    @elseif ($total_peratus_crest_ds_3 >= 40 && $total_peratus_crest_ds_3 <49)
                                                         1&#160;Points  
-                                                    @elseif ($total_peratus_crest_3 <39)
+                                                    @elseif ($total_peratus_crest_ds_3 <39)
                                                         0&#160;Point                                                                                          
                                                 @endif
                                             </span>
                                             @endif
-                                            
                                         </th>
-                                        {{-- <th>
-                                            <input type="hidden" name="fasa" value="verifikasi">
-                                            <span>0&#160;Points</span>
-                                        </th> --}}
+                                        <th>
+                                            @if($projek->kategori == "GPSS Bangunan 1")
+                                            <span>
+                                                @if ($total_peratus_crest_cs_1 >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_1 >= 70 && $total_peratus_crest_cs_1 < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_1 >= 60 && $total_peratus_crest_cs_1 < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_1 >= 50 && $total_peratus_crest_cs_1 < 59)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_cs_1 >= 40 && $total_peratus_crest_cs_1 <49)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_cs_1 <39)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                            @elseif($projek->kategori == "GPSS Bangunan 2")
+                                            <span>
+                                                @if ($total_peratus_crest_cs_2 >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_2 >= 70 && $total_peratus_crest_cs_2 < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_2 >= 60 && $total_peratus_crest_cs_2 < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_2 >= 50 && $total_peratus_crest_cs_2 < 59)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_cs_2 >= 40 && $total_peratus_crest_cs_2 <49)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_cs_2 <39)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                            @elseif($projek->kategori == "GPSS Bangunan 3")
+                                            <span>
+                                                @if ($total_peratus_crest_cs_3 >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_3 >= 70 && $total_peratus_crest_cs_3 < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_3 >= 60 && $total_peratus_crest_cs_3 < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_3 >= 50 && $total_peratus_crest_cs_3 < 59)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_cs_3 >= 40 && $total_peratus_crest_cs_3 <49)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_cs_3 <39)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                            @endif
+                                        </th>
+                                        <th>
+                                            @if($projek->kategori == "GPSS Bangunan 1")
+                                            <span>
+                                                @if ($total_peratus_crest_pad_1 >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_1 >= 70 && $total_peratus_crest_pad_1 < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_1 >= 60 && $total_peratus_crest_pad_1 < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_1 >= 50 && $total_peratus_crest_pad_1 < 59)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_pad_1 >= 40 && $total_peratus_crest_pad_1 <49)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_pad_1 <39)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                            @elseif($projek->kategori == "GPSS Bangunan 2")
+                                            <span>
+                                                @if ($total_peratus_crest_pad_2 >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_2 >= 70 && $total_peratus_crest_pad_2 < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_2 >= 60 && $total_peratus_crest_pad_2 < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_2 >= 50 && $total_peratus_crest_pad_2 < 59)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_pad_2 >= 40 && $total_peratus_crest_pad_2 <49)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_pad_2 <39)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                            @elseif($projek->kategori == "GPSS Bangunan 3")
+                                            <span>
+                                                @if ($total_peratus_crest_pad_3 >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_3 >= 70 && $total_peratus_crest_pad_3 < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_3 >= 60 && $total_peratus_crest_pad_3 < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_3 >= 50 && $total_peratus_crest_pad_3 < 59)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_pad_3 >= 40 && $total_peratus_crest_pad_3 <49)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_pad_3 <39)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                            @endif
+                                        </th>
                                         </tr>
                                     </tbody> 
                                 </table>
@@ -638,7 +843,12 @@
                                 @role('sekretariat')
                                 <div class="row mt-3">
                                     <div class="col text-center">
-                                        <a href="#" class="btn btn-primary">Sahkan Penilaian</a>
+                                        <a href="#" class="btn btn-primary">Sah Penilaian</a>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <button class="btn btn-primary">Jana Skor Kad</button>
                                     </div>
                                 </div>
                                 @endrole
