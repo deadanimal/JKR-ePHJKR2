@@ -6,7 +6,7 @@
     <div class="row mb-3">
         <div class="col-12">
             <div class="card">
-                <div class="card-body" id="printJS-form">
+                <div class="card-body" id="maklumat-projek">
                     <div class="row mx-3 mb-2">
                         <h2 class="mb-3">Maklumat Projek</h2>
                         <div class="col-4 mb-2">
@@ -141,7 +141,7 @@
                     </form>
                     @endrole
                     @role('ketua-pasukan|pentadbir|sekretariat')
-                        <button class="btn btn-primary mx-3 my-3" onclick="printJS('printJS-form', 'html')">Muat Turun Maklumat Projek</button>
+                        <button class="btn btn-primary mx-3 my-3" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
                     @endrole  
                     <form action="/projek/{{$projek->id}}/sah-eph-rayuan" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -1033,7 +1033,7 @@
                                 </table><!--Table-->
                             </div>
 
-                            <div class="mb-3 row mx-3">
+                            <div class="mb-3 row mx-3" id="rumusan-skor-kad">
                                 <table class="table table-bordered line-table shadow-table-jkr" id="rumusan_skor_kad">
                                     <thead class="text-white line-table">
                                         <tr align="center" style="background-color:#EB5500">
@@ -1066,7 +1066,6 @@
 
                                         <tr align="center" class="text-black">
                                             <th colspan="2">Peratusan</th>
-                                            {{-- <th colspan="2">{{$kriteria->peratusan}} %</th> --}}
                                             @if($projek->kategori == 'phJKR Bangunan Baru A' || 'phJKR Bangunan Baru B' || 'phJKR Bangunan Baru C' || 'phJKR Bangunan Baru D'
                                             || 'phJKR Bangunan PUN A' || 'phJKR Bangunan PUN B' || 'phJKR Bangunan PUN C' || 'phJKR Bangunan PUN D')
                                             <th colspan="2"> {{number_format($peratusan_mr,2,".",",")}}%</th>
@@ -1079,7 +1078,6 @@
 
                                         <tr align="center" class="text-black">
                                             <th colspan="2">Penarafan PH</th>
-                                            {{-- <th colspan="2">{{$kriteria->penarafan}}<span class="star">&starf;</span></th> --}}
                                             <th colspan="2">
                                                 <input type="hidden" name="fasa" value="rekabentuk">
                                                 <span class="star">
@@ -1176,7 +1174,7 @@
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                     <div class="row mt-3">
                                         <div class="col text-center">
-                                            <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun Rumusan Skor Kad</button>
+                                            <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun</button>
                                         </div>
                                     </div>
                                 @endrole
@@ -2123,17 +2121,17 @@
                                             </div>
                                         </div>
                                     @endrole
-                                    @role('ketua-pasukan')
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
-                                                <button class="btn btn-primary" onclick="printJS('skor_kad', 'html')">Muat Turun Skor Kad</button>
-                                            </div>
-                                        </div>
-                                    @endrole
                                 </div>
                             </div>
                         </div>
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
+                                    <button class="btn btn-primary" onclick="printJS('skor_kad', 'html')">Muat Turun</button>
+                                </div>
+                            </div>
+                        @endrole
                     </div>
 
                     <!--REKABENTUK BANGUNAN-->
@@ -2507,11 +2505,11 @@
                     <div class="tab-pane" id="tab-7" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <h4>SIJIL EPH BANGUNAN</h4>
+                                <h4>SIJIL ePHJKR BANGUNAN</h4>
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="row mt-3">
                                     <div class="col text-center">
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun Sijil</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
 
                                         {{-- <button class="btn btn-primary" type="submit">Muat Turun Sijil</button> --}}
                                     </div>

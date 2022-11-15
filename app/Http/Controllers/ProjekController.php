@@ -1822,7 +1822,7 @@ class ProjekController extends Controller
         elseif($request->ajax() && $projek->kategori ==  'phJKR Jalan Baru') {
             $kriterias = Kriteria::where('borang', 'NEW ROADS')->get();
             return DataTables::collection($kriterias)
-            ->addColumn('markah_', function (Kriteria $kriteria) use ($projek) {
+            ->addColumn('targetpoint_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button = '?';
                 $markah = Markah::where([
@@ -1830,7 +1830,19 @@ class ProjekController extends Controller
                     ['kriteria_id', '=', $kriteria_id],
                 ])->first();       
                 if($markah) {
-                    $html_button = $markah->markah;
+                    $html_button = $markah->target_point;
+                }         
+                return $html_button;
+            })
+            ->addColumn('assessmentpoint_', function (Kriteria $kriteria) use ($projek) {
+                $kriteria_id = $kriteria->id;
+                $html_button = '?';
+                $markah = Markah::where([
+                    ['projek_id', '=', $projek->id],
+                    ['kriteria_id', '=', $kriteria_id],
+                ])->first();       
+                if($markah) {
+                    $html_button = $markah->assessment_point;
                 }         
                 return $html_button;
             })
@@ -1846,18 +1858,6 @@ class ProjekController extends Controller
                 }         
                 return $html_button;
             })
-            ->addColumn('ulasan_rayuan', function (Kriteria $kriteria) use ($projek) {
-                $kriteria_id = $kriteria->id;
-                $html_button = '?';
-                $markah = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
-                ])->first();       
-                if($markah) {
-                    $html_button = $markah->ulasan_rayuan;
-                }         
-                return $html_button;
-            })   
             ->addColumn('dokumen_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button = '?';
@@ -1890,41 +1890,7 @@ class ProjekController extends Controller
                 }         
                 return $html_button;
             })
-            ->addColumn('dokumen_rayuan', function (Kriteria $kriteria) use ($projek) {
-                $kriteria_id = $kriteria->id;
-                $html_button = '?';
-                $markah = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
-
-                ])->first(); 
-            
-                // Rayuan
-                if($markah) {
-                    if($markah->dokumen_rayuan1) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
-                        $html_button = '<a href="'.$url.'">Dokumen 1</a>';
-                    }
-                    if($markah->dokumen_rayuan2) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen2;
-                        $html_button += '<a href="'.$url.'">Dokumen 2</a>';
-                    } 
-                    if($markah->dokumen_rayuan3) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen3;
-                        $html_button += '<a href="'.$url.'">Dokumen 3</a>';
-                    }   
-                    if($markah->dokumen_rayuan4) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen4;
-                        $html_button += '<a href="'.$url.'">Dokumen 4</a>';
-                    } 
-                    if($markah->dokumen_rayuan5) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
-                        $html_button += '<a href="'.$url.'">Dokumen 5</a>';
-                    }                                                                                        
-                }
-                return $html_button;
-            })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['targetpoint_', 'assessmentpoint_', 'ulasan_', 'dokumen_'])
             ->make(true);
         }
         elseif($request->ajax() && $projek->kategori ==  'phJKR Jalan Naiktaraf') {
@@ -1954,18 +1920,6 @@ class ProjekController extends Controller
                 }         
                 return $html_button;
             })
-            ->addColumn('ulasan_rayuan', function (Kriteria $kriteria) use ($projek) {
-                $kriteria_id = $kriteria->id;
-                $html_button = '?';
-                $markah = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
-                ])->first();       
-                if($markah) {
-                    $html_button = $markah->ulasan_rayuan;
-                }         
-                return $html_button;
-            })   
             ->addColumn('dokumen_', function (Kriteria $kriteria) use ($projek) {
                 $kriteria_id = $kriteria->id;
                 $html_button = '?';
@@ -1998,41 +1952,7 @@ class ProjekController extends Controller
                 }         
                 return $html_button;
             })
-            ->addColumn('dokumen_rayuan', function (Kriteria $kriteria) use ($projek) {
-                $kriteria_id = $kriteria->id;
-                $html_button = '?';
-                $markah = Markah::where([
-                    ['projek_id', '=', $projek->id],
-                    ['kriteria_id', '=', $kriteria_id],
-
-                ])->first(); 
-            
-                // Rayuan
-                if($markah) {
-                    if($markah->dokumen_rayuan1) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen1;
-                        $html_button = '<a href="'.$url.'">Dokumen 1</a>';
-                    }
-                    if($markah->dokumen_rayuan2) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen2;
-                        $html_button += '<a href="'.$url.'">Dokumen 2</a>';
-                    } 
-                    if($markah->dokumen_rayuan3) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen3;
-                        $html_button += '<a href="'.$url.'">Dokumen 3</a>';
-                    }   
-                    if($markah->dokumen_rayuan4) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen4;
-                        $html_button += '<a href="'.$url.'">Dokumen 4</a>';
-                    } 
-                    if($markah->dokumen_rayuan5) {
-                        $url = 'https://pipeline-apps.sgp1.digitaloceanspaces.com/'.$markah->dokumen5;
-                        $html_button += '<a href="'.$url.'">Dokumen 5</a>';
-                    }                                                                                        
-                }
-                return $html_button;
-            })                       
-            ->rawColumns(['markah_', 'ulasan_', 'dokumen_', 'ulasan_rayuan', 'dokumen_rayuan'])
+            ->rawColumns(['markah_', 'ulasan_', 'dokumen_'])
             ->make(true);
         }
            
@@ -4565,17 +4485,18 @@ class ProjekController extends Controller
                 $markah_sm_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_sm_td){
-                    $sm_td += $markah_sm_td->markah;
+                    $sm_td += $markah_sm_td->target_point;
                 } 
-                elseif ($markah_sm_ad){
-                    $sm_ad += $markah_sm_ad->markah;
+                if ($markah_sm_ad){
+                    $sm_ad += $markah_sm_ad->assessment_point;
                 }
-                elseif ($markah_sm_tv){
-                    $sm_ad += $markah_sm_tv->markah;
+                if ($markah_sm_tv){
+                    $sm_tv += $markah_sm_tv->target_point;
                 }
-                elseif ($markah_sm_av){
-                    $sm_ad += $markah_sm_av->markah;
-                }                                
+                if ($markah_sm_av){
+                    $sm_av += $markah_sm_av->assessment_point;
+                }                  
+                // dd($markah_sm_ad);              
             }  
             foreach($pt_kriterias as $pt_kriteria) {                
                 $markah_pt_td = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','rekabentuk']])->first();
@@ -4584,16 +4505,16 @@ class ProjekController extends Controller
                 $markah_pt_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_pt_td){
-                    $pt_td += $markah_pt_td->markah;
+                    $pt_td += $markah_pt_td->target_point;
                 } 
-                elseif ($markah_pt_ad){
-                    $pt_ad += $markah_pt_ad->markah;
+                if ($markah_pt_ad){
+                    $pt_ad += $markah_pt_ad->assessment_point;
                 }
-                elseif ($markah_pt_tv){
-                    $pt_tv += $markah_pt_tv->markah;
+                if ($markah_pt_tv){
+                    $pt_tv += $markah_pt_tv->target_point;
                 }
-                elseif ($markah_pt_av){
-                    $pt_av += $markah_pt_av->markah;
+                if ($markah_pt_av){
+                    $pt_av += $markah_pt_av->assessment_point;
                 }                                
             } 
             foreach($ew_kriterias as $ew_kriteria) {                
@@ -4603,16 +4524,16 @@ class ProjekController extends Controller
                 $markah_ew_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ew_td){
-                    $ew_td += $markah_ew_td->markah;
+                    $ew_td += $markah_ew_td->target_point;
                 } 
-                elseif ($markah_ew_ad){
-                    $ew_ad += $markah_ew_ad->markah;
+                if ($markah_ew_ad){
+                    $ew_ad += $markah_ew_ad->assessment_point;
                 } 
-                elseif ($markah_ew_tv){
-                    $ew_tv += $markah_ew_tv->markah;
+                if ($markah_ew_tv){
+                    $ew_tv += $markah_ew_tv->target_point;
                 }  
-                elseif ($markah_ew_av){
-                    $ew_av += $markah_ew_av->markah;
+                if ($markah_ew_av){
+                    $ew_av += $markah_ew_av->assessment_point;
                 }                             
             } 
             foreach($ae_kriterias as $ae_kriteria) {                
@@ -4622,16 +4543,16 @@ class ProjekController extends Controller
                 $markah_ae_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ae_td){
-                    $ae_td += $markah_ae_td->markah;
+                    $ae_td += $markah_ae_td->target_point;
                 } 
-                elseif ($markah_ae_ad){
-                    $ae_ad += $markah_ae_ad->markah;
+                if ($markah_ae_ad){
+                    $ae_ad += $markah_ae_ad->assessment_point;
                 }
-                elseif ($markah_ae_tv){
-                    $ae_tv += $markah_ae_tv->markah;
+                if ($markah_ae_tv){
+                    $ae_tv += $markah_ae_tv->target_point;
                 }  
-                elseif ($markah_ae_av){
-                    $ae_av += $markah_ae_av->markah;
+                if ($markah_ae_av){
+                    $ae_av += $markah_ae_av->assessment_point;
                 }                                 
             }
             foreach($ca_kriterias as $ca_kriteria) {                
@@ -4641,16 +4562,16 @@ class ProjekController extends Controller
                 $markah_ca_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ca_td){
-                    $ca_td += $markah_ca_td->markah;
+                    $ca_td += $markah_ca_td->target_point;
                 } 
-                elseif ($markah_ca_ad){
-                    $ca_ad += $markah_ca_ad->markah;
+                if ($markah_ca_ad){
+                    $ca_ad += $markah_ca_ad->assessment_point;
                 }   
-                elseif ($markah_ca_tv){
-                    $ca_tv += $markah_ca_tv->markah;
+                if ($markah_ca_tv){
+                    $ca_tv += $markah_ca_tv->target_point;
                 }  
-                elseif ($markah_ca_av){
-                    $ca_av += $markah_ca_av->markah;
+                if ($markah_ca_av){
+                    $ca_av += $markah_ca_av->assessment_point;
                 }                              
             } 
             foreach($mr_kriterias as $mr_kriteria) {                
@@ -4660,16 +4581,16 @@ class ProjekController extends Controller
                 $markah_mr_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_mr_td){
-                    $mr_td += $markah_mr_td->markah;
+                    $mr_td += $markah_mr_td->target_point;
                 } 
-                elseif ($markah_mr_ad){
-                    $mr_ad += $markah_mr_ad->markah;
+                if ($markah_mr_ad){
+                    $mr_ad += $markah_mr_ad->assessment_point;
                 }    
-                elseif ($markah_mr_tv){
-                    $mr_tv += $markah_mr_tv->markah;
+                if ($markah_mr_tv){
+                    $mr_tv += $markah_mr_tv->target_point;
                 }  
-                elseif ($markah_mr_av){
-                    $mr_av += $markah_mr_av->markah;
+                if ($markah_mr_av){
+                    $mr_av += $markah_mr_av->assessment_point;
                 }                             
             }
             foreach($ec_kriterias as $ec_kriteria) {                
@@ -4679,16 +4600,16 @@ class ProjekController extends Controller
                 $markah_ec_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ec_td){
-                    $ec_td += $markah_ec_td->markah;
+                    $ec_td += $markah_ec_td->target_point;
                 } 
-                elseif ($markah_ec_ad){
-                    $ec_ad += $markah_ec_ad->markah;
+                if ($markah_ec_ad){
+                    $ec_ad += $markah_ec_ad->assessment_point;
                 }
-                elseif ($markah_ec_tv){
-                    $ec_tv += $markah_ec_tv->markah;
+                if ($markah_ec_tv){
+                    $ec_tv += $markah_ec_tv->target_point;
                 }  
-                elseif ($markah_ec_av){
-                    $ec_av += $markah_ec_av->markah;
+                if ($markah_ec_av){
+                    $ec_av += $markah_ec_av->assessment_point;
                 }                                 
             }
             foreach($in_kriterias as $in_kriteria) {                
@@ -4698,16 +4619,16 @@ class ProjekController extends Controller
                 $markah_in_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_in_td){
-                    $in_td += $markah_in_td->markah;
+                    $in_td += $markah_in_td->target_point;
                 } 
-                elseif ($markah_in_ad){
-                    $in_ad += $markah_in_ad->markah;
+                if ($markah_in_ad){
+                    $in_ad += $markah_in_ad->assessment_point;
                 }
-                elseif ($markah_in_tv){
-                    $in_tv += $markah_in_tv->markah;
+                if ($markah_in_tv){
+                    $in_tv += $markah_in_tv->target_point;
                 }  
-                elseif ($markah_in_av){
-                    $in_av += $markah_in_av->markah;
+                if ($markah_in_av){
+                    $in_av += $markah_in_av->assessment_point;
                 }                                 
             }                               
              
@@ -4735,10 +4656,10 @@ class ProjekController extends Controller
             } elseif($final_score >= 50 && $final_score < 69){
                 $bintang_fs = 3;
                 $bintang_fss = 'BEST MANAGEMENT PRACTICES';
-            } elseif($final_score >=40 && $final_score < 49){
+            } elseif($final_score >=41 && $final_score < 49){
                 $bintang_fs = 2;
                 $bintang_fss = 'POTENTIAL RECOGNITION';
-            } else {
+            } elseif($final_score < 40){
                 $bintang_fs = 0;
                 $bintang_fss = 'NO RECOGNITION';
             }
@@ -4881,16 +4802,16 @@ class ProjekController extends Controller
                 $markah_sm_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_sm_td){
-                    $sm_td += $markah_sm_td->markah;
+                    $sm_td += $markah_sm_td->target_point;
                 } 
-                elseif ($markah_sm_ad){
-                    $sm_ad += $markah_sm_ad->markah;
+                if ($markah_sm_ad){
+                    $sm_ad += $markah_sm_ad->assessment_point;
                 }
-                elseif ($markah_sm_tv){
-                    $sm_ad += $markah_sm_tv->markah;
+                if ($markah_sm_tv){
+                    $sm_ad += $markah_sm_tv->target_point;
                 }
-                elseif ($markah_sm_av){
-                    $sm_ad += $markah_sm_av->markah;
+                if ($markah_sm_av){
+                    $sm_ad += $markah_sm_av->assessment_point;
                 }                                
             }  
             foreach($pt_kriterias as $pt_kriteria) {                
@@ -4900,16 +4821,16 @@ class ProjekController extends Controller
                 $markah_pt_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_pt_td){
-                    $pt_td += $markah_pt_td->markah;
+                    $pt_td += $markah_pt_td->target_point;
                 } 
-                elseif ($markah_pt_ad){
-                    $pt_ad += $markah_pt_ad->markah;
+                if ($markah_pt_ad){
+                    $pt_ad += $markah_pt_ad->assessment_point;
                 }
-                elseif ($markah_pt_tv){
-                    $pt_tv += $markah_pt_tv->markah;
+                if ($markah_pt_tv){
+                    $pt_tv += $markah_pt_tv->target_point;
                 }
-                elseif ($markah_pt_av){
-                    $pt_av += $markah_pt_av->markah;
+                if ($markah_pt_av){
+                    $pt_av += $markah_pt_av->assessment_point;
                 }                                
             } 
             foreach($ew_kriterias as $ew_kriteria) {                
@@ -4919,16 +4840,16 @@ class ProjekController extends Controller
                 $markah_ew_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ew_td){
-                    $ew_td += $markah_ew_td->markah;
+                    $ew_td += $markah_ew_td->target_point;
                 } 
-                elseif ($markah_ew_ad){
-                    $ew_ad += $markah_ew_ad->markah;
+                if ($markah_ew_ad){
+                    $ew_ad += $markah_ew_ad->assessment_point;
                 } 
-                elseif ($markah_ew_tv){
-                    $ew_tv += $markah_ew_tv->markah;
+                if ($markah_ew_tv){
+                    $ew_tv += $markah_ew_tv->target_point;
                 }  
-                elseif ($markah_ew_av){
-                    $ew_av += $markah_ew_av->markah;
+                if ($markah_ew_av){
+                    $ew_av += $markah_ew_av->assessment_point;
                 }                             
             } 
             foreach($ae_kriterias as $ae_kriteria) {                
@@ -4938,16 +4859,16 @@ class ProjekController extends Controller
                 $markah_ae_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ae_td){
-                    $ae_td += $markah_ae_td->markah;
+                    $ae_td += $markah_ae_td->target_point;
                 } 
-                elseif ($markah_ae_ad){
-                    $ae_ad += $markah_ae_ad->markah;
+                if ($markah_ae_ad){
+                    $ae_ad += $markah_ae_ad->assessment_point;
                 }
-                elseif ($markah_ae_tv){
-                    $ae_tv += $markah_ae_tv->markah;
+                if ($markah_ae_tv){
+                    $ae_tv += $markah_ae_tv->target_point;
                 }  
-                elseif ($markah_ae_av){
-                    $ae_av += $markah_ae_av->markah;
+                if ($markah_ae_av){
+                    $ae_av += $markah_ae_av->assessment_point;
                 }                                 
             }
             foreach($ca_kriterias as $ca_kriteria) {                
@@ -4957,16 +4878,16 @@ class ProjekController extends Controller
                 $markah_ca_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ca_td){
-                    $ca_td += $markah_ca_td->markah;
+                    $ca_td += $markah_ca_td->target_point;
                 } 
-                elseif ($markah_ca_ad){
-                    $ca_ad += $markah_ca_ad->markah;
+                if ($markah_ca_ad){
+                    $ca_ad += $markah_ca_ad->assessment_point;
                 }   
-                elseif ($markah_ca_tv){
-                    $ca_tv += $markah_ca_tv->markah;
+                if ($markah_ca_tv){
+                    $ca_tv += $markah_ca_tv->target_point;
                 }  
-                elseif ($markah_ca_av){
-                    $ca_av += $markah_ca_av->markah;
+                if ($markah_ca_av){
+                    $ca_av += $markah_ca_av->assessment_point;
                 }                              
             } 
             foreach($mr_kriterias as $mr_kriteria) {                
@@ -4976,16 +4897,16 @@ class ProjekController extends Controller
                 $markah_mr_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_mr_td){
-                    $mr_td += $markah_mr_td->markah;
+                    $mr_td += $markah_mr_td->target_point;
                 } 
-                elseif ($markah_mr_ad){
-                    $mr_ad += $markah_mr_ad->markah;
+                if ($markah_mr_ad){
+                    $mr_ad += $markah_mr_ad->assessment_point;
                 }    
-                elseif ($markah_mr_tv){
-                    $mr_tv += $markah_mr_tv->markah;
+                if ($markah_mr_tv){
+                    $mr_tv += $markah_mr_tv->target_point;
                 }  
-                elseif ($markah_mr_av){
-                    $mr_av += $markah_mr_av->markah;
+                if ($markah_mr_av){
+                    $mr_av += $markah_mr_av->assessment_point;
                 }                             
             }
             foreach($ec_kriterias as $ec_kriteria) {                
@@ -4995,16 +4916,16 @@ class ProjekController extends Controller
                 $markah_ec_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_ec_td){
-                    $ec_td += $markah_ec_td->markah;
+                    $ec_td += $markah_ec_td->target_point;
                 } 
-                elseif ($markah_ec_ad){
-                    $ec_ad += $markah_ec_ad->markah;
+                if ($markah_ec_ad){
+                    $ec_ad += $markah_ec_ad->assessment_point;
                 }
-                elseif ($markah_ec_tv){
-                    $ec_tv += $markah_ec_tv->markah;
+                if ($markah_ec_tv){
+                    $ec_tv += $markah_ec_tv->target_point;
                 }  
-                elseif ($markah_ec_av){
-                    $ec_av += $markah_ec_av->markah;
+                if ($markah_ec_av){
+                    $ec_av += $markah_ec_av->assessment_point;
                 }                                 
             }
             foreach($in_kriterias as $in_kriteria) {                
@@ -5014,16 +4935,16 @@ class ProjekController extends Controller
                 $markah_in_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
 
                 if ($markah_in_td){
-                    $in_td += $markah_in_td->markah;
+                    $in_td += $markah_in_td->target_point;
                 } 
-                elseif ($markah_in_ad){
-                    $in_ad += $markah_in_ad->markah;
+                if ($markah_in_ad){
+                    $in_ad += $markah_in_ad->assessment_point;
                 }
-                elseif ($markah_in_tv){
-                    $in_tv += $markah_in_tv->markah;
+                if ($markah_in_tv){
+                    $in_tv += $markah_in_tv->target_point;
                 }  
-                elseif ($markah_in_av){
-                    $in_av += $markah_in_av->markah;
+                if ($markah_in_av){
+                    $in_av += $markah_in_av->assessment_point;
                 }                                 
             }                               
              
@@ -5176,10 +5097,10 @@ class ProjekController extends Controller
                 if($markah_aw_ds){
                     $aw_ds +=  $markah_aw_ds->point_req_design;
                 }  
-                elseif($markah_aw_cs){
+                if($markah_aw_cs){
                     $aw_cs +=  $markah_aw_cs->point_req_construction;
                 }  
-                elseif($markah_aw_pa){
+                if($markah_aw_pa){
                     $aw_pa += $markah_aw_pa->point_allocated;
                     // dd($markah_aw_pa);
                 }                           
@@ -5192,7 +5113,7 @@ class ProjekController extends Controller
                 if($markah_mw_ds){
                     $mw_ds +=  $markah_mw_ds->point_req_design;
                 } 
-                elseif($markah_mw_cs){
+                if($markah_mw_cs){
                     $mw_cs +=  $markah_mw_cs->point_req_construction;
                 }
             }
@@ -5204,7 +5125,7 @@ class ProjekController extends Controller
                 if($markah_ew_ds){
                     $ew_ds +=  $markah_ew_ds->point_req_design;
                 }
-                elseif($markah_ew_cs){
+                if($markah_ew_cs){
                     $ew_cs +=  $markah_ew_cs->point_req_construction;
                 } 
             }
@@ -5216,7 +5137,7 @@ class ProjekController extends Controller
                 if($markah_cw_ds){
                     $cw_ds +=  $markah_cw_ds->point_req_design;
                 } 
-                elseif($markah_cw_cs){
+                if($markah_cw_cs){
                     $cw_cs +=  $markah_cw_cs->point_req_construction;
                 }
             }
@@ -5363,10 +5284,10 @@ class ProjekController extends Controller
                 if($markah_aw_ds){
                     $aw_ds +=  $markah_aw_ds->point_req_design;
                 }  
-                elseif($markah_aw_cs){
+                if($markah_aw_cs){
                     $aw_cs +=  $markah_aw_cs->point_req_construction;
                 }  
-                elseif($markah_aw_pa){
+                if($markah_aw_pa){
                     $aw_pa += $markah_aw_pa->point_allocated;
                     // dd($markah_aw_pa);
                 }                           
@@ -5379,7 +5300,7 @@ class ProjekController extends Controller
                 if($markah_mw_ds){
                     $mw_ds +=  $markah_mw_ds->point_req_design;
                 } 
-                elseif($markah_mw_cs){
+                if($markah_mw_cs){
                     $mw_cs +=  $markah_mw_cs->point_req_construction;
                 }
             }
@@ -5391,7 +5312,7 @@ class ProjekController extends Controller
                 if($markah_ew_ds){
                     $ew_ds +=  $markah_ew_ds->point_req_design;
                 }
-                elseif($markah_ew_cs){
+                if($markah_ew_cs){
                     $ew_cs +=  $markah_ew_cs->point_req_construction;
                 } 
             }
@@ -5403,7 +5324,7 @@ class ProjekController extends Controller
                 if($markah_cw_ds){
                     $cw_ds +=  $markah_cw_ds->point_req_design;
                 } 
-                elseif($markah_cw_cs){
+                if($markah_cw_cs){
                     $cw_cs +=  $markah_cw_cs->point_req_construction;
                 }
             }
@@ -5551,10 +5472,10 @@ class ProjekController extends Controller
                 if($markah_aw_ds){
                     $aw_ds +=  $markah_aw_ds->point_req_design;
                 }  
-                elseif($markah_aw_cs){
+                if($markah_aw_cs){
                     $aw_cs +=  $markah_aw_cs->point_req_construction;
                 }  
-                elseif($markah_aw_pa){
+                if($markah_aw_pa){
                     $aw_pa += $markah_aw_pa->point_allocated;
                     // dd($markah_aw_pa);
                 }                           
@@ -5567,7 +5488,7 @@ class ProjekController extends Controller
                 if($markah_mw_ds){
                     $mw_ds +=  $markah_mw_ds->point_req_design;
                 } 
-                elseif($markah_mw_cs){
+                if($markah_mw_cs){
                     $mw_cs +=  $markah_mw_cs->point_req_construction;
                 }
             }
@@ -5579,7 +5500,7 @@ class ProjekController extends Controller
                 if($markah_ew_ds){
                     $ew_ds +=  $markah_ew_ds->point_req_design;
                 }
-                elseif($markah_ew_cs){
+                if($markah_ew_cs){
                     $ew_cs +=  $markah_ew_cs->point_req_construction;
                 } 
             }
@@ -5591,7 +5512,7 @@ class ProjekController extends Controller
                 if($markah_cw_ds){
                     $cw_ds +=  $markah_cw_ds->point_req_design;
                 } 
-                elseif($markah_cw_cs){
+                if($markah_cw_cs){
                     $cw_cs +=  $markah_cw_cs->point_req_construction;
                 }
             }
@@ -5730,7 +5651,7 @@ class ProjekController extends Controller
                 if($markah_rw_ds){
                     $rw_ds +=  $markah_rw_ds->point_req_design;
                 } 
-                elseif ($markah_rw_cs){
+                if ($markah_rw_cs){
                     $rw_cs += $markah_rw_cs->point_req_construction;
                 }                                 
             }
@@ -5740,7 +5661,7 @@ class ProjekController extends Controller
                 if($markah_sw_ds){
                     $sw_ds +=  $markah_sw_ds->point_req_design;
                 } 
-                elseif ($markah_sw_cs){
+                if ($markah_sw_cs){
                     $sw_cs += $markah_sw_cs->point_req_construction;
                 }
             }
@@ -5801,8 +5722,7 @@ class ProjekController extends Controller
             'total_ds', 'total_cs', 'rw_ds', 'rw_ds', 'sw_cs', 'rw_cs', 'rw_pad', 'sw_pad', 'total_pad', 'total_pa', 'peratus_rw', 'peratus_sw', 'bintang', 'sw_ds',
             'total_peratus_road', 'total_peratus_crest', 'rw_pa', 'sw_pa'
         ));       
-        }
-        
+        }    
     }
 
     public function lantik(Request $request) {
@@ -6034,10 +5954,11 @@ class ProjekController extends Controller
         $markah->projek_id = $id;
         $markah->user_id = $user->id;
         $markah->kriteria_id = $request->kriteria;
-        $markah->markah = $request->markah;
+        $markah->target_point = $request->target_point;
+        $markah->assessment_point = $request->assessment_point;
         $markah->ulasan = $request->ulasan;
+        $markah->comment = $request->comment;
         $markah->fasa = $request->fasa;
-        $markah->ulasan_rayuan = $request->ulasan_rayuan;
 
         if ($request->hasFile('dokumen1')) {
             $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
@@ -6046,8 +5967,7 @@ class ProjekController extends Controller
                 Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
                 return back();
             }            
-        } 
-           
+        }    
         if ($request->hasFile('dokumen2')) {
             $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
         }     
@@ -6059,29 +5979,7 @@ class ProjekController extends Controller
         }     
         if ($request->hasFile('dokumen5')) {
             $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
-        }  
-
-        if ($request->hasFile('dokumen_rayuan1')) {
-            $markah->dokumen_rayuan1 = $request->file('dokumen_rayuan1')->store('jkr-ephjkr/uploads');
-        // } else {
-        //     if ($request->markah > 0) {
-        //         Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
-        //         return back();
-        //     }            
         }    
-        if ($request->hasFile('dokumen_rayuan2')) {
-            $markah->dokumen_rayuan2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
-        }     
-        if ($request->hasFile('dokumen_rayuan3')) {
-            $markah->dokumen3 = $request->file('dokumen_rayuan3')->store('jkr-ephjkr/uploads');
-        }     
-        if ($request->hasFile('dokumen_rayuan4')) {
-            $markah->dokumen4 = $request->file('dokumen_rayuan4')->store('jkr-ephjkr/uploads');
-        }     
-        if ($request->hasFile('dokumen_rayuan5')) {
-            $markah->dokumen5 = $request->file('dokumen_rayuan5')->store('jkr-ephjkr/uploads');
-        }  
-
         $markah->save();
 
         alert()->success('Markah Disimpan', 'Berjaya');
@@ -6278,6 +6176,7 @@ class ProjekController extends Controller
         }
 
         $projek->save();
+
         return back();
 
     }
@@ -6422,6 +6321,7 @@ class ProjekController extends Controller
     }
 
 
+    //Sijil
     public function sijil_eph_bangunan(Request $request){
         // dd('OK');
         $id = (int)$request->route('id'); //cari id dlm route
@@ -6432,6 +6332,30 @@ class ProjekController extends Controller
         $projek = FacadePdf::loadView('projek.sijil_eph_bangunan',compact('projek','date'));
         // dd($projek);
         return $projek->download('ePHJKR_SIJIL_EPH_BANGUNAN.'.'pdf');
+    }
+
+    public function sijil_eph_jalan_rekabentuk(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_eph_jalan_rekabentuk',compact('projek','date'));
+        // dd($projek);
+        return $projek->download('ePHJKR_SIJIL_PENILAIAN_REKABENTUK_JALAN.'.'pdf');
+    }
+
+    public function sijil_eph_jalan_verifikasi(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_eph_jalan_verifikasi',compact('projek','date'));
+        // dd($projek);
+        return $projek->download('ePHJKR_SIJIL_VERIFIKASI_JALAN.'.'pdf');
     }
 
     public function sijil_gpss_bangunan(Request $request){
