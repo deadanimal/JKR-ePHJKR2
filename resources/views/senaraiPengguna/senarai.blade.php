@@ -97,7 +97,7 @@
                                         @endrole
                                     </td>
                                     <td>
-                                        <a href="/senaraiPengguna/kemaskini_pengguna/{{ $p->id }}"
+                                        <a href="/senaraiPengguna/papar/{{ $p->id }}"
                                             class="btn btn-sm btn-primary">Papar</a>
 
                                         {{-- <a href="senaraiPengguna.sembunyi/{{ $p->id }}"

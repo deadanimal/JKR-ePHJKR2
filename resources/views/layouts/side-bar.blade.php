@@ -107,9 +107,9 @@
                 </div>
             </a>
         </li>  
-        @endrole      
+        @endrole
 
-        @role('pentadbir|pengguna|sekretariat|ketua-pasukan|pemudah-cara|penilai|ketua-validasi|pasukan-validasi')  
+        @role('pentadbir|pengurusan-atasan|pengguna|sekretariat|ketua-pasukan|pemudah-cara|penilai|ketua-validasi|pasukan-validasi')  
         <li class="nav-item">
             <a class="nav-link" href="/projek">
                 <div class="d-flex align-items-center nav-link-side">

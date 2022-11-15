@@ -6,7 +6,7 @@
             aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item text-dark-green-jkr" style="font-weight: 700" aria-current="page">
-                    Paparan Profil
+                    Senarai Pengguna
                 </li>
             </ol>
         </nav>
@@ -15,7 +15,7 @@
 
     <div class="row">
         <div class="col">
-            <h3 class="mb-0 text-primary"><strong>Profil Pengguna</strong></h3>
+            <h3 class="mb-0 text-primary"><strong>Papar Maklumat Pengguna</strong></h3>
         </div>
     </div>
 
@@ -48,13 +48,6 @@
                         </div>
 
                         <div class="col-4 mb-2">
-                            <h5 class="h6">No. fax:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;"> {{ $pengguna['faxNo'] }}</h5>
-                        </div>
-
-                        <div class="col-4 mb-2">
                             <h5 class="h6">Nama Syarikat:</h5>
                         </div>
                         <div class="col-8 mb-2">
@@ -74,18 +67,6 @@
                         <div class="col-8 mb-2">
                             <h5 class="h6" style="font-weight: 700;">{{ $pengguna['alamat_syarikat'] }}</h5>
                         </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Negeri:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna['negeri'] }}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">daerah:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{ $pengguna['daerah'] }}</h5>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -94,7 +75,7 @@
 
     <div class="row">
         <div class="col text-end">
-            <a href="profil/profil_kemaskini/{{$pengguna->id}}" class="btn btn-primary">Kemaskini</a>
+            <a href="/senaraiPengguna" class="btn btn-primary">Kembali</a>
         </div>
     </div>
 @endsection

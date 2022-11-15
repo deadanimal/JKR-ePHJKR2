@@ -58,8 +58,12 @@ class UserController extends Controller
         $pengguna = User::find($id);
         $pengguna->name = $request->name;
         $pengguna->email = $request->email;
-        // $pengguna->telNo = $request->telNo;
-        // $pengguna->nama_syarikat = $request->nama_syarikat;
+        $pengguna->negeri = $request->negeri;
+        $pengguna->daerah = $request->daerah;
+        $pengguna->telNo = $request->telNo;
+        $pengguna->faxNo = $request->faxNo;
+        $pengguna->nama_cawangan = $request->nama_cawangan;
+        $pengguna->nama_syarikat = $request->nama_syarikat;
         $pengguna->alamat_syarikat = $request->alamat_syarikat;
 
         $pengguna->save();
@@ -81,17 +85,14 @@ class UserController extends Controller
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
         $peranans = PenukaranPeranan::all();
-        // $peranan = ProjekRoleUser::with(['role','user'])->where('user_id', $id)->get();
-        // dd($peranan);
-        // $peranan = ProjekRoleUser::with(['role','user'])->where('user_id', $id)->get();
-        $projeks = ProjekRoleUser::with(['projek','role','user'])->where('user_id', $id)->get();
+        $projeks = ProjekRoleUser::with(['projek','user'])->where('user_id', $id)->get();
+        foreach ($projeks as $key => $p) {
+            $peranan = Role::find($p->role_id)->name;
+            $p['nama_peranan'] = $peranan;
+        }
 
-        // $projek = ProjekRoleUser::find($id);
-        // $user = User::where('id',$projek->user_id)->first();
-        // dd($projek);
-
-        // dd($user);
-        return view('profil.tukar_peranan2', compact('pengguna','projeks','peranans'));
+        // dd($projeks);
+        return view('profil.tukar_peranan2', compact('pengguna','projeks','peranans','p'));
     }
 
     public function simpan_tukar_peranan2(Request $request) {  
@@ -171,6 +172,12 @@ class UserController extends Controller
         return view('senaraiPengguna.kemaskini', compact('pengguna'));
     }
 
+    public function papar_pengguna(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $pengguna = User::find($id);  
+        return view('senaraiPengguna.papar', compact('pengguna'));
+    }
+
     public function simpan_kemaskini_pengguna(Request $request) {  
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
@@ -184,8 +191,8 @@ class UserController extends Controller
 
     public function senarai_tukar_peranan(Request $request) {   
         $id = (int)$request->route('id'); 
-        $pengguna = User::all();
-        return view('senaraiPengguna.senarai_tukar_peranan', compact('pengguna'));
+        $peranan = PenukaranPeranan::all();
+        return view('senaraiPengguna.senarai_tukar_peranan', compact('peranan'));
     }
 
     public function senarai_pengesahan_akaun(Request $request) {   
