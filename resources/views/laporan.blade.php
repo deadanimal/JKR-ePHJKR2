@@ -1,4 +1,6 @@
 @extends('layouts.app')
+<link rel="stylesheet" type="text/css" href="print.css">
+
 <style>
     #senarai_projek_phjkr {
       width: 100%;
@@ -136,9 +138,31 @@
             <h4>Bilangan Pencapaian mengikut Pematuhan Kriteria</h4>
             <h5>(Jumlah Projek Melaksanakan Kriteria) pHJKR JALAN</h5>
                 <div id="analisa_phjkr_jalan"></div>
-
         </div>
     </div>
+
+    <div class="card mt-6">
+      <div class="card-body" id="senarai-projek">
+          <h3>Senarai Projek yang telah Didaftar</h3>
+          <div class="row mt-3">
+            <table class="table table-bordered projek-datatable line-table" style="width:100%">
+              <thead class="text-white bg-orange-jkr">
+                  <tr>
+                      <th class="text-center">Nama Projek</th>
+                      <th class="text-center">Alamat</th>
+                      <th class="text-center">Peranan</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Jenis Kategori</th>
+                  </tr>
+              </thead>
+           </table> 
+            <div class="col text-center">
+                <button class="btn btn-primary" onclick="printJS('senarai-projek', 'html')">Muat Turun</button>
+            </div>
+        </div>
+      </div>
+  </div>
+
 </div>
 
 
@@ -150,6 +174,44 @@
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.css"></script>
+
+<script type="text/javascript">
+  $(function() {
+
+      var table = $('.projek-datatable').DataTable({
+          processing: true,
+          serverSide: true,
+          responsive: true,
+          ajax: "/projek",
+          columns: [
+              {
+                  data: 'nama',
+                  name: 'nama'
+              },
+              {
+                  data: 'alamat',
+                  name: 'alamat'
+              },
+              {
+                  data: 'peranan',
+                  name: 'peranan'
+              },                
+              {
+                  data: 'status',
+                  name: 'status'
+              },
+              {
+                  data: 'kategori',
+                  name: 'kategori'
+              },                                                                 
+          ]
+      });
+
+
+  });
+</script>
 <!--Senarai Projek PHJKR (Jalan & Bangunan)-->
 <script>
     am5.ready(function() {
@@ -2822,8 +2884,6 @@
     
     }); // end am5.ready()
 </script>
-
-
 
 <!--Analisa PHJKR 2018-2021 (Jalan)-->
 <script>
