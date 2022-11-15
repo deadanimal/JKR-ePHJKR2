@@ -201,6 +201,7 @@
             <div class="col-12 mt-6">
                 <div class="card">
                     <div class="card-body">
+                        <h2 class="mb-3">Senarai Pelantikan</h2>
                         <table class="table table-bordered line-table" style="width:100%">
                             <thead class="text-white bg-orange-jkr">
                                 <tr>
@@ -562,7 +563,7 @@
                                         <table class="table table-bordered line-table text-center skor-datatable" style="width: 100%">
                                             <thead class="text-white bg-orange-jkr">
                                                 <tr>
-                                                    <th colspan="7">UPGRADING ROADS</th>
+                                                    <th colspan="8">UPGRADING ROADS</th>
                                                 </tr>
                                                 <tr>
                                                     <th>Code</th>
