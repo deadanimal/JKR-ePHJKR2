@@ -62,8 +62,9 @@ class RegisteredUserController extends Controller
         //$user->password = $request->password;
         $user->password = Hash::make($request->password);
 
-        alert('maklumat telah berjaya', 'Berjaya');
+        
         $user->save();
+        // alert('maklumat telah berjaya', 'Berjaya');
 
         Mail::to('haris.zahari@pipeline-network.com')->send(new PengesahanPendaftaran);
 
@@ -72,6 +73,8 @@ class RegisteredUserController extends Controller
 
         // return redirect('/');
         // Auth::login($user);
+        alert('maklumat telah berjaya', 'Berjaya');
+
 
 
         return redirect('/login');

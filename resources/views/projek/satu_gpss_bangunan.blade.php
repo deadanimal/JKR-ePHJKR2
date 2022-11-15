@@ -186,7 +186,7 @@
                                 <div class="col-5 mb-2">
                                     <label class="col-form-label">Peranan:</label>
                                 </div>
-                                @role('ketua-pasukan')
+                                @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="col-7 mb-2">
                                     <select class="form-select" name="role_id">
                                         <option value=12 selected>Ketua Pemudah Cara</option>
@@ -197,6 +197,8 @@
                                 @role('sekretariat')
                                 <div class="col-7 mb-2">
                                     <select class="form-select" name="role_id">
+                                        <option value=3 selected>Ketua Pasukan</option>
+                                        <option value=4>Penolong Ketua Pasukan</option>
                                         <option value=8 selected>Ketua Penilai</option>
                                         <option value=7>Penilai</option>
                                     </select>
