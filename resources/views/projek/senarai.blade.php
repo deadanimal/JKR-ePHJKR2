@@ -19,11 +19,11 @@
     @endrole
 </div>
 <div class="row mb-3">
-    {{-- @role('ketua-pasukan') --}}
+    @role('ketua-pasukan')
     <div class="col text-end">
         <a href="/projek/gugur/senarai_gugur_projek" class="btn btn-primary">Gugur Projek</a>
     </div>
-    {{-- @endrole --}}
+    @endrole
 </div>
 
     <table class="table table-bordered projek-datatable line-table" style="width:100%">
@@ -34,8 +34,10 @@
                 <th class="text-center">Peranan</th>
                 <th class="text-center">Status</th>
                 <th class="text-center">Jenis Kategori</th>
-                <th class="text-center">Tindakan</th> 
+                <th class="text-center">Tindakan</th>
+                @role('ketua-pasukan')
                 <th class="text-center">Gugur Projek</th>
+                @endrole
             </tr>
         </thead>
      </table> 

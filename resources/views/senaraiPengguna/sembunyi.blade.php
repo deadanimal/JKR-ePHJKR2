@@ -46,6 +46,7 @@
                                 <th class="sort">Nama Cawangan</th>
                                 <th class="sort">Nama Negeri</th>
                                 <th class="sort">Nama Peranan</th>
+                                <th class="sort">Status Pengguna</th>
                                 <th class="sort">Tindakan</th>
                             </tr>
                         </thead>
@@ -74,6 +75,17 @@
                                                 @csrf
                                                 <button name="aktif" value="1" type="submit"
                                                     class="btn btn-primary">Deactive</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col">
+                                            <div class="col-auto">
+                                                <form action="/senaraiPengguna/gugur_pengguna/{{ $p->id }}" method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-primary">Gugur</button>
                                                 </form>
                                             </div>
                                         </div>
