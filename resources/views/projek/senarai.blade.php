@@ -41,12 +41,55 @@
      </table> 
 
 
-
+     <script type="text/javascript">
+        $(function() {
+    
+            var table = $('.projek-datatable').DataTable({
+                processing: true,
+                serverSide: true,
+                responsive: true,
+                ajax: "/projek",
+                columns: [
+                    {
+                        data: 'nama',
+                        name: 'nama'
+                    },
+                    {
+                        data: 'alamat',
+                        name: 'alamat'
+                    },
+                    {
+                        data: 'peranan',
+                        name: 'peranan'
+                    },                
+                    {
+                        data: 'status',
+                        name: 'status'
+                    },
+                    {
+                        data: 'kategori',
+                        name: 'kategori'
+                    },
+                    {
+                        data: 'tindakan',
+                        name: 'tindakan'
+                    },
+                    {
+                        data: 'gugur',
+                        name: 'gugur'
+                    },                                                                 
+    
+                ]
+            });
+    
+    
+        });
+    </script>
 
 @endsection
 
-@section('scripts')
-<script type="text/javascript">
+{{-- @section('scripts') --}}
+{{-- <script type="text/javascript">
     $(function() {
 
         var table = $('.projek-datatable').DataTable({
@@ -89,5 +132,5 @@
 
 
     });
-</script>
-@endsection
+</script> --}}
+{{-- @endsection --}}
