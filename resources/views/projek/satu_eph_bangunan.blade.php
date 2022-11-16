@@ -287,6 +287,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Skor Kad</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tab-9" data-bs-toggle="tab" role="tab">Skor Kad Rayuan</a>
+                    </li>
                     @role('pemudah-cara|ketua-pemudah-cara')
                     {{-- @if($projek->status == 'Dalam Proses Pengisian Skor') --}}
                     <li class="nav-item">
@@ -2096,6 +2099,88 @@
                                                 <th>Markah BEI (Untuk KT9 Sahaja)</th>
                                                 <th>Ulasan/Maklumbalas</th>
                                                 <th>Dokumen Sokongan</th>
+                                                {{-- <th>Markah Rayuan (Rekabentuk)</th>
+                                                <th>Markah Rayuan (Rekabentuk - KT9)</th>
+                                                <th>Markah Rayuan (Verifikasi)</th>
+                                                <th>Markah Rayuan (Verifikasi - KT9)</th>
+                                                <th>Markah Rayuan (Validasi)</th>
+                                                <th>Markah Rayuan (Validasi - KT9)</th>
+                                                <th>Ulasan Rayuan</th>
+                                                <th>Dokumen Rayuan</th> --}}
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    @role('sekretariat')
+                                        <div class="row mt-3">
+                                            {{-- @if($projek->fasa == "rekabentuk") --}}
+                                            <div class="col text-center">
+                                                <input type="hidden" name="fasa" value="rekabentuk">
+                                                <button class="btn btn-primary">Sah</button>
+                                            </div>
+                                        </div>
+                                    @endrole
+                                    @role('ketua-pemudah-cara|pemudah-cara')
+                                        <div class="row mt-3">
+                                            {{-- @if($projek->fasa == "rekabentuk") --}}
+                                            <div class="col text-center">
+                                                <input type="hidden" name="fasa" value="rekabentuk">
+                                                <a href="/projek/{{ $projek->id }}/projek_status_berubah" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                                {{-- <button class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Penilaian Diemel ke Sekretariat</button> --}}
+                                            </div>
+                                        </div>
+                                    @endrole
+                                </div>
+                            </div>
+                        </div>
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
+                                    <button class="btn btn-primary" onclick="printJS('skor_kad', 'html')">Muat Turun</button>
+                                </div>
+                            </div>
+                        @endrole
+                    </div>
+
+                    <!--SKOR KAD RAYUAN EPH BANGUNAN-->
+                    <div class="tab-pane" id="tab-9" role="tabpanel">
+                        <div class="card mt-3">
+                            <div class="card-body" id="skor-kad-1">
+                                <h4 class="h4 mb-3">SKOR KAD RAYUAN EPH BANGUNAN</h4>
+                                <div class="table-responsive scrollbar">
+                                    <table id="SkorKad" class="table table-bordered skor-datatable-1 line-table display">
+                                        <thead class="text-white">
+                                            <tr class="pg-1" align="center" style="background-color:#EB5500">
+                                                @if ($projek->kategori == 'phJKR Bangunan Baru A')
+                                                    <th colspan="11">Pembangunan Baru A</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan Baru B')
+                                                    <th colspan="11">Pembangunan Baru B</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan Baru C')
+                                                    <th colspan="11">Pembangunan Baru C</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan Baru D')
+                                                    <th colspan="11">Pembangunan Baru D</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
+                                                    <th colspan="11">Pembangunan PUN A</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
+                                                    <th colspan="11">Pembangunan PUN B</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan PUN C')
+                                                    <th colspan="11">Pembangunan PUN C</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan PUN D')
+                                                    <th colspan="11">Pembangunan PUN D</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada A')
+                                                    <th colspan="11">Pembangunan Sedia Ada A</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada B')
+                                                    <th colspan="11">Pembangunan Sedia Ada B</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada C')
+                                                    <th colspan="11">Pembangunan Sedia Ada C</th>
+                                                @elseif ($projek->kategori == 'phJKR Bangunan Sedia Ada D')
+                                                    <th colspan="11">Pembangunan Sedia Ada D</th>
+                                                @endif
+                                            </tr>
+                                            <tr class="pg-1" align="center" style="background-color:#EB5500">
+                                                <th>Kod</th>
+                                                <th>Kriteria</th>
+                                                <th>Fasa</th>
                                                 <th>Markah Rayuan (Rekabentuk)</th>
                                                 <th>Markah Rayuan (Rekabentuk - KT9)</th>
                                                 <th>Markah Rayuan (Verifikasi)</th>
@@ -2133,7 +2218,7 @@
                             <div class="row mt-3">
                                 <div class="col text-center">
                                     {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
-                                    <button class="btn btn-primary" onclick="printJS('skor_kad', 'html')">Muat Turun</button>
+                                    <button class="btn btn-primary" onclick="printJS('skor-kad-1', 'html')">Muat Turun</button>
                                 </div>
                             </div>
                         @endrole
@@ -2687,6 +2772,69 @@
                     data: 'dokumen_',
                     name: 'dokumen_'
                 },
+                // {
+                //     data: 'markah_rekabentuk_',
+                //     name: 'markah_rekabentuk_'
+                // },
+                // {
+                //     data: 'markah_bei_rekabentuk',
+                //     name: 'markah_bei_rekabentuk'
+                // },
+                // {
+                //     data: 'markah_verifikasi_',
+                //     name: 'markah_verifikasi_'
+                // },
+                // {
+                //     data: 'markah_bei_verifikasi',
+                //     name: 'markah_bei_verifikasi'
+                // }
+                // {
+                //     data: 'markah_validasi_',
+                //     name: 'markah_validasi_'
+                // },
+                // {
+                //     data: 'markah_bei_validasi',
+                //     name: 'markah_bei_validasi'
+                // },
+                // {
+                //     data: 'ulasan_rayuan',
+                //     name: 'ulasan_rayuan'
+                // },
+                // {
+                //     data: 'dokumen_rayuan',
+                //     name: 'dokumen_rayuan'
+                // },
+
+            ]
+        });
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    $(function() {
+
+        var idProjek = {!! json_decode($projek->id) !!}
+        console.log(idProjek1);
+        var url = "/projek/" + idProjek1;
+        var table = $('.skor-datatable-1').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            ajax: url,
+            columns: [{
+                    data: 'kod',
+                    name: 'kod'
+                },
+                {
+                    data: 'nama',
+                    name: 'nama'
+                },
+                {
+                    data: 'fasa',
+                    name: 'fasa'
+                },
                 {
                     data: 'markah_rekabentuk_',
                     name: 'markah_rekabentuk_'
@@ -2696,13 +2844,13 @@
                     name: 'markah_bei_rekabentuk'
                 },
                 {
+                    data: 'markah_bei_verifikasi',
+                    name: 'markah_bei_verifikasi'
+                },
+                {
                     data: 'markah_verifikasi_',
                     name: 'markah_verifikasi_'
                 },
-                {
-                    data: 'markah_bei_verifikasi',
-                    name: 'markah_bei_verifikasi'
-                }
                 {
                     data: 'markah_validasi_',
                     name: 'markah_validasi_'
@@ -2719,7 +2867,6 @@
                     data: 'dokumen_rayuan',
                     name: 'dokumen_rayuan'
                 },
-
             ]
         });
 
