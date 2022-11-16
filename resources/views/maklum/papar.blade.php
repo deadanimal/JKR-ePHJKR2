@@ -34,26 +34,14 @@
                         <h5 class="h6" style="font-weight: 700;"> {{ $maklum['keterangan'] }}</h5>
                     </div>
 
-                    {{-- <div class="col-4 mb-2">
-                        <h5 class="h6">Nama Syarikat:</h5>
+                    <div class="col-4 mb-2">
+                        <h5 class="h6">Status:</h5>
                     </div>
                     <div class="col-8 mb-2">
-                        <h5 class="h6" style="font-weight: 700;">{{ $maklum['nama_syarikat'] }}</h5>
+                        <h5 class="h6" style="font-weight: 700;"> {{ $maklum['status'] }}</h5>
                     </div>
 
-                    <div class="col-4 mb-2">
-                        <h5 class="h6">Nama Cawangan:</h5>
-                    </div>
-                    <div class="col-8 mb-2">
-                        <h5 class="h6" style="font-weight: 700;">{{ $maklum['nama_cawangan'] }}</h5>
-                    </div>
-
-                    <div class="col-4 mb-2">
-                        <h5 class="h6">Alamat Syarikat:</h5>
-                    </div>
-                    <div class="col-8 mb-2">
-                        <h5 class="h6" style="font-weight: 700;">{{ $maklum['alamat_syarikat'] }}</h5>
-                    </div> --}}
+                    
                 </div>
                 <div class="col text-center">
                     <a href="/maklumbalas" class="btn btn-outline-primary">Kembali</a>

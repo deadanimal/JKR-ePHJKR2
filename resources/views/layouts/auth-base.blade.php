@@ -61,7 +61,7 @@
 
 
 <body>
-    {{-- @include('sweet::alert') --}}
+    @include('sweetalert::alert')
     <style>
         .text-primary{
             color: #5B8E7D !important;

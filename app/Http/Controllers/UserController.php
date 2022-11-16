@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\LupaKatalaluan;
+use App\Mail\PengesahanAkaun;
 use App\Models\Hebahan;
 use App\Models\Kriteria;
 use Illuminate\Http\Request;
@@ -65,6 +66,8 @@ class UserController extends Controller
         $pengguna->nama_cawangan = $request->nama_cawangan;
         $pengguna->nama_syarikat = $request->nama_syarikat;
         $pengguna->alamat_syarikat = $request->alamat_syarikat;
+        $pengguna->password = Hash::make($request->password);
+
 
         $pengguna->save();
         alert()->success('Maklumat telah disimpan', 'Berjaya');
@@ -101,6 +104,8 @@ class UserController extends Controller
         $lantikan->role_id_baru = $request->role_id_baru;
         $lantikan->user_id = $request->user_id;
         $lantikan->sah = false;
+        $lantikan->dokumen = $request->file('dokumen')->store('jkr-ephjkr/uploads');
+
         $lantikan->role_id_lama = $request->role_id_lama;
 
         // $id = (int)$request->route('id'); 
@@ -158,7 +163,17 @@ class UserController extends Controller
         $pengguna = new User(); 
         $pengguna->name = $request->name;
         $pengguna->email = $request->email;
-        $pengguna->password = $request->password;
+        $pengguna->icPengguna = $request->icPengguna;
+        $pengguna->negeri = $request->negeri;
+        $pengguna->daerah = $request->daerah;
+        $pengguna->alamat_syarikat = $request->alamat_syarikat;
+        $pengguna->nama_syarikat = $request->nama_syarikat;
+        $pengguna->nama_cawangan = $request->nama_cawangan;
+        $pengguna->faxNo = $request->faxNo;
+        $pengguna->telNo = $request->telNo;
+        $pengguna->password = Hash::make($request->password);
+
+
         // $pengguna->email = $request->email;
 
         $pengguna->save();
@@ -182,7 +197,16 @@ class UserController extends Controller
         $id = (int)$request->route('id'); 
         $pengguna = User::find($id);
         $pengguna->name = $request->name;
+        $pengguna->name = $request->name;
         $pengguna->email = $request->email;
+        $pengguna->icPengguna = $request->icPengguna;
+        $pengguna->negeri = $request->negeri;
+        $pengguna->daerah = $request->daerah;
+        $pengguna->alamat_syarikat = $request->alamat_syarikat;
+        $pengguna->nama_syarikat = $request->nama_syarikat;
+        $pengguna->nama_cawangan = $request->nama_cawangan;
+        $pengguna->faxNo = $request->faxNo;
+        $pengguna->telNo = $request->telNo;
 
         $pengguna->save();
         alert()->success('Maklumat telah disimpan', 'Berjaya');
@@ -205,9 +229,10 @@ class UserController extends Controller
         $id = (int)$request->route('id'); 
         $penggunaa = User::find($id);
         $penggunaa->sah = $request->sah;
-
         $penggunaa->save();
         alert()->success('Akaun telah disahkan', 'Berjaya');
+
+        Mail::to($penggunaa->email)->send(new PengesahanAkaun());
         return redirect('/senaraiPengguna');
     }
 
@@ -315,7 +340,7 @@ class UserController extends Controller
     }
 
     public function selenggara(Request $request) {
-        $peranan = Role::all();
+        $peranan = Role::where('aktif','0')->get();
         $projek = Projek::all();
         $audits = Audit::all();
         $kriteria = Kriteria::all();
@@ -346,6 +371,16 @@ class UserController extends Controller
         $peranan->save();
 
         alert()->success('Maklumat telah disimpan', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
+    public function selenggara_aktif(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $peranan = Role::find($id);
+        $peranan->aktif = $request->aktif;
+        $peranan->save();
+        alert()->success('Peranan telah dipadam', 'Berjaya');
+
         return redirect('/selenggara');
     }
 

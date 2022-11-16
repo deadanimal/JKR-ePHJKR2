@@ -62,7 +62,7 @@ class RegisteredUserController extends Controller
         //$user->password = $request->password;
         $user->password = Hash::make($request->password);
 
-        
+
         $user->save();
         // alert('maklumat telah berjaya', 'Berjaya');
 
@@ -76,6 +76,7 @@ class RegisteredUserController extends Controller
         alert('maklumat telah berjaya', 'Berjaya');
 
 
+        alert()->success('maklumat telah berjaya', 'Berjaya');
 
         return redirect('/login');
 

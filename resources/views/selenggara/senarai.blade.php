@@ -41,6 +41,13 @@
                                                         <input class="form-control" name="name" type="text" />
                                                     </div>
 
+                                                    <div class="col-3 mb-2">
+                                                        <label class="col-form-label">Nama Peranan Display:</label>
+                                                    </div>
+                                                    <div class="col-7 mb-2">
+                                                        <input class="form-control" name="display_name" type="text" />
+                                                    </div>
+
                                                     <div class="col-7 mb-2">
                                                         <div class="row mt-4">
                                                             <div class="col-6">
@@ -94,14 +101,15 @@
                                                                         class="btn btn-sm btn-primary"><i
                                                                             class="fas fa-edit"></i></a>
                                                                     </div>
-                                                                    <div class="col-auto">
-                                                                        <form action="/buang/{{ $peranan->id }}" method="post">
-                                                                        @method('DELETE')
-                                                                        @csrf
-                                                                        <button type="submit"
-                                                                            class="btn btn-sm btn-outline-primary"><i
-                                                                                class="fas fa-trash-alt"></i></button>
-                                                                        </form>
+                                                                    <div class="col">
+                                                                        <div class="col-auto">
+                                                                            <form action="/selenggara/aktif/{{ $peranan->id }}" method="post">
+                                                                            @method('PUT')
+                                                                            @csrf
+                                                                            <button name="aktif" value="1" type="submit" class="btn btn-sm btn-outline-primary"><i
+                                                                            class="fas fa-trash-alt"></i></button>
+                                                                            </form>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </td>

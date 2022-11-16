@@ -23,8 +23,8 @@ class ManualController extends Controller
     public function cipta(Request $request) {    
         $manual = New Manual;
         $manual->nama = $request->nama;
-        $manual->dokumen = $request->dokumen;
-        // $manual->dokumen = $request->file('dokumen')->store('jkr-ephjkr/uploads');
+        $manual->catatan = $request->catatan;
+        $manual->dokumen = $request->file('dokumen')->store('jkr-ephjkr/uploads');
         alert()->success('Maklumat telah disimpan', 'Berjaya');
         $manual->save();
         return back();
@@ -34,8 +34,8 @@ class ManualController extends Controller
         $id = (int)$request->route('id'); 
         $manual = Manual::find($id);
         $manual->nama = $request->nama;
-        $manual->dokumen = $request->dokumen;
-        // $manual->dokumen = $request->file('dokumen')->store('jkr-ephjkr/uploads');
+        $manual->catatan = $request->catatan;
+        $manual->dokumen = $request->file('dokumen')->store('jkr-ephjkr/uploads');
         alert()->success('Maklumat telah disimpan', 'Berjaya');
         $manual->save();
         return back();

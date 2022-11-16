@@ -33,7 +33,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                <form action="/profil/simpan_tukar_peranan2/{{$pengguna->id}}" method="post">
+                <form action="/profil/simpan_tukar_peranan2/{{$pengguna->id}}" method="post" enctype="multipart/form-data">
                     @method('POST')
                     @csrf
                     <div class="row mx-4">
@@ -84,6 +84,15 @@
                                 <option value="10">Pasukan Validasi</option>
                             </select>
                         </div>
+
+                        <div class="col-3 mb-2">
+                            <label class="col-form-label">Dokumen Sokongan:</label>
+                        </div>
+
+                        <div class="col-7 mb-2">
+                            <input type="file" name="dokumen" class="form-control">
+                        </div>
+
                         <div class="col-7 mb-2">
                             <div class="row mt-4">
                                 <div class="col-6">
@@ -112,6 +121,7 @@
                             <th class="sort">Nama Projek</th>
                             <th class="sort">Peranan lama</th>
                             <th class="sort">Peranan baru</th>
+                            <th class="sort">Dokumen</th>
                             <th class="sort">Tindakan</th>
                         </tr>
                     </thead>
@@ -127,6 +137,8 @@
                                 <td>{{ $p->projek_id }}</td>
                                 <td>{{ $p->role_id_lama }}</td>
                                 <td>{{ $p->role_id_baru }}</td>
+                                <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $p->dokumen }}">Pautan Dokumen</a></td>
+
                                 <td>
                                     <div class="col">
                                         <div class="col-auto">

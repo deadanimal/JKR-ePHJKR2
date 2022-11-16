@@ -5,7 +5,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                @role('sekretariat|pentadbir')
+                @role('sekretariat|pentadbir|pengurusan-atasan')
                 <div class="col mb-">
                     <h2 class="h2 mb-3">MAKLUM BALAS</h2>
                 </div>
@@ -108,7 +108,7 @@
                                             <th class="sort">Bil.</th>
                                             <th class="sort">Maklum Balas</th>
                                             <th class="sort">Kategori</th>
-                                            {{-- <th class="sort">Status</th> --}}
+                                            <th class="sort">Status</th>
                                             <th class="sort">Tindakan</th>
                                         </tr>
                                     </thead>
@@ -119,7 +119,7 @@
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $maklum->subjek }}</td>
                                                 <td>{{ $maklum->kategori }}</td>
-                                                {{-- <td>{{ $maklum->status }}</td> --}}
+                                                <td>{{ $maklum->status }}</td>
                                                 
                                                 <td>
                                                     <div class="row">

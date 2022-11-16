@@ -26,22 +26,19 @@
                                     </div>
 
                                     <div class="col-3 mb-2">
-                                        <label class="col-form-label">Catatan:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <textarea class="form-control" rows="4" name="dokumen" type="text" placeholder="Catatan"></textarea>
-                                    </div>
-                
-                                    {{-- <div class="col-3 mb-2">
                                         <label class="col-form-label">Muat Naik Dokumen Sokongan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
                                         <input class="form-control" name="dokumen" type="file"/>
-                                    </div> --}}
-                    
-                                    <div class="col-3 mb-2">
-                                        
                                     </div>
+
+                                    <div class="col-3 mb-2">
+                                        <label class="col-form-label">Catatan:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <textarea class="form-control" rows="4" name="catatan" type="text" placeholder="Catatan"></textarea>
+                                    </div>
+                    
                                     <div class="col-7 mb-2">
                                         <div class="row mt-4">
                                             <div class="col-6">
@@ -80,8 +77,11 @@
                                         <tr>
                                             <th class="sort">Bil.</th>
                                             <th class="sort">Nama Manual</th>
+                                            <th class="sort">Dokumen</th>
                                             <th class="sort">Catatan</th>
+                                            @role('sekretariat|pentadbir')
                                             <th class="sort">Tindakan</th>
+                                            @endrole
                                         </tr>
                                     </thead>
                                     <tbody class="bg-white">
@@ -90,10 +90,11 @@
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $manual->nama }}</td>
-                                                <td>{{ $manual->dokumen }}</td>
-
-                                                {{-- <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $manual->dokumen }}">Pautan Dokumen</a></td> --}}
+                                                {{-- <td>{{ $manual->dokumen }}</td> --}}
                                                 
+
+                                                <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $manual->dokumen }}">Pautan Dokumen</a></td>
+                                                <td>{{ $manual->catatan }}</td>
                                                 
                                                 <td>
                                                     @role('sekretariat|pentadbir')

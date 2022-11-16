@@ -114,6 +114,11 @@
                     </div>
                 </div>
             </div>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <a href="/dashboard" class="btn btn-outline-primary">Kembali</a>
+                </div>
+            </div>
 
         </div>
     </div>

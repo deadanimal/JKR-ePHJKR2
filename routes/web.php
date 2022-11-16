@@ -175,7 +175,7 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('selenggara/senarai', [UserController::class, 'senarai_selenggara_peranan']);
     Route::get('selenggara/kemaskini_peranan/{id}', [UserController::class, 'kemaskini_peranan']);
     Route::put('selenggara/simpankemaskini_peranan/{id}', [UserController::class, 'simpankemaskini_peranan']);
-    Route::delete('buang/{id}', [UserController::class, 'buang']); 
+    Route::put('selenggara/aktif/{id}', [UserController::class, 'selenggara_aktif']); 
 
     Route::post('selenggara/cipta_statusprojek', [UserController::class, 'cipta_statusprojek']); 
     // Route::get('selenggara/senarai_status', [UserController::class, 'senarai_selenggara_status']);
