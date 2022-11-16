@@ -89,7 +89,7 @@
             </a>
         </li>
 
-        {{-- @role('pentadbir')  --}}
+        @role('pentadbir|sekretariat')  
         <li class="nav-item">
             <a class="nav-link" href="/senaraiPengguna">
                 <div class="d-flex align-items-center nav-link-side">
@@ -97,7 +97,7 @@
                 </div>
             </a>
         </li>
-        {{-- @endrole --}}
+        @endrole
 
         @role('pentadbir|pengurusan-atasan|sekretariat|ketua-pasukan|penolong-ketua-pasukan')
         <li class="nav-item">

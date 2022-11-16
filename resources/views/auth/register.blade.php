@@ -29,7 +29,7 @@
                             <label>No. Kad Pengguna:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="number" name="icPengguna" class="form-control">
+                            <input type="text" min="12" max="12" name="icPengguna" class="form-control" placeholder="IC eg. 921110035305">
                         </div>
                         <div class="col-3">
                             <label>E-mel Pengguna:</label>
