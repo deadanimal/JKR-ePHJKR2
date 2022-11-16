@@ -290,7 +290,34 @@ class UserController extends Controller
     
     public function about(Request $request) {    
         return view('about');
-    }  
+    } 
+    // public function about(Request $request) {    
+    //     return view('about.about');
+    // } 
+    public function about1(Request $request) {    
+        return view('about.about1');
+    }
+    public function about2(Request $request) {    
+        return view('about.about2');
+    }
+    public function about3(Request $request) {    
+        return view('about.about3');
+    }
+    public function about4(Request $request) {    
+        return view('about.about4');
+    } 
+    public function about5(Request $request) {    
+        return view('about.about5');
+    }
+    public function about6(Request $request) {    
+        return view('about.about6');
+    }
+    public function about7(Request $request) {    
+        return view('about.about7');
+    }
+    public function about8(Request $request) {    
+        return view('about.about8');
+    }
 
     public function contact(Request $request) {    
         return view('contact');

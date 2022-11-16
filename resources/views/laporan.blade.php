@@ -155,7 +155,7 @@
 
     <div class="card mt-6">
       <div class="card-body" id="senarai-projek">
-          <h3>Senarai Projek yang telah Didaftar</h3>
+          <h3>Senarai Projek yang telah Daftar</h3>
           <div class="row mt-3">
             <table class="table table-bordered projek-datatable line-table" style="width:100%">
               <thead class="text-white bg-orange-jkr">
@@ -167,14 +167,13 @@
                       <th class="text-center">Jenis Kategori</th>
                   </tr>
               </thead>
-           </table> 
+            </table> 
             <div class="col text-center">
                 <button class="btn btn-primary" onclick="printJS('senarai-projek', 'html')">Muat Turun</button>
             </div>
+          </div>
         </div>
-      </div>
-  </div>
-
+    </div>
 </div>
 
 
@@ -189,6 +188,7 @@
 <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
 <script src="https://printjs-4de6.kxcdn.com/print.min.css"></script>
 
+<!--Projek DataTable-->
 <script type="text/javascript">
   $(function() {
 
@@ -224,6 +224,7 @@
 
   });
 </script>
+
 <!--Senarai Projek PHJKR (Jalan & Bangunan)-->
 <script>
     am5.ready(function() {

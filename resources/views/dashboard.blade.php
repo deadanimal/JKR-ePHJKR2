@@ -25,7 +25,7 @@
 </h1>
 <hr class="line-horizontal-jkr">
 
-<img src="star7" alt="Error" width="10" height="10" >Keputusan Permarkahan
+{{-- <img src="star7" alt="Error" width="10" height="10" >Keputusan Permarkahan --}}
 
 <div class="row container-fluid">
     <div class="col-6">
@@ -43,45 +43,25 @@
         </div>
     </div>
 
-    <h4 class="mt-3" align="center">Senarai Projek</h4>
-    <div class="card mt-3">
-        <div class="card-body">
-            <table class="table table-bordered line-table">
-                <thead class="text-white bg-orange-jkr">
-                <tr>
-                    <th scope="col" class="text-center">Bil.</th>
-                    <th scope="col" class="text-center">ID Projek</th>
-                    <th scope="col" class="text-center">ID Rujukan Skala</th>
-                    <th scope="col" class="text-center">Nama Projek</th>
-                    <th scope="col" class="text-center">Kategori</th>
-                    <th scope="col" class="text-center">Bandar</th>
-                    <th scope="col" class="text-center">Negeri</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <th>PR2333</th>
-                    <th>SKL2091</th>
-                    <th>Turap Jalan</th>
-                    <th>Jalan</th>
-                    <th>Sitiawan</th>
-                    <th>Perak</th>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <th>PR1220</th>
-                    <th>SKL129</th>
-                    <th>Ubah Suai Siling</th>
-                    <th>Bangunan</th>
-                    <th>Kajang</th>
-                    <th>Selangor</th>
-                </tr>
-                </tbody>
-            </table>
+    <div class="card mt-6">
+      <div class="card-body" id="senarai-projek">
+          <h3>Senarai Projek</h3>
+          <div class="row mt-3">
+            <table class="table table-bordered projek-datatable line-table" style="width:100%">
+              <thead class="text-white bg-orange-jkr">
+                  <tr>
+                      <th class="text-center">Nama Projek</th>
+                      <th class="text-center">Alamat</th>
+                      <th class="text-center">Peranan</th>
+                      <th class="text-center">Status</th>
+                      <th class="text-center">Jenis Kategori</th>
+                  </tr>
+              </thead>
+            </table> 
+          </div>
         </div>
     </div>
-    <hr class="mt-3 line-horizontal-jkr">
+    {{-- <hr class="mt-3 line-horizontal-jkr">
 
     <div class="col-6">
         <div class="card">
@@ -96,8 +76,8 @@
                 <div id="carta4"></div>
             </div>
         </div>
-    </div>
-    <h4 class="mt-3" align="center">Senarai Projek</h4>
+    </div> --}}
+    {{-- <h4 class="mt-3" align="center">Senarai Projek</h4>
     <div class="card mt-3">
         <div class="card-body">
             <table class="table table-bordered line-table">
@@ -134,7 +114,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> --}}
 
 
 
@@ -152,6 +132,43 @@
 <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+
+<!--Projek DataTable-->
+<script type="text/javascript">
+  $(function() {
+
+      var table = $('.projek-datatable').DataTable({
+          processing: true,
+          serverSide: true,
+          responsive: true,
+          ajax: "/projek",
+          columns: [
+              {
+                  data: 'nama',
+                  name: 'nama'
+              },
+              {
+                  data: 'alamat',
+                  name: 'alamat'
+              },
+              {
+                  data: 'peranan',
+                  name: 'peranan'
+              },                
+              {
+                  data: 'status',
+                  name: 'status'
+              },
+              {
+                  data: 'kategori',
+                  name: 'kategori'
+              },                                                                 
+          ]
+      });
+
+
+  });
+</script>
 
 <!-- Chart code -->
 <script>

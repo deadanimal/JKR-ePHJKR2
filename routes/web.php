@@ -16,7 +16,17 @@ use App\Http\Controllers\KriteriaGpssBangunanController;
 use App\Http\Controllers\KriteriaGpssJalanController;
 
 Route::get('', [UserController::class, 'home']);
+// Route::get('about', [UserController::class, 'about']); 
 Route::get('about', [UserController::class, 'about']); 
+Route::get('about/about1', [UserController::class, 'about1']); 
+Route::get('about/about2', [UserController::class, 'about2']); 
+Route::get('about/about3', [UserController::class, 'about3']); 
+Route::get('about/about4', [UserController::class, 'about4']); 
+Route::get('about/about5', [UserController::class, 'about5']); 
+Route::get('about/about6', [UserController::class, 'about6']); 
+Route::get('about/about7', [UserController::class, 'about7']); 
+Route::get('about/about8', [UserController::class, 'about8']); 
+
 Route::get('contact', [UserController::class, 'contact']); 
 Route::get('keselamatan', [UserController::class, 'keselamatan']); 
 Route::get('privasi', [UserController::class, 'privasi']); 
@@ -124,7 +134,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek/{id}/eph-bangunan/rekabentuk', [KriteriaEphBangunanController::class, 'simpan']); 
     Route::post('projek/{id}/eph-bangunan/verifikasi', [ProjekController::class, 'simpan_ephb_verifikasi']); 
     Route::post('projek/{id}/eph-bangunan/validasi', [ProjekController::class, 'simpan_ephb_validasi']); 
-
     Route::post('projek/{id}/eph-jalan/rekabentuk', [ProjekController::class, 'simpan_ephj_rekabentuk']); 
     Route::post('projek/{id}/eph-jalan/verifikasi', [ProjekController::class, 'simpan_ephj_verifikasi']);    
 
