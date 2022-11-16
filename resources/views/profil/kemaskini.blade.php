@@ -69,11 +69,11 @@
                     </div>
 
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">Bandar:</label>
+                        <label class="col-form-label">Daerah:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <select name="bandar" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
-                            <option selected>Pilih bandar</option>  
+                        <select name="daerah" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
+                            <option selected>Pilih daerah</option>  
                         </select>
                     </div>
     
