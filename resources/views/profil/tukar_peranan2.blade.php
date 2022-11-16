@@ -140,6 +140,7 @@
                                 <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $p->dokumen }}">Pautan Dokumen</a></td>
 
                                 <td>
+                                    @role('sekretariat')
                                     <div class="col">
                                         <div class="col-auto">
                                             <form action="/profil/simpan_tukar_peranan/{{--{{ $p->id }}--}}" method="post">
@@ -157,7 +158,8 @@
                                                 class="btn btn-primary">Reject</button>
                                             </form>
                                         </div> --}}
-                                    </div> 
+                                    </div>
+                                    @endrole
                                 </td>
                             </tr>
                         @endforeach

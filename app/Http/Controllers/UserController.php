@@ -242,6 +242,15 @@ class UserController extends Controller
         return view('senaraiPengguna.sembunyi', compact('pengguna'));
     }
 
+    public function gugur_pengguna(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $pengguna = User::find($id); 
+        $pengguna->delete();
+
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return redirect('/senaraiPengguna/sembunyi');
+    }
+
     public function simpan_tukar_status(Request $request) {  
         $id = (int)$request->route('id'); 
         $penggunaa = User::find($id);
