@@ -83,7 +83,7 @@ class ProjekController extends Controller
                     'timestamp' => ($projek->created_at && $projek->created_at != '0000-00-00 00:00:00') ? with(new Carbon($projek->created_at))->timestamp : ''
                 ];
             })
-            ->rawColumns(['tindakan', 'gugur','peranan'])
+            ->rawColumns(['tindakan', 'gugur','peranan', 'created_at'])
             ->make(true);
         }        
         return view('projek.senarai', compact('projeks'));
