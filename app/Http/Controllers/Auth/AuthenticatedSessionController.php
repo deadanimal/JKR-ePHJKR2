@@ -35,9 +35,7 @@ class AuthenticatedSessionController extends Controller
             dd('user not sah');
         }
 
-        dd('1');
         $request->authenticate();
-
         $request->session()->regenerate();
 
         return redirect()->intended(RouteServiceProvider::HOME);
