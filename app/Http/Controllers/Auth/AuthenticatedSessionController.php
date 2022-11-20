@@ -30,11 +30,12 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $user = User::where('icPengguna', $request->icPengguna)->first();
-        $request->email = $user->email;
-        #if($user->sah == false || $user->aktif == false) {
-        #    return redirect('/login');
-        #}
+        #$request->email = $user->email;
+        if($user->sah == false || $user->aktif == false) {
+            dd('user not sah');
+        }
 
+        dd('1');
         $request->authenticate();
 
         $request->session()->regenerate();
