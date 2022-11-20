@@ -53,14 +53,14 @@
                     </div> --}}
 
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">IC Pengguna:</label>
+                        <label class="col-form-label">No. Kad Pengenalan Pengguna:</label>
                     </div>
                     <div class="col-7 mb-2">
                         <input class="form-control" name="icPengguna" value="{{ $pengguna->icPengguna }}" />
                     </div>
     
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">e-Mel Pengguna:</label>
+                        <label class="col-form-label">Emel Pengguna:</label>
                     </div>
                     <div class="col-7 mb-2">
                         <input class="form-control" name="email" value="{{ $pengguna->email }}" />
@@ -116,7 +116,7 @@
                     </div>
 
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">Password:</label>
+                        <label class="col-form-label">Kata Laluan:</label>
                     </div>
                     <div class="col-7 mb-2">
                         <input class="form-control" name="password"/>

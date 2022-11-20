@@ -9,7 +9,7 @@
                         <a href="/pengurusan_maklumat/senarai_pengguna" class="text-secondary">Pendaftaran Projek</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="/pengurusan_maklumat/senarai_pengguna" class="text-secondary">Papar Senarai Projek dari Myskala</a>
+                        <a href="/pengurusan_maklumat/senarai_pengguna" class="text-secondary">Papar Senarai Projek SKALA</a>
                     </li>
                     <li class="breadcrumb-item text-dark-green-jkr" style="font-weight: 700" aria-current="page">
                         Daftar Projek
@@ -21,7 +21,7 @@
 
     <div class="row">
         <div class="col">
-            <h3 class="mb-0 text-primary"><strong>PENDAFTARAN PROJEK Ke Sistem</strong></h3>
+            <h3 class="mb-0 text-primary"><strong>PENDAFTARAN PROJEK SKALA ke SISTEM</strong></h3>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
                     <div class="card">
                         
                         <div class="card-body row mx-4">
-                            <h1>Butiran Projek Persekutuan</h1> 
+                            <h2 class="mb-4">Butiran Projek Persekutuan</h2> 
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Rujukan Skala :</label>
                             </div>
@@ -96,7 +96,7 @@
 
                     <div class="card mt-3">
                         <div class="card-body row mx-4">
-                            <h1>Pelanggan Pejabat Bertanggungjawab</h1>
+                            <h2 class="mb-4">Pelanggan Pejabat Bertanggungjawab</h2>
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Pelanggan:</label>
                             </div>
@@ -136,7 +136,7 @@
 
                     <div class="card mt-3">
                         <div class="card-body row mx-4">
-                            <h1>Jenis Rekabentuk</h1>
+                            <h2 class="mb-4">Jenis Rekabentuk</h2>
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Jenis Rekabentuk pap:</label>
                             </div>
@@ -155,7 +155,7 @@
 
                     <div class="card mt-3">
                         <div class="card-body row mx-4">
-                            <h1>Kos Projek</h1>
+                            <h2 class="mb-4">Kos Projek</h2>
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Kos Projek:</label>
                             </div>
@@ -167,7 +167,7 @@
 
                     <div class="card mt-3">
                         <div class="card-body row mx-4">
-                            <h1>Aktiviti</h1>
+                            <h2 class="mb-4">Aktiviti</h2>
                             <div class="card-body row mx-4">
                                 <h3 class="mt-2">Tarikh Iklan</h3>
                                 <div class="col-3 mb-2">
@@ -264,7 +264,7 @@
                     </div>
                     <div class="card mt-3">
                         <div class="card-body row mx-4">
-                            <h1>Kategori Projek</h1>
+                            <h2 class="mb-4">Kategori Projek</h2>
                             <div class="col-3 mb-2">
                                 <label class="col-form-label">Kategori Projek:</label>
                             </div>

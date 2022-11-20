@@ -6,10 +6,11 @@
                 aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="/pengurusan_maklumat/senarai_pengguna" class="text-secondary">Pendaftaran Projek</a>
+                        <a href="#" class="text-secondary">Pendaftaran Projek</a>
+                        {{-- <a href="/pengurusan_maklumat/senarai_pengguna" class="text-secondary">Pendaftaran Projek</a> --}}
                     </li>
                     <li class="breadcrumb-item text-dark-green-jkr" style="font-weight: 700" aria-current="page">
-                        Papar Senarai Projek
+                        Papar Senarai Projek SKALA
                     </li>
                 </ol>
             </nav>
@@ -18,7 +19,7 @@
 
     <div class="row">
         <div class="col">
-            <h3 class="mb-0 text-primary"><strong>PENDAFTARAN PROJEK</strong></h3>
+            <h3 class="mb-0 text-primary"><strong>SENARAI PROJEK SKALA</strong></h3>
         </div>
     </div>
 
@@ -32,7 +33,7 @@
                         <thead class="bg-primary">
                             <tr>
                                 <th class="sort">Bil. </th>
-                                <th class="sort">No Rujukan Projek</th>
+                                <th class="sort">No. Rujukan Projek</th>
                                 <th class="sort">Nama Projek</th>
                                 <th class="sort">Tindakan</th>
 
@@ -46,9 +47,9 @@
                                     <td>{{ $r['ruj_projek'] }}</td>
                                     <td>{{ $r['tajuk'] }}</td>
                                     <td>
-                                        <div class="col-auto">
+                                        <div class="col-auto text-center">
                                             <a href="/myskala2/{{$r['ruj_projek']}}"
-                                            class="btn btn-sm btn-primary">Daftar Ke Sistem</a>
+                                            class="btn btn-sm btn-primary">Daftar ke Sistem</a>
                                         </div>
                                     </td>
                                 </tr>

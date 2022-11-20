@@ -76,7 +76,7 @@
                             <h5 class="h6" style="font-weight: 700;">{{ $projek->kaedahPelaksanaan }}</h5>
                         </div>
                         <div class="col-4 mb-2">
-                            <h5 class="h6">Jenis Pelaksanaan:</h5>
+                            <h5 class="h6">Jenis Perolehan:</h5>
                         </div>
                         <div class="col-8 mb-2">
                             <h5 class="h6" style="font-weight: 700;">{{ $projek->jenisPerolehan }}</h5>
