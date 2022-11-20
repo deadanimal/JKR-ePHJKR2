@@ -125,7 +125,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('projek/{id}/sijil-gpss-bangunan', [ProjekController::class, 'sijil_gpss_bangunan']);
     Route::get('projek/{id}/sijil-gpss-jalan', [ProjekController::class, 'sijil_gpss_jalan']);
 
-    Route::get('projek/{id}/projek_status_berubah', [ProjekController::class, 'projek_status_berubah']);
+    Route::get('projek/{id}/pengesahan-penilaian', [ProjekController::class, 'pengesahan_penilaian']);
 
  
 

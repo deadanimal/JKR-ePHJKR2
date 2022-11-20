@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class ProjekStatusBerubah extends Mailable
+class PengesahanPenilaian extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -35,7 +35,7 @@ class ProjekStatusBerubah extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Projek Status Berubah',
+            subject: 'Pengesahan Penilaian',
         );
     }
 
@@ -47,7 +47,7 @@ class ProjekStatusBerubah extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.projek_status_berubah',
+            view: 'emails.pengesahan_penilaian',
         );
     }
 

@@ -36,7 +36,7 @@
                         <input class="form-control" name="name"/>
                     </div>
 
-                    {{-- <div class="col-3 mb-2">
+                    <div class="col-3 mb-2">
                         <label class="col-form-label">Peranan:</label>
                     </div>
                     <div class="col-7 mb-2">
@@ -49,22 +49,21 @@
                             <option value="penilai">Penilai</option>
                             <option value="pasukan-validasi">Pasukan Validasi</option>
                         </select>
-                    </div> --}}
-
-                    <div class="col-3 mb-2">
-                        <label class="col-form-label">e-Mel Pengguna:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <input class="form-control" name="email"/>
                     </div>
 
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">IC Pengguna:</label>
+                        <label class="col-form-label">No. Kad Pengenalan:</label>
                     </div>
                     <div class="col-7 mb-2">
                         <input class="form-control" name="icPengguna" />
                     </div>
-    
+
+                    <div class="col-3 mb-2">
+                        <label class="col-form-label">Emel Pengguna:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <input class="form-control" name="email"/>
+                    </div>
                     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Nama Syarikat:</label>
@@ -85,7 +84,7 @@
                     </div>
                     <div class="col-7 mb-2">
                         <select name="negeri" id="countySel" size="1" class="form-select form-control" aria-label="Default select example" >
-                            <option selected>Pilih negeri</option>
+                            <option selected>Pilih Negeri</option>
                         </select>
                     </div>
 
@@ -94,7 +93,7 @@
                     </div>
                     <div class="col-7 mb-2">
                         <select name="daerah" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
-                            <option selected>Pilih bandar</option>  
+                            <option selected>Pilih Bandar</option>  
                         </select>
                     </div>
     
@@ -112,8 +111,9 @@
                         <input class="form-control" name="faxNo" />
                     </div>
 
+
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">password:</label>
+                        <label class="col-form-label">Kata Laluan:</label>
                     </div>
                     <div class="col-7 mb-2">
                         <input class="form-control" name="password"/>

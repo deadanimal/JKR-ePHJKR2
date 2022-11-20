@@ -12,4 +12,8 @@ class MarkahRayuan extends Model
     public function kriteria() {
         return $this->belongsTo(Kriteria::class);
     }
+
+    public function rayuan_kriteria() {
+        return $this->belongsTo(RayuanKriteria::class);
+    }
 }

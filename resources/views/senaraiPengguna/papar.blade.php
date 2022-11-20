@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="col-4 mb-2">
-                            <h5 class="h6">e-Mel Pengguna:</h5>
+                            <h5 class="h6">Emel Pengguna:</h5>
                         </div>
                         <div class="col-8 mb-2">
                             <h5 class="h6" style="font-weight: 700;">{{ $pengguna['email'] }}</h5>
