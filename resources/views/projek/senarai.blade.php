@@ -19,7 +19,9 @@
     @endrole
 </div>
 <div class="row mb-3">
+
     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+
     <div class="col text-end">
         <a href="/projek/gugur/senarai_gugur_projek" class="btn btn-primary">Gugur Projek</a>
     </div>
@@ -52,10 +54,11 @@
                 {{-- <th class="text-center">Peranan</th> --}}
                 <th class="text-center">Status</th>
                 <th class="text-center">Jenis Kategori</th>
+
                 <th class="text-center">Tindakan</th> 
-                {{-- @role('ketua-pasukan|penolong-ketua-pasukan') --}}
+                @role('ketua-pasukan|penolong-ketua-pasukan')
                 <th class="text-center">Gugur Projek</th>
-                {{-- @endrole --}}
+                @endrole
             </tr>
         </thead>
      </table>
