@@ -29,7 +29,10 @@
                             <label>No. Kad Pengenalan Pengguna:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="number" minlength="12" maxlength="12" name="icPengguna" class="form-control" placeholder="Contoh: 921110035305" required>
+                            {{-- <input type="number" maxlength="12" name="icPengguna" class="form-control" placeholder="Contoh: 921110035305" required> --}}
+                            <input type="text" class="form-control" name="icPengguna" placeholder=" e.g 000000000000"
+                                    maxlength="12" size="12"
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                         </div>
                         <div class="col-3">
                             <label>Emel Pengguna:</label>
@@ -41,13 +44,19 @@
                             <label>No. Tel Bimbit Pengguna:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="number" name="telNo" class="form-control" required>
+                            <input type="text" class="form-control" name="telNo" placeholder=" e.g 00000000000"
+                                    maxlength="11" size="11"
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                            {{-- <input type="number" name="telNo" class="form-control" maxlength="11" required> --}}
                         </div>
                         <div class="col-3">
                             <label>No. Fax Bimbit Pengguna:</label>
                         </div>
                         <div class="col-9 mb-2">
-                            <input type="number" name="faxNo" class="form-control" required>
+                            <input type="text" class="form-control" name="faxNo" placeholder=" e.g 0000000000"
+                                    maxlength="10" size="10"
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
+                            {{-- <input type="number" name="faxNo" class="form-control" maxlength="10" required> --}}
                         </div>
                         <div class="col-3">
                             <label>Nama Syarikat:</label>
@@ -90,18 +99,7 @@
                             <input class="form-control" type="password" name="password_confirmation" id="pswd2" required>
                             <p id="validate-status"></p>
                         </div>
-                        {{-- <div class="col-3">
-                            <label>Sijil Kompeten:</label>
-                        </div>
-                        <div class="col-9 mb-2">
-                            <input type="text" name="sijilKompeten" class="form-control">
-                        </div>
-                        <div class="col-3">
-                            <label>Kelayakan Akademik:</label>
-                        </div>
-                        <div class="col-9 mb-2">
-                            <input type="text" name="kelayakanAkademik" class="form-control">
-                        </div> --}}
+                        
                     </div>
                     <div class="row justify-content-end">
                         <div class="col-9">
