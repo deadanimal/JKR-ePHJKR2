@@ -177,99 +177,32 @@
     ,"Bukit Bakri": ["11111"],"Yong Peng": ["11111"],"Pekan Nenas": ["11111"],"Labis": ["11111"],"Mersingr": ["11111"],"Simpang Renggam": ["11111"],"Parit Raja": ["11111"],"Kepala Sawit": ["11111"],"Buloh Kasap": ["11111"],"Chaah": ["11111"]
     }, 
     "Terengganu": { "Kuala Terengganu": ["111111"],"Chukai": ["222222"],"Dungun": ["333333"],"Kerteh": ["444444"],"Kuala Berang": ["11111"],"Marang": ["11111"],"Paka": ["11111"],"Jerteh": ["11111"]
-    
     }, 
-    "Melaka": {
-    "jasin": ["16000"],
-    "alor gajah": ["16001"],
-    "bukit katil": ["16002"],
-    "klebang": ["16003"],
-    "ayer keroh": ["16004"],
+    "Melaka": { "Bandaraya Melaka": ["111111"],"Bukit Baru": ["222222"],"Ayer Keroh": ["333333"],"Klebang": ["444444"],"Masjid Tanah": ["11111"],"Sungai Udang": ["11111"],"Batu Berendam": ["11111"],"Alor Gajah": ["11111"],"Bukit Rambai": ["11111"],"Ayer Molek": ["11111"],"Bemban": ["11111"],"Kuala Sungai Baru": ["11111"],"Pulau Sebang": ["11111"]
     }, 
-    "Pahang": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "Pahang": { "Kuantan": ["111111"],"Temerloh": ["222222"],"Bentong": ["333333"],"Mentakab": ["444444"],"Raub": ["11111"],"Jerantut": ["11111"],"Pekan": ["11111"],"Kuala Lipis": ["11111"],"Bandar Jengka": ["11111"],"Bukit Tinggi": ["11111"]
+    }, 
+    "Perak": { "Ipoh": ["111111"],"Taiping": ["222222"],"Sitiawan": ["333333"],"Simpang Empat": ["444444"],"Teluk Intan": ["11111"],"Batu Gajah": ["11111"],"Lumut": ["11111"],"Kampung Koh": ["11111"],"Kuala Kangsar": ["11111"],"Sungai Siput": ["11111"],"Tapah": ["11111"],"Bidor": ["11111"],"Parit Buntar": ["11111"],"Ayer Tawar": ["11111"],"Bagan Serai": ["11111"],"Tanjung Malim": ["11111"],"Lawan Kuda Baharu": ["11111"],"Pantai Remis": ["11111"],"Kampar": ["11111"],"Kampung Gajah": ["11111"]
+    }, 
+    "WP Labuan": { "Bandar Labuan": ["111111"]
     },
-    "Perak": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "Negeri Sembilan": { "Seremban": ["111111"],"Port Dickson": ["222222"],"Nilai": ["222222"],"Bahau": ["222222"],"Tampin": ["222222"],"Kuala Pilah": ["222222"]
     },
-    "WP Labuan": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "WP Kuala Lumpur": { "Bandar Kuala Lumpur": ["111111"]
     },
-    "Negeri Sembilan": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "WP Persekutuan": { "Putrajaya": ["111111"]
     },
-    "WP KL": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "Pulai Pinang": { "Bukit Mertajam": ["111111"],"Georgetown": ["222222"],"Sungai Ara": ["222222"],"Gelugor": ["222222"],"Air Itam": ["222222"],"Butterworth": ["222222"],"Perai": ["222222"],"Nibong Tebal": ["222222"],"Permatang Pauh": ["222222"],"Tanjung Tokong": ["222222"],"Kepala Batas": ["222222"],"Tanjung Bungah": ["222222"],"Juru": ["222222"]
     },
-    "WP Putrajaya": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "Kedah": { "Sungai Petani": ["111111"],"Alor Setar": ["222222"],"Kulim": ["222222"],"Jitra": ["222222"],"Baling": ["222222"],"Pendang": ["222222"],"Langkawi": ["222222"],"Yan": ["222222"],"Sik": ["222222"],"Kuala Nerang": ["222222"],"Pokok Sena": ["222222"],"Badar Baharu": ["222222"]
     },
-    "Pulau Pinang": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "Perlis": { "Kangar": ["111111"],"Arau": ["111111"],"Padang Besar": ["111111"]
     },
-    "Kedah": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "Sabah": { "Kota Kinabalu": ["111111"],"Sandakan": ["222222"],"Tawau": ["222222"],"Lahad Datu": ["222222"],"Keningau": ["222222"],"Putatan": ["222222"],"Donggongon": ["222222"],"Semporna": ["222222"],"Kudat": ["222222"],"Kunak": ["222222"],"Papar": ["222222"],"Ranau": ["222222"],"Beaufort": ["222222"],"Kinarut": ["222222"],"Kota Belud": ["222222"]
     },
-    "Perlis": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
-    },
-    "Sabah": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
-    },
-    "Sarawak": {
-    "kuantan": ["16000"],
-    "pekan": ["16001"],
-    "gambang": ["16002"],
-    "jerantut": ["16003"],
-    "temerloh": ["16004"],
+    "Sarawak": { "Kuching": ["111111"],"Miri": ["222222"],"Sibu": ["222222"],"Bintulu": ["222222"],"Limbang": ["222222"],"Sarikei": ["222222"],"Sri Aman": ["222222"],"Kapit": ["222222"],"Batu Delapan Bazaar": ["222222"],"Kota Samarahan": ["222222"]
     },
     }
-
-    //untuk test 2 pilihan
-    // var stateObject = {
-    // "Selangor": ['shah alam','Puncak alam','denai','subang'],
-    // "Kelantan": ['kota baharu','perupok','pasir mas','wakaf baharu','bachok']
-    // }
 
     window.onload = function () {
     var countySel = document.getElementById("countySel"),
@@ -296,24 +229,6 @@
     }
     }
     }
-    //test utk 2 pilihan
-    // window.onload = function () {
-    // var negeriSel = document.getElementById("negeriSel"),
-    // bandarSel = document.getElementById("bandarSel");
-    // for (var negeri in stateObject) {
-    // negeriSel.options[negeriSel.options.length] = new Option(negeri, negeri);
-    // }
-    // negeriSel.onchange(); // reset in case page is reloaded
-    // negeriSel.onchange = function () {
-    // negeriSel.length = 1;
-    // bandarSel.length = 1; // remove all options bar first
-    // if (this.selectedIndex < 1) return; // done 
-    // var bandar = stateObject[negeriSel.value][this.value];
-    // for (var i = 0; i < bandar.length; i++) {
-    // bandarSel.options[bandarSel.options.length] = new Option(bandar[i], bandar[i]);
-    // }
-    // }
-    // }
 </script>
 
 @endsection

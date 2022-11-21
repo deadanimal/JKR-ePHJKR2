@@ -5,7 +5,7 @@
     <div class="col">
         <div class="card">
             <div class="card-body">
-                @role('sekretariat|pentadbir|pengurusan-atasan')
+                {{-- @role('sekretariat|pentadbir|pengurusan-atasan') --}}
                 <div class="col mb-">
                     <h2 class="h2 mb-3">MAKLUM BALAS</h2>
                 </div>
@@ -32,6 +32,7 @@
                                     </div>
                                     <div class="col-7 mb-2">
                                         <select class="form-select form-control" name="kategori">
+                                            <option selected disabled="">Sila Pilih</option>
                                             <option value="phJKR Bangunan Baru A">phJKR Bangunan Baru A</option>
                                             <option value="phJKR Bangunan Baru B">phJKR Bangunan Baru B</option>
                                             <option value="phJKR Bangunan Baru C">phJKR Bangunan Baru C</option>
@@ -59,16 +60,7 @@
                                     <div class="col-7 mb-2">
                                         <textarea class="form-control" name="keterangan"></textarea>
                                     </div>                                    
-                
-                
-                                    
-                                    
-                
-                                    
                     
-                                    <div class="col-3 mb-2">
-                                        
-                                    </div>
                                     <div class="col-7 mb-2">
                                         <div class="row mt-4">
                                             <div class="col-6">
@@ -83,7 +75,7 @@
                             </form>
                         </div>
                     </div>
-                    @endrole
+                    {{-- @endrole --}}
                 </div>
             </div>
         </div>
