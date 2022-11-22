@@ -288,7 +288,9 @@
                     @endif
                     @if($projek->status == "Proses Rayuan GPSS Bangunan")
                     @role('ketua-pasukan|penolong-ketua-pasukan')
-                    <li class="nav-item"><a class="nav-link active" href="#tab-3" data-bs-toggle="tab" role="tab">Rayuan</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#tab-3" data-bs-toggle="tab" role="tab">Rayuan</a>
+                    </li>
                     @endrole
                     @endif
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
@@ -451,8 +453,8 @@
                     @endif
 
                     <!--RAYUAN GPSS BANGUNAN-->
-                    @if($projek->status == "Proses Rayuan GPSS Bangunan")
                     @role('ketua-pasukan|penolong-ketua-pasukan')
+                    @if($projek->status == "Proses Rayuan GPSS Bangunan")
                     <div class="tab-pane active" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body"> 
@@ -529,8 +531,8 @@
                             </div>
                         </div>
                     </div>  
-                    @endrole
                     @endif
+                    @endrole
 
                     <!--SIJIL GPSS BANGUNAN-->
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
