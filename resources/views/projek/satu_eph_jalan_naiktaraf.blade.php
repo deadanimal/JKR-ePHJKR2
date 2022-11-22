@@ -119,7 +119,7 @@
                         @endif
                     </form>
                     @endrole 
-                    @role('ketua-pasukan|pentadbir|sekretariat')
+                    @role('ketua-pasukan|pentadbir|penolong-ketua-pasukan|sekretariat')
                         <button class="btn btn-primary mx-3 my-3" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
                     @endrole
                     <form action="/projek/{{$projek->id}}/sah-eph-jalan-rayuan-naiktaraf" method="POST" enctype="multipart/form-data">
@@ -719,7 +719,7 @@
                     <div class="tab-pane" id="tab-5" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                <form action="/projek/{{ $projek->id }}/markah-eph-jalan-rayuan" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="mb-3">RAYUAN PENILAIAN REKABENTUK JALAN</h4>
@@ -788,7 +788,7 @@
                     <div class="tab-pane" id="tab-6" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                <form action="/projek/{{ $projek->id }}/markah-eph-jalan-rayuan" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="mb-3">RAYUAN VERIFIKASI PERMARKAHAN JALAN</h4>

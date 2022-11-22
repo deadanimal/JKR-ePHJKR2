@@ -12597,7 +12597,7 @@ class ProjekController extends Controller
         return back();
     }
 
-    //Eph Bangunan
+    //Modul 3 - EPH Bangunan
     public function markah_eph(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
@@ -12725,7 +12725,7 @@ class ProjekController extends Controller
         return back(); 
     }
 
-    // Mai tambah
+    //Modul 4 - GPSS Bangunan/GPSS Jalan
     public function markah_gpss(Request $request) {
         $user = $request->user();
         $id = (int)$request->route('id');
@@ -12853,6 +12853,7 @@ class ProjekController extends Controller
         return back();
     }
 
+    //Modul 5 - EPH Jalan
     public function markah_eph_jalan(Request $request){
         $user = $request->user();
         $id = (int)$request->route('id');
@@ -12868,6 +12869,57 @@ class ProjekController extends Controller
         }
 
         $markah = New Markah;
+        $markah->projek_id = $id;
+        $markah->user_id = $user->id;
+        $markah->kriteria_id = $request->kriteria;
+        $markah->target_point = $request->target_point;
+        $markah->assessment_point = $request->assessment_point;
+        $markah->ulasan = $request->ulasan;
+        $markah->comment = $request->comment;
+        $markah->fasa = $request->fasa;
+
+        if ($request->hasFile('dokumen1')) {
+            $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
+        } else {
+            if ($request->markah > 0) {
+                Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+                return back();
+            }            
+        }    
+        if ($request->hasFile('dokumen2')) {
+            $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen3')) {
+            $markah->dokumen3 = $request->file('dokumen3')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen4')) {
+            $markah->dokumen4 = $request->file('dokumen4')->store('jkr-ephjkr/uploads');
+        }     
+        if ($request->hasFile('dokumen5')) {
+            $markah->dokumen5 = $request->file('dokumen5')->store('jkr-ephjkr/uploads');
+        }    
+        $markah->save();
+
+        alert()->success('Markah Disimpan', 'Berjaya');
+
+        return back();
+    }
+
+    public function markah_eph_jalan_rayuan(Request $request){
+        $user = $request->user();
+        $id = (int)$request->route('id');
+
+        $kriteria = Kriteria::find($request->kriteria);
+        if ($request->target_point >$kriteria->maksimum) {
+            Alert::error('Salah Markah Target Point', 'Sila letakkan markah kurang dari maksimum');
+            return back();
+        }
+        if ($request->assessment_point >$kriteria->maksimum) {
+            Alert::error('Salah Markah Assessment Point', 'Sila letakkan markah kurang dari maksimum');
+            return back();
+        }
+
+        $markah = New MarkahRayuan;
         $markah->projek_id = $id;
         $markah->user_id = $user->id;
         $markah->kriteria_id = $request->kriteria;

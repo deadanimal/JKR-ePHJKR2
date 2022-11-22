@@ -404,7 +404,7 @@
                     <div class="tab-pane" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                <form action="/projek/{{ $projek->id }}/markah-eph-jalan-rayuan" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="mb-3">RAYUAN PENILAIAN REKABENTUK JALAN</h4>
