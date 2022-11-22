@@ -456,7 +456,7 @@
                     <div class="tab-pane active" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body"> 
-                                <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
+                                <form action="/projek/{{ $projek->id }}/markah-gpss-rayuan" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="mb-3">RAYUAN</h4>
                                     <div class="row mx-3 mb-2">
