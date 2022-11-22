@@ -112,7 +112,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek/{id}/sah-eph-rayuan', [ProjekController::class, 'sah_projek_eph_rayuan']); 
     Route::post('projek/{id}/sah-gpss-bangunan', [ProjekController::class, 'sah_projek_gpss']);
     Route::post('projek/{id}/sah-gpss-jalan', [ProjekController::class, 'sah_projek_gpss_jalan']);
-    Route::post('projek/{id}/sah-gpss-rayuan', [ProjekController::class, 'sah_projek_gpss_rayuan']); 
+    Route::post('projek/{id}/sah-gpss-bangunan-rayuan', [ProjekController::class, 'sah_projek_gpss_rayuan']); 
     Route::post('projek/{id}/sah-gpss-jalan-rayuan', [ProjekController::class, 'sah_projek_gpss_jalan_rayuan']); 
     Route::post('projek/{id}/sah-eph-jalan-baru', [ProjekController::class, 'sah_projek_eph_jalan_baru']);
     Route::post('projek/{id}/sah-eph-jalan-naiktaraf', [ProjekController::class, 'sah_projek_eph_jalan_naiktaraf']);
