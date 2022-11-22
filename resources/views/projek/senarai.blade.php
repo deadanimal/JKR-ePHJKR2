@@ -56,9 +56,9 @@
                 <th class="text-center">Jenis Kategori</th>
 
                 <th class="text-center">Tindakan</th> 
-                @role('ketua-pasukan|penolong-ketua-pasukan')
-                <th class="text-center">Gugur Projek</th>
-                @endrole
+                {{-- @role('ketua-pasukan|penolong-ketua-pasukan') --}}
+                <th class="text-center">Gugur Projek</th> 
+                {{-- @endrole --}}
             </tr>
         </thead>
      </table>
@@ -66,6 +66,7 @@
 
 
 <!--JavaScript-->
+@role('ketua-pasukan|penolong-ketua-pasukan')
 <script type="text/javascript">
     $(function() {
 
@@ -82,11 +83,7 @@
                 {
                     data: 'alamat',
                     name: 'alamat'
-                },
-                // {
-                //     data: 'peranan',
-                //     name: 'peranan'
-                // },                
+                },                
                 {
                     data: 'status',
                     name: 'status'
@@ -98,17 +95,55 @@
                 {
                     data: 'tindakan',
                     name: 'tindakan'
-                },
+                },          
+                
                 {
                     data: 'gugur',
                     name: 'gugur'
-                },                                                                 
+                },                                                          
 
             ]
         });
     
     });
 </script>
+@else
+<script type="text/javascript">
+    $(function() {
+
+        var table = $('.projek-datatable').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            ajax: "/projek",
+            columns: [
+                {
+                    data: 'nama',
+                    name: 'nama'
+                },
+                {
+                    data: 'alamat',
+                    name: 'alamat'
+                },                
+                {
+                    data: 'status',
+                    name: 'status'
+                },
+                {
+                    data: 'kategori',
+                    name: 'kategori'
+                },
+                {
+                    data: 'tindakan',
+                    name: 'tindakan'
+                },                                                            
+
+            ]
+        });
+    
+    });
+</script>
+@endrole
 
 
 {{-- <script type="text/javascript">
