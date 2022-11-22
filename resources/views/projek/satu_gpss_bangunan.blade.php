@@ -5,156 +5,163 @@
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col">
-            <div class="card">
-                <div class="card-body" id="maklumat-projek">
-                    <div class="row mx-3 mb-2">
-                        <h2 class="mb-3">Maklumat Projek</h2>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Nama Projek:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->nama}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Alamat Projek:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->alamat}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Poskod:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->poskod}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Bandar:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->bandar}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Negeri:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->negeri}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Keluasan Tapak:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->keluasanTapak}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Jumlah Blok Bangunan:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->jumlahBlokBangunan}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Status Projek:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->status}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Tarikh Jangka Mula Pembinaan:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->tarikhJangkaMulaPembinaan}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Tarikh Jangka Siap Pembinaan:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->tarikhJangkaSiapPembinaan}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Kaedah Pelaksanaan:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->kaedahPelaksanaan}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Jenis Perolehan:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->jenisPerolehan}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Kos Projek:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->kosProjek}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Jenis Projek:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->jenisProjek}}</h5>
-                        </div>
-                        <div class="col-4 mb-2">
-                            <h5 class="h6">Jenis Kategori:</h5>
-                        </div>
-                        <div class="col-8 mb-2">
-                            <h5 class="h6" style="font-weight: 700;">{{$projek->kategori}}</h5>
+            <form action="#" id="maklumat-projek">
+                <div class="card">
+                    <div class="card-body" id="maklumat-projek">
+                        <div class="row mx-3 mb-2">
+                            <h2 class="mb-3">Maklumat Projek</h2>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Nama Projek:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->nama}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Alamat Projek:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->alamat}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Poskod:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->poskod}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Bandar:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->bandar}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Negeri:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->negeri}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Keluasan Tapak:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->keluasanTapak}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Jumlah Blok Bangunan:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->jumlahBlokBangunan}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Status Projek:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->status}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Tarikh Jangka Mula Pembinaan:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->tarikhJangkaMulaPembinaan}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Tarikh Jangka Siap Pembinaan:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->tarikhJangkaSiapPembinaan}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Kaedah Pelaksanaan:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->kaedahPelaksanaan}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Jenis Perolehan:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->jenisPerolehan}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Kos Projek:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->kosProjek}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Jenis Projek:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->jenisProjek}}</h5>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <h5 class="h6">Jenis Kategori:</h5>
+                            </div>
+                            <div class="col-8 mb-2">
+                                <h5 class="h6" style="font-weight: 700;">{{$projek->kategori}}</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @role('sekretariat')
-                <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @if($projek->status == "Menunggu Pengesahan Sekretariat")
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
-                    {{-- @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk GPSS Bangunan Sudah Diproses</button>
-                    @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk GPSS Bangunan Sudah Selesai</button>
-                    @elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk GPSS Bangunan</button>
-                    @elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Jana Keputusan Rekabentuk GPSS Bangunan</button>
-                    @elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Jana Keputusan Rekabentuk GPSS Bangunan</button>
-                    @elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Verifikasi GPSS Bangunan Sudah Diproses</button>
-                    @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi GPSS Bangunan</button>
-                    @elseif ($projek->status == "Proses Jana Keputusan Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
-                    @elseif ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
-                    @elseif ($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Proses Rayuan GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button> --}}
-                    @endif
-                </form>
-                {{-- <form action="/projek/{{$projek->id}}/sah-gpss-rayuan">
-                    @if ($projek->status == "Proses Rayuan Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Selesai Pengesahan Rayuan Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button>
-                    @endif
-                </form> --}}
-                @endrole 
-                @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                    <button class="btn btn-primary mx-3 my-3" type="submit" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
-                @endrole
-                <form action="/projek/{{$projek->id}}/sah-gpss-bangunan-rayuan" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @role('ketua-pasukan|penolong-ketua-pasukan')
-                    @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")
-                        <button class="btn btn-primary" type="submit">Membuat Rayuan GPSS Bangunan</button>
-                    @endif
+                    @role('sekretariat')
+                    <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @if($projek->status == "Menunggu Pengesahan Sekretariat")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                        {{-- @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk GPSS Bangunan Sudah Diproses</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk GPSS Bangunan Sudah Selesai</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk GPSS Bangunan</button>
+                        @elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Jana Keputusan Rekabentuk GPSS Bangunan</button>
+                        @elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Jana Keputusan Rekabentuk GPSS Bangunan</button>
+                        @elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Verifikasi GPSS Bangunan Sudah Diproses</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi GPSS Bangunan</button>
+                        @elseif ($projek->status == "Proses Jana Keputusan Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Proses Rayuan GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button> --}}
+                        @endif
+                    </form>
+                    {{-- <form action="/projek/{{$projek->id}}/sah-gpss-rayuan">
+                        @if ($projek->status == "Proses Rayuan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Rayuan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button>
+                        @endif
+                    </form> --}}
+                    @endrole 
+                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+                    <div class="row mt-3">
+                        <div class="col text-center">
+                            <button class="btn btn-primary" type="submit" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
+                        </div>
+                    </div>
                     @endrole
-            </div>
+                    <form action="/projek/{{$projek->id}}/sah-gpss-bangunan-rayuan" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                        @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")
+                            <button class="btn btn-primary" type="submit">Membuat Rayuan GPSS Bangunan</button>
+                        @endif
+                        @endrole
+                    </form>
+                </div>
+            </form>
         </div>
 
         @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan" || 
@@ -281,7 +288,7 @@
                     @endif
                     @if($projek->status == "Proses Rayuan GPSS Bangunan")
                     @role('ketua-pasukan|penolong-ketua-pasukan')
-                    <li class="nav-item"><a class="nav-link" href="#tab-3" data-bs-toggle="tab" role="tab">Rayuan</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#tab-3" data-bs-toggle="tab" role="tab">Rayuan</a></li>
                     @endrole
                     @endif
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
@@ -289,9 +296,10 @@
                     @endrole
                     <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Skor Kad</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rumusan Skor Kad</a></li>
-                    @if($projek->status == "Proses Rayuan GPSS Bangunan") 
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                    @if($projek->status == "Proses Rayuan GPSS Bangunan" || $projek->status == "Selesai Rayuan GPSS Bangunan")
+                    @if($projek->status == "Proses Rayuan GPSS Bangunan" || $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" || 
+                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status = "Proses Jana Keputusan Rayuan GPSS Bangunan" ||
+                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan" || $projek->status == "Selesai Rayuan GPSS Bangunan")
                     <li class="nav-item"><a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">Skor Kad Rayuan</a></li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-8" data-bs-toggle="tab" role="tab">Rumusan Skor Kad Rayuan</a>
@@ -445,7 +453,7 @@
                     <!--RAYUAN GPSS BANGUNAN-->
                     @if($projek->status == "Proses Rayuan GPSS Bangunan")
                     @role('ketua-pasukan|penolong-ketua-pasukan')
-                    <div class="tab-pane" id="tab-3" role="tabpanel">
+                    <div class="tab-pane active" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body"> 
                                 <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
@@ -552,77 +560,81 @@
                     <!--SKOR KAD GPSS BANGUNAN-->
                     <div class="tab-pane" id="tab-5" role="tabpanel">
                         <div class="card mt-3">
-                            <div class="card-body" id="skor-kad-gpss-bangunan">
-                                <h4 class="mb-3">SKOR KAD GPSS BANGUNAN</h4>
-                                <div class="table-responsive scrollbar">
-                                    <table class="table table-bordered line-table text-center skor-gpss-datatable" style="width: 100%">
-                                        <thead class="text-white bg-orange-jkr">
-                                            <tr>          
-                                                <th colspan="10">Green Product Scoring Sheet</th>
-                                            </tr>
-                                            <tr>  
-                                                @if ($projek->kategori == 'GPSS Bangunan 1')        
-                                                    <th colspan="10">CATEGORY 1</th>
-                                                @elseif ($projek->kategori == 'GPSS Bangunan 2')
-                                                    <th colspan="10">CATEGORY 2</th>
-                                                @elseif ($projek->kategori == 'GPSS Bangunan 3')
-                                                    <th colspan="10">CATEGORY 3</th>
-                                                @endif
-                                            </tr>
-                                            <tr>
-                                                <th>Element</th>
-                                                <th>Component</th>
-                                                <th>Product</th>
-                                                <th>Phase</th>
-                                                <th>Point Allocated</th>
-                                                <th>Point Requested (Design)</th>
-                                                <th>Point Requested (Construction)</th>
-                                                <th>Point Awarded</th>
-                                                <th>Remarks</th>
-                                                <th>Supporting Documents</th>
-                                            </tr>
-                                        </thead>
-                                    </table>
-                                </div>
-                                @role('sekretariat')
-                                <div class="row mt-3">
-                                    <div class="col text-center">
-                                        <a href="#" class="btn btn-primary">Sah</a>
+                            <form action="#" id="skor-kad-gpss-bangunan">
+                                <div class="card-body">
+                                    <h4 class="mb-3">SKOR KAD GPSS BANGUNAN</h4>
+                                    <div class="table-responsive scrollbar">
+                                        <table class="table table-bordered line-table text-center skor-gpss-datatable" style="width: 100%">
+                                            <thead class="text-white bg-orange-jkr">
+                                                <tr>          
+                                                    <th colspan="10">Green Product Scoring Sheet</th>
+                                                </tr>
+                                                <tr>  
+                                                    @if ($projek->kategori == 'GPSS Bangunan 1')        
+                                                        <th colspan="10">CATEGORY 1</th>
+                                                    @elseif ($projek->kategori == 'GPSS Bangunan 2')
+                                                        <th colspan="10">CATEGORY 2</th>
+                                                    @elseif ($projek->kategori == 'GPSS Bangunan 3')
+                                                        <th colspan="10">CATEGORY 3</th>
+                                                    @endif
+                                                </tr>
+                                                <tr>
+                                                    <th>Element</th>
+                                                    <th>Component</th>
+                                                    <th>Product</th>
+                                                    <th>Phase</th>
+                                                    <th>Point Allocated</th>
+                                                    <th>Point Requested (Design)</th>
+                                                    <th>Point Requested (Construction)</th>
+                                                    <th>Point Awarded</th>
+                                                    <th>Remarks</th>
+                                                    <th>Supporting Documents</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
                                     </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col text-center">
-                                        <button class="btn btn-primary">Jana Skor Kad</button>
-                                    </div>
-                                </div>
-                                @endrole
-                                @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
-                                <div class="col text-center">
-                                    @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
-                                    <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
-                                    @elseif($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan GPSS Bangunan")
-                                    <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
-                                    @endif
-                                </div>
-                                @endrole
-                                @role('ketua-pasukan|penolong-ketua-pasukan')
+                                    @role('sekretariat')
                                     <div class="row mt-3">
                                         <div class="col text-center">
-                                            <button class="btn btn-primary" onclick="printJS('skor-kad-gpss-bangunan', 'html')">Muat Turun</button>
+                                            <a href="#" class="btn btn-primary">Sah</a>
                                         </div>
                                     </div>
-                                @endrole
-                            </div>
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary">Jana Skor Kad</button>
+                                        </div>
+                                    </div>
+                                    @endrole
+                                    @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
+                                    <div class="col text-center">
+                                        @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
+                                        <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                        @elseif($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan GPSS Bangunan")
+                                        <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                        @endif
+                                    </div>
+                                    @endrole
+                                    @role('ketua-pasukan|penolong-ketua-pasukan')
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                <button class="btn btn-primary" onclick="printJS('skor-kad-gpss-bangunan', 'html')">Muat Turun</button>
+                                            </div>
+                                        </div>
+                                    @endrole
+                                </div>
+                            </form>
                         </div>
                     </div>
 
                     <!--SKOR KAD GPSS BANGUNAN RAYUAN-->
-                    @if($projek->status == "Proses Rayuan GPSS Bangunan" || $projek->status == "Selesai Rayuan GPSS Bangunan")
+                    @if($projek->status == "Proses Rayuan GPSS Bangunan" || $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" || 
+                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status = "Proses Jana Keputusan Rayuan GPSS Bangunan" ||
+                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan" || $projek->status == "Selesai Rayuan GPSS Bangunan")
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                     <div class="tab-pane" id="tab-7" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body" id="skor-kad">
-                                <h4 class="mb-3">SKOR KAD GPSS BANGUNAN</h4>
+                                <h4 class="mb-3">SKOR KAD RAYUAN GPSS BANGUNAN</h4>
                                 <div class="table-responsive scrollbar">
                                     <table class="table table-bordered line-table text-center skor-gpss-datatable-1" style="width: 100%">
                                         <thead class="text-white bg-orange-jkr">
@@ -1271,7 +1283,9 @@
                     
                     <!--RUMUSAN SKOR KAD RAYUAN-->
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                    @if($projek->status == "Proses Rayuan GPSS Bangunan" || "Selesai Rayuan GPSS Bangunan")
+                    @if($projek->status == "Proses Rayuan GPSS Bangunan" || $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" || 
+                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status = "Proses Jana Keputusan Rayuan GPSS Bangunan" ||
+                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan" || $projek->status == "Selesai Rayuan GPSS Bangunan")
                     <div class="tab-pane" id="tab-8" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
@@ -1848,6 +1862,7 @@
                             </div>
                         </div>
                     </div> 
+                    @endif
                     @endrole
                     
                 </div><!--tab content-->

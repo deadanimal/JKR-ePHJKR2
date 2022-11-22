@@ -39,11 +39,11 @@
                 <th class="text-center">Jenis Kategori</th>
 
                 <th class="text-center">Tindakan</th> 
-                {{-- @role('ketua-pasukan|penolong-ketua-pasukan') --}}
+                @role('ketua-pasukan|penolong-ketua-pasukan')
 
                 <th class="text-center">Gugur Projek</th> 
 
-                {{-- @endrole --}}
+                @endrole
             </tr>
         </thead>
      </table>

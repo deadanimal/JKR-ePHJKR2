@@ -953,7 +953,7 @@
                 @if($projek->status == "Proses Rayuan GPSS Jalan" || $projek->status == "Dalam Pengesahan Rayuan GPSS Jalan" 
                 || $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" || $projek->status == "Selesai Rayuan GPSS Jalan")
                 @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                <div class="tab-pane" id="tab-7" role="tabpanel">
+                <div class="tab-pane" id="tab-8" role="tabpanel">
                     <div class="card mt-3">
                         <div class="card-body" id="rumusan-skor-kad-rayuan">
                             <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
@@ -1237,7 +1237,7 @@
                 </div>
 
                 <!--SKOR KAD GPSS JALAN RAYUAN-->
-                <div class="tab-pane" id="tab-8" role="tabpanel">
+                <div class="tab-pane" id="tab-7" role="tabpanel">
                     <div class="card mt-3">
                         <div class="card-body" id="skor-kad">
                             <h4 class="mb-3">SKOR KAD GPSS JALAN</h4>
