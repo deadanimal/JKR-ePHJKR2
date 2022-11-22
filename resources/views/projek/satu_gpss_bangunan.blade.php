@@ -513,7 +513,7 @@
                                             <label class="col-form-label">Upload File:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="file" name="dokumen_rayuan1">
+                                            <input class="form-control" type="file" name="dokumen_rayuan1" required>
                                             <input class="form-control" type="file" name="dokumen_rayuan2">
                                             <input class="form-control" type="file" name="dokumen_rayuan3">
                                             <input class="form-control" type="file" name="dokumen_rayuan4">

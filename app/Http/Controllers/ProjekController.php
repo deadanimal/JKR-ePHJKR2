@@ -12797,14 +12797,17 @@ class ProjekController extends Controller
             Alert::error('Salah Markah Point Allocated', 'Sila letakkan markah kurang dari maksimum');
             return back();
         }
+        $gpss_kriteria = GpssKriteria::find($request->gpss_kriteria);
         if ($request->point_req_design >$gpss_kriteria->maksimum) {
             Alert::error('Salah Markah Point Requested Design', 'Sila letakkan markah kurang dari maksimum');
             return back();
         }
+        $gpss_kriteria = GpssKriteria::find($request->gpss_kriteria);
         if ($request->point_req_construction >$gpss_kriteria->maksimum) {
             Alert::error('Salah Markah Point Requested Construction', 'Sila letakkan markah kurang dari maksimum');
             return back();
         }
+        $gpss_kriteria = GpssKriteria::find($request->gpss_kriteria);
         if ($request->point_awarded >$gpss_kriteria->maksimum) {
             Alert::error('Salah Markah Point Awarded', 'Sila letakkan markah kurang dari maksimum');
             return back();
@@ -12824,11 +12827,11 @@ class ProjekController extends Controller
 
         if ($request->hasFile('dokumen1')) {
             $markah->dokumen1 = $request->file('dokumen1')->store('jkr-ephjkr/uploads');
-        } else {
-            if ($request->point_allocated > 0 || $request->point_req_design > 0 || $request->point_req_construction > 0 || $request->point_awarded > 0) {
-                Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
-                return back();
-            }            
+        // } else {
+        //     if ($request->point_allocated > 0 || $request->point_req_design > 0 || $request->point_req_construction > 0 || $request->point_awarded > 0) {
+        //         Alert::error('Dokumen diperlukan', 'Jika markah melebihi 0, silakan letakkan sekurang-kurangnya satu dokumen lampiran');
+        //         return back();
+        //     }            
         }    
         if ($request->hasFile('dokumen2')) {
             $markah->dokumen2 = $request->file('dokumen2')->store('jkr-ephjkr/uploads');
