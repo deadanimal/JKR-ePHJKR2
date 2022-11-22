@@ -682,7 +682,7 @@
                                             <label class="col-form-label">Dokumen Rayuan:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="file" name="dokumen1">
+                                            <input class="form-control" type="file" name="dokumen1" required>
                                             <input class="form-control" type="file" name="dokumen2">
                                             <input class="form-control" type="file" name="dokumen3">
                                             <input class="form-control" type="file" name="dokumen4">

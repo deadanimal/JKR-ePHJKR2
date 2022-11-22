@@ -145,7 +145,7 @@
                         @endif
                     </form> --}}
                     @endrole 
-                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|pentadbir')
                     <div class="row mt-3">
                         <div class="col text-center">
                             <button class="btn btn-primary" type="submit" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
@@ -455,7 +455,7 @@
                     <!--RAYUAN GPSS BANGUNAN-->
                     @role('ketua-pasukan|penolong-ketua-pasukan')
                     @if($projek->status == "Proses Rayuan GPSS Bangunan")
-                    <div class="tab-pane active" id="tab-3" role="tabpanel">
+                    <div class="tab-pane" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body"> 
                                 <form action="/projek/{{ $projek->id }}/markah-gpss-rayuan" method="POST" enctype="multipart/form-data">
@@ -489,6 +489,7 @@
                                             <label class="col-form-label">Point Requested (Design):</label>
                                         </div>
                                         <div class="col-7 mb-2">
+                                            <input type="hidden" name="fasa" value="verifikasi">
                                             <input name="point_req_design" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
                                             {{-- <input class="form-control" name="markah" type="number"/> --}}
                                         </div>
@@ -515,11 +516,11 @@
                                             <label class="col-form-label">Upload File:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="file" name="dokumen_rayuan1" required>
-                                            <input class="form-control" type="file" name="dokumen_rayuan2">
-                                            <input class="form-control" type="file" name="dokumen_rayuan3">
-                                            <input class="form-control" type="file" name="dokumen_rayuan4">
-                                            <input class="form-control" type="file" name="dokumen_rayuan5">                                
+                                            <input class="form-control" type="file" name="dokumen1" required>
+                                            <input class="form-control" type="file" name="dokumen2">
+                                            <input class="form-control" type="file" name="dokumen3">
+                                            <input class="form-control" type="file" name="dokumen4">
+                                            <input class="form-control" type="file" name="dokumen5">                                
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col text-center">

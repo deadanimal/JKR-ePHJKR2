@@ -106,6 +106,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek/{id}/markah', [ProjekController::class, 'markah_eph']); 
     Route::post('projek/{id}/markah-eph-rayuan', [ProjekController::class, 'markah_eph_rayuan']); 
     Route::post('projek/{id}/markah-eph-jalan', [ProjekController::class, 'markah_eph_jalan']); 
+    Route::post('projek/{id}/markah-eph-jalan-rayuan', [ProjekController::class, 'markah_eph_jalan_rayuan']); 
     Route::post('projek/{id}/markah-gpss', [ProjekController::class, 'markah_gpss']); 
     Route::post('projek/{id}/markah-gpss-rayuan', [ProjekController::class, 'markah_gpss_rayuan']); 
     Route::post('projek/{id}/sah', [ProjekController::class, 'sah_projek']); 
