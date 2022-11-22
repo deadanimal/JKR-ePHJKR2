@@ -1470,10 +1470,10 @@
                                                 {{-- PUN --}}
                                             @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
                                                 <th>0</th>
-                                                <th>{{$in_mr}}</th>
                                                 <th>0</th>
-                                                <th>{{$in_mv}}</th>
-                                                <th>{{$in_ml}}</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
                                             @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
                                                 <th>6</th>
                                                 <th>{{$in_mr}}</th>

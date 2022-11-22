@@ -1,4 +1,5 @@
 @extends('layouts.app')
+{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"> --}}
 
 @section('content')
 
@@ -28,24 +29,6 @@
     @endrole
 </div>
 
-    {{-- @role('pentadbir|pengurusan-atasan|sekretariat|ketua-pemudah-cara|
-    pemudah-cara|ketua-penilai|penilai|ketua-validasi|
-    pasukan-validasi')
-    <table class="table table-bordered projek-datatable line-table" style="width:100%">
-        <thead class="text-white bg-orange-jkr">
-            <tr>
-                <th class="text-center">Nama</th>
-                <th class="text-center">Alamat</th> --}}
-                {{-- <th class="text-center">Peranan</th> --}}
-                {{-- <th class="text-center">Status</th>
-                <th class="text-center">Jenis Kategori</th>
-                <th class="text-center">Tindakan</th> 
-            </tr>
-        </thead>
-    </table>
-    @endrole --}}
-
-    {{-- @role('ketua-pasukan|penolong-ketua-pasukan') --}}
     <table class="table table-bordered projek-datatable line-table" style="width:100%">
         <thead class="text-white bg-orange-jkr">
             <tr>
@@ -57,15 +40,16 @@
 
                 <th class="text-center">Tindakan</th> 
                 {{-- @role('ketua-pasukan|penolong-ketua-pasukan') --}}
+
                 <th class="text-center">Gugur Projek</th> 
+
                 {{-- @endrole --}}
             </tr>
         </thead>
      </table>
-     {{-- @endrole  --}}
-
 
 <!--JavaScript-->
+
 @role('ketua-pasukan|penolong-ketua-pasukan')
 <script type="text/javascript">
     $(function() {
@@ -144,46 +128,6 @@
     });
 </script>
 @endrole
-
-
-{{-- <script type="text/javascript">
-    $(function() {
-
-        var table = $('.projek-datatable-1').DataTable({
-            processing: true,
-            serverSide: true,
-            responsive: true,
-            ajax: "/projek",
-            columns: [
-                {
-                    data: 'nama',
-                    name: 'nama'
-                },
-                {
-                    data: 'alamat',
-                    name: 'alamat'
-                },
-                // {
-                //     data: 'peranan',
-                //     name: 'peranan'
-                // },                
-                {
-                    data: 'status',
-                    name: 'status'
-                },
-                {
-                    data: 'kategori',
-                    name: 'kategori'
-                },
-                {
-                    data: 'tindakan',
-                    name: 'tindakan'
-                },
-            ]
-        });
-    
-    });
-</script> --}}
 
 
 @endsection

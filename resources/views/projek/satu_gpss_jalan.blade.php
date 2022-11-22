@@ -153,7 +153,7 @@
                         <button class="btn btn-primary" type="submit">Membuat Rayuan GPSS Jalan</button>
                     @endif
                     @endrole
-                    @role('sekretariat')
+                    {{-- @role('sekretariat')
                     @if ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Jalan")
                         <button class="btn btn-primary" type="submit">Sah</button>
                     @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan")
@@ -167,7 +167,7 @@
                         <button class="btn btn-primary">Jana Keputusan</button>
                     </div>
                     @endif
-                    @endrole
+                    @endrole --}}
                     {{-- @role('sekretariat')
                     @if ($projek->status == "Proses Rayuan GPSS Jalan")
                         <button class="btn btn-primary" type="submit">Sahkan Rayuan GPSS Jalan</button>
@@ -938,22 +938,15 @@
                                     </div>
                                 </div>
                             @endrole
-                            {{-- @role('ketua-pasukan|penolong-ketua-pasukan')
-                                    <div class="row mt-3">
-                                        <div class="col text-center">
-                                            <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun Rumusan Skor Kad</button>
-                                        </div>
-                                    </div>
-                            @endrole --}}
+                            @role('ketua-pasukan|penolong-ketua-pasukan')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun</button>
+                                </div>
+                            </div>
+                            @endrole
                         </div>
                     </div>
-                    @role('ketua-pasukan|penolong-ketua-pasukan')
-                        <div class="row mt-3">
-                            <div class="col text-center">
-                                <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun</button>
-                            </div>
-                        </div>
-                    @endrole
                 </div>
 
                 <!--RUMUSAN SKOR KAD RAYUAN-->
@@ -1249,7 +1242,7 @@
                         <div class="card-body" id="skor-kad">
                             <h4 class="mb-3">SKOR KAD GPSS JALAN</h4>
                             <div class="table-responsive scrollbar">
-                                <table class="table table-bordered line-table text-center skor-gpss-datatable" style="width: 100%">
+                                <table class="table table-bordered line-table text-center skor-gpss-datatable-1" style="width: 100%">
                                     <thead class="text-white bg-orange-jkr">
                                         <tr>          
                                             <th colspan="10">Green Product Scoring Sheet</th>
@@ -1404,6 +1397,64 @@
                 {
                     data: 'dokumen_',
                     name: 'dokumen_'
+                },
+            ]
+        });
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    $(function() {
+
+        var idProjek = {!! json_decode($projek->id) !!}
+        console.log(idProjek);
+        var url = "/projek/" + idProjek;
+        var table = $('.skor-gpss-datatable-1').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            ajax: url,
+            columns: [{
+                    data: 'elemen',
+                    name: 'elemen'
+                },
+                {
+                    data: 'komponen',
+                    name: 'komponen'
+                },
+                {
+                    data: 'produk',
+                    name: 'produk'
+                },
+                {
+                    data: 'fasa',
+                    name: 'fasa'
+                },
+                {
+                    data: 'markah_point_allocated_r',
+                    name: 'markah_point_allocated_r'
+                },
+                {
+                    data: 'markah_point_req_design_r',
+                    name: 'markah_point_req_design_r'
+                },
+                {
+                    data: 'markah_point_req_construction_r',
+                    name: 'markah_point_req_construction_r'
+                },
+                {
+                    data: 'markah_point_awarded_r',
+                    name: 'markah_point_awarded_r'
+                },
+                {
+                    data: 'remarks_r',
+                    name: 'remarks_r'
+                },
+                {
+                    data: 'dokumen_r',
+                    name: 'dokumen_r'
                 },
             ]
         });
