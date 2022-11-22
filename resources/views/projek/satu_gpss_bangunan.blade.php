@@ -300,9 +300,11 @@
                     <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rumusan Skor Kad</a></li>
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                     @if($projek->status == "Proses Rayuan GPSS Bangunan" || $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" || 
-                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status = "Proses Jana Keputusan Rayuan GPSS Bangunan" ||
+                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status == "Proses Jana Keputusan Rayuan GPSS Bangunan" ||
                     $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan" || $projek->status == "Selesai Rayuan GPSS Bangunan")
-                    <li class="nav-item"><a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">Skor Kad Rayuan</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">Skor Kad Rayuan</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-8" data-bs-toggle="tab" role="tab">Rumusan Skor Kad Rayuan</a>
                     </li> 
@@ -347,13 +349,13 @@
                                             <label class="col-form-label">Point Requested (Design):</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input name="point_req_design" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                            <input name="point_req_design" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
                                         </div>
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Remarks:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
+                                            <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks" required></textarea>
                                         </div>
                                         <div class="col-5 mb-2">
                                         <label class="col-form-label">Upload File:</label>
@@ -419,7 +421,7 @@
                                             <label class="col-form-label">Point Requested (Construction):</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                            <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
                                             {{-- <input class="form-control" name="markah" type="number" min="0" max="2"/> --}}
                                         </div>
                                         @endrole 
@@ -427,7 +429,7 @@
                                             <label class="col-form-label">Remarks:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
+                                            <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks" required></textarea>
                                         </div>
                                         <div class="col-5 mb-2">
                                         <label class="col-form-label">Upload File:</label>
@@ -490,27 +492,27 @@
                                         </div>
                                         <div class="col-7 mb-2">
                                             <input type="hidden" name="fasa" value="verifikasi">
-                                            <input name="point_req_design" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                            <input name="point_req_design" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
                                             {{-- <input class="form-control" name="markah" type="number"/> --}}
                                         </div>
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Point Requested (Construction):</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                            <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
                                             {{-- <input class="form-control" name="markah" type="number" min="0" max="2"/> --}}
                                         </div>
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Remarks:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
+                                            <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks" required></textarea>
                                         </div>
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Comment on Appeal:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <textarea class="form-control" rows="3" name="comment_on_appeal" type="text" placeholder="Comment on Appeal"></textarea>
+                                            <textarea class="form-control" rows="3" name="comment_on_appeal" type="text" placeholder="Comment on Appeal" required></textarea>
                                         </div>
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Upload File:</label>
@@ -631,7 +633,7 @@
 
                     <!--SKOR KAD GPSS BANGUNAN RAYUAN-->
                     @if($projek->status == "Proses Rayuan GPSS Bangunan" || $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" || 
-                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status = "Proses Jana Keputusan Rayuan GPSS Bangunan" ||
+                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status == "Proses Jana Keputusan Rayuan GPSS Bangunan" ||
                     $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan" || $projek->status == "Selesai Rayuan GPSS Bangunan")
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                     <div class="tab-pane" id="tab-7" role="tabpanel">
