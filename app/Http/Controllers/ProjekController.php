@@ -36,21 +36,21 @@ class ProjekController extends Controller
 
     public function senarai_projek(Request $request) {
         
-        // $user = $request->user();
-        // if($user->hasRole('pentadbir|sekretariat|pengurusan-atasan')) {
-        //     $projeks = Projek::all();
-        //     //dd($projeks);
-        // } else if ($user->hasRole('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara|penilai') ){
-        //     $projek_roles = ProjekRoleUser::where('user_id', $user->id)->get();
-        //     $projeks = collect();
-        //     foreach($projek_roles as $projek_role) {
-        //         $projek = Projek::where('id', $projek_role->projek_id)->first();
-        //         $projeks->add($projek);
-        //     }
-        // }
+        $user = $request->user();
+        if($user->hasRole('pentadbir|sekretariat|pengurusan-atasan')) {
+            $projeks = Projek::all();
+            //dd($projeks);
+        } else if ($user->hasRole('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara|penilai') ){
+            $projek_roles = ProjekRoleUser::where('user_id', $user->id)->get();
+            $projeks = collect();
+            foreach($projek_roles as $projek_role) {
+                $projek = Projek::where('id', $projek_role->projek_id)->first();
+                $projeks->add($projek);
+            }
+        }
         // dd('$projeks');
 
-        $projeks = Projek::all();
+        // $projeks = Projek::all();
         //dd('$projeks');
 
         if($request->ajax()) {
