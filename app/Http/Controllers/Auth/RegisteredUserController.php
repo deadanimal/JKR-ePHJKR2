@@ -67,10 +67,10 @@ class RegisteredUserController extends Controller
         // alert('maklumat telah berjaya', 'Berjaya');
 
         //email utk ramai org
-        $senarai_email = [];
-        foreach ($user as $key => $value) {
-            # code...
-        }
+        // $senarai_email = [];
+        // foreach ($user as $key => $value) {
+        //     # code...
+        // }
 
         Mail::to('haris.zahari@pipeline-network.com')->send(new PengesahanPendaftaran);
 
