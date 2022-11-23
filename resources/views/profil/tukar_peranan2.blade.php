@@ -111,7 +111,7 @@
     </div>
 </div>
 
-<div class="row mt-2">
+{{-- <div class="row mt-2">
     <div class="col">
         <div class="card">
             <div class="card-body">
@@ -128,21 +128,21 @@
                     </thead>
                     <tbody class="bg-white">
                         @foreach ($peranans as $p)
-                            <tr>
+                            <tr> --}}
                                 {{-- <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td> --}}
 
-                                <td>{{ $loop->iteration }}</td>
+                                {{-- <td>{{ $loop->iteration }}</td>
                                 <td>{{ $p->projek_id }}</td>
                                 <td>{{ $p->role_id_lama }}</td>
                                 <td>{{ $p->role_id_baru }}</td>
                                 <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $p->dokumen }}">Pautan Dokumen</a></td>
 
-                                <td>
+                                <td> --}}
                                     {{-- @role('sekretariat') --}}
-                                    <div class="col">
+                                    {{-- <div class="col"> --}}
                                         {{-- <div class="col-auto"> --}}
                                             {{-- <form action="/profil/sah_tukar_peranan2/{{ $p->id }}" method="post">
                                             @method('PUT')
@@ -166,9 +166,9 @@
                                                 class="btn btn-primary">Reject</button>
                                             </form>
                                         </div> --}}
-                                    </div>
+                                    {{-- </div> --}}
                                     {{-- @endrole --}}
-                                </td>
+                                {{-- </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -176,7 +176,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <script>
     $('#projek').change(function() {

@@ -175,7 +175,7 @@ class UserController extends Controller
 
     public function senaraiPengguna(Request $request) {   
         $id = (int)$request->route('id'); 
-        $pengguna = User::where('aktif','0')->get();
+        $pengguna = User::where('aktif','1')->get();
         // dd($pengguna);
         return view('senaraiPengguna.senarai', compact('pengguna'));
     }
@@ -263,7 +263,7 @@ class UserController extends Controller
 
     public function senarai_sembunyi(Request $request) {   
         $id = (int)$request->route('id'); 
-        $pengguna = User::where('aktif','1')->get();
+        $pengguna = User::where('aktif','0')->get();
         return view('senaraiPengguna.sembunyi', compact('pengguna'));
     }
 
