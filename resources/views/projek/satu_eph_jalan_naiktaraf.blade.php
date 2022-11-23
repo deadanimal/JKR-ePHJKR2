@@ -231,11 +231,11 @@
             @endif
         @endif
 
-        @if ($projek->status == "Proses Pengisian Skor Rekabentuk Jalan Naiktaraf" ||
-            $projek->status == "Dalam Pengesahan Skor Rekabentuk Jalan Naiktaraf" ||
-            $projek->status == "Selesai Pengesahan Rekabentuk Jalan Naiktaraf" ||
-            $projek->status == "Proses Jana Keputusan Rekabentuk Jalan Naiktaraf" ||  
-            $projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Naiktaraf" ||
+        @if ($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||  
+            $projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
             $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
             $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
             $projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
