@@ -12939,7 +12939,7 @@ class ProjekController extends Controller
         $markah->target_point = $request->target_point;
         $markah->assessment_point = $request->assessment_point;
         $markah->ulasan = $request->ulasan;
-        $markah->comment = $request->comment;
+        $markah->comment_on_appeal = $request->comment_on_appeal;
         $markah->fasa = $request->fasa;
 
         if ($request->hasFile('dokumen1')) {
