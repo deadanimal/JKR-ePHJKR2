@@ -534,7 +534,8 @@
                                         <input class="form-control" type="file" name="dokumen2">
                                         <input class="form-control" type="file" name="dokumen3">
                                         <input class="form-control" type="file" name="dokumen4">
-                                        <input class="form-control" type="file" name="dokumen5">                                </div>
+                                        <input class="form-control" type="file" name="dokumen5">                                
+                                    </div>
                                     <div class="row mt-3">
                                         <div class="col text-center">
                                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -965,286 +966,288 @@
                 || $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" || $projek->status == "Selesai Rayuan GPSS Jalan")
                 @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                 <div class="tab-pane" id="tab-8" role="tabpanel">
-                    <div class="card mt-3">
-                        <div class="card-body" id="rumusan-skor-kad-rayuan">
-                            <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
-                            <div class="col table-responsive scrollbar text-center">
-                                <div class="col">
-                                    <table class="table table-bordered line-table text-center" style="width: 100%">
-                                        <thead class="text-white bg-orange-jkr">
-                                            <tr> 
-                                                <th rowspan="2">No.</th>
-                                                <th rowspan="2">Work Element</th>
-                                                <th rowspan="2">Total Point Allocated</th>
-                                                <th rowspan="2">Current Point Allocated</th>
-                                                <th colspan="2">Total Points Requested</th>
-                                                <th>Total Points Awarded</th>
-                                                <th rowspan="2">Weightage (Refer Annex C)</th>
-                                                <th colspan="3">Percentage of Green Product Scoring Score %</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Design stage</th>
-                                                <th>Construction stage</th>
-                                                <th>Construction Stage</th>
-                                                <th>Point Requested Design</th>
-                                                <th>Point Requested Construction</th>
-                                                <th>Point Awarded</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="text-black">
-                                            <tr>
-                                                <th>1</th>
-                                                <th>Architectural (Aw)</th>
-                                                <th>232</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0.00</th> 
-                                                <th>0.00</th>
-                                            </tr>
+                    <form action="#" id="rumusan-skor-kad-rayuan">
+                        <div class="card mt-3">
+                            <div class="card-body">
+                                <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
+                                <div class="col table-responsive scrollbar text-center">
+                                    <div class="col">
+                                        <table class="table table-bordered line-table text-center" style="width: 100%">
+                                            <thead class="text-white bg-orange-jkr">
+                                                <tr> 
+                                                    <th rowspan="2">No.</th>
+                                                    <th rowspan="2">Work Element</th>
+                                                    <th rowspan="2">Total Point Allocated</th>
+                                                    <th rowspan="2">Current Point Allocated</th>
+                                                    <th colspan="2">Total Points Requested</th>
+                                                    <th>Total Points Awarded</th>
+                                                    <th rowspan="2">Weightage (Refer Annex C)</th>
+                                                    <th colspan="3">Percentage of Green Product Scoring Score %</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Design stage</th>
+                                                    <th>Construction stage</th>
+                                                    <th>Construction Stage</th>
+                                                    <th>Point Requested Design</th>
+                                                    <th>Point Requested Construction</th>
+                                                    <th>Point Awarded</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-black">
+                                                <tr>
+                                                    <th>1</th>
+                                                    <th>Architectural (Aw)</th>
+                                                    <th>232</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0.00</th> 
+                                                    <th>0.00</th>
+                                                </tr>
 
-                                            <tr>
-                                                <th>2</th>
-                                                <th>Mechanical (Mw)</th>
-                                                <th>34</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0.00</th> 
-                                                <th>0.00</th>
-                                            </tr>
+                                                <tr>
+                                                    <th>2</th>
+                                                    <th>Mechanical (Mw)</th>
+                                                    <th>34</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0.00</th> 
+                                                    <th>0.00</th>
+                                                </tr>
 
-                                            <tr>
-                                                <th>3</th>
-                                                <th>Electrical (Ew)</th>
-                                                <th>110</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0.00</th>
-                                                <th>0.00</th>
-                                            </tr>
+                                                <tr>
+                                                    <th>3</th>
+                                                    <th>Electrical (Ew)</th>
+                                                    <th>110</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0.00</th>
+                                                    <th>0.00</th>
+                                                </tr>
 
-                                            <tr>
-                                                <th>4</th>
-                                                <th>Civil & Structural (Cw)</th>
-                                                <th>124</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th>
-                                                <th>0</th> 
-                                                <th>0</th>
-                                                <th>0.00</th> 
-                                                <th>0.00</th>
-                                            </tr>
+                                                <tr>
+                                                    <th>4</th>
+                                                    <th>Civil & Structural (Cw)</th>
+                                                    <th>124</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th>
+                                                    <th>0</th> 
+                                                    <th>0</th>
+                                                    <th>0.00</th> 
+                                                    <th>0.00</th>
+                                                </tr>
 
-                                            <tr>
-                                                <th>5</th>
-                                                <th>Road & Geotechnial (Rw)</th>
-                                                <th>98</th>
-                                                <th>{{$rw_pa_r}}</th>
-                                                <th>{{$rw_ds_r}}</th>
-                                                <th>{{$rw_cs_r}}</th>
-                                                <th>{{$rw_pad_r}}</th>
-                                                <th>0.33</th>
-                                                <th>{{number_format($peratus_rw_ds_r,2,".",",")}}</th>
-                                                <th>{{number_format($peratus_rw_cs_r,2,".",",")}}</th>
-                                                <th>{{number_format($peratus_rw_pad_r,2,".",",")}}</th>
-                                            </tr>
+                                                <tr>
+                                                    <th>5</th>
+                                                    <th>Road & Geotechnial (Rw)</th>
+                                                    <th>98</th>
+                                                    <th>{{$rw_pa_r}}</th>
+                                                    <th>{{$rw_ds_r}}</th>
+                                                    <th>{{$rw_cs_r}}</th>
+                                                    <th>{{$rw_pad_r}}</th>
+                                                    <th>0.33</th>
+                                                    <th>{{number_format($peratus_rw_ds_r,2,".",",")}}</th>
+                                                    <th>{{number_format($peratus_rw_cs_r,2,".",",")}}</th>
+                                                    <th>{{number_format($peratus_rw_pad_r,2,".",",")}}</th>
+                                                </tr>
 
-                                            <tr>
-                                                <th>6</th>
-                                                <th>Structural(Bridge) (Sw)</th>
-                                                <th>12</th>
-                                                <th>{{$sw_pa_r}}</th>
-                                                <th>{{$sw_ds_r}}</th>
-                                                <th>{{$sw_cs_r}}</th>
-                                                <th>{{$sw_pad_r}}</th>
-                                                <th>0.33</th>
-                                                <th>{{number_format($peratus_sw_ds_r,2,".",",")}}</th>
-                                                <th>{{number_format($peratus_sw_cs_r,2,".",",")}}</th>
-                                                <th>{{number_format($peratus_sw_pad_r,2,".",",")}}</th>
-                                            </tr>
+                                                <tr>
+                                                    <th>6</th>
+                                                    <th>Structural(Bridge) (Sw)</th>
+                                                    <th>12</th>
+                                                    <th>{{$sw_pa_r}}</th>
+                                                    <th>{{$sw_ds_r}}</th>
+                                                    <th>{{$sw_cs_r}}</th>
+                                                    <th>{{$sw_pad_r}}</th>
+                                                    <th>0.33</th>
+                                                    <th>{{number_format($peratus_sw_ds_r,2,".",",")}}</th>
+                                                    <th>{{number_format($peratus_sw_cs_r,2,".",",")}}</th>
+                                                    <th>{{number_format($peratus_sw_pad_r,2,".",",")}}</th>
+                                                </tr>
 
-                                            <tr>
-                                                <th colspan="2">Total points</th>
-                                                <th>610</th>
-                                                <th>{{$total_pa_r}}</th>
-                                                <th>{{$total_ds_r}}</th>
-                                                <th>{{$total_cs_r}}</th>
-                                                <th>{{$total_pad_r}}</th>
-                                                <th>0.66</th>
-                                                <th>{{number_format($total_peratus_road_ds_r,2,".",",")}}</th>
-                                                <th>{{number_format($total_peratus_road_cs_r,2,".",",")}}</th>
-                                                <th>{{number_format($total_peratus_road_pad_r,2,".",",")}}</th>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>                                
-                            </div>
-                            <table class="table table-bordered line-table text-center" style="width: 100%">
-                                <thead class="text-white bg-orange-jkr">
-                                    <tr>
-                                        <th>SUMMARY</th>
-                                        <th rowspan="2">Point Requested Design</th>
-                                        <th rowspan="2">Point Requested Construction</th>
-                                        <th rowspan="2">Point Awarded</th>
-                                    </tr>
-                                    <tr>
-                                        <th>PERCENTAGE OF GPSS SCORE %</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-black">
-                                    <tr>
-                                        <th>GPSS Star (Bangunan) </th>
-                                        <th>
-                                            <span class="star">0&#160;&starf;</span>
-                                        </th>
-                                        <th>
-                                            <span class="star">0&#160;&starf;</span>
-                                        </th>
-                                        <th>
-                                            <span class="star">0&#160;&starf;</span>
-                                        </th>
-                                    </tr>
-            
-                                    <tr>
-                                        <th>GPSS Star (Jalan)</th>
-                                        <th>
-                                            <span class="star">
-                                                @if ($total_peratus_road_ds_r >= 80)
-                                                    5&#160;&starf; &starf; &starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_ds_r >= 70 && $total_peratus_road_ds_r < 79)
-                                                    4&#160;&starf; &starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_ds_r >= 60 && $total_peratus_road_ds_r < 69)
-                                                    3&#160;&starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_ds_r >= 50 && $total_peratus_road_ds_r < 59)
-                                                    2&#160;&starf; &starf; 
-                                                @elseif ($total_peratus_road_ds_r >= 40 && $total_peratus_road_ds_r <49)
-                                                    1&#160;&starf;
-                                                @elseif ($total_peratus_road_ds_r <39)
-                                                    0&#160;&starf;                                                                                            
-                                                @endif
-                                            </span>
-                                        </th>
-                                        <th>
-                                            <span class="star">
-                                                @if ($total_peratus_road_cs_r >= 80)
-                                                    5&#160;&starf; &starf; &starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_cs_r >= 70 && $total_peratus_road_cs_r < 79)
-                                                    4&#160;&starf; &starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_cs_r >= 60 && $total_peratus_road_cs_r < 69)
-                                                    3&#160;&starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_cs_r >= 50 && $total_peratus_road_cs_r < 59)
-                                                    2&#160;&starf; &starf; 
-                                                @elseif ($total_peratus_road_cs_r >= 40 && $total_peratus_road_cs_r <49)
-                                                    1&#160;&starf;
-                                                @elseif ($total_peratus_road_cs_r <39)
-                                                    0&#160;&starf;                                                                                            
-                                                @endif
-                                            </span>
-                                        </th>
-                                        <th>
-                                            <span class="star">
-                                                @if ($total_peratus_road_pad_r >= 80)
-                                                    5&#160;&starf; &starf; &starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_pad_r >= 70 && $total_peratus_road_pad_r < 79)
-                                                    4&#160;&starf; &starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_pad_r >= 60 && $total_peratus_road_pad_r < 69)
-                                                    3&#160;&starf; &starf; &starf;
-                                                @elseif ($total_peratus_road_pad_r >= 50 && $total_peratus_road_pad_r < 59)
-                                                    2&#160;&starf; &starf; 
-                                                @elseif ($total_peratus_road_pad_r >= 40 && $total_peratus_road_pad_r <49)
-                                                    1&#160;&starf;
-                                                @elseif ($total_peratus_road_pad_r <39)
-                                                    0&#160;&starf;                                                                                            
-                                                @endif
-                                            </span>
-                                        </th>
-                                    </tr>
-                                
-                                    <tr>
-                                    <th>MyCREST</th>
-                                    <th>
-                                        <span>
-                                            @if ($total_peratus_crest_ds_r >= 80)
-                                                    3&#160;Points
-                                                @elseif ($total_peratus_crest_ds_r >= 70 && $total_peratus_crest_ds_r < 79)
-                                                    3&#160;Points
-                                                @elseif ($total_peratus_crest_ds_r >= 50 && $total_peratus_crest_ds_r < 69)
-                                                    2&#160;Points
-                                                @elseif ($total_peratus_crest_ds_r >= 30 && $total_peratus_crest_ds_r < 49)
-                                                    2&#160;Points 
-                                                @elseif ($total_peratus_crest_ds_r >= 10 && $total_peratus_crest_ds_r <29)
-                                                    1&#160;Points  
-                                                @elseif ($total_peratus_crest_ds_r <10)
-                                                    0&#160;Point                                                                                          
-                                            @endif
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            @if ($total_peratus_crest_cs_r >= 80)
-                                                    3&#160;Points
-                                                @elseif ($total_peratus_crest_cs_r >= 70 && $total_peratus_crest_cs_r < 79)
-                                                    3&#160;Points
-                                                @elseif ($total_peratus_crest_cs_r >= 50 && $total_peratus_crest_cs_r < 69)
-                                                    2&#160;Points
-                                                @elseif ($total_peratus_crest_cs_r >= 30 && $total_peratus_crest_cs_r < 49)
-                                                    2&#160;Points 
-                                                @elseif ($total_peratus_crest_cs_r >= 10 && $total_peratus_crest_cs_r <29)
-                                                    1&#160;Points  
-                                                @elseif ($total_peratus_crest_cs_r <10)
-                                                    0&#160;Point                                                                                          
-                                            @endif
-                                        </span>
-                                    </th>
-                                    <th>
-                                        <span>
-                                            @if ($total_peratus_crest_pad_r >= 80)
-                                                    3&#160;Points
-                                                @elseif ($total_peratus_crest_pad_r >= 70 && $total_peratus_crest_pad_r < 79)
-                                                    3&#160;Points
-                                                @elseif ($total_peratus_crest_pad_r >= 50 && $total_peratus_crest_pad_r < 69)
-                                                    2&#160;Points
-                                                @elseif ($total_peratus_crest_pad_r >= 30 && $total_peratus_crest_pad_r < 49)
-                                                    2&#160;Points 
-                                                @elseif ($total_peratus_crest_pad_r >= 10 && $total_peratus_crest_pad_r <29)
-                                                    1&#160;Points  
-                                                @elseif ($total_peratus_crest_pad_r <10)
-                                                    0&#160;Point                                                                                          
-                                            @endif
-                                        </span>
-                                    </th>
-                                    </tr>
-                                </tbody> 
-                            </table>
-                            @role('sekretariat')
-                                <div class="row mt-3">
-                                    <div class="col text-center">
-                                        <button class="btn btn-primary">Jana Keputusan</button>
-                                    </div>
+                                                <tr>
+                                                    <th colspan="2">Total points</th>
+                                                    <th>610</th>
+                                                    <th>{{$total_pa_r}}</th>
+                                                    <th>{{$total_ds_r}}</th>
+                                                    <th>{{$total_cs_r}}</th>
+                                                    <th>{{$total_pad_r}}</th>
+                                                    <th>0.66</th>
+                                                    <th>{{number_format($total_peratus_road_ds_r,2,".",",")}}</th>
+                                                    <th>{{number_format($total_peratus_road_cs_r,2,".",",")}}</th>
+                                                    <th>{{number_format($total_peratus_road_pad_r,2,".",",")}}</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>                                
                                 </div>
-                            @endrole
-                        </div>
-                    </div>
-                    @role('ketua-pasukan|penolong-ketua-pasukan')
-                        <div class="row mt-3">
-                            <div class="col text-center">
-                                <button class="btn btn-primary" onclick="printJS('rumusan-skor-kad-rayuan', 'html')">Muat Turun</button>
+                                <table class="table table-bordered line-table text-center" style="width: 100%">
+                                    <thead class="text-white bg-orange-jkr">
+                                        <tr>
+                                            <th>SUMMARY</th>
+                                            <th rowspan="2">Point Requested Design</th>
+                                            <th rowspan="2">Point Requested Construction</th>
+                                            <th rowspan="2">Point Awarded</th>
+                                        </tr>
+                                        <tr>
+                                            <th>PERCENTAGE OF GPSS SCORE %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-black">
+                                        <tr>
+                                            <th>GPSS Star (Bangunan) </th>
+                                            <th>
+                                                <span class="star">0&#160;&starf;</span>
+                                            </th>
+                                            <th>
+                                                <span class="star">0&#160;&starf;</span>
+                                            </th>
+                                            <th>
+                                                <span class="star">0&#160;&starf;</span>
+                                            </th>
+                                        </tr>
+                
+                                        <tr>
+                                            <th>GPSS Star (Jalan)</th>
+                                            <th>
+                                                <span class="star">
+                                                    @if ($total_peratus_road_ds_r >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_ds_r >= 70 && $total_peratus_road_ds_r < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_ds_r >= 60 && $total_peratus_road_ds_r < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_ds_r >= 50 && $total_peratus_road_ds_r < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_road_ds_r >= 40 && $total_peratus_road_ds_r <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_road_ds_r <39)
+                                                        0&#160;&starf;                                                                                            
+                                                    @endif
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="star">
+                                                    @if ($total_peratus_road_cs_r >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_cs_r >= 70 && $total_peratus_road_cs_r < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_cs_r >= 60 && $total_peratus_road_cs_r < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_cs_r >= 50 && $total_peratus_road_cs_r < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_road_cs_r >= 40 && $total_peratus_road_cs_r <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_road_cs_r <39)
+                                                        0&#160;&starf;                                                                                            
+                                                    @endif
+                                                </span>
+                                            </th>
+                                            <th>
+                                                <span class="star">
+                                                    @if ($total_peratus_road_pad_r >= 80)
+                                                        5&#160;&starf; &starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_pad_r >= 70 && $total_peratus_road_pad_r < 79)
+                                                        4&#160;&starf; &starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_pad_r >= 60 && $total_peratus_road_pad_r < 69)
+                                                        3&#160;&starf; &starf; &starf;
+                                                    @elseif ($total_peratus_road_pad_r >= 50 && $total_peratus_road_pad_r < 59)
+                                                        2&#160;&starf; &starf; 
+                                                    @elseif ($total_peratus_road_pad_r >= 40 && $total_peratus_road_pad_r <49)
+                                                        1&#160;&starf;
+                                                    @elseif ($total_peratus_road_pad_r <39)
+                                                        0&#160;&starf;                                                                                            
+                                                    @endif
+                                                </span>
+                                            </th>
+                                        </tr>
+                                    
+                                        <tr>
+                                        <th>MyCREST</th>
+                                        <th>
+                                            <span>
+                                                @if ($total_peratus_crest_ds_r >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_ds_r >= 70 && $total_peratus_crest_ds_r < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_ds_r >= 50 && $total_peratus_crest_ds_r < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_ds_r >= 30 && $total_peratus_crest_ds_r < 49)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_ds_r >= 10 && $total_peratus_crest_ds_r <29)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_ds_r <10)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span>
+                                                @if ($total_peratus_crest_cs_r >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_r >= 70 && $total_peratus_crest_cs_r < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_r >= 50 && $total_peratus_crest_cs_r < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_cs_r >= 30 && $total_peratus_crest_cs_r < 49)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_cs_r >= 10 && $total_peratus_crest_cs_r <29)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_cs_r <10)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                        </th>
+                                        <th>
+                                            <span>
+                                                @if ($total_peratus_crest_pad_r >= 80)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_r >= 70 && $total_peratus_crest_pad_r < 79)
+                                                        3&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_r >= 50 && $total_peratus_crest_pad_r < 69)
+                                                        2&#160;Points
+                                                    @elseif ($total_peratus_crest_pad_r >= 30 && $total_peratus_crest_pad_r < 49)
+                                                        2&#160;Points 
+                                                    @elseif ($total_peratus_crest_pad_r >= 10 && $total_peratus_crest_pad_r <29)
+                                                        1&#160;Points  
+                                                    @elseif ($total_peratus_crest_pad_r <10)
+                                                        0&#160;Point                                                                                          
+                                                @endif
+                                            </span>
+                                        </th>
+                                        </tr>
+                                    </tbody> 
+                                </table>
+                                @role('sekretariat')
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary">Jana Keputusan</button>
+                                        </div>
+                                    </div>
+                                @endrole
                             </div>
                         </div>
-                    @endrole
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                            <div class="row mt-3">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary" onclick="printJS('rumusan-skor-kad-rayuan', 'html')">Muat Turun</button>
+                                </div>
+                            </div>
+                        @endrole
+                    </form>
                 </div>
 
                 <!--SKOR KAD GPSS JALAN RAYUAN-->
