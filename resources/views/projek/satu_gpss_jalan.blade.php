@@ -695,100 +695,100 @@
                                         </thead>
                                         <tbody class="text-black">
                                             <tr>
-                                            <th>1</th>
-                                            <th>Architectural (Aw)</th>
-                                            <th>232</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0.00</th> 
-                                            <th>0.00</th>
+                                                <th>1</th>
+                                                <th>Architectural (Aw)</th>
+                                                <th>232</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0.00</th> 
+                                                <th>0.00</th>
                                             </tr>
 
                                             <tr>
-                                            <th>2</th>
-                                            <th>Mechanical (Mw)</th>
-                                            <th>34</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0.00</th> 
-                                            <th>0.00</th>
+                                                <th>2</th>
+                                                <th>Mechanical (Mw)</th>
+                                                <th>34</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0.00</th> 
+                                                <th>0.00</th>
                                             </tr>
 
                                             <tr>
-                                            <th>3</th>
-                                            <th>Electrical (Ew)</th>
-                                            <th>110</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0.00</th>
-                                            <th>0.00</th>
+                                                <th>3</th>
+                                                <th>Electrical (Ew)</th>
+                                                <th>110</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0.00</th>
+                                                <th>0.00</th>
                                             </tr>
 
                                             <tr>
-                                            <th>4</th>
-                                            <th>Civil & Structural (Cw)</th>
-                                            <th>124</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th>
-                                            <th>0</th> 
-                                            <th>0</th>
-                                            <th>0.00</th> 
-                                            <th>0.00</th>
+                                                <th>4</th>
+                                                <th>Civil & Structural (Cw)</th>
+                                                <th>124</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th> 
+                                                <th>0</th>
+                                                <th>0.00</th> 
+                                                <th>0.00</th>
                                             </tr>
 
                                             <tr>
-                                            <th>5</th>
-                                            <th>Road & Geotechnial (Rw)</th>
-                                            <th>98</th>
-                                            <th>{{$rw_pa}}</th>
-                                            <th>{{$rw_ds}}</th>
-                                            <th>{{$rw_cs}}</th>
-                                            <th>{{$rw_pad}}</th>
-                                            <th>0.33</th>
-                                            <th>{{number_format($peratus_rw_ds,2,".",",")}}</th>
-                                            <th>{{number_format($peratus_rw_cs,2,".",",")}}</th>
-                                            <th>{{number_format($peratus_rw_pad,2,".",",")}}</th>
+                                                <th>5</th>
+                                                <th>Road & Geotechnial (Rw)</th>
+                                                <th>98</th>
+                                                <th>{{$rw_pa}}</th>
+                                                <th>{{$rw_ds}}</th>
+                                                <th>{{$rw_cs}}</th>
+                                                <th>{{$rw_pad}}</th>
+                                                <th>0.33</th>
+                                                <th>{{number_format($peratus_rw_ds,2,".",",")}}</th>
+                                                <th>{{number_format($peratus_rw_cs,2,".",",")}}</th>
+                                                <th>{{number_format($peratus_rw_pad,2,".",",")}}</th>
                                             </tr>
 
                                             <tr>
-                                            <th>6</th>
-                                            <th>Structural(Bridge) (Sw)</th>
-                                            <th>12</th>
-                                            <th>{{$sw_pa}}</th>
-                                            <th>{{$sw_ds}}</th>
-                                            <th>{{$sw_cs}}</th>
-                                            <th>{{$sw_pad}}</th>
-                                            <th>0.33</th>
-                                            <th>{{number_format($peratus_sw_ds,2,".",",")}}</th>
-                                            <th>{{number_format($peratus_sw_cs,2,".",",")}}</th>
-                                            <th>{{number_format($peratus_sw_pad,2,".",",")}}</th>
+                                                <th>6</th>
+                                                <th>Structural(Bridge) (Sw)</th>
+                                                <th>12</th>
+                                                <th>{{$sw_pa}}</th>
+                                                <th>{{$sw_ds}}</th>
+                                                <th>{{$sw_cs}}</th>
+                                                <th>{{$sw_pad}}</th>
+                                                <th>0.33</th>
+                                                <th>{{number_format($peratus_sw_ds,2,".",",")}}</th>
+                                                <th>{{number_format($peratus_sw_cs,2,".",",")}}</th>
+                                                <th>{{number_format($peratus_sw_pad,2,".",",")}}</th>
                                             </tr>
 
                                             <tr>
-                                            <th colspan="2">Total points</th>
-                                            <th>610</th>
-                                            <th>{{$total_pa}}</th>
-                                            <th>{{$total_ds}}</th>
-                                            <th>{{$total_cs}}</th>
-                                            <th>{{$total_pad}}</th>
-                                            <th>0.66</th>
-                                            <th>{{number_format($total_peratus_road_ds,2,".",",")}}</th>
-                                            <th>{{number_format($total_peratus_road_cs,2,".",",")}}</th>
-                                            <th>{{number_format($total_peratus_road_pad,2,".",",")}}</th>
+                                                <th colspan="2">Total points</th>
+                                                <th>610</th>
+                                                <th>{{$total_pa}}</th>
+                                                <th>{{$total_ds}}</th>
+                                                <th>{{$total_cs}}</th>
+                                                <th>{{$total_pad}}</th>
+                                                <th>0.66</th>
+                                                <th>{{number_format($total_peratus_road_ds,2,".",",")}}</th>
+                                                <th>{{number_format($total_peratus_road_cs,2,".",",")}}</th>
+                                                <th>{{number_format($total_peratus_road_pad,2,".",",")}}</th>
                                             </tr>
                                         </tbody>
                                     </table>

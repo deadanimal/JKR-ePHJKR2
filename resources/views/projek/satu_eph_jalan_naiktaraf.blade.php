@@ -105,8 +105,8 @@
                     <form action="/projek/{{$projek->id}}/sah-eph-jalan-naiktaraf" method="POST" enctype="multipart/form-data">
                         @csrf
                         @if($projek->status == "Menunggu Pengesahan Sekretariat")
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Maklumat Projek</button>
-                        @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk Jalan Naiktaraf")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Sah Projek</button>
+                        {{-- @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk Jalan Naiktaraf")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk Jalan Naiktaraf Sudah Dinilai</button>
                         @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Jalan Naiktaraf")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk Jalan Naiktaraf Sudah Selesai</button>
@@ -115,7 +115,7 @@
                         @elseif ($projek->status == "Proses Jana Keputusan Rekabentuk Jalan Naiktaraf")   
                             <button class="btn btn-primary mx-3 my-3" type="submit">Proses Jana Keputusan Rekabentuk Jalan Naiktaraf</button>
                         @elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Naiktaraf")  
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rekabentuk Jalan Naiktaraf</button>
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rekabentuk Jalan Naiktaraf</button> --}}
                         @endif
                     </form>
                     @endrole 
@@ -402,9 +402,9 @@
                                             <label class="col-form-label">Criteria:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <select class="form-select form-control" id="kriteriaRayuanDipilih"
-                                                name="kriteria" onchange="kriteriaRayuan()">
-                                                @foreach ($rayuan_kriterias as $akriteria)
+                                            <select class="form-select form-control" id="kriteriaRayuanRekabentukDipilih"
+                                                name="kriteria" onchange="kriteriaRayuanRekabentuk()">
+                                                @foreach ($rayuan_rekabentuk_kriterias as $akriteria)
                                                     <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                         {{ $akriteria->nama }}</option>
                                                 @endforeach
@@ -472,9 +472,9 @@
                                             <label class="col-form-label">Criteria:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <select class="form-select form-control" id="kriteriaRayuanDipilih"
-                                                name="kriteria" onchange="kriteriaRayuan()">
-                                                @foreach ($kriterias as $akriteria)
+                                            <select class="form-select form-control" id="kriteriaRayuanVerifikasiDipilih"
+                                                name="kriteria" onchange="kriteriaRayuanVerifikasi()">
+                                                @foreach ($rayuan_verifikasi_kriterias as $akriteria)
                                                     <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                         {{ $akriteria->nama }}</option>
                                                 @endforeach
@@ -805,10 +805,10 @@
                                                 </table>
                                             </div>
                                             @role('sekretariat')
-                                            <div class="row mt-3">
-                                                <div class="col text-center">
-                                                    <button class="btn btn-primary">Jana Keputusan</button>
-                                                </div>
+                                            <div class="col text-center">
+                                                @if($projek->status == "Dalam Pengesahan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                                    <button class="btn btn-primary mx-3 my-3" type="submit">Jana</button>
+                                                @endif
                                             </div>
                                             @endrole
                                             @role('ketua-pasukan|penolong-ketua-pasukan|pentadbir')
@@ -856,11 +856,14 @@
                                     </div>
                                     @endrole
                                     @role('ketua-pasukan|penolong-ketua-pasukan')
+                                    @if($projek->status == "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                        $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
                                     <div class="row mt-3">
                                         <div class="col text-center">
                                             <button class="btn btn-primary" onclick="printJS('skor-kad', 'html')">Muat Turun</button>
                                         </div>
                                     </div>
+                                    @endif
                                     @endrole
                                 </div>
                             </div>
@@ -1150,11 +1153,15 @@
                                             </div>
                                             @endrole
                                             @role('ketua-pasukan')
+                                            @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                            $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
                                             <div class="row mt-3">
                                                 <div class="col text-center">
                                                     <button class="btn btn-primary" onclick="printJS('rumusan-skor-kad-rayuan', 'html')">Muat Turun</button>
                                                 </div>
                                             </div>
+                                            @endif
                                             @endrole
                                         </div>
                                     </form>
@@ -1182,7 +1189,7 @@
                                                     <th>Max Point</th>
                                                     <th>Target Point</th>
                                                     <th>Assessment Point</th>
-                                                    <th>Comment by Assessor</th>
+                                                    <th>Comment on Appeal</th>
                                                     <th>Supporting Documents</th>
                                                 </tr>
                                             </thead>
@@ -1190,16 +1197,29 @@
                                         @role('sekretariat')
                                         <div class="row mt-3">
                                             <div class="col text-center">
-                                                <a href="#" class="btn btn-primary">Sah</a>
+                                                @if($projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                                    <button class="btn btn-primary mx-3 my-3" type="submit">Jana</button>
+                                                @endif
                                             </div>
                                         </div>
                                         @endrole
+                                        @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
+                                        <div class="col text-center">
+                                            @if($projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan")
+                                            <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                            @endif
+                                        </div>
+                                        @endrole
                                         @role('ketua-pasukan|penolong-ketua-pasukan')
+                                        @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                        $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                        $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 <button class="btn btn-primary" onclick="printJS('skor-kad-rayuan', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
+                                        @endif
                                         @endrole
                                     {{-- </form> --}}
                                 </div>
@@ -1286,7 +1306,9 @@
     kriteriaRekabentuk();
     kriteriaVerifikasi();
     kriteriaValidasi();
-    kriteriaRayuan();
+    kriteriaRayuanRekabentuk();
+    kriteriaRayuanVerifikasi();
+
 
     function kriteriaRekabentuk() {
         var lols = {!! $rekabentuk_kriterias !!}
@@ -1303,11 +1325,17 @@
         document.getElementById("infoKriteriaVerifikasiDipilih").innerHTML = selectedKriteria.bukti;
     }
 
-    function kriteriaRayuan() {
-        var lols = {!! $rayuan_kriterias !!}
-        var kriteriaRayuan = document.getElementById("kriteriaRayuanDipilih").value;
-        let selectedKriteria = lols.find(el => el.id == kriteriaRayuan);
-        document.getElementById("infoKriteriaRayuanDipilih").innerHTML = selectedKriteria.bukti;
+    function kriteriaRayuanRekabentuk() {
+        var lols = {!! $rayuan_rekabentuk_kriterias !!}
+        var kriteriaRayuanRekabentuk = document.getElementById("kriteriaRayuanRekabentukDipilih").value;
+        let selectedKriteria = lols.find(el => el.id == kriteriaRayuanRekabentuk);
+        document.getElementById("infoKriteriaRayuanRekabentukDipilih").innerHTML = selectedKriteria.bukti;
+    }
+    function kriteriaRayuanVerifikasi() {
+        var lols = {!! $rayuan_verifikasi_kriterias !!}
+        var kriteriaRayuanVerifikasi = document.getElementById("kriteriaRayuanVerifikasiDipilih").value;
+        let selectedKriteria = lols.find(el => el.id == kriteriaRayuanVerifikasi);
+        document.getElementById("infoKriteriaRayuanVerifikasiDipilih").innerHTML = selectedKriteria.bukti;
     }
 </script>
 

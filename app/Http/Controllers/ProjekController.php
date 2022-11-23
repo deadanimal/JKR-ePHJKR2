@@ -9088,9 +9088,17 @@ class ProjekController extends Controller
                 ['fasa','=', 'verifikasi'],
             ])->get();
 
-            $rayuan_kriterias = Kriteria::where([
-                ['borang','=', 'NEW ROADS']
+            $rayuan_rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'NEW ROADS'],
+                ['fasa','=', 'rekabentuk'],
+
             ])->get();  
+
+            $rayuan_verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'NEW ROADS'],
+                ['fasa','=', 'verifikasi'],
+
+            ])->get();
         
             // Rekabentuk borang NEW ROADS 
             $sm_kriterias = Kriteria::where([['borang','=', 'NEW ROADS'],['borang_seq','=', 1]])->get();
@@ -9235,8 +9243,8 @@ class ProjekController extends Controller
                 $markah_sm_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_sm_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_sm_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_sm_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_sm_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_sm_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_sm_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_sm_tv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_sm_av_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sm_kriteria->id],['fasa','=','verifikasi']])->first();
 
@@ -9287,8 +9295,8 @@ class ProjekController extends Controller
                 $markah_pt_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_pt_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_pt_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_pt_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_pt_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_pt_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_pt_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_pt_tv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_pt_av_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pt_kriteria->id],['fasa','=','verifikasi']])->first();
 
@@ -9338,8 +9346,8 @@ class ProjekController extends Controller
                 $markah_ew_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ew_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_ew_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_ew_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_ew_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ew_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ew_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ew_tv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_ew_av_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ew_kriteria->id],['fasa','=','verifikasi']])->first();
 
@@ -9389,8 +9397,8 @@ class ProjekController extends Controller
                 $markah_ae_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ae_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_ae_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_ae_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_ae_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ae_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ae_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ae_tv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_ae_av_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ae_kriteria->id],['fasa','=','verifikasi']])->first();
 
@@ -9440,8 +9448,8 @@ class ProjekController extends Controller
                 $markah_ca_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ca_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_ca_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_ca_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_ca_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ca_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ca_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ca_tv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_ca_av_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ca_kriteria->id],['fasa','=','verifikasi']])->first();
 
@@ -9491,8 +9499,8 @@ class ProjekController extends Controller
                 $markah_mr_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_mr_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_mr_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_mr_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_mr_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_mr_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_mr_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_mr_tv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_mr_av_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $mr_kriteria->id],['fasa','=','verifikasi']])->first();
 
@@ -9542,8 +9550,8 @@ class ProjekController extends Controller
                 $markah_ec_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ec_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_ec_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_ec_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_ec_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_ec_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_ec_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_ec_tv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_ec_av_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $ec_kriteria->id],['fasa','=','verifikasi']])->first();
 
@@ -9593,8 +9601,8 @@ class ProjekController extends Controller
                 $markah_in_ad = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_in_tv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_in_av = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_in_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
-                $markah_in_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_in_td_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_in_ad_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_in_tv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
                 $markah_in_av_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
 
@@ -9818,9 +9826,11 @@ class ProjekController extends Controller
                 $bintang_fs4_r = 0;
                 $bintang_fss4_r = 'NO RECOGNITION';
             }
+
+            // dd($sm_td_r);
     
 
-            return view('projek.satu_eph_jalan_baru', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_kriterias', 'users', 'lantikans',
+            return view('projek.satu_eph_jalan_baru', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_rekabentuk_kriterias', 'rayuan_verifikasi_kriterias', 'users', 'lantikans',
             'totalcp_td', 'totaleip_td', 'totalcp_ad', 'totalcp_av','totaleip_ad', 'totaleip_ad', 'totalcp_tv', 'totaleip_ad', 'totaleip_av', 'totaleip_tv', 
             'sm_td', 'pt_td', 'ew_td', 'ae_td', 'ca_td', 'mr_td', 'ec_td', 'in_td' ,'sm_ad', 'pt_ad', 'ew_ad', 'ae_ad', 'ca_ad', 'mr_ad', 'ec_ad', 'in_ad', 'sm_tv', 'sm_av', 'pt_tv', 
             'pt_av', 'ew_tv', 'ew_av', 'ae_tv', 'ae_av', 'ca_tv', 'ca_av','mr_av', 'mr_tv', 'ec_tv', 'ec_av', 'in_td', 'in_ad', 'in_tv', 'in_av', 
@@ -9842,9 +9852,15 @@ class ProjekController extends Controller
                 ['fasa','=', 'verifikasi'],
             ])->get();
 
-            $rayuan_kriterias = Kriteria::where([
-                ['borang','=', 'UPGRADING ROADS']
-            ])->get();  
+            $rayuan_rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'UPGRADING ROADS'],
+                ['fasa', '=', 'rekabentuk']
+            ])->get();
+            
+            $rayuan_verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'UPGRADING ROADS'],
+                ['fasa', '=', 'verifikasi']
+            ])->get(); 
             
             // Rekabentuk borang UPGRADING ROADS
             $sm_kriterias = Kriteria::where([['borang','=', 'UPGRADING ROADS'],['borang_seq','=', 1]])->get();
@@ -10574,7 +10590,7 @@ class ProjekController extends Controller
             }
     
 
-            return view('projek.satu_eph_jalan_baru', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_kriterias', 'users', 'lantikans',
+            return view('projek.satu_eph_jalan_baru', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_rekabentuk_kriterias', 'rayuan_verifikasi_kriterias', 'users', 'lantikans',
             'totalcp_td', 'totaleip_td', 'totalcp_ad', 'totalcp_av','totaleip_ad', 'totaleip_ad', 'totalcp_tv', 'totaleip_ad', 'totaleip_av', 'totaleip_tv', 
             'sm_td', 'pt_td', 'ew_td', 'ae_td', 'ca_td', 'mr_td', 'ec_td', 'in_td' ,'sm_ad', 'pt_ad', 'ew_ad', 'ae_ad', 'ca_ad', 'mr_ad', 'ec_ad', 'in_ad', 'sm_tv', 'sm_av', 'pt_tv', 
             'pt_av', 'ew_tv', 'ew_av', 'ae_tv', 'ae_av', 'ca_tv', 'ca_av','mr_av', 'mr_tv', 'ec_tv', 'ec_av', 'in_td', 'in_ad', 'in_tv', 'in_av', 
@@ -13255,10 +13271,10 @@ class ProjekController extends Controller
             alert()->success('Proses Rayuan Rekabentuk/Verifikasi Jalan Baru Disahkan', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru"){
-            $projek->status = "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru";
+            $projek->status = "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Baru";
             alert()->success('Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru"){
+        elseif ($projek->status == "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Baru"){
             $projek->status = "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru";
             alert()->success('Rayuan Rekabentuk/Verifikasi Jalan Baru Disahkan', 'Berjaya');
         }
@@ -13316,10 +13332,10 @@ class ProjekController extends Controller
             alert()->success('Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf Disahkan', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf"){
-            $projek->status = "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf";
+            $projek->status = "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf";
             alert()->success('Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf"){
+        elseif ($projek->status == "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf"){
             $projek->status = "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf";
             alert()->success('Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf Disahkan', 'Berjaya');
         }
@@ -13442,12 +13458,8 @@ class ProjekController extends Controller
             $projek->status = "Dalam Pengesahan Rayuan GPSS Jalan";
             alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
         }
-        elseif($projek->status == "Proses Rayuan Rekabentuk Jalan"){
-            $projek->status = "Dalam Pengesahan Rayuan Rekabentuk Jalan";
-            alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
-        }
-        elseif($projek->status == "Proses Rayuan Verifikasi Jalan"){
-            $projek->status = "Dalam Pengesahan Rayuan Verifikasi Jalan";
+        elseif($projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan"){
+            $projek->status = "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan";
             alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
         }
         
