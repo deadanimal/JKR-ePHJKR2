@@ -59,25 +59,6 @@
                     </div>
 
                     <div class="col-3 mb-2">
-                        <label class="col-form-label">Negeri:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <select name="negeri" id="countySel" size="1" class="form-select form-control" aria-label="Default select example" >
-                            <option selected>Pilih Negeri</option>
-                            
-                        </select>
-                    </div>
-
-                    <div class="col-3 mb-2">
-                        <label class="col-form-label">Daerah:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <select name="daerah" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
-                            <option selected>Pilih Daerah</option>  
-                        </select>
-                    </div>
-    
-                    <div class="col-3 mb-2">
                         <label class="col-form-label">Nama Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
@@ -97,6 +78,26 @@
                     <div class="col-7 mb-2">
                         <input class="form-control" name="alamat_syarikat" value="{{ $pengguna->alamat_syarikat }}" />
                     </div>
+
+                    <div class="col-3 mb-2">
+                        <label class="col-form-label">Negeri:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <select name="negeri" id="countySel" size="1" class="form-select form-control" aria-label="Default select example" >
+                            <option selected>Pilih Negeri</option>
+                            
+                        </select>
+                    </div>
+
+                    <div class="col-3 mb-2">
+                        <label class="col-form-label">Daerah:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <select name="daerah" id="stateSel" size="1" class="form-select form-control" aria-label="Default select example" >
+                            <option selected>Pilih Daerah</option>  
+                        </select>
+                    </div>
+    
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Kata Laluan:</label>
                     </div>

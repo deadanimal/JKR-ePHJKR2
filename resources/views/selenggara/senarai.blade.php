@@ -807,48 +807,46 @@
                         <h3 class="mb-0 text-primary"><strong>SELENGGARA AUDIT LOG</strong></h3>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="col mb-">
-                                    <h2 class="h2 mb-3">SENARAI SELENGGARA AUDIT LOG</h2>
-                                </div>
+                <div class="table-responsive scrollbar">
 
-                                <div class="row mt-2">
-                                    <div class="col">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                {{-- <input type=“text” id=“myInput” class=“form-control” placeholder=“e-Penarafan Hijau Jabatan Kerja Raya”/> --}}
-                                                <table class="table datatable table-striped" style="width:100%">
-                                                    <thead class="bg-primary">
-                                                        <tr>
-                                                            <th class="sort">Bil.</th>
-                                                            <th class="sort">User ID </th>
-                                                            <th class="sort">Tarikh dan Masa </th>
-                                                            <th class="sort">Proses Aktiviti </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody class="bg-white">
-
-                                                        @foreach ($audits as $selenggaraAudit)
-                                                            <tr>
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $selenggaraAudit->user_id }}</td>
-                                                                <td>{{ $selenggaraAudit->created_at }}</td>
-                                                                <td>{{ $selenggaraAudit->event }}</td>
-
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <table class="table table-bordered user_datatable" id="example">
+                        <thead class="table" style="text-align: center">
+                            <tr>
+                                <th scope="col">Ic Pengguna</th>
+                                <th scope="col">Tarikh</th>
+                                <th scope="col">Aktiviti</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list" id="myTable">
+                            @foreach ($audits as $selenggaraAudits)
+                                <tr class="audit">
+                                    <td>{{ $selenggaraAudits->user->icPengguna ?? " "}}</td>
+                                    <td>{{ $selenggaraAudits->updated_at }}</td>
+        
+                                    @if ($selenggaraAudits->auditable_type == 'App\Models\Hebahan')
+                                        <td>{{ $selenggaraAudits->user->name ?? "" }} {{ $selenggaraAudits->event }} Hebahan .
+                                        </td>
+                                    @elseif($selenggaraAudits->auditable_type == 'App\Models\Faq')
+                                        <td>{{ $selenggaraAudits->user->name ?? " "}} {{ $selenggaraAudits->event }} Faq.
+                                        </td>
+                                    @elseif($selenggaraAudits->auditable_type == 'App\Models\User')
+                                        <td>{{ $selenggaraAudits->user->name ?? " "}} {{ $selenggaraAudits->event }} User.
+                                        </td>
+                                    
+                                    @elseif($selenggaraAudits->auditable_type == 'App\Models\Projek')
+                                        <td>{{ $selenggaraAudits->user->name ?? " "}} {{ $selenggaraAudits->event }} Projek.
+                                        </td>
+                                    @else
+                                        <td>{{ $selenggaraAudits->user->name ?? " " }} {{ $selenggaraAudits->event }} yang
+                                            lain.
+                                        </td>
+                                    @endif
+        
+                                </tr>
+                            @endforeach
+        
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -863,4 +861,15 @@
           });
         });
     </script>
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+    $('#example').dataTable({
+        "language": {
+            "search": "Carian:"
+        }
+    });
+</script>
 @endsection
