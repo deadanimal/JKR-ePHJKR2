@@ -13300,7 +13300,7 @@ class ProjekController extends Controller
         }
         elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf"){
             $projek->status = "Selesai Rekabentuk/Verifikasi Jalan Naiktaraf";
-            alert()->success('Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf ', 'Berjaya');
+            alert()->success('Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf', 'Berjaya');
         }
 
         $projek->save();
