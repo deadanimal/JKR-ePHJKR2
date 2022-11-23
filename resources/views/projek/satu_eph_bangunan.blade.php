@@ -731,7 +731,7 @@
                             <div class="card-body" id="skor_kad">
                                 <h4 class="h4 mb-3">SKOR KAD EPH BANGUNAN</h4>
                                 <div class="table-responsive scrollbar">
-                                    <table id="SkorKad" class="table table-bordered skor-datatable line-table display">
+                                    <table class="table table-bordered skor-datatable line-table display">
                                         <thead class="text-white">
                                             <tr class="pg-1" align="center" style="background-color:#EB5500">
                                                 @if ($projek->kategori == 'phJKR Bangunan Baru A')
