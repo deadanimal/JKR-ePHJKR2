@@ -264,14 +264,12 @@
                             role="tab">Skor Kad Rayuan</a></li>
                     @endif
                     @endrole
-                    @if($projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Baru")
                     @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan')
                     <li class="nav-item"><a class="nav-link" href="#tab-9" data-bs-toggle="tab"
                             role="tab">Sijil Rekabentuk</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tab-10" data-bs-toggle="tab"
                             role="tab">Sijil Verifikasi</a></li>
                     @endrole
-                    @endif
                 </ul>
                 <div class="tab-content">
                     <!--REKABENTUK EPH JALAN-->
@@ -473,7 +471,7 @@
                     <div class="tab-pane" id="tab-4" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <form action="/projek/{{ $projek->id }}/markah" method="POST"
+                                <form action="/projek/{{ $projek->id }}/markah-eph-jalan-rayuan" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="mb-3">RAYUAN VERIFIKASI PERMARKAHAN JALAN</h4>
@@ -835,9 +833,9 @@
                     <div class="tab-pane" id="tab-6" role="tabpanel">
                         <div class="row mb-3">
                             <div class="card">
-                                <div class="card-body">
-                                    <form action="#" id="skor-kad">
-                                        <h4 class="mb-3">SKOR KAD EPH JALAN</h4>
+                                <div class="card-body" id="skor-kad">
+                                    {{-- <form action="#" id="skor-kad"> --}}
+                                        <h4 class="mb-3">SKOR KAD ePHJKR JALAN</h4>
                                         <div class="table-responsive scrollbar">
                                             <table class="table table-bordered line-table text-center skor-datatable" style="width: 100%">
                                                 <thead class="text-white bg-orange-jkr">
@@ -871,7 +869,7 @@
                                             </div>
                                         </div>
                                         @endrole
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
                             </div>
                         </div>
@@ -883,9 +881,9 @@
                     <div class="tab-pane" id="tab-7" role="tabpanel">
                         <div class="row mt-3">
                             <div class="card">
-                                <form action="#" id="rumusan-skor-kad">
+                                <form action="#" id="rumusan-skor-kad-rayuan">
                                     <div class="card-body">
-                                        <h4 class="mb-3">RUMUSAN SKOR KAD</h4>
+                                        <h4 class="mb-3">RUMUSAN SKOR KAD ePHJKR JALAN RAYUAN</h4>
                                         <table class="table table-bordered line-table text-center" style="width: 100%">
                                             <thead class="text-white bg-orange-jkr">
                                                 <tr>
@@ -910,100 +908,100 @@
                                                     <th colspan="1">SM</th>
                                                     <th colspan="2">SUSTAINABLE SITE PLANNING AND MANAGEMENT</th>
                                                     <th>18</th>
-                                                    <th>{{$sm_td}}</th>
-                                                    <th>{{$sm_ad}}</th>
+                                                    <th>{{$sm_td_r}}</th>
+                                                    <th>{{$sm_ad_r}}</th>
                                                     <th>18</th>
-                                                    <th>{{$sm_tv}}</th>
-                                                    <th>{{$sm_av}}</th>
+                                                    <th>{{$sm_tv_r}}</th>
+                                                    <th>{{$sm_av_r}}</th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">PT</th>
                                                     <th colspan="2">PAVEMENT TECHNOLOGIES</th>
                                                     <th>12</th>
-                                                    <th>{{$pt_td}}</th>
-                                                    <th>{{$pt_ad}}</th>
+                                                    <th>{{$pt_td_r}}</th>
+                                                    <th>{{$pt_ad_r}}</th>
                                                     <th>12</th>
-                                                    <th>{{$pt_tv}}</th>
+                                                    <th>{{$pt_tv_r}}</th>
                                                     <th>{{$pt_av}}</th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">EW</th>
                                                     <th colspan="2">ENVIRONMENT & WATER</th>
                                                     <th>4</th>
-                                                    <th>{{$ew_td}}</th>
-                                                    <th>{{$ew_ad}}</th>
+                                                    <th>{{$ew_td_r}}</th>
+                                                    <th>{{$ew_ad_r}}</th>
                                                     <th>5</th>
-                                                    <th>{{$ew_tv}}</th>
-                                                    <th>{{$ew_av}}</th>
+                                                    <th>{{$ew_tv_r}}</th>
+                                                    <th>{{$ew_av_r}}</th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">AE</th>
                                                     <th colspan="2">ACCESS & EQUITY</th>
                                                     <th>3</th>
-                                                    <th>{{$ae_td}}</th>
-                                                    <th>{{$ae_ad}}</th>
+                                                    <th>{{$ae_td_r}}</th>
+                                                    <th>{{$ae_ad_r}}</th>
                                                     <th>5</th>
-                                                    <th>{{$ae_tv}}</th>
-                                                    <th>{{$ae_av}}</th>
+                                                    <th>{{$ae_tv_r}}</th>
+                                                    <th>{{$ae_av_r}}</th>
                                                 </tr>
 
                                                 <tr>
                                                     <th colspan="1">CA</th>
                                                     <th colspan="2">CONSTRUCTION ACTIVITIES</th>
                                                     <th>19</th>
-                                                    <th>{{$ca_td}}</th>
-                                                    <th>{{$ca_ad}}</th>
+                                                    <th>{{$ca_td_r}}</th>
+                                                    <th>{{$ca_ad_r}}</th>
                                                     <th>22</th>
-                                                    <th>{{$ca_tv}}</th>
-                                                    <th>{{$ca_av}}</th>
+                                                    <th>{{$ca_tv_r}}</th>
+                                                    <th>{{$ca_av_r}}</th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">MR</th>
                                                     <th colspan="2">MATERIAL AND RESOURCES</th>
                                                     <th>12</th>
-                                                    <th>{{$mr_td}}</th>
-                                                    <th>{{$mr_ad}}</th>
+                                                    <th>{{$mr_td_r}}</th>
+                                                    <th>{{$mr_ad_r}}</th>
                                                     <th>12</th>
-                                                    <th>{{$mr_tv}}</th>
-                                                    <th>{{$mr_av}}</th>
+                                                    <th>{{$mr_tv_r}}</th>
+                                                    <th>{{$mr_av_r}}</th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">EC</th>
                                                     <th colspan="2">ELECTIVE CRITERIA</th>
                                                     <th>27</th>
-                                                    <th>{{$ec_td}}</th>
-                                                    <th>{{$ec_ad}}</th>
+                                                    <th>{{$ec_td_r}}</th>
+                                                    <th>{{$ec_ad_r}}</th>
                                                     <th>27</th>
-                                                    <th>{{$ec_tv}}</th>
-                                                    <th>{{$ec_av}}</th>
+                                                    <th>{{$ec_tv_r}}</th>
+                                                    <th>{{$ec_av_r}}</th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">IN</th>
                                                     <th colspan="2">INOVATION</th>
                                                     <th>5</th>
-                                                    <th>{{$in_td}}</th>
-                                                    <th>{{$in_ad}}</th>
+                                                    <th>{{$in_td_r}}</th>
+                                                    <th>{{$in_ad_r}}</th>
                                                     <th>5</th>
-                                                    <th>{{$in_tv}}</th>
-                                                    <th>{{$in_av}}</th>
+                                                    <th>{{$in_tv_r}}</th>
+                                                    <th>{{$in_av_r}}</th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="3">TOTAL CORE POINTS</th>
                                                     <th>68</th>
-                                                    <th>{{$totalcp_td}}</th>
-                                                    <th>{{$totalcp_ad}}</th>
+                                                    <th>{{$totalcp_td_r}}</th>
+                                                    <th>{{$totalcp_ad_r}}</th>
                                                     <th>74</th>
-                                                    <th>{{$totalcp_tv}}</th>
-                                                    <th>{{$totalcp_av}}</th>
+                                                    <th>{{$totalcp_tv_r}}</th>
+                                                    <th>{{$totalcp_av_r}}</th>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="3">TOTAL ELECTIVE & INNOVATION POINTS</th>
                                                     <th>15</th>
-                                                    <th>{{$totaleip_td}}</th>
-                                                    <th>{{$totaleip_ad}}</th>
+                                                    <th>{{$totaleip_td_r}}</th>
+                                                    <th>{{$totaleip_ad_r}}</th>
                                                     <th>15</th>
-                                                    <th>{{$totaleip_tv}}</th>
-                                                    <th>{{$totaleip_ad}}</th>
+                                                    <th>{{$totaleip_tv_r}}</th>
+                                                    <th>{{$totaleip_ad_r}}</th>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -1020,69 +1018,69 @@
                                             <tbody class="text-black">
                                                 <tr>
                                                     <th >TOTAL SCORE (%)</th>
-                                                    <th>{{number_format($final_score,2,".",",")}}</th>
-                                                    <th>{{number_format($final_score3,2,".",",")}}</th>
-                                                    <th>{{number_format($final_score2,2,".",",")}}</th>
-                                                    <th>{{number_format($final_score4,2,".",",")}}</th>                                               
+                                                    <th>{{number_format($final_score_r,2,".",",")}}</th>
+                                                    <th>{{number_format($final_score3_r,2,".",",")}}</th>
+                                                    <th>{{number_format($final_score2_r,2,".",",")}}</th>
+                                                    <th>{{number_format($final_score4_r,2,".",",")}}</th>                                               
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1" rowspan="2">pH JKR RATING</th>
                                                     <th>
                                                         <span class="star">
-                                                            @if($final_score >=85)
+                                                            @if($final_score_r >=85)
                                                                 5 &starf; &starf; &starf; &starf; &starf;
-                                                            @elseif($final_score >=70 && $final_score < 84)
+                                                            @elseif($final_score_r >=70 && $final_score_r < 84)
                                                                 4 &starf; &starf; &starf; &starf;
-                                                            @elseif($final_score >= 50 && $final_score < 69)
+                                                            @elseif($final_score_r >= 50 && $final_score_r < 69)
                                                                 3 &starf; &starf; &starf;
-                                                            @elseif($final_score >=41 && $final_score < 49)
+                                                            @elseif($final_score_r >=41 && $final_score_r < 49)
                                                                 2 &starf; &starf;
-                                                            @elseif($final_score < 40)
+                                                            @elseif($final_score_r < 40)
                                                                 0 &starf;
                                                             @endif                                           
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span class="star">
-                                                            @if($final_score3 >=85)
+                                                            @if($final_score3_r >=85)
                                                                 5 &starf; &starf; &starf; &starf; &starf;
-                                                            @elseif($final_score3 >=70 && $final_score3 < 84)
+                                                            @elseif($final_score3_r >=70 && $final_score3_r < 84)
                                                                 4 &starf; &starf; &starf; &starf;
-                                                            @elseif($final_score3 >= 50 && $final_score3 < 69)
+                                                            @elseif($final_score3_r >= 50 && $final_score3_r < 69)
                                                                 3 &starf; &starf; &starf;
-                                                            @elseif($final_score3 >=41 && $final_score3 < 49)
+                                                            @elseif($final_score3_r >=41 && $final_score3_r < 49)
                                                                 2 &starf; &starf;
-                                                            @elseif($final_score3 < 40)
+                                                            @elseif($final_score3_r < 40)
                                                                 0 &starf;
                                                             @endif                                           
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span class="star">
-                                                            @if($final_score2 >=85)
+                                                            @if($final_score2_r >=85)
                                                                 5 &starf; &starf; &starf; &starf; &starf;
-                                                            @elseif($final_score2 >=70 && $final_score2 < 84)
+                                                            @elseif($final_score2_r >=70 && $final_score2_r < 84)
                                                                 4 &starf; &starf; &starf; &starf;
-                                                            @elseif($final_score2 >= 50 && $final_score2 < 69)
+                                                            @elseif($final_score2_r >= 50 && $final_score2_r < 69)
                                                                 3 &starf; &starf; &starf;
-                                                            @elseif($final_score2 >=41 && $final_score2 < 49)
+                                                            @elseif($final_score2_r >=41 && $final_score2_r < 49)
                                                                 2 &starf; &starf;
-                                                            @elseif($final_score2 < 40)
+                                                            @elseif($final_score2_r < 40)
                                                                 0 &starf;
                                                             @endif                                           
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span class="star">
-                                                            @if($final_score4 >=85)
+                                                            @if($final_score4_r >=85)
                                                                 5 &starf; &starf; &starf; &starf; &starf;
-                                                            @elseif($final_score4 >=70 && $final_score4 < 84)
+                                                            @elseif($final_score4_r >=70 && $final_score4_r < 84)
                                                                 4 &starf; &starf; &starf; &starf;
-                                                            @elseif($final_score4 >= 50 && $final_score4 < 69)
+                                                            @elseif($final_score4_r >= 50 && $final_score4_r < 69)
                                                                 3 &starf; &starf; &starf;
-                                                            @elseif($final_score4 >=41 && $final_score4 < 49)
+                                                            @elseif($final_score4_r >=41 && $final_score4_r < 49)
                                                                 2 &starf; &starf;
-                                                            @elseif($final_score4 < 40)
+                                                            @elseif($final_score4_r < 40)
                                                                 0 &starf;
                                                             @endif                                           
                                                         </span>
@@ -1091,60 +1089,60 @@
                                                 <tr>
                                                     <th>
                                                         <span>
-                                                            @if($final_score >=85)
+                                                            @if($final_score_r >=85)
                                                                 GLOBAL EXCELLENCE
-                                                            @elseif($final_score >=70 && $final_score < 84)
+                                                            @elseif($final_score_r >=70 && $final_score_r < 84)
                                                                 NATIONAL EXCELLENCE
-                                                            @elseif($final_score >= 50 && $final_score < 69)
+                                                            @elseif($final_score_r >= 50 && $final_score_r < 69)
                                                                 BEST MANAGEMENT PRACTICES
-                                                            @elseif($final_score >=41 && $final_score < 49)
+                                                            @elseif($final_score_r >=41 && $final_score_r < 49)
                                                                 POTENTIAL RECOGNITION
-                                                            @elseif($final_score < 40)
+                                                            @elseif($final_score_r < 40)
                                                                 NO RECOGNITION
                                                             @endif                                           
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span>
-                                                            @if($final_score2 >=85)
+                                                            @if($final_score2_r >=85)
                                                                 GLOBAL EXCELLENCE
-                                                            @elseif($final_score2 >=70 && $final_score2 < 84)
+                                                            @elseif($final_score2_r >=70 && $final_score2_r < 84)
                                                                 NATIONAL EXCELLENCE
-                                                            @elseif($final_score2 >= 50 && $final_score2 < 69)
+                                                            @elseif($final_score2_r >= 50 && $final_score2_r < 69)
                                                                 BEST MANAGEMENT PRACTICES
-                                                            @elseif($final_score2 >=41 && $final_score2 < 49)
+                                                            @elseif($final_score2_r >=41 && $final_score2_r < 49)
                                                                 POTENTIAL RECOGNITION
-                                                            @elseif($final_score2 < 40)
+                                                            @elseif($final_score2_r < 40)
                                                                 NO RECOGNITION
                                                             @endif                                           
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span>
-                                                            @if($final_score3 >=85)
+                                                            @if($final_score3_r >=85)
                                                                 GLOBAL EXCELLENCE
-                                                            @elseif($final_score3 >=70 && $final_score3 < 84)
+                                                            @elseif($final_score3_r >=70 && $final_score3_r < 84)
                                                                 NATIONAL EXCELLENCE
-                                                            @elseif($final_score3 >= 50 && $final_score3 < 69)
+                                                            @elseif($final_score3_r >= 50 && $final_score3_r < 69)
                                                                 BEST MANAGEMENT PRACTICES
-                                                            @elseif($final_score3 >=41 && $final_score3 < 49)
+                                                            @elseif($final_score3_r >=41 && $final_score3_r < 49)
                                                                 POTENTIAL RECOGNITION
-                                                            @elseif($final_score3 < 40)
+                                                            @elseif($final_score3_r < 40)
                                                                 NO RECOGNITION
                                                             @endif                                           
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span>
-                                                            @if($final_score4 >=85)
+                                                            @if($final_score4_r >=85)
                                                                 GLOBAL EXCELLENCE
-                                                            @elseif($final_score4 >=70 && $final_score4 < 84)
+                                                            @elseif($final_score4_r >=70 && $final_score4_r < 84)
                                                                 NATIONAL EXCELLENCE
-                                                            @elseif($final_score4 >= 50 && $final_score4 < 69)
+                                                            @elseif($final_score4_r >= 50 && $final_score4_r < 69)
                                                                 BEST MANAGEMENT PRACTICES
-                                                            @elseif($final_score4 >=41 && $final_score4 < 49)
+                                                            @elseif($final_score4_r >=41 && $final_score4_r < 49)
                                                                 POTENTIAL RECOGNITION
-                                                            @elseif($final_score4 < 40)
+                                                            @elseif($final_score4_r < 40)
                                                                 NO RECOGNITION
                                                             @endif                                           
                                                         </span>
@@ -1162,7 +1160,7 @@
                                         @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             <div class="col text-center">
-                                                <button class="btn btn-primary" onclick="printJS('rumusan-skor-kad', 'html')">Muat Turun</button>
+                                                <button class="btn btn-primary" onclick="printJS('rumusan-skor-kad-rayuan', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
                                         @endrole
@@ -1176,9 +1174,9 @@
                     <div class="tab-pane" id="tab-8" role="tabpanel">
                         <div class="row mb-3">
                             <div class="card">
-                                <div class="card-body">
-                                    <form action="#" id="skor-kad">
-                                        <h4 class="mb-3">SKOR KAD EPH JALAN</h4>
+                                <div class="card-body" id="skor-kad-rayuan">
+                                    {{-- <form action="#" id="skor-kad-rayuan"> --}}
+                                        <h4 class="mb-3">SKOR KAD RAYUAN ePHJKR JALAN</h4>
                                         <div class="table-responsive scrollbar">
                                             <table class="table table-bordered line-table text-center skor-datatable" style="width: 100%">
                                                 <thead class="text-white bg-orange-jkr">
@@ -1208,11 +1206,11 @@
                                         @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             <div class="col text-center">
-                                                <button class="btn btn-primary" onclick="printJS('skor-kad', 'html')">Muat Turun</button>
+                                                <button class="btn btn-primary" onclick="printJS('skor-kad-rayuan', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
                                         @endrole
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
                             </div>
                         </div>

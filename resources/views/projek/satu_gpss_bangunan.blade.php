@@ -102,6 +102,11 @@
                             </div>
                         </div>
                     </div>
+                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|pentadbir')
+                    <div class="col text-center">
+                        <button class="btn btn-primary" type="submit" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
+                    </div>
+                    @endrole
                     @role('sekretariat')
                     <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -145,13 +150,6 @@
                         @endif
                     </form> --}}
                     @endrole 
-                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|pentadbir')
-                    <div class="row mt-3">
-                        <div class="col text-center">
-                            <button class="btn btn-primary" type="submit" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
-                        </div>
-                    </div>
-                    @endrole
                     <form action="/projek/{{$projek->id}}/sah-gpss-bangunan-rayuan" method="POST" enctype="multipart/form-data">
                         @csrf
                         @role('ketua-pasukan|penolong-ketua-pasukan')
@@ -1294,7 +1292,7 @@
                     <div class="tab-pane" id="tab-8" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <h4 class="h4 mb-3">RUMUSAN SKOR KAD</h4>
+                                <h4 class="h4 mb-3">RUMUSAN SKOR KAD RAYUAN</h4>
                                 <div class="table-responsive scrollbar">
                                     <table class="table table-bordered line-table text-center" style="width: 100%">
                                         <thead class="text-white bg-orange-jkr">
