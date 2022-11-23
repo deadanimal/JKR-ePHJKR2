@@ -1222,6 +1222,7 @@
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rekabentuk">Muat Turun</a>
                                     </div>
                                 </div>
+                                @endif
                                 @endrole
                             </div>
                         </div>
