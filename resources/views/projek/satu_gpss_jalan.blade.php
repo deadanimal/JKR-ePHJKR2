@@ -504,11 +504,22 @@
                                         <input class="form-control" name="point_req_construction" type="number" min="0" max="2"/>
                                     </div>
                                     <div class="col-5 mb-2">
+                                        <label class="col-form-label">Point Awarded:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <select class="form-select form-control" name="point_awarded" aria-label="Default select example">
+                                            <option selected>Sila Pilih</option>
+                                            <option value="0">0</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                        {{-- <input name="point_awarded" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /> --}}
+                                    </div>
+                                    {{-- <div class="col-5 mb-2">
                                         <label class="col-form-label">Remarks:</label>
                                     </div>
                                     <div class="col-7 mb-2">
                                         <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-5 mb-2">
                                         <label class="col-form-label">Comment on Appeal:</label>
                                     </div>
