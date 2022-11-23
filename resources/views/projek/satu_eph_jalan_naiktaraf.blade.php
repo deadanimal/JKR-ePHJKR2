@@ -129,11 +129,11 @@
                             <button class="btn btn-primary mx-3 my-3" type="submit">Membuat Rayuan Jalan Naiktaraf</button>
                         @endif
                         @endrole
-                        @role('sekretariat')
+                        {{-- @role('sekretariat')
                         @if ($projek->status == "Proses Rayuan Jalan Naiktaraf")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Proses Pengisian Rayuan Jalan Naiktaraf</button>
                         @endif
-                        @endrole
+                        @endrole --}}
                     </form>                    
             </div>
         </div>
@@ -142,7 +142,11 @@
             $projek->status == "Dalam Pengesahan Skor Rekabentuk Jalan Naiktaraf" ||
             $projek->status == "Selesai Pengesahan Rekabentuk Jalan Naiktaraf" ||
             $projek->status == "Proses Jana Keputusan Rekabentuk Jalan Naiktaraf" ||  
-            $projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Naiktaraf")  
+            $projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Naiktaraf" ||
+            $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")  
             @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                 <div class="col-12 mt-6">
                     <div class="card">
@@ -231,7 +235,11 @@
             $projek->status == "Dalam Pengesahan Skor Rekabentuk Jalan Naiktaraf" ||
             $projek->status == "Selesai Pengesahan Rekabentuk Jalan Naiktaraf" ||
             $projek->status == "Proses Jana Keputusan Rekabentuk Jalan Naiktaraf" ||  
-            $projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Naiktaraf")
+            $projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Naiktaraf" ||
+            $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
             <div class="tab mt-6">
                 <ul class="nav nav-tabs" role="tablist">
                     @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
@@ -1200,7 +1208,7 @@
                     </div>
                     @endif
 
-                    <!--SIJIL REKABENTUK EPH JALAN-->
+                    <!--SIJIL REKABENTUK EPH JALAN/SIJIL REKABENTUK EPH JALAN RAYUAN-->
                     <div class="tab-pane" id="tab-9" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
@@ -1229,7 +1237,7 @@
                         </div>
                     </div>
 
-                    <!--SIJIL VERIFIKASI EPH JALAN-->
+                    <!--SIJIL VERIFIKASI EPH JALAN/SIJIL VERIFIKASI EPH JALAN RAYUAN-->
                     <div class="tab-pane" id="tab-10" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">

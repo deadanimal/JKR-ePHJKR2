@@ -147,7 +147,11 @@
             $projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Baru" ||
             $projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Baru" ||
             $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||  
-            $projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru")  
+            $projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||
+            $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+            $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+            $projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")  
             @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                 <div class="col-12 mt-6">
                     <div class="card">
@@ -233,7 +237,11 @@
             $projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Baru" ||
             $projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Baru" ||
             $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||  
-            $projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru")
+            $projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||
+            $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+            $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+            $projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")
             <div class="tab mt-6">
                 <ul class="nav nav-tabs" role="tablist">
                     @if($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Baru")
@@ -406,6 +414,7 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="mb-3">RAYUAN PENILAIAN REKABENTUK JALAN</h4>
+                                    <input type="hidden" name="fasa" value="verifikasi">
                                     <div class="row mx-3 mb-2">
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Criteria:</label>
@@ -423,7 +432,7 @@
                                             <label class="col-form-label">Target Point:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" name="target_point" type="number" id="target_point"  required/>
+                                            <input class="form-control" name="target_point" type="number" required/>
                                         </div>
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Assessment Point:</label>
