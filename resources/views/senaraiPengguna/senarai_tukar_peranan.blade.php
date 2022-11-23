@@ -44,6 +44,7 @@
                                 <th class="sort">Nama Projek</th>
                                 <th class="sort">Peranan Lama</th>
                                 <th class="sort">Peranan Baru</th>
+                                <th class="sort">Dokumen</th>
                                 <th class="sort">Tindakan</th>
                             </tr>
                         </thead>
@@ -54,14 +55,23 @@
                                     <td>{{ $p->projek_id }}</td>
                                     <td>{{ $p->role_id_lama }}</td>
                                     <td>{{ $p->role_id_baru }}</td>
+                                    <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $p->dokumen }}">Pautan Dokumen</a></td>
                                     <td>
+                                        @role('sekretariat')
                                         <div class="col">
                                             <div class="col-auto">
-                                                <form action="/profil/simpan_tukar_peranan/{{--{{ $p->id }}--}}" method="post">
+                                                <form action="/profil/sah_tukar_peranan2/{{ $p->id }}" method="post">
                                                 @method('PUT')
                                                 @csrf
                                                 <button name="sah" value="1" type="submit"
-                                                    class="btn btn-primary">Sah</button>
+                                                    class="btn btn-primary">Terima</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-auto">
+                                                <form action="/profil/tolak_tukar_peranan2/{{ $p->id }}" method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-primary">Tolak</button>
                                                 </form>
                                             </div>
                                             {{-- <div class="col-auto">
@@ -72,7 +82,8 @@
                                                     class="btn btn-primary">Reject</button>
                                                 </form>
                                             </div> --}}
-                                        </div> 
+                                        </div>
+                                        @endrole
                                     </td>
                                     {{-- <td>
                                         <a href="//senarai_pengguna/{{ $p->id }}/edit"

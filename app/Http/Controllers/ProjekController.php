@@ -254,13 +254,23 @@ class ProjekController extends Controller
 
     public function Pengesahan(Request $request) {
         $id = (int)$request->route('id'); 
-        $projek = Projek::find($id); 
-        $projek->aktif = false;
-        $projek->save();
+        $projek = Projek::find($id);
+        $projek->delete();
+        // $projek->aktif = false;
+        // $projek->save();
 
         alert()->success('Maklumat telah disahkan', 'Berjaya');
         return redirect('/projek/gugur/senarai_gugur_projek');
     }
+
+    // public function buang(Request $request) {  
+    //     $id = (int)$request->route('id'); 
+    //     $peranan = Role::find($id); 
+    //     $peranan->delete();
+
+    //     alert()->success('Maklumat telah dibuang', 'Berjaya');
+    //     return redirect('/selenggara');
+    // }
 
     //email
     public function email_gugur_projek(Request $request){
