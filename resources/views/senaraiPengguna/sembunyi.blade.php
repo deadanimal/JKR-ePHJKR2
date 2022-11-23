@@ -65,7 +65,7 @@
                                                 <form action="/senaraiPengguna/simpan3_tukar_status/{{ $p->id }}" method="post">
                                                 @method('PUT')
                                                 @csrf
-                                                <button name="aktif" value="0" type="submit"
+                                                <button name="aktif" value="1" type="submit"
                                                     class="btn btn-primary">Active</button>
                                                 </form>
                                             </div>
@@ -73,7 +73,7 @@
                                                 <form action="/senaraiPengguna/simpan4_tukar_status/{{ $p->id }}" method="post">
                                                 @method('PUT')
                                                 @csrf
-                                                <button name="aktif" value="1" type="submit"
+                                                <button name="aktif" value="0" type="submit"
                                                     class="btn btn-primary">Deactive</button>
                                                 </form>
                                             </div>

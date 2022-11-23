@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\PengesahanPendaftaran;
+use App\Models\Role;
+use App\Models\RoleUser;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -67,13 +69,16 @@ class RegisteredUserController extends Controller
         // alert('maklumat telah berjaya', 'Berjaya');
 
         //email utk ramai org
+        // $sekre_id = Role::where('name', 'sekretariat')->first()->id;
+        // $sekre_user = RoleUser::where('role_id', $sekre_id)->get();
+        
         // $senarai_email = [];
-        // foreach ($user as $key => $value) {
-        //     # code...
+        // foreach ($sekre_user as $key => $us) {
+        //     array_push($senarai_email, $us->pengguna->email);
         // }
 
         Mail::to('haris.zahari@pipeline-network.com')->send(new PengesahanPendaftaran);
-
+        // Mail::to($senarai_email)->send(new PengesahanPendaftaran);
         event(new Registered($user));
         // Mail::to('maisarah.musa@pipeline-network.com')->send(new AkaunBaru());
 
