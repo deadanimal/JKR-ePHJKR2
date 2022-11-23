@@ -1217,7 +1217,7 @@
                                 @if($projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
                                 $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")
                                 <h3>Peringkat Rekabentuk (Rayuan)</h3>
-                                
+
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rekabentuk">Muat Turun</a>
@@ -1236,11 +1236,22 @@
                                 <h4>SIJIL ePHJKR VERIFIKASI PERMARKAHAN JALAN</h4>
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <h3>Peringkat Verifikasi</h3>
+                                @if($projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru")
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-verifikasi">Muat Turun</a>
                                     </div>
                                 </div>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+                                $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")
+                                <h3>Peringkat Verifikasi (Rayuan)</h3>
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-verifikasi">Muat Turun</a>
+                                    </div>
+                                </div>
+                                @endif
                                 @endrole
                             </div>
                         </div>
