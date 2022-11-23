@@ -118,6 +118,31 @@ class UserController extends Controller
         return redirect('/profil');
     }
 
+    public function tolak_tukar_peranan2(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $p = PenukaranPeranan::find($id); 
+        $p->delete();
+
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return redirect('/senaraiPengguna/senarai_tukar_peranan');
+    }
+
+    public function sah_tukar_peranan2(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $p = PenukaranPeranan::find($id); 
+        $p->sah = $request->sah;
+
+        $role_baru = $p->role_id_baru;
+        $role = ProjekRoleUser::where('projek_id', $p->projek_id)->where('user_id', $p->user_id)->first();
+        $role->role_id = $role_baru;
+        $role->save();
+
+        $p->save();
+
+        alert()->success('Penukaran Peranan telah disahkan', 'Berjaya');
+        return redirect('/senaraiPengguna/senarai_tukar_peranan');
+    }
+
     // public function simpan_tukar_peranan(Request $request) {  
     //     $id = (int)$request->route('id'); 
     //     $lantikan = ProjekRoleUser::find($id);

@@ -74,6 +74,7 @@
                         </div>
                         <div class="col-7 mb-2">
                             <select class="form-select form-control" name="role_id_baru">
+                                <option selected disabled="">Sila Pilih</option>
                                 <option value="3">Ketua Pasukan</option>
                                 <option value="4">Penolong Ketua Pasukan</option>
                                 <option value="6">Pemudah Cara</option>
@@ -140,16 +141,23 @@
                                 <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $p->dokumen }}">Pautan Dokumen</a></td>
 
                                 <td>
-                                    @role('sekretariat')
+                                    {{-- @role('sekretariat') --}}
                                     <div class="col">
-                                        <div class="col-auto">
-                                            <form action="/profil/simpan_tukar_peranan/{{--{{ $p->id }}--}}" method="post">
+                                        {{-- <div class="col-auto"> --}}
+                                            {{-- <form action="/profil/sah_tukar_peranan2/{{ $p->id }}" method="post">
                                             @method('PUT')
                                             @csrf
                                             <button name="sah" value="1" type="submit"
-                                                class="btn btn-primary">Pengesahan</button>
+                                                class="btn btn-primary">Terima</button>
                                             </form>
                                         </div>
+                                        <div class="col-auto">
+                                            <form action="/profil/tolak_tukar_peranan2/{{ $p->id }}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary">Tolak</button>
+                                            </form>
+                                        </div> --}}
                                         {{-- <div class="col-auto">
                                             <form action="/profil/simpan2_tukar_peranan/{{--{{ $p->id }}--}" method="post">
                                             @method('PUT')
@@ -159,7 +167,7 @@
                                             </form>
                                         </div> --}}
                                     </div>
-                                    @endrole
+                                    {{-- @endrole --}}
                                 </td>
                             </tr>
                         @endforeach

@@ -58,6 +58,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('profil/simpan_kemaskini/{id}', [UserController::class, 'simpan_kemaskini']);
     Route::get('profil/tukar_peranan/{id}', [UserController::class, 'tukar_peranan']);
     Route::get('profil/tukar_peranan2/{id}', [UserController::class, 'tukar_peranan2']);
+    Route::delete('profil/tolak_tukar_peranan2/{id}', [UserController::class, 'tolak_tukar_peranan2']);
+    Route::put('profil/sah_tukar_peranan2/{id}', [UserController::class, 'sah_tukar_peranan2']);
 
     Route::post('profil/simpan_tukar_peranan2/{id}', [UserController::class, 'simpan_tukar_peranan2']);
     Route::put('profil/simpan_tukar_peranan/{id}', [UserController::class, 'simpan_tukar_peranan']);
