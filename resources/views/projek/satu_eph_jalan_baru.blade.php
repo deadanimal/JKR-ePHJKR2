@@ -254,7 +254,7 @@
                     @endif
                     @if($projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Baru")
                     @role('ketua-pasukan|penolong-ketua-pasukan')
-                    <li class="nav-item"><a class="nav-link active" href="#tab-3" data-bs-toggle="tab"
+                    <li class="nav-item"><a class="nav-link" href="#tab-3" data-bs-toggle="tab"
                             role="tab">Rayuan Rekabentuk</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab"
                             role="tab">Rayuan Verifikasi</a></li>
@@ -414,15 +414,15 @@
                                     enctype="multipart/form-data">
                                     @csrf
                                     <h4 class="mb-3">RAYUAN PENILAIAN REKABENTUK JALAN</h4>
-                                    <input type="hidden" name="fasa" value="verifikasi">
+                                    <input type="hidden" name="fasa" value="rekabentuk">
                                     <div class="row mx-3 mb-2">
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Criteria:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <select class="form-select form-control" id="kriteriaRayuanDipilih"
-                                                name="kriteria" onchange="kriteriaRayuan()">
-                                                @foreach ($rayuan_kriterias as $akriteria)
+                                            <select class="form-select form-control" id="kriteriaRayuanRekabentukDipilih"
+                                                name="kriteria" onchange="kriteriaRayuanRekabentuk()">
+                                                @foreach ($rayuan_rekabentuk_kriterias as $akriteria)
                                                     <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} -
                                                         {{ $akriteria->nama }}</option>
                                                 @endforeach
@@ -456,7 +456,7 @@
                                             <label class="col-form-label">Upload File:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="file" name="dokumen1">
+                                            <input class="form-control" type="file" name="dokumen1" required>
                                             <input class="form-control" type="file" name="dokumen2">
                                             <input class="form-control" type="file" name="dokumen3">
                                             <input class="form-control" type="file" name="dokumen4">
@@ -489,9 +489,9 @@
                                             <label class="col-form-label">Criteria:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <select class="form-select form-control" id="kriteriaRayuanDipilih"
-                                                name="kriteria" onchange="kriteriaRayuan()">
-                                                @foreach ($rayuan_kriterias as $akriteria)
+                                            <select class="form-select form-control" id="kriteriaRayuanVerifikasiDipilih"
+                                                name="kriteria" onchange="kriteriaRayuanVerifikasi()">
+                                                @foreach ($rayuan_verifikasi_kriterias as $akriteria)
                                                     <option value="{{ $akriteria->id }}">{{ $akriteria->kod }} >
                                                         {{ $akriteria->nama }}</option>
                                                 @endforeach
@@ -513,7 +513,7 @@
                                             <label class="col-form-label">Comment by Assessor:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <textarea class="form-control" rows="3" name="ulasan" type="text" placeholder="Comment" required></textarea>
+                                            <textarea class="form-control" rows="3" name="comment" type="text" placeholder="Comment" required></textarea>
                                         </div>
                                         <div class="col-5 mb-2">
                                             <label class="col-form-label">Comment on Appeal:</label>
@@ -525,7 +525,7 @@
                                             <label class="col-form-label">Upload File:</label>
                                         </div>
                                         <div class="col-7 mb-2">
-                                            <input class="form-control" type="file" name="dokumen1">
+                                            <input class="form-control" type="file" name="dokumen1" required>
                                             <input class="form-control" type="file" name="dokumen2">
                                             <input class="form-control" type="file" name="dokumen3">
                                             <input class="form-control" type="file" name="dokumen4">
@@ -917,100 +917,140 @@
                                                     <th colspan="1">SM</th>
                                                     <th colspan="2">SUSTAINABLE SITE PLANNING AND MANAGEMENT</th>
                                                     <th>18</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$sm_td_r}}</th>
                                                     <th>{{$sm_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>18</th>
-                                                    <th>{{$sm_tv_r}}</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
+                                                    <th >{{$sm_tv_r}}</th>
                                                     <th>{{$sm_av_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">PT</th>
                                                     <th colspan="2">PAVEMENT TECHNOLOGIES</th>
                                                     <th>12</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$pt_td_r}}</th>
                                                     <th>{{$pt_ad_r}}</th>
+                                                    {{-- @endif --}}
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>12</th>
                                                     <th>{{$pt_tv_r}}</th>
                                                     <th>{{$pt_av}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">EW</th>
                                                     <th colspan="2">ENVIRONMENT & WATER</th>
                                                     <th>4</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$ew_td_r}}</th>
                                                     <th>{{$ew_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>5</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{$ew_tv_r}}</th>
                                                     <th>{{$ew_av_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">AE</th>
                                                     <th colspan="2">ACCESS & EQUITY</th>
                                                     <th>3</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$ae_td_r}}</th>
                                                     <th>{{$ae_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>5</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{$ae_tv_r}}</th>
                                                     <th>{{$ae_av_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
 
                                                 <tr>
                                                     <th colspan="1">CA</th>
                                                     <th colspan="2">CONSTRUCTION ACTIVITIES</th>
                                                     <th>19</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$ca_td_r}}</th>
                                                     <th>{{$ca_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>22</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{$ca_tv_r}}</th>
                                                     <th>{{$ca_av_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">MR</th>
                                                     <th colspan="2">MATERIAL AND RESOURCES</th>
                                                     <th>12</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$mr_td_r}}</th>
                                                     <th>{{$mr_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>12</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{$mr_tv_r}}</th>
                                                     <th>{{$mr_av_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">EC</th>
                                                     <th colspan="2">ELECTIVE CRITERIA</th>
                                                     <th>27</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$ec_td_r}}</th>
                                                     <th>{{$ec_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>27</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{$ec_tv_r}}</th>
                                                     <th>{{$ec_av_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1">IN</th>
                                                     <th colspan="2">INOVATION</th>
                                                     <th>5</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$in_td_r}}</th>
                                                     <th>{{$in_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>5</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{$in_tv_r}}</th>
                                                     <th>{{$in_av_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="3">TOTAL CORE POINTS</th>
                                                     <th>68</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$totalcp_td_r}}</th>
                                                     <th>{{$totalcp_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>74</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{$totalcp_tv_r}}</th>
                                                     <th>{{$totalcp_av_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="3">TOTAL ELECTIVE & INNOVATION POINTS</th>
                                                     <th>15</th>
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{$totaleip_td_r}}</th>
                                                     <th>{{$totaleip_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                     <th>15</th>
+                                                    {{-- @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{$totaleip_tv_r}}</th>
                                                     <th>{{$totaleip_ad_r}}</th>
+                                                    {{-- @endif --}}
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -1027,15 +1067,21 @@
                                             <tbody class="text-black">
                                                 <tr>
                                                     <th >TOTAL SCORE (%)</th>
+                                                    <input type="hidden" name="fasa" value="rekabentuk">
+                                                    {{-- @if($markah->fasa == "rekabentuk") --}}
                                                     <th>{{number_format($final_score_r,2,".",",")}}</th>
                                                     <th>{{number_format($final_score3_r,2,".",",")}}</th>
+                                                    {{-- @endif
+                                                    @if($markah->fasa == "verifikasi") --}}
                                                     <th>{{number_format($final_score2_r,2,".",",")}}</th>
-                                                    <th>{{number_format($final_score4_r,2,".",",")}}</th>                                               
+                                                    <th>{{number_format($final_score4_r,2,".",",")}}</th> 
+                                                    {{-- @endif                                               --}}
                                                 </tr>
                                                 <tr>
                                                     <th colspan="1" rowspan="2">pH JKR RATING</th>
                                                     <th>
                                                         <span class="star">
+                                                            {{-- @if($markah->fasa == "rekabentuk") --}}
                                                             @if($final_score_r >=85)
                                                                 5 &starf; &starf; &starf; &starf; &starf;
                                                             @elseif($final_score_r >=70 && $final_score_r < 84)
@@ -1046,11 +1092,13 @@
                                                                 2 &starf; &starf;
                                                             @elseif($final_score_r < 40)
                                                                 0 &starf;
-                                                            @endif                                           
+                                                            @endif 
+                                                            {{-- @endif                                           --}}
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span class="star">
+                                                            {{-- @if($markah->fasa == "rekabentuk") --}}
                                                             @if($final_score3_r >=85)
                                                                 5 &starf; &starf; &starf; &starf; &starf;
                                                             @elseif($final_score3_r >=70 && $final_score3_r < 84)
@@ -1061,11 +1109,13 @@
                                                                 2 &starf; &starf;
                                                             @elseif($final_score3_r < 40)
                                                                 0 &starf;
-                                                            @endif                                           
+                                                            @endif 
+                                                            {{-- @endif                                           --}}
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span class="star">
+                                                            {{-- @if($markah->fasa == "verifikasi") --}}
                                                             @if($final_score2_r >=85)
                                                                 5 &starf; &starf; &starf; &starf; &starf;
                                                             @elseif($final_score2_r >=70 && $final_score2_r < 84)
@@ -1076,11 +1126,13 @@
                                                                 2 &starf; &starf;
                                                             @elseif($final_score2_r < 40)
                                                                 0 &starf;
-                                                            @endif                                           
+                                                            @endif   
+                                                            {{-- @endif                                         --}}
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span class="star">
+                                                            {{-- @if($markah->fasa == "verifikasi") --}}
                                                             @if($final_score4_r >=85)
                                                                 5 &starf; &starf; &starf; &starf; &starf;
                                                             @elseif($final_score4_r >=70 && $final_score4_r < 84)
@@ -1091,13 +1143,15 @@
                                                                 2 &starf; &starf;
                                                             @elseif($final_score4_r < 40)
                                                                 0 &starf;
-                                                            @endif                                           
+                                                            @endif  
+                                                            {{-- @endif                                          --}}
                                                         </span>
                                                     </th>
                                                 </tr>
                                                 <tr>
                                                     <th>
                                                         <span>
+                                                            {{-- @if($markah->fasa == "rekabentuk") --}}
                                                             @if($final_score_r >=85)
                                                                 GLOBAL EXCELLENCE
                                                             @elseif($final_score_r >=70 && $final_score_r < 84)
@@ -1108,26 +1162,13 @@
                                                                 POTENTIAL RECOGNITION
                                                             @elseif($final_score_r < 40)
                                                                 NO RECOGNITION
-                                                            @endif                                           
+                                                            @endif 
+                                                            {{-- @endif                                           --}}
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span>
-                                                            @if($final_score2_r >=85)
-                                                                GLOBAL EXCELLENCE
-                                                            @elseif($final_score2_r >=70 && $final_score2_r < 84)
-                                                                NATIONAL EXCELLENCE
-                                                            @elseif($final_score2_r >= 50 && $final_score2_r < 69)
-                                                                BEST MANAGEMENT PRACTICES
-                                                            @elseif($final_score2_r >=41 && $final_score2_r < 49)
-                                                                POTENTIAL RECOGNITION
-                                                            @elseif($final_score2_r < 40)
-                                                                NO RECOGNITION
-                                                            @endif                                           
-                                                        </span>
-                                                    </th>
-                                                    <th>
-                                                        <span>
+                                                            {{-- @if($markah->fasa == "rekabentuk") --}}
                                                             @if($final_score3_r >=85)
                                                                 GLOBAL EXCELLENCE
                                                             @elseif($final_score3_r >=70 && $final_score3_r < 84)
@@ -1138,11 +1179,30 @@
                                                                 POTENTIAL RECOGNITION
                                                             @elseif($final_score3_r < 40)
                                                                 NO RECOGNITION
-                                                            @endif                                           
+                                                            @endif   
+                                                            {{-- @endif                                         --}}
                                                         </span>
                                                     </th>
                                                     <th>
                                                         <span>
+                                                            {{-- @if($markah->fasa == "verifikasi") --}}
+                                                            @if($final_score2_r >=85)
+                                                                GLOBAL EXCELLENCE
+                                                            @elseif($final_score2_r >=70 && $final_score2_r < 84)
+                                                                NATIONAL EXCELLENCE
+                                                            @elseif($final_score2_r >= 50 && $final_score2_r < 69)
+                                                                BEST MANAGEMENT PRACTICES
+                                                            @elseif($final_score2_r >=41 && $final_score2_r < 49)
+                                                                POTENTIAL RECOGNITION
+                                                            @elseif($final_score2_r < 40)
+                                                                NO RECOGNITION
+                                                            @endif   
+                                                            {{-- @endif                                         --}}
+                                                        </span>
+                                                    </th>
+                                                    <th>
+                                                        <span>
+                                                            {{-- @if($projek->fasa == "verifikasi") --}}
                                                             @if($final_score4_r >=85)
                                                                 GLOBAL EXCELLENCE
                                                             @elseif($final_score4_r >=70 && $final_score4_r < 84)
@@ -1153,7 +1213,8 @@
                                                                 POTENTIAL RECOGNITION
                                                             @elseif($final_score4_r < 40)
                                                                 NO RECOGNITION
-                                                            @endif                                           
+                                                            @endif  
+                                                            {{-- @endif                                          --}}
                                                         </span>
                                                     </th>
                                                 </tr>
@@ -1167,11 +1228,15 @@
                                         </div>
                                         @endrole
                                         @role('ketua-pasukan|penolong-ketua-pasukan')
+                                        @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||
+                                        $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||
+                                        $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 <button class="btn btn-primary" onclick="printJS('rumusan-skor-kad-rayuan', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
+                                        @endif
                                         @endrole
                                     </div>
                                 </form>
@@ -1187,7 +1252,7 @@
                                     {{-- <form action="#" id="skor-kad-rayuan"> --}}
                                         <h4 class="mb-3">SKOR KAD RAYUAN ePHJKR JALAN</h4>
                                         <div class="table-responsive scrollbar">
-                                            <table class="table table-bordered line-table text-center skor-datatable" style="width: 100%">
+                                            <table class="table table-bordered line-table text-center skor-datatable-1" style="width: 100%">
                                                 <thead class="text-white bg-orange-jkr">
                                                     <tr>
                                                         <th colspan="8">NEW ROADS</th>
@@ -1199,7 +1264,7 @@
                                                         <th>Max Point</th>
                                                         <th>Target Point</th>
                                                         <th>Assessment Point</th>
-                                                        <th>Comment by Assessor</th>
+                                                        <th>Comment on Appeal</th>
                                                         <th>Supporting Documents</th>
                                                     </tr>
                                                 </thead>
@@ -1213,11 +1278,15 @@
                                             </div>
                                         @endrole
                                         @role('ketua-pasukan|penolong-ketua-pasukan')
+                                        @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||
+                                        $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||
+                                        $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 <button class="btn btn-primary" onclick="printJS('skor-kad-rayuan', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
+                                        @endif
                                         @endrole
                                     {{-- </form> --}}
                                 </div>
@@ -1304,7 +1373,9 @@
 <script>
     kriteriaRekabentuk();
     kriteriaVerifikasi();
-    kriteriaRayuan();
+    kriteriaRayuanRekabentuk();
+    kriteriaRayuanVerifikasi();
+
 
     function kriteriaRekabentuk() {
         var lols = {!! $rekabentuk_kriterias !!}
@@ -1321,11 +1392,18 @@
         document.getElementById("infoKriteriaVerifikasiDipilih").innerHTML = selectedKriteria.bukti;
     }
 
-    function kriteriaRayuan() {
-        var lols = {!! $rayuan_kriterias !!}
-        var kriteriaRayuan = document.getElementById("kriteriaRayuanDipilih").value;
-        let selectedKriteria = lols.find(el => el.id == kriteriaRayuan);
-        document.getElementById("infoKriteriaRayuanDipilih").innerHTML = selectedKriteria.bukti;
+    function kriteriaRayuanRekabentuk() {
+        var lols = {!! $rayuan_rekabentuk_kriterias !!}
+        var kriteriaRayuanRekabentuk = document.getElementById("kriteriaRayuanRekabentukDipilih").value;
+        let selectedKriteria = lols.find(el => el.id == kriteriaRayuanRekabentuk);
+        document.getElementById("infoKriteriaRayuanRekabentukDipilih").innerHTML = selectedKriteria.bukti;
+    }
+
+    function kriteriaRayuanVerifikasi() {
+        var lols = {!! $rayuan_verifikasi_kriterias !!}
+        var kriteriaRayuanVerifikasi = document.getElementById("kriteriaRayuanVerifikasiDipilih").value;
+        let selectedKriteria = lols.find(el => el.id == kriteriaRayuanVerifikasi);
+        document.getElementById("infoKriteriaRayuanVerifikasiDipilih").innerHTML = selectedKriteria.bukti;
     }
 </script>
 
@@ -1371,6 +1449,56 @@
                 {
                     data: 'dokumen_',
                     name: 'dokumen_'
+                },
+            ]
+        });
+
+
+    });
+</script>
+
+<script type="text/javascript">
+    $(function() {
+
+        var idProjek = {!! json_decode($projek->id) !!}
+        console.log(idProjek);
+        var url = "/projek/" + idProjek;
+        var table = $('.skor-datatable-1').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            ajax: url,
+            columns: [{
+                    data: 'kod',
+                    name: 'kod'
+                },
+                {
+                    data: 'nama',
+                    name: 'nama'
+                },
+                {
+                    data: 'fasa',
+                    name: 'fasa'
+                },
+                {
+                    data: 'maksimum',
+                    name: 'maksimum'
+                },
+                {
+                    data: 'targetpoint_r',
+                    name: 'targetpoint_r'
+                },
+                {
+                    data: 'assessmentpoint_r',
+                    name: 'assessmentpoint_r'
+                },
+                {
+                    data: 'ulasan_r',
+                    name: 'ulasan_r'
+                },
+                {
+                    data: 'dokumen_r',
+                    name: 'dokumen_r'
                 },
             ]
         });
