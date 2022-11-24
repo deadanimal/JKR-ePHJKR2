@@ -1763,7 +1763,7 @@
 
                     <!--RUMUSAN SKOR KAD RAYUAN-->
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                    @if($projek->status == "Proses Rayuan Bangunan")
+                    @if($projek->status == "Proses Rayuan Bangunan" $projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status = "Selesai Rayuan Bangunan")
                     <div class="tab-pane" id="tab-9" role="tabpanel">
                         <form action="#" id="rumusan-skor-kad-rayuan">
                             <div class="card mt-3">
