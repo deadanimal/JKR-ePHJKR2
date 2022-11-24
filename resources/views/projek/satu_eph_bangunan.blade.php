@@ -868,7 +868,7 @@
                                             </div>
                                         </div>
                                     @endrole
-                                    @role('ketua-penolong-pasukan|penolong-ketua-pasukan')
+                                    @role('ketua-pasukan|penolong-ketua-pasukan')
                                     @if($projek->status == "Proses Rayuan Bangunan")
                                         <div class="row mt-3">
                                             {{-- @if($projek->fasa == "rekabentuk") --}}
