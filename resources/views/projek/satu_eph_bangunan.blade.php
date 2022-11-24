@@ -579,8 +579,8 @@
                     @endif
 
                     <!--RAYUAN EPH BANGUNAN-->
-                    @role('ketua-pasukan|penolong-ketua-pasukan')
                     @if($projek->status == "Proses Rayuan Bangunan")
+                    @role('ketua-pasukan|penolong-ketua-pasukan')
                     <div class="tab-pane active" id="tab-4" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
@@ -699,8 +699,8 @@
                             </div>
                         </div>
                     </div>
-                    @endif
                     @endrole
+                    @endif
 
                     <!--SIJIL EPH BANGUNAN-->
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
@@ -709,14 +709,95 @@
                             <div class="card-body">
                                 <h4>SIJIL ePHJKR BANGUNAN</h4>
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
-                                    <div class="col text-center">
+                                    {{-- <div class="col text-center">
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
-                                    </div>
+                                    </div> --}}
+                                    @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
+                                        $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                        $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                        $projek->status == "Proses Rayuan Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                        <h3>Peringkat Rekabentuk</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                    @endif
+                                    @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
+                                        $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                        $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                        $projek->status == "Proses Rayuan Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                        <h3>Peringkat Verifikasi</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                    @endif
+                                    @if($projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                        $projek->status == "Proses Rayuan Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                        <h3>Peringkat Validasi</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                    @endif
+                                    @if($projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                        <h3>Peringkat Validasi</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                    @endif
                                 @endrole
                                 @role('sekretariat')
                                 <div class="row mt-3">
                                     <div class="col text-center">
-                                        <button class="btn btn-primary" type="submit">Jana Sijil</button>
+                                        @if($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
+                                            <button class="btn btn-primary" type="submit">Jana</button>
+                                            @if($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan" ||
+                                                $projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
+                                                $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
+                                                $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
+                                                $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                                $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
+                                                $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
+                                                $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                                $projek->status == "Proses Rayuan Bangunan" ||
+                                                $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                                $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                                <h3>Peringkat Rekabentuk</h3>
+                                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                            @endif
+                                        @elseif($projek->status == "Dalam Pengesahan Skor Verifikasi Bangunan")
+                                        <button class="btn btn-primary" type="submit">Jana</button>
+                                        @if($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
+                                            $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                            $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
+                                            $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
+                                            $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                            $projek->status == "Proses Rayuan Bangunan" ||
+                                            $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                            $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                            <h3>Peringkat Verifikasi</h3>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                        @endif
+                                        @elseif($projek->status == "Dalam Pengesahan Skor Validasi Bangunan")
+                                            <button class="btn btn-primary" type="submit">Jana</button>
+                                            @if($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
+                                                $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                                $projek->status == "Proses Rayuan Bangunan" ||
+                                                $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                                $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                            @endif
+                                        @elseif($projek->status == "Dalam Pengesahan Rayuan Bangunan")
+                                            <button class="btn btn-primary" type="submit">Jana</button>
+                                            @if($projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                                $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                            @endif
+                                        @endif
                                     </div>
                                 </div>
                                 @endrole
@@ -1741,20 +1822,20 @@
                                             </tr>
                                         </thead>
                                     </table>
-                                    @role('sekretariat')
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                <button class="btn btn-primary">Jana Keputusan</button>
-                                            </div>
-                                        </div>
-                                    @endrole
-                                    @role('ketua-pasukan|penolong-ketua-pasukan')
+                                    @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                        $projek->status == "Proses Rayuan Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                        @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 <button class="btn btn-primary" onclick="printJS('rumusan_skor_kad', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
-                                    @endrole
+                                        @endrole
+                                    @endif
                                 </div>
                             </div>
                         </form>
@@ -1762,8 +1843,8 @@
                     @endrole
 
                     <!--RUMUSAN SKOR KAD RAYUAN-->
-                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                     @if($projek->status == "Proses Rayuan Bangunan" || $projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status = "Selesai Rayuan Bangunan")
+                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                     <div class="tab-pane" id="tab-9" role="tabpanel">
                         <form action="#" id="rumusan-skor-kad-rayuan">
                             <div class="card mt-3">
@@ -2609,16 +2690,6 @@
                                             </tr>
                                         </thead>
                                     </table>
-                                    @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
-                                    @role('sekretariat')
-                                    {{-- smtp --}}
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                <button class="btn btn-primary">Jana</button>
-                                            </div>
-                                        </div>
-                                    @endrole
-                                    @endif
                                     @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status == "Selesai Rayuan Bangunan") 
                                     @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
@@ -2632,8 +2703,8 @@
                             </div>
                         </form>
                     </div>
-                    @endif
                     @endrole
+                    @endif
             
                 </div>
             </div>

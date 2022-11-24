@@ -13341,6 +13341,8 @@ class ProjekController extends Controller
         // dd('OK');
         $id = (int)$request->route('id'); //cari id dlm route
         $projek = Projek::find($id); //cari id dlm model
+        $date = Carbon::now()->format('Y-m-d');
+
         // dd($projek);
         // Rekabentuk borang BARU A
         $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
@@ -14722,7 +14724,7 @@ class ProjekController extends Controller
         }
 
 
-        $date = Carbon::now()->format('d-m-Y');
+        // $date = Carbon::now()->format('d-m-Y');
         $projek = FacadePdf::loadView('projek.sijil_eph_bangunan',compact('projek','date', 'peratusan_mr'));
         // dd($projek);
         return $projek->download('ePHJKR_SIJIL_EPH_BANGUNAN.'.'pdf');
