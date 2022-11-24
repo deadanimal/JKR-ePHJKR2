@@ -128,17 +128,17 @@
                             <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
                         @endif
                     </form>
-                    <form action="/projek/{{$projek->id}}/sah-eph-rayuan">
+                    {{-- <form action="/projek/{{$projek->id}}/sah-eph-rayuan">
                         @if ($projek->status == "Proses Rayuan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
                         @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
                         @elseif ($projek->status == "Selesai Pengesahan Rayuan Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button>
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button> --}}
                         {{-- @elseif ($projek->status == "Selesai Rayuan Bangunan")    
                             <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button> --}}
-                        @endif
-                    </form>
+                        {{-- @endif
+                    </form> --}}
                     @endrole
                     @role('ketua-pasukan|pentadbir|sekretariat')
                         <button class="btn btn-primary mx-3 my-3" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
@@ -150,11 +150,11 @@
                             <button class="btn btn-primary mx-3 my-3" type="submit">Membuat Rayuan Bangunan</button>
                         @endif
                         @endrole
-                        @role('sekretariat')
+                        {{-- @role('sekretariat')
                         @if ($projek->status == "Proses Rayuan Bangunan")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Sahkan Proses Pengisian Rayuan Bangunan</button>
                         @endif
-                        @endrole
+                        @endrole --}}
                     </form>
                 </div>
                 @endrole                  
@@ -860,14 +860,16 @@
                                     </table>
                                     @role('sekretariat')
                                         <div class="row mt-3">
-                                            {{-- @if($projek->fasa == "rekabentuk") --}}
                                             <div class="col text-center">
                                                 <input type="hidden" name="fasa" value="rekabentuk">
+                                                @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
                                                 <button class="btn btn-primary">Sah</button>
+                                                @endif
                                             </div>
                                         </div>
                                     @endrole
                                     @role('ketua-penolong-pasukan|penolong-ketua-pasukan')
+                                    @if($projek->status == "Proses Rayuan Bangunan")
                                         <div class="row mt-3">
                                             {{-- @if($projek->fasa == "rekabentuk") --}}
                                             <div class="col text-center">
@@ -876,17 +878,20 @@
                                                 {{-- <button class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Penilaian Diemel ke Sekretariat</button> --}}
                                             </div>
                                         </div>
+                                    @endif
                                     @endrole
                                 </div>
                             </div>
                         </div>
                         @role('ketua-pasukan|penolong-ketua-pasukan')
+                        @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status = "Selesai Rayuan Bangunan") 
                             <div class="row mt-3">
                                 <div class="col text-center">
                                     {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
                                     <button class="btn btn-primary" onclick="printJS('skor-kad-1', 'html')">Muat Turun</button>
                                 </div>
                             </div>
+                        @endif
                         @endrole
                     </div>
                     @endrole
