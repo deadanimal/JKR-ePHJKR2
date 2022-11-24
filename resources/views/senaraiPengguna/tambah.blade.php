@@ -84,14 +84,14 @@
                         <label class="col-form-label">Nama Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="nama_Syarikat"/>
+                        <input class="form-control" name="nama_syarikat"/>
                     </div>
 
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Alamat Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="alamat_Syarikat" />
+                        <input class="form-control" name="alamat_syarikat" />
                     </div>
 
                     <div class="col-3 mb-2">
@@ -126,7 +126,7 @@
                     <div class="col-7 mb-2">
                         <div class="row mt-4">
                             <div class="col-6">
-                                <a href="/senarai_pengguna" class="btn btn-outline-primary">Batal</a>
+                                <a href="/senaraiPengguna" class="btn btn-outline-primary">Batal</a>
                             </div>
                             <div class="col-6 text-end">
                                 <button type="submit" class="btn btn-primary">Daftar</button>

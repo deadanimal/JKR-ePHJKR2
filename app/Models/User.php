@@ -47,4 +47,21 @@ class User extends Authenticatable implements Auditable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function peranan()
+    {
+        return $this->hasOne(RoleUser::class);
+    }
+
+    public function cubacuba()
+    {
+        return $this->hasOneThrough(
+            Role::class,
+            RoleUser::class,
+            'user_id',
+            'id',
+            'id',
+            'role_id'
+        );
+    }
 }

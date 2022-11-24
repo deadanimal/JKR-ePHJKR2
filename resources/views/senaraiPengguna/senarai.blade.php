@@ -73,7 +73,7 @@
                                     <td>{{ $p->nama_syarikat }}</td>
                                     <td>{{ $p->nama_cawangan }}</td>
                                     <td>{{ $p->negeri }}</td>
-                                    <td></td>
+                                    <td>{{ $p->cubacuba->display_name ?? ""}}</td>
                                     <td>
                                         @role('sekretariat|pentadbir')
                                         <div class="col">

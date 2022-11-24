@@ -78,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('senaraiPengguna/senarai_tukar_peranan', [UserController::class, 'senarai_tukar_peranan']);
     Route::get('senaraiPengguna/sembunyi', [UserController::class, 'senarai_sembunyi']);
     Route::get('senaraiPengguna/pengesahan_akaun_baru', [UserController::class, 'senarai_pengesahan_akaun']);
+    Route::delete('senaraiPengguna/tolak_sah_akaun/{id}', [UserController::class, 'tolak_sah_akaun']);    
     Route::put('senaraiPengguna/simpan_sah_akaun/{id}', [UserController::class, 'simpan_sah_akaun']);
     Route::get('senaraiPengguna/papar/{id}', [UserController::class, 'papar_pengguna']);
     Route::delete('senaraiPengguna/gugur_pengguna/{id}', [UserController::class, 'gugur_pengguna']);    
@@ -192,6 +193,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('selenggara/cipta_kriteria', [UserController::class, 'cipta_kriteria']); 
     Route::get('selenggara/kemaskini_kriteria/{id}', [UserController::class, 'kemaskini_kriteria']);
     Route::put('selenggara/simpankemaskini_kriteria/{id}', [UserController::class, 'simpankemaskini_kriteria']);
+
+    //selenggaragpsskriteria
+    Route::post('selenggara/cipta_gpss_kriteria', [UserController::class, 'cipta_gpss_kriteria']); 
+    Route::get('selenggara/kemaskini_gpss_kriteria/{id}', [UserController::class, 'kemaskini_gpss_kriteria']);
+    Route::put('selenggara/simpankemaskini_gpss_kriteria/{id}', [UserController::class, 'simpankemaskini_gpss_kriteria']);
 
     //email
     Route::get('projek/{id}/gugur_projek', [ProjekController::class, 'email_gugur_projek']);
