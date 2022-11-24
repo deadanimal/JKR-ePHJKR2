@@ -1,0 +1,29 @@
+{
+    "montserrat-extrabold": {
+        "normal": "montserrat_extrabold_normal_a66288e9fb45262effb9ea2e5cd13779"
+    },
+    "montserrat-semibold": {
+        "normal": "montserrat_semibold_normal_0273bf69fce3f21f03df44d93d3beab9"
+    },
+    "saira_semicondensed-bold": {
+        "normal": "saira_semicondensed_bold_normal_4e51574d8d81a45b2bbc538d58060878"
+    },
+    "lato-bold": {
+        "normal": "lato_bold_normal_d5739d07756c7dbf7eb625ea060599ac"
+    },
+    "lato-bolditalic": {
+        "normal": "lato_bolditalic_normal_a41005a2e5a1fb8d9f10298dd83b4269"
+    },
+    "lato-regular": {
+        "normal": "lato_regular_normal_1e9346757f6d2253c61968e34da8f19a"
+    },
+    "lato-regular3": {
+        "normal": "lato_regular3_normal_1e9346757f6d2253c61968e34da8f19a"
+    },
+    "oswald-bold": {
+        "normal": "oswald_bold_normal_9bca9fd66d751f8015cf13b4cd99b12a"
+    },
+    "montserrat-variablefont": {
+        "normal": "montserrat_variablefont_normal_be8c1a28d99607be6893f329afce72e9"
+    }
+}
