@@ -867,7 +867,7 @@
                                             </div>
                                         </div>
                                     @endrole
-                                    @role('ketua-pemudah-cara|pemudah-cara')
+                                    @role('ketua-penolong-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             {{-- @if($projek->fasa == "rekabentuk") --}}
                                             <div class="col text-center">
