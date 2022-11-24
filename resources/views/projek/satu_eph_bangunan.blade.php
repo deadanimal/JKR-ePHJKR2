@@ -311,7 +311,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Skor Kad</a>
                     </li>
-                    @if($projek->status == "Proses Rayuan Bangunan" || $projek->status == "Dalam Pengesahan Rayuan Bangunan" || $projek->status == "Selesai Rayuan Bangunan" )
+                    @if($projek->status == "Proses Rayuan Bangunan" || $projek->status == "Dalam Pengesahan Rayuan Bangunan" || $projek->status == "Selesai Rayuan Bangunan")
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-8" data-bs-toggle="tab" role="tab">Skor Kad Rayuan</a>
@@ -325,7 +325,7 @@
                     @endrole
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                     <li class="nav-item">
-                        @if($projek->status == "Proses Rayuan Bangunan")
+                        @if($projek->status == "Proses Rayuan Bangunan" || $projek->status == "Dalam Pengesahan Rayuan Bangunan" || $projek->status == "Selesai Rayuan Bangunan")
                         <a class="nav-link" href="#tab-9" data-bs-toggle="tab" role="tab">Rumusan Skor Kad Rayuan</a>
                         @endif
                     </li>
