@@ -863,7 +863,7 @@
                                             <div class="col text-center">
                                                 <input type="hidden" name="fasa" value="rekabentuk">
                                                 @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
-                                                <button class="btn btn-primary">Sah</button>
+                                                <button class="btn btn-primary" type="submit">Sah</button>
                                                 @endif
                                             </div>
                                         </div>
@@ -2609,14 +2609,16 @@
                                             </tr>
                                         </thead>
                                     </table>
+                                    @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
                                     @role('sekretariat')
                                     {{-- smtp --}}
                                         <div class="row mt-3">
                                             <div class="col text-center">
-                                                <button class="btn btn-primary">Jana Keputusan</button>
+                                                <button class="btn btn-primary">Jana</button>
                                             </div>
                                         </div>
                                     @endrole
+                                    @endif
                                     @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status == "Selesai Rayuan Bangunan") 
                                     @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
