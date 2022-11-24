@@ -874,7 +874,7 @@
                                             {{-- @if($projek->fasa == "rekabentuk") --}}
                                             <div class="col text-center">
                                                 <input type="hidden" name="fasa" value="rekabentuk">
-                                                <a href="/projek/{{ $projek->id }}/pengesahan_penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                                <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
                                                 {{-- <button class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Penilaian Diemel ke Sekretariat</button> --}}
                                             </div>
                                         </div>
