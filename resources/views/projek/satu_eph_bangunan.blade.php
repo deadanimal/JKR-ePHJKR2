@@ -874,8 +874,18 @@
                                             {{-- @if($projek->fasa == "rekabentuk") --}}
                                             <div class="col text-center">
                                                 <input type="hidden" name="fasa" value="rekabentuk">
-                                                <a href="/projek/{{ $projek->id }}/projek_status_berubah" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                                <a href="/projek/{{ $projek->id }}/pengesahan_penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
                                                 {{-- <button class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Penilaian Diemel ke Sekretariat</button> --}}
+                                            </div>
+                                        </div>
+                                    @endif
+                                    @endrole
+                                    @role('ketua-pasukan|penolong-ketua-pasukan')
+                                    @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status = "Selesai Rayuan Bangunan") 
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
+                                                <button class="btn btn-primary" onclick="printJS('skor-kad-1', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
                                     @endif
@@ -883,16 +893,6 @@
                                 </div>
                             </div>
                         </div>
-                        @role('ketua-pasukan|penolong-ketua-pasukan')
-                        @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status = "Selesai Rayuan Bangunan") 
-                            <div class="row mt-3">
-                                <div class="col text-center">
-                                    {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
-                                    <button class="btn btn-primary" onclick="printJS('skor-kad-1', 'html')">Muat Turun</button>
-                                </div>
-                            </div>
-                        @endif
-                        @endrole
                     </div>
                     @endrole
                     @endif
