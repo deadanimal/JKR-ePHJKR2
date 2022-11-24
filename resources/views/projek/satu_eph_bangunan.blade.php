@@ -880,16 +880,16 @@
                                         </div>
                                     @endif
                                     @endrole
+                                    @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status == "Selesai Rayuan Bangunan") 
                                     @role('ketua-pasukan|penolong-ketua-pasukan')
-                                    @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status = "Selesai Rayuan Bangunan") 
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 {{-- <a class="btn btn-primary" href="/projek/sijil_eph_bangunan">Muat turun</a> --}}
                                                 <button class="btn btn-primary" onclick="printJS('skor-kad-1', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
-                                    @endif
                                     @endrole
+                                    @endif
                                 </div>
                             </div>
                         </div>
