@@ -57,7 +57,8 @@ class RegisteredUserController extends Controller
         $user->telNo = $request->telNo;
         $user->faxNo = $request->faxNo;
         $user->daerah = $request->daerah;
-        $user->aktif = false;
+        $user->aktif = true;
+        $user->sah = false;
         $user->negeri = $request->negeri;
         $user->alamat_syarikat = $request->alamat_syarikat;
         $user->nama_syarikat = $request->nama_syarikat;
