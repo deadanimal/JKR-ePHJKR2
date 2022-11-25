@@ -91,7 +91,7 @@
                         </div>
 
                         <div class="col-7 mb-2">
-                            <input type="file" name="dokumen" class="form-control">
+                            <input type="file" name="dokumen" class="form-control"/>
                         </div>
 
                         <div class="col-7 mb-2">
