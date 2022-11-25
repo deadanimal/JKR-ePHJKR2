@@ -13092,14 +13092,14 @@ class ProjekController extends Controller
             $projek->status = "Selesai Pengesahan Rekabentuk GPSS Bangunan";
             alert()->success('Pengesahan Skor Rekabentuk GPSS Bangunan telah Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan"){
-            $projek->status = "Proses Jana Keputusan Rekabentuk GPSS Bangunan";
-            alert()->success('Selesai Pengesahan Rekabentuk GPSS Bangunan', 'Berjaya');
-        }
-        elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan"){
-            $projek->status = "Selesai Jana Keputusan Rekabentuk GPSS Bangunan";
-            alert()->success('Sahkan Proses Jana Keputusan Rekabentuk GPSS Bangunan', 'Berjaya');
-        }
+        // elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan"){
+        //     $projek->status = "Proses Jana Keputusan Rekabentuk GPSS Bangunan";
+        //     alert()->success('Selesai Pengesahan Rekabentuk GPSS Bangunan', 'Berjaya');
+        // }
+        // elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan"){
+        //     $projek->status = "Selesai Jana Keputusan Rekabentuk GPSS Bangunan";
+        //     alert()->success('Sahkan Proses Jana Keputusan Rekabentuk GPSS Bangunan', 'Berjaya');
+        // }
         elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan"){
             $projek->status = "Proses Pengisian Skor Verifikasi GPSS Bangunan";
             alert()->success('Selesai Jana Keputusan Rekabentuk GPSS Bangunan', 'Berjaya');
