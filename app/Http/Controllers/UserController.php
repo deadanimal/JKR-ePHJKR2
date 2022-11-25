@@ -24,6 +24,7 @@ use App\Models\StatusProjek;
 use OwenIt\Auditing\Models\Audit;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
@@ -621,12 +622,16 @@ class UserController extends Controller
     public function cipta_lupa(Request $request){
         $email = $request->email;
         $user = User::where('email',$email)->first();
+        // dd($user);
+        if ($user == null || $email == null) {
+            alert()->error('Email Tidak Sah', 'Gagal');
+            return redirect('/login'); 
+        }
         $user->password = Hash::make('ePHJKR');
         $user->save();
-
         // Mail::to('haris.zahari@pipeline-network.com')->send(new LupaKatalaluan);
         Mail::to($user->email)->send(new LupaKatalaluan);
-
+        alert()->success('Sila Periksa Email Yang Didaftar', 'Berjaya');
         return redirect('/login');
     }
 

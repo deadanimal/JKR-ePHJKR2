@@ -39,15 +39,15 @@ Route::post('maklumbalas/cipta_pengguna_luar', [MaklumbalasController::class, 'c
 
 
 
-Route::get('lupa', [UserController::class, 'lupa']);
-Route::post('lupa', [UserController::class, 'lupa_katalaluan']);
+// Route::get('lupa', [UserController::class, 'lupa']);
+// Route::post('lupa', [UserController::class, 'lupa_katalaluan']);
 
 
-Route::post('custom-login', [UserController::class, 'custom_login']);
+// Route::post('custom-login', [UserController::class, 'custom_login']);
 
 //lupa password
 Route::get('lupa', [UserController::class, 'tunjuk_lupa']);
-Route::post('lupa', [UserController::class, 'cipta_lupa']);
+Route::put('lupa', [UserController::class, 'cipta_lupa']);
 
 Route::middleware(['auth'])->group(function () {
 
