@@ -617,14 +617,11 @@
                                     @role('sekretariat')
                                     <div class="row mt-3">
                                         <div class="col text-center">
+                                            <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
                                             @if($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
-                                            <button class="btn btn-primary" type="submit">Sah</button>
+                                                <button class="btn btn-primary" type="submit">Sah</button>
                                             @endif
-                                        </div>
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col text-center">
-                                            <button class="btn btn-primary">Jana Skor Kad</button>
+                                            </form>
                                         </div>
                                     </div>
                                     @endrole

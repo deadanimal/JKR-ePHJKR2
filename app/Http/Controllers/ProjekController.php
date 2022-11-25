@@ -13106,8 +13106,6 @@ class ProjekController extends Controller
             alert()->success('Pengisian Skor Verifikasi GPSS Bangunan Disahkan', 'Berjaya');
         }
         
-
-
         $projek->save();
         return back();
     }
