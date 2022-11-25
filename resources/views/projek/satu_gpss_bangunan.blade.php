@@ -617,7 +617,9 @@
                                     @role('sekretariat')
                                     <div class="row mt-3">
                                         <div class="col text-center">
-                                            <a href="#" class="btn btn-primary">Sah</a>
+                                            @if($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
+                                            <button class="btn btn-primary" type="submit">Sah</button>
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="row mt-3">
