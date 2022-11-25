@@ -617,12 +617,12 @@
                                     @role('sekretariat')
                                     <div class="row mt-3">
                                         <div class="col text-center">
-                                            <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
-                                            @csrf
+                                            {{-- <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data"> --}}
+                                            {{-- @csrf --}}
                                             @if($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
-                                                <button class="btn btn-primary" type="submit">Sah</button>
+                                                <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a>
                                             @endif
-                                            </form>
+                                            {{-- </form> --}}
                                         </div>
                                     </div>
                                     @endrole
