@@ -101,7 +101,7 @@
                         </div> 
                     </div>
                 </div>
-                @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan')
+                @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan|pentadbir')
                 <div class="col mx-3 my-3">
                     @role('sekretariat')
                     <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">

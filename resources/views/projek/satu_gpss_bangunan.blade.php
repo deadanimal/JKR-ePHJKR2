@@ -5,8 +5,8 @@
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col">
-            <div class="card">
-                <div class="card-body" id="printJS-form">
+            <div class="card" id="printJS-form">
+                <div class="card-body">
                     <div class="row mx-3 mb-2">
                         <h2 class="mb-3">Maklumat Projek</h2>
                         <div class="col-4 mb-2">
@@ -101,66 +101,70 @@
                         </div>
                     </div>
                 </div>
-                @role('sekretariat')
-                <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @if($projek->status == "Menunggu Pengesahan Sekretariat")
-                    <div class="col text-center">
-                        <button class="btn btn-primary" type="submit">Sah Projek</button>
+                @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan|pentadbir')
+                <div class="col mx-3 my-3">
+                    @role('sekretariat')
+                    <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @if($projek->status == "Menunggu Pengesahan Sekretariat")
+                        <div class="col text-center">
+                            <button class="btn btn-primary" type="submit">Sah Projek</button>
+                        </div>
+                        {{-- @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk GPSS Bangunan Sudah Diproses</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk GPSS Bangunan Sudah Selesai</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk GPSS Bangunan</button>
+                        @elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Jana Keputusan Rekabentuk GPSS Bangunan</button>
+                        @elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Jana Keputusan Rekabentuk GPSS Bangunan</button>
+                        @elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Verifikasi GPSS Bangunan Sudah Diproses</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi GPSS Bangunan</button>
+                        @elseif ($projek->status == "Proses Jana Keputusan Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Proses Rayuan GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button> --}}
+                        @endif
+                    </form>
+                    {{-- <form action="/projek/{{$projek->id}}/sah-gpss-rayuan">
+                        @if ($projek->status == "Proses Rayuan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
+                        @elseif ($projek->status == "Selesai Pengesahan Rayuan Bangunan")    
+                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button>
+                        @endif
+                    </form> --}}
+                    @endrole 
+                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|pentadbir')
+                    <div class="row mt-3">
+                        <div class="col text-center">
+                            <button class="btn btn-primary" type="submit" onclick="printJS('printJS-form', 'html')">Muat Turun</button>
+                        </div>
                     </div>
-                    {{-- @elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Rekabentuk GPSS Bangunan Sudah Diproses</button>
-                    @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk GPSS Bangunan Sudah Selesai</button>
-                    @elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk GPSS Bangunan</button>
-                    @elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Jana Keputusan Rekabentuk GPSS Bangunan</button>
-                    @elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Jana Keputusan Rekabentuk GPSS Bangunan</button>
-                    @elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Verifikasi GPSS Bangunan Sudah Diproses</button>
-                    @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi GPSS Bangunan</button>
-                    @elseif ($projek->status == "Proses Jana Keputusan Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
-                    @elseif ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
-                    @elseif ($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Proses Rayuan GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button> --}}
-                    @endif
-                </form>
-                {{-- <form action="/projek/{{$projek->id}}/sah-gpss-rayuan">
-                    @if ($projek->status == "Proses Rayuan Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Proses Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Dalam Pengesahan Rayuan Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rayuan Bangunan</button>
-                    @elseif ($projek->status == "Selesai Pengesahan Rayuan Bangunan")    
-                        <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Rayuan Bangunan</button>
-                    @endif
-                </form> --}}
-                @endrole 
-                @role('ketua-pasukan|pentadbir|sekretariat|pentadbir')
-                <div class="row mt-3">
-                    <div class="col text-center">
-                        <button class="btn btn-primary" type="submit" onclick="printJS('printJS-form', 'html')">Muat Turun</button>
-                    </div>
+                    @endrole
+                    <form action="/projek/{{$projek->id}}/sah-gpss-bangunan-rayuan" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @role('ketua-pasukan|penolong-ketua-pasukan')
+                        @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")
+                            <button class="btn btn-primary" type="submit">Membuat Rayuan GPSS Bangunan</button>
+                        @endif
+                        @endrole
+                    </form>
                 </div>
                 @endrole
-                <form action="/projek/{{$projek->id}}/sah-gpss-bangunan-rayuan" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @role('ketua-pasukan|penolong-ketua-pasukan')
-                    @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")
-                        <button class="btn btn-primary" type="submit">Membuat Rayuan GPSS Bangunan</button>
-                    @endif
-                    @endrole
-                </form>
             </div>
         </div>
 
