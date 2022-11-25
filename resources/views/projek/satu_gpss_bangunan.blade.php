@@ -721,7 +721,7 @@
                     @endif
 
                     <!--RUMUSAN SKOR KAD-->
-                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
+                    {{-- @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat') --}}
                     <div class="tab-pane" id="tab-6" role="tabpanel">
                         <div class="card mt-3">
                             <form action="#" id="rumusan-skor-kad-gpss"></form>
@@ -1300,7 +1300,7 @@
                             </form>
                         </div>
                     </div> 
-                    @endrole
+                    {{-- @endrole --}}
                     
                     <!--RUMUSAN SKOR KAD RAYUAN-->
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
