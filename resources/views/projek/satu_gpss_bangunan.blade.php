@@ -621,6 +621,7 @@
                                             <div class="col text-center">
                                                 @if($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
                                                     <button class="btn btn-primary" type="submit">Sah</button>
+                                                    
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
                                             </div>
