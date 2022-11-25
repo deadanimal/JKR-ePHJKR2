@@ -1,12 +1,13 @@
 @extends('layouts.app')
+<link rel="stylesheet" type="text/css" href="print.css">
 
 @section('content')
 
 <div class="container-fluid">
     <div class="row mb-3">
         <div class="col">
-            <div class="card" id="printJS-form">
-                <div class="card-body">
+            <div class="card">
+                <div class="card-body" id="maklumat-projek">
                     <div class="row mx-3 mb-2">
                         <h2 class="mb-3">Maklumat Projek</h2>
                         <div class="col-4 mb-2">
@@ -151,7 +152,7 @@
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|pentadbir')
                     <div class="row mt-3">
                         <div class="col text-center">
-                            <button class="btn btn-primary" type="submit" onclick="printJS('printJS-form', 'html')">Muat Turun</button>
+                            <button class="btn btn-primary" type="submit" onclick="printJS('maklumat-projek', 'html')">Muat Turun</button>
                         </div>
                     </div>
                     @endrole
@@ -1900,6 +1901,10 @@
     return new bootstrap.Tooltip(tooltipTriggerEl)
         })
 </script>  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<script src="https://printjs-4de6.kxcdn.com/print.min.css"></script>
 
 <script>
     kriteriaRekabentuk();
