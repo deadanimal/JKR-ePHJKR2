@@ -614,20 +614,6 @@
                                             </thead>
                                         </table>
                                     </div>
-                                    @role('sekretariat')
-                                    <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                @if($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
-                                                    <button class="btn btn-primary" type="submit">Sah</button>
-                                                    
-                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </form>
-                                    @endrole
                                     @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
                                     <div class="col text-center">
                                         @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
@@ -646,6 +632,19 @@
                                     @endrole
                                 </div>
                             </form>
+                            @role('sekretariat')
+                            <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        @if($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan")
+                                            <button class="btn btn-primary" type="submit">Sah</button>
+                                            {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
+                                        @endif
+                                    </div>
+                                </div>
+                            </form>
+                            @endrole
                         </div>
                     </div>
 
