@@ -13075,35 +13075,31 @@ class ProjekController extends Controller
         }
         elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan"){
             $projek->status = "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan";
-            alert()->success('Sahkan Pengisian Skor Rekabentuk GPSS Bangunan', 'Berjaya');
+            alert()->success('Skor Rekabentuk GPSS Bangunan Disahkan', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan"){
             $projek->status = "Selesai Pengesahan Rekabentuk GPSS Bangunan";
             alert()->success('Pengesahan Skor Rekabentuk GPSS Bangunan telah Disahkan', 'Berjaya');
         }
-        // elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan"){
-        //     $projek->status = "Proses Jana Keputusan Rekabentuk GPSS Bangunan";
-        //     alert()->success('Selesai Pengesahan Rekabentuk GPSS Bangunan', 'Berjaya');
-        // }
-        // elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan"){
-        //     $projek->status = "Selesai Jana Keputusan Rekabentuk GPSS Bangunan";
-        //     alert()->success('Sahkan Proses Jana Keputusan Rekabentuk GPSS Bangunan', 'Berjaya');
-        // }
+        elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan"){
+            $projek->status = "Selesai Jana Keputusan Rekabentuk GPSS Bangunan";
+            alert()->success('Selesai Pengesahan Rekabentuk GPSS Bangunan', 'Berjaya');
+        }
         elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan"){
             $projek->status = "Proses Pengisian Skor Verifikasi GPSS Bangunan";
             alert()->success('Selesai Jana Keputusan Rekabentuk GPSS Bangunan', 'Berjaya');
         }
         elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan"){
-            $projek->status = "Selesai Pengesahan Verifikasi GPSS Bangunan";
+            $projek->status = "Dalam Pengesahan Skor Verifikasi GPSS Bangunan";
             alert()->success('Skor Verifikasi GPSS Bangunan Disahkan', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan"){
-            $projek->status = "Proses Jana Keputusan Verifikasi GPSS Bangunan";
-            alert()->success('Pengisian Skor Verifikasi GPSS Bangunan Disahkan', 'Berjaya');
+            $projek->status = "Selesai Pengesahan Verifikasi GPSS Bangunan";
+            alert()->success('Pengesahan Skor Verifikasi GPSS Bangunan telah Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan"){
-            $projek->status = "Proses Pengisian Skor Verifikasi GPSS Bangunan";
-            alert()->success('Pengisian Skor Verifikasi GPSS Bangunan Disahkan', 'Berjaya');
+        elseif ($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan"){
+            $projek->status = "Selesai Jana Keputusan Verifikasi GPSS Bangunan";
+            alert()->success('Selesai Jana Keputusan Verifikasi GPSS Bangunan', 'Berjaya');
         }
         
         $projek->save();
@@ -13114,22 +13110,22 @@ class ProjekController extends Controller
         $id = (int)$request->route('id');
         $projek = Projek::find($id);
 
-        if ($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan"){
+        if ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan"){
             $projek->status = "Proses Rayuan GPSS Bangunan";
-            alert()->success('Rayuan Bangunan sedang Diproses', 'Berjaya');
+            alert()->success('Rayuan GPSS Bangunan sedang Diproses', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan"){
             $projek->status = "Selesai Pengesahan Rayuan GPSS Bangunan";
             alert()->success('Pengesahan Rayuan GPSS Bangunan telah Disahkan', 'Berjaya');
         }
         elseif ($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan"){
-            $projek->status = "Proses Jana Keputusan Rayuan GPSS Bangunan";
+            $projek->status = "Selesai Jana Keputusan Rayuan GPSS Bangunan";
             alert()->success('Pengesahan Rayuan GPSS Bangunan telah Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan"){
-            $projek->status = "Selesai Rayuan GPSS Bangunan";
-            alert()->success('Proses Rayuan GPSS Bangunan Disahkan', 'Berjaya');
-        }
+        // elseif ($projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan"){
+        //     $projek->status = "Selesai Rayuan GPSS Bangunan";
+        //     alert()->success('Proses Rayuan GPSS Bangunan Disahkan', 'Berjaya');
+        // }
 
         $projek->save();
         return back();
@@ -13145,39 +13141,31 @@ class ProjekController extends Controller
         }
         elseif ($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Jalan"){
             $projek->status = "Dalam Pengesahan Skor Rekabentuk GPSS Jalan";
-            alert()->success('Sahkan Pengisian Skor Rekabentuk GPSS Jalan', 'Berjaya');
+            alert()->success('Skor Rekabentuk GPSS Jalan Disahkan', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Jalan"){
-            $projek->status = "Proses Jana Keputusan Rekabentuk GPSS Jalan";
+            $projek->status = "Selesai Pengesahan Rekabentuk GPSS Jalan";
             alert()->success('Pengesahan Skor Rekabentuk GPSS Jalan telah Disahkan', 'Berjaya');
         }
-        // elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan"){
-        //     $projek->status = "Proses Jana Keputusan Rekabentuk GPSS Jalan";
-        //     alert()->success('Selesai Pengesahan Rekabentuk GPSS Jalan', 'Berjaya');
-        // }
-        elseif ($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Jalan"){
+        elseif ($projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan"){
             $projek->status = "Selesai Jana Keputusan Rekabentuk GPSS Jalan";
-            alert()->success('Keputusan telah dijana', 'Berjaya');
+            alert()->success('Selesai Pengesahan Rekabentuk GPSS Jalan', 'Berjaya');
         }
         elseif ($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan"){
             $projek->status = "Proses Pengisian Skor Verifikasi GPSS Jalan";
-            alert()->success('Keputusan telah dijana', 'Berjaya');
+            alert()->success('Selesai Jana Keputusan Rekabentuk GPSS Jalan', 'Berjaya');
         }
         elseif ($projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan"){
             $projek->status = "Dalam Pengesahan Skor Verifikasi GPSS Jalan";
-            alert()->success('Pengisian Skor Verifikasi GPSS Bangunan Disahkan', 'Berjaya');
+            alert()->success('Skor Verifikasi GPSS Jalan Disahkan', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan"){
-            $projek->status == "Proses Jana Keputusan Verifikasi GPSS Jalan";
+            $projek->status = "Selesai Pengesahan Verifikasi GPSS Jalan";
             alert()->success('Pengesahan Skor Verifikasi GPSS Jalan telah Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Proses Jana Keputusan Verifikasi GPSS Jalan"){
-            $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan";
-            alert()->success('Jana Keputusan Verifikasi GPSS Jalan telah Dijana', 'Berjaya');
-        }
-        elseif ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan "){
-            $projek->status == "Selesai Pengesahan Jana Sijil Verifikasi GPSS Jalan";
-            alert()->success('Keputusan Verifikasi GPSS Jalan telah Dijana', 'Berjaya');
+        elseif ($projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan"){
+            $projek->status = "Selesai Jana Keputusan Verifikasi GPSS Jalan";
+            alert()->success('Selesai Jana Keputusan Verifikasi GPSS Jalan', 'Berjaya');
         }
 
         $projek->save();
@@ -13190,22 +13178,22 @@ class ProjekController extends Controller
         $id = (int)$request->route('id');
         $projek = Projek::find($id);
 
-        if ($projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan"){
+        if ($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan"){
             $projek->status = "Proses Rayuan GPSS Jalan";
-            alert()->success('Rayuan Bangunan sedang Diproses', 'Berjaya');
+            alert()->success('Rayuan Jalan sedang Diproses', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Rayuan GPSS Jalan"){
             $projek->status = "Selesai Pengesahan Rayuan GPSS Jalan";
-            alert()->success('Pengesahan Rayuan GPSS Bangunan telah Disahkan', 'Berjaya');
+            alert()->success('Pengesahan Rayuan GPSS Jalan telah Disahkan', 'Berjaya');
         }
         elseif ($projek->status == "Selesai Pengesahan Rayuan GPSS Jalan"){
-            $projek->status = "Proses Jana Keputusan Rayuan GPSS Jalan";
-            alert()->success('Pengesahan Rayuan GPSS Bangunan telah Disahkan', 'Berjaya');
+            $projek->status = "Selesai Jana Keputusan Rayuan GPSS Jalan";
+            alert()->success('Pengesahan Rayuan GPSS Jalan telah Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan"){
-            $projek->status = "Selesai Rayuan GPSS Jalan";
-            alert()->success('Proses Rayuan GPSS Jalan Disahkan', 'Berjaya');
-        }
+        // elseif ($projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan"){
+        //     $projek->status = "Selesai Rayuan GPSS Jalan";
+        //     alert()->success('Proses Rayuan GPSS Jalan Disahkan', 'Berjaya');
+        // }
 
         $projek->save();
         return back();

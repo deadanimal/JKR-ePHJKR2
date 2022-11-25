@@ -267,18 +267,18 @@
 
     @if (!$lantikans->isEmpty())
     @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan" || 
-            $projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan" ||
-            $projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan" ||
-            $projek->status == "Proses Jana Keputusan Rekabentuk GPSS Bangunan" ||
-            $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
-            $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan" ||
-            $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
-            $projek->status == "Proses Jana Keputusan Verifikasi GPSS Bangunan" ||
-            $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
-            $projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan" ||
-            $projek->status == "Proses Rayuan GPSS Bangunan" ||
-            $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" ||
-            $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")
+        $projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan" ||
+        $projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan" ||
+        $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
+        $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan" ||
+        $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+        $projek->status == "Proses Jana Keputusan Verifikasi GPSS Bangunan" ||
+        $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
+        $projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan" ||
+        $projek->status == "Proses Rayuan GPSS Bangunan" ||
+        $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" ||
+        $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan"||
+        $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
             <div class="tab mt-6">
                 <ul class="nav nav-tabs" role="tablist" id="myTab">
                     @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
@@ -286,7 +286,8 @@
                     <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rekabentuk</a></li>
                     @endrole
                     @endif
-                    @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")
+                    @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
+                        $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")
                     @role('pemudah-cara|ketua-pemudah-cara|ketua-penilai|penilai') 
                     <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Verifikasi</a></li>
                     @endrole
@@ -304,9 +305,11 @@
                     <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Skor Kad</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rumusan Skor Kad</a></li>
                     @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                    @if($projek->status == "Proses Rayuan GPSS Bangunan" || $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" || 
-                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status == "Proses Jana Keputusan Rayuan GPSS Bangunan" ||
-                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan" || $projek->status == "Selesai Rayuan GPSS Bangunan")
+                    @if($projek->status == "Proses Rayuan GPSS Bangunan" || 
+                        $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" || 
+                        $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || 
+                        $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan" || 
+                        $projek->status == "Selesai Rayuan GPSS Bangunan")
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">Skor Kad Rayuan</a>
                     </li>
@@ -386,7 +389,8 @@
                     @endif
 
                     <!--VERIFIKASI GPSS BANGUNAN-->
-                    @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")
+                    @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
+                        $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")
                     @role('pemudah-cara|ketua-pemudah-cara|penilai|ketua-penilai')
                     <div class="tab-pane" id="tab-2" role="tabpanel">
                         <div class="card mt-3">
@@ -559,19 +563,104 @@
                         <div class="card mt-3">
                             <div class="card-body">
                                 <h4>SIJIL GPSS BANGUNAN</h4>
-                                @role('sekretariat')
+                                {{-- @role('sekretariat')
                                 <div class="row mt-3">
                                     <div class="col text-center">
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Jana Sijil</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Jana</a>
                                     </div>
                                 </div>
-                                @endrole
-                                @role('ketua-pasukan|penolong-ketua-pasukan')
-                                <div class="row mt-3">
+                                @endrole --}}
+                                @role('ketua-pasukan|penolong-ketua-pasukan|pentadbir')
+                                @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
+                                    $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Proses Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
                                     <div class="col text-center">
+                                        <h3>Peringkat Rekabentuk</h3>
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Muat Turun</a>
                                     </div>
-                                </div>
+                                @endif
+                                @if($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Proses Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
+                                    <div class="col text-center">
+                                        <h3>Peringkat Verifikasi</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Muat Turun</a>
+                                    </div>
+                                @endif
+                                @if($projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
+                                    <div class="col text-center">
+                                        <h3>Peringkat Rayuan</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Muat Turun</a>
+                                    </div>
+                                @endif
+                                @endrole
+                                @role('sekretariat')
+                                @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan" ||
+                                    $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
+                                    $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
+                                    $projek->status == "Proses Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" ||
+                                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
+                                    <h3>Peringkat Rekabentuk</h3>
+                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Lihat Sijil</a>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan")
+                                    <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan")
+                                            <div class="col text-center">
+                                                <button class="btn btn-primary" type="submit">Jana</button>
+                                            </div>
+                                        @endif
+                                    </form>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan" ||
+                                        $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
+                                        $projek->status == "Proses Rayuan GPSS Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" ||
+                                        $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
+                                        <h3>Peringkat Verifikasi</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Lihat Sijil</a>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")
+                                    <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")
+                                            <div class="col text-center">
+                                                <button class="btn btn-primary" type="submit">Jana</button>
+                                            </div>
+                                        @endif
+                                    </form>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
+                                <h3>Peringkat Rayuan</h3>
+                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Lihat Sijil</a>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")
+                                    <form action="/projek/{{$projek->id}}/sah-gpss-bangunan-rayuan" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        @if($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")
+                                            <div class="col text-center">
+                                                <button class="btn btn-primary" type="submit">Jana</button>
+                                            </div>
+                                        @endif
+                                    </form>
+                                @endif
                                 @endrole
                             </div>
                         </div>
@@ -644,6 +733,23 @@
                                     </div>
                                 </div>
                             </form>
+                            @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan" ||
+                                $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
+                                $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan" ||
+                                $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+                                $projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan" ||
+                                $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+                                $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
+                                $projek->status == "Proses Rayuan GPSS Bangunan" ||
+                                $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" ||
+                                $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" ||
+                                $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <button class="btn btn-primary" onclick="printJS('skor-kad-gpss-bangunan', 'html')">Muat Turun</button>
+                                    </div>
+                                </div>
+                            @endif
                             @endrole
                         </div>
                     </div>
@@ -1283,19 +1389,38 @@
                                             </tr>
                                         </tbody> 
                                     </table>
-                                    @role('sekretariat')
+                                    {{-- @role('sekretariat')
                                     <div class="row mt-3">
                                         <div class="col text-center">
                                             <a href="#" class="btn btn-primary">Jana Keputusan</a>
                                         </div>
                                     </div>
-                                    @endrole
+                                    @endrole --}}
                                     @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 <button class="btn btn-primary" onclick="printJS('rumusan-skor-kad-gpss', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
+                                    @endrole
+                                    @role('sekretariat')
+                                    @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan" ||
+                                        $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
+                                        $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Bangunan" ||
+                                        $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
+                                        $projek->status == "Proses Rayuan GPSS Bangunan" ||
+                                        $projek->status == "Dalam Pengesahan Rayuan GPSS Bangunan" ||
+                                        $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" ||
+                                        $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                <button class="btn btn-primary" onclick="printJS('rumusan-skor-kad-gpss', 'html')">Muat Turun</button>
+                                            </div>
+                                        </div>
+                                    @endif
                                     @endrole
                                 </div>
                             </form>

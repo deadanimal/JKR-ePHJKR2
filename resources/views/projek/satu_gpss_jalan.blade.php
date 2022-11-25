@@ -267,20 +267,19 @@
     @endif
 
     @if (!$lantikans->isEmpty())
-    @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Jalan" ||
-    $projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Jalan" ||
-    $projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan" ||
-    $projek->status == "Proses Jana Keputusan Rekabentuk GPSS Jalan" ||
-    $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan" ||
-    $projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan" ||
-    $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan" ||
-    $projek->status == "Proses Jana Keputusan Verifikasi GPSS Jalan" ||
-    $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan" ||
-    $projek->status == "Selesai Pengesahan Jana Sijil Verifikasi GPSS Jalan" ||
-    $projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan" ||
-    $projek->status == "Proses Rayuan GPSS Jalan" ||
-    $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" ||
-    $projek->status == "Selesai Rayuan GPSS Jalan")
+    @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Jalan" || 
+        $projek->status == "Dalam Pengesahan Skor Rekabentuk GPSS Jalan" ||
+        $projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan" ||
+        $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan" ||
+        $projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan" ||
+        $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan" ||
+        $projek->status == "Proses Jana Keputusan Verifikasi GPSS Jalan" ||
+        $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan" ||
+        $projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan" ||
+        $projek->status == "Proses Rayuan GPSS Jalan" ||
+        $projek->status == "Dalam Pengesahan Rayuan GPSS Jalan" ||
+        $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan"||
+        $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
         <div class="tab mt-6">
             <ul class="nav nav-tabs" role="tablist">
                 @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Jalan")
@@ -288,7 +287,7 @@
                 <li class="nav-item"><a class="nav-link active" href="#tab-1" data-bs-toggle="tab" role="tab">Rekabentuk</a></li>
                 @endrole
                 @endif
-                @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")
+                @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan")
                 @role('pemudah-cara|ketua-pemudah-cara|ketua-penilai|penilai') 
                 <li class="nav-item"><a class="nav-link" href="#tab-2" data-bs-toggle="tab" role="tab">Verifikasi</a></li>
                 @endrole
@@ -304,7 +303,11 @@
                 <li class="nav-item"><a class="nav-link" href="#tab-5" data-bs-toggle="tab" role="tab">Skor Kad</a></li>
                 <li class="nav-item"><a class="nav-link" href="#tab-6" data-bs-toggle="tab" role="tab">Rumusan Skor Kad</a></li>
                 @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
-                @if($projek->status == "Proses Rayuan GPSS Jalan" || $projek->status == "Selesai Rayuan GPSS Jalan")
+                @if($projek->status == "Proses Rayuan GPSS Jalan" || 
+                    $projek->status == "Dalam Pengesahan Rayuan GPSS Jalan" || 
+                    $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" || 
+                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan" || 
+                    $projek->status == "Selesai Rayuan GPSS Jalan")
                 <li class="nav-item"><a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">Skor Kad Rayuan</a></li>
                 <li class="nav-item"><a class="nav-link" href="#tab-8" data-bs-toggle="tab" role="tab">Rumusan Skor Kad Rayuan</a></li>
                 @endif
@@ -386,77 +389,87 @@
                 @endif
 
                 <!--VERIFIKASI GPSS JALAN-->
-                @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")
+                @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan" || 
+                    $projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan")
                 @role('pemudah-cara|ketua-pemudah-cara|penilai|ketua-penilai')
                 <div class="tab-pane" id="tab-2" role="tabpanel">
                     <div class="card mt-3">
                         <div class="card-body">
-                            <h4 class="mb-3">VERIFIKASI PERMARKAHAN GPSS JALAN</h4>
-                            <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="row mx-3 mb-2">
-                                    <div class="col-5 mb-2">
-                                        <label class="col-form-label">Component:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
-                                                name="gpss_kriteria" onchange="kriteriaVerifikasi()" required>
-                                                @foreach ($verifikasi_kriterias as $akriteria)
-                                                    <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
-                                                        {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
-                                                @endforeach
-                                            </select>
-                                    </div>
-                                    @role('penilai|ketua-penilai')
-                                        <div class="col-5 mb-2">
-                                            <label class="col-form-label">Point Awarded:</label>
-                                        </div>
-                                        <div class="col-7 mb-2">
-                                            <select class="form-select form-control" name="point_awarded" aria-label="Default select example">
-                                                <option selected>Sila Pilih</option>
-                                                <option value="0">0</option>
-                                                <option value="2">2</option>
-                                            </select>
-                                            {{-- <input name="point_awarded" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /> --}}
-                                        </div>
-                                    @endrole
-                                    {{-- <div class="col-5 mb-2">
-                                        <label class="col-form-label">Maximum Marks:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <div class="col-7 mb-2" id="infoKriteriaVerifikasiDipilih"></div>
-                                    </div> --}}
-                                    @role('pemudah-cara|ketua-pemudah-cara')
-                                    <div class="col-5 mb-2">
-                                        <label class="col-form-label">Point Requested (Construction):</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
-                                    </div> 
-                                    @endrole
-                                    <div class="col-5 mb-2">
-                                        <label class="col-form-label">Remarks:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
-                                    </div>
-                                    <div class="col-5 mb-2">
-                                    <label class="col-form-label">Upload File:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input class="form-control" type="file" name="dokumen1">
-                                        <input class="form-control" type="file" name="dokumen2">
-                                        <input class="form-control" type="file" name="dokumen3">
-                                        <input class="form-control" type="file" name="dokumen4">
-                                        <input class="form-control" type="file" name="dokumen5">
-                                    </div>
-                                    <div class="row mt-3">
-                                        <div class="col text-center">
-                                            <button type="submit" class="btn btn-primary">Simpan</button>
-                                        </div>
-                                    </div>
+                            @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan")
+                            <form action="/projek/{{$projek->id}}/sah-gpss-jalan">
+                                <div class="col text-center">
+                                    <button class="btn btn-primary" type="submit">Isi Skor Kad Verifikasi</button>
                                 </div>
                             </form>
+                            @endif
+                            @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan")
+                                <h4 class="mb-3">VERIFIKASI PERMARKAHAN GPSS JALAN</h4>
+                                <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row mx-3 mb-2">
+                                        <div class="col-5 mb-2">
+                                            <label class="col-form-label">Component:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
+                                                    name="gpss_kriteria" onchange="kriteriaVerifikasi()" required>
+                                                    @foreach ($verifikasi_kriterias as $akriteria)
+                                                        <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
+                                                            {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
+                                        @role('penilai|ketua-penilai')
+                                            <div class="col-5 mb-2">
+                                                <label class="col-form-label">Point Awarded:</label>
+                                            </div>
+                                            <div class="col-7 mb-2">
+                                                <select class="form-select form-control" name="point_awarded" aria-label="Default select example">
+                                                    <option selected>Sila Pilih</option>
+                                                    <option value="0">0</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                                {{-- <input name="point_awarded" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /> --}}
+                                            </div>
+                                        @endrole
+                                        {{-- <div class="col-5 mb-2">
+                                            <label class="col-form-label">Maximum Marks:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <div class="col-7 mb-2" id="infoKriteriaVerifikasiDipilih"></div>
+                                        </div> --}}
+                                        @role('pemudah-cara|ketua-pemudah-cara')
+                                        <div class="col-5 mb-2">
+                                            <label class="col-form-label">Point Requested (Construction):</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" />
+                                        </div> 
+                                        @endrole
+                                        <div class="col-5 mb-2">
+                                            <label class="col-form-label">Remarks:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks"></textarea>
+                                        </div>
+                                        <div class="col-5 mb-2">
+                                        <label class="col-form-label">Upload File:</label>
+                                        </div>
+                                        <div class="col-7 mb-2">
+                                            <input class="form-control" type="file" name="dokumen1">
+                                            <input class="form-control" type="file" name="dokumen2">
+                                            <input class="form-control" type="file" name="dokumen3">
+                                            <input class="form-control" type="file" name="dokumen4">
+                                            <input class="form-control" type="file" name="dokumen5">
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>   
@@ -555,7 +568,95 @@
                     <div class="card mt-3">
                         <div class="card-body">
                             <h4>SIJIL GPSS JALAN</h4>
-                            @role('sekretariat')
+                            @role('ketua-pasukan|penolong-ketua-pasukan|pentadbir')
+                                @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan" ||
+                                    $projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan" ||
+                                    $projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan" ||
+                                    $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan" ||
+                                    $projek->status == "Proses Rayuan GPSS Jalan" ||
+                                    $projek->status == "Dalam Pengesahan Rayuan GPSS Jalan" ||
+                                    $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" ||
+                                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
+                                    <div class="col text-center">
+                                        <h3>Peringkat Rekabentuk</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Muat Turun</a>
+                                    </div>
+                                @endif
+                                @if($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan" ||
+                                    $projek->status == "Proses Rayuan GPSS Jalan" ||
+                                    $projek->status == "Dalam Pengesahan Rayuan GPSS Jalan" ||
+                                    $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" ||
+                                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
+                                    <div class="col text-center">
+                                        <h3>Peringkat Verifikasi</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-Jalan">Muat Turun</a>
+                                    </div>
+                                @endif
+                                @if($projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
+                                    <div class="col text-center">
+                                        <h3>Peringkat Rayuan</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Muat Turun</a>
+                                    </div>
+                                @endif
+                                @endrole
+                                @role('sekretariat')
+                                @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan" ||
+                                        $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan" ||
+                                        $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan" ||
+                                        $projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan" ||
+                                        $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan" ||
+                                        $projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan" ||
+                                        $projek->status == "Dalam Pengesahan Skor Verifikasi GPSS Jalan" ||
+                                        $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan" ||
+                                        $projek->status == "Proses Rayuan GPSS Jalan" ||
+                                        $projek->status == "Dalam Pengesahan Rayuan GPSS Jalan" ||
+                                        $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" ||
+                                        $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
+                                        <h3>Peringkat Rekabentuk</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Lihat Sijil</a>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan")
+                                    <form action="/projek/{{$projek->id}}/sah-gpss-jalan" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary" type="submit">Jana</button>
+                                        </div>
+                                    </form>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan" ||
+                                        $projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan" ||
+                                        $projek->status == "Proses Rayuan GPSS Jalan" ||
+                                        $projek->status == "Dalam Pengesahan Rayuan GPSS Jalan" ||
+                                        $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" ||
+                                        $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
+                                        <h3>Peringkat Verifikasi</h3>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Lihat Sijil</a>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan")
+                                    <form action="/projek/{{$projek->id}}/sah-gpss-jalan" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary" type="submit">Jana</button>
+                                        </div>
+                                    </form>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" || 
+                                    $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
+                                    <h3>Peringkat Rayuan</h3>
+                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Lihat Sijil</a>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Rayuan GPSS Jalan")
+                                    <form action="/projek/{{$projek->id}}/sah-gpss-jalan-rayuan" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary" type="submit">Jana</button>
+                                        </div>
+                                    </form>
+                                @endif
+                                @endrole
+                            {{-- @role('sekretariat')
                             @if($projek->status == "Proses Jana Keputusan Rekabentuk GPSS Jalan")
                                 <div class="row mt-3">
                                     <div class="col text-center">
@@ -605,7 +706,7 @@
                                 </div>
                             </div>
                             @endif
-                            @endrole
+                            @endrole --}}
                         </div>
                     </div>
                 </div>
