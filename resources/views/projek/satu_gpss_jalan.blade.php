@@ -139,7 +139,7 @@
                     @endif
                 </form> --}}
                 @endrole 
-                @role('ketua-pasukan|pentadbir|sekretariat')
+                @role('ketua-pasukan|pentadbir|sekretariat|pentadbir')
                 <div class="row mt-3">
                     <div class="col text-center">
                         <button class="btn btn-primary" type="submit" onclick="printJS('printJS-form', 'html')">Muat Turun</button>
