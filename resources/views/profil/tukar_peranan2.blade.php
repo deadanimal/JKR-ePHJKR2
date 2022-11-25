@@ -55,7 +55,7 @@
                             <select name="projek_id" class="form-select form-control" id="projek">
                                 <option value="projek_id" selected hidden>Sila Pilih</option>
                                 @foreach ($projeks as $pr)
-                                    <option value="{{ $pr->projek->id}}">{{ $pr->projek->nama}}</option>
+                                    <option value="{{ $pr->projek->id ?? ""}}">{{ $pr->projek->nama ?? ""}}</option>
                                 @endforeach
                             </select>
                         </div>
