@@ -721,6 +721,7 @@
                                         <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
                                         @endif
                                         @if($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan GPSS Bangunan")
+                                        <button>TEST</button>
                                         <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
                                         @endif
                                     </div>
