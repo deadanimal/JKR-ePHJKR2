@@ -402,68 +402,70 @@
                                     </div>
                                 </form>
                                 @endif
-                                <h4 class="mb-3">VERIFIKASI PERMARKAHAN GPSS BANGUNAN</h4>
-                                <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <input type="hidden" name="fasa" value="verifikasi">
-                                    <div class="row mx-3 mb-2">
-                                        <div class="col-5 mb-2">
-                                            <label class="col-form-label">Element > Component > Product:</label>
-                                        </div>
-                                        <div class="col-7 mb-2">
-                                            <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
-                                                name="gpss_kriteria" onchange="kriteriaVerifikasi()" required>
-                                                @foreach ($verifikasi_kriterias as $akriteria)
-                                                    <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
-                                                        {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        @role('penilai|ketua-penilai')
-                                        <div class="col-5 mb-2">
-                                            <label class="col-form-label">Point Awarded:</label>
-                                        </div>
-                                        <div class="col-7 mb-2">
-                                            <select class="form-select form-control" name="point_awarded" aria-label="Default select example">
-                                                <option selected>Sila Pilih</option>
-                                                <option value="0">0</option>
-                                                <option value="2">2</option>
-                                            </select>
-                                            {{-- <input name="point_awarded" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /> --}}
-                                        </div>
-                                        @endrole
-                                        @role('pemudah-cara|ketua-pemudah-cara')
-                                        <div class="col-5 mb-2">
-                                            <label class="col-form-label">Point Requested (Construction):</label>
-                                        </div>
-                                        <div class="col-7 mb-2">
-                                            <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
-                                            {{-- <input class="form-control" name="markah" type="number" min="0" max="2"/> --}}
-                                        </div>
-                                        @endrole 
-                                        <div class="col-5 mb-2">
-                                            <label class="col-form-label">Remarks:</label>
-                                        </div>
-                                        <div class="col-7 mb-2">
-                                            <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks" required></textarea>
-                                        </div>
-                                        <div class="col-5 mb-2">
-                                        <label class="col-form-label">Upload File:</label>
-                                        </div>
-                                        <div class="col-7 mb-2">
-                                            <input class="form-control" type="file" name="dokumen1">
-                                            <input class="form-control" type="file" name="dokumen2">
-                                            <input class="form-control" type="file" name="dokumen3">
-                                            <input class="form-control" type="file" name="dokumen4">
-                                            <input class="form-control" type="file" name="dokumen5">
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan")
+                                    <h4 class="mb-3">VERIFIKASI PERMARKAHAN GPSS BANGUNAN</h4>
+                                    <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <input type="hidden" name="fasa" value="verifikasi">
+                                        <div class="row mx-3 mb-2">
+                                            <div class="col-5 mb-2">
+                                                <label class="col-form-label">Element > Component > Product:</label>
+                                            </div>
+                                            <div class="col-7 mb-2">
+                                                <select class="form-select form-control" id="kriteriaVerifikasiDipilih"
+                                                    name="gpss_kriteria" onchange="kriteriaVerifikasi()" required>
+                                                    @foreach ($verifikasi_kriterias as $akriteria)
+                                                        <option value="{{ $akriteria->id }}">{{ $akriteria->elemen }} >
+                                                            {{ $akriteria->komponen }} > {{$akriteria->produk}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            @role('penilai|ketua-penilai')
+                                            <div class="col-5 mb-2">
+                                                <label class="col-form-label">Point Awarded:</label>
+                                            </div>
+                                            <div class="col-7 mb-2">
+                                                <select class="form-select form-control" name="point_awarded" aria-label="Default select example">
+                                                    <option selected>Sila Pilih</option>
+                                                    <option value="0">0</option>
+                                                    <option value="2">2</option>
+                                                </select>
+                                                {{-- <input name="point_awarded" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" /> --}}
+                                            </div>
+                                            @endrole
+                                            @role('pemudah-cara|ketua-pemudah-cara')
+                                            <div class="col-5 mb-2">
+                                                <label class="col-form-label">Point Requested (Construction):</label>
+                                            </div>
+                                            <div class="col-7 mb-2">
+                                                <input name="point_req_construction" type="number" maxlength="1" min="0" max="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" required/>
+                                                {{-- <input class="form-control" name="markah" type="number" min="0" max="2"/> --}}
+                                            </div>
+                                            @endrole 
+                                            <div class="col-5 mb-2">
+                                                <label class="col-form-label">Remarks:</label>
+                                            </div>
+                                            <div class="col-7 mb-2">
+                                                <textarea class="form-control" rows="3" name="remarks" type="text" placeholder="Remarks" required></textarea>
+                                            </div>
+                                            <div class="col-5 mb-2">
+                                            <label class="col-form-label">Upload File:</label>
+                                            </div>
+                                            <div class="col-7 mb-2">
+                                                <input class="form-control" type="file" name="dokumen1">
+                                                <input class="form-control" type="file" name="dokumen2">
+                                                <input class="form-control" type="file" name="dokumen3">
+                                                <input class="form-control" type="file" name="dokumen4">
+                                                <input class="form-control" type="file" name="dokumen5">
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col text-center">
+                                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </form>
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div> 
