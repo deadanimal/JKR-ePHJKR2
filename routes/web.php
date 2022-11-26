@@ -30,7 +30,7 @@ Route::get('about/about8', [UserController::class, 'about8']);
 Route::get('contact', [UserController::class, 'contact']); 
 Route::get('keselamatan', [UserController::class, 'keselamatan']); 
 Route::get('privasi', [UserController::class, 'privasi']); 
-Route::get('faq', [FaqController::class, 'senarai']);
+Route::get('pengguna_luar', [FaqController::class, 'pengguna_luar']);
 Route::get('loginjkr', [UserController::class, 'loginjkr']);
 Route::get('daftarjkr', [UserController::class, 'daftarjkr']);
 
@@ -160,6 +160,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('hebahan/{id}', [HebahanController::class, 'kemaskini']);  
     Route::delete('hebahan/{id}', [HebahanController::class, 'buang']);  
     
+    Route::get('faq', [FaqController::class, 'senarai']); 
     Route::post('faq', [FaqController::class, 'cipta']); 
     Route::put('faq/{id}', [FaqController::class, 'kemaskini']);
     Route::get('faq/{id}', [FaqController::class, 'satu']);
@@ -171,6 +172,8 @@ Route::middleware(['auth'])->group(function () {
     // Route::put('maklumbalas/kemaskini/{id}', [MaklumbalasController::class, 'kemaskini']);
     Route::get('maklumbalas/papar/{id}', [MaklumbalasController::class, 'papar']);
     Route::put('maklumbalas/{id}/mesej', [MaklumbalasController::class, 'hantar_mesej']); 
+    Route::delete('maklumbalas/{id}', [MaklumbalasController::class, 'buang']);    
+
  
 
 
@@ -193,11 +196,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('selenggara/cipta_kriteria', [UserController::class, 'cipta_kriteria']); 
     Route::get('selenggara/kemaskini_kriteria/{id}', [UserController::class, 'kemaskini_kriteria']);
     Route::put('selenggara/simpankemaskini_kriteria/{id}', [UserController::class, 'simpankemaskini_kriteria']);
+    Route::delete('selenggara/buang_kriteria/{id}', [UserController::class, 'buang_kriteria']);    
 
     //selenggaragpsskriteria
     Route::post('selenggara/cipta_gpss_kriteria', [UserController::class, 'cipta_gpss_kriteria']); 
     Route::get('selenggara/kemaskini_gpss_kriteria/{id}', [UserController::class, 'kemaskini_gpss_kriteria']);
     Route::put('selenggara/simpankemaskini_gpss_kriteria/{id}', [UserController::class, 'simpankemaskini_gpss_kriteria']);
+    Route::delete('selenggara/buang_gpsskriteria/{id}', [UserController::class, 'buang_gpssKriteria']);    
 
     //email
     Route::get('projek/{id}/gugur_projek', [ProjekController::class, 'email_gugur_projek']);

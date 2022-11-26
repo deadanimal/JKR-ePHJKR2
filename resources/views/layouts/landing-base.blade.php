@@ -148,16 +148,16 @@
             </div>
 
             <div class="col-1 text-end">
-                <a href="#" class="jkr-header">UTAMA</a>
+                <a href="/" class="jkr-header">UTAMA</a>
             </div>
             <div class="col-2 text-end">
-                <a href="#" class="jkr-header">MENGENAI KAMI</a>
+                <a href="/about" class="jkr-header">MENGENAI KAMI</a>
             </div>
             <div class="col-2 text-end">
-                <a href="#" class="jkr-header">HUBUNGI KAMI</a>
+                <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
             </div>
             <div class="col-2 text-end">
-                <a href="#" class="jkr-header">SOALAN LAZIM</a>
+                <a href="pengguna_luar" class="jkr-header">SOALAN LAZIM</a>
             </div>
             <div class="col-2 text-end">
                     <a href="/login" class="btn jkr-header" style="border-color: #F4A258;">LOG MASUK</a>

@@ -14,6 +14,11 @@ class FaqController extends Controller
         return view('faq.senarai', compact('faqs'));
     }
 
+    public function pengguna_luar(Request $request) {    
+        $faqs = Faq::all();
+        return view('faq.pengguna_luar', compact('faqs'));
+    }
+
     public function satu(Request $request) {   
         $id = (int)$request->route('id'); 
         $faq = Faq::find($id);

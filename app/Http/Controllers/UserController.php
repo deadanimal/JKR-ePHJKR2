@@ -258,8 +258,8 @@ class UserController extends Controller
     }
 
     public function senarai_tukar_peranan(Request $request) {   
-        $id = (int)$request->route('id'); 
-        $peranan = PenukaranPeranan::all();
+        $id = (int)$request->route('id');
+        $peranan = PenukaranPeranan::where('sah','0')->get();
         return view('senaraiPengguna.senarai_tukar_peranan', compact('peranan'));
     }
 
@@ -550,6 +550,14 @@ class UserController extends Controller
         return redirect('/selenggara');
     }
 
+    public function buang_kriteria(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $kriteria = Kriteria::find($id); 
+        $kriteria->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return redirect('/selenggara');
+    }
+
     //selenggaraGpsskriteria
     public function cipta_gpss_kriteria(Request $request) {
         $gpss_kriteria = New GpssKriteria();
@@ -570,7 +578,7 @@ class UserController extends Controller
     public function kemaskini_gpss_kriteria(Request $request) {   
         $id = (int)$request->route('id'); 
         $gpss_kriteria = GpssKriteria::find($id);
-        return view('selenggara/gpss_kriteria', compact('gpss_kriteria'));
+        return view('selenggara.gpss_bangunan', compact('gpss_kriteria'));
     }
 
     public function simpankemaskini_gpss_kriteria(Request $request) {
@@ -589,6 +597,14 @@ class UserController extends Controller
         alert()->success('Maklumat telah disimpan', 'Berjaya');
         return redirect('/selenggara');
     }
+
+    public function buang_gpssKriteria(Request $request) {  
+        $id = (int)$request->route('id'); 
+        $gpss_kriteria = GpssKriteria::find($id); 
+        $gpss_kriteria->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
+        return redirect('/selenggara');
+    } 
 
 
     public function loginjkr()
@@ -631,7 +647,7 @@ class UserController extends Controller
         $user->save();
         // Mail::to('haris.zahari@pipeline-network.com')->send(new LupaKatalaluan);
         Mail::to($user->email)->send(new LupaKatalaluan);
-        alert()->success('Sila Periksa Email Yang Didaftar', 'Berjaya');
+        alert()->success('Sila Login Kembali', 'Berjaya');
         return redirect('/login');
     }
 

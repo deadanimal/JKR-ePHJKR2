@@ -42,7 +42,7 @@
                                     <div class="col-7 mb-2">
                                         <div class="row mt-4">
                                             <div class="col-6">
-                                                <a href="/manual" class="btn btn-outline-primary">Batal</a>
+                                                <a href="/dashboard" class="btn btn-outline-primary">Batal</a>
                                             </div>
                                             <div class="col-6 text-end">
                                                 <button type="submit" class="btn btn-primary">Tambah</button>

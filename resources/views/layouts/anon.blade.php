@@ -736,7 +736,7 @@
                     <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
                 </div>
                 <div class="col-2 text-end">
-                    <a href="/faq" class="jkr-header">SOALAN LAZIM</a>
+                    <a href="/pengguna_luar" class="jkr-header">SOALAN LAZIM</a>
                 </div>
                 <div class="col-2 text-end">
                     <a href="/login" class="btn jkr-header" style="border-color: #F4A258;">LOG MASUK</a>

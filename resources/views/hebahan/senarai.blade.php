@@ -57,7 +57,7 @@
                                         <div class="col-7 mb-2">
                                             <div class="row mt-4">
                                                 <div class="col-6">
-                                                    <a href="/hebahan" class="btn btn-outline-primary">Batal</a>
+                                                    <a href="/dashboard" class="btn btn-outline-primary">Batal</a>
                                                 </div>
                                                 <div class="col-6 text-end">
                                                     <button type="submit" class="btn btn-primary">Tambah</button>
@@ -92,7 +92,9 @@
                                         <th class="sort">Bil.</th>
                                         <th class="sort">Tajuk Hebahan</th>
                                         <th class="sort">Kategori</th>
+                                        @role('sekretariat|pentadbir')
                                         <th class="sort">Tindakan</th>
+                                        @endrole
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white">

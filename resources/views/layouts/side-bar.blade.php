@@ -81,6 +81,7 @@
             </a>
         </li>
 
+        @permission('profil')  
         <li class="nav-item">
             <a class="nav-link" href="/profil">
                 <div class="d-flex align-items-center nav-link-side">
@@ -88,8 +89,10 @@
                 </div>
             </a>
         </li>
+        @endpermission
 
-        @role('pentadbir|sekretariat')  
+        @permission('senaraiPengguna')  
+        {{-- @role('pentadbir|sekretariat')   --}}
         <li class="nav-item">
             <a class="nav-link" href="/senaraiPengguna">
                 <div class="d-flex align-items-center nav-link-side">
@@ -97,9 +100,11 @@
                 </div>
             </a>
         </li>
-        @endrole
+        {{-- @endrole --}}
+        @endpermission
 
-        @role('pentadbir|pengurusan-atasan|sekretariat|ketua-pasukan|penolong-ketua-pasukan')
+        @permission('laporan')  
+        {{-- @role('pentadbir|pengurusan-atasan|sekretariat|ketua-pasukan|penolong-ketua-pasukan') --}}
         <li class="nav-item">
             <a class="nav-link" href="/laporan">
                 <div class="d-flex align-items-center nav-link-side">
@@ -107,10 +112,12 @@
                 </div>
             </a>
         </li>  
-        @endrole
+        {{-- @endrole --}}
+        @endpermission
 
 
-        @role('pentadbir|pengurusan-atasan|pengguna|sekretariat|ketua-pasukan|pemudah-cara|penilai|ketua-validasi|pasukan-validasi|ketua-penilai|ketua-pemudah-cara|penolong-ketua-pasukan')
+        @permission('projek')  
+        {{-- @role('pentadbir|pengurusan-atasan|pengguna|sekretariat|ketua-pasukan|pemudah-cara|penilai|ketua-validasi|pasukan-validasi|ketua-penilai|ketua-pemudah-cara|penolong-ketua-pasukan') --}}
         {{-- @if($user_role->hasRole('ketua-pasukan|pemudah-cara|penilai|ketua-validasi|pasukan-validasi|ketua-penilai|ketua-pemudah-cara'))   --}}
         <li class="nav-item">
             <a class="nav-link" href="/projek">
@@ -120,8 +127,10 @@
             </a>
         </li>
         {{-- @endif --}}
-        @endrole
+        {{-- @endrole --}}
+        @endpermission
 
+        @permission('manual')  
         <li class="nav-item">
             <a class="nav-link" href="/manual">
                 <div class="d-flex align-items-center nav-link-side">
@@ -129,7 +138,9 @@
                 </div>
             </a>
         </li>
+        @endpermission
 
+        @permission('hebahan')  
         <li class="nav-item">
             <a class="nav-link" href="/hebahan">
                 <div class="d-flex align-items-center nav-link-side">
@@ -137,7 +148,9 @@
                 </div>
             </a>
         </li>
+        @endpermission
 
+        @permission('faq')  
         {{-- @role('pengurusan-atasan')  --}}
         <li class="nav-item">
             <a class="nav-link" href="/faq">
@@ -147,7 +160,9 @@
             </a>
         </li>
         {{-- @endrole --}}
+        @endpermission
 
+        @permission('maklumbalas')  
         <li class="nav-item">
             <a class="nav-link" href="/maklumbalas">
                 <div class="d-flex align-items-center nav-link-side">
@@ -155,8 +170,10 @@
                 </div>
             </a>
         </li>
+        @endpermission
 
-        @role('pentadbir|sekretariat')  
+        @permission('selenggara')  
+        {{-- @role('pentadbir|sekretariat')   --}}
         <li class="nav-item">
             <a class="nav-link" href="/selenggara">
                 <div class="d-flex align-items-center nav-link-side">
@@ -164,7 +181,8 @@
                 </div>
             </a>
         </li>              
-        @endrole     
+        {{-- @endrole      --}}
+        @endpermission
         
         @permission('cubaan')  
         <li class="nav-item">
