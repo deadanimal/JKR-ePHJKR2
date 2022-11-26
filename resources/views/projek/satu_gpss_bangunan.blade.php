@@ -750,6 +750,7 @@
                                 </div>
                             </form>
                             @endrole
+                            @role('ketua-pasukan|penolong-ketua-pasukan')
                             @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan" ||
                                 $projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan" ||
                                 $projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan" ||

@@ -751,7 +751,8 @@ class ProjekController extends Controller
                     if($markah->markah != null) {
                         $html_button = $markah->markah;
                     }
-                }                
+                }      
+                // dd($markah);          
                 return $html_button;     
             })
             ->addColumn('markah_bei', function (Kriteria $kriteria) use ($projek) {
@@ -4884,7 +4885,7 @@ class ProjekController extends Controller
 
             $rayuan_kriterias = Kriteria::where([
                 ['borang','=', 'BARU C'],
-                ['fasa', '=', 'BARU C']
+                ['fasa', '=', 'validasi']
             ])->get();
             
             // Rekabentuk borang BARU C
