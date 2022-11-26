@@ -396,7 +396,8 @@
                     <div class="card mt-3">
                         <div class="card-body">
                             @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Jalan")
-                            <form action="/projek/{{$projek->id}}/sah-gpss-jalan">
+                            <form action="/projek/{{$projek->id}}/sah-gpss-jalan" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="col text-center">
                                     <button class="btn btn-primary" type="submit">Isi Skor Kad Verifikasi</button>
                                 </div>
