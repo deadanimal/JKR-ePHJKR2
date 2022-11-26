@@ -737,27 +737,11 @@
                                     @endif
                                 @endrole
                                 @role('sekretariat')
-                                <div class="row mt-3">
-                                    <div class="col text-center">
-                                        @if($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
-                                            <button class="btn btn-primary" type="submit">Jana</button>
-                                            @if($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan" ||
-                                                $projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
-                                                $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
-                                                $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
-                                                $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
-                                                $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
-                                                $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
-                                                $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
-                                                $projek->status == "Proses Rayuan Bangunan" ||
-                                                $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                                $projek->status == "Selesai Pengesahan Rayuan Bangunan")
-                                                <h3>Peringkat Rekabentuk</h3>
-                                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
-                                            @endif
-                                        @elseif($projek->status == "Dalam Pengesahan Skor Verifikasi Bangunan")
-                                        <button class="btn btn-primary" type="submit">Jana</button>
-                                        @if($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
+                                {{-- <div class="row mt-3"> --}}
+                                    {{-- <div class="col text-center"> --}}
+                                        @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
+                                            $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
+                                            $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
                                             $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
@@ -765,27 +749,58 @@
                                             $projek->status == "Proses Rayuan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                            <h3>Peringkat Rekabentuk</h3>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Lihat Sijil</a>
+                                        @endif
+                                        <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan")
+                                                <button class="btn btn-primary" type="submit">Jana</button>
+                                            @endif
+                                        </form>
+                                        @if($projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                            $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
+                                            $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
+                                            $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                            $projek->status == "Proses Rayuan Bangunan" ||
+                                            $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                            $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                             <h3>Peringkat Verifikasi</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Lihat Sijil</a>
                                         @endif
-                                        @elseif($projek->status == "Dalam Pengesahan Skor Validasi Bangunan")
-                                            <button class="btn btn-primary" type="submit">Jana</button>
-                                            @if($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
-                                                $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
-                                                $projek->status == "Proses Rayuan Bangunan" ||
-                                                $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                                $projek->status == "Selesai Pengesahan Rayuan Bangunan")
-                                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                        <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @if($projek->status == "Selesai Pengesahan Verifikasi Bangunan")
+                                                <button class="btn btn-primary" type="submit">Jana</button>
                                             @endif
-                                        @elseif($projek->status == "Dalam Pengesahan Rayuan Bangunan")
-                                            <button class="btn btn-primary" type="submit">Jana</button>
-                                            @if($projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                                $projek->status == "Selesai Pengesahan Rayuan Bangunan")
-                                                <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
-                                            @endif
+                                        </form>
+                                        @if($projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                            $projek->status == "Proses Rayuan Bangunan" ||
+                                            $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
+                                            $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+                                            $projek->status == "Selesai Rayuan Bangunan")
+                                            <h3>Peringkat Validasi</h3>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Lihat Sijil</a>
                                         @endif
-                                    </div>
-                                </div>
+                                        <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @if($projek->status == "Selesai Pengesahan Validasi Bangunan")
+                                                <button class="btn btn-primary" type="submit">Jana</button>
+                                            @endif
+                                        </form>
+                                        @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+                                            $projek->status == "Selesai Rayuan Bangunan")
+                                            <h3>Peringkat Rayuan</h3>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Lihat Sijil</a>
+                                        @endif
+                                        <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @if($projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                                <button class="btn btn-primary" type="submit">Jana</button>
+                                            @endif
+                                        </form>
+                                    {{-- </div> --}}
+                                {{-- </div> --}}
                                 @endrole
                             </div>
                         </div>
