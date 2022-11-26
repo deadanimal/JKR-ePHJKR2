@@ -857,31 +857,58 @@
                                             </tr>
                                         </thead>
                                     </table>
-                                    @role('sekretariat')
                                     <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="row mt-3">
                                             <div class="col text-center">
+                                                @role('sekretariat')
                                                 @if($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
+                                                @endrole
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                @role('sekretariat')
                                                 @if($projek->status == "Dalam Pengesahan Skor Verifikasi Bangunan")
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
+                                                @endrole
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                @role('sekretariat')
                                                 @if($projek->status == "Dalam Pengesahan Skor Validasi Bangunan")
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
-                                                @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
+                                                @endrole
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                @role('sekretariat')
+                                                @if($projek->status == "Dalam Pengesahan Skor Rayuan Bangunan")
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
+                                                @endif
                                                 @endif
                                             </div>
                                         </div>
                                     </form>
-                                    @endrole
                                 </div>
                                 @role('ketua-pemudah-cara|pemudah-cara')
                                     <div class="row mt-3">
