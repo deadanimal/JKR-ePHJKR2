@@ -715,17 +715,19 @@
                                             </thead>
                                         </table>
                                     </div>
-                                    @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
                                     <div class="col text-center">
                                         @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
+                                        @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
                                         <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                        @endrole
                                         @endif
                                         @if($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan GPSS Bangunan")
+                                        @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
                                         <button>TEST</button>
                                         <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                        @endrole
                                         @endif
                                     </div>
-                                    @endrole
                                     @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             <div class="col text-center">
