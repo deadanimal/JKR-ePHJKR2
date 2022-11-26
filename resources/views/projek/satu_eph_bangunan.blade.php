@@ -112,20 +112,6 @@
                             <button class="btn btn-primary mx-3 my-3" type="submit">Pengisian Skor Rekabentuk Bangunan Sudah Diproses</button> --}}
                         {{-- @elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Skor Rekabentuk Bangunan Sudah Selesai</button> --}}
-                        @elseif ($projek->status == "Selesai Pengesahan Rekabentuk Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Rekabentuk Bangunan</button>
-                        @elseif ($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Verifikasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Selesai Pengesahan Verifikasi Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Verifikasi Bangunan</button>
-                        @elseif ($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Proses Pengisian Skor Validasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Dalam Pengesahan Skor Validasi Permarkahan Bangunan</button>
-                        @elseif ($projek->status == "Selesai Pengesahan Validasi Bangunan")    
-                            <button class="btn btn-primary mx-3 my-3" type="submit">Selesai Pengesahan Validasi Bangunan</button>
                         @endif
                     </form>
                     {{-- <form action="/projek/{{$projek->id}}/sah-eph-rayuan">
