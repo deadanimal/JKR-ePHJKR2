@@ -12,8 +12,9 @@ class MaklumbalasController extends Controller
 {
 
     public function senarai(Request $request) {    
+        // $maklums = Maklumbalas::all();
         $user = $request->user();
-        if ($user->hasRole('sekretariat')) {
+        if ($user->hasRole('sekretariat|pentadbir')) {
             $maklums = Maklumbalas::all();    
         } else {
             $maklums = Maklumbalas::where('user_id', $user->id)->get();
@@ -126,6 +127,14 @@ class MaklumbalasController extends Controller
         }
         $mesej->save();   
         alert('Mesej Dihantar', 'Berjaya');
+        return back();
+    }
+
+    public function buang(Request $request) {    
+        $id = (int)$request->route('id'); 
+        $maklum = Maklumbalas::find($id);
+        $maklum->delete();
+        alert()->success('Maklumat telah dibuang', 'Berjaya');
         return back();
     }
 

@@ -11,7 +11,7 @@
             <li class="nav-item"><a class="nav-link" href="#tab-4" data-bs-toggle="tab" role="tab">Audit Log</a></li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane" id="tab-1" role="tabpanel">
+            <div class="tab-pane active" id="tab-1" role="tabpanel">
 
                 <div class="row">
                     <div class="col">
@@ -51,7 +51,7 @@
                                                     <div class="col-7 mb-2">
                                                         <div class="row mt-4">
                                                             <div class="col-6">
-                                                                <a href="/selenggara" class="btn btn-outline-primary">Batal</a>
+                                                                <a href="/dashboard" class="btn btn-outline-primary">Batal</a>
                                                             </div>
                                                             <div class="col-6 text-end">
                                                                 <button type="submit"
@@ -172,7 +172,7 @@
                                                     <div class="col-7 mb-2">
                                                         <div class="row mt-4">
                                                             <div class="col-6">
-                                                                <a href="/selenggara"
+                                                                <a href="/dashboard"
                                                                     class="btn btn-outline-primary">Batal</a>
                                                             </div>
                                                             <div class="col-6 text-end">
@@ -275,7 +275,7 @@
                         {{-- <li class="nav-item"><a class="nav-link" href="#tab-8" data-bs-toggle="tab" role="tab">GPSS Jalan</a></li> --}}
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane" id="tab-5" role="tabpanel">
+                        <div class="tab-pane active" id="tab-5" role="tabpanel">
                             <div class="row mb-3">
                                 <div class="col">
                                     <div class="card">
@@ -411,7 +411,7 @@
                                                                                         class="fas fa-edit"></i></a>
                                                                                 </div>
                                                                                 <div class="col-auto">
-                                                                                    <form action="/selenggaraKriteria/{{ $kriteria->id }}" method="post">
+                                                                                    <form action="/selenggara/buang_kriteria/{{ $kriteria->id }}" method="post">
                                                                                     @method('DELETE')
                                                                                     @csrf
                                                                                     <button type="submit"
@@ -668,21 +668,21 @@
                                                                 </thead>
                                                                 <tbody class="bg-white">
             
-                                                                    @foreach ($Gpsskriteria as $selenggaraKriteria)
+                                                                    @foreach ($Gpsskriteria as $GpssKriteria)
                                                                     <tr>
                                                                         <td>{{ $loop->iteration }}</td>
-                                                                        <td>{{ $selenggaraKriteria->elemen }}</td>
-                                                                        <td>{{ $selenggaraKriteria->komponen }}</td>
-                                                                        <td>{{ $selenggaraKriteria->produk }}</td>
+                                                                        <td>{{ $GpssKriteria->elemen }}</td>
+                                                                        <td>{{ $GpssKriteria->komponen }}</td>
+                                                                        <td>{{ $GpssKriteria->produk }}</td>
                                                                         <td>
                                                                             <div class="row">
                                                                                 <div class="col-auto">
-                                                                                    <a href="/selenggara/kemaskini_gpss_kriteria/{{ $selenggaraKriteria->id }}/edit"
+                                                                                    <a href="/selenggara/kemaskini_gpss_kriteria/{{ $GpssKriteria->id }}"
                                                                                     class="btn btn-sm btn-primary"><i
                                                                                         class="fas fa-edit"></i></a>
                                                                                 </div>
                                                                                 <div class="col-auto">
-                                                                                    <form action="/selenggaraGpssKriteria/{{ $selenggaraKriteria->id }}" method="post">
+                                                                                    <form action="/selenggara/buang_gpsskriteria/{{ $GpssKriteria->id }}" method="post">
                                                                                     @method('DELETE')
                                                                                     @csrf
                                                                                     <button type="submit"

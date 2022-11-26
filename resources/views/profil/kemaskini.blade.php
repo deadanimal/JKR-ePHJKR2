@@ -34,49 +34,49 @@
                         <label class="col-form-label">Nama:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="name" value="{{ $pengguna->name }}" />
+                        <input class="form-control" name="name" value="{{ $pengguna->name }}" required/>
                     </div>
     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Emel Pengguna:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="email" value="{{ $pengguna->email }}" />
+                        <input class="form-control" name="email" value="{{ $pengguna->email }}" required/>
                     </div>
     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">No. Telefon Bimbit:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="telNo" value="{{ $pengguna->telNo}}" />
+                        <input class="form-control" name="telNo" value="{{ $pengguna->telNo}}" required/>
                     </div>
 
                     <div class="col-3 mb-2">
                         <label class="col-form-label">No. Fax:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="faxNo" value="{{ $pengguna->faxNo}}" />
+                        <input class="form-control" name="faxNo" value="{{ $pengguna->faxNo}}" required/>
                     </div>
 
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Nama Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" id="districtSel" name="nama_syarikat" value="{{ $pengguna->nama_syarikat }}" />
+                        <input class="form-control" id="districtSel" name="nama_syarikat" value="{{ $pengguna->nama_syarikat }}" required/>
                     </div>
     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Nama Cawangan:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="nama_cawangan" value="{{ $pengguna->nama_cawangan }}" />
+                        <input class="form-control" name="nama_cawangan" value="{{ $pengguna->nama_cawangan }}" required/>
                     </div>
     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Alamat Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="alamat_syarikat" value="{{ $pengguna->alamat_syarikat }}" />
+                        <input class="form-control" name="alamat_syarikat" value="{{ $pengguna->alamat_syarikat }}" required/>
                     </div>
 
                     <div class="col-3 mb-2">
@@ -102,14 +102,14 @@
                         <label class="col-form-label">Kata Laluan:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" type="password" name="password"/>
+                        <input class="form-control" type="password" name="password" required/>
                     </div>
 
-                    {{-- @role('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|penilai|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara') --}}
+                    @role('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|penilai|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara')
                     <div class="col-10 text-end">
                         <a href="/profil/tukar_peranan2/{{$pengguna->id}}" class="text-primary">Penukaran Peranan</a>
                     </div>
-                    {{-- @endrole --}}
+                    @endrole
     
                     <div class="col-3 mb-2">
                         

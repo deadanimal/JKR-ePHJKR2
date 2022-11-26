@@ -80,7 +80,7 @@
                                     <div class="col-7 mb-2">
                                         <div class="row mt-4">
                                             <div class="col-6">
-                                                <a href="/selenggaraKriteria"
+                                                <a href="/selenggara"
                                                     class="btn btn-outline-primary">Batal</a>
                                             </div>
                                             <div class="col-6 text-end">

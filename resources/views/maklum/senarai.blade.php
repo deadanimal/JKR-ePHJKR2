@@ -24,7 +24,7 @@
                                         <label class="col-form-label">Subjek:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="subjek" type="text"/>
+                                        <input class="form-control" name="subjek" type="text" required/>
                                     </div>
 
                                     <div class="col-3 mb-2">
@@ -58,13 +58,13 @@
                                         <label class="col-form-label">Keterangan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <textarea class="form-control" name="keterangan"></textarea>
+                                        <textarea class="form-control" name="keterangan" required></textarea>
                                     </div>                                    
                     
                                     <div class="col-7 mb-2">
                                         <div class="row mt-4">
                                             <div class="col-6">
-                                                <a href="/maklumbalas" class="btn btn-outline-primary">Batal</a>
+                                                <a href="/dashboard" class="btn btn-outline-primary">Batal</a>
                                             </div>
                                             <div class="col-6 text-end">
                                                 <button type="submit" class="btn btn-primary">Hantar</button>

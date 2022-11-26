@@ -84,7 +84,7 @@
                                                     </select>
                                                 </div>
                                                 <button name="sah" value="1" type="submit"
-                                                    class="btn btn-primary">SAH</button>
+                                                    class="btn btn-primary">Lulus</button>
                                                 </form>
                                             </div>
                                             <div class="col-auto">

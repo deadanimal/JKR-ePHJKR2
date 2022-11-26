@@ -49,6 +49,13 @@ class RegisteredUserController extends Controller
         //     'email' => $request->email,
         //     'password' => Hash::make($request->password),
         // ]);
+
+        //check kalo dah wujud
+        $proj = User::where('email',$request->email)->get();
+        if(count($proj) > 0){
+            alert()->Error('Maklumat telah wujud', 'Gagal');
+            return redirect('/login');
+        }
         
         $user = new User();
         $user->name = $request->name;
