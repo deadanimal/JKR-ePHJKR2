@@ -857,12 +857,17 @@
                                         </thead>
                                     </table>
                                     @role('sekretariat')
+                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                        @csrf
                                         <div class="row mt-3">
                                             <div class="col text-center">
-                                                <input type="hidden" name="fasa" value="rekabentuk">
-                                                <button class="btn btn-primary">Sah</button>
+                                                @if($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
+                                                    <button class="btn btn-primary" type="submit">Sah</button>
+                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
+                                                @endif
                                             </div>
                                         </div>
+                                    </form>
                                     @endrole
                                 </div>
                                 @role('ketua-pemudah-cara|pemudah-cara')
