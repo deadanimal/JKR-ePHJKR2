@@ -857,59 +857,55 @@
                                             </tr>
                                         </thead>
                                     </table>
-                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                @role('sekretariat')
-                                                @if($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
-                                                    <button class="btn btn-primary" type="submit">Sah</button>
-                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
-                                                @endif
-                                                @endrole
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                @role('sekretariat')
-                                                @if($projek->status == "Dalam Pengesahan Skor Verifikasi Bangunan")
-                                                    <button class="btn btn-primary" type="submit">Sah</button>
-                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
-                                                @endif
-                                                @endrole
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                @role('sekretariat')
-                                                @if($projek->status == "Dalam Pengesahan Skor Validasi Bangunan")
-                                                    <button class="btn btn-primary" type="submit">Sah</button>
-                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
-                                                @endif
-                                                @endrole
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row mt-3">
-                                            <div class="col text-center">
-                                                @role('sekretariat')
-                                                @if($projek->status == "Dalam Pengesahan Skor Rayuan Bangunan")
-                                                    <button class="btn btn-primary" type="submit">Sah</button>
-                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
-                                                @endif
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
+                                <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            @role('sekretariat')
+                                            @if($projek->status == "Dalam Pengesahan Skor Rekabentuk Bangunan")
+                                                <button class="btn btn-primary" type="submit">Sah</button>
+                                            @endif
+                                            @endrole
+                                        </div>
+                                    </div>
+                                </form>
+                                @if($projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan")
+                                @role('sekretariat')
+                                <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                                <button class="btn btn-primary" type="submit">Sah</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                @endif
+                                @endrole
+                                <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            @role('sekretariat')
+                                            @if($projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan")
+                                                <button class="btn btn-primary" type="submit">Sah</button>
+                                            @endif
+                                            @endrole
+                                        </div>
+                                    </div>
+                                </form>
+                                <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row mt-3">
+                                        <div class="col text-center">
+                                            @role('sekretariat')
+                                            @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
+                                                <button class="btn btn-primary" type="submit">Sah</button>
+                                            @endif
+                                            @endif
+                                        </div>
+                                    </div>
+                                </form>
                                 @role('ketua-pemudah-cara|pemudah-cara')
                                     <div class="row mt-3">
                                         <div class="col text-center">
@@ -921,8 +917,14 @@
                                         </div>
                                     </div>
                                 @endrole
-                                @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
+                                @if($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
                                     $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                    $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                    $projek->status == "Proses Rayuan Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                     $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="row mt-3">
