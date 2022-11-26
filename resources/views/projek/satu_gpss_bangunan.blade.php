@@ -395,6 +395,13 @@
                     <div class="tab-pane" id="tab-2" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
+                                @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan")
+                                <form action="/projek/{{$projek->id}}/sah-gpss-bangunan">
+                                    <div class="col text-center">
+                                        <button class="btn btn-primary" type="submit">Isi Skor Kad Verifikasi</button>
+                                    </div>
+                                </form>
+                                @endif
                                 <h4 class="mb-3">VERIFIKASI PERMARKAHAN GPSS BANGUNAN</h4>
                                 <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
                                     @csrf
