@@ -917,8 +917,14 @@
                                         </div>
                                     </div>
                                 @endrole
-                                @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
+                                @if($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
                                     $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                    $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                    $projek->status == "Proses Rayuan Bangunan" ||
+                                    $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                     $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="row mt-3">
