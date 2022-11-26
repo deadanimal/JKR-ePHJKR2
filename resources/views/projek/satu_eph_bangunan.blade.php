@@ -866,15 +866,36 @@
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
                                                 @if($projek->status == "Dalam Pengesahan Skor Verifikasi Bangunan")
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
                                                 @if($projek->status == "Dalam Pengesahan Skor Validasi Bangunan")
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
-                                                @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                @if($projek->status == "Dalam Pengesahan Skor Rayuan Bangunan")
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
