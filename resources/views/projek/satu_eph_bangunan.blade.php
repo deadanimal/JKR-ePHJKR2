@@ -737,8 +737,8 @@
                                     @endif
                                 @endrole
                                 @role('sekretariat')
-                                {{-- <div class="row mt-3"> --}}
-                                    {{-- <div class="col text-center"> --}}
+                                <div class="row mt-3">
+                                    <div class="col text-center">
                                         @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
                                             $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
@@ -799,8 +799,8 @@
                                                 <button class="btn btn-primary" type="submit">Jana</button>
                                             @endif
                                         </form>
-                                    {{-- </div> --}}
-                                {{-- </div> --}}
+                                    </div>
+                                </div>
                                 @endrole
                             </div>
                         </div>
