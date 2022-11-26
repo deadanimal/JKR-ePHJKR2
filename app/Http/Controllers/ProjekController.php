@@ -40,7 +40,7 @@ class ProjekController extends Controller
         if($user->hasRole('pentadbir|sekretariat|pengurusan-atasan')) {
             $projeks = Projek::all();
             //dd($projeks);
-        } else if ($user->hasRole('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara|penilai') ){
+        } elseif ($user->hasRole('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara|penilai') ){
             $projek_roles = ProjekRoleUser::where('user_id', $user->id)->get();
             $projeks = collect();
             foreach($projek_roles as $projek_role) {
