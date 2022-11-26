@@ -866,6 +866,18 @@
                                                     <button class="btn btn-primary" type="submit">Sah</button>
                                                     {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
                                                 @endif
+                                                @if($projek->status == "Dalam Pengesahan Skor Verifikasi Bangunan")
+                                                    <button class="btn btn-primary" type="submit">Sah</button>
+                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
+                                                @endif
+                                                @if($projek->status == "Dalam Pengesahan Skor Validasi Bangunan")
+                                                    <button class="btn btn-primary" type="submit">Sah</button>
+                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
+                                                @endif
+                                                @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
+                                                    <button class="btn btn-primary" type="submit">Sah</button>
+                                                    {{-- <a href="/projek/{{$projek->id}}/sah-gpss-bangunan" class="btn btn-primary" type="submit">Sah</a> --}}
+                                                @endif
                                             </div>
                                         </div>
                                     </form>
