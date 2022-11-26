@@ -398,12 +398,14 @@
                                 @if($projek->status == "Selesai Jana Keputusan Rekabentuk GPSS Bangunan")
                                 <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="col text-center">
-                                        <button class="btn btn-primary" type="submit">Isi Skor Kad Verifikasi</button>
-                                    </div>
+                                    @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
+                                        <div class="col text-center">
+                                            <button class="btn btn-primary" type="submit">Isi Skor Kad Verifikasi</button>
+                                        </div>
+                                    @endrole
                                 </form>
                                 @endif
-                                @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Jalan")
+                                @if($projek->status == "Proses Pengisian Skor Verifikasi GPSS Bangunan")
                                     <h4 class="mb-3">VERIFIKASI PERMARKAHAN GPSS BANGUNAN</h4>
                                     <form action="/projek/{{ $projek->id }}/markah-gpss" method="POST" enctype="multipart/form-data">
                                         @csrf
