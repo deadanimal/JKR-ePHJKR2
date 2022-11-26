@@ -876,6 +876,9 @@
                                         </div>
                                     </div>
                                 @endrole
+                                @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+                                    $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="row mt-3">
                                     <div class="col text-center">
@@ -883,6 +886,7 @@
                                     </div>
                                 </div>
                                 @endrole
+                                @endif
                             </div>
                         </div>
                     </div>
