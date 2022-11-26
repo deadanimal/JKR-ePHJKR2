@@ -51,15 +51,47 @@
                                     <td>{{ $p->nama_syarikat }}</td>
                                     <td>{{ $p->nama_cawangan }}</td>
                                     <td>{{ $p->negeri }}</td>
-                                    <td></td>
+                                    <td> 
+                                        {{-- <div class="col-7 mb-2">
+                                            <select class="form-select form-control" name="nama">
+                                                <option selected disabled="">Sila Pilih</option>
+                                                <option value="pengurusan-atasan">Pengurusan Atasan</option>
+                                                <option value="sekretariat">Sekretariat</option>
+                                                <option value="ketua-pasukan">Ketua Pasukan</option>
+                                                <option value="penolong-ketua-pasukan">Penolong Ketua Pasukan</option>
+                                                <option value="pemudah-cara">Pemudah Cara</option>                            
+                                                <option value="penilai">Penilai</option>
+                                                <option value="pasukan-validasi">Pasukan Validasi</option>
+                                            </select>
+                                        </div> --}}
+                                    </td>
                                     <td>
                                         <div class="col">
                                             <div class="col-auto">
                                                 <form action="/senaraiPengguna/simpan_sah_akaun/{{ $p->id }}" method="post">
                                                 @method('PUT')
                                                 @csrf
+                                                <div class="col-7 mb-2">
+                                                    <select class="form-select form-control" name="nama">
+                                                        <option selected disabled="">Sila Pilih</option>
+                                                        <option value="pengurusan-atasan">Pengurusan Atasan</option>
+                                                        <option value="sekretariat">Sekretariat</option>
+                                                        <option value="ketua-pasukan">Ketua Pasukan</option>
+                                                        <option value="penolong-ketua-pasukan">Penolong Ketua Pasukan</option>
+                                                        <option value="pemudah-cara">Pemudah Cara</option>                            
+                                                        <option value="penilai">Penilai</option>
+                                                        <option value="pasukan-validasi">Pasukan Validasi</option>
+                                                    </select>
+                                                </div>
                                                 <button name="sah" value="1" type="submit"
                                                     class="btn btn-primary">SAH</button>
+                                                </form>
+                                            </div>
+                                            <div class="col-auto">
+                                                <form action="/senaraiPengguna/tolak_sah_akaun/{{ $p->id }}" method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-primary">Tolak</button>
                                                 </form>
                                             </div>
                                         </div>

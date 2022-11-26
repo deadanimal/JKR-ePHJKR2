@@ -65,19 +65,33 @@
                     <div class="col-7 mb-2">
                         <input class="form-control" name="email"/>
                     </div>
+
+                    <div class="col-3 mb-2">
+                        <label class="col-form-label">No. Telefon Bimbit:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <input class="form-control" id="districtSel" name="telNo" />
+                    </div>
+
+                    <div class="col-3 mb-2">
+                        <label class="col-form-label">No. Fax:</label>
+                    </div>
+                    <div class="col-7 mb-2">
+                        <input class="form-control" name="faxNo" />
+                    </div>
                     
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Nama Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="nama_Syarikat"/>
+                        <input class="form-control" name="nama_syarikat"/>
                     </div>
 
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Alamat Syarikat:</label>
                     </div>
                     <div class="col-7 mb-2">
-                        <input class="form-control" name="alamat_Syarikat" />
+                        <input class="form-control" name="alamat_syarikat" />
                     </div>
 
                     <div class="col-3 mb-2">
@@ -97,21 +111,6 @@
                             <option selected>Pilih Bandar</option>  
                         </select>
                     </div>
-    
-                    <div class="col-3 mb-2">
-                        <label class="col-form-label">No. Telefon Bimbit:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <input class="form-control" id="districtSel" name="telNo" />
-                    </div>
-
-                    <div class="col-3 mb-2">
-                        <label class="col-form-label">No. Fax:</label>
-                    </div>
-                    <div class="col-7 mb-2">
-                        <input class="form-control" name="faxNo" />
-                    </div>
-
 
                     <div class="col-3 mb-2">
                         <label class="col-form-label">Kata Laluan:</label>
@@ -127,7 +126,7 @@
                     <div class="col-7 mb-2">
                         <div class="row mt-4">
                             <div class="col-6">
-                                <a href="/senarai_pengguna" class="btn btn-outline-primary">Batal</a>
+                                <a href="/senaraiPengguna" class="btn btn-outline-primary">Batal</a>
                             </div>
                             <div class="col-6 text-end">
                                 <button type="submit" class="btn btn-primary">Daftar</button>
@@ -141,40 +140,41 @@
 
     <script>
         var stateObject = {
-        "Selangor": { "Subang Jaya": ["111111"],"Klang": ["222222"],"Ampang Jaya": ["333333"],"Shah Alam": ["444444"],"Petaling Jaya": ["11111"],"Cheras": ["11111"],"Kajang": ["11111"],"Selayang": ["11111"],"Rawang": ["11111"],"Taman Greenwood": ["11111"],"Semenyih": ["11111"],"Banting": ["11111"],"Balakong": ["11111"],"Gombak Setia": ["11111"],"Kuala Selangor": ["11111"]
-        ,"Serendah": ["11111"],"Bukit Beruntung": ["11111"],"Pengkalan Kundang": ["11111"],"Jenjarom": ["11111"],"Sungai Besar": ["11111"],"Batu Arang": ["11111"],"Tanjung Sepat": ["11111"],"Kuang": ["11111"],"Kuala Kubu Baharu": ["11111"],"Batang Berjuntai": ["11111"],"Bandar Baru Salak Tinggi": ["11111"],"Sekinchan": ["11111"],"Sabak": ["11111"],"Tanjung Karang": ["11111"]
-        ,"Tanjung Karang": ["11111"],"Beranang": ["11111"],"Sungai Pelek": ["11111"]
+        "Selangor": { "Petaling": ["111111"],"Hulu Langat": ["222222"],"Klang": ["333333"],"Gombak": ["444444"],"Kuala Langat": ["11111"],"Sepang": ["11111"],"Kuala Selangor": ["11111"],"Hulu Selangor": ["11111"],"Sabak Bernam": ["11111"]
         },
-        "Kelantan": { "Kota Bharu": ["111111"],"Pengkalan Kubor": ["222222"],"Tanah Merah": ["333333"],"Peringat": ["444444"],"Wakaf Bharu": ["11111"],"Kadok": ["11111"],"Pasir Mas": ["11111"],"Gua Musang": ["11111"],"Kuala Krai": ["11111"],"Tumpat": ["11111"]
+        "Kelantan": { "Kota Bharu": ["111111"],"Pasir Mas": ["222222"],"Tumpat": ["333333"],"Bachok": ["444444"],"Tanah Merah": ["11111"],"Pasir Puteh": ["11111"],"Kuala Krai": ["11111"],"Machang": ["11111"],"Gua Musang": ["11111"],"Jeli": ["11111"]
         }, 
-        "Johor": { "Johor Bahru": ["111111"],"Terbau": ["222222"],"Pasir Gudang": ["333333"],"Bukit Indah": ["444444"],"Skudai": ["11111"],"Kluang": ["11111"],"Batu Phat": ["11111"],"Muar": ["11111"],"Ulu Tiram": ["11111"],"Senai": ["11111"],"Segamat": ["11111"],"Kulai": ["11111"],"Kota Tinggi": ["11111"],"Pontian Kechil": ["11111"],"Tangkak": ["11111"]
-        ,"Bukit Bakri": ["11111"],"Yong Peng": ["11111"],"Pekan Nenas": ["11111"],"Labis": ["11111"],"Mersingr": ["11111"],"Simpang Renggam": ["11111"],"Parit Raja": ["11111"],"Kepala Sawit": ["11111"],"Buloh Kasap": ["11111"],"Chaah": ["11111"]
+        "Johor": { "Johor Bahru": ["111111"],"Batu Pahat": ["222222"],"Kluang": ["333333"],"Kulai Jaya": ["444444"],"Muar": ["11111"],"Kota Tinggi": ["11111"],"Segamat": ["11111"],"Pontian": ["11111"],"Ledang": ["11111"],"Mersing": ["11111"]
         }, 
-        "Terengganu": { "Kuala Terengganu": ["111111"],"Chukai": ["222222"],"Dungun": ["333333"],"Kerteh": ["444444"],"Kuala Berang": ["11111"],"Marang": ["11111"],"Paka": ["11111"],"Jerteh": ["11111"]
+        "Terengganu": { "Kuala Terengganu": ["111111"],"Kemaman": ["222222"],"Dungun": ["333333"],"Besut": ["444444"],"Marang": ["11111"],"Hulu Terengganu": ["11111"],"Setiu": ["11111"],"Kuala Nerus": ["11111"]
         }, 
-        "Melaka": { "Bandaraya Melaka": ["111111"],"Bukit Baru": ["222222"],"Ayer Keroh": ["333333"],"Klebang": ["444444"],"Masjid Tanah": ["11111"],"Sungai Udang": ["11111"],"Batu Berendam": ["11111"],"Alor Gajah": ["11111"],"Bukit Rambai": ["11111"],"Ayer Molek": ["11111"],"Bemban": ["11111"],"Kuala Sungai Baru": ["11111"],"Pulau Sebang": ["11111"]
+        "Melaka": { "Melaka Tengah": ["111111"],"Alor Gajah": ["222222"],"Jasin": ["333333"]
         }, 
-        "Pahang": { "Kuantan": ["111111"],"Temerloh": ["222222"],"Bentong": ["333333"],"Mentakab": ["444444"],"Raub": ["11111"],"Jerantut": ["11111"],"Pekan": ["11111"],"Kuala Lipis": ["11111"],"Bandar Jengka": ["11111"],"Bukit Tinggi": ["11111"]
+        "Pahang": { "Kuantan": ["111111"],"Temerloh": ["222222"],"Bentong": ["333333"],"Maran": ["444444"],"Rompin": ["11111"],"Bera": ["11111"],"Pekan": ["11111"],"Raub": ["11111"],"Jerantut": ["11111"],"Lipis": ["11111"],"Cameron Highlands": ["11111"]
         }, 
-        "Perak": { "Ipoh": ["111111"],"Taiping": ["222222"],"Sitiawan": ["333333"],"Simpang Empat": ["444444"],"Teluk Intan": ["11111"],"Batu Gajah": ["11111"],"Lumut": ["11111"],"Kampung Koh": ["11111"],"Kuala Kangsar": ["11111"],"Sungai Siput": ["11111"],"Tapah": ["11111"],"Bidor": ["11111"],"Parit Buntar": ["11111"],"Ayer Tawar": ["11111"],"Bagan Serai": ["11111"],"Tanjung Malim": ["11111"],"Lawan Kuda Baharu": ["11111"],"Pantai Remis": ["11111"],"Kampar": ["11111"],"Kampung Gajah": ["11111"]
+        "Perak": { "Kinta": ["111111"],"Larut": ["222222"],"Matang": ["333333"],"Manjung": ["444444"],"Hilir Perak": ["11111"],"Kerian": ["11111"],"Batang Padang": ["11111"],"Kuala Kangsar": ["11111"],"Perak Tengah": ["11111"],"Hulu Perak": ["11111"],"Kampar": ["11111"],"Selama": ["11111"]
         }, 
-        "WP Labuan": { "Bandar Labuan": ["111111"]
+        "Wilayah Persekutuan Labuan": { "Labuan": ["111111"]
         },
-        "Negeri Sembilan": { "Seremban": ["111111"],"Port Dickson": ["222222"],"Nilai": ["222222"],"Bahau": ["222222"],"Tampin": ["222222"],"Kuala Pilah": ["222222"]
+        "Negeri Sembilan": { "Seremban": ["111111"],"Port Dickson": ["222222"],"Jempol": ["222222"],"Tampin": ["222222"],"Kuala Pilah": ["222222"],"Rembau": ["222222"],"Jelebu": ["222222"]
         },
-        "WP Kuala Lumpur": { "Bandar Kuala Lumpur": ["111111"]
+        "Wilayah Persekutuan Kuala Lumpur": { "Bukit Bintang": ["111111"],"Bandar Tun Razak": ["111111"],"Cheras": ["111111"],"Setiawangsa": ["111111"],"Kepong": ["111111"],"Lembah Pantai": ["111111"],"Batu": ["111111"],"Seputeh": ["111111"],"Segambut": ["111111"],"Titiwangsa": ["111111"],"Wangsa Maju": ["111111"],
         },
-        "WP Persekutuan": { "Putrajaya": ["111111"]
+        "Wilayah Persekutuan Putrajaya": { "Putrajaya": ["111111"]
         },
-        "Pulai Pinang": { "Bukit Mertajam": ["111111"],"Georgetown": ["222222"],"Sungai Ara": ["222222"],"Gelugor": ["222222"],"Air Itam": ["222222"],"Butterworth": ["222222"],"Perai": ["222222"],"Nibong Tebal": ["222222"],"Permatang Pauh": ["222222"],"Tanjung Tokong": ["222222"],"Kepala Batas": ["222222"],"Tanjung Bungah": ["222222"],"Juru": ["222222"]
+        "Pulai Pinang": { "Timur Laut Pulau Pinang": ["111111"],"Seberang Perai Tengah": ["222222"],"Seberang Perai Utara": ["222222"],"Barat Daya Pulau Pinang": ["222222"],"Seberang Perai Selatan": ["222222"]
         },
-        "Kedah": { "Sungai Petani": ["111111"],"Alor Setar": ["222222"],"Kulim": ["222222"],"Jitra": ["222222"],"Baling": ["222222"],"Pendang": ["222222"],"Langkawi": ["222222"],"Yan": ["222222"],"Sik": ["222222"],"Kuala Nerang": ["222222"],"Pokok Sena": ["222222"],"Badar Baharu": ["222222"]
+        "Kedah": { "Kuala Muda": ["111111"],"Kota Setar": ["222222"],"Kulim": ["222222"],"Kubang Pasu": ["222222"],"Baling": ["222222"],"Langkawi": ["222222"],"Yan": ["222222"],"Sik": ["222222"],"Padang Terap": ["222222"],"Pokok Sena": ["222222"],"Pendang": ["222222"],"Bandar Baharu": ["222222"]
         },
-        "Perlis": { "Kangar": ["111111"],"Arau": ["111111"],"Padang Besar": ["111111"]
+        "Perlis": { "Perlis": ["111111"]
         },
-        "Sabah": { "Kota Kinabalu": ["111111"],"Sandakan": ["222222"],"Tawau": ["222222"],"Lahad Datu": ["222222"],"Keningau": ["222222"],"Putatan": ["222222"],"Donggongon": ["222222"],"Semporna": ["222222"],"Kudat": ["222222"],"Kunak": ["222222"],"Papar": ["222222"],"Ranau": ["222222"],"Beaufort": ["222222"],"Kinarut": ["222222"],"Kota Belud": ["222222"]
+        "Sabah": { "Kota Kinabalu": ["111111"],"Tawau": ["222222"],"Sandakan": ["222222"],"Lahad Datu": ["222222"],"Keningau": ["222222"],"Kinabatangan": ["222222"],"Semporna": ["222222"],"Papar": ["222222"],"Penampung": ["222222"],"Beluran": ["222222"],"Tuaran": ["222222"],"Ranau": ["222222"],
+        "Kota Belud": ["222222"],"Kudat": ["222222"],"Kota Marudu": ["222222"],"Beaufort": ["222222"],"Kunak": ["222222"],"Tenom": ["222222"],"Putatan": ["222222"],"Pitas": ["222222"],"Tambunan": ["222222"],"Tongod": ["222222"],"Sipitang": ["222222"],"Nabawan": ["222222"],"Kuala Penyu": ["222222"]
         },
-        "Sarawak": { "Kuching": ["111111"],"Miri": ["222222"],"Sibu": ["222222"],"Bintulu": ["222222"],"Limbang": ["222222"],"Sarikei": ["222222"],"Sri Aman": ["222222"],"Kapit": ["222222"],"Batu Delapan Bazaar": ["222222"],"Kota Samarahan": ["222222"]
+        "Sarawak": { "Kuching": ["111111"],"Miri": ["222222"],"Sibu": ["222222"],"Bintulu": ["222222"],"Serian": ["222222"],"Kota Samarahan": ["222222"],"Sri Aman": ["222222"],"Marudi": ["222222"],"Betong": ["222222"],"Sarikei": ["222222"],"Kapit": ["222222"],"Bau": ["222222"],"Limbang": ["222222"],
+        "Saratok": ["222222"],"Mukah": ["222222"],"Simunjan": ["222222"],"Lawas": ["222222"],"Belaga": ["222222"],"Lundu": ["222222"],"Asajaya": ["222222"],"Daro": ["222222"],"Tatau": ["222222"],"Maradong": ["222222"],"Kanowit": ["222222"],"Lubok Antu": ["222222"],"Selangau": ["222222"],
+        "Song": ["222222"],"Dalat": ["222222"],"Matu": ["222222"],"Julau": ["222222"],"Pakan": ["222222"],"Tanjung Manis": ["222222"],"Bukit Mabong": ["222222"],"Telang Usan": ["222222"],"Tebedu": ["222222"],"Subis": ["222222"],"Sebauh": ["222222"],"Marudi": ["222222"],"Beluru": ["222222"],
+        "Kabong": ["222222"],"Gedong": ["222222"],"Siburan": ["222222"],"Pantu": ["222222"],"Lingga": ["222222"],"Sebuyau": ["222222"]
         },
         }
 

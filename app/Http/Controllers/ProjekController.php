@@ -39,13 +39,15 @@ class ProjekController extends Controller
         $user = $request->user();
         if($user->hasRole('pentadbir|sekretariat|pengurusan-atasan')) {
             $projeks = Projek::all();
-            //dd($projeks);
-        } elseif ($user->hasRole('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara|penilai') ){
+
+            // dd($projeks);
+        } else if ($user->hasRole('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara|penilai') ){
             $projek_roles = ProjekRoleUser::where('user_id', $user->id)->get();
             $projeks = collect();
             foreach($projek_roles as $projek_role) {
                 $projek = Projek::where('id', $projek_role->projek_id)->first();
                 $projeks->add($projek);
+
             }
         }
         // dd('$projeks');
@@ -254,13 +256,23 @@ class ProjekController extends Controller
 
     public function Pengesahan(Request $request) {
         $id = (int)$request->route('id'); 
-        $projek = Projek::find($id); 
-        $projek->aktif = false;
-        $projek->save();
+        $projek = Projek::find($id);
+        $projek->delete();
+        // $projek->aktif = false;
+        // $projek->save();
 
         alert()->success('Maklumat telah disahkan', 'Berjaya');
         return redirect('/projek/gugur/senarai_gugur_projek');
     }
+
+    // public function buang(Request $request) {  
+    //     $id = (int)$request->route('id'); 
+    //     $peranan = Role::find($id); 
+    //     $peranan->delete();
+
+    //     alert()->success('Maklumat telah dibuang', 'Berjaya');
+    //     return redirect('/selenggara');
+    // }
 
     //email
     public function email_gugur_projek(Request $request){

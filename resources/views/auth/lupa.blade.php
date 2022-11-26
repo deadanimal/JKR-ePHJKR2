@@ -15,13 +15,16 @@
                                     </div>
                                 </div>
                                 <form method="POST" action="/lupa">
+                                    @method('PUT')
                                     @csrf
                                     <div class="mb-3">
                                         <label for="">Email</label>
-                                        <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
+                                        <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" required/>
                                     </div>
 
-                                    <div class="mb-3 text-center">
+                                    <a href="/login" class="btn btn-outline-primary">Kembali</a>
+
+                                    <div class="mb-3 text-end">
                                         <button type="submit" class="btn btn-lg btn-primary">Tukar Katalaluan</button>
                                     </div>
                                 </form>

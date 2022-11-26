@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\PengesahanPendaftaran;
+use App\Models\Role;
+use App\Models\RoleUser;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -55,7 +57,8 @@ class RegisteredUserController extends Controller
         $user->telNo = $request->telNo;
         $user->faxNo = $request->faxNo;
         $user->daerah = $request->daerah;
-        $user->aktif = false;
+        $user->aktif = true;
+        $user->sah = false;
         $user->negeri = $request->negeri;
         $user->alamat_syarikat = $request->alamat_syarikat;
         $user->nama_syarikat = $request->nama_syarikat;
@@ -66,8 +69,17 @@ class RegisteredUserController extends Controller
         $user->save();
         // alert('maklumat telah berjaya', 'Berjaya');
 
-        Mail::to('haris.zahari@pipeline-network.com')->send(new PengesahanPendaftaran);
+        //email utk ramai org
+        // $sekre_id = Role::where('name', 'sekretariat')->first()->id;
+        // $sekre_user = RoleUser::where('role_id', $sekre_id)->get();
+        
+        // $senarai_email = [];
+        // foreach ($sekre_user as $key => $us) {
+        //     array_push($senarai_email, $us->pengguna->email);
+        // }
 
+        Mail::to('haris.zahari@pipeline-network.com')->send(new PengesahanPendaftaran);
+        // Mail::to($senarai_email)->send(new PengesahanPendaftaran);
         event(new Registered($user));
         // Mail::to('maisarah.musa@pipeline-network.com')->send(new AkaunBaru());
 

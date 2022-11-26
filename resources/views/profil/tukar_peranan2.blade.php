@@ -55,7 +55,7 @@
                             <select name="projek_id" class="form-select form-control" id="projek">
                                 <option value="projek_id" selected hidden>Sila Pilih</option>
                                 @foreach ($projeks as $pr)
-                                    <option value="{{ $pr->projek->id}}">{{ $pr->projek->nama}}</option>
+                                    <option value="{{ $pr->projek->id ?? ""}}">{{ $pr->projek->nama ?? ""}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -74,6 +74,7 @@
                         </div>
                         <div class="col-7 mb-2">
                             <select class="form-select form-control" name="role_id_baru">
+                                <option selected disabled="">Sila Pilih</option>
                                 <option value="3">Ketua Pasukan</option>
                                 <option value="4">Penolong Ketua Pasukan</option>
                                 <option value="6">Pemudah Cara</option>
@@ -90,7 +91,7 @@
                         </div>
 
                         <div class="col-7 mb-2">
-                            <input type="file" name="dokumen" class="form-control">
+                            <input type="file" name="dokumen" class="form-control"/>
                         </div>
 
                         <div class="col-7 mb-2">
@@ -110,7 +111,7 @@
     </div>
 </div>
 
-<div class="row mt-2">
+{{-- <div class="row mt-2">
     <div class="col">
         <div class="card">
             <div class="card-body">
@@ -127,29 +128,36 @@
                     </thead>
                     <tbody class="bg-white">
                         @foreach ($peranans as $p)
-                            <tr>
+                            <tr> --}}
                                 {{-- <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td> --}}
 
-                                <td>{{ $loop->iteration }}</td>
+                                {{-- <td>{{ $loop->iteration }}</td>
                                 <td>{{ $p->projek_id }}</td>
                                 <td>{{ $p->role_id_lama }}</td>
                                 <td>{{ $p->role_id_baru }}</td>
                                 <td><a href="https://pipeline-apps.sgp1.digitaloceanspaces.com/{{ $p->dokumen }}">Pautan Dokumen</a></td>
 
-                                <td>
-                                    @role('sekretariat')
-                                    <div class="col">
-                                        <div class="col-auto">
-                                            <form action="/profil/simpan_tukar_peranan/{{--{{ $p->id }}--}}" method="post">
+                                <td> --}}
+                                    {{-- @role('sekretariat') --}}
+                                    {{-- <div class="col"> --}}
+                                        {{-- <div class="col-auto"> --}}
+                                            {{-- <form action="/profil/sah_tukar_peranan2/{{ $p->id }}" method="post">
                                             @method('PUT')
                                             @csrf
                                             <button name="sah" value="1" type="submit"
-                                                class="btn btn-primary">Pengesahan</button>
+                                                class="btn btn-primary">Terima</button>
                                             </form>
                                         </div>
+                                        <div class="col-auto">
+                                            <form action="/profil/tolak_tukar_peranan2/{{ $p->id }}" method="post">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-primary">Tolak</button>
+                                            </form>
+                                        </div> --}}
                                         {{-- <div class="col-auto">
                                             <form action="/profil/simpan2_tukar_peranan/{{--{{ $p->id }}--}" method="post">
                                             @method('PUT')
@@ -158,9 +166,9 @@
                                                 class="btn btn-primary">Reject</button>
                                             </form>
                                         </div> --}}
-                                    </div>
-                                    @endrole
-                                </td>
+                                    {{-- </div> --}}
+                                    {{-- @endrole --}}
+                                {{-- </td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -168,7 +176,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 <script>
     $('#projek').change(function() {

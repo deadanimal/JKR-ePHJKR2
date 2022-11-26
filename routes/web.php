@@ -39,15 +39,15 @@ Route::post('maklumbalas/cipta_pengguna_luar', [MaklumbalasController::class, 'c
 
 
 
-Route::get('lupa', [UserController::class, 'lupa']);
-Route::post('lupa', [UserController::class, 'lupa_katalaluan']);
+// Route::get('lupa', [UserController::class, 'lupa']);
+// Route::post('lupa', [UserController::class, 'lupa_katalaluan']);
 
 
-Route::post('custom-login', [UserController::class, 'custom_login']);
+// Route::post('custom-login', [UserController::class, 'custom_login']);
 
 //lupa password
 Route::get('lupa', [UserController::class, 'tunjuk_lupa']);
-Route::post('lupa', [UserController::class, 'cipta_lupa']);
+Route::put('lupa', [UserController::class, 'cipta_lupa']);
 
 Route::middleware(['auth'])->group(function () {
 
@@ -58,6 +58,8 @@ Route::middleware(['auth'])->group(function () {
     Route::put('profil/simpan_kemaskini/{id}', [UserController::class, 'simpan_kemaskini']);
     Route::get('profil/tukar_peranan/{id}', [UserController::class, 'tukar_peranan']);
     Route::get('profil/tukar_peranan2/{id}', [UserController::class, 'tukar_peranan2']);
+    Route::delete('profil/tolak_tukar_peranan2/{id}', [UserController::class, 'tolak_tukar_peranan2']);
+    Route::put('profil/sah_tukar_peranan2/{id}', [UserController::class, 'sah_tukar_peranan2']);
 
     Route::post('profil/simpan_tukar_peranan2/{id}', [UserController::class, 'simpan_tukar_peranan2']);
     Route::put('profil/simpan_tukar_peranan/{id}', [UserController::class, 'simpan_tukar_peranan']);
@@ -76,6 +78,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('senaraiPengguna/senarai_tukar_peranan', [UserController::class, 'senarai_tukar_peranan']);
     Route::get('senaraiPengguna/sembunyi', [UserController::class, 'senarai_sembunyi']);
     Route::get('senaraiPengguna/pengesahan_akaun_baru', [UserController::class, 'senarai_pengesahan_akaun']);
+    Route::delete('senaraiPengguna/tolak_sah_akaun/{id}', [UserController::class, 'tolak_sah_akaun']);    
     Route::put('senaraiPengguna/simpan_sah_akaun/{id}', [UserController::class, 'simpan_sah_akaun']);
     Route::get('senaraiPengguna/papar/{id}', [UserController::class, 'papar_pengguna']);
     Route::delete('senaraiPengguna/gugur_pengguna/{id}', [UserController::class, 'gugur_pengguna']);    
@@ -190,6 +193,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('selenggara/cipta_kriteria', [UserController::class, 'cipta_kriteria']); 
     Route::get('selenggara/kemaskini_kriteria/{id}', [UserController::class, 'kemaskini_kriteria']);
     Route::put('selenggara/simpankemaskini_kriteria/{id}', [UserController::class, 'simpankemaskini_kriteria']);
+
+    //selenggaragpsskriteria
+    Route::post('selenggara/cipta_gpss_kriteria', [UserController::class, 'cipta_gpss_kriteria']); 
+    Route::get('selenggara/kemaskini_gpss_kriteria/{id}', [UserController::class, 'kemaskini_gpss_kriteria']);
+    Route::put('selenggara/simpankemaskini_gpss_kriteria/{id}', [UserController::class, 'simpankemaskini_gpss_kriteria']);
 
     //email
     Route::get('projek/{id}/gugur_projek', [ProjekController::class, 'email_gugur_projek']);

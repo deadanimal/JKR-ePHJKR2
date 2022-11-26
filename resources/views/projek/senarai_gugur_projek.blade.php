@@ -32,7 +32,7 @@
 
                                         <td>
                                             <div class="row">
-                                                {{-- @role('sekretariat|pentadbir') --}}
+                                                @role('sekretariat')
                                                 <div class="col-auto">
                                                     <form action="/Pengesahan/{{ $projek->id }}" method="post">
                                                         @method('DELETE')
@@ -40,7 +40,7 @@
                                                         <button type="submit" class="btn btn-primary">Pengesahan</button>
                                                     </form>
                                                 </div>
-                                                {{-- @endrole --}}
+                                                @endrole
                                             </div>
                                         </td>
                                     </tr>
