@@ -260,7 +260,7 @@
 
         </style>
 
-    <title>SIJIL ePHJKR BANGUNAN</title>
+    <title>SIJIL ePHJKR JALAN RAYUAN REKABENTUK</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -281,10 +281,10 @@
             </div>
             <div class="pensijilan">PENSIJILAN</div>
             <div class="pHJKR">pHJKR</div>
-            <div class="peringkat-rekabentuk">PERINGKAT REKA BENTUK</div>
+            <div class="peringkat-rekabentuk">PERINGKAT REKABENTUK RAYUAN JALAN</div>
             <div class="anugerah">TELAH DIANUGERAHKAN KEPADA</div>
             <div class="projek">{{$projek->nama}}</div>
-            <img class="img5" src="assets/img/EPHJKR_LOGO1.png" alt="Logo Penarafan" width="250" height="200">
+            {{-- <img class="img5" src="assets/img/EPHJKR_LOGO1.png" alt="Logo Penarafan" width="250" height="200">
             @if ($peratusan_mr >= 80 && $peratusan_mr <= 100)
             <img class="img6" src="assets/img/5bintang.png" alt="Bintang Penarafan" width="500" height="300">
             @elseif ($peratusan_mr >= 65 && $peratusan_mr < 80)
@@ -295,7 +295,7 @@
             <img class="img6" src="assets/img/2bintang.png" alt="Bintang Penarafan" width="500" height="300">
             @elseif ($peratusan_mr <= 29)
             <img class="img6" src="assets/img/1bintang.png" alt="Bintang Penarafan" width="500" height="300">
-            @endif 
+            @endif  --}}
             <div class="potensi-pengiktirafan">POTENSI PENGIKTIRAFAN</div>
             <div class="sektor">SEKTOR</div>
             <div class="bangunan">BANGUNAN</div>

@@ -722,18 +722,18 @@
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                         $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                         <h3>Peringkat Verifikasi</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-verifikasi">Muat Turun</a>
                                     @endif
                                     @if($projek->status == "Selesai Pengesahan Validasi Bangunan" ||
                                         $projek->status == "Proses Rayuan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                         $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                         <h3>Peringkat Validasi</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-validasi">Muat Turun</a>
                                     @endif
                                     @if($projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                         <h3>Peringkat Validasi</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-rayuan">Muat Turun</a>
                                     @endif
                                 @endrole
                                 @role('sekretariat')
@@ -766,7 +766,7 @@
                                             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                             <h3>Peringkat Verifikasi</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Lihat Sijil</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-verifikasi">Lihat Sijil</a>
                                         @endif
                                         <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
                                             @csrf
@@ -780,7 +780,7 @@
                                             $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
                                             $projek->status == "Selesai Rayuan Bangunan")
                                             <h3>Peringkat Validasi</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Lihat Sijil</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-validasi">Lihat Sijil</a>
                                         @endif
                                         <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
                                             @csrf
@@ -791,7 +791,7 @@
                                         @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
                                             $projek->status == "Selesai Rayuan Bangunan")
                                             <h3>Peringkat Rayuan</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Lihat Sijil</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-rayuan">Lihat Sijil</a>
                                         @endif
                                         <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
                                             @csrf

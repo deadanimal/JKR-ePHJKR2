@@ -120,11 +120,22 @@ Route::middleware(['auth'])->group(function () {
     Route::post('projek/{id}/sah-eph-jalan-rayuan-baru', [ProjekController::class, 'sah_projek_eph_jalan_baru_rayuan']);
     Route::post('projek/{id}/sah-eph-jalan-rayuan-naiktaraf', [ProjekController::class, 'sah_projek_eph_jalan_naiktaraf_rayuan']);
     Route::get('projek/{id}/cetak-maklumat', [ProjekController::class, 'cetak_maklumat_projek']);
-    Route::get('projek/{id}/sijil-eph-bangunan', [ProjekController::class, 'sijil_eph_bangunan']);
+    Route::get('projek/{id}/sijil-eph-bangunan-rekabentuk', [ProjekController::class, 'sijil_eph_bangunan_rekabentuk']);
+    Route::get('projek/{id}/sijil-eph-bangunan-verifikasi', [ProjekController::class, 'sijil_eph_bangunan_verifikasi']);
+    Route::get('projek/{id}/sijil-eph-bangunan-validasi', [ProjekController::class, 'sijil_eph_bangunan_validasi']);
+    Route::get('projek/{id}/sijil-eph-bangunan-rayuan', [ProjekController::class, 'sijil_eph_bangunan_rayuan']);
     Route::get('projek/{id}/sijil-eph-jalan-rekabentuk', [ProjekController::class, 'sijil_eph_jalan_rekabentuk']);
     Route::get('projek/{id}/sijil-eph-jalan-verifikasi', [ProjekController::class, 'sijil_eph_jalan_verifikasi']);
-    Route::get('projek/{id}/sijil-gpss-bangunan', [ProjekController::class, 'sijil_gpss_bangunan']);
-    Route::get('projek/{id}/sijil-gpss-jalan', [ProjekController::class, 'sijil_gpss_jalan']);
+    Route::get('projek/{id}/sijil-eph-jalan-rayuan-rekabentuk', [ProjekController::class, 'sijil_eph_jalan_rayuan_rekabentuk']);
+    Route::get('projek/{id}/sijil-eph-jalan-rayuan-verifikasi', [ProjekController::class, 'sijil_eph_jalan_rayuan_verifikasi']);
+    Route::get('projek/{id}/sijil-gpss-bangunan-rekabentuk', [ProjekController::class, 'sijil_gpss_bangunan_rekabentuk']);
+    Route::get('projek/{id}/sijil-gpss-bangunan-verifikasi', [ProjekController::class, 'sijil_gpss_bangunan_verifikasi']);
+    Route::get('projek/{id}/sijil-gpss-bangunan-rayuan', [ProjekController::class, 'sijil_gpss_bangunan_rayuan']);
+    Route::get('projek/{id}/sijil-gpss-jalan-rekabentuk', [ProjekController::class, 'sijil_gpss_jalan_rekabentuk']);
+    Route::get('projek/{id}/sijil-gpss-jalan-verifikasi', [ProjekController::class, 'sijil_gpss_jalan_verifikasi']);
+    Route::get('projek/{id}/sijil-gpss-jalan-rayuan', [ProjekController::class, 'sijil_gpss_jalan_rayuan']);
+
+
 
     Route::get('projek/{id}/pengesahan-penilaian', [ProjekController::class, 'pengesahan_penilaian']);
 

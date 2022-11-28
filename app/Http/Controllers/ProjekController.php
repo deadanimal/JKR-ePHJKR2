@@ -56,14 +56,14 @@ class ProjekController extends Controller
         if($request->ajax()) {
             return DataTables::collection($projeks)
             ->addIndexColumn()   
-            ->addColumn('peranan', function (Projek $projek) {
-                $projek_users = $projek->users;
-                $html_button = '-';
-                foreach($projek_users as $projek_user){
-                    $html_button = $projek_user->role->display_name;
-                }
-                return $html_button;
-            })             
+            // ->addColumn('peranan', function (Projek $projek) {
+            //     $projek_users = $projek->users;
+            //     $html_button = '-';
+            //     foreach($projek_users as $projek_user){
+            //         $html_button = $projek_user->role->display_name;
+            //     }
+            //     return $html_button;
+            // })             
             ->addColumn('tindakan', function (Projek $projek) {
                 $url = '/projek/'.$projek->id;
                 $html_button = '<div class="row mt-3"><div class="col text-center">
@@ -90,7 +90,7 @@ class ProjekController extends Controller
                     'timestamp' => ($projek->created_at && $projek->created_at != '0000-00-00 00:00:00') ? with(new Carbon($projek->created_at))->timestamp : ''
                 ];
             })
-            ->rawColumns(['tindakan', 'gugur','peranan', 'created_at'])
+            ->rawColumns(['tindakan', 'gugur', 'created_at'])
             ->make(true);
         }        
         return view('projek.senarai', compact('projeks'));
@@ -3947,22 +3947,22 @@ class ProjekController extends Controller
         if ($projek->kategori ==  'phJKR Bangunan Baru A') {
             $rekabentuk_kriterias = Kriteria::where([
                 ['borang','=', 'BARU A'],
-                ['fasa','=', 'rekabentuk'],
+                ['fasa','=', 'rekabentuk']
             ])->get();    
 
             $verifikasi_kriterias = Kriteria::where([
                 ['borang','=', 'BARU A'],
-                ['fasa','=', 'verifikasi'],
+                ['fasa','=', 'verifikasi']
             ])->get();
 
             $validasi_kriterias = Kriteria::where([
                 ['borang','=', 'BARU A'],
-                ['fasa','=', 'validasi'],
+                ['fasa','=', 'validasi']
             ])->get();
 
             $rayuan_kriterias = Kriteria::where([
                 ['borang','=', 'BARU A'],
-                ['fasa','=', 'validasi'],
+                ['fasa','=', 'validasi']
             ])->get();
 
             // Rekabentuk borang BARU A
@@ -4287,7 +4287,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $in_ml_r; 
 
-            $peratusan_mr = $total_mr /101 *100;     
+            $peratusan_mr = $total_mr/101 *100;     
             if($peratusan_mr >= 80) {
                 $bintang_mr = 5;
             } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
@@ -4300,7 +4300,7 @@ class ProjekController extends Controller
                 $bintang_mr = 1;
             }
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/103 * 100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -4313,7 +4313,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/103 * 100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -4327,7 +4327,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mr_r = $total_mr_r /101 *100;     
+            $peratusan_mr_r = $total_mr_r/101 * 100;     
             if($peratusan_mr_r >= 80) {
                 $bintang_mr_r = 5;
             } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
@@ -4340,7 +4340,7 @@ class ProjekController extends Controller
                 $bintang_mr_r = 1;
             }
 
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/103 * 100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -4353,7 +4353,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/103 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -4382,17 +4382,17 @@ class ProjekController extends Controller
         } elseif ($projek->kategori ==  'phJKR Bangunan Baru B') {
             $rekabentuk_kriterias = Kriteria::where([
                 ['borang','=', 'BARU B'],
-                ['fasa','=', 'rekabentuk'],
+                ['fasa','=', 'rekabentuk']
             ])->get();    
 
             $verifikasi_kriterias = Kriteria::where([
                 ['borang','=', 'BARU B'],
-                ['fasa','=', 'verifikasi'],
+                ['fasa','=', 'verifikasi']
             ])->get();
 
             $validasi_kriterias = Kriteria::where([
                 ['borang','=', 'BARU B'],
-                ['fasa','=', 'validasi'],
+                ['fasa','=', 'validasi']
             ])->get();
 
             $rayuan_kriterias = Kriteria::where([
@@ -4773,7 +4773,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mr = $total_mr /101 *100;     
+            $peratusan_mr = $total_mr/131 *100;     
             if($peratusan_mr >= 80) {
                 $bintang_mr = 5;
             } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
@@ -4786,7 +4786,7 @@ class ProjekController extends Controller
                 $bintang_mr = 1;
             }
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/138 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -4799,7 +4799,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/138 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -4813,7 +4813,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mr_r = $total_mr_r /101 *100;     
+            $peratusan_mr_r = $total_mr_r/131 *100;     
             if($peratusan_mr_r >= 80) {
                 $bintang_mr_r = 5;
             } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
@@ -4826,7 +4826,7 @@ class ProjekController extends Controller
                 $bintang_mr_r = 1;
             }
 
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/138 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -4839,7 +4839,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/138 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -4851,9 +4851,7 @@ class ProjekController extends Controller
             } else {
                 $bintang_ml_r = 1;
             }
-
-            // dd($in_mr);
-            // dd($kt_mr);   
+   
             return view('projek.satu_eph_bangunan', compact(
                 'projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'validasi_kriterias', 
                 'rayuan_kriterias','users', 'lantikans',
@@ -4870,17 +4868,17 @@ class ProjekController extends Controller
             // $kriterias = Kriteria::where('borang', 'BARU C')->get(); 
             $rekabentuk_kriterias = Kriteria::where([
                 ['borang','=', 'BARU C'],
-                ['fasa','=', 'rekabentuk'],
+                ['fasa','=', 'rekabentuk']
             ])->get();    
 
             $verifikasi_kriterias = Kriteria::where([
                 ['borang','=', 'BARU C'],
-                ['fasa','=', 'verifikasi'],
+                ['fasa','=', 'verifikasi']
             ])->get();
 
             $validasi_kriterias = Kriteria::where([
                 ['borang','=', 'BARU C'],
-                ['fasa','=', 'validasi'],
+                ['fasa','=', 'validasi']
             ])->get();
 
             $rayuan_kriterias = Kriteria::where([
@@ -5260,7 +5258,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mr = $total_mr /101 *100;     
+            $peratusan_mr = $total_mr/159 *100;     
             if($peratusan_mr >= 80) {
                 $bintang_mr = 5;
             } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
@@ -5273,7 +5271,7 @@ class ProjekController extends Controller
                 $bintang_mr = 1;
             }
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/166 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -5286,7 +5284,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/166 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -5300,7 +5298,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mr_r = $total_mr_r /101 *100;     
+            $peratusan_mr_r = $total_mr_r/159 *100;     
             if($peratusan_mr_r >= 80) {
                 $bintang_mr_r = 5;
             } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
@@ -5313,7 +5311,7 @@ class ProjekController extends Controller
                 $bintang_mr_r = 1;
             }
 
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/166 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -5326,7 +5324,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/166 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -5746,7 +5744,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mr = $total_mr /101 *100;     
+            $peratusan_mr = $total_mr/166 * 100;     
             if($peratusan_mr >= 80) {
                 $bintang_mr = 5;
             } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
@@ -5759,7 +5757,7 @@ class ProjekController extends Controller
                 $bintang_mr = 1;
             }
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/173 * 100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -5772,7 +5770,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/173 * 100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -5786,7 +5784,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mr_r = $total_mr_r /101 *100;     
+            $peratusan_mr_r = $total_mr_r/166 * 100;     
             if($peratusan_mr_r >= 80) {
                 $bintang_mr_r = 5;
             } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
@@ -5799,7 +5797,7 @@ class ProjekController extends Controller
                 $bintang_mr_r = 1;
             }
 
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/173 * 100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -5812,7 +5810,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/173 * 100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -5871,8 +5869,6 @@ class ProjekController extends Controller
             $pa_mr = 0;
             $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
             $pd_mr = 0;
-            $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-            $in_mr = 0;
 
             // Verifikasi borang PUN A
             $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
@@ -5885,8 +5881,6 @@ class ProjekController extends Controller
             $pa_mv = 0;
             $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
             $pd_mv = 0;
-            $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-            $in_mv = 0;
 
             // Validasi borang PUN A
             $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
@@ -5899,8 +5893,6 @@ class ProjekController extends Controller
             $pa_ml = 0;
             $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
             $pd_ml = 0;
-            $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-            $in_ml = 0;
             
             //Rayuan
             // Rekabentuk borang PUN A
@@ -5914,8 +5906,6 @@ class ProjekController extends Controller
             $pa_mr_r = 0;
             $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
             $pd_mr_r = 0;
-            // $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-            // $in_mr_r = 0;
 
             // Verifikasi borang PUN A
             $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
@@ -5928,9 +5918,7 @@ class ProjekController extends Controller
             $pa_mv_r = 0;
             $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
             $pd_mv_r = 0;
-            // $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-            // $in_mv_r = 0;
-
+            
             // Validasi borang PUN A
             $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
             $tl_ml_r = 0;
@@ -5942,9 +5930,7 @@ class ProjekController extends Controller
             $pa_ml_r = 0;
             $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
             $pd_ml_r = 0;
-            // $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-            // $in_ml_r = 0;
-            
+           
             foreach($tl_kriterias as $tl_kriteria) {                
                 $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
                 $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
@@ -6135,45 +6121,7 @@ class ProjekController extends Controller
                         $pd_ml_r += $markah_pd_ml_r->markah_validasi;
                     }
                 }
-            }
-            // foreach($in_kriterias as $in_kriteria) {                
-            //     $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
-            //     $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
-            //     $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            //     $markah_in_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            //     $markah_in_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            //     $markah_in_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            //     if($markah_in_mr){
-            //         if($markah_in_mr->markah > 0){
-            //             $in_mr +=  $markah_in_mr->markah;
-            //         }
-            //     } 
-            //     if ($markah_in_mv){
-            //         if($markah_in_mv->markah > 0){
-            //             $in_mv += $markah_in_mv->markah;
-            //         }
-            //     }
-            //     if ($markah_in_ml){
-            //         if($markah_in_ml->markah > 0){
-            //             $in_ml += $markah_in_ml->markah;
-            //         }
-            //     } 
-            //     if($markah_in_mr_r){
-            //         if($markah_in_mr_r->markah_rekabentuk > 0){
-            //             $in_mr_r +=  $markah_in_mr_r->markah_rekabentuk;
-            //         }
-            //     } 
-            //     if ($markah_in_mv_r){
-            //         if($markah_in_mv_r->markah_verifikasi > 0){
-            //             $in_mv_r += $markah_in_mv_r->markah_verifikasi;
-            //         }
-            //     } 
-            //     if ($markah_in_ml_r){
-            //         if($markah_in_ml_r->markah_validasi > 0){
-            //             $in_ml_r += $markah_in_ml_r->markah_validasi;
-            //         }
-            //     }                           
-            // }                                  
+            }                                
                  
             $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr; 
             $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv; 
@@ -6182,7 +6130,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r; 
 
-            $peratusan_mr = $total_mr /101 *100;     
+            $peratusan_mr = $total_mr/73 *100;     
             if($peratusan_mr >= 80) {
                 $bintang_mr = 5;
             } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
@@ -6195,7 +6143,7 @@ class ProjekController extends Controller
                 $bintang_mr = 1;
             }
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/76 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -6208,7 +6156,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/76 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -6222,7 +6170,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mr_r = $total_mr_r /101 *100;     
+            $peratusan_mr_r = $total_mr_r/73 *100;     
             if($peratusan_mr_r >= 80) {
                 $bintang_mr_r = 5;
             } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
@@ -6235,7 +6183,7 @@ class ProjekController extends Controller
                 $bintang_mr_r = 1;
             }
 
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/76 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -6248,7 +6196,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/76 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -6278,17 +6226,17 @@ class ProjekController extends Controller
             // $kriterias = Kriteria::where('borang', 'PUN B')->get();
             $rekabentuk_kriterias = Kriteria::where([
                 ['borang','=', 'PUN B'],
-                ['fasa','=', 'rekabentuk'],
+                ['fasa','=', 'rekabentuk']
             ])->get();    
 
             $verifikasi_kriterias = Kriteria::where([
                 ['borang','=', 'PUN B'],
-                ['fasa','=', 'verifikasi'],
+                ['fasa','=', 'verifikasi']
             ])->get();
 
             $validasi_kriterias = Kriteria::where([
                 ['borang','=', 'PUN B'],
-                ['fasa','=', 'validasi'],
+                ['fasa','=', 'validasi']
             ])->get();
 
             $rayuan_kriterias = Kriteria::where([
@@ -6668,7 +6616,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mr = $total_mr /101 *100;     
+            $peratusan_mr = $total_mr/118 *100;     
             if($peratusan_mr >= 80) {
                 $bintang_mr = 5;
             } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
@@ -6681,7 +6629,7 @@ class ProjekController extends Controller
                 $bintang_mr = 1;
             }
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/126 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -6694,7 +6642,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/126 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -6708,7 +6656,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mr_r = $total_mr_r /101 *100;     
+            $peratusan_mr_r = $total_mr_r/118 *100;     
             if($peratusan_mr_r >= 80) {
                 $bintang_mr_r = 5;
             } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
@@ -6721,7 +6669,7 @@ class ProjekController extends Controller
                 $bintang_mr_r = 1;
             }
 
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/126 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -6734,7 +6682,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/126 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -6764,17 +6712,17 @@ class ProjekController extends Controller
             // $kriterias = Kriteria::where('borang', 'PUN C')->get();
             $rekabentuk_kriterias = Kriteria::where([
                 ['borang','=', 'PUN C'],
-                ['fasa','=', 'rekabentuk'],
+                ['fasa','=', 'rekabentuk']
             ])->get();    
 
             $verifikasi_kriterias = Kriteria::where([
                 ['borang','=', 'PUN C'],
-                ['fasa','=', 'verifikasi'],
+                ['fasa','=', 'verifikasi']
             ])->get();
 
             $validasi_kriterias = Kriteria::where([
                 ['borang','=', 'PUN C'],
-                ['fasa','=', 'validasi'],
+                ['fasa','=', 'validasi']
             ])->get();
 
             $rayuan_kriterias = Kriteria::where([
@@ -7154,7 +7102,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mr = $total_mr /101 *100;     
+            $peratusan_mr = $total_mr/151 *100;     
             if($peratusan_mr >= 80) {
                 $bintang_mr = 5;
             } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
@@ -7167,7 +7115,7 @@ class ProjekController extends Controller
                 $bintang_mr = 1;
             }
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/159 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -7180,7 +7128,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/159 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -7194,7 +7142,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mr_r = $total_mr_r /101 *100;     
+            $peratusan_mr_r = $total_mr_r/151 *100;     
             if($peratusan_mr_r >= 80) {
                 $bintang_mr_r = 5;
             } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
@@ -7207,7 +7155,7 @@ class ProjekController extends Controller
                 $bintang_mr_r = 1;
             }
 
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/159 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -7220,7 +7168,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/159 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -7250,17 +7198,17 @@ class ProjekController extends Controller
             // $kriterias = Kriteria::where('borang', 'PUN D')->get(); 
             $rekabentuk_kriterias = Kriteria::where([
                 ['borang','=', 'PUN D'],
-                ['fasa','=', 'rekabentuk'],
+                ['fasa','=', 'rekabentuk']
             ])->get();    
 
             $verifikasi_kriterias = Kriteria::where([
                 ['borang','=', 'PUN D'],
-                ['fasa','=', 'verifikasi'],
+                ['fasa','=', 'verifikasi']
             ])->get();
 
             $validasi_kriterias = Kriteria::where([
                 ['borang','=', 'PUN D'],
-                ['fasa','=', 'validasi'],
+                ['fasa','=', 'validasi']
             ])->get();
 
             $rayuan_kriterias = Kriteria::where([
@@ -7611,7 +7559,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mr = $total_mr /101 *100;     
+            $peratusan_mr = $total_mr/156 *100;     
             if($peratusan_mr >= 80) {
                 $bintang_mr = 5;
             } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
@@ -7624,7 +7572,7 @@ class ProjekController extends Controller
                 $bintang_mr = 1;
             }
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/164 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -7637,7 +7585,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/164 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -7651,7 +7599,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mr_r = $total_mr_r /101 *100;     
+            $peratusan_mr_r = $total_mr_r/156 *100;     
             if($peratusan_mr_r >= 80) {
                 $bintang_mr_r = 5;
             } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
@@ -7664,7 +7612,7 @@ class ProjekController extends Controller
                 $bintang_mr_r = 1;
             }
 
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/164 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -7677,7 +7625,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/164 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -7990,7 +7938,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv /62 * 100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -8003,7 +7951,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml /62 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -8017,7 +7965,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/62 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -8030,7 +7978,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/62 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -8333,7 +8281,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $in_ml_r; 
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/108 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -8346,7 +8294,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/108 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -8360,7 +8308,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/108 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -8373,7 +8321,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/108 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -8668,7 +8616,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/140 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -8681,7 +8629,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/140 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -8695,7 +8643,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/140 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -8708,7 +8656,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/140 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -9003,7 +8951,7 @@ class ProjekController extends Controller
             $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $fl_mv_r + $in_mv_r; 
             $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $fl_ml_r + $in_ml_r; 
 
-            $peratusan_mv = $total_mv /103 *100;     
+            $peratusan_mv = $total_mv/145 *100;     
             if($peratusan_mv >= 80) {
                 $bintang_mv = 5;
             } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
@@ -9016,7 +8964,7 @@ class ProjekController extends Controller
                 $bintang_mv = 1;
             }
 
-            $peratusan_ml = $total_ml /103 *100;     
+            $peratusan_ml = $total_ml/145 *100;     
             if($peratusan_ml >= 80) {
                 $bintang_ml = 5;
             } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
@@ -9030,7 +8978,7 @@ class ProjekController extends Controller
             }
 
             //Rayuan
-            $peratusan_mv_r = $total_mv_r /103 *100;     
+            $peratusan_mv_r = $total_mv_r/145 *100;     
             if($peratusan_mv_r >= 80) {
                 $bintang_mv_r = 5;
             } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
@@ -9043,7 +8991,7 @@ class ProjekController extends Controller
                 $bintang_mv_r = 1;
             }
 
-            $peratusan_ml_r = $total_ml_r /103 *100;     
+            $peratusan_ml_r = $total_ml_r/145 *100;     
             if($peratusan_ml_r >= 80) {
                 $bintang_ml_r = 5;
             } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
@@ -13213,13 +13161,13 @@ class ProjekController extends Controller
             alert()->success('Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Baru', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Baru"){
-            $projek->status = "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Baru";
+            $projek->status = "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru";
             alert()->success('Pengesahan Skor Rekabentuk/Verifikasi Jalan Baru telah Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Baru"){
-            $projek->status = "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru";
-            alert()->success('Pengesahan Rekabentuk/Verifikasi Jalan Baru', 'Berjaya');
-        }
+        // elseif ($projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Baru"){
+        //     $projek->status = "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru";
+        //     alert()->success('Pengesahan Rekabentuk/Verifikasi Jalan Baru', 'Berjaya');
+        // }
         elseif ($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru"){
             $projek->status = "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru";
             alert()->success('Jana Keputusan Rekabentuk/Verifikasi Jalan Baru', 'Berjaya');
@@ -13274,13 +13222,13 @@ class ProjekController extends Controller
             alert()->success('Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Naiktaraf', 'Berjaya');
         }
         elseif ($projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Naiktaraf"){
-            $projek->status = "Selesai Pengesahan  Rekabentuk/Verifikasi Jalan Naiktaraf";
+            $projek->status = "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf";
             alert()->success('Pengesahan Skor Rekabentuk/Verifikasi Jalan Naiktaraf telah Disahkan', 'Berjaya');
         }
-        elseif ($projek->status == "Selesai Pengesahan  Rekabentuk/Verifikasi Jalan Naiktaraf"){
-            $projek->status = "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf";
-            alert()->success('Pengesahan Rekabentuk/Verifikasi Jalan Naiktaraf', 'Berjaya');
-        }
+        // elseif ($projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Naiktaraf"){
+        //     $projek->status = "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf";
+        //     alert()->success('Pengesahan Rekabentuk/Verifikasi Jalan Naiktaraf', 'Berjaya');
+        // }
         elseif ($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf"){
             $projek->status = "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf";
             alert()->success('Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf', 'Berjaya');
@@ -13324,1397 +13272,3365 @@ class ProjekController extends Controller
 
 
     //Sijil
-    public function sijil_eph_bangunan(Request $request){
+    public function sijil_eph_bangunan_rekabentuk(Request $request){
         // dd('OK');
         $id = (int)$request->route('id'); //cari id dlm route
         $projek = Projek::find($id); //cari id dlm model
         $date = Carbon::now()->format('Y-m-d');
 
-        // dd($projek);
-        // Rekabentuk borang BARU A
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
-        $tl_mr = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
-        $kt_mr = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
-        $sb_mr = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
-        $pa_mr = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
-        $pd_mr = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
-        $in_mr = 0;
+        if($projek->kategori == "phJKR Bangunan Baru A"){
+            $rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'BARU A'],
+                ['fasa','=', 'rekabentuk']
+            ])->get();
 
-        // Verifikasi borang BARU A
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
-        $in_mv = 0;
+            // Rekabentuk borang BARU A
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
+            $tl_mr = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
+            $kt_mr = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
+            $sb_mr = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
+            $pa_mr = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
+            $pd_mr = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
+            $in_mr = 0;
 
-        // Validasi borang BARU A
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
-        $in_ml = 0;
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_tl_mr){
+                    if($markah_tl_mr->markah > 0){
+                        $tl_mr +=  $markah_tl_mr->markah;
+                    }
+                }                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();
 
-        //Rayuan
-        // Rekabentuk borang BARU A
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
-        $in_mr_r = 0;
-
-        // Verifikasi borang BARU A
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang BARU A
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
-        $in_ml_r = 0;
-
-        // Rekabentuk borang BARU B
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
-        $tl_mr = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
-        $kt_mr = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
-        $sb_mr = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
-        $pa_mr = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
-        $pd_mr = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
-        $fl_mr = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
-        $in_mr = 0;
-
-        // Verifikasi borang BARU B
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang BARU B
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-        
-        //Rayuan
-        // Rekabentuk borang BARU B
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
-        $fl_mr_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
-        $in_mr_r = 0;
-
-        // Verifikasi borang BARU B
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang BARU B
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-
-        // Rekabentuk borang BARU C
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
-        $tl_mr = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
-        $kt_mr = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
-        $sb_mr = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
-        $pa_mr = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
-        $pd_mr = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
-        $fl_mr = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
-        $in_mr = 0;
-
-        // Verifikasi borang BARU C
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang BARU C
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-        
-        //Rayuan
-        // Rekabentuk borang BARU C
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
-        $fl_mr_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
-        $in_mr_r = 0;
-
-        // Verifikasi borang BARU C
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang BARU C
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-
-        // Rekabentuk borang BARU D
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
-        $tl_mr = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
-        $kt_mr = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
-        $sb_mr = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
-        $pa_mr = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
-        $pd_mr = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
-        $fl_mr = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
-        $in_mr = 0;
-
-        // Verifikasi borang BARU D
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang BARU D
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-         
-        //Rayuan
-        // Rekabentuk borang BARU D
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
-        $fl_mr_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
-        $in_mr_r = 0;
-
-        // Verifikasi borang BARU D
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang BARU D
-        $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-
-        // Rekabentuk borang PUN A
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
-        $tl_mr = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
-        $kt_mr = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
-        $sb_mr = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
-        $pa_mr = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
-        $pd_mr = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-        $in_mr = 0;
-
-        // Verifikasi borang PUN A
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-        $in_mv = 0;
-
-        // Validasi borang PUN A
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-        $in_ml = 0;
-        
-        //Rayuan
-        // Rekabentuk borang PUN A
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        // $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-        // $in_mr_r = 0;
-
-        // Verifikasi borang PUN A
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        // $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-        // $in_mv_r = 0;
-
-        // Validasi borang PUN A
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        // $in_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 6]])->get();
-        // $in_ml_r = 0;
-
-        // Rekabentuk borang PUN B
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
-        $tl_mr = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
-        $kt_mr = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
-        $sb_mr = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
-        $pa_mr = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
-        $pd_mr = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
-        $fl_mr = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
-        $in_mr = 0;
-
-        // Verifikasi borang PUN B
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang PUN B
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-        
-        //Rayuan
-        // Rekabentuk borang PUN B
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
-        $fl_mr_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
-        $in_mr_r = 0;
-
-        // Verifikasi borang PUN B
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang PUN B
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-
-        // Rekabentuk borang PUN C
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
-        $tl_mr = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
-        $kt_mr = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
-        $sb_mr = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
-        $pa_mr = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
-        $pd_mr = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
-        $fl_mr = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
-        $in_mr = 0;
-
-        // Verifikasi borang PUN C
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang PUN C
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-        
-        //Rayuan
-        // Rekabentuk borang PUN C
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
-        $fl_mr_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
-        $in_mr_r = 0;
-
-        // Verifikasi borang PUN C
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang PUN C
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-
-        // Rekabentuk borang PUN D
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
-        $tl_mr = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
-        $kt_mr = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
-        $sb_mr = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
-        $pa_mr = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
-        $pd_mr = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
-        $fl_mr = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 7]])->get();
-        $in_mr = 0;
-
-        // Verifikasi borang PUN D
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang PUN D
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-        
-        
-        //Rayuan
-        // Rekabentuk borang PUN D
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
-        $fl_mr_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', ]])->get();
-        $in_mr_r = 0;
-
-        // Verifikasi borang PUN D
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang PUN D
-        $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
-        $in_ml_r = 0;
-
-        // Verifikasi borang SEDIA ADA A
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang SEDIA ADA A
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-         
-        //Rayuan
-        // Rekabentuk borang SEDIA ADA A
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 1]])->get();
-        $tl_mr_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 2]])->get();
-        $kt_mr_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 3]])->get();
-        $sb_mr_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 4]])->get();
-        $pa_mr_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
-        $pd_mr_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
-        $fl_mr_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 6]])->get();
-        $in_mr_r = 0;
-
-        // Verifikasi borang SEDIA ADA A
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 6]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang SEDIA ADA A
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 6]])->get();
-        $in_ml_r = 0;
-
-        // Verifikasi borang SEDIA ADA B
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang SEDIA ADA B
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-        
-        
-        //Rayuan
-        // Verifikasi borang SEDIA ADA B
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 6]])->get();
-        $fl_mv_r= 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang SEDIA ADA B
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 6]])->get();
-        $fl_ml_r= 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-        
-        //Rayuan
-        // Verifikasi borang SEDIA ADA B
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 6]])->get();
-        $fl_mv_r= 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang SEDIA ADA B
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 6]])->get();
-        $fl_mv_r= 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-
-        // Verifikasi borang SEDIA ADA C
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang SEDIA ADA C
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-        
-        //Rayuan
-        // Verifikasi borang SEDIA ADA C
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 6]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang SEDIA ADA C
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 6]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-
-        // Verifikasi borang SEDIA ADA D
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
-        $tl_mv = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
-        $kt_mv = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
-        $sb_mv = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
-        $pa_mv = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
-        $pd_mv = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
-        $fl_mv = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
-        $in_mv = 0;
-
-        // Validasi borang SEDIA ADA D
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
-        $tl_ml = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
-        $kt_ml = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
-        $sb_ml = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
-        $pa_ml = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
-        $pd_ml = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
-        $fl_ml = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
-        $in_ml = 0;
-         
-        //Rayuan
-        // Verifikasi borang SEDIA ADA D
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
-        $tl_mv_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
-        $kt_mv_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
-        $sb_mv_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
-        $pa_mv_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
-        $pd_mv_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
-        $fl_mv_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
-        $in_mv_r = 0;
-
-        // Validasi borang SEDIA ADA D
-        $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
-        $tl_ml_r = 0;
-        $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
-        $kt_ml_r = 0;
-        $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
-        $sb_ml_r = 0;
-        $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
-        $pa_ml_r = 0;
-        $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
-        $pd_ml_r = 0;
-        $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
-        $fl_ml_r = 0;
-        $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
-        $in_ml_r = 0;
-        
-        foreach($tl_kriterias as $tl_kriteria) {                
-            $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
-            $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
-            $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_tl_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_tl_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_tl_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
-            if($markah_tl_mr){
-                if($markah_tl_mr->markah > 0){
-                    $tl_mr +=  $markah_tl_mr->markah;
-                }
-            } 
-            if ($markah_tl_mv){
-                if($markah_tl_mv->markah > 0){
-                    $tl_mv += $markah_tl_mv->markah;
-                }
-            } 
-            if ($markah_tl_ml){
-                if($markah_tl_ml->markah > 0){
-                    $tl_ml += $markah_tl_ml->markah;
-                }
-            } 
-            if($markah_tl_mr_r){
-                if($markah_tl_mr_r->markah_rekabentuk > 0){
-                    $tl_mr_r +=  $markah_tl_mr_r->markah_rekabentuk;
-                }
-            } 
-            if ($markah_tl_mv_r){
-                if($markah_tl_mv_r->markah_verifikasi > 0){
-                    $tl_mv_r += $markah_tl_mv_r->markah_verifikasi;
-                }
-            } 
-            if ($markah_tl_ml_r){
-                if($markah_tl_ml_r->markah_validasi > 0){
-                    $tl_ml_r += $markah_tl_ml_r->markah_validasi;
-                }
-            }                               
-        }  
-        foreach($kt_kriterias as $kt_kriteria) {
-            $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();
-            $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
-            $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
-            $markah_kt_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_kt_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_kt_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first();
-
-            if($markah_kt_mr){
-                if($markah_kt_mr->markah > 0){
-                    $kt_mr +=  $markah_kt_mr->markah;
+                if($markah_kt_mr){
+                    if($markah_kt_mr->markah > 0){
+                        $kt_mr +=  $markah_kt_mr->markah;
+                    }
                 }
             }
-            if ($markah_kt_mv){
-                if($markah_kt_mv->markah > 0){
-                    $kt_mv += $markah_kt_mv->markah;
-                }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
+                            
+                if($markah_sb_mr){
+                    if($markah_sb_mr->markah > 0){
+                        $sb_mr +=  $markah_sb_mr->markah;
+                    }
+                } 
             }
-            if ($markah_kt_ml){
-                if($markah_kt_ml->markah > 0){
-                    $kt_ml += $markah_kt_ml->markah;
-                }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
+                             
+                if($markah_pa_mr){
+                    if($markah_pa_mr->markah > 0){
+                        $pa_mr +=  $markah_pa_mr->markah;
+                    }
+                } 
+                
             }
-            if($markah_kt_mr_r){
-                if($markah_kt_mr_r->markah_rekabentuk > 0){
-                    $kt_mr_r +=  $markah_kt_mr_r->markah_rekabentuk;
-                }
-            } 
-            if ($markah_kt_mv_r){
-                if($markah_kt_mv_r->markah_verifikasi > 0){
-                    $kt_mv_r += $markah_kt_mv_r->markah_verifikasi;
-                }
-            } 
-            if ($markah_kt_ml_r){
-                if($markah_kt_ml_r->markah_validasi > 0){
-                    $kt_ml_r += $markah_kt_ml_r->markah_validasi;
-                }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
+                               
+                if($markah_pd_mr){
+                    if($markah_pd_mr->markah > 0){
+                        $pd_mr +=  $markah_pd_mr->markah;
+                    }
+                } 
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_in_mr){
+                    if($markah_in_mr->markah > 0){
+                        $in_mr +=  $markah_in_mr->markah;
+                    }
+                }                           
+            }                                 
+                 
+            $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr + $in_mr; 
+
+            $peratusan_mr = $total_mr/101 *100;     
+            if($peratusan_mr >= 80) {
+                $bintang_mr = 5;
+            } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
+                $bintang_mr = 4;
+            } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
+                $bintang_mr = 3;
+            } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
+                $bintang_mr = 2;
+            } else {
+                $bintang_mr = 1;
             }
         }
-        foreach($sb_kriterias as $sb_kriteria) {
-            $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
-            $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
-            $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_sb_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_sb_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_sb_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();                
-            if($markah_sb_mr){
-                if($markah_sb_mr->markah > 0){
-                    $sb_mr +=  $markah_sb_mr->markah;
+    
+        if($projek->kategori == "phJKR Bangunan Baru B"){
+            $rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'BARU B'],
+                ['fasa','=', 'rekabentuk']
+            ])->get(); 
+
+            // Rekabentuk borang BARU B
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
+            $tl_mr = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
+            $kt_mr = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
+            $sb_mr = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
+            $pa_mr = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
+            $pd_mr = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
+            $fl_mr = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
+            $in_mr = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_tl_mr){
+                    if($markah_tl_mr->markah > 0){
+                        $tl_mr +=  $markah_tl_mr->markah;
+                    }
+                } 
+                                              
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+
+                if($markah_kt_mr){
+                    if($markah_kt_mr->markah > 0){
+                        $kt_mr +=  $markah_kt_mr->markah;
+                    }
                 }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
+                                
+                if($markah_sb_mr){
+                    if($markah_sb_mr->markah > 0){
+                        $sb_mr +=  $markah_sb_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pa_mr){
+                    if($markah_pa_mr->markah > 0){
+                        $pa_mr +=  $markah_pa_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
+                               
+                if($markah_pd_mr){
+                    if($markah_pd_mr->markah > 0){
+                        $pd_mr +=  $markah_pd_mr->markah;
+                    }
+                } 
+    
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_fl_mr){
+                    if($markah_fl_mr->markah > 0){
+                        $fl_mr +=  $markah_fl_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_in_mr){
+                    if($markah_in_mr->markah > 0){
+                        $in_mr +=  $markah_in_mr->markah;
+                    }
+                }                            
+            }
+
+            $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr + $fl_mr + $in_mr; 
+            
+            $peratusan_mr = $total_mr/131 *100;     
+            if($peratusan_mr >= 80) {
+                $bintang_mr = 5;
+            } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
+                $bintang_mr = 4;
+            } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
+                $bintang_mr = 3;
+            } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
+                $bintang_mr = 2;
+            } else {
+                $bintang_mr = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan Baru C"){
+            $rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'BARU C'],
+                ['fasa','=', 'rekabentuk']
+            ])->get(); 
+
+            // Rekabentuk borang BARU C
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
+            $tl_mr = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
+            $kt_mr = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
+            $sb_mr = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
+            $pa_mr = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
+            $pd_mr = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
+            $fl_mr = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
+            $in_mr = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_tl_mr){
+                    if($markah_tl_mr->markah > 0){
+                        $tl_mr +=  $markah_tl_mr->markah;
+                    }
+                } 
+                                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();   
+
+                if($markah_kt_mr){
+                    if($markah_kt_mr->markah > 0){
+                        $kt_mr +=  $markah_kt_mr->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
+                               
+                if($markah_sb_mr){
+                    if($markah_sb_mr->markah > 0){
+                        $sb_mr +=  $markah_sb_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
+                               
+                if($markah_pa_mr){
+                    if($markah_pa_mr->markah > 0){
+                        $pa_mr +=  $markah_pa_mr->markah;   
+                    }
+                } 
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
+                             
+                if($markah_pd_mr){
+                    if($markah_pd_mr->markah > 0){
+                        $pd_mr +=  $markah_pd_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                             
+                if($markah_fl_mr){
+                    if($markah_fl_mr->markah > 0){
+                        $fl_mr +=  $markah_fl_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_in_mr){
+                    if($markah_in_mr->markah > 0){
+                        $in_mr +=  $markah_in_mr->markah;
+                    }
+                } 
+                                          
             } 
-            if ($markah_sb_mv){
-                if($markah_sb_mv->markah > 0){
+    
+            $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr + $fl_mr + $in_mr; 
+            
+            $peratusan_mr = $total_mr/159 *100;     
+            if($peratusan_mr >= 80) {
+                $bintang_mr = 5;
+            } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
+                $bintang_mr = 4;
+            } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
+                $bintang_mr = 3;
+            } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
+                $bintang_mr = 2;
+            } else {
+                $bintang_mr = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan Baru D"){
+            $rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'BARU D'],
+                ['fasa','=', 'rekabentuk'],
+            ])->get();
+
+            // Rekabentuk borang BARU D
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
+            $tl_mr = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
+            $kt_mr = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
+            $sb_mr = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
+            $pa_mr = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
+            $pd_mr = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
+            $fl_mr = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
+            $in_mr = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_tl_mr){
+                    if($markah_tl_mr->markah > 0){
+                        $tl_mr +=  $markah_tl_mr->markah;
+                    }
+                } 
+                                              
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+
+                if($markah_kt_mr){
+                    if($markah_kt_mr->markah > 0){
+                        $kt_mr +=  $markah_kt_mr->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_sb_mr){
+                    if($markah_sb_mr->markah > 0){
+                        $sb_mr +=  $markah_sb_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pa_mr){
+                    if($markah_pa_mr->markah > 0){
+                        $pa_mr +=  $markah_pa_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pd_mr){
+                    if($markah_pd_mr->markah > 0){
+                        $pd_mr +=  $markah_pd_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                             
+                if($markah_fl_mr){
+                    if($markah_fl_mr->markah > 0){
+                        $fl_mr +=  $markah_fl_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_in_mr){
+                    if($markah_in_mr->markah > 0){
+                        $in_mr +=  $markah_in_mr->markah;
+                    }
+                } 
+                                          
+            }                                  
+                 
+            $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr + $fl_mr + $in_mr; 
+
+            $peratusan_mr = $total_mr/166 * 100;     
+            if($peratusan_mr >= 80) {
+                $bintang_mr = 5;
+            } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
+                $bintang_mr = 4;
+            } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
+                $bintang_mr = 3;
+            } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
+                $bintang_mr = 2;
+            } else {
+                $bintang_mr = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN A"){
+            $rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'PUN A'],
+                ['fasa','=', 'rekabentuk'],
+            ])->get();
+
+            // Rekabentuk borang PUN A
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
+            $tl_mr = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
+            $kt_mr = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
+            $sb_mr = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
+            $pa_mr = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
+            $pd_mr = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_tl_mr){
+                    if($markah_tl_mr->markah > 0){
+                        $tl_mr +=  $markah_tl_mr->markah;
+                    }
+                }                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();
+
+                if($markah_kt_mr){
+                    if($markah_kt_mr->markah > 0){
+                        $kt_mr +=  $markah_kt_mr->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
+                                
+                if($markah_sb_mr){
+                    if($markah_sb_mr->markah > 0){
+                        $sb_mr +=  $markah_sb_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pa_mr){
+                    if($markah_pa_mr->markah > 0){
+                        $pa_mr +=  $markah_pa_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pd_mr){
+                    if($markah_pd_mr->markah > 0){
+                        $pd_mr +=  $markah_pd_mr->markah;
+                    }
+                } 
+                
+            }
+
+            $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr; 
+
+            $peratusan_mr = $total_mr/73 *100;     
+            if($peratusan_mr >= 80) {
+                $bintang_mr = 5;
+            } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
+                $bintang_mr = 4;
+            } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
+                $bintang_mr = 3;
+            } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
+                $bintang_mr = 2;
+            } else {
+                $bintang_mr = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN B"){
+            $rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'PUN B'],
+                ['fasa','=', 'rekabentuk']
+            ])->get();
+
+            // Rekabentuk borang PUN B
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
+            $tl_mr = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
+            $kt_mr = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
+            $sb_mr = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
+            $pa_mr = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
+            $pd_mr = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
+            $fl_mr = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
+            $in_mr = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_tl_mr){
+                    if($markah_tl_mr->markah > 0){
+                        $tl_mr +=  $markah_tl_mr->markah;
+                    }
+                }                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();
+
+                if($markah_kt_mr){
+                    if($markah_kt_mr->markah > 0){
+                        $kt_mr +=  $markah_kt_mr->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
+                               
+                if($markah_sb_mr){
+                    if($markah_sb_mr->markah > 0){
+                        $sb_mr +=  $markah_sb_mr->markah;
+                    }
+                } 
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pa_mr){
+                    if($markah_pa_mr->markah > 0){
+                        $pa_mr +=  $markah_pa_mr->markah;
+                    }
+                } 
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pd_mr){
+                    if($markah_pd_mr->markah > 0){
+                        $pd_mr +=  $markah_pd_mr->markah;
+                    }
+                } 
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_fl_mr){
+                    if($markah_fl_mr->markah > 0){
+                        $fl_mr +=  $markah_fl_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_in_mr){
+                    if($markah_in_mr->markah > 0){
+                        $in_mr +=  $markah_in_mr->markah;
+                    }
+                } 
+                                          
+            }
+
+            $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr + $fl_mr + $in_mr; 
+
+            $peratusan_mr = $total_mr/118 *100;     
+            if($peratusan_mr >= 80) {
+                $bintang_mr = 5;
+            } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
+                $bintang_mr = 4;
+            } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
+                $bintang_mr = 3;
+            } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
+                $bintang_mr = 2;
+            } else {
+                $bintang_mr = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN C"){
+            $rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'PUN C'],
+                ['fasa','=', 'rekabentuk']
+            ])->get();
+
+            // Rekabentuk borang PUN C
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
+            $tl_mr = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
+            $kt_mr = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
+            $sb_mr = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
+            $pa_mr = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
+            $pd_mr = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
+            $fl_mr = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
+            $in_mr = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_tl_mr){
+                    if($markah_tl_mr->markah > 0){
+                        $tl_mr +=  $markah_tl_mr->markah;
+                    }
+                } 
+                                              
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+
+                if($markah_kt_mr){
+                    if($markah_kt_mr->markah > 0){
+                        $kt_mr +=  $markah_kt_mr->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_sb_mr){
+                    if($markah_sb_mr->markah > 0){
+                        $sb_mr +=  $markah_sb_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pa_mr){
+                    if($markah_pa_mr->markah > 0){
+                        $pa_mr +=  $markah_pa_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
+                               
+                if($markah_pd_mr){
+                    if($markah_pd_mr->markah > 0){
+                        $pd_mr +=  $markah_pd_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if ($markah_fl_mr){
+                    if($markah_fl_mr->markah > 0){
+                        $fl_mr +=  $markah_fl_mr->markah;
+                    }
+                } 
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_in_mr){
+                    if($markah_in_mr->markah > 0){
+                        $in_mr +=  $markah_in_mr->markah;
+                    }
+                } 
+                                          
+            } 
+
+            $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr + $fl_mr + $in_mr; 
+
+            $peratusan_mr = $total_mr/151 *100;     
+            if($peratusan_mr >= 80) {
+                $bintang_mr = 5;
+            } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
+                $bintang_mr = 4;
+            } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
+                $bintang_mr = 3;
+            } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
+                $bintang_mr = 2;
+            } else {
+                $bintang_mr = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN D"){
+            $rekabentuk_kriterias = Kriteria::where([
+                ['borang','=', 'PUN D'],
+                ['fasa','=', 'rekabentuk']
+            ])->get();
+
+            // Rekabentuk borang PUN D
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
+            $tl_mr = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
+            $kt_mr = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
+            $sb_mr = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
+            $pa_mr = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
+            $pd_mr = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
+            $fl_mr = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 7]])->get();
+            $in_mr = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_tl_mr){
+                    if($markah_tl_mr->markah > 0){
+                        $tl_mr +=  $markah_tl_mr->markah;
+                    }
+                } 
+                                              
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+
+                if($markah_kt_mr){
+                    if($markah_kt_mr->markah > 0){
+                        $kt_mr +=  $markah_kt_mr->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','rekabentuk']])->first();
+                               
+                if($markah_sb_mr){
+                    $sb_mr +=  $markah_sb_mr->markah;
+                } 
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
+                               
+                if($markah_pa_mr){
+                    $pa_mr +=  $markah_pa_mr->markah;
+                } 
+        
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
+                              
+                if($markah_pd_mr){
+                    $pd_mr +=  $markah_pd_mr->markah;
+                } 
+
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','rekabentuk']])->first();
+                            
+                if($markah_fl_mr){
+                    $fl_mr +=  $markah_fl_mr->markah;
+                } 
+        
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                
+                if($markah_in_mr){
+                    $in_mr +=  $markah_in_mr->markah;
+                } 
+                                      
+            }  
+
+            $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr + $fl_mr + $in_mr; 
+
+            $peratusan_mr = $total_mr/156 *100;     
+            if($peratusan_mr >= 80) {
+                $bintang_mr = 5;
+            } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
+                $bintang_mr = 4;
+            } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
+                $bintang_mr = 3;
+            } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
+                $bintang_mr = 2;
+            } else {
+                $bintang_mr = 1;
+            }
+
+        }
+
+        // $date = Carbon::now()->format('d-m-Y');
+        $projek = FacadePdf::loadView('projek.sijil_eph_bangunan_rekabentuk',compact('projek','date', 'peratusan_mr'));
+        // dd($projek);
+        return $projek->download('ePHJKR_SIJIL_EPH_BANGUNAN.'.'pdf');
+    }
+
+    public function sijil_eph_bangunan_verifikasi(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+        if($projek->kategori == "phJKR Bangunan Baru A"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'BARU A'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang BARU A
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                                
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+        
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_in_mv){
+                    if($markah_in_mv->markah > 0){
+                        $in_mv += $markah_in_mv->markah;
+                    }
+                }                           
+            }                                  
+                 
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $in_mv; 
+
+            $peratusan_mv = $total_mv/103 * 100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+        }
+    
+        if($projek->kategori == "phJKR Bangunan Baru B"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'BARU B'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang BARU B
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                                
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+    
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_fl_mv){
+                    if($markah_fl_mv->markah > 0){
+                        $fl_mv += $markah_fl_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                $markah_in_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                $markah_in_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                $markah_in_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                if($markah_in_mr){
+                    if($markah_in_mr->markah > 0){
+                        $in_mr +=  $markah_in_mr->markah;
+                    }
+                } 
+                if ($markah_in_mv){
+                    if($markah_in_mv->markah > 0){
+                        $in_mv += $markah_in_mv->markah;
+                    }
+                }
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                if($markah_in_mr_r){
+                    if($markah_in_mr_r->markah_rekabentuk > 0){
+                        $in_mr_r +=  $markah_in_mr_r->markah_rekabentuk;
+                    }
+                } 
+                if ($markah_in_mv_r){
+                    if($markah_in_mv_r->markah_verifikasi > 0){
+                        $in_mv_r += $markah_in_mv_r->markah_verifikasi;
+                    }
+                } 
+                if ($markah_in_ml_r){
+                    if($markah_in_ml_r->markah_validasi > 0){
+                        $in_ml_r += $markah_in_ml_r->markah_validasi;
+                    }
+                }                           
+            }
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv; 
+            
+            $peratusan_mv = $total_mv /138 * 100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan Baru C"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'BARU C'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang BARU C
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria){                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first(); 
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }                              
+                }  
+            }
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+             
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+     
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_in_mv){
+                    if($markah_in_mv->markah> 0){
+                        $in_mv += $markah_in_mv->markah;
+                    }
+                }                           
+            }
+    
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $in_mv; 
+            $peratusan_mv = $total_mv /166 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan Baru D"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'BARU D'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang BARU D
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                                
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_fl_mv){
+                    if($markah_fl_mv->markah > 0){
+                        $fl_mv += $markah_fl_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_in_mv){
+                    if($markah_in_mv->markah > 0){
+                        $in_mv += $markah_in_mv->markah;
+                    }
+                }                          
+            }                                  
+                 
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv;  
+
+            $peratusan_mv = $total_mv /173 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN A"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'PUN A'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang PUN A
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                                
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv; 
+
+            $peratusan_mv = $total_mv /76 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN B"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'PUN B'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang PUN B
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_fl_mv){
+                    if($markah_fl_mv->markah > 0){
+                        $fl_mv += $markah_fl_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_in_mv){
+                    if($markah_in_mv->markah > 0){
+                        $in_mv += $markah_in_mv->markah; 
+                    }
+                }                           
+            }
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv; 
+
+            $peratusan_mv = $total_mv /126 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN C"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'PUN C'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang PUN C
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                                    
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_fl_mv){
+                    if($markah_fl_mv->markah > 0){
+                        $fl_mv += $markah_fl_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if($markah_in_mv){
+                    if($markah_in_mv->markah > 0){
+                        $in_mv += $markah_in_mv->markah;
+                    }
+                }                           
+            } 
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv; 
+
+            $peratusan_mv = $total_mv /159 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN D"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'PUN D'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang PUN D
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                                
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_sb_mv){
                     $sb_mv += $markah_sb_mv->markah;
                 }
             }
-            if ($markah_sb_ml){
-                if($markah_sb_ml->markah > 0){
-                    $sb_ml += $markah_sb_ml->markah;
-                }
-            }
-            if($markah_sb_mr_r){
-                if($markah_sb_mr_r->markah_rekabentuk > 0){
-                    $sb_mr_r +=  $markah_sb_mr_r->markah_rekabentuk;
-                }
-            } 
-            if ($markah_sb_mv_r){
-                if($markah_sb_mv_r->markah_verifikasi > 0){
-                    $sb_mv_r += $markah_sb_mv_r->markah_verifikasi;
-                }
-            } 
-            if ($markah_sb_ml_r){
-                if($markah_sb_ml_r->markah_validasi > 0){
-                    $sb_ml_r += $markah_sb_ml_r->markah_validasi;
-                }
-            }
-        }
-        foreach($pa_kriterias as $pa_kriteria) {
-            $markah_pa_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','rekabentuk']])->first();
-            $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
-            $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
-            $markah_pa_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_pa_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_pa_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first();               
-            if($markah_pa_mr){
-                if($markah_pa_mr->markah > 0){
-                    $pa_mr +=  $markah_pa_mr->markah;
-                }
-            } 
-            if ($markah_pa_mv){
-                if($markah_pa_mv->markah > 0){
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_pa_mv){
                     $pa_mv += $markah_pa_mv->markah;
                 }
             }
-            if ($markah_pa_ml){
-                if($markah_pa_ml->markah > 0){
-                    $pa_ml += $markah_pa_ml->markah;
-                }
-            }
-            if($markah_pa_mr_r){
-                if($markah_pa_mr_r->markah_rekabentuk > 0){
-                    $pa_mr_r +=  $markah_pa_mr_r->markah_rekabentuk;
-                }
-            } 
-            if ($markah_pa_mv_r){
-                if($markah_pa_mv_r->markah_verifikasi > 0){
-                    $pa_mv_r += $markah_pa_mv_r->markah_verifikasi;
-                }
-            } 
-            if ($markah_pa_ml_r){
-                if($markah_pa_ml_r->markah_validasi > 0){
-                    $pa_ml_r += $markah_pa_ml_r->markah_validasi;
-                }
-            }
-        }
-        foreach($pd_kriterias as $pd_kriteria) {
-            $markah_pd_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','rekabentuk']])->first();
-            $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
-            $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
-            $markah_pd_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_pd_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_pd_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first();               
-            if($markah_pd_mr){
-                if($markah_pd_mr->markah > 0){
-                    $pd_mr +=  $markah_pd_mr->markah;
-                }
-            } 
-            if ($markah_pd_mv){
-                if($markah_pd_mv->markah > 0){
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_pd_mv){
                     $pd_mv += $markah_pd_mv->markah;
                 }
             }
-            if ($markah_pd_ml){
-                if($markah_pd_ml->markah > 0){
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+                 
+                if ($markah_fl_mv){
+                    $fl_mv += $markah_fl_mv->markah;
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_in_mv){
+                    $in_mv += $markah_in_mv->markah;
+                }                           
+            } 
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv; 
+
+            $peratusan_mv = $total_mv /164 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan Sedia Ada A"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'SEDIA ADA A'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang SEDIA ADA A
+            $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                                
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                               
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                              
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+                              
+                if ($markah_fl_mv){
+                    if($markah_fl_mv->markah > 0){
+                        $fl_mv += $markah_fl_mv->markah;
+                    }
+                }
+            }
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv; 
+
+            $peratusan_mv = $total_mv/62 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan Sedia Ada B"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'SEDIA ADA B'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang SEDIA ADA B
+            $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                               
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                               
+                if ($markah_pa_mv > 0){
+                    if($markah_pa_mv->markah){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                              
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_in_mv){
+                    if($markah_in_mv->markah > 0){
+                        $in_mv += $markah_in_mv->markah;
+                    }
+                }                           
+            } 
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $in_mv; 
+
+            $peratusan_mv = $total_mv/108 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan Sedia Ada C"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'SEDIA ADA C'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang SEDIA ADA C
+            $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                             
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                               
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                              
+                if ($markah_pa_mv){
+                    if($markah_pa_mv->markah > 0){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                              
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+                             
+                if ($markah_fl_mv){
+                    if($markah_fl_mv->markah > 0){
+                        $fl_mv += $markah_fl_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_in_mv){
+                    if($markah_in_mv->markah > 0){
+                        $in_mv += $markah_in_mv->markah;
+                    }
+                }                           
+            } 
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv; 
+
+            $peratusan_mv = $total_mv/140 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan Sedia Ada D"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'SEDIA ADA D'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang SEDIA ADA D
+            $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_tl_mv){
+                    if($markah_tl_mv->markah > 0){
+                        $tl_mv += $markah_tl_mv->markah;
+                    }
+                }                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','verifikasi']])->first();
+
+                if ($markah_kt_mv){
+                    if($markah_kt_mv->markah > 0){
+                        $kt_mv += $markah_kt_mv->markah;
+                    }
+                }
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','verifikasi']])->first();
+                               
+                if ($markah_sb_mv){
+                    if($markah_sb_mv->markah > 0){
+                        $sb_mv += $markah_sb_mv->markah;
+                    }
+                }
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','verifikasi']])->first();
+                               
+                if ($markah_pa_mv > 0){
+                    if($markah_pa_mv->markah){
+                        $pa_mv += $markah_pa_mv->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','verifikasi']])->first();
+                              
+                if ($markah_pd_mv){
+                    if($markah_pd_mv->markah > 0){
+                        $pd_mv += $markah_pd_mv->markah;
+                    }
+                }
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','verifikasi']])->first();
+                              
+                if ($markah_fl_mv){
+                    if($markah_fl_mv->markah > 0){
+                        $fl_mv += $markah_fl_mv->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
+                
+                if ($markah_in_mv){
+                    if($markah_in_mv->markah > 0){
+                        $in_mv += $markah_in_mv->markah;
+                    }
+                }                          
+            }
+
+            $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $fl_mv + $in_mv; 
+
+            $peratusan_mv = $total_mv /145 *100;     
+            if($peratusan_mv >= 80) {
+                $bintang_mv = 5;
+            } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
+                $bintang_mv = 4;
+            } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
+                $bintang_mv = 3;
+            } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
+                $bintang_mv = 2;
+            } else {
+                $bintang_mv = 1;
+            }
+        }
+
+        
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_eph_bangunan_verifikasi',compact('projek','date', 'peratusan_mv'));
+        // dd($projek);
+        return $projek->download('ePHJKR_SIJIL_PENILAIAN_REKABENTUK_BANGUNAN.'.'pdf');
+    }
+
+    public function sijil_eph_bangunan_validasi(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        if($projek->kategori == "phJKR Bangunan Baru A"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'BARU A'],
+                ['fasa','=', 'validasi']
+            ])->get();
+
+            // Validasi borang BARU A
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU A'],['borang_seq','=', 6]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                 
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                           
+            }                                   
+                 
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $in_ml; 
+
+            $peratusan_ml = $total_ml/103 * 100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
+        }
+    
+        if($projek->kategori == "phJKR Bangunan Baru B"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'BARU B'],
+                ['fasa','=', 'validasi']
+            ])->get();
+
+            // Validasi borang BARU B
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU B'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                              
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    if($markah_fl_ml->markah > 0){
+                        $fl_ml += $markah_fl_ml->markah;
+                    }
+                }
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                           
+            }
+
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+            
+            $peratusan_ml = $total_ml /138 * 100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan Baru C"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'BARU C'],
+                ['fasa','=', 'validasi']
+            ])->get();
+
+            // Validasi borang BARU C
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU C'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                              
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    if($markah_fl_ml->markah > 0){
+                        $fl_ml += $markah_fl_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                           
+            }  
+    
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+            $peratusan_ml = $total_ml/159 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan Baru D"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'BARU D'],
+                ['fasa','=', 'validasi'],
+            ])->get();
+
+            // Validasi borang BARU D
+            $tl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'BARU D'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                              
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    if($markah_fl_ml->markah > 0){
+                        $fl_ml += $markah_fl_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+               
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                              
+            }                                  
+                 
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + + $fl_ml + $in_ml; 
+
+            $peratusan_ml = $total_ml /173 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN A"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'PUN A'],
+                ['fasa','=', 'validasi'],
+            ])->get();
+
+            // Validasi borang PUN A
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN A'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+                
+            }
+
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml; 
+
+            $peratusan_ml = $total_ml /76 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN B"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'PUN B'],
+                ['fasa','=', 'validasi']
+            ])->get();
+
+            // Validasi borang PUN B
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN B'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                              
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    if($markah_fl_ml->markah > 0){
+                        $fl_ml += $markah_fl_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                          
+            }
+
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+
+            $peratusan_ml = $total_ml /126 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN C"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'PUN C'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Verifikasi borang PUN C
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 1]])->get();
+            $tl_mv = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 2]])->get();
+            $kt_mv = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 3]])->get();
+            $sb_mv = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 4]])->get();
+            $pa_mv = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 5]])->get();
+            $pd_mv = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 6]])->get();
+            $fl_mv = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN C'],['borang_seq','=', 7]])->get();
+            $in_mv = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                              
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+        
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+               
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    if($markah_fl_ml->markah > 0){
+                        $fl_ml += $markah_fl_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                          
+            }  
+
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+
+            $peratusan_ml = $total_ml /159 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
+        }
+
+        if($projek->kategori == "phJKR Bangunan PUN D"){
+            $verifikasi_kriterias = Kriteria::where([
+                ['borang','=', 'PUN D'],
+                ['fasa','=', 'verifikasi'],
+            ])->get();
+
+            // Validasi borang PUN D
+            $tl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'PUN D'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                $markah_tl_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                $markah_tl_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                $markah_tl_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                 
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    $sb_ml += $markah_sb_ml->markah;
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    $pa_ml += $markah_pa_ml->markah;
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
                     $pd_ml += $markah_pd_ml->markah;
                 }
+                
             }
-            if($markah_pd_mr_r){
-                if($markah_pd_mr_r->markah_rekabentuk > 0){
-                    $pd_mr_r +=  $markah_pd_mr_r->markah_rekabentuk;
+            foreach($fl_kriterias as $fl_kriteria) {
+               
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    $fl_ml += $markah_fl_ml->markah;
                 }
-            } 
-            if ($markah_pd_mv_r){
-                if($markah_pd_mv_r->markah_verifikasi > 0){
-                    $pd_mv_r += $markah_pd_mv_r->markah_verifikasi;
-                }
-            } 
-            if ($markah_pd_ml_r){
-                if($markah_pd_ml_r->markah_validasi > 0){
-                    $pd_ml_r += $markah_pd_ml_r->markah_validasi;
-                }
+                
             }
-        }
-        foreach($in_kriterias as $in_kriteria) {                
-            $markah_in_mr = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','rekabentuk']])->first();
-            $markah_in_mv = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','verifikasi']])->first();
-            $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_in_mr_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_in_mv_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            $markah_in_ml_r = MarkahRayuan::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
-            if($markah_in_mr){
-                if($markah_in_mr->markah > 0){
-                    $in_mr +=  $markah_in_mr->markah;
-                }
-            } 
-            if ($markah_in_mv){
-                if($markah_in_mv->markah > 0){
-                    $in_mv += $markah_in_mv->markah;
-                }
-            }
-            if ($markah_in_ml){
-                if($markah_in_ml->markah > 0){
+            foreach($in_kriterias as $in_kriteria) {                
+                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
                     $in_ml += $markah_in_ml->markah;
+                } 
+                                           
+            }
+
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+
+            $peratusan_ml = $total_ml /164 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
+
+        }
+
+        if($projek->kategori == "phJKR Bangunan Sedia Ada A"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'SEDIA ADA A'],
+                ['fasa','=', 'validasi'],
+            ])->get();
+
+            // Validasi borang SEDIA ADA A
+            $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA A'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                 
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
                 }
-            } 
-            if($markah_in_mr_r){
-                if($markah_in_mr_r->markah_rekabentuk > 0){
-                    $in_mr_r +=  $markah_in_mr_r->markah_rekabentuk;
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
                 }
-            } 
-            if ($markah_in_mv_r){
-                if($markah_in_mv_r->markah_verifikasi > 0){
-                    $in_mv_r += $markah_in_mv_r->markah_verifikasi;
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
                 }
-            } 
-            if ($markah_in_ml_r){
-                if($markah_in_ml_r->markah_validasi > 0){
-                    $in_ml_r += $markah_in_ml_r->markah_validasi;
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
                 }
-            }                           
-        }                                  
-             
-        $total_mr = $tl_mr + $kt_mr + $sb_mr + $pa_mr + $pd_mr + $in_mr; 
-        $total_mv = $tl_mv + $kt_mv + $sb_mv + $pa_mv + $pd_mv + $in_mv; 
-        $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $in_ml; 
-        $total_mr_r = $tl_mr_r + $kt_mr_r + $sb_mr_r + $pa_mr_r + $pd_mr_r + $in_mr_r; 
-        $total_mv_r = $tl_mv_r + $kt_mv_r + $sb_mv_r + $pa_mv_r + $pd_mv_r + $in_mv_r; 
-        $total_ml_r = $tl_ml_r + $kt_ml_r + $sb_ml_r + $pa_ml_r + $pd_ml_r + $in_ml_r; 
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    if($markah_fl_ml->markah > 0){
+                        $fl_ml += $markah_fl_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                           
+            }
 
-        $peratusan_mr = $total_mr /101 *100;     
-        if($peratusan_mr >= 80) {
-            $bintang_mr = 5;
-        } elseif($peratusan_mr >= 65 && $peratusan_mr < 80) {
-            $bintang_mr = 4;
-        } elseif($peratusan_mr >= 45 && $peratusan_mr < 65) {
-            $bintang_mr = 3;
-        } elseif($peratusan_mr >= 30 && $peratusan_mr < 45) {
-            $bintang_mr = 2;
-        } else {
-            $bintang_mr = 1;
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml; 
+
+            $peratusan_ml = $total_ml/62 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
         }
 
-        $peratusan_mv = $total_mv /103 *100;     
-        if($peratusan_mv >= 80) {
-            $bintang_mv = 5;
-        } elseif($peratusan_mv >= 65 && $peratusan_mv < 80) {
-            $bintang_mv = 4;
-        } elseif($peratusan_mv >= 45 && $peratusan_mv < 65) {
-            $bintang_mv = 3;
-        } elseif($peratusan_mv >= 30 && $peratusan_mv < 45) {
-            $bintang_mv = 2;
-        } else {
-            $bintang_mv = 1;
+        if($projek->kategori == "phJKR Bangunan Sedia Ada B"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'SEDIA ADA B'],
+                ['fasa','=', 'validasi'],
+            ])->get();
+
+            // Validasi borang SEDIA ADA B
+            $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA B'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                 
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+               
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+            
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                          
+            }  
+
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $in_ml; 
+
+            $peratusan_ml = $total_ml/108 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
         }
 
-        $peratusan_ml = $total_ml /103 *100;     
-        if($peratusan_ml >= 80) {
-            $bintang_ml = 5;
-        } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
-            $bintang_ml = 4;
-        } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
-            $bintang_ml = 3;
-        } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
-            $bintang_ml = 2;
-        } else {
-            $bintang_ml = 1;
+        if($projek->kategori == "phJKR Bangunan Sedia Ada C"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'SEDIA ADA C'],
+                ['fasa','=', 'validasi'],
+            ])->get();
+
+            // Validasi borang SEDIA ADA C
+            $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA C'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                 
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                               
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    if($markah_fl_ml->markah > 0){
+                        $fl_ml += $markah_fl_ml->markah;
+                    }
+                }
+        
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                          
+            }    
+
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+
+            $peratusan_ml = $total_ml/140 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
         }
 
-        //Rayuan
-        $peratusan_mr_r = $total_mr_r /101 *100;     
-        if($peratusan_mr_r >= 80) {
-            $bintang_mr_r = 5;
-        } elseif($peratusan_mr_r >= 65 && $peratusan_mr_r < 80) {
-            $bintang_mr_r = 4;
-        } elseif($peratusan_mr_r >= 45 && $peratusan_mr_r < 65) {
-            $bintang_mr_r = 3;
-        } elseif($peratusan_mr_r >= 30 && $peratusan_mr_r < 45) {
-            $bintang_mr_r = 2;
-        } else {
-            $bintang_mr_r = 1;
+        if($projek->kategori == "phJKR Bangunan Sedia Ada D"){
+            $validasi_kriterias = Kriteria::where([
+                ['borang','=', 'SEDIA ADA D'],
+                ['fasa','=', 'validasi'],
+            ])->get();
+
+            // Validasi borang SEDIA ADA D
+            $tl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 1]])->get();
+            $tl_ml = 0;
+            $kt_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 2]])->get();
+            $kt_ml = 0;
+            $sb_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 3]])->get();
+            $sb_ml = 0;
+            $pa_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 4]])->get();
+            $pa_ml = 0;
+            $pd_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 5]])->get();
+            $pd_ml = 0;
+            $fl_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 6]])->get();
+            $fl_ml = 0;
+            $in_kriterias = Kriteria::where([['borang','=', 'SEDIA ADA D'],['borang_seq','=', 7]])->get();
+            $in_ml = 0;
+
+            foreach($tl_kriterias as $tl_kriteria) {                
+                $markah_tl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $tl_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_tl_ml){
+                    if($markah_tl_ml->markah > 0){
+                        $tl_ml += $markah_tl_ml->markah;
+                    }
+                } 
+                                             
+            }  
+            foreach($kt_kriterias as $kt_kriteria) {
+                $markah_kt_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $kt_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_kt_ml){
+                    if($markah_kt_ml->markah > 0){
+                        $kt_ml += $markah_kt_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($sb_kriterias as $sb_kriteria) {
+                $markah_sb_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $sb_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_sb_ml){
+                    if($markah_sb_ml->markah > 0){
+                        $sb_ml += $markah_sb_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pa_kriterias as $pa_kriteria) {
+                $markah_pa_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pa_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pa_ml){
+                    if($markah_pa_ml->markah > 0){
+                        $pa_ml += $markah_pa_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($pd_kriterias as $pd_kriteria) {
+                $markah_pd_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $pd_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_pd_ml){
+                    if($markah_pd_ml->markah > 0){
+                        $pd_ml += $markah_pd_ml->markah;
+                    }
+                }
+            }
+            foreach($fl_kriterias as $fl_kriteria) {
+                $markah_fl_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $fl_kriteria->id],['fasa','=','validasi']])->first(); 
+                
+                if ($markah_fl_ml){
+                    if($markah_fl_ml->markah > 0){
+                        $fl_ml += $markah_fl_ml->markah;
+                    }
+                }
+                
+            }
+            foreach($in_kriterias as $in_kriteria) {                
+                $markah_in_ml = Markah::where([['projek_id','=', $projek->id], ['kriteria_id','=', $in_kriteria->id],['fasa','=','validasi']])->first();
+                
+                if ($markah_in_ml){
+                    if($markah_in_ml->markah > 0){
+                        $in_ml += $markah_in_ml->markah;
+                    }
+                } 
+                                         
+            }
+
+            $total_ml = $tl_ml + $kt_ml + $sb_ml + $pa_ml + $pd_ml + $fl_ml + $in_ml; 
+
+            $peratusan_ml = $total_ml /145 *100;     
+            if($peratusan_ml >= 80) {
+                $bintang_ml = 5;
+            } elseif($peratusan_ml >= 65 && $peratusan_ml < 80) {
+                $bintang_ml = 4;
+            } elseif($peratusan_ml >= 45 && $peratusan_ml < 65) {
+                $bintang_ml = 3;
+            } elseif($peratusan_ml >= 30 && $peratusan_ml < 45) {
+                $bintang_ml = 2;
+            } else {
+                $bintang_ml = 1;
+            }
         }
 
-        $peratusan_mv_r = $total_mv_r /103 *100;     
-        if($peratusan_mv_r >= 80) {
-            $bintang_mv_r = 5;
-        } elseif($peratusan_mv_r >= 65 && $peratusan_mv_r < 80) {
-            $bintang_mv_r = 4;
-        } elseif($peratusan_mv_r >= 45 && $peratusan_mv_r < 65) {
-            $bintang_mv_r = 3;
-        } elseif($peratusan_mv_r >= 30 && $peratusan_mv_r < 45) {
-            $bintang_mv_r = 2;
-        } else {
-            $bintang_mv_r = 1;
-        }
-
-        $peratusan_ml_r = $total_ml_r /103 *100;     
-        if($peratusan_ml_r >= 80) {
-            $bintang_ml_r = 5;
-        } elseif($peratusan_ml_r >= 65 && $peratusan_ml_r < 80) {
-            $bintang_ml_r = 4;
-        } elseif($peratusan_ml_r >= 45 && $peratusan_ml_r < 65) {
-            $bintang_ml_r = 3;
-        } elseif($peratusan_ml_r >= 30 && $peratusan_ml_r < 45) {
-            $bintang_ml_r = 2;
-        } else {
-            $bintang_ml_r = 1;
-        }
-
-
-        // $date = Carbon::now()->format('d-m-Y');
-        $projek = FacadePdf::loadView('projek.sijil_eph_bangunan',compact('projek','date', 'peratusan_mr'));
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_eph_bangunan_validasi',compact('projek','date', 'peratusan_ml'));
         // dd($projek);
-        return $projek->download('ePHJKR_SIJIL_EPH_BANGUNAN.'.'pdf');
+        return $projek->download('ePHJKR_SIJIL_PENILAIAN_REKABENTUK_BANGUNAN.'.'pdf');
+    }
+
+    public function sijil_eph_bangunan_rayuan(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+        
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_eph_bangunan_rayuan',compact('projek','date'));
+        // dd($projek);
+        return $projek->download('ePHJKR_SIJIL_PENILAIAN_REKABENTUK_BANGUNAN.'.'pdf');
     }
 
     public function sijil_eph_jalan_rekabentuk(Request $request){
@@ -14724,7 +16640,7 @@ class ProjekController extends Controller
         // dd($projek);
 
         $date = Carbon::now()->format('Y-m-d');
-        $projek = FacadePdf::loadView('projek.sijil_eph_jalan_rekabentuk',compact('projek','date'));
+        $projek = FacadePdf::loadView('projek.sijil_eph_jalan_validasi',compact('projek','date'));
         // dd($projek);
         return $projek->download('ePHJKR_SIJIL_PENILAIAN_REKABENTUK_JALAN.'.'pdf');
     }
@@ -14738,31 +16654,103 @@ class ProjekController extends Controller
         $date = Carbon::now()->format('Y-m-d');
         $projek = FacadePdf::loadView('projek.sijil_eph_jalan_verifikasi',compact('projek','date'));
         // dd($projek);
-        return $projek->download('ePHJKR_SIJIL_VERIFIKASI_JALAN.'.'pdf');
+        return $projek->download('ePHJKR_SIJIL_JALAN_VERIFIKASI.'.'pdf');
     }
 
-    public function sijil_gpss_bangunan(Request $request){
+    public function sijil_eph_jalan_rayuan_rekabentuk(Request $request){
         // dd('OK');
         $id = (int)$request->route('id'); //cari id dlm route
         $projek = Projek::find($id); //cari id dlm model
         // dd($projek);
 
         $date = Carbon::now()->format('Y-m-d');
-        $projek = FacadePdf::loadView('projek.sijil_gpss_bangunan',compact('projek','date'));
-
-            return $projek->download('ePHJKR_SIJIL_GPSS_BANGUNAN.'.'pdf');
+        $projek = FacadePdf::loadView('projek.sijil_eph_jalan_rayuan_rekabentuk',compact('projek','date'));
+        // dd($projek);
+        return $projek->download('ePHJKR_SIJIL_JALAN_RAYUAN_REKABENTUK.'.'pdf');
     }
 
-    public function sijil_gpss_jalan(Request $request){
+    public function sijil_eph_jalan_rayuan_verifikasi(Request $request){
         // dd('OK');
         $id = (int)$request->route('id'); //cari id dlm route
         $projek = Projek::find($id); //cari id dlm model
         // dd($projek);
 
         $date = Carbon::now()->format('Y-m-d');
-        $projek = FacadePdf::loadView('projek.sijil_gpss_jalan',compact('projek','date'));
+        $projek = FacadePdf::loadView('projek.sijil_eph_jalan_rayuan_verifikasi',compact('projek','date'));
+        // dd($projek);
+        return $projek->download('ePHJKR_SIJIL_JALAN_RAYUAN_VERIFIKASI.'.'pdf');
+    }
 
-        return $projek->download('ePHJKR_SIJIL_GPSS_JALAN.'.'pdf');
+    public function sijil_gpss_bangunan_rekabentuk(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_gpss_bangunan_rekabentuk',compact('projek','date'));
+
+            return $projek->download('ePHJKR_SIJIL_GPSS_BANGUNAN_REKABENTUK.'.'pdf');
+    }
+
+    public function sijil_gpss_bangunan_verifikasi(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_gpss_bangunan_verifikasi',compact('projek','date'));
+
+            return $projek->download('ePHJKR_SIJIL_GPSS_BANGUNAN_VERIFIKASI.'.'pdf');
+    }
+
+    public function sijil_gpss_bangunan_rayuan(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_gpss_bangunan_rayuan',compact('projek','date'));
+
+            return $projek->download('ePHJKR_SIJIL_GPSS_BANGUNAN_RAYUAN.'.'pdf');
+    }
+
+    public function sijil_gpss_jalan_rekabentuk(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_gpss_jalan_rekabentuk',compact('projek','date'));
+
+        return $projek->download('ePHJKR_SIJIL_GPSS_JALAN_REKABENTUK.'.'pdf');
+    }
+
+    public function sijil_gpss_jalan_verifikasi(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_gpss_jalan_verifikasi',compact('projek','date'));
+
+        return $projek->download('ePHJKR_SIJIL_GPSS_JALAN_VERIFIKASI.'.'pdf');
+    }
+
+    public function sijil_gpss_jalan_rayuan(Request $request){
+        // dd('OK');
+        $id = (int)$request->route('id'); //cari id dlm route
+        $projek = Projek::find($id); //cari id dlm model
+        // dd($projek);
+
+        $date = Carbon::now()->format('Y-m-d');
+        $projek = FacadePdf::loadView('projek.sijil_gpss_jalan_rayuan',compact('projek','date'));
+
+        return $projek->download('ePHJKR_SIJIL_GPSS_JALAN_RAYUAN.'.'pdf');
     }
 
     //SMTP
@@ -14796,14 +16784,18 @@ class ProjekController extends Controller
             $projek->status = "Dalam Pengesahan Skor Verifikasi GPSS Jalan";
             alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
         }
-        elseif($projek->status == "Proses Pengisian Skor Rekabentuk Jalan"){
-            $projek->status = "Dalam Pengesahan Skor Rekabentuk Jalan";
+        elseif($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Baru"){
+            $projek->status = "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Baru";
             alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
         }
-        elseif($projek->status == "Proses Pengisian Skor Verifikasi Jalan"){
-            $projek->status = "Dalam Pengesahan Skor Verifikasi Jalan";
+        elseif($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Naiktaraf"){
+            $projek->status = "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Naiktaraf";
             alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
         }
+        // elseif($projek->status == "Proses Pengisian Skor Verifikasi Jalan"){
+        //     $projek->status = "Dalam Pengesahan Skor Verifikasi Jalan";
+        //     alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
+        // }
         elseif($projek->status == "Proses Rayuan Bangunan"){
             $projek->status = "Dalam Pengesahan Rayuan Bangunan";
             alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
@@ -14830,20 +16822,6 @@ class ProjekController extends Controller
         // Mail::to($user->email)->send(new PengesahanPenilaian($projek));
 
         return back();
-    }
-
-    public function jana_sijil_eph_bangunan(Request $request){
-        $user = $request->user();
-        $id = (int)$request->route('id');
-
-        $projek = Projek::find($id);
-    }
-
-    public function jana_keputusan_eph_bangunan (Request $request){
-        $user = $request->user();
-        $id = (int)$request->route('id');
-
-        $projek = Projek::find($id);
     }
 
     function append_string ($str1, $str2) {
