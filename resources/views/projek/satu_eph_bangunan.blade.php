@@ -806,7 +806,7 @@
                                             <h3>Peringkat Rayuan</h3>
                                             <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-rayuan">Lihat Sijil</a>
                                         @endif
-                                        <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
+                                        <form action="/projek/{{ $projek->id }}/sah-eph-rayuan" method="POST" enctype="multipart/form-data">
                                             @csrf
                                             @if($projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                                 <button class="btn btn-primary" type="submit">Jana</button>
