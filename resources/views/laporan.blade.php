@@ -257,7 +257,7 @@
                   <tr>
                       <th class="text-center">Nama Projek</th>
                       <th class="text-center">Alamat</th>
-                      <th class="text-center">Peranan</th>
+                      {{-- <th class="text-center">Peranan</th> --}}
                       <th class="text-center">Status</th>
                       <th class="text-center">Jenis Kategori</th>
                   </tr>
@@ -300,11 +300,7 @@
               {
                   data: 'alamat',
                   name: 'alamat'
-              },
-              {
-                  data: 'peranan',
-                  name: 'peranan'
-              },                
+              },               
               {
                   data: 'status',
                   name: 'status'
