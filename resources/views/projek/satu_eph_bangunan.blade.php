@@ -276,7 +276,7 @@
                     @endrole
                     @endif
                     @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_ml >= 80)
-                    @if($projek->status == "Selesai Pengesahan Validasi Bangunan")
+                    @if($projek->status == "Selesai Pengesahan Validasi Bangunan" || $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
                     @role('pasukan-validasi|ketua-validasi')
                     <li class="nav-item">
                         <a class="nav-link active" href="#tab-3" data-bs-toggle="tab" role="tab">Validasi</a>
