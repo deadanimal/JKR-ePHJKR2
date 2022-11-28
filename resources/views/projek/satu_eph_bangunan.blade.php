@@ -715,7 +715,7 @@
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                         $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                         <h3>Peringkat Rekabentuk</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-rekabentuk">Muat Turun</a>
                                     @endif
                                     @if($projek->status == "Selesai Pengesahan Rekabentuk Bangunan" ||
                                         $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
