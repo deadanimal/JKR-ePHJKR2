@@ -1017,6 +1017,7 @@
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                                    @csrf
                                                 <input type="hidden" name="fasa" value="rekabentuk">
                                                 @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
                                                 <button class="btn btn-primary" type="submit">Sah</button>
