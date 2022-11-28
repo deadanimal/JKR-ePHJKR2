@@ -756,7 +756,7 @@
                                             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Rayuan Bangunan")
                                             <h3>Peringkat Rekabentuk</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan">Lihat Sijil</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-rekabentuk">Lihat Sijil</a>
                                         @endif
                                         <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
                                             @csrf
