@@ -276,11 +276,13 @@
                     @endrole
                     @endif
                     @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_ml >= 80)
+                    @if($projek->status == "Selesai Pengesahan Validasi Bangunan")
                     @role('pasukan-validasi|ketua-validasi')
                     <li class="nav-item">
                         <a class="nav-link active" href="#tab-3" data-bs-toggle="tab" role="tab">Validasi</a>
                     </li>
                     @endrole
+                    @endif
                     @endif
                     @role('ketua-pasukan|penolong-ketua-pasukan')
                     @if($projek->status == "Proses Rayuan Bangunan")
@@ -487,6 +489,7 @@
                     <!--VALIDASI BANGUNAN-->
                     @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_mv >= 80)
                     @role('pasukan-validasi|ketua-validasi')
+                    @if($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
                     <div class="tab-pane active" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
@@ -561,6 +564,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     @endrole
                     @endif
 
@@ -916,6 +920,15 @@
                                             @endif
                                         </div>
                                     </div>
+                                @endrole
+                                @role('ketua-validasi|pasukan-validasi')
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        @if($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
+                                        <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                        @endif
+                                    </div>
+                                </div>
                                 @endrole
                                 @if($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
                                     $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
