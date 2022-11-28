@@ -109,8 +109,14 @@ class MaklumbalasController extends Controller
         $id = (int)$request->route('id'); 
         $maklum = Maklumbalas::find($id);
         $mesejs = MbMesej::where('maklumbalas_id', $maklum->id)->get();
+        // dd($mesejs);
+        foreach ($mesejs as $key => $mb) {
+            $mbb = MbMesej::find($mb->id)->mesej;
+            $mb['mesej'] = $mbb;
+            // dd($mb);
+        }
     
-        return view('maklum.papar', compact('maklum', 'mesejs'));
+        return view('maklum.papar', compact('maklum', 'mesejs', 'mb'));
     } 
 
     public function hantar_mesej(Request $request) {
