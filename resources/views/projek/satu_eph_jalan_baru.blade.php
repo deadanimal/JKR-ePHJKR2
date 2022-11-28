@@ -1343,15 +1343,15 @@
                                             $projek->status == "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
                                             $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")
                                             <h3>Peringkat Rekabentuk</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-baru">Lihat Sijil</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rekabentuk">Lihat Sijil</a>
                                             <h3>Peringkat Verifikasi</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-baru">Lihat Sijil</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-verifikasi">Lihat Sijil</a>
                                         @endif
                                     </div>
                                 </div>
                                 <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru")
+                                    @if($projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Baru")
                                         <button class="btn btn-primary" type="submit">Jana</button>
                                     @endif
                                 </form>

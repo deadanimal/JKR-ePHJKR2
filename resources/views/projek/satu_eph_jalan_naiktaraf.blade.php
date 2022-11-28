@@ -101,6 +101,7 @@
                         </div>
                     </div>
                 </div>
+                
                     @role('sekretariat')
                     <form action="/projek/{{$projek->id}}/sah-eph-jalan-naiktaraf" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -1295,15 +1296,15 @@
                                             $projek->status == "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
                                             $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
                                             <h3>Peringkat Rekabentuk</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-naiktaraf">Lihat Sijil</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rekabentuk">Lihat Sijil</a>
                                             <h3>Peringkat Verifikasi</h3>
-                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-naiktaraf">Lihat Sijil</a>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-verifikasi">Lihat Sijil</a>
                                         @endif
                                     </div>
                                 </div>
                                 <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                    @if($projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Naiktaraf")
                                         <button class="btn btn-primary" type="submit">Jana</button>
                                     @endif
                                 </form>

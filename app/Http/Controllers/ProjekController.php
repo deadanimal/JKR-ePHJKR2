@@ -10550,7 +10550,7 @@ class ProjekController extends Controller
             }
     
 
-            return view('projek.satu_eph_jalan_baru', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_rekabentuk_kriterias', 'rayuan_verifikasi_kriterias', 'users', 'lantikans',
+            return view('projek.satu_eph_jalan_naiktaraf', compact('projek', 'user', 'user_role' ,'rekabentuk_kriterias', 'verifikasi_kriterias', 'rayuan_rekabentuk_kriterias', 'rayuan_verifikasi_kriterias', 'users', 'lantikans',
             'totalcp_td', 'totaleip_td', 'totalcp_ad', 'totalcp_av','totaleip_ad', 'totaleip_ad', 'totalcp_tv', 'totaleip_ad', 'totaleip_av', 'totaleip_tv', 
             'sm_td', 'pt_td', 'ew_td', 'ae_td', 'ca_td', 'mr_td', 'ec_td', 'in_td' ,'sm_ad', 'pt_ad', 'ew_ad', 'ae_ad', 'ca_ad', 'mr_ad', 'ec_ad', 'in_ad', 'sm_tv', 'sm_av', 'pt_tv', 
             'pt_av', 'ew_tv', 'ew_av', 'ae_tv', 'ae_av', 'ca_tv', 'ca_av','mr_av', 'mr_tv', 'ec_tv', 'ec_av', 'in_td', 'in_ad', 'in_tv', 'in_av', 
