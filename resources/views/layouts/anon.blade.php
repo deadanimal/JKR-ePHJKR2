@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>JKR | epHJKR</title>
-    {{-- <link rel="apple-touch-icon" sizes="180x180" href="/img/risda_logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/risda_logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/risda_logo.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/img/risda_logo.png"> --}}
     <link rel="manifest" href="/assets/img/favicons/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <script src="/assets/js/config.js"></script>
@@ -68,6 +64,14 @@
 <body>
 
     <style>
+        @font-face{
+            font-family: 'Montserrat-Bold';
+            src: url(assets/fonts/Montserrat-Bold.ttf);
+        }
+        .epenarafanhijau{
+            font-family: 'Montserrat-Bold', sans-serif;
+            font-size: 25pt;
+        }
         .form-control {
             border-color: #F4A258;
             box-shadow: inset 2px 2px 5px 2px lightgrey;
@@ -717,10 +721,11 @@
             <nav class="navbar navbar-expand p-3"
                 style="box-shadow: 0px 2px 2px 1px rgba(0,0,0,0); background-color: rgba(0,0,0,0); z-index: 2;">
                 <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-                    <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
+                    {{-- <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
                         style="width: 82.45px; height: 64.3px;">
                     <img src="/assets/img/JKR_LOGO.png" alt="JKR" style="width: 81.46px; height: 54.93px;">
-                    <img src="/assets/img/EPHJKR_LOGO.png" alt="EPHJKR" style="width: 95.73px; height: 87.31px;">
+                    <img src="/assets/img/EPHJKR_LOGO.png" alt="EPHJKR" style="width: 95.73px; height: 87.31px;"> --}}
+                    <img src="/assets/img/logo_jkr.png" alt="EPHJKR" style="width: 283.73px; height:87.31px">
                 </div>
                 
                 <div class="col-1 text-end">
@@ -744,9 +749,9 @@
             </nav>
 
             <div class="col-12" style="z-index: 2;">
-                <h3 class="mt-4 text-center text-white" >e-Penarafan Hijau Jabatan Kerja Raya</h3>
+                <h3 class="mt-4 text-center text-white epenarafanhijau">e-Penarafan Hijau Jabatan Kerja Raya</h3>
                 <br>
-                 <h4 class= "text-center text-white">(e-pHJKR)</h4>
+                 <h4 class= "text-center text-white epenarafanhijau">(e-pHJKR)</h4>
 
             {{-- <div class="col-1 text-end">
                 <a href="/" class="jkr-header">UTAMA</a>

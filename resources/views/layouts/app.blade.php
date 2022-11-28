@@ -613,10 +613,10 @@
             style="box-shadow: 0px 2px 2px 1px lightgrey; background-color: white; z-index: 2;">
 
             <div class="col-3 text-center" style="filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));">
-                <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
+                {{-- <img src="/assets/img/JATA_NEGARA_MALAYSIA.png" alt="Jata Negara"
                     style="width: 82.45px; height: 64.3px;">
-                <img src="/assets/img/JKR_LOGO.png" alt="JKR" style="width: 81.46px; height: 54.93px;">
-                <img src="/assets/img/EPHJKR_LOGO.png" alt="EPHJKR" style="width: 95.73px; height: 87.31px;">
+                <img src="/assets/img/JKR_LOGO.png" alt="JKR" style="width: 81.46px; height: 54.93px;"> --}}
+                <img src="/assets/img/logo_jkr.png" alt="EPHJKR" style="width: 283.73px; height:87.31px">
             </div>
 
             <div class="col-1 text-end">

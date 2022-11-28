@@ -86,58 +86,153 @@
 <div class="header">
     <b class="text-dark-green-jkr">Laporan</b>
 
-<h1 class="jkr-header-title">
-    ANALISA MODUL LAPORAN
-</h1>
-<hr class="line-horizontal-jkr">
+    <h1 class="jkr-header-title">
+        ANALISA MODUL LAPORAN
+    </h1>
+    <hr class="line-horizontal-jkr">
 
 
 </div>
 
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-body" id="graf-analisa-keseluruhan">
-            <h3>Analisa Keseluruhan PHJKR (dari Tahun 2020)</h3>
-            <h4>Senarai Projek PHJKR (Jalan & Bangunan)</h4>
-            <div id="senarai_projek_phjkr"></div>
-            <div id="phjkr_bangunan"></div>
-            <div id="phjkr_jalan"></div>
-            <div class="col text-center">
-              <button class="btn btn-primary" onclick="printJS('graf-analisa-keseluruhan', 'html')">Muat Turun</button>
+    <div class="card mb-6">
+      <div class="card-body">
+          <h3>Analisa Keseluruhan PHJKR (dari Tahun 2020)</h3>
+          <h4>Senarai Projek PHJKR (Jalan & Bangunan)</h4>
+          <div id="senarai-projek-phjkr">
+            <div id="senarai_projek_phjkr">
+              <div class="mt-6 col text-center">
+                <button class="btn btn-primary" onclick="printJS('senarai-projek-phjkr', 'html')">Muat Turun</button>
+              </div>
             </div>
-        </div> 
+          </div>
+          <div id="phjkr-bangunan">
+              <div id="phjkr_bangunan">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('phjkr-bangunan', 'html')">Muat Turun</button>
+                </div>
+              </div>
+          </div>
+          <div id="phjkr-jalan">
+            <div id="phjkr_jalan">
+              <div class="mt-6 col text-center">
+                <button class="btn btn-primary" onclick="printJS('phjkr-jalan', 'html')">Muat Turun</button>
+              </div>
+            </div>
+          </div>
+      </div> 
     </div>
+    
 
     <div class="card mt-6">
         <div class="card-body" id="graf-analisa-phjkr-bangunan-1">
             <h3>Analisa PHJKR 2018-2021 (Bangunan)</h3>
-            <div id="tapak_lestari_bangunan"></div>
-            <div id="kecekapan_tenaga_bangunan"></div>
-            <div id="sumber_bahan_bangunan"></div>
-            <div id="kecekapan_penggunaan_air_bangunan"></div>
-            <div id="persekitaran_dalaman_bangunan"></div>
-            <div id="fasiliti_lestari_bangunan"></div>
-            <div id="inovasi_bangunan"></div>
-            <div class="col text-center">
-              <button class="btn btn-primary" onclick="printJS('graf-analisa-phjkr-bangunan-1', 'html')">Muat Turun</button>
+            <div id="tapak-lestari-bangunan">
+              <div id="tapak_lestari_bangunan">
+                <div class="col text-center">
+                  <button class="btn btn-primary" onclick="printJS('tapak-lestari-bangunan', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="kecekapan-tenaga-bangunan">
+              <div id="kecekapan_tenaga_bangunan">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('kecekapan-tenaga-bangunan', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="sumber-bahan-bangunan">
+              <div id="sumber_bahan_bangunan">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('sumber-bahan-bangunan', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="kecekapan-penggunaan-air-bangunan">
+              <div id="kecekapan_penggunaan_air_bangunan">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('kecekapan-penggunaan-air-bangunan', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="persekitaran-dalaman-bangunan">
+              <div id="persekitaran_dalaman_bangunan">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('persekitaran-dalaman-bangunan', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="fasiliti-lestari-bangunan">
+              <div id="fasiliti_lestari_bangunan">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('fasiliti-lestari-bangunan', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="inovasi-bangunan">
+              <div id="inovasi_bangunan">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('inovasi-bangunan', 'html')">Muat Turun</button>
+                </div>
+              </div>
             </div>
         </div>
     </div>
             
 
     <div class="card mt-6">
-        <div class="card-body" id="graf-analisa-phjkr-bangunan">
-            <h3>Analisa PHJKR 2019-2022 (Bangunan) VP</h3>
-                <div id="tapak_lestari_bangunan_vp"></div>
-                <div id="kecekapan_tenaga_bangunan_vp"></div>
-                <div id="sumber_bahan_bangunan_vp"></div>
-                <div id="kecekapan_penggunaan_air_bangunan_vp"></div>
-                <div id="persekitaran_dalaman_bangunan_vp"></div>
-                <div id="fasiliti_lestari_bangunan_vp"></div>
-                <div id="inovasi_bangunan_vp"></div>
-                <div class="col text-center">
-                  <button class="btn btn-primary" onclick="printJS('graf-analisa-phjkr-bangunan', 'html')">Muat Turun</button>
+        <div class="card-body">
+            {{-- <h3>Analisa PHJKR 2019-2022 (Bangunan) VP</h3> --}}
+            <div id="tapak-lestari-bangunan_vp">
+              <h3>Analisa PHJKR 2019-2022 (Bangunan) VP</h3>
+              <div id="tapak_lestari_bangunan_vp">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('tapak-lestari-bangunan_vp', 'html')">Muat Turun</button>
                 </div>
+              </div>
+            </div>
+            <div id="kecekapan-tenaga-bangunan-vp">
+              <div id="kecekapan_tenaga_bangunan_vp">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('kecekapan-tenaga-bangunan-vp', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="sumber-bahan-bangunan-vp">
+              <div id="sumber_bahan_bangunan_vp">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('sumber-bahan-bangunan-vp', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="kecekapan-penggunaan-air-bangunan-vp">
+              <div id="kecekapan_penggunaan_air_bangunan_vp">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('kecekapan-penggunaan-air-bangunan-vp', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="persekitaran-dalaman-bangunan-vp">
+              <div id="persekitaran_dalaman_bangunan_vp">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('persekitaran-dalaman-bangunan-vp', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="fasiliti-lestari-bangunan-vp">
+              <div id="fasiliti_lestari_bangunan_vp">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('fasiliti-lestari-bangunan-vp', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
+            <div id="inovasi-bangunan-vp">
+              <div id="inovasi_bangunan_vp">
+                <div class="mt-6 col text-center">
+                  <button class="btn btn-primary" onclick="printJS('inovasi-bangunan-vp', 'html')">Muat Turun</button>
+                </div>
+              </div>
+            </div>
         </div>
     </div>
 
@@ -146,7 +241,7 @@
             <h3>Analisa PHJKR 2018-2021 (Jalan)</h3>
             <h4>Bilangan Pencapaian mengikut Pematuhan Kriteria</h4>
             <h5>(Jumlah Projek Melaksanakan Kriteria) pHJKR JALAN</h5>
-                <div id="analisa_phjkr_jalan"></div>
+            <div id="analisa_phjkr_jalan"></div>
             <div class="col text-center">
               <button class="btn btn-primary" onclick="printJS('graf-analisa-phjkr-jalan', 'html')">Muat Turun</button>
             </div>

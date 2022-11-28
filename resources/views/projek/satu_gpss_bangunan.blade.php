@@ -718,13 +718,13 @@
                                     <div class="col text-center">
                                         @if($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan")
                                         @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
-                                        <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                        <a href="/projek/{{ $projek->id }}/sah-gpss-bangunan" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
                                         @endrole
                                         @endif
                                         @if($projek->status == "Proses Pengisian Skor Verifikasi Permarkahan GPSS Bangunan")
                                         @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
                                         {{-- <button>TEST</button> --}}
-                                        <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                        <a href="/projek/{{ $projek->id }}/sah-gpss-bangunan" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
                                         @endrole
                                         @endif
                                     </div>

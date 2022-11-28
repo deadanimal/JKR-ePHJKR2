@@ -274,9 +274,9 @@
                     @endrole
                     @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan')
                     <li class="nav-item"><a class="nav-link" href="#tab-9" data-bs-toggle="tab"
-                            role="tab">Sijil Rekabentuk</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tab-10" data-bs-toggle="tab"
-                            role="tab">Sijil Verifikasi</a></li>
+                            role="tab">Sijil Rekabentuk/Sijil Verifikasi</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="#tab-10" data-bs-toggle="tab"
+                            role="tab">Sijil Verifikasi</a></li> --}}
                     @endrole
                 </ul>
                 <div class="tab-content">
@@ -864,13 +864,18 @@
                                                 </thead>
                                             </table>
                                         </div>
-                                        @role('sekretariat')
+                                        <form action="/projek/{{$projek->id}}/sah-eph-jalan-baru" method="POST" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="row mt-3">
                                                 <div class="col text-center">
-                                                    <a href="#" class="btn btn-primary">Sah</a>
+                                                    @role('sekretariat')
+                                                    @if($projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Baru")
+                                                        <button class="btn btn-primary" type="submit">Sah</button>
+                                                    @endif
+                                                    @endrole
                                                 </div>
                                             </div>
-                                        @endrole
+                                        </form>
                                         @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             <div class="col text-center">
@@ -878,6 +883,13 @@
                                             </div>
                                         </div>
                                         @endrole
+                                        <div class="col text-center">
+                                            @if($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Baru")
+                                            @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
+                                            <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                            @endrole
+                                            @endif
+                                        </div>
                                     {{-- </form> --}}
                                 </div>
                             </div>
@@ -1300,7 +1312,7 @@
                     <div class="tab-pane" id="tab-9" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <h4>SIJIL ePHJKR PENILAIAN REKABENTUK JALAN</h4>
+                                <h4>SIJIL ePHJKR PENILAIAN REKABENTUK/VERIFIKASI JALAN</h4>
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <h3>Peringkat Rekabentuk</h3>
                                 @if($projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru")
@@ -1315,10 +1327,34 @@
                                 <h3>Peringkat Rekabentuk (Rayuan)</h3>
                                 <div class="row mt-3">
                                     <div class="col text-center">
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rekabentuk">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rayuan-rekabentuk">Muat Turun</a>
                                     </div>
                                 </div>
                                 @endif
+                                @endrole
+                                @role('sekretariat')
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||
+                                            $projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru" ||
+                                            $projek->status == "Selesai Rekabentuk/Verifikasi Jalan Baru" ||
+                                            $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+                                            $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+                                            $projek->status == "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
+                                            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")
+                                            <h3>Peringkat Rekabentuk</h3>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-baru">Lihat Sijil</a>
+                                            <h3>Peringkat Verifikasi</h3>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-baru">Lihat Sijil</a>
+                                        @endif
+                                    </div>
+                                </div>
+                                <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Baru")
+                                        <button class="btn btn-primary" type="submit">Jana</button>
+                                    @endif
+                                </form>
                                 @endrole
                             </div>
                         </div>

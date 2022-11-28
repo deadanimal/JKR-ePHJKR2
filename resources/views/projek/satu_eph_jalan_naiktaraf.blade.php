@@ -127,7 +127,7 @@
                     <form action="/projek/{{$projek->id}}/sah-eph-jalan-rayuan-naiktaraf" method="POST" enctype="multipart/form-data">
                         @csrf
                         @role('ketua-pasukan|penolong-ketua-pasukan')
-                        @if($projek->status == "Selesai Jana Keputusan Rekabentuk Jalan Naiktaraf")
+                        @if($projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf")
                             <button class="btn btn-primary mx-3 my-3" type="submit">Membuat Rayuan Jalan Naiktaraf</button>
                         @endif
                         @endrole
@@ -140,7 +140,7 @@
             </div>
         </div>
 
-        @if ($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+        {{-- @if ($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Naiktaraf" ||
         $projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Naiktaraf" ||
         $projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
         $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||  
@@ -148,7 +148,7 @@
         $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
         $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
         $projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
-        $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")  
+        $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")   --}}
             @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                 <div class="col-12 mt-6">
                     <div class="card">
@@ -224,18 +224,16 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            <tbody>
-                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
             @endif
-        @endif
+        {{-- @endif --}}
     </div>
 
         {{-- @if (!$lantikans->isEmpty()) --}}
-        @if ($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+        {{-- @if ($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Naiktaraf" ||
             $projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Naiktaraf" ||
             $projek->status == "Selesai Pengesahan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
             $projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||  
@@ -243,7 +241,7 @@
             $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
             $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
             $projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
-            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
+            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf") --}}
             <div class="tab mt-6">
                 <ul class="nav nav-tabs" role="tablist">
                     @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
@@ -268,9 +266,9 @@
                             role="tab">Skor Kad Rayuan</a></li>
                     @role('sekretariat|ketua-pasukan|penolong-ketua-pasukan')
                     <li class="nav-item"><a class="nav-link" href="#tab-9" data-bs-toggle="tab"
-                            role="tab">Sijil Rekabentuk</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tab-10" data-bs-toggle="tab"
-                            role="tab">Sijil Verifikasi</a></li>
+                            role="tab">Sijil Rekabentuk/Sijil Verifikasi</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="#tab-10" data-bs-toggle="tab"
+                            role="tab">Sijil Verifikasi</a></li> --}}
                     @endrole
                 </ul>
                 <div class="tab-content">
@@ -391,7 +389,7 @@
                     @endrole
 
                     <!--RAYUAN REKABENTUK EPH JALAN-->
-                    @if($projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                    {{-- @if($projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf") --}}
                     @role('ketua-pasukan|penolong-ketua-pasukan')
                     <div class="tab-pane" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
@@ -459,11 +457,11 @@
                             </div>
                         </div>
                     </div>
-                    @endif
+                    {{-- @endif --}}
                     
 
                     <!--RAYUAN VERIFIKASI EPH JALAN-->
-                    @if($projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                    {{-- @if($projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf") --}}
                     <div class="tab-pane" id="tab-4" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
@@ -530,7 +528,7 @@
                             </div>
                         </div>
                     </div>
-                    @endif
+                    {{-- @endif --}}
                     @endrole
 
                     <!--RUMUSAN SKOR KAD-->
@@ -853,13 +851,18 @@
                                             </tr>
                                         </thead>
                                     </table>
-                                    @role('sekretariat')
-                                    <div class="row mt-3">
-                                        <div class="col text-center">
-                                            <a href="#" class="btn btn-primary">Sah</a>
+                                    <form action="/projek/{{$projek->id}}/sah-eph-jalan-naiktaraf" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row mt-3">
+                                            <div class="col text-center">
+                                                @role('sekretariat')
+                                                @if($projek->status == "Dalam Pengesahan Skor Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                                    <button class="btn btn-primary" type="submit">Sah</button>
+                                                @endif
+                                                @endrole
+                                            </div>
                                         </div>
-                                    </div>
-                                    @endrole
+                                    </form>
                                     @role('ketua-pasukan|penolong-ketua-pasukan')
                                     @if($projek->status == "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
                                         $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
@@ -870,6 +873,13 @@
                                     </div>
                                     @endif
                                     @endrole
+                                    <div class="col text-center">
+                                        @if($projek->status == "Proses Pengisian Skor Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                        @role('ketua-pemudah-cara|pemudah-cara|ketua-penilai|penilai')
+                                        <a href="/projek/{{ $projek->id }}/pengesahan-penilaian" class="btn btn-primary" name="hantar_skorkad" value="hantar" type="submit">Hantar</a>
+                                        @endrole
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1237,33 +1247,73 @@
                     <div class="tab-pane" id="tab-9" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
-                                <h4>SIJIL ePHJKR PENILAIAN REKABENTUK JALAN</h4>
+                                <h4>SIJIL ePHJKR PENILAIAN REKABENTUK/VERIFIKASI JALAN</h4>
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <h3>Peringkat Rekabentuk</h3>
-                                @if($projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Baru")
+                                @if($projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf")
                                 <div class="row mt-3">
                                     <div class="col text-center">
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rekabentuk">Muat Turun</a>
                                     </div>
                                 </div>
                                 @endif
-                                @if($projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Baru" ||
-                                $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Baru")
+                                <h3>Peringkat Verifikasi</h3>
+                                @if($projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-verifikasi">Muat Turun</a>
+                                    </div>
+                                </div>
+                                @endif
+                                @if($projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
                                 <h3>Peringkat Rekabentuk (Rayuan)</h3>
-
                                 <div class="row mt-3">
                                     <div class="col text-center">
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rekabentuk">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rayuan-rekabentuk">Muat Turun</a>
                                     </div>
                                 </div>
                                 @endif
+                                @if($projek->status == "Selesai Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                <h3>Peringkat Verifikasi (Rayuan)</h3>
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-rayuan-rekabentuk">Muat Turun</a>
+                                    </div>
+                                </div>
+                                @endif
+                                @endrole
+                                @role('sekretariat')
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                            $projek->status == "Selesai Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                            $projek->status == "Selesai Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                            $projek->status == "Proses Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                            $projek->status == "Dalam Pengesahan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                            $projek->status == "Proses Jana Keputusan Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf" ||
+                                            $projek->status == "Selesai Rayuan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                            <h3>Peringkat Rekabentuk</h3>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-naiktaraf">Lihat Sijil</a>
+                                            <h3>Peringkat Verifikasi</h3>
+                                            <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-jalan-naiktaraf">Lihat Sijil</a>
+                                        @endif
+                                    </div>
+                                </div>
+                                <form action="/projek/{{ $projek->id }}/sah" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    @if($projek->status == "Proses Jana Keputusan Rekabentuk/Verifikasi Jalan Naiktaraf")
+                                        <button class="btn btn-primary" type="submit">Jana</button>
+                                    @endif
+                                </form>
                                 @endrole
                             </div>
                         </div>
                     </div>
 
                     <!--SIJIL VERIFIKASI EPH JALAN/SIJIL VERIFIKASI EPH JALAN RAYUAN-->
-                    <div class="tab-pane" id="tab-10" role="tabpanel">
+                    {{-- <div class="tab-pane" id="tab-10" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
                                 <h4>SIJIL ePHJKR VERIFIKASI PERMARKAHAN JALAN</h4>
@@ -1288,11 +1338,11 @@
                                 @endrole
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         {{-- @endif --}}
-        @endif
+        {{-- @endif --}}
     {{-- </div> --}}
 </div>
 
