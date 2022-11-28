@@ -16789,6 +16789,10 @@ class ProjekController extends Controller
             $projek->status = "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan";
             alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
         }
+        elseif($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan"){
+            $projek->status = "Dalam Pengesahan Skor Validasi Permarkahan Bangunan";
+            alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
+        }
         elseif($projek->status == "Proses Pengisian Skor Rekabentuk GPSS Bangunan"){
             $projek->status = "Dalam Pengesahan Skor Rekabentuk GPSS Bangunan";
             alert()->success('Sila Tunggu untuk Pengesahan Sekretariat', 'Berjaya');
