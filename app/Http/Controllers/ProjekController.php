@@ -13002,6 +13002,7 @@ class ProjekController extends Controller
             alert()->success('Dalam Pengesahan Skor Validasi Permarkahan Bangunan', 'Berjaya');
         }
         elseif ($projek->status == "Selesai Pengesahan Validasi Bangunan"){
+            $projek->status = "Selesai Validasi Bangunan";
             alert()->success('Selesai Pengesahan Validasi Bangunan', 'Berjaya');
         }
 

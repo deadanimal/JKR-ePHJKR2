@@ -253,6 +253,7 @@
             $projek->status == "Proses Pengisian Skor Verifikasi Permarkahan Bangunan" ||
             $projek->status == "Dalam Pengesahan Skor Verifikasi Permarkahan Bangunan" ||
             $projek->status == "Selesai Pengesahan Verifikasi Bangunan" ||
+            $projek->status == "Selesai Validasi Bangunan" ||
             $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
             $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
             $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
@@ -488,7 +489,7 @@
 
                     <!--VALIDASI BANGUNAN-->
                     @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_mv >= 80)
-                    @if($projek->status == "Selesai Pengesahan Validasi Bangunan" || $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
+                    @if($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
                     @role('pasukan-validasi|ketua-validasi')
                     @if($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
                     <div class="tab-pane active" id="tab-3" role="tabpanel">
@@ -711,6 +712,7 @@
                                         $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
                                         $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                        $projek->status == "Selesai Validasi Bangunan" ||
                                         $projek->status == "Proses Rayuan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                         $projek->status == "Selesai Pengesahan Rayuan Bangunan")
@@ -724,6 +726,7 @@
                                         $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
                                         $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                        $projek->status == "Selesai Validasi Bangunan" ||
                                         $projek->status == "Proses Rayuan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                         $projek->status == "Selesai Pengesahan Rayuan Bangunan")
@@ -731,6 +734,7 @@
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-verifikasi">Muat Turun</a>
                                     @endif
                                     @if($projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                        $projek->status == "Selesai Validasi Bangunan" ||
                                         $projek->status == "Proses Rayuan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                         $projek->status == "Selesai Pengesahan Rayuan Bangunan")
@@ -752,6 +756,7 @@
                                             $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                            $projek->status == "Selesai Validasi Bangunan" ||
                                             $projek->status == "Proses Rayuan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Rayuan Bangunan")
@@ -768,6 +773,7 @@
                                             $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                            $projek->status == "Selesai Validasi Bangunan" ||
                                             $projek->status == "Proses Rayuan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Rayuan Bangunan")
@@ -781,6 +787,7 @@
                                             @endif
                                         </form>
                                         @if($projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                            $projek->status == "Selesai Validasi Bangunan" ||
                                             $projek->status == "Proses Rayuan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                             $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
@@ -938,6 +945,7 @@
                                     $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan" ||
                                     $projek->status == "Dalam Pengesahan Skor Validasi Permarkahan Bangunan" ||
                                     $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
+                                    $projek->status == "Selesai Validasi Bangunan" ||
                                     $projek->status == "Proses Rayuan Bangunan" ||
                                     $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
                                     $projek->status == "Selesai Pengesahan Rayuan Bangunan")
@@ -1008,10 +1016,12 @@
                                     @role('sekretariat')
                                         <div class="row mt-3">
                                             <div class="col text-center">
+                                                <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
                                                 <input type="hidden" name="fasa" value="rekabentuk">
                                                 @if($projek->status == "Dalam Pengesahan Rayuan Bangunan")
                                                 <button class="btn btn-primary" type="submit">Sah</button>
                                                 @endif
+                                                </form>
                                             </div>
                                         </div>
                                     @endrole
@@ -2487,10 +2497,10 @@
                                                 {{-- PUN --}}
                                             @elseif ($projek->kategori == 'phJKR Bangunan PUN A')
                                                 <th>0</th>
-                                                <th>{{$in_mr_r}}</th>
                                                 <th>0</th>
-                                                <th>{{$in_mv_r}}</th>
-                                                <th>{{$in_ml_r}}</th>
+                                                <th>0</th>
+                                                <th>0</th>
+                                                <th>0</th>
                                             @elseif ($projek->kategori == 'phJKR Bangunan PUN B')
                                                 <th>6</th>
                                                 <th>{{$in_mr_r}}</th>
