@@ -286,24 +286,21 @@
             <div class="anugerah">TELAH DIANUGERAHKAN KEPADA</div>
             <div class="projek">{{$projek->nama}}</div>
             <img class="img5" src="assets/img/EPHJKR_LOGO1.png" alt="Logo Penarafan" width="250" height="200">
-            @if($projek->kategori == "phJKR Bangunan C")
-            <span class="star">
-                @if ($peratusan_mr >= 80)
-                    5 &starf; &starf; &starf; &starf; &starf;
-                @endif
-                @if ($peratusan_mr >= 65 && $peratusan_mr < 80)
-                    4 &starf; &starf; &starf; &starf;
-                @endif
-                @if ($peratusan_mr >= 45 && $peratusan_mr < 65)
-                    3 &starf; &starf; &starf;
-                @endif
-                @if ($peratusan_mr >= 30 && $peratusan_mr < 45)
-                    2 &starf; &starf; 
-                @endif
-                @if ($peratusan_mr <= 29)
-                    1 &starf;                                                                                            
-                @endif                                            
-            </span>
+            @if ($peratusan_mr >= 80 && $peratusan_mr <= 100)
+            {{-- 5 &starf; &starf; &starf; &starf; &starf; --}}
+            <img class="img6" src="assets/img/5bintang.png" alt="Bintang Penarafan" width="500" height="300">
+            @elseif ($peratusan_mr >= 65 && $peratusan_mr < 80)
+            {{-- 4 &starf; &starf; &starf; &starf; --}}
+            <img class="img6" src="assets/img/4bintang.png" alt="Bintang Penarafan" width="500" height="300">
+            @elseif ($peratusan_mr >= 45 && $peratusan_mr < 65)
+            {{-- 3 &starf; &starf; &starf; --}}
+            <img class="img6" src="assets/img/3bintang.png" alt="Bintang Penarafan" width="500" height="300">
+            @elseif ($peratusan_mr >= 30 && $peratusan_mr < 45)
+            {{-- 2 &starf; &starf; --}}
+            <img class="img6" src="assets/img/2bintang.png" alt="Bintang Penarafan" width="500" height="300">
+            @elseif ($peratusan_mr <= 29)
+            {{-- 1 &starf; --}}
+            <img class="img6" src="assets/img/1bintang.png" alt="Bintang Penarafan" width="500" height="300">
             @endif
             {{-- @if ($peratusan_mr >= 80 && $peratusan_mr <= 100)
             5 &starf; &starf; &starf; &starf; &starf;
