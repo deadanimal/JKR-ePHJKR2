@@ -276,7 +276,7 @@
                     @endrole
                     @endif
                     @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_ml >= 80)
-                    @role('pasukan-validasi|ketua-pasukan-validasi')
+                    @role('pasukan-validasi|ketua-validasi')
                     <li class="nav-item">
                         <a class="nav-link active" href="#tab-3" data-bs-toggle="tab" role="tab">Validasi</a>
                     </li>
@@ -304,7 +304,7 @@
                     </li>
                     @endrole
                     @endif
-                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara|ketua-pasukan-validasi|pasukan-validasi')
+                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara|ketua-validasi|pasukan-validasi')
                     <li class="nav-item">
                         <a class="nav-link" href="#tab-7" data-bs-toggle="tab" role="tab">Rumusan Skor Kad</a>
                     </li>
@@ -486,7 +486,7 @@
 
                     <!--VALIDASI BANGUNAN-->
                     @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_mv >= 80)
-                    @role('pasukan-validasi|ketua-pasukan-validasi')
+                    @role('pasukan-validasi|ketua-validasi')
                     <div class="tab-pane active" id="tab-3" role="tabpanel">
                         <div class="card mt-3">
                             <div class="card-body">
@@ -1030,7 +1030,7 @@
                     @endif
 
                     <!--RUMUSAN SKOR KAD-->
-                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara|ketua-pasukan-validasi|pasukan-validasi')
+                    @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat|ketua-pemudah-cara|pemudah-cara|ketua-validasi|pasukan-validasi')
                     <div class="tab-pane" id="tab-7" role="tabpanel">
                         <form action="#" id="rumusan_skor_kad">
                             <div class="card mt-3">
