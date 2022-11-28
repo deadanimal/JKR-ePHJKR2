@@ -37,16 +37,25 @@ class ProjekController extends Controller
     public function senarai_projek(Request $request) {
         
         $user = $request->user();
+        // dd($user); //bawak id user yg tgah login
         if($user->hasRole('pentadbir|sekretariat|pengurusan-atasan')) {
             $projeks = Projek::all();
+        // dd($projeks); //bawak id projek total 73 projek
+
 
             // dd($projeks);
         } else if ($user->hasRole('ketua-pasukan|penolong-ketua-pasukan|pemudah-cara|ketua-penilai|ketua-validasi|pasukan-validasi|ketua-pemudah-cara|penilai') ){
             $projek_roles = ProjekRoleUser::where('user_id', $user->id)->get();
+            // dd($projek_roles); //utk user pemudah cara dye bawak id then list 8 projeks dlm table projekroleuser
+            // $projeks = collect($projek_roles);
             $projeks = collect();
+            // dd($projeks); //kosong tiada item yg di collect //null
             foreach($projek_roles as $projek_role) {
+                // dd($projek_role);
                 $projek = Projek::where('id', $projek_role->projek_id)->first();
+                // dd($projek); //diplay satu projek jeee
                 $projeks->add($projek);
+                // dd($projeks); //null
 
             }
         }
