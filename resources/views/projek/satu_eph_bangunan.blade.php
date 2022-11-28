@@ -488,6 +488,7 @@
 
                     <!--VALIDASI BANGUNAN-->
                     @if($peratusan_mv >= 65 && $peratusan_mv < 80 || $peratusan_mv >= 80)
+                    @if($projek->status == "Selesai Pengesahan Validasi Bangunan" || $projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
                     @role('pasukan-validasi|ketua-validasi')
                     @if($projek->status == "Proses Pengisian Skor Validasi Permarkahan Bangunan")
                     <div class="tab-pane active" id="tab-3" role="tabpanel">
@@ -566,6 +567,7 @@
                     </div>
                     @endif
                     @endrole
+                    @endif
                     @endif
 
                     <!--RAYUAN EPH BANGUNAN-->
