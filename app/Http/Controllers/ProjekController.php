@@ -14356,7 +14356,7 @@ class ProjekController extends Controller
         if($projek->kategori == "phJKR Bangunan Baru C"){
             $verifikasi_kriterias = Kriteria::where([
                 ['borang','=', 'BARU C'],
-                ['fasa','=', 'verifikasi'],
+                ['fasa','=', 'verifikasi']
             ])->get();
 
             // Verifikasi borang BARU C

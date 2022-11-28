@@ -304,7 +304,7 @@
                 @endif                                            
             </span>
             @endif --}}
-            @if($projek->kategori == "phJKR Bangunan C")
+            {{-- @if($projek->kategori == "phJKR Bangunan C") --}}
             @if ($peratusan_mv >= 80 && $peratusan_mv <= 100)
             <img class="img6" src="assets/img/5bintang.png" alt="Bintang Penarafan" width="500" height="300">
             @elseif ($peratusan_mv >= 65 && $peratusan_mv < 80)
@@ -316,7 +316,7 @@
             @elseif ($peratusan_mv <= 29)
             <img class="img6" src="assets/img/1bintang.png" alt="Bintang Penarafan" width="500" height="300">
             @endif 
-            @endif
+            {{-- @endif --}}
 
             <div class="potensi-pengiktirafan">POTENSI PENGIKTIRAFAN</div>
             <div class="sektor">SEKTOR</div>
