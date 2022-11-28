@@ -907,7 +907,7 @@
                                         </div>
                                     </div>
                                 </form>
-                                <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
+                                {{-- <form action="/projek/{{$projek->id}}/sah" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row mt-3">
                                         <div class="col text-center">
@@ -918,7 +918,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                </form>
+                                </form> --}}
                                 @role('ketua-pemudah-cara|pemudah-cara')
                                     <div class="row mt-3">
                                         <div class="col text-center">
