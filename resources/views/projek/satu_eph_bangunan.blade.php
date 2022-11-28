@@ -158,7 +158,8 @@
             $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
             $projek->status == "Proses Rayuan Bangunan" ||
             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-            $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+            $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+            $projek->status == "Selesai Rayuan Bangunan")
             {{-- @if ($user_role->role->name == 'ketua-pasukan' || $user_role->role->name == 'penolong-ketua-pasukan') --}}
             @role('ketua-pasukan|penolong-ketua-pasukan|sekretariat')
                 <div class="col-12 mt-6">
@@ -259,7 +260,8 @@
             $projek->status == "Selesai Pengesahan Validasi Bangunan" ||
             $projek->status == "Proses Rayuan Bangunan" ||
             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-            $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+            $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+            $projek->status == "Selesai Rayuan Bangunan")
             <div class="tab mt-6">
                 <ul class="nav nav-tabs" role="tablist">
                     @if($projek->status == "Proses Pengisian Skor Rekabentuk Bangunan")
@@ -715,7 +717,8 @@
                                         $projek->status == "Selesai Validasi Bangunan" ||
                                         $projek->status == "Proses Rayuan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+                                        $projek->status == "Selesai Rayuan Bangunan")
                                         <h3>Peringkat Rekabentuk</h3>
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-rekabentuk">Muat Turun</a>
                                     @endif
@@ -729,7 +732,8 @@
                                         $projek->status == "Selesai Validasi Bangunan" ||
                                         $projek->status == "Proses Rayuan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+                                        $projek->status == "Selesai Rayuan Bangunan")
                                         <h3>Peringkat Verifikasi</h3>
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-verifikasi">Muat Turun</a>
                                     @endif
@@ -737,11 +741,12 @@
                                         $projek->status == "Selesai Validasi Bangunan" ||
                                         $projek->status == "Proses Rayuan Bangunan" ||
                                         $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                        $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+                                        $projek->status == "Selesai Rayuan Bangunan")
                                         <h3>Peringkat Validasi</h3>
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-validasi">Muat Turun</a>
                                     @endif
-                                    @if($projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                    @if($projek->status == "Selesai Pengesahan Rayuan Bangunan" || $projek->status == "Selesai Rayuan Bangunan")
                                         <h3>Peringkat Validasi</h3>
                                         <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-rayuan">Muat Turun</a>
                                     @endif
@@ -759,7 +764,8 @@
                                             $projek->status == "Selesai Validasi Bangunan" ||
                                             $projek->status == "Proses Rayuan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                            $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                            $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+                                            $projek->status == "Selesai Rayuan Bangunan")
                                             <h3>Peringkat Rekabentuk</h3>
                                             <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-rekabentuk">Lihat Sijil</a>
                                         @endif
@@ -776,7 +782,8 @@
                                             $projek->status == "Selesai Validasi Bangunan" ||
                                             $projek->status == "Proses Rayuan Bangunan" ||
                                             $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                            $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                            $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+                                            $projek->status == "Selesai Rayuan Bangunan")
                                             <h3>Peringkat Verifikasi</h3>
                                             <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-eph-bangunan-verifikasi">Lihat Sijil</a>
                                         @endif
@@ -948,7 +955,8 @@
                                     $projek->status == "Selesai Validasi Bangunan" ||
                                     $projek->status == "Proses Rayuan Bangunan" ||
                                     $projek->status == "Dalam Pengesahan Rayuan Bangunan" ||
-                                    $projek->status == "Selesai Pengesahan Rayuan Bangunan")
+                                    $projek->status == "Selesai Pengesahan Rayuan Bangunan" ||
+                                    $projek->status == "Selesai Rayuan Bangunan")
                                 @role('ketua-pasukan|penolong-ketua-pasukan')
                                 <div class="row mt-3">
                                     <div class="col text-center">
