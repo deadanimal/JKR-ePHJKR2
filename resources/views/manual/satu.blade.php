@@ -32,12 +32,12 @@
                                         <textarea class="form-control" rows="4" name="dokumen" value="{{$manual->dokumen}}" type="text"></textarea>
                                     </div>
                 
-                                    {{-- <div class="col-3 mb-2">
+                                    <div class="col-3 mb-2">
                                         <label class="col-form-label">Muat Naik Dokumen Sokongan:</label>
                                     </div>
                                     <div class="col-7 mb-2">
                                         <input class="form-control" name="dokumen" value="{{$manual->dokumen}}" type="file"/>
-                                    </div> --}}
+                                    </div>
                     
                                     <div class="col-3 mb-2">
                                         
