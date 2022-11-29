@@ -138,7 +138,7 @@
     },
     "Wilayah Persekutuan Putrajaya": { "Putrajaya": ["111111"]
     },
-    "Pulai Pinang": { "Timur Laut Pulau Pinang": ["111111"],"Seberang Perai Tengah": ["222222"],"Seberang Perai Utara": ["222222"],"Barat Daya Pulau Pinang": ["222222"],"Seberang Perai Selatan": ["222222"]
+    "Pulau Pinang": { "Timur Laut Pulau Pinang": ["111111"],"Seberang Perai Tengah": ["222222"],"Seberang Perai Utara": ["222222"],"Barat Daya Pulau Pinang": ["222222"],"Seberang Perai Selatan": ["222222"]
     },
     "Kedah": { "Kuala Muda": ["111111"],"Kota Setar": ["222222"],"Kulim": ["222222"],"Kubang Pasu": ["222222"],"Baling": ["222222"],"Langkawi": ["222222"],"Yan": ["222222"],"Sik": ["222222"],"Padang Terap": ["222222"],"Pokok Sena": ["222222"],"Pendang": ["222222"],"Bandar Baharu": ["222222"]
     },
