@@ -82,7 +82,7 @@
                                                 @method('PUT')
                                                 @csrf
                                                 <button name="aktif" value="1" type="submit"
-                                                    class="btn btn-primary">Active</button>
+                                                    class="btn btn-primary">Aktif</button>
                                                 </form>
                                             </div>
                                             <div class="col-auto">
@@ -90,7 +90,7 @@
                                                 @method('PUT')
                                                 @csrf
                                                 <button name="aktif" value="0" type="submit"
-                                                    class="btn btn-primary">Deactive</button>
+                                                    class="btn btn-primary">Nyahaktif</button>
                                                 </form>
                                             </div>
                                         </div>
