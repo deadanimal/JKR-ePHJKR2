@@ -616,7 +616,7 @@
                                         $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" ||
                                         $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
                                         <h3>Peringkat Rekabentuk</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Lihat Sijil</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan-rekabentuk">Lihat Sijil</a>
                                 @endif
                                 @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Jalan")
                                     <form action="/projek/{{$projek->id}}/sah-gpss-jalan" method="POST" enctype="multipart/form-data">
@@ -633,7 +633,7 @@
                                         $projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" ||
                                         $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
                                         <h3>Peringkat Verifikasi</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Lihat Sijil</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan-verifikasi">Lihat Sijil</a>
                                 @endif
                                 @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Jalan")
                                     <form action="/projek/{{$projek->id}}/sah-gpss-jalan" method="POST" enctype="multipart/form-data">
@@ -646,7 +646,7 @@
                                 @if($projek->status == "Selesai Pengesahan Rayuan GPSS Jalan" || 
                                     $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
                                     <h3>Peringkat Rayuan</h3>
-                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Lihat Sijil</a>
+                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan-rayuan">Lihat Sijil</a>
                                 @endif
                                 @if($projek->status == "Selesai Pengesahan Rayuan GPSS Jalan")
                                     <form action="/projek/{{$projek->id}}/sah-gpss-jalan-rayuan" method="POST" enctype="multipart/form-data">
