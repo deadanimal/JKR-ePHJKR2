@@ -25,7 +25,7 @@
                                     <a href="/login" class="btn btn-outline-primary">Kembali</a>
 
                                     <div class="mb-3 text-end">
-                                        <button type="submit" class="btn btn-lg btn-primary">Tukar Katalaluan</button>
+                                        <button type="submit" class="btn btn-lg btn-primary">Tukar Kata Laluan</button>
                                     </div>
                                 </form>
                             </div>

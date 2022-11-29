@@ -1,1 +1,1 @@
-KataLaluan baru anda adalah ePHJKR. Sila tukar katalaluan sebaik sahaja anda login.
+Kata laluan baru anda adalah ePHJKR. Sila tukar katalaluan sebaik sahaja anda login.
