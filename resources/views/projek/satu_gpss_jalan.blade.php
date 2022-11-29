@@ -582,7 +582,7 @@
                                     $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
                                     <div class="col text-center">
                                         <h3>Peringkat Rekabentuk</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan-rekabentuk">Muat Turun</a>
                                     </div>
                                 @endif
                                 @if($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Jalan" ||
@@ -592,13 +592,13 @@
                                     $projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
                                     <div class="col text-center">
                                         <h3>Peringkat Verifikasi</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-Jalan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan-verifikasi">Muat Turun</a>
                                     </div>
                                 @endif
                                 @if($projek->status == "Selesai Jana Keputusan Rayuan GPSS Jalan")
                                     <div class="col text-center">
                                         <h3>Peringkat Rayuan</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-jalan-rayuan">Muat Turun</a>
                                     </div>
                                 @endif
                                 @endrole
