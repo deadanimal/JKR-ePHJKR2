@@ -595,7 +595,7 @@
                                     $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
                                     <div class="col text-center">
                                         <h3>Peringkat Rekabentuk</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan-rekabentuk">Muat Turun</a>
                                     </div>
                                 @endif
                                 @if($projek->status == "Selesai Jana Keputusan Verifikasi GPSS Bangunan" ||
@@ -605,13 +605,13 @@
                                     $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
                                     <div class="col text-center">
                                         <h3>Peringkat Verifikasi</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan-verifikasi">Muat Turun</a>
                                     </div>
                                 @endif
                                 @if($projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
                                     <div class="col text-center">
                                         <h3>Peringkat Rayuan</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Muat Turun</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan-rayuan">Muat Turun</a>
                                     </div>
                                 @endif
                                 @endrole
@@ -628,7 +628,7 @@
                                     $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" ||
                                     $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
                                     <h3>Peringkat Rekabentuk</h3>
-                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Lihat Sijil</a>
+                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan-rekabentuk">Lihat Sijil</a>
                                 @endif
                                 @if($projek->status == "Selesai Pengesahan Rekabentuk GPSS Bangunan")
                                     <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
@@ -647,7 +647,7 @@
                                         $projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" ||
                                         $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
                                         <h3>Peringkat Verifikasi</h3>
-                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Lihat Sijil</a>
+                                        <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan-verifikasi">Lihat Sijil</a>
                                 @endif
                                 @if($projek->status == "Selesai Pengesahan Verifikasi GPSS Bangunan")
                                     <form action="/projek/{{$projek->id}}/sah-gpss-bangunan" method="POST" enctype="multipart/form-data">
@@ -661,7 +661,7 @@
                                 @endif
                                 @if($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan" || $projek->status == "Selesai Jana Keputusan Rayuan GPSS Bangunan")
                                 <h3>Peringkat Rayuan</h3>
-                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan">Lihat Sijil</a>
+                                    <a class="btn btn-primary" href="/projek/{{ $projek->id }}/sijil-gpss-bangunan-rayuan">Lihat Sijil</a>
                                 @endif
                                 @if($projek->status == "Selesai Pengesahan Rayuan GPSS Bangunan")
                                     <form action="/projek/{{$projek->id}}/sah-gpss-bangunan-rayuan" method="POST" enctype="multipart/form-data">
@@ -728,13 +728,13 @@
                                         @endrole
                                         @endif
                                     </div>
-                                    @role('ketua-pasukan|penolong-ketua-pasukan')
+                                    {{-- @role('ketua-pasukan|penolong-ketua-pasukan')
                                         <div class="row mt-3">
                                             <div class="col text-center">
                                                 <button class="btn btn-primary" onclick="printJS('skor-kad-gpss-bangunan', 'html')">Muat Turun</button>
                                             </div>
                                         </div>
-                                    @endrole
+                                    @endrole --}}
                                 </div>
                             </form>
                             @role('sekretariat')
