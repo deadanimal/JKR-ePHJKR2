@@ -13,7 +13,7 @@
                         <a href="/pengurusan_maklumat/senarai_pengguna/pengguna_disembunyi" class="text-secondary">Senarai Pengguna</a>
                     </li>
                     <li class="breadcrumb-item text-dark-green-jkr" style="font-weight: 700" aria-current="page">
-                        Senarai Pengguna Yang Disembunyikan
+                        Senarai Pengguna Yang Tidak Aktif
                     </li>
                 </ol>
             </nav>
@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <h3 class="mb-0 text-primary"><strong>SENARAI PENGGUNA DISEMBUNYI</strong></h3>
+            <h3 class="mb-0 text-primary"><strong>SENARAI PENGGUNA TIDAK AKTIF</strong></h3>
         </div>
     </div>
 
@@ -66,7 +66,7 @@
                                                 @method('PUT')
                                                 @csrf
                                                 <button name="aktif" value="1" type="submit"
-                                                    class="btn btn-primary">Active</button>
+                                                    class="btn btn-primary">Aktif</button>
                                                 </form>
                                             </div>
                                             <div class="col-auto">
@@ -74,7 +74,7 @@
                                                 @method('PUT')
                                                 @csrf
                                                 <button name="aktif" value="0" type="submit"
-                                                    class="btn btn-primary">Deactive</button>
+                                                    class="btn btn-primary">Nyahaktif</button>
                                                 </form>
                                             </div>
                                         </div>
