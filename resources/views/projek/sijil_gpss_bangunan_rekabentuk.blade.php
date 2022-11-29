@@ -281,7 +281,7 @@
             </div>
             <div class="pensijilan">PENSIJILAN</div>
             <div class="pHJKR">pHJKR</div>
-            <div class="peringkat-rekabentuk">PERINGKAT GPSS BANGUNAN REKABENTUK</div>
+            <div class="peringkat-rekabentuk">PERINGKAT REKABENTUK</div>
             <div class="anugerah">TELAH DIANUGERAHKAN KEPADA</div>
             <div class="projek">{{$projek->nama}}</div>
             {{-- <img class="img5" src="assets/img/EPHJKR_LOGO1.png" alt="Logo Penarafan" width="250" height="200">
