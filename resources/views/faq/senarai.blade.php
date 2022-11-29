@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="col mb-">
-                        <h2 class="h2 mb-3">BORANG FAQ</h2>
+                        <h2 class="h2 mb-3">BORANG SOALAN LAZIM (FAQ)</h2>
                     </div>
 
                     <div class="col">
