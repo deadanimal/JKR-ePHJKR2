@@ -16662,7 +16662,7 @@ class ProjekController extends Controller
         // dd($projek);
 
         $date = Carbon::now()->format('Y-m-d');
-        $projek = FacadePdf::loadView('projek.sijil_eph_jalan_validasi',compact('projek','date'));
+        $projek = FacadePdf::loadView('projek.sijil_eph_jalan_rekabentuk',compact('projek','date'));
         // dd($projek);
         return $projek->download('ePHJKR_SIJIL_PENILAIAN_REKABENTUK_JALAN.'.'pdf');
     }
