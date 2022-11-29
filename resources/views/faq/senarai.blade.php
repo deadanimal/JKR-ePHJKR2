@@ -60,7 +60,7 @@
         <div class="col">
 
             <div class="col mb-">
-                <h2 class="h2 mb-3">SENARAI FAQ</h2>
+                <h2 class="h2 mb-3">SENARAI SOALAN LAZIM (FAQ)</h2>
             </div>
 
             <div class="row mt-2">
