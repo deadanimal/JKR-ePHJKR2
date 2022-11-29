@@ -11,7 +11,7 @@
                             <div class="p-4 p-md-5 flex-grow-1">
                                 <div class="row flex-between-center">
                                     <div class="col mb-3">
-                                        <h3 class="text-primary text-center">Tukar Kata laluan</h3>
+                                        <h3 class="text-primary text-center">Tukar Kata Laluan</h3>
                                     </div>
                                 </div>
                                 <form method="POST" action="/lupa">
