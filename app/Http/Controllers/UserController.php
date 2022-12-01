@@ -418,7 +418,7 @@ class UserController extends Controller
     public function cipta_peranan(Request $request) {
         $peranan = New Role;
         $peranan->name = $request->name;
-        $peranan->display_name = $request->display_name;
+        // $peranan->display_name = $request->display_name;
         $peranan->save();
 
         alert()->success('Maklumat telah disimpan', 'Berjaya');
@@ -437,7 +437,7 @@ class UserController extends Controller
         $id = (int)$request->route('id');
         $peranan = Role::find($id);
         $peranan->name = $request->name;
-        $peranan->display_name = $request->display_name;
+        // $peranan->display_name = $request->display_name;
         $peranan->save();
 
         $kebenaran = Permission::all();

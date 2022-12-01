@@ -30,13 +30,13 @@
                                         <input class="form-control" name="name" type="text"  value="{{$peranan->name}}"/>
                                     </div>
 
-                                    <div class="col-3 mb-2">
+                                    {{-- <div class="col-3 mb-2">
                                         <label class="col-form-label">Nama Peranan Paparan:</label>
                                     </div>
 
                                     <div class="col-7 mb-2">
                                         <input class="form-control" name="display_name" type="text"  value="{{$peranan->display_name}}"/>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="table-responsive scrollbar">
                                         <table class="table text-center">
