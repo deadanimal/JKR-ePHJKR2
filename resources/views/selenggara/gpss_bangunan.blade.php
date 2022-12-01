@@ -25,22 +25,26 @@
                                         <input class="form-control" name="borang" type="text" />
                                     </div>
                                     <div class="col-3 mb-2">
+                                        <label class="col-form-label">Fasa:</label>
+                                    </div>
+                                    <div class="col-7 mb-2">
+                                        <select class="form-select form-control" name="fasa">
+                                            <option selected disabled="">Sila Pilih</option>
+                                            <option value="rekaBentuk">RekaBentuk</option>
+                                            <option value="verifikasi">Verifikasi</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-3 mb-2">
                                         <label class="col-form-label">Elemen:</label>
                                     </div>
                                     <div class="col-7 mb-2">
                                         <input class="form-control" name="elemen" type="text" />
                                     </div>
                                     <div class="col-3 mb-2">
-                                        <label class="col-form-label">Elemen Seq:</label>
+                                        <label class="col-form-label">Turutan Elemen:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <input class="form-control" name="elemen_seq" type="number" />
-                                    </div>
-                                    <div class="col-3 mb-2">
-                                        <label class="col-form-label">Markah Maksimum:</label>
-                                    </div>
-                                    <div class="col-7 mb-2">
-                                        <input class="form-control" name="maksimum" type="number" />
+                                        <input class="form-control" name="element_seq" type="number" />
                                     </div>
                                     <div class="col-3 mb-2">
                                         <label class="col-form-label">Komponen:</label>
@@ -55,14 +59,10 @@
                                         <input class="form-control" name="produk" type="text" />
                                     </div>
                                     <div class="col-3 mb-2">
-                                        <label class="col-form-label">Jenis Kriteria:</label>
+                                        <label class="col-form-label">Markah Maksimum:</label>
                                     </div>
                                     <div class="col-7 mb-2">
-                                        <select class="form-select form-control" name="fasa">
-                                            <option selected disabled="">Sila Pilih</option>
-                                            <option value="rekaBentuk">RekaBentuk</option>
-                                            <option value="verifikasi">Verifikasi</option>
-                                        </select>
+                                        <input class="form-control" name="maksimum" type="number" />
                                     </div>
 
                                     <div class="col-7 mb-2">

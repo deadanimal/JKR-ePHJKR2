@@ -69,6 +69,7 @@
                                     <div class="col text-center">
                                         <div class="mb-3">
                                             <a class="btn btn-outline-primary d-block w-100" href="/register">Daftar Akaun</a>
+                                            <a class="mt-3" style="color:#5B8E7D" href="/">Anda Pengguna JKR? Daftar Sini.</a>
                                         </div>
                                     </div>
                                 </div>
