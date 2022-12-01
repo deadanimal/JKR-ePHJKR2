@@ -45,7 +45,7 @@
                                         </div>
 
                                         <div class="col-3 mb-2">
-                                            <label class="col-form-label">Kandungan Hebahan:</label>
+                                            <label class="col-form-label">Catatan:</label>
                                         </div>
                                         <div class="col-7 mb-2">
                                             <textarea class="form-control" name="isi"></textarea>
@@ -90,8 +90,8 @@
                                 <thead class="bg-primary">
                                     <tr>
                                         <th class="sort">Bil.</th>
-                                        <th class="sort">Tajuk Hebahan</th>
-                                        <th class="sort">Kategori</th>
+                                        <th class="sort">Nama Hebahan</th>
+                                        <th class="sort">Catatan</th>
                                         @role('sekretariat|pentadbir')
                                         <th class="sort">Tindakan</th>
                                         @endrole

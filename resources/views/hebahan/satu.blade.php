@@ -44,7 +44,7 @@
                                         </div>
 
                                         <div class="col-3 mb-2">
-                                            <label class="col-form-label">Kandungan Hebahan:</label>
+                                            <label class="col-form-label">Catatan:</label>
                                         </div>
                                         <div class="col-7 mb-2">
                                             <textarea class="form-control" name="isi">{{$hebahan->isi}}</textarea>
