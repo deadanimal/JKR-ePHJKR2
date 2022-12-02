@@ -149,8 +149,9 @@ class MaklumbalasController extends Controller
     public function hantar_mesej(Request $request) {
         $id = (int)$request->route('id'); 
         $maklum = Maklumbalas::find($id);
-        $mesej = New MbMesej;
-        $mesej->user_id = $request->user()->id;
+        // $mesej = New MbMesej;
+        $mesej = MbMesej::where('maklumbalas_id', $id)->first();
+        // $mesej->user_id = $request->user()->id;
         $mesej->maklumbalas_id = $maklum->id;
         $mesej->mesej = $request->mesej;
         if($request->action=="dalamproses") {
@@ -158,6 +159,7 @@ class MaklumbalasController extends Controller
         } else {
             $maklum->status = "SELESAI";
         }
+        $maklum->save();
         $mesej->save();   
         alert('Mesej Dihantar', 'Berjaya');
         return back();
