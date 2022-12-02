@@ -10,7 +10,7 @@
                 <p>
                     Cawangan Alam Sekitar & Kecekapan Tenaga
                 </p><br>
-                <p class="mt-2"><i class="fas fa-blender-phone"></i>03-40518420 <br><i class="fas fa-blender-phone"></i>03-40518784 <br><i class="fas fa-mail-bulk"></i>penarafanhijau@jkr.gov.my</p>
+                <p class="mt-2"><i class="fas fa-blender-phone"></i>03-40518420 <br><i class="fas fa-fax"></i>03-40518784 <br><i class="fas fa-mail-bulk"></i>penarafanhijau@jkr.gov.my</p>
 
                 </p>
             </div>

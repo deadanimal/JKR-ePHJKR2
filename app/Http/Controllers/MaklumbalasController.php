@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Maklumbalas as MailMaklumbalas;
+use App\Mail\MaklumbalasPenggunaluar;
 use Illuminate\Http\Request;
 
 use App\Models\Maklumbalas;
 use App\Models\MbMesej;
+use Illuminate\Support\Facades\Mail;
+
 use Error;
 
 class MaklumbalasController extends Controller
@@ -41,6 +45,11 @@ class MaklumbalasController extends Controller
         $maklum->status = 'SEMAK';
         $maklum->user_id = $user->id;
         $maklum->save();
+
+        Mail::to('maisarah.musa@pipeline-network.com')->send(new MailMaklumbalas);
+        // Mail::to('haris.zahari@pipeline-network.com')->send(new MailMaklumbalas);
+
+
 
         
         $maklum2 = New MbMesej;
@@ -95,6 +104,9 @@ class MaklumbalasController extends Controller
         $maklum->status = 'SEMAK';
         $maklum->save();
 
+        Mail::to('maisarah.musa@pipeline-network.com')->send(new MaklumbalasPenggunaluar);
+
+
         $maklum2 = New MbMesej;
         $maklum2->maklumbalas_id = $maklum->id;
         $maklum2->user_id = $maklum->user_id;
@@ -108,15 +120,30 @@ class MaklumbalasController extends Controller
     public function papar(Request $request) {   
         $id = (int)$request->route('id'); 
         $maklum = Maklumbalas::find($id);
-        $mesejs = MbMesej::where('maklumbalas_id', $maklum->id)->get();
+        // dd($maklum->mbmesej);
+        // $mesejs = MbMesej::where('maklumbalas_id', $maklum->id)->first();
+        // if ($mesejs == null) {
+        //     $maklum['mesej'] = '';
+        // }else {
+        //     $mesejs = $mesejs->mesej;
+        //     $maklum['mesej'] = $mesejs;
+        // }
         // dd($mesejs);
-        foreach ($mesejs as $key => $mb) {
-            $mbb = MbMesej::find($mb->id)->mesej;
-            $mb['mesej'] = $mbb;
-            // dd($mb);
-        }
+        // foreach ($mesejs as $key => $mb) {
+        //     $mbb = MbMesej::find($mb->id)->mesej;
+        //     if ($mbb != null ){
+        //         $maklum = 'a';
+        //     }else{
+        //         $maklum = 'b';
+        //     };
+        //     // dd($mb);
+        //     // dd($mesejs);
+
+        // }
+        // dd($maklum);
+        // dd($mesejs);
     
-        return view('maklum.papar', compact('maklum', 'mesejs', 'mb'));
+        return view('maklum.papar', compact('maklum'));
     } 
 
     public function hantar_mesej(Request $request) {

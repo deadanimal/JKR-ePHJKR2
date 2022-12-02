@@ -620,16 +620,16 @@
             </div>
 
             <div class="col-1 text-end">
-                <a href="/" class="jkr-header">UTAMA</a>
+                {{-- <a href="/" class="jkr-header">UTAMA</a> --}}
             </div>
             <div class="col-2 text-end">
-                <a href="/about" class="jkr-header">MENGENAI KAMI</a>
+                {{-- <a href="/about" class="jkr-header">MENGENAI KAMI</a> --}}
             </div>
             <div class="col-2 text-end">
-                <a href="/contact" class="jkr-header">HUBUNGI KAMI</a>
+                {{-- <a href="/contact" class="jkr-header">HUBUNGI KAMI</a> --}}
             </div>
             <div class="col-2 text-end">
-                <a href="/faq" class="jkr-header">SOALAN LAZIM</a>
+                {{-- <a href="/faq" class="jkr-header">SOALAN LAZIM</a> --}}
             </div>
             <div class="col-2 text-end">
                 <form action="{{ route('logout') }}" method="POST">
