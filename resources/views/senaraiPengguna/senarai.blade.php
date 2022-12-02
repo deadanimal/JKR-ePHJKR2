@@ -75,6 +75,80 @@
                                     <td>{{ $p->negeri }}</td>
                                     <td>{{ $p->cubacuba->display_name ?? ""}}</td>
                                     <td>
+                                        <div class="col-10 mb-2 px-1 mx-6"
+                                            style="border: 1px solid #F4A258; box-shadow: inset 2px 2px 5px 2px lightgrey; background-color: white; z-index: 2; border-radius:5px;">
+                                            @if ($p->aktif == '1')
+                                                <button class="btn btn-orange-jkr" type="button">Aktif</button>
+                                            @else
+                                                <button class="btn btn-final" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#lulus">Aktif</button>
+                                            @endif
+                                            |
+                                            @if ($p->aktif == '0')
+                                                <button class="btn btn-orange-jkr" type="button">Nyahaktif</button>
+                                            @else
+                                                <button class="btn btn-final" type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#tolak">Nyahaktif</button>
+                                            @endif
+
+                                        </div>
+
+                                        {{-- lulus modal --}}
+                                        <div class="modal fade" id="lulus" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+                                                <div class="modal-content position-relative">
+                                                    <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                        {{-- <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                            data-bs-dismiss="modal" aria-label="Close"></button> --}}
+                                                    </div>
+                                                    <div class="modal-body p-0">
+
+                                                        <div class="p-4 text-center">
+                                                            <h5 class="h5 text-green-jkr">Adakah anda pasti ingin meluluskan pendaftaran
+                                                                pengguna ini?</h5>
+                                                            <form action="/senaraiPengguna/simpan_tukar_status/{{ $p->id }}" method="post">
+                                                                @method('PUT')
+                                                                @csrf
+                                                                <input type="hidden" name="aktif" value="1">
+                                                                <button class="btn btn-outline-green-jkr mt-3" type="button"
+                                                                    data-bs-dismiss="modal">Tidak</button>
+                                                                <button class="btn btn-green-jkr mt-3" type="submit">Ya</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{-- tolak modal --}}
+                                        <div class="modal fade" id="tolak" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 500px">
+                                                <div class="modal-content position-relative">
+                                                    <div class="position-absolute top-0 end-0 mt-2 me-2 z-index-1">
+                                                        {{-- <button class="btn-close btn btn-sm btn-circle d-flex flex-center transition-base"
+                                                            data-bs-dismiss="modal" aria-label="Close"></button> --}}
+                                                    </div>
+                                                    <div class="modal-body p-0">
+
+                                                        <div class="p-4 text-center">
+                                                            <h5 class="h5 text-green-jkr">Adakah anda pasti ingin menolak pendaftaran
+                                                                pengguna ini?</h5>
+                                                            <form action="/senaraiPengguna/simpan2_tukar_status/{{ $p->id }}"
+                                                                method="post">
+                                                                @method('PUT')
+                                                                @csrf
+                                                                <input type="hidden" name="aktif" value="0">
+                                                                <button class="btn btn-outline-green-jkr mt-3" type="button"
+                                                                    data-bs-dismiss="modal">Tidak</button>
+                                                                <button class="btn btn-green-jkr mt-3" type="submit">Ya</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    {{-- <td>
                                         @role('sekretariat|pentadbir')
                                         <div class="col">
                                             <div class="col-auto">
@@ -95,7 +169,7 @@
                                             </div>
                                         </div>
                                         @endrole
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <a href="/senaraiPengguna/papar/{{ $p->id }}"
                                             class="btn btn-sm btn-primary">Papar</a>

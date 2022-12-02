@@ -179,7 +179,7 @@ class UserController extends Controller
 
     public function senaraiPengguna(Request $request) {   
         $id = (int)$request->route('id'); 
-        $pengguna = User::with(['cubacuba'])->where('aktif','1')->get();
+        $pengguna = User::with(['cubacuba'])->get();//->where('aktif','1')->get();
 
         // foreach ($pengguna as $key => $p) {
         //     // dd($p->peranan->role_id);

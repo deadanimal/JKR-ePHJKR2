@@ -10,6 +10,6 @@ class Maklumbalas extends Model
     use HasFactory;
 
     public function mbmesej(){
-        return $this->hasMany(MbMesej::class);
+        return $this->hasOne(MbMesej::class);
     }
 }

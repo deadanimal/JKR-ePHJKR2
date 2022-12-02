@@ -290,6 +290,15 @@
                                     <option value="GPSS Jalan">GPSS Jalan</option>
                                 </select>
                             </div>
+                            <div class="col-3 mb-2">
+                                <label class="col-form-label">Jenis Kategori :</label>
+                            </div>
+                            <div class="col-7 mb-2">
+                                <select class="form-select form-control" name="jenis_kategori" required>
+                                    <option value="bangunan">Bangunan</option>
+                                    <option value="jalan">Jalan</option>
+                                </select>
+                            </div>
                         </div>
                     </div>                       
                     <div class="col-3 mb-2">
